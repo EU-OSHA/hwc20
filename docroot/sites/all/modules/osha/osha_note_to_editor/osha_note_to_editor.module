@@ -1,0 +1,17 @@
+<?php
+/**
+ * @file
+ * Code for the Note to editor feature.
+ */
+
+include_once 'osha_note_to_editor.features.inc';
+
+define('OSHA_NOTE_TO_EDITOR_CONTENT_TYPE_NOTE_TO_EDITOR', 'note_to_editor');
+
+/**
+ * Implements hook_osha_tmgmt_i18n_string_list().
+ */
+function osha_note_to_editor_osha_tmgmt_i18n_string_list() {
+  module_load_include('inc', 'osha_note_to_editor', 'osha_note_to_editor.translations');
+  return osha_note_to_editor_get_translatable_strings();
+}

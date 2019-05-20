@@ -1,0 +1,450 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function osha_workflow_install() {
+  module_load_include('inc', 'workbench_access', 'workbench_access.admin');
+  module_load_include('module', 'osha_workflow');
+  // Rebuild schema cache to
+  drupal_get_schema(NULL, TRUE);
+
+  $roles = array(
+    OSHA_WORKFLOW_ROLE_EDITOR,
+    OSHA_WORKFLOW_ROLE_APPROVER,
+  );
+
+  foreach ($roles as $role_name) {
+    if (!$role = user_role_load_by_name($role_name)) {
+      $role = new stdClass();
+      $role->name = $role_name;
+      user_role_save($role);
+    }
+  }
+
+  // We want our hooks to execute *after* workbench!
+  db_update('system')
+    ->fields(array('weight' => 10))
+    ->condition('name', 'osha_workflow')
+    ->execute();
+
+  drupal_static_reset();
+  cache_clear_all();
+
+  // @see https://www.drupal.org/node/1681414#comment-6347524
+  osha_workflow_add_user_fields();
+
+  // Disable workbench default views.
+  $status = variable_get('views_defaults', array());
+  $status['workbench_moderation'] = TRUE;
+  variable_set('views_defaults', $status);
+
+  // Set the workbench access system to use the 'section' taxonomy
+  $form_state['values']['workbench_access'] = 'taxonomy';
+  $form_state['values']['workbench_access_taxonomy'] = array('section' => 'section');
+  $form_state['values']['workbench_access_menu'] = array();
+  $form_state['values']['op'] = t('Save configuration');
+  drupal_form_submit('workbench_access_settings_form', $form_state);
+
+  if ($voc = taxonomy_vocabulary_machine_name_load('section')) {
+    $term = (object) array(
+      'vid' => $voc->vid,
+      'language' => LANGUAGE_NONE,
+      'vocabulary_machine_name' => 'section',
+      'name' => 'Default',
+    );
+    taxonomy_term_save($term);
+    if (empty($term->tid)) {
+      drupal_set_message('Failed to create default section', 'error');
+    }
+  }
+  else {
+    drupal_set_message('Failed to find taxonomy section', 'error');
+  }
+
+  // Add admin access by role for root section.
+  db_delete('workbench_access_role')->execute();
+  $r1 = user_role_load_by_name(HWC_ROLE_ADMIN);
+  $role = array(
+    'rid' => $r1->rid,
+    'access_id' => 'section',
+    'access_scheme' => 'taxonomy',
+  );
+  drupal_write_record('workbench_access_role', $role);
+
+  // Disable the views from 'My Workbench'
+  osha_workflow_disable_workbench_views();
+}
+
+/**
+ * Implements hook_schema().
+ */
+function osha_workflow_schema() {
+  $schema = array();
+  $schema['osha_workflow_node_project_managers'] = array(
+    'description' => 'Base table for the content review workflow',
+    'fields' => array(
+      'npmid' => array(
+        'description' => 'Identifier',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'nid' => array(
+        'description' => 'Node under review',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'uid' => array(
+        'description' => 'Project manager account',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'approved' => array(
+        'description' => 'NULL not voted, approved or rejected',
+        'type' => 'varchar',
+        'length' => 64,
+        'default' => NULL,
+        'not null' => FALSE,
+      ),
+      'weight' => array(
+        'description' => 'Order of moderation, lowest first',
+        'type' => 'int',
+        'default' => 0,
+        'not null' => TRUE,
+      ),
+      'message' => array(
+        'description' => 'Message log',
+        'type' => 'text',
+        'size' => 'medium',
+      ),
+    ),
+    'primary key' => array('npmid'),
+    'indexes' => array(
+      'osha_workflow_review_uid' => array('uid'),
+    ),
+    'foreign keys' => array(
+      'uid' => array(
+        'table' => 'users',
+        'columns' => array('uid' => 'uid'),
+      ),
+      'nid' => array(
+        'table' => 'node',
+        'columns' => array('nid' => 'nid'),
+      ),
+    ),
+  );
+
+  $schema['osha_workflow_node_approval'] = array(
+    'description' => 'Base table for node approval entity',
+    'fields' => array(
+      'apid' => array(
+        'description' => 'Identifier for the approved item',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'nid' => array(
+        'description' => 'Moderated node ID (nid)',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'uid' => array(
+        'description' => 'Account doing the moderation',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'approved' => array(
+        'description' => 'NULL not voted, approved or rejected',
+        'type' => 'varchar',
+        'length' => 64,
+        'default' => NULL,
+        'not null' => FALSE,
+      ),
+      'next' => array(
+        'description' => '0 - no, 1 - yes',
+        'type' => 'int',
+        'default' => 0,
+        'not null' => TRUE,
+      ),
+      'weight' => array(
+        'description' => 'Order of moderation, lowest first',
+        'type' => 'int',
+        'default' => 0,
+        'not null' => TRUE,
+      ),
+      'message' => array(
+        'description' => 'Message left by the moderator',
+        'type' => 'text',
+        'size' => 'medium',
+      ),
+    ),
+    'primary key' => array('apid'),
+    'indexes' => array(
+      'moderator_uid' => array('uid'),
+    ),
+    'unique keys' => array(
+      'moderation_unique' => array('nid', 'uid'),
+    ),
+    'foreign keys' => array(
+      'uid' => array(
+        'table' => 'users',
+        'columns' => array('uid' => 'uid'),
+      ),
+      'nid' => array(
+        'table' => 'node',
+        'columns' => array('nid' => 'nid'),
+      ),
+    ),
+  );
+
+  $schema['osha_workflow_access_pm'] = array(
+    'description' => 'Maps Project Managers access to sections',
+    'fields' => array(
+      'uid' => array(
+        'description' => 'The user identifier. Foreign key to {users}.',
+        'type' => 'int',
+        'not null' => TRUE,
+      ),
+      'access_id' => array(
+        'description' => 'The section identifier. Foreign key to {workbench_access}.',
+        'type' => 'varchar',
+        'length' => '80',
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'access_scheme' => array(
+        'description' => 'The module responsbile for this access system.',
+        'type' => 'varchar',
+        'length' => '40',
+        'not null' => TRUE,
+        'default' => '',
+      ),
+    ),
+    'primary key' => array('uid', 'access_id', 'access_scheme'),
+    'foreign keys' => array(
+      'section_id' => array('workbench_access' => array('access_id', 'access_scheme')),
+      'uid' => array('users' => 'uid'),
+    ),
+  );
+
+  $schema['osha_workflow_access_rm'] = array(
+    'description' => 'Maps Review Managers access to sections',
+    'fields' => array(
+      'uid' => array(
+        'description' => 'The user identifier. Foreign key to {users}.',
+        'type' => 'int',
+        'not null' => TRUE,
+      ),
+      'access_id' => array(
+        'description' => 'The section identifier. Foreign key to {workbench_access}.',
+        'type' => 'varchar',
+        'length' => '80',
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'access_scheme' => array(
+        'description' => 'The module responsbile for this access system.',
+        'type' => 'varchar',
+        'length' => '40',
+        'not null' => TRUE,
+        'default' => '',
+      ),
+    ),
+    'primary key' => array('uid', 'access_id', 'access_scheme'),
+    'foreign keys' => array(
+      'section_id' => array('workbench_access' => array('access_id', 'access_scheme')),
+      'uid' => array('users' => 'uid'),
+    ),
+  );
+
+  $schema['osha_workflow_sections_review'] = array(
+    'description' => 'Base table for section review messages.',
+    'fields' => array(
+      'srid' => array(
+        'description' => 'Identifier',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'access_id' => array(
+        'description' => 'Section reviewed.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'uid' => array(
+        'description' => 'User that made the review.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'created' => array(
+        'description' => 'Changed timestamp.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'message' => array(
+        'description' => 'Message left by the reviewer.',
+        'type' => 'text',
+        'size' => 'medium',
+      ),
+    ),
+    'primary key' => array('srid'),
+    'indexes' => array(
+      'osha_workflow_sr_uid' => array('uid'),
+    ),
+    'foreign keys' => array(
+      'uid' => array(
+        'table' => 'users',
+        'columns' => array('uid' => 'uid'),
+      ),
+      'access_id' => array(
+        'table' => 'workbench_access',
+        'columns' => array('access_id' => 'access_id'),
+      ),
+    ),
+  );
+
+  return $schema;
+}
+
+/**
+ * Add new checkbox to receive workflow_notifications in user profile.
+ */
+function osha_workflow_add_user_fields() {
+  if (!field_info_field('field_cmw_mail_notifications')) {
+    $field = array(
+      'active' => 1,
+      'cardinality' => 1,
+      'deleted' => 0,
+      'entity_types' => array(),
+      'field_name' => 'field_cmw_mail_notifications',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'locked' => 0,
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => '',
+          1 => '',
+        ),
+        'allowed_values_function' => '',
+        'entity_translation_sync' => FALSE,
+      ),
+      'translatable' => 0,
+      'type' => 'list_boolean',
+    );
+    field_create_field($field);
+  }
+  if (!field_info_instance('user', 'field_cmw_mail_notifications', 'user')) {
+    $instance = array(
+      'bundle' => 'user',
+      'default_value' => array(
+        0 => array(
+          'value' => 1,
+        ),
+      ),
+      'deleted' => 0,
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 5,
+        ),
+      ),
+      'entity_type' => 'user',
+      'field_name' => 'field_cmw_mail_notifications',
+      'label' => 'Receive Workflow notifications via e-mail?',
+      'required' => 0,
+      'settings' => array(
+        'entity_translation_sync' => FALSE,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(
+          'display_label' => 1,
+        ),
+        'type' => 'options_onoff',
+        'weight' => 15,
+      ),
+    );
+    field_create_instance($instance);
+  }
+}
+
+/**
+ * Disable views default from My Workbench.
+ *
+ * Add permissions for Review Manager.
+ */
+function osha_workflow_disable_workbench_views() {
+  // Disable workbench views from My Workbench.
+  $view = views_get_view('workbench_edited');
+  if (!empty($view)) {
+    // Revert the view before disable it.
+    $view->delete();
+    ctools_include('object-cache');
+    ctools_object_cache_clear('view', 'workbench_edited');
+    $status = variable_get('views_defaults', array());
+    $status['workbench_edited'] = TRUE;
+    variable_set('views_defaults', $status);
+  }
+  $view = views_get_view('workbench_recent_content');
+  if (!empty($view)) {
+    // Revert the view before disable it.
+    $view->delete();
+    ctools_include('object-cache');
+    ctools_object_cache_clear('view', 'workbench_recent_content');
+    $status = variable_get('views_defaults', array());
+    $status['workbench_recent_content'] = TRUE;
+    variable_set('views_defaults', $status);
+  }
+}
+
+function osha_workflow_update_7002() {
+  $schema = osha_workflow_schema();
+  if (!db_field_exists('osha_workflow_node_project_managers', 'approved')) {
+    db_add_field('osha_workflow_node_project_managers', 'approved', $schema['osha_workflow_node_project_managers']['fields']['approved']);
+  }
+  if (!db_field_exists('osha_workflow_node_project_managers', 'weight')) {
+    db_add_field('osha_workflow_node_project_managers', 'weight', $schema['osha_workflow_node_project_managers']['fields']['weight']);
+  }
+}
+
+/**
+ * Add message for project manager approval.
+ */
+function osha_workflow_update_7003() {
+  $schema = osha_workflow_schema();
+  if (!db_field_exists('osha_workflow_node_project_managers', 'message')) {
+    db_add_field('osha_workflow_node_project_managers', 'message', $schema['osha_workflow_node_project_managers']['fields']['message']);
+  }
+}
+
+/**
+ * MDR-2027 HWC: Changes in the workflow of news and events.
+ */
+function osha_workflow_update_7004() {
+//  features_revert(array('osha_workflow' => array('views_view')));
+}
+
+/**
+ * MDR-2027 HWC: Changes in the workflow of news and events.
+ */
+function osha_workflow_update_7005() {
+  features_revert(array('osha_workflow' => array('views_view')));
+}

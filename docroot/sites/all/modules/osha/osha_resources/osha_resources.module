@@ -1,0 +1,186 @@
+<?php
+/**
+ * @file
+ * Code for the Resources feature.
+ */
+
+include_once 'osha_resources.features.inc';
+
+/**
+ * Define custom view mode for entities - wiki.
+ */
+function osha_resources_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['osha_resources'] = array(
+    'label' => t('Additional resource'),
+    'custom settings' => TRUE,
+  );
+}
+
+/**
+ * Implements hook_node_view.
+ * @param $node
+ * @param $view_mode
+ * @param $langcode
+ */
+function osha_resources_node_view_alter(&$build) {
+  if ($build['#bundle'] == 'youtube') {
+    if (isset($build['field_youtube']) && $build['field_youtube']['#formatter'] == 'youtube_thumbnail') {
+      foreach ($build['field_youtube'] as $key => $youtube) {
+        if (is_array($youtube) && isset($youtube['#image_link']['options'])) {
+          $build['field_youtube'][$key]['#image_link']['options']['attributes']['target'] = '_blank';
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_osha_tmgmt_i18n_string_list().
+ */
+function osha_resources_osha_tmgmt_i18n_string_list() {
+  module_load_include('inc', 'osha_resources', 'osha_resources.translations');
+  return osha_resources_get_translatable_strings();
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function osha_resources_field_formatter_info() {
+  $info = array(
+    'file_as_title' => array(
+      'label' => t('Node title as link to file'),
+      'field types' => array('file'),
+      'description' => t('Link to file using node title as link title.'),
+    ),
+    'external_url' => array(
+      'label' => t('External url link'),
+      'field types' => array('link_field'),
+      'description' => t('External url Link'),
+    ),
+    'external_url_link' => array(
+      'label' => t('External url link with icon'),
+      'field types' => array('link_field'),
+      'description' => t('Link with new window icon'),
+    ),
+    'external_url_title_link' => array(
+      'label' => t('External url link with title'),
+      'field types' => array('link_field'),
+      'description' => t('Link External url with title'),
+    ),
+    'internal_link_title' => array(
+      'label' => 'Internal link with node url',
+      'field types' => array('link_field'),
+      'description' => 'Display link with node url.',
+    ),
+  );
+  return $info;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function osha_resources_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  switch ($display['type']) {
+    case 'file_as_title':
+      foreach ($items as $delta => $item) {
+        $element[$delta] = array(
+          '#theme' => 'osha_resources_file_as_title_format',
+          '#entity' => $entity,
+          '#file' => $item,
+          '#delta' => $delta,
+        );
+      }
+      break;
+
+    case 'external_url':
+      foreach ($items as $delta => $item) {
+        $link_options = $item;
+        unset($link_options['title']);
+        unset($link_options['url']);
+        $link_options['attributes']['target'] = '_blank';
+        $element[$delta]['#markup'] = $item['url'] ? l($item['url'], $item['url'], $link_options) : '';
+      }
+      break;
+
+    case 'external_url_title_link':
+      $element = array(
+        '#theme' => 'external_url_title_link',
+        '#items' => $items,
+        '#entity' => $entity,
+        '#langcode' => $langcode,
+      );
+      break;
+
+    case 'external_url_link':
+      $element = array(
+        '#theme' => 'external_url_link',
+        '#items' => $items,
+        '#entity' => $entity,
+      );
+      break;
+
+    case 'internal_link_title':
+      foreach ($items as $delta => $item) {
+        $link = l($entity->title, $item['url']);
+        $element[$delta]['#markup'] = $link;
+      }
+      break;
+  }
+  return $element;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function osha_resources_theme() {
+  $path = drupal_get_path('module', 'osha_resources');
+  return array(
+    'osha_resources_file_as_title_format' => array(
+      'variables' => array('entity' => NULL, 'file' => NULL, 'delta' => NULL),
+    ),
+
+    'external_url_title_link' => array(
+      'template' => 'osha_resources_external_url_title_link',
+      'variables' => array(
+        'items' => NULL,
+        'entity' => NULL,
+        'langcode' => NULL,
+      ),
+      'path' => $path . '/templates',
+    ),
+
+    'external_url_link' => array(
+      'template' => 'osha_resources_external_url_link',
+      'variables' => array(
+        'items' => NULL,
+        'entity' => NULL,
+      ),
+      'path' => $path . '/templates',
+    ),
+  );
+}
+
+/*
+ * Formats the file as title
+ */
+function theme_osha_resources_file_as_title_format($element) {
+  $file = (object) $element['file'];
+  $entity = (object) $element['entity'];
+  $icon_directory = drupal_get_path('theme', 'hwc_frontend') . '/images/file_icons';
+
+  global $language;
+  $name = isset($entity->title_field[$language->language][0])
+    ? $entity->title_field[$language->language][0]['value']
+    : $entity->title_field['en'][0]['value'];
+  $output = '<a href="' . file_create_url($file->uri) . '">';
+  $output .= theme('file_icon', array('file' => $file, 'icon_directory' => $icon_directory));
+  $output .= '<span>' . $name . '</span>';
+  $size = @filesize($file->uri);
+  if ($size) {
+    $output .= '<span class="related_size">(' . format_size($size) . ')</span>';
+  }
+  $output .= '</a>';
+
+  return $output;
+}

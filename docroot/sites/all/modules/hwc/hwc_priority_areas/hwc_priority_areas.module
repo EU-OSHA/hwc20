@@ -1,0 +1,391 @@
+<?php
+/**
+ * @file
+ * Code for the HWC Priority areas feature.
+ */
+
+include_once 'hwc_priority_areas.features.inc';
+
+define('PRIORITY_AREAS_CASE_STUDY_TID', 521);
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function hwc_priority_areas_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'ctools' && !empty($plugin)) {
+    return "plugins/$plugin";
+  }
+}
+
+/**
+ * Implements hook_node_view().
+ */
+function hwc_priority_areas_node_view($node, $view_mode) {
+  global $language;
+  if ($view_mode == 'priority_areas') {
+    $node->title = NULL;
+  }
+  if ($node && $node->type == 'topic_related' & $view_mode == 'full') {
+    $tid = $node->field_priority_area['und'][0]['tid'];
+    drupal_goto(drupal_get_path_alias('taxonomy/term/' . $tid, $language->language));
+  }
+}
+
+/**
+ * Check if 'priority area' filter selected.
+ */
+function hwc_priority_areas_generate_all_facet_link($key = 'field_priority_area') {
+  $url = drupal_parse_url(request_uri());
+  if (isset($url['query']) && isset($url['query']['f'])) {
+    foreach ($url['query']['f'] as $i => $filter) {
+      if (strpos($filter, $key) === 0) {
+        unset($url['query']['f'][$i]);
+      }
+    }
+  }
+  $link = l(t('All'), '/' . arg(0), array(
+    'attributes' => array(
+      'class' => 'facetapi-checkbox facetapi-inactive facetapi-makeCheckbox-processed facetapi-disableClick-processed',
+    ),
+    'query' => $url['query'],
+  ));
+  return $link;
+}
+
+/**
+ * Check if 'priority area' filter selected.
+ */
+function hwc_priority_areas_is_selected_facet() {
+  $url = drupal_parse_url(request_uri());
+  if (isset($url['query']) && isset($url['query']['f'])) {
+    foreach ($url['query']['f'] as $i => $filter) {
+      if (strpos($filter, 'field_priority_area') === 0) {
+        return TRUE;
+      }
+    }
+  }
+  return FALSE;
+}
+
+function hwc_priority_areas_get_topic_related_nid($tid) {
+  $q = db_select('node', 'a');
+  $q->fields('a', array('nid', 'vid'));
+  $q->innerJoin('field_data_field_priority_area', 'fs', 'fs.entity_id = a.nid AND fs.revision_id = a.vid');
+  $q->condition('a.type', 'topic_related');
+  $q->condition('fs.field_priority_area_tid', $tid);
+  $nids = $q->execute()->fetchCol();
+  if ($nids) {
+    return $nids;
+  }
+  $term = taxonomy_term_load($tid);
+
+  $node = new stdClass();
+  node_submit($node);
+  // Do not delete/change this marker unless you know what you are doing!
+  $node->title_field['en'][0]['value'] = $term->name;
+  $node->field_priority_area[LANGUAGE_NONE][]['tid'] = $tid;
+  $node->language = 'en';
+  $node->type = 'topic_related';
+  $node->uid = 0;
+  $node->status = 1;
+  $node->path['pathauto'] = 0;
+  $node->path['alias'] = '';
+  node_save($node);
+  if (isset($node->nid)) {
+    return array($node->nid);
+  }
+  else {
+    return FALSE;
+  }
+}
+
+
+/**
+ * Implements hook_block_info().
+ */
+function hwc_priority_areas_block_info() {
+  $blocks = array();
+  $blocks['hwc_pa_links_and_info'] = array(
+    'info' => t('Priority Areas - Partner link and Recommended resources'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['hwc_pa_practical_tools'] = array(
+    'info' => t('Priority Areas - Practical tools'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['hwc_pa_case_studies'] = array(
+    'info' => t('Priority Areas - Case studies'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['hwc_pa_publications'] = array(
+    'info' => t('Priority Areas - Publications'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['hwc_pa_etool'] = array(
+    'info' => t('Priority Areas - E-tool'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['hwc_pa_related_links'] = array(
+    'info' => t('Priority Areas - Related links'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+
+function hwc_priority_areas_get_intro_map() {
+  global $language;
+  static $intro_map = [];
+  if (!$intro_map) {
+    $map = [
+      '_case_studies_intro_' => 'field_case_studies_intro',
+      '_tools_and_guidance_intro_' => 'field_tools_and_guidance_intro',
+      '_publications_intro_' => 'field_publications_intro',
+      '_highlights_intro_' => 'field_highlights_intro',
+    ];
+
+    $tid = arg(2);
+    $nids = hwc_priority_areas_get_topic_related_nid($tid);
+    $nid = $nids[0];
+    $node = node_load($nid);
+    $w = entity_metadata_wrapper('node', $node->nid);
+    foreach ($map as $search => $field) {
+      $intro_map[$search] = $w->language($language->language)->$field->value()['safe_value'];
+    }
+  }
+  return $intro_map;
+}
+
+/*
+ * Implements hook_panels_pre_render().
+ */
+function hwc_priority_areas_panels_pre_render($panels_display, $renderer) {
+  if ($panels_display->storage_id == 'page_tools_publications__panel') {
+    $panels_display->title = t('Tools and publications');
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function hwc_priority_areas_views_pre_render(&$view) {
+
+  if ($view->name == 'topic_related') {
+    $intro_map = hwc_priority_areas_get_intro_map();
+    foreach ($intro_map as $search => $replace) {
+      $view->header['area']->options['content'] = str_replace($search, $replace, $view->header['area']->options['content']);
+    }
+  }
+}
+
+/**
+ * Implements hook_block_configure().
+ *
+ * This hook declares configuration options for blocks provided by this module.
+ */
+function hwc_priority_areas_block_configure($delta = '') {
+  $form = array();
+
+  switch ($delta) {
+    case 'hwc_pa_links_and_info':
+      $form['hwc_pa_links_and_info_text'] = array(
+        '#type' => 'textfield',
+        '#title' => 'Recommended resources text',
+        '#size' => 60,
+        '#default_value' => variable_get('hwc_pa_links_and_info_text', 'Recommended resources for you'),
+      );
+      break;
+
+    case 'hwc_pa_etool':
+      $form['hwc_pa_etool_text'] = array(
+        '#type' => 'textarea',
+        '#title' => 'Introductory text',
+        '#size' => 60,
+        '#default_value' => variable_get('hwc_pa_etool_text', ''),
+      );
+      break;
+
+    case 'hwc_pa_related_links':
+      $form['hwc_pa_related_links_text'] = array(
+        '#type' => 'textarea',
+        '#title' => 'Introductory text',
+        '#size' => 60,
+        '#default_value' => variable_get('hwc_pa_related_links_text', ''),
+      );
+      break;
+  }
+
+  return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function hwc_priority_areas_block_save($delta = '', $edit = array()) {
+  // We need to save settings from the configuration form.
+  switch ($delta) {
+    case 'hwc_pa_links_and_info':
+      variable_set('hwc_pa_links_and_info_text', $edit['hwc_pa_links_and_info_text']);
+      break;
+
+    case 'hwc_pa_etool':
+      variable_set('hwc_pa_etool_text', $edit['hwc_pa_etool_text']);
+      break;
+
+    case 'hwc_pa_related_links':
+      variable_set('hwc_pa_related_links_text', $edit['hwc_pa_related_links_text']);
+      break;
+  }
+}
+
+function hwc_priority_areas_get_topic_related_show_checkbox($name) {
+  static $topic_related = NULL;
+  if (!$topic_related) {
+    $tid = arg(2);
+
+    $q = db_select('node', 'a');
+    $q->fields('a', array('nid', 'vid'));
+    $q->innerJoin('field_data_field_priority_area', 'fs', 'fs.entity_id = a.nid AND fs.revision_id = a.vid');
+    $q->condition('a.type', 'topic_related');
+    $q->condition('fs.field_priority_area_tid', $tid);
+    $nids = $q->execute()->fetchCol();
+    $topic_related = node_load($nids[0]);
+  }
+  if (!$topic_related) {
+    return FALSE;
+  }
+
+  switch ($name) {
+    case 'highlights':
+      $value = $topic_related->field_show_highlights['und'][0]['value'];
+      break;
+
+    case 'case_studies':
+      $value = $topic_related->field_show_case_studies['und'][0]['value'];
+      break;
+
+    case 'tools_guidance':
+      $value = $topic_related->field_show_tools_and_guidance['und'][0]['value'];
+      break;
+
+    case 'publications':
+      $value = $topic_related->field_show_publications['und'][0]['value'];
+      break;
+
+    case 'e_tool':
+      $value = $topic_related->field_show_e_tool['und'][0]['value'];
+      break;
+
+    case 'related_links':
+      $value = $topic_related->field_show_related_links['und'][0]['value'];
+      break;
+  }
+
+  return ($value) ? TRUE : FALSE;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function hwc_priority_areas_block_view($delta = '') {
+  $relevant_for = arg(2);
+  $block = array();
+  $block['content'] = '';
+  if ($delta == 'hwc_pa_links_and_info') {
+    $block['content'] = theme('priority_areas_links_and_info',
+      array(
+        'recommended' => t(variable_get('hwc_pa_links_and_info_text', 'Recommended resources for you')),
+      )
+    );
+  }
+  if ($delta == 'hwc_pa_etool') {
+    $block['title'] = t('DS e-tool');
+    $block['content'] = t(variable_get('hwc_pa_etool_text', ''));
+    $link = url('gpa_section_in_campaign_website', ['query' => array('relevant_for[' . $relevant_for . ']' => $relevant_for)]);
+    $block['content'] .= theme('priority_areas_show_more_button', ['text' => t('GPA section in campaign website'), 'link' => $link]);
+  }
+  if ($delta == 'hwc_pa_related_links') {
+    $block['title'] = t('Related links');
+    $block['content'] .= hwc_priority_areas_get_related_links($relevant_for, 3);
+  }
+  return $block;
+}
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function hwc_priority_areas_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['priority_areas'] = array(
+    'label' => t('Priority Area'),
+    'custom settings' => TRUE,
+  );
+}
+
+/**
+ * Implements hook_theme().
+ */
+function hwc_priority_areas_theme() {
+  $theme = array();
+  $path = drupal_get_path('module', 'hwc_priority_areas');
+  $theme['priority_areas_links_and_info'] = array(
+    'template' => 'hwc_priority_areas_links_and_info',
+    'variables' => array(
+      'recommended' => NULL,
+    ),
+    'path' => $path . '/templates',
+  );
+  $theme['priority_areas_show_more_button'] = array(
+    'template' => 'hwc_priority_areas_show_more_button',
+    'variables' => array(
+      'text' => NULL,
+      'link' => NULL,
+    ),
+    'path' => $path . '/templates',
+  );
+  return $theme;
+}
+
+function hwc_priority_areas_get_related_links($relevant_for, $limit) {
+  $q = db_select('node', 'a');
+  $q->fields('a', array('nid', 'vid'));
+  $q->condition('a.type', 'external_url');
+  $q->condition('a.status', 1);
+  $q->orderBy('a.changed', 'DESC');
+  if (!empty($relevant_for)) {
+    $q->innerJoin('field_data_field_priority_area', 'fs', 'fs.entity_id = a.nid AND fs.revision_id = a.vid');
+    $q->condition('fs.field_priority_area_tid', $relevant_for);
+  }
+  if ($limit) {
+    $q = $q->extend('PagerDefault')->limit($limit);
+  }
+  $nids = $q->execute()->fetchCol();
+  return hwc_priority_areas_render_nodes($nids, 'priority_areas');
+}
+
+function hwc_priority_areas_render_nodes($nids, $view_mode) {
+  $nodes = node_load_multiple($nids);
+  $items = [];
+  foreach ($nodes as $node) {
+    $view = node_view($node, $view_mode);
+    $items[] = drupal_render($view);
+  }
+  return theme('item_list', array('items' => $items));
+}

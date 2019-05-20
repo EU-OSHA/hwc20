@@ -1,0 +1,245 @@
+<?php
+/**
+ * @file
+ * Code for the Campaign Materials feature.
+ */
+
+include_once 'campaign_materials.features.inc';
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function campaign_materials_field_formatter_info() {
+  $info = array(
+    'icon_file_formatter' => array(
+      'label' => t('File with icon'),
+      'field types' => array('file'),
+      'description' => 'Displays default icon per file type (optional: label in front, file size, file description.',
+      'settings' => array(
+        'label' => t('Download'),
+        'description' => 0,
+        'size' => 1,
+        'open_new_tab' => 0,
+      ),
+    ),
+    'toolkit_pdf_file_formatter' => array(
+      'label' => t('Toolkit PDF File'),
+      'field types' => array('file'),
+      'description' => 'Displays toolkit pdf file type (optional: label, file description)',
+      'settings' => array(
+        'label' => t('Download'),
+        'description' => 0,
+        'size' => 1,
+        'open_new_tab' => 0,
+      ),
+    ),
+  );
+  return $info;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function campaign_materials_theme() {
+  return array(
+    'icon_file_formatter' => array(
+      'variables' => array(
+        'file' => NULL,
+        'label' => NULL,
+        'description' => NULL,
+        'size' => NULL,
+        'open_new_tab' => NULL,
+        'delta' => NULL,
+      ),
+    ),
+    'toolkit_pdf_file_formatter' => array(
+      'variables' => array(
+        'file' => NULL,
+        'label' => NULL,
+        'description' => NULL,
+        'size' => NULL,
+        'open_new_tab' => NULL,
+        'delta' => NULL,
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function campaign_materials_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $element = array();
+  $element['label'] = array(
+    '#type'           => 'textfield',
+    '#title'          => t('Label'),
+    '#description'    => t('Displays text in front'),
+    '#default_value'  => $settings['label'],
+  );
+
+  $element['description'] = array(
+    '#type'   => 'checkbox',
+    '#title' => t('Display description/filename.'),
+    '#default_value'  => $settings['description'],
+  );
+
+  $element['size'] = array(
+    '#type'   => 'checkbox',
+    '#title' => t('Display file size.'),
+    '#default_value'  => $settings['size'],
+  );
+
+  $element['open_new_tab'] = array(
+    '#type'   => 'checkbox',
+    '#title' => t('Open file in new tab.'),
+    '#default_value'  => $settings['open_new_tab'],
+  );
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function campaign_materials_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $summary = t("Displays default icon per file type (optional: <br/> label in front, file size, file description).");
+  return $summary;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function campaign_materials_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  switch ($display['type']) {
+    case 'icon_file_formatter':
+      $settings = $display['settings'];
+      $label = trim($settings['label']);
+      $description = $settings['description'];
+      $size = $settings['size'];
+      $open_new_tab = $settings['open_new_tab'];
+
+      foreach ($items as $delta => $item) {
+        $element[$delta] = array(
+          '#theme' => 'icon_file_formatter',
+          '#file' => $item,
+          '#label' => $label,
+          '#description' => $description,
+          '#size' => $size,
+          '#open_new_tab' => $open_new_tab,
+          '#delta' => $delta,
+        );
+      }
+
+      break;
+    case 'toolkit_pdf_file_formatter':
+      $settings = $display['settings'];
+      $label = trim($settings['label']);
+      $description = $settings['description'];
+      $size = $settings['size'];
+      $open_new_tab = $settings['open_new_tab'];
+
+      foreach ($items as $delta => $item) {
+        $element[$delta] = array(
+          '#theme' => 'toolkit_pdf_file_formatter',
+          '#file' => $item,
+          '#label' => $label,
+          '#description' => $description,
+          '#size' => $size,
+          '#open_new_tab' => $open_new_tab,
+          '#delta' => $delta,
+        );
+      }
+
+      break;
+  }
+  return $element;
+}
+
+/**
+ * Formats the file fields as label , icon , description/filename, filesize
+ */
+function theme_icon_file_formatter($element) {
+  $file = (object) $element['file'];
+  $name = ($file->description != NULL) ? $file->description : $file->filename;
+  $label = $element['label'];
+  $description = $element['description'];
+  $show_size = $element['size'];
+  $open_new_tab = $element['open_new_tab'];
+
+  $output = '';
+  if ($label != '') {
+    $output .= '<span>' . t($label) . '</span>';
+  }
+
+  $file_size = @filesize($file->uri);
+
+  if ($show_size && $file_size) {
+    $output .= '<span class="file_size">' . format_size($file_size) . '</span>';
+  }
+
+  $mime_name = hwc_mime_friendly_name($file->filemime);
+  $output .= '<span class="file_size">' . $mime_name . '</span>';
+
+  $attr = "";
+  if ($open_new_tab) {
+    $attr = ' target="_blank"';
+  }
+  $output .= '<a' . $attr . ' href="' . file_create_url($file->uri) . '">';
+  $file_name_exploded = explode('.', $file->filename);
+  $extension = strtoupper(end($file_name_exploded));
+  $output .= '<span>' . $extension . '</span>&nbsp;';
+
+  if ($description) {
+    $output .= '<span>' . $name . '</span>';
+  }
+
+  $output .= '</a>';
+
+  $output .= '<span class="glyphicon glyphicon-chevron-right"></span>';
+
+  return $output;
+}
+
+/**
+ * Formats the file fields as label , icon , description/filename, filesize
+ */
+function theme_toolkit_pdf_file_formatter($element) {
+  $file = (object) $element['file'];
+  $name = ($file->description != NULL) ? $file->description : $file->filename;
+  $label = $element['label'];
+  $description = $element['description'];
+  $show_size = $element['size'];
+  $open_new_tab = $element['open_new_tab'];
+
+  $output = '';
+  if ($label != '') {
+    $output .= '<span>' . t($label) . '</span>';
+  }
+
+  $attr = "";
+  if ($open_new_tab) {
+    $attr = ' target="_blank"';
+  }
+  $output .= '<a' . $attr . ' href="' . file_create_url($file->uri) . '">';
+
+  if ($description) {
+    $output .= '<span>' . $name . '</span>';
+  }
+
+  $output .= '</a>';
+
+  $file_size = @filesize($file->uri);
+
+  if ($show_size && $file_size) {
+    $output .= '<span class="file_size">' . format_size($file_size) . '</span>';
+  }
+
+  $output .= '<span class="glyphicon glyphicon-chevron-right"></span>';
+
+  return $output;
+}

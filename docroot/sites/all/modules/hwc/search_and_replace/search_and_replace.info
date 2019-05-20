@@ -1,0 +1,3 @@
+name = Search and replace
+description = Do Search and Replace on the content of nodes.
+core = 7.x

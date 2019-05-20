@@ -1,0 +1,13 @@
+name = Slideshare Field
+description = Create a slideshare field that allows you to add a slidehare link to a content type
+core = 7.x
+package = OSHA
+version = 7.x-1.x-dev
+project = osha_slideshare
+dependencies[] = ds
+dependencies[] = field
+explanation = Field type(s) in use - see <a href="/en/admin/reports/fields">Field list</a>
+features[ctools][] = ds:ds:1
+features[ds_layout_settings][] = node|slideshare|osha_resources
+features[features_api][] = api:2
+required = 1

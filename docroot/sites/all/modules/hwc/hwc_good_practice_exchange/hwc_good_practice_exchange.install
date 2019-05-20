@@ -1,0 +1,190 @@
+<?php
+
+/**
+ * revert hwc_good_practice_exchange module.
+ */
+function hwc_good_practice_exchange_update_7001() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * revert hwc_good_practice_exchange module.
+ */
+function hwc_good_practice_exchange_update_7002() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * revert hwc_good_practice_exchange module.
+ */
+function hwc_good_practice_exchange_update_7003() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * revert hwc_good_practice_exchange module.
+ */
+function hwc_good_practice_exchange_update_7004() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * Revert hwc_good_practice_exchange module.
+ */
+function hwc_good_practice_exchange_update_7005() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * Revert hwc_good_practice_exchange module.
+ */
+function hwc_good_practice_exchange_update_7006() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * Revert hwc_good_practice_exchange module.
+ */
+function hwc_good_practice_exchange_update_7007() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * Revert hwc_good_practice_exchange module.
+ */
+function hwc_good_practice_exchange_update_7008() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * Revert hwc_good_practice_exchange module.
+ */
+function hwc_good_practice_exchange_update_7009() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * Revert hwc_good_practice_exchange module.
+ */
+function hwc_good_practice_exchange_update_7010() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * Revert hwc_good_practice_exchange module.
+ */
+function hwc_good_practice_exchange_update_7011() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * Revert hwc_good_practice_exchange module.
+ */
+function hwc_good_practice_exchange_update_7012() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * Revert hwc_good_practice_exchange module.
+ */
+function hwc_good_practice_exchange_update_7013() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * HW18-273 Implementation after usability recommendations.
+ */
+function hwc_good_practice_exchange_update_7014() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * HW18-371 Only Superadmins can create Document items.
+ */
+function hwc_good_practice_exchange_update_7015() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * HW18-273 Implementation after usability recommendations.
+ */
+function hwc_good_practice_exchange_update_7016() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * MDR-1572 - Private Zone´s usability recommendations.
+ */
+function hwc_good_practice_exchange_update_7017() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * MDR-1694 EU-OSHA´s communications: type of partner.
+ */
+function hwc_good_practice_exchange_update_7018() {
+  features_revert_module('hwc_good_practice_exchange');
+  $map = [
+    'OCPs' => 185,
+    'MPs' => 186,
+    'EEN' => 1804,
+    'FOP' => 187,
+  ];
+  foreach ($map as $name => $code) {
+    $term = taxonomy_get_term_by_name($name, 'document_partner_type');
+    if (empty($term)) {
+      $voc = taxonomy_vocabulary_machine_name_load('document_partner_type');
+      $term = new stdClass();
+      $term->parent = 0;
+      $term->language = 'en';
+      $term->name = $name;
+      $term->vid = $voc->vid;
+      $term->field_partner_type_code[LANGUAGE_NONE][]['value'] = $code;
+      taxonomy_term_save($term);
+    }
+  }
+}
+
+/**
+ * MDR-1720 Good Practice exchange platform - Unify both susbsections.
+ */
+function hwc_good_practice_exchange_update_7019() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * MDR-1724 HWC18: Delete ‘tagging functionality' in the items to be uploaded from the Private Zone.
+ */
+function hwc_good_practice_exchange_update_7020() {
+  features_revert(array('hwc_good_practice_exchange' => array('field_instance')));
+}
+
+/**
+ * MDR-1911 HWC - remove round image from GP exchange page.
+ */
+function hwc_good_practice_exchange_update_7021() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * MDR-1926 HWC - Cannot add an event to good-practice-exchange as related resource.
+ */
+function hwc_good_practice_exchange_update_7022() {
+  features_revert_module('hwc_good_practice_exchange');
+  features_revert_module('osha_resources');
+}
+
+/**
+ * MDR-1943 Upload video to Good Practice Exchange platform.
+ */
+function hwc_good_practice_exchange_update_7023() {
+  features_revert(array('hwc_good_practice_exchange' => array('field_instance')));
+}
+
+/**
+ * MDR-2028 Review Managers should have permission to access GPE platform.
+ */
+function hwc_good_practice_exchange_update_7024() {
+  features_revert(array('hwc_good_practice_exchange' => array('views_view')));
+  features_revert(array('hwc_good_practice_exchange' => array('user_permission')));
+}

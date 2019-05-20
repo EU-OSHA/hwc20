@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * Implements Elysia hook_cronapi().
+ */
+function hwc_crm_migration_cronapi() {
+  return array(
+    'hwc_crm_migration_cron' => array(
+      'description' => 'Synchronize Partners CRM XML file (if changed)',
+      'rule' => '*/5 * * * *',
+    ),
+  );
+}
+
+/**
+ * Implements hook_cron().
+ */
+function hwc_crm_migration_cron() {
+  module_load_include('inc', 'migrate_ui', 'migrate_ui.pages');
+  module_load_include('inc', 'hwc_crm_migration', 'hwc_crm_migration.migrate');
+
+  if ($migration = Migration::getInstance('partner')) {
+    $migration->prepareUpdate();
+    $migration->processImport(array('update' => TRUE));
+
+    // Trigger LDAP sync after partner migration to update users sections.
+    watchdog('hwc_crm_migration', 'CRM partner migration triggered LDAP synchronization', array(), WATCHDOG_DEBUG);
+    module_load_include('inc', 'osha_authentication', 'osha_authentication.admin');
+    $ldap_servers = ldap_servers_get_servers('osha');
+    $ldap_server = $ldap_servers['osha'];
+    osha_authentication_ldap_sync($ldap_server);
+  }
+  else {
+    watchdog('hwc_crm_migration', 'Could not construct migration \'partner\'', array(), WATCHDOG_ERROR);
+  }
+}
+
+/**
+ * Helper function to get term by crm code.
+ */
+function _hwc_crm_migration_get_term_by_code($voc_name, $code) {
+  $voc = taxonomy_vocabulary_machine_name_load($voc_name);
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'taxonomy_term')
+    ->propertyCondition('vid', $voc->vid)
+    ->fieldCondition('field_crm_code', 'value', $code);
+  $result = $query->execute();
+
+  if (isset($result['taxonomy_term'])) {
+    $term = current(array_keys($result['taxonomy_term']));
+    return $term;
+  }
+  return FALSE;
+}

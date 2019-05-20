@@ -1,0 +1,5 @@
+.page-node-edit.node-type-news .form-item.form-item-field-publication-date-und-0-value-minute.form-type-select.form-group,
+.page-node-add-news .form-item.form-item-field-publication-date-und-0-value-minute.form-type-select.form-group {
+    visibility: hidden;
+    display: none;
+}

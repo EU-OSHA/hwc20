@@ -1,0 +1,120 @@
+<?php
+/**
+ * @file
+ * Code for the HWC Toolkit migration.
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function hwc_toolkit_migration_form_alter(&$form, &$form_state, $form_id) {
+
+  if ($form_id == 'hwc_admin_config_form') {
+    if (module_exists('migrate')) {
+      $form['tk_migration'] = array(
+        '#type' => 'fieldset',
+        '#title' => 'Toolkit content migration',
+        '#collapsible' => TRUE,
+        '#weight' => 101,
+      );
+      $note = 'To disable one of the migrations set the URL empty then Save. Endpoints should expose JSON data';
+      if (module_exists('migrate_ui')) {
+        $note .= ' ' . l(t('Visit migration status overview'), 'admin/content/migrate/groups/ncw');
+      }
+      $form['tk_migration']['note'] = array(
+        '#type' => 'item',
+        '#markup' => $note,
+        '#weight' => -1,
+      );
+
+      foreach (migrate_migrations() as $machine_name => $meta) {
+        $migration = MigrationBase::getInstance($machine_name);
+        if ($group = $migration->getGroup()) {
+          // Filter all migrations from NCW group.
+          if ('hwc_toolkit' == $group->getName()) {
+            $form['tk_migration']["hwc_tk_migration_${machine_name}_url"] = array(
+              '#type' => 'textfield',
+              '#title' => ucfirst(str_replace('_', ' ', $machine_name)) . ' endpoint URI',
+              '#default_value' => variable_get("hwc_tk_migration_${machine_name}_url", ''),
+              '#description' => 'Uri that will be appended to the Root endpoint URL defined',
+              '#size' => 90,
+            );
+          }
+        }
+        uksort($form['tk_migration'], 'strcmp');
+      }
+    }
+
+    $form['tk_migration']["hwc_tk_migration_root_url"] = array(
+      '#type' => 'textfield',
+      '#title' => 'TK Root endpoint URL',
+      '#default_value' => variable_get("hwc_tk_migration_root_url", ''),
+      '#size' => 90,
+    );
+  }
+}
+
+/**
+ * List of bundles periodically updated from the hwc toolkit website.
+ * @return array
+ *   Array of bundles
+ */
+function hwc_toolkit_migration_get_migrated_bundles() {
+  return array('tk_article', 'tk_example', 'tk_section', 'tk_tool', 'tk_topic');
+}
+
+/**
+ * @param string $machine_name
+ *   Migration machine name.
+ *
+ * @return boolean.
+ *   Returns TRUE if migration was successful
+ *
+ * @throws \Exception
+ */
+function hwc_toolkit_migration_run_single($machine_name) {
+  migrate_static_registration(array($machine_name));
+  /** @var Migration $migration */
+  $migration = Migration::getInstance($machine_name);
+  $migration->prepareUpdate();
+  $result = $migration->processImport();
+  if ($result == MigrationBase::RESULT_COMPLETED) {
+    return TRUE;
+  }
+  else {
+    watchdog(
+      'toolkit_migration',
+      '[CRON]Last CW import did not finished successfully (machine:!machine_name)',
+      array('!machine_name' => $machine_name)
+    );
+    return FALSE;
+  }
+}
+
+function hwc_toolkit_migration_debug($message, $message_args = array(), $level = 'notice') {
+  if (function_exists('drush_get_option')) {
+    // Message appear when running 'drush -d migrate-import events'.
+    if ($debug = drush_get_option('debug')) {
+      $str = format_string($message, $message_args);
+      drush_log($str, $level);
+    }
+  }
+}
+
+function hwc_migration_find_destid1($source_nid, $machine_name = 'tk_example') {
+  $migrations = array($machine_name);
+  foreach($migrations as $machine_name) {
+    $migration = Migration::getInstance($machine_name);
+    /** @var MigrateMap $map */
+    $map = $migration->getMap();
+    if ($destid1 = $map->lookupDestinationID(array($source_nid))) {
+      // @todo add some debugging here
+      ncw_migration_debug(
+        'Linking additional resource from !machine (src=!src:dest=!dest',
+        array('!machine' => $machine_name, '!src' => $source_nid, '!dest' => $destid1['destid1'])
+      );
+      return $destid1['destid1'];
+    }
+  }
+  return NULL;
+}

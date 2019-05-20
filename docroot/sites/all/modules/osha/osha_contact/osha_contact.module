@@ -1,0 +1,229 @@
+<?php
+
+/**
+ * Implements hook_form_alter.
+ */
+function osha_contact_form_contact_site_form_alter(&$form, &$form_state) {
+
+  // Change default title.
+  drupal_set_title(t('Contact us'));
+
+  // Disable fields.
+  $form['subject']['#default_value'] = FALSE;
+  $form['subject']['#access'] = FALSE;
+  $form['copy']['#default_value'] = FALSE;
+  $form['copy']['#access'] = FALSE;
+
+  $form['contact_type_of_sender'] = array(
+    '#type' => 'select',
+    '#title' => t('Type of sender'),
+    '#options' => osha_contact_get_taxonomy_term_options('contact_type_of_sender'),
+    '#empty_option' => t('Please select one'),
+    '#empty_value' => 0,
+    '#required' => TRUE,
+  );
+
+  $form['contact_topic'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Topic'),
+    '#maxlength' => 76,
+    '#required' => TRUE,
+  );
+
+  $form['country'] = array(
+    '#type' => 'textfield',
+    '#maxlength' => 255,
+    '#title' => t('Country'),
+  );
+
+  $form['surname'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Your surname'),
+    '#maxlength' => 255,
+    '#required' => TRUE,
+    '#rules' => array(
+      array('rule' => 'length[2, *]', 'error' => t('Your surname is too short')),
+    ),
+  );
+
+  $form['name']['#rules'] = array(
+    array('rule' => 'length[2, *]', 'error' => t('Your name is too short')),
+  );
+
+  $form['contact_type_of_sender']['#weight'] = 0;
+  $form['contact_topic']['#weight'] = 1;
+  $form['name']['#weight'] = 2;
+  $form['surname']['#weight'] = 3;
+  $form['mail']['#weight'] = 4;
+  $form['country']['#weight'] = 5;
+  $form['message']['#weight'] = 6;
+  $form['#attributes']['class'][] = 'container';
+
+  $form['#submit'][] = 'contact_form_send';
+}
+
+/**
+ * Get taxonomy terms in form of dropdown options.
+ * @param $machine_name
+ * @return array
+ */
+function osha_contact_get_taxonomy_term_options($machine_name) {
+  global $language;
+  $options = array();
+
+  $vid = taxonomy_vocabulary_machine_name_load($machine_name)->vid;
+  $options_source = taxonomy_get_tree($vid);
+
+  foreach($options_source as $item ) {
+    $term = entity_load_single('taxonomy_term', $item->tid);
+    $key = $term->tid;
+    $value = $term->name;
+    $options[$key] = $value;
+  }
+
+  return $options;
+}
+
+/**
+ * Submit callback function.
+ * Delete default confirmation message and set a new one.
+ */
+function contact_form_send($form, &$form_state) {
+  global $base_url;
+
+  // Remove default status message.
+  if (!empty($_SESSION['messages']['status'])) {
+    $message_text_to_remove = t('Your message has been sent.');
+    $key = array_search($message_text_to_remove, $_SESSION['messages']['status']);
+    if ($key !== FALSE) {
+      unset($_SESSION['messages']['status'][$key]);
+      // Remove the empty status message wrapper if no other messages have been set.
+      if (empty($_SESSION['messages']['status'])) {
+        unset($_SESSION['messages']['status']);
+      }
+    }
+  }
+
+  // Set new status message.
+  drupal_set_message(t('Thank you for your feedback. We appreciate your comments about the
+  European Agency for Safety and Health at Work and we try, wherever possible, to answer your emails.
+  Unfortunately, due to the large volume of correspondence we receive, we are unable to offer a personal reply
+  in each case. However, we read all your comments, and we use your feedback to improve our websites and services.
+  <br /><br />
+  You can stay up to date with new developments to our website by visiting our
+  “<a href="@link1">What’s new</a>” pages
+  and subscribing to our electronic
+  <a href="@link2">Healthy Workplaces Newsletter</a> newsletter.',
+    array(
+      '@link1' => $base_url . '/news-events',
+      '@link2' => $base_url . '/healthy-workplaces-newsletter',
+    )));
+}
+
+/**
+ * Implements hook_mail_alter().
+ */
+function osha_contact_mail_alter(&$message) {
+  global $language;
+
+  if ($message['id'] == 'contact_page_mail') {
+    $message['body'] = array();
+    // Translated taxonomy terms.
+    //$sender = entity_load_single('taxonomy_term', $message['params']['contact_type_of_sender']);
+    //$topic = entity_load_single('taxonomy_term', $message['params']['contact_topic']);
+    $sender = taxonomy_term_load($message['params']['contact_type_of_sender']);
+    // Message subject.
+    $message['subject'] = 'HWC Contact: ' . $message['params']['contact_topic'];
+    // Message from.
+    $from = $message['params']['category']['from_email'];
+    $message['from'] = $from;
+    $message['headers']['From'] = $from;
+    $message['headers']['Sender'] = $from;
+    $message['headers']['Return-Path'] = $from;
+    //mesage body
+    $message['body'][] = str_replace(
+      array(
+        '[sender]' ,
+        '[topic]',
+        '[name]',
+        '[surname]',
+        '[email]',
+        '[country]',
+        '[message]',
+        '[language]',
+      ),
+      array(
+        $sender->name,
+        $message['params']['contact_topic'],
+        $message['params']['name'],
+        $message['params']['surname'],
+        $message['params']['mail'],
+        $message['params']['country'],
+        $message['params']['message'],
+        $language->language,
+      ),
+      $message['params']['category']['body']);
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter.
+ */
+function osha_contact_form_contact_category_edit_form_alter(&$form, &$form_state){
+  $form['reply']['#default_value'] = FALSE;
+  $form['reply']['#access'] = FALSE;
+
+  $form['from_email'] = array(
+    '#type' => 'textfield',
+    '#required' => TRUE,
+    '#size' => 40,
+    '#maxlength' => 50,
+    '#element_validate' => array('osha_contact_email_validate'),
+    '#default_value' => isset($form_state['build_info']['args'][0]['from_email'])? $form_state['build_info']['args'][0]['from_email']:'',
+    '#title' => t('From email address'),
+  );
+
+  $form['body'] = array(
+    '#type' => 'text_format',
+    '#format' => 'full_html',
+    '#element_validate' => array('osha_contact_message_validate'),
+    '#rows' => '10',
+    '#default_value' => isset($form_state['build_info']['args'][0]['body'])? $form_state['build_info']['args'][0]['body']:'',
+    '#title' => t('EU-OSHA message body'),
+  );
+
+  $form['weight']['#weight'] = 9;
+  $form['selected']['#weight'] = 10;
+
+}
+
+/**
+ * Validate email address.
+ */
+function osha_contact_email_validate($form, &$form_state){
+  $mail = $form_state['values']['from_email'];
+  if (!valid_email_address($mail)) {
+    form_set_error('email', t('Please Enter a valid email address.'));
+  }
+}
+
+/**
+ * Split text_format field from array in value and format values
+ * otherwise will generate an error when try to save in database
+ */
+function osha_contact_message_validate($element, &$form_state) {
+  if($form_state['complete form']['#id'] == 'contact-category-edit-form'){
+    if (is_array($form_state['values']['body'])) {
+      $value = $form_state['values']['body']['value'];
+      $form_state['values']['body'] = $value;
+    }
+  }
+}
+
+/**
+ * Implements hook_osha_tmgmt_i18n_string_list().
+ */
+function osha_contact_osha_tmgmt_i18n_string_list() {
+  module_load_include('inc', 'osha_contact', 'osha_contact.translations');
+  return osha_contact_get_translatable_strings();
+}

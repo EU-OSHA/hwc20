@@ -1,0 +1,232 @@
+<?php
+
+include_once 'osha_linkchecker.features.inc';
+
+// @todo: Disabled as it does nothing ... move to drush command
+function disabled_osha_linkchecker_cron() {
+  $last_run = variable_get('osha_linkchecker_cron_last_run', REQUEST_TIME);
+  $last_run = new DateTime(date("c", $last_run));
+  $rescan_interval = 1;
+  $now = new DateTime();
+  $since_last_run = $now->diff($last_run);
+  // Re-scan nodes for links.
+  if ($since_last_run->m >= $rescan_interval) {
+    if (drupal_is_cli()) {
+      osha_linkchecker_scan_for_links();
+      variable_set('osha_linkchecker_cron_last_run', REQUEST_TIME);
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_info().
+ */
+function osha_linkchecker_entity_info() {
+  return array(
+    'linkchecker_link' => array(
+      'label' => t('Linkchecker Links'),
+      'module' => 'osha_linkchecker',
+      'controller class' => 'OshaLinkCheckerController',
+      'base table' => 'linkchecker_link',
+      'entity keys' => array(
+        'id' => 'lid',
+      ),
+      'views controller class' => 'EntityDefaultViewsController',
+    ),
+    'linkchecker_node' => array(
+      'label' => t('Linkchecker Node Links'),
+      'module' => 'osha_linkchecker',
+      'controller class' => 'OshaLinkCheckerController',
+      'base table' => 'linkchecker_node',
+      'entity keys' => array(
+        'id' => 'lid',
+//        'nid' => 'nid',
+      ),
+      'views controller class' => 'EntityDefaultViewsController',
+    ),
+  );
+}
+
+/**
+ * Implements hook_entity_property_info().
+ */
+function osha_linkchecker_entity_property_info() {
+  $info = array();
+
+  // Add meta-data for linkchecker_link entity.
+  $properties = &$info['linkchecker_link']['properties'];
+  $properties['code'] = array(
+    'label' => t("Code"),
+    'type' => 'integer',
+    'description' => t("HTTP status code from link checking."),
+    'options list' => 'osha_linkchecker_get_http_statuses',
+    'getter callback' => 'entity_property_verbatim_get',
+    'setter callback' => 'entity_property_verbatim_set',
+    'entity views field' => TRUE,
+    'schema field' => 'code',
+  );
+  $properties['error'] = array(
+    'label' => t("Error"),
+    'type' => 'text',
+    'description' => t("The response error."),
+    'entity views field' => TRUE,
+    'getter callback' => 'entity_property_verbatim_get',
+    'schema field' => 'error',
+  );
+  $properties['lid'] = array(
+    'label' => t("Link ID"),
+    'type' => 'linkchecker_node',
+    'description' => t("LID of the link"),
+    'getter callback' => 'entity_metadata_node_get_properties',
+    'entity views field' => TRUE,
+    'required' => TRUE,
+    'schema field' => 'lid',
+  );
+  $properties['url'] = array(
+    'label' => t("URL"),
+    'type' => 'text',
+    'description' => t("The full qualified link."),
+    'getter callback' => 'entity_property_verbatim_get',
+    'schema field' => 'url',
+  );
+
+  // Add meta-data for linkchecker_node entity.
+  $properties = &$info['linkchecker_node']['properties'];
+  $properties['nid'] = array(
+    'label' => t("Node"),
+    'type' => 'node',
+    'description' => t("The node that link was found on"),
+    'getter callback' => 'entity_metadata_node_get_properties',
+    'entity views field' => TRUE,
+    'required' => TRUE,
+    'schema field' => 'nid',
+  );
+
+  return $info;
+}
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function osha_linkchecker_views_query_alter(&$view, &$query) {
+  if ($view->name == 'broken_links') {
+    // Fix workbench Access fitler.
+    $query->where[2]['conditions'][0]['field'] = 'linkchecker_node_linkchecker_link.nid';
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function osha_linkchecker_views_pre_render(&$view) {
+  if ($view->name == 'broken_links') {
+    // Show statistics message.
+    $links_unchecked = db_query('SELECT COUNT(1) FROM {linkchecker_link} WHERE last_checked = :last_checked AND status = :status', array(':last_checked' => 0, ':status' => 1))->fetchField();
+    if ($links_unchecked > 0) {
+      $links_all = db_query('SELECT COUNT(1) FROM {linkchecker_link} WHERE status = :status', array(':status' => 1))->fetchField();
+      drupal_set_message(format_plural($links_unchecked,
+        'There is 1 unchecked link of about @links_all links in the database. Please be patient until all links have been checked via cron.',
+        'There are @count unchecked links of about @links_all links in the database. Please be patient until all links have been checked via cron.',
+        array('@links_all' => $links_all)), 'warning');
+    }
+  }
+}
+
+/**
+ * Scan for links. To be used when in console.
+ */
+function osha_linkchecker_scan_for_links() {
+  watchdog('osha_linkchecker', 'Scanning links on all nodes...');
+  print 'Scanning link in all nodes...';
+  $node_types = variable_get('linkchecker_scan_nodetypes', array());
+  $result = db_query(
+    'SELECT n.nid FROM {node} n WHERE n.status = :status AND n.type IN (:types) ORDER BY n.nid', array(':status' => 1, ':types' => $node_types));
+  foreach ($result as $row) {
+    $node = node_load($row->nid, NULL, TRUE);
+    $links = array_keys(_linkchecker_extract_node_links($node));
+
+    // Node have links.
+    if (!empty($links)) {
+      // Remove all links from the links array already in the database and only
+      // add missing links to database.
+      $missing_links = _linkchecker_node_links_missing($node->nid, $links);
+
+      // Only add links to database that do not exists.
+      $i = 0;
+      foreach ($missing_links as $url) {
+        $urlhash = drupal_hash_base64($url);
+        $link = db_query('SELECT lid FROM {linkchecker_link} WHERE urlhash = :urlhash', array(':urlhash' => $urlhash))->fetchObject();
+        if (!$link) {
+          $link = new stdClass();
+          $link->urlhash = $urlhash;
+          $link->url = $url;
+          $link->status = _linkchecker_link_check_status_filter($url);
+          drupal_write_record('linkchecker_link', $link);
+        }
+        db_insert('linkchecker_node')
+          ->fields(array(
+            'nid' => $node->nid,
+            'lid' => $link->lid,
+          ))
+          ->execute();
+
+        // Break processing if max links limit per run has been reached.
+        $i++;
+        if ($i >= LINKCHECKER_SCAN_MAX_LINKS_PER_RUN) {
+          break;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Http statuses.
+ */
+function osha_linkchecker_get_http_statuses() {
+  return array(
+    0 => 'Other',
+    -101 => 'Connection Timed Out',
+    -111 => 'Connection refused',
+    100 => 'Continue',
+    101 => 'Switching Protocols',
+    200 => 'OK',
+    201 => 'Created',
+    202 => 'Accepted',
+    203 => 'Non-Authoritative Information',
+    204 => 'No Content',
+    205 => 'Reset Content',
+    206 => 'Partial Content',
+    300 => 'Multiple Choices',
+    301 => 'Moved Permanently',
+    302 => 'Found',
+    303 => 'See Other',
+    304 => 'Not Modified',
+    305 => 'Use Proxy',
+    307 => 'Temporary Redirect',
+    400 => 'Bad Request',
+    401 => 'Unauthorized',
+    402 => 'Payment Required',
+    403 => 'Forbidden',
+    404 => 'Not Found',
+    405 => 'Method Not Allowed',
+    406 => 'Not Acceptable',
+    407 => 'Proxy Authentication Required',
+    408 => 'Request Time-out',
+    409 => 'Conflict',
+    410 => 'Gone',
+    411 => 'Length Required',
+    412 => 'Precondition Failed',
+    413 => 'Request Entity Too Large',
+    414 => 'Request-URI Too Large',
+    415 => 'Unsupported Media Type',
+    416 => 'Requested range not satisfiable',
+    417 => 'Expectation Failed',
+    500 => 'Internal Server Error',
+    501 => 'Not Implemented',
+    502 => 'Bad Gateway',
+    503 => 'Service Unavailable',
+    504 => 'Gateway Time-out',
+    505 => 'HTTP Version not supported',
+  );
+}

@@ -1,0 +1,112 @@
+<?php
+
+function hwc_homepage_install() {
+  features_revert_module('hwc_homepage');
+  features_revert_module('osha_news');
+}
+
+/**
+ * Revert homepage and news modules.
+ */
+function hwc_homepage_update_7001() {
+  features_revert_module('hwc_homepage');
+  features_revert_module('osha_news');
+}
+
+/**
+ * Revert hwc homepage modules.
+ */
+function hwc_homepage_update_7002() {
+  features_revert_module('hwc_homepage');
+}
+
+/**
+ * Revert hwc homepage modules.
+ */
+function hwc_homepage_update_7003() {
+  features_revert_module('hwc_homepage');
+}
+
+/**
+ * Revert hwc homepage modules.
+ */
+function hwc_homepage_update_7004() {
+  features_revert_module('hwc_homepage');
+}
+/**
+ * Revert hwc homepage modules.
+ */
+function hwc_homepage_update_7005() {
+  features_revert_module('hwc_homepage');
+}
+
+/**
+ * Revert hwc homepage modules.
+ */
+function hwc_homepage_update_7006() {
+  features_revert_module('hwc_homepage');
+  features_revert_module('osha_news');
+}
+
+/**
+ * Revert hwc homepage modules.
+ */
+function hwc_homepage_update_7007() {
+  features_revert_module('hwc_homepage');
+}
+
+/**
+ * Revert hwc homepage modules.
+ */
+function hwc_homepage_update_7008() {
+  features_revert_module('hwc_homepage');
+}
+
+/**
+ * Revert hwc homepage module.
+ */
+function hwc_homepage_update_7009() {
+  features_revert_module('hwc_homepage');
+}
+
+/**
+ * Revert hwc homepage module.
+ */
+function hwc_homepage_update_7010() {
+  features_revert_module('hwc_homepage');
+}
+
+/**
+ * Revert hwc homepage module.
+ */
+function hwc_homepage_update_7011() {
+  features_revert_module('hwc_homepage');
+}
+
+/**
+ * MDR-1548 HWC18 - new layout home page.
+ */
+function hwc_homepage_update_7012() {
+  features_revert_module('hwc_homepage');
+}
+
+/**
+ * MDR-1548 HWC18 - new layout home page.
+ */
+function hwc_homepage_update_7013() {
+  features_revert_module('hwc_homepage');
+}
+
+/**
+ * HW18-409 Translation- About the topic, News, More news , Events are translated but not translations are not being displayed.
+ */
+function hwc_homepage_update_7014() {
+  features_revert_module('hwc_homepage');
+}
+
+/**
+ * MDR-1879 The titles of events and news items are cut on the homepage.
+ */
+function hwc_homepage_update_7015() {
+  variable_set('trim_titles_max_len', 100);
+}

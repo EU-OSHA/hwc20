@@ -1,0 +1,63 @@
+<?php
+/**
+ * @file
+ * Code for the HWC gallery feature.
+ */
+
+include_once 'hwc_gallery.features.inc';
+
+/**
+ * Implements hook_node_view().
+ */
+function hwc_gallery_node_view($node, $view_mode, $langcode) {
+  if ($node->type == 'hwc_gallery' && $view_mode == 'full') {
+    $wrapper = entity_metadata_wrapper('node', $node);
+    $first_image = $wrapper->field_images->value()[0];
+    if (!empty($first_image)) {
+      $image_vars = array(
+        'style_name' => 'gallery_cover_image',
+        'path' => $first_image['uri'],
+        'alt' => $node->title,
+      );
+      // Cover image will open first image of gallery.
+      $link = '<a href="javascript:void(0);" onclick="jQuery(\'.field-name-field-images a.colorbox-inline\').eq(0).trigger(\'click\')">' . theme('image_style', $image_vars) . '</a>';
+      $node->content['gallery_cover_image'] = array('#markup' => $link);
+      if (!empty($node->content['field_images'])) {
+        $image_deltas = element_children($node->content['field_images']);
+        $total = count($image_deltas);
+        $per_page = 6;
+        if ($total > $per_page) {
+          $page = pager_default_initialize($total, $per_page);
+          if ($page > 0) {
+            hide($node->content['body']);
+            hide($node->content['gallery_cover_image']);
+          }
+          $offset = $per_page * $page;
+          $showing_deltas = range($offset, $offset + $per_page - 1);
+          $remove_deltas = array_diff($image_deltas, $showing_deltas);
+          foreach ($remove_deltas as $delta) {
+            unset($node->content['field_images'][$delta]);
+          }
+          $node->content['field_images']['#suffix'] = theme('pager');
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implementation of hook_galleryformatter_styles().
+ * @see galleryformatter_gallery_galleryformatter_styles
+ */
+function hwc_gallery_galleryformatter_styles() {
+  $gallerystyles_directory = drupal_get_path('theme', 'hwc_frontend') . '/gallerystyles';
+  $files = file_scan_directory($gallerystyles_directory, '/\.css$/');
+  $gallerystyles = array();
+  foreach ($files as $file) {
+    // Skip RTL files.
+    if (!strpos($file->name, '-rtl')) {
+      $gallerystyles[$file->uri] = drupal_ucfirst($file->name);
+    }
+  }
+  return $gallerystyles;
+}

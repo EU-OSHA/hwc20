@@ -1,0 +1,479 @@
+<?php
+/**
+ * @file
+ * Code for the HWC Practical tool feature.
+ */
+
+include_once 'hwc_practical_tool.features.inc';
+
+/**
+ * Implements Elysia hook_cronapi().
+ */
+function hwc_practical_tool_cronapi() {
+  return array(
+    'hwc_practical_tool_cron' => array(
+      'description' => 'Migrate NCW DS content',
+      'rule' => '30 3 * * *',
+    ),
+  );
+}
+
+function hwc_practical_tool_cron() {
+  $migrations = array(
+    'dangerous_substances',
+  );
+  foreach ($migrations as $migration) {
+    ncw_migration_run_single($migration);
+  }
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function hwc_practical_tool_menu_alter(&$items) {
+  $items['node/%node/edit']['access callback'] = 'hwc_practical_tool_node_edit_delete_form_access';
+  $items['node/%node/delete']['access callback'] = 'hwc_practical_tool_node_edit_delete_form_access';
+}
+
+/**
+ * Callback function to disable practical_tool update.
+ */
+function hwc_practical_tool_node_edit_delete_form_access($op, $node) {
+  $type = is_string($node) ? $node : $node->type;
+  if (($type == 'practical_tool') && (($op == 'update')||($op == 'delete'))) {
+    return FALSE;
+  }
+  return node_access($op, $node);
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function hwc_practical_tool_form_node_form_alter(&$form, &$form_state, $form_id) {
+  $bundle = $form['#node']->type;
+
+  if ($bundle == 'practical_tool') {
+    drupal_set_message(t('This content is imported from EU-OSHA via synchronization process. <strong>Modifications made here might be lost after the next synchronization</strong>'), 'warning');
+  }
+}
+
+/**
+ * Implements hook_field_collection_item_view_HOOK().
+ */
+function hwc_practical_tool_field_collection_item_view($field_collection_item, $view_mode, $langcode) {
+  if ($view_mode == 'title_only') {
+    $item = entity_metadata_wrapper('field_collection_item', $field_collection_item);
+    $field_collection_item->content['my_additional_field'] = array(
+      '#markup' => $item->field_fc_provider_name->value(),
+    );
+  }
+}
+
+/**
+ * Implements hook_entity_info_alter_HOOK().
+ */
+function hwc_practical_tool_entity_info_alter(&$entity_info) {
+  $entity_info['field_collection_item']['view modes']['title_only'] = array(
+    'label' => t('Title only'),
+    'custom settings' => TRUE,
+  );
+}
+
+/**
+ * Implements hook_search_api_solr_query_alter().
+ */
+function hwc_practical_tool_search_api_solr_query_alter(array &$call_args, SearchApiQueryInterface $query) {
+  global $language;
+  if ((arg(0) == 'practical-tools') || (arg(1) == 'practical-tools')) {
+    $call_args['params']['sort'] = 'score desc';
+    $sort_order = strtolower(@$_REQUEST['sort_order']);
+    $sort_by = strtolower(@$_REQUEST['sort_by']);
+    if ($sort_by) {
+      $call_args['params']['sort'] = 'ds_field_publication_year ';
+      if ($sort_by == 'search_api_relevance') {
+        $call_args['params']['sort'] = 'score  ';
+      }
+      if (!in_array($sort_order, ['asc', 'desc'])) {
+        $sort_order = 'desc';
+      }
+      $call_args['params']['sort'] .= $sort_order;
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function hwc_practical_tool_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'views_exposed_form' && $form['#id'] == 'views-exposed-form-practical-tools-page') {
+    $form['sort_by']['#default_value'] = 'search_api_relevance';
+    unset($form['#info']['filter-search_api_views_fulltext']['label']);
+  }
+  if ($form_id == 'views_exposed_form' && $form['#id'] == 'views-exposed-form-documents-gpep') {
+    unset($form['#info']['filter-search_api_views_fulltext']['label']);
+  }
+  if ($form_id == 'views_exposed_form' && $form['#id'] == 'views-exposed-form-documents-page-1') {
+    unset($form['#info']['filter-search_api_views_fulltext']['label']);
+  }
+  if ($form_id == 'views_exposed_form' && $form['#id'] == 'views-exposed-form-documents-page-2') {
+    unset($form['#info']['filter-search_api_views_fulltext']['label']);
+  }
+}
+
+/**
+ * Implements facet_items_alter().
+ */
+function hwc_practical_tool_facet_items_alter(&$build, &$settings) {
+  global $language;
+  if ($settings->facet == "field_available_in_languages:value") {
+    $list = language_list();
+    foreach ($build as $lang => $item) {
+      if (isset($list[$lang])) {
+        $build[$lang]['#markup'] = $list[$lang]->name;
+      }
+      else {
+        $build[$lang]['#markup'] = $lang;
+      }
+    }
+  }
+}
+
+function hwc_practical_tool_sort_form($form, $form_state) {
+  $form = array();
+  $form['sort_by'] = [
+    '#type' => 'select',
+    '#title' => t('Sort by'),
+    '#default_value' => 'search_api_relevance',
+    '#options' => [
+      'search_api_relevance' => t('Relevance'),
+      'field_publication_year' => t('Year of publication'),
+    ],
+  ];
+  $form['sort_order'] = [
+    '#type' => 'select',
+    '#title' => t('Order'),
+    '#default_value' => 'DESC',
+    '#options' => [
+      'DESC' => t('DESC'),
+      'ASC' => t('ASC'),
+    ],
+  ];
+  $form['sort_by']['#value'] = @$_REQUEST['sort_by'];
+  $form['sort_order']['#value'] = @$_REQUEST['sort_order'];
+  return $form;
+}
+
+/**
+ * Implements hook_views_post_render().
+ */
+function hwc_practical_tool_views_post_render(&$view, &$output, &$cache) {
+  if ($view->name == 'practical_tools') {
+    drupal_add_js(drupal_get_path('module', 'hwc_practical_tool') . '/sort.js', array('weight' => 20));
+    $form = drupal_get_form('hwc_practical_tool_sort_form');
+    $order_html = '<div class="sort-container col-xs-3">' . drupal_render($form) . '</div><span class="count-container pull-right">';
+    $output = trim(str_replace('@order', $order_html, $output)) . '</span>';
+    $loader_text = t('Dear partner: Please wait a few seconds. Your data is being retrieved.');
+    drupal_add_js('jQuery(document).ready(function () {
+jQuery(\'.page-practical-tools .region-sidebar-first a\').click(divFunction);
+function divFunction(){
+ jQuery(\'.view-content\').prepend(\'<div class="loader"><img id="tmgmt-4" src="/sites/all/themes/hwc_frontend/images/hwc_clock.png" alt=""><p id="tmgmt-5">' . $loader_text . '</p></div>\');
+}    
+    });', 'inline');
+  }
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function hwc_practical_tool_block_info() {
+  $blocks = array();
+  $blocks['hwc_practical_tool_text'] = array(
+    'info' => t('Practical tool text'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['hwc_practical_tool_language_list'] = array(
+    'info' => t('Practical tool language list'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['hwc_practical_tool_back_to_list'] = array(
+    'info' => t('Practical tool Back to list'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function hwc_practical_tool_block_view($delta = '') {
+  global $language;
+  $block = array();
+  if ($delta == 'hwc_practical_tool_text') {
+    $block['title'] = '<none>';
+    $node = node_load(139);
+    $w = entity_metadata_wrapper('node', $node->nid);
+    $block['content'] = '
+    <div class="content">
+      <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+        <div class="field-items">
+          <div class="field-item even" property="content:encoded">
+            <p class="Textfo">
+              <span lang="EN-GB" xml:lang="EN-GB">' . $w->language($language->language)->body->value()['safe_value'] . '</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>';
+  }
+
+  if ($delta == 'hwc_practical_tool_language_list') {
+    if ($node = menu_get_object()) {
+      $q = db_select('languages', 'l');
+      $q->fields('l', array('language', 'name', 'native'));
+      $q->innerJoin('entity_translation', 'a', 'l.language = a.language');
+      $q->condition('a.entity_id', $node->nid);
+      $q->condition('a.entity_type', 'node');
+      $languages = $q->execute()->fetchAll();
+
+      $block['content'] = theme('hwc_practical_tool_language_list', array('languages' => $languages));
+    }
+  }
+
+  if ($delta == 'hwc_practical_tool_back_to_list') {
+    if (isset($_REQUEST['destination'])) {
+      $block['content'] = '<a href="' . strip_tags($_REQUEST['destination']) . '">' . t('Back to list') . '</a>';
+    }
+  }
+
+  return $block;
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function hwc_practical_tool_field_formatter_info() {
+  $info = array(
+    'access_tool_link_and_language' => array(
+      'label' => t('Access tool link and language'),
+      'field types' => array('field_collection'),
+      'settings' => array(
+        'label' => t('Visit tool in:'),
+      ),
+    ),
+    'access_tool_link_details' => array(
+      'label' => t('Access tool link for practical tool details'),
+      'field types' => array('field_collection'),
+      'settings' => array(
+        'label_1' => t('Access tool:'),
+        'label_2' => t('Available in:'),
+      ),
+    ),
+    'practical_tool_title' => array(
+      'label' => 'practical_tool title link',
+      'field types' => array('text'),
+      'description' => 'Displays link with extra params.',
+    ),
+    'homepage_slider_title' => array(
+      'label' => 'Homepage slider title',
+      'field types' => array('text'),
+      'description' => 'Displays homepage slider title in 2 rows.',
+    ),
+    'field_collection_title' => array(
+      'label' => t('Fields collection title'),
+      'field types' => array('field_collection'),
+      'settings' => array(
+        'edit' => t('Edit'),
+        'delete' => t('Delete'),
+        'add' => t('Add'),
+        'description' => TRUE,
+      ),
+    ),
+  );
+  return $info;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function hwc_practical_tool_theme() {
+  $theme = array();
+  $path = drupal_get_path('module', 'hwc_practical_tool');
+  $theme['hwc_practical_tool_language_list'] = array(
+    'template' => 'hwc_practical_tool_language_list',
+    'variables' => array(
+      'languages' => NULL,
+    ),
+    'path' => $path . '/templates',
+  );
+  $theme['access_tool_link_and_language'] = array(
+    'template' => 'hwc_practical_tool_access_tool_link_and_language',
+    'variables' => array(
+      'items' => NULL,
+      'label' => NULL,
+    ),
+    'path' => $path . '/templates',
+  );
+  $theme['access_tool_link_details'] = array(
+    'template' => 'hwc_practical_tool_access_tool_link_details',
+    'variables' => array(
+      'items' => NULL,
+      'label_1' => NULL,
+      'label_2' => NULL,
+      'node' => NULL,
+    ),
+    'path' => $path . '/templates',
+  );
+  return $theme;
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function hwc_practical_tool_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $elements = array();
+  if ($display['type'] == 'field_collection_title') {
+    $elements['edit'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Edit link title'),
+      '#default_value' => $settings['edit'],
+      '#description' => t('Leave the title empty, to hide the link.'),
+    );
+    $elements['delete'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Delete link title'),
+      '#default_value' => $settings['delete'],
+      '#description' => t('Leave the title empty, to hide the link.'),
+    );
+    $elements['add'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Add link title'),
+      '#default_value' => $settings['add'],
+      '#description' => t('Leave the title empty, to hide the link.'),
+    );
+    $elements['description'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Show the field description beside the add link.'),
+      '#default_value' => $settings['description'],
+      '#description' => t('If enabled and the add link is shown, the field description is shown in front of the add link.'),
+    );
+  }
+
+  return $elements;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function hwc_practical_tool_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $output = array();
+  if ($display['type'] == 'field_collection_title') {
+    $links = array_filter(array_intersect_key($settings,
+      array_flip(array('add', 'edit', 'delete'))));
+    if ($links) {
+      $output[] = t('Links: @links', array('@links' => check_plain(implode(', ', $links))));
+    }
+    else {
+      $output[] = t('Links: none');
+    }
+  }
+
+  return implode('<br>', $output);
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function hwc_practical_tool_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  $settings = $display['settings'];
+
+  switch ($display['type']) {
+    case 'access_tool_link_and_language':
+      $settings = $display['settings'];
+      $label = trim($settings['label']);
+      $element = array(
+        '#theme' => 'access_tool_link_and_language',
+        '#items' => $items,
+        '#label' => $label,
+      );
+      break;
+
+    case 'homepage_slider_title':
+      $output = isset($items[0]) ? $items[0]['safe_value'] : '';
+      if (!empty($output)) {
+//        $needle = 'Campaign 2018-2019';
+//        if (strpos($output, $needle)) {
+//          $output = '<span class="line-1">' . str_replace($needle, $needle . '<span class="line-2">', $output) . '</span></span>';
+//        }
+//        else {
+//        }
+        $output = '<span class="line-1">' . $output . '</span>';
+      }
+      $element = array(array('#markup' => $output));
+      break;
+
+    case 'practical_tool_title':
+      $output = isset($items[0]) ? $items[0]['safe_value'] : '';
+      if (!empty($output)) {
+        $output = l($output, 'node/' . $entity->nid, ['query' => ['destination' => strip_tags(request_uri())], 'absolute' => TRUE, 'html' => TRUE]);
+      }
+      $element = array(array('#markup' => $output));
+      break;
+
+    case 'access_tool_link_details':
+      $settings = $display['settings'];
+      $label_1 = trim($settings['label_1']);
+      $label_2 = trim($settings['label_2']);
+      $element = array(
+        '#theme' => 'access_tool_link_details',
+        '#items' => $items,
+        '#label_1' => $label_1,
+        '#label_2' => $label_2,
+        '#node' => entity_metadata_wrapper('node', $entity),
+      );
+      break;
+
+    case 'field_collection_title':
+
+      foreach ($items as $delta => $item) {
+        if ($field_collection = field_collection_field_get_entity($item)) {
+          $name = $field_collection->field_fc_provider_name['und'][0]['value'];
+          $output = $name;
+          $element[$delta] = array('#markup' => $output);
+        }
+      }
+      field_collection_field_formatter_links($element, $entity_type, $entity, $field, $instance, $langcode, $items, $display);
+      break;
+  }
+  return $element;
+}
+
+/**
+ * Implements hook_node_view().
+ */
+function hwc_practical_tool_node_view($node, $view_mode, $langcode) {
+  if ($node->type == 'practical_tool' && $view_mode == 'teaser') {
+    if (isset($node->content['field_country']) && empty($node->content['field_country']['#items'])) {
+      hide($node->content['field_country']);
+    }
+    if (isset($node->content['field_provider']) && empty($node->content['field_provider']['#items'])) {
+      hide($node->content['field_provider']);
+    }
+    if (isset($node->content['field_tool_type']) && empty($node->content['field_tool_type']['#items'])) {
+      hide($node->content['field_tool_type']);
+    }
+  }
+}

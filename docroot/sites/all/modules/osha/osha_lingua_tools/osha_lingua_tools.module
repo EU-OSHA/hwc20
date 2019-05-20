@@ -1,0 +1,345 @@
+<?php
+/**
+ * @file
+ * osha_lingua_tools module file
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function osha_lingua_tools_menu() {
+
+  $items['node/%node/linguatools'] = array(
+    'title' => 'Lingua Tools',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('form_lingua_form'),
+    'access callback' => 'linguatools_access',
+    'weight' => 7,
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function osha_lingua_tools_form_alter(&$form, &$form_state, $form_id) {
+}
+
+function form_lingua_form($form, &$form_state) {
+  $node = menu_get_object();
+  $numlen = count($node->translations->data);
+
+  if ($numlen <= 1) {
+    $form['header_text'] = array(
+      '#markup' => '<p class="linguaheader">There are no translations for this node.</p>',
+      '#fieldintname' => '0',
+    );
+  }
+  else {
+    // Get the node id, what we want translate.
+    $type = $node->type;
+    $fields = field_info_instances("node", $type);
+    $countfields = 1;
+    $ispublished = $node->workbench_moderation['current']->published;
+
+    foreach ($fields as $field) {
+      $fieldname = $field['label'];
+      $fieldname = str_replace(' ', '_', $fieldname);
+      $fieldintname = $field['field_name'];
+      $arrayfield = $node->$fieldintname;
+
+      // TODO Check that the field has data.
+      $numdatosfield = count($arrayfield) + 1;
+      $fieldid = $field['field_id'];
+      $transfield = istranslatable($fieldid);
+
+      $form['header_text'] = array(
+        '#markup' => '<p class="linguaheader">Please, select the fields to spread and press the <strong>spread data</strong> button.</p>',
+        '#fieldintname' => '0',
+      );
+      if ($transfield == 1 && $field['widget']['module'] != 'media' && $field['widget']['module'] != 'file' && $field['widget']['module'] != 'pdf_to_image' && $numdatosfield > 0) {
+        $countfields++;
+        $form[$fieldname] = array(
+          '#title' => $fieldname,
+          '#type' => 'checkbox',
+          '#fieldintname' => $fieldintname,
+        );
+      }
+    }
+
+    $form['url'] = array(
+      '#title' => 'URL',
+      '#type' => 'checkbox',
+    );
+
+    $form['submit_button'] = array(
+      '#type' => 'submit',
+      '#value' => t('Spread data'),
+      '#numfields' => $countfields,
+      '#nodeid' => $node->nid,
+      '#noderevid' => $node->workbench_moderation['current']->vid,
+      '#ispublished' => $ispublished,
+    );
+  }
+
+  $languages = tmgmt_available_languages();
+  unset($languages[$node->translations->original]);
+  foreach ($node->translations->data as $lang => $translation) {
+    unset($languages[$lang]);
+  }
+  $selected_languages = array_intersect_key($languages, osha_language_list_options());
+
+  $form['target_language'] = array(
+    '#type' => 'checkboxes',
+    '#title' => t('Add translations for'),
+    '#multiple' => TRUE,
+    '#options' => $languages,
+    '#default_value' => array_keys($selected_languages),
+    '#weight' => array('#weight' => 6),
+  );
+  $form['create_translations_submit_button'] = array(
+    '#type' => 'submit',
+    '#value' => t('Create translations'),
+    '#submit' => array('osha_lingua_tools_create_translations'),
+    '#weight' => array('#weight' => 7),
+  );
+
+  return $form;
+}
+
+/**
+ * Access callback for lingua tools.
+ */
+function linguatools_access() {
+  global $user;
+
+  foreach ($user->roles as $userrol) {
+    if ($userrol == HWC_ROLE_ADMIN) {
+      return TRUE;
+    }
+    if ($userrol == HWC_ROLE_WEBSITE_MANAGERS) {
+      return TRUE;
+    }
+  }
+
+  return FALSE;
+}
+
+function istranslatable($idfield) {
+  $result = db_select('field_config', 'f')
+    ->fields('f', array('translatable'))
+    ->condition('id', $idfield, '=')
+    ->execute()
+    ->fetchAssoc();
+  return $result['translatable'];
+}
+
+function form_lingua_form_validate($form, &$form_state) {
+  if ($form_state['triggering_element']['#id'] == 'edit-create-translations-submit-button') {
+    return;
+  }
+
+  foreach ($form_state['values'] as $values) {
+
+    if ($values == 1) {
+      return 1;
+    }
+  }
+  drupal_set_message(t("You need to select at least one field for spread!"), 'error');
+  return FALSE;
+}
+
+function form_lingua_form_submit($form, &$form_state) {
+  $intnumfields = $form['submit_button']['#numfields'];
+  $intnodeid = $form['submit_button']['#nodeid'];
+  $intrevid = $form['submit_button']['#noderevid'];
+  $ispublished = $form['submit_button']['#ispublished'];
+
+  if ($form_state['values']['url'] == 1) {
+    propage_url($intnodeid);
+  }
+
+  $intcont = 0;
+
+  foreach ($form as $fieldchk) {
+    $fieldintname = $fieldchk['#fieldintname'];
+    // 0 Is the value of the summary field.
+    if ($fieldintname <> '0') {
+
+      $fieldupdate = $form_state['values'][$fieldchk['#title']];
+      if ($fieldupdate) {
+        propage_translation($fieldchk['#title'], $intnodeid, $intrevid, $ispublished, $fieldintname);
+      }
+    }
+    $intcont++;
+    if ($intcont == $intnumfields) {
+      if ($ispublished == 1) {
+        drupal_flush_all_caches();
+      }
+      break;
+    }
+  }
+}
+
+function propage_translation($field_name, $intnodeid, $intrevid, $ispublished, $fieldintname) {
+  $node = node_load($intnodeid);
+
+  if ($field_name == 'body') {
+    $table_name = 'field_data_body';
+    $table_rev_name = 'field_revision_body';
+    $field_name = 'body_value';
+  }
+  elseif (($fieldintname == 'field_external_url') || ($fieldintname == 'field_banner_link')) {
+    $table_name = 'field_data_' . $fieldintname;
+    $table_rev_name = 'field_revision_' . $fieldintname;
+    $field_name = $fieldintname . '_url';
+  }
+  elseif (($fieldintname == 'field_youtube')) {
+    $table_name = 'field_data_' . $fieldintname;
+    $table_rev_name = 'field_revision_' . $fieldintname;
+    $field_name = $fieldintname . '_input';
+  }
+  else {
+    $table_name = 'field_data_' . $fieldintname;
+    $table_rev_name = 'field_revision_' . $fieldintname;
+    $field_name = $fieldintname . '_value';
+  }
+
+  // If the status of the node is published then We get the value to spread from the data field else we get the data from the revision field.
+  if ($ispublished == 1) {
+    $result = db_select($table_name, 'f')
+      ->fields('f', array($field_name))
+      ->condition('entity_id', $intnodeid, '=')
+      ->condition('language', 'en', '=')
+      ->orderBy('revision_id', 'DESC')
+      ->execute()
+      ->fetchAssoc();
+  }
+  else {
+    $result = db_select($table_rev_name, 'f')
+      ->fields('f', array($field_name))
+      ->condition('entity_id', $intnodeid, '=')
+      ->condition('language', 'en', '=')
+      ->orderBy('revision_id', 'DESC')
+      ->execute()
+      ->fetchAssoc();
+  }
+  $propvalue = $result[$field_name];
+
+  if ($propvalue == "" || $propvalue == NULL) {
+    return FALSE;
+  }
+
+  $new_node = new stdClass();
+  $new_node->id = $node->nid;
+  $new_node->nid = $node->nid;
+  $new_node->vid = $node->vid;
+  $new_node->type = $node->type;
+  $new_node->bundle = $node->type;
+  $new_node->translations = $node->translations;
+  foreach ($node->translations->data as $lang_code => $value) {
+    $new_node->{$fieldintname}[$lang_code] = $node->{$fieldintname}[$node->language];
+  }
+  field_attach_update('node', $new_node);
+
+  drupal_set_message(t("Field " . $field_name . " updated"), 'status');
+
+}
+
+function propage_url($intnodeid) {
+  $node = node_load($intnodeid);
+  $propvalue = $node->path['alias'];
+  if (!$propvalue) {
+    return;
+  }
+  $aliasurl = "node/" . $intnodeid;
+  // Update the url field.
+  $data = db_update('url_alias')
+    ->fields(array(
+      'alias' => $propvalue,
+    ))
+    ->condition('source', $aliasurl)
+    ->execute();
+
+  drupal_set_message(t("URL Alias updated"), 'status');
+}
+
+function osha_lingua_tools_create_translations($form, &$form_state) {
+  $languages = $form_state['values']['target_language'];
+  $node = menu_get_object();
+  $source_lang = $node->translations->original;
+  $translation_handler = entity_translation_get_handler('node', $node);
+  $type = $node->type;
+  $fields = _osha_lingua_tools_translatable_field_instances($type);
+  foreach ($languages as $lang_code => $value) {
+    if ($value) {
+      $translation_handler->setTranslation(
+        array(
+          'translate' => 0,
+          'status' => 1,
+          'uid' => 1,
+          'language' => $lang_code,
+          'source' => $source_lang,
+        )
+      );
+    }
+  }
+  $translation_handler->saveTranslations();
+
+  $node = workbench_moderation_node_current_load($node);
+  $new_node = new stdClass();
+  $new_node->id = $node->nid;
+  $new_node->nid = $node->nid;
+  $new_node->vid = $node->vid;
+  $new_node->type = $type;
+  $new_node->bundle = $type;
+  $new_node->translations = $node->translations;
+  foreach ($languages as $lang_code => $value) {
+    if ($value) {
+      foreach ($fields as $field) {
+        // MC-73 Copy values for translatable file fields.
+        $new_node->{$field['field_name']}[$lang_code] = $node->{$field['field_name']}[$source_lang];
+      }
+    }
+  }
+  field_attach_update('node', $new_node);
+
+  // Clone url_aliases.
+  foreach ($languages as $lang_code => $value) {
+    if ($value) {
+      $args = array(
+        'source' => 'node/' . $node->nid,
+        'alias' => $node->path['alias'],
+        'language' => $lang_code,
+      );
+      path_save($args);
+    }
+  }
+}
+
+/**
+ * Helper function to get translatable fields with cardinality > 1.
+ *
+ * @param $bundle
+ *  The type of the node to call field_info_instances().
+ * @return array
+ *  Array of fields.
+ */
+function _osha_lingua_tools_translatable_field_instances($bundle) {
+  $translatable_fields = array();
+  $fields = field_info_instances('node', $bundle);
+  foreach ($fields as $field) {
+    $fieldname = $field['field_name'];
+    $transfield = istranslatable($field['field_id']);
+    $info = field_info_field($fieldname);
+    if ($transfield == 1
+      && $field['widget']['module'] == 'file'
+      && ($info['cardinality'] > 1 || $info['cardinality'] == FIELD_CARDINALITY_UNLIMITED)) {
+      $translatable_fields[] = $field;
+    }
+  }
+  return $translatable_fields;
+}
+

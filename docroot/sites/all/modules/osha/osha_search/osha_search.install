@@ -1,0 +1,168 @@
+<?php
+
+/**
+ * Update the search page link title.
+ */
+function osha_search_update_7001() {
+  if ($link = menu_link_load(1081)) {
+    $link['link_title'] = 'Website';
+    if (menu_link_save($link) === FALSE) {
+      drupal_set_message('Failed to rename link title from Site to Website', 'error');
+    }
+  }
+  else {
+    drupal_set_message('Failed to find search page menu link Site', 'error');
+  }
+}
+
+/**
+ * Configure new search autocomplete callback.
+ */
+function osha_search_update_7002() {
+  // Configure the search form.
+  $fid = db_select('search_autocomplete_forms', 'f')
+    ->fields('f', array('fid'))
+    ->condition('selector', '#edit-search-block-form--2')
+    ->execute()->fetchField(0);
+  if ($fid) {
+    db_update('search_autocomplete_forms')
+      ->fields(array(
+        'theme' => 'basic-blue.css',
+        'data_callback' => 'search-autocomplete/',
+        'data_source' => 'callback',
+        'max_sug' => 25,
+      ))
+      ->condition('selector', '#edit-search-block-form--2')
+      ->execute();
+  }
+  else {
+    drupal_set_message('Failed to configure search_autocomplete form', 'error');
+  }
+}
+
+/**
+ * Configure new search autocomplete callback.
+ */
+function osha_search_update_7003() {
+  features_revert_module('osha_search');
+  search_api_index_reindex('default_multilingual_node_index');
+}
+
+/**
+ * New search filters.
+ */
+function osha_search_update_7004() {
+  features_revert_module('osha_search');
+  search_api_index_reindex('default_multilingual_node_index');
+  features_revert_module('osha_search');
+}
+
+/**
+ * New search filters blocks.
+ */
+function osha_search_update_7005() {
+  features_revert(array('osha_search' => 'fe_block_settings'));
+}
+
+/**
+ * New search filters blocks.
+ */
+function osha_search_update_7006() {
+  features_revert(array('osha_search' => 'views_view'));
+}
+
+/**
+ * Audio visual content type.
+ */
+function osha_search_update_7007() {
+  features_revert_module('osha_search');
+  search_api_index_reindex('default_multilingual_node_index');
+  features_revert_module('osha_search');
+}
+
+/**
+ * New search order style.
+ */
+function osha_search_update_7008() {
+  features_revert_module('osha_search');
+}
+
+/**
+ * Search remove active link.
+ */
+function osha_search_update_7009() {
+  module_enable(['facetapi_bonus']);
+  features_revert_module('osha_search');
+}
+
+/**
+ * Search exclude type fields.
+ */
+function osha_search_update_7010() {
+  features_revert_module('osha_search');
+}
+
+/**
+ * HW18-141.
+ */
+function osha_search_update_7011() {
+  features_revert_module('osha_search');
+}
+
+/**
+ * HW18-191 - New CT Document.
+ */
+function osha_search_update_7012() {
+  features_revert_module('osha_search');
+  search_api_index_reindex('default_multilingual_node_index');
+}
+
+/**
+ * HW18-278 Possible to display different types of practical tools at the same time
+ */
+function osha_search_update_7013() {
+  features_revert_module('osha_search');
+}
+
+/**
+ * MDR-1457 Add URL field to Practical tools and resources.
+ */
+function osha_search_update_7014() {
+  features_revert_module('osha_search');
+}
+
+/**
+ * MDR-1574 Create the search for the dangerous substances database on the corporate: Development.
+ */
+function osha_search_update_7015() {
+  features_revert(array('osha_search' => 'facetapi'));
+}
+
+/**
+ * MDR-1694 EU-OSHA´s communications: type of partner.
+ */
+function osha_search_update_7016() {
+  features_revert_module('osha_search');
+}
+
+/**
+ * MDR-1720 Good Practice exchange platform - Unify both susbsections.
+ */
+function osha_search_update_7017() {
+  features_revert(array('osha_search' => 'fe_block_settings'));
+}
+
+/**
+ * MDR-1922 HWC: Practical tools and guidance filters.
+ */
+function osha_search_update_7018() {
+  features_revert(array('osha_search' => 'facetapi'));
+}
+
+/**
+ * TKIT-9 Add new pages to search.
+ */
+function osha_search_update_7019() {
+  features_revert_module('osha_search');
+  search_api_index_reindex('default_multilingual_node_index');
+}

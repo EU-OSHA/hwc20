@@ -1,0 +1,410 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function osha_install() {
+  osha_configure_date_settings();
+  osha_configure_language_detection();
+}
+
+function osha_enable() {
+  // Allow public to download file_entity files.
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('download any document files'));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('download any document files'));
+
+
+  osha_configure_imce();
+}
+
+/**
+ * Configure IMCE module - Alter User-1 profile & assign to administrator.
+ */
+function osha_configure_imce() {
+  drupal_set_message('Configuring Drupal IMCE module ...');
+  // /admin/config/media/imce
+  if (!module_load_include('inc', 'imce', 'inc/imce.admin')) {
+    throw new Exception('Cannot load inc/imce.admin.inc');
+  }
+
+  // Alter profile User-1.
+  $profiles = variable_get('imce_profiles', array());
+
+  if (isset($profiles[1])) {
+    $profiles[1]['directories'][0]['name'] = ".";
+    $profiles[1]['directories'][0]['subnav'] = "1";
+    variable_set('imce_profiles', $profiles);
+  }
+  else {
+    throw new Exception('Cannot load IMCE profile User-1.');
+  }
+
+  $roles = user_roles();
+
+  if (in_array("administrator", $roles)) {
+    // Role administrator found - assign User-1 profile to administrator.
+    $roles_profiles = variable_get('imce_roles_profiles', array());
+    $admin_role = user_role_load_by_name("administrator");
+
+    $roles_profiles[$admin_role->rid]['public_pid'] = 1;
+    $roles_profiles[$admin_role->rid]['private_pid'] = 1;
+    $roles_profiles[$admin_role->rid]['weight'] = 0;
+
+    variable_set('imce_roles_profiles', $roles_profiles);
+  }
+  else {
+    // Role administrator not found.
+    throw new Exception('Cannot assign IMCE profile User-1 to administrator - role administrator not found.');
+  }
+}
+
+/**
+ * Update date formats/timezone settings. Update search index configuration.
+ */
+function osha_update_7001() {
+  osha_configure_date_settings();
+
+  if ($index = search_api_index_load('default_multilingual_node_index')) {
+    $index->options['data_alter_callbacks']['search_api_alter_node_status']['status'] = 1;
+    $index->save();
+    $index->reindex();
+    drupal_set_message('The indexing workflow was successfully edited. All content was scheduled for re-indexing so the new settings can take effect.');
+  }
+}
+
+/**
+ * Remove the admin_views_node view.
+ *
+ * Configure jquery_update and responsive_menus
+ * uuid features remove configuration.
+ */
+function osha_update_7002() {
+  if ($view = views_get_view('admin_views_node')) {
+    views_delete_view($view);
+  }
+
+  // Config jquery_update.
+  variable_set('jquery_update_jquery_version', '1.10');
+
+  // Config responsive_menus.
+  variable_set('responsive_menus_no_jquery_update', array('1' => 0));
+  variable_set('responsive_menus_ignore_admin', array('1' => 1));
+  variable_set('responsive_menus_style', 'mean_menu');
+  variable_set('responsive_menus_mean_menu_css_selectors', '#block-menu-block-1');
+  variable_set('responsive_menus_mean_menu_container', 'body');
+  variable_set('responsive_menus_mean_menu_trigger_txt', '<span /><span /><span />');
+  variable_set('responsive_menus_mean_menu_close_txt', 'X');
+  variable_set('responsive_menus_mean_menu_close_size', '18px');
+  variable_set('responsive_menus_mean_menu_position', 'right');
+  variable_set('responsive_menus_mean_menu_media_size', '960');
+  variable_set('responsive_menus_mean_menu_show_children', 1);
+  variable_set('responsive_menus_mean_menu_expand_txt', '+');
+  variable_set('responsive_menus_mean_menu_contract_txt', '-');
+  variable_set('responsive_menus_mean_menu_remove_attrs', 1);
+
+  // Unset the settings for uuid_features to prevent heavy rendering
+  // on features create/recreate.
+  variable_set('uuid_features_entity_taxonomy_term', NULL);
+  variable_set('uuid_features_entity_node', NULL);
+  variable_set('uuid_features_entity_file', NULL);
+  variable_set('uuid_features_file_file', NULL);
+  variable_set('uuid_features_file_mode', NULL);
+  variable_set('uuid_features_file_node', NULL);
+}
+
+/**
+ * Activate module view_datasource and feature-revert the views.
+ */
+function osha_update_7003() {
+  module_enable(array('views_json'));
+  features_revert(array('osha' => 'views_view'));
+  cache_clear_all();
+}
+
+/**
+ * Removes redirects that are also aliases.
+ */
+function osha_update_7004() {
+  $query = db_select('redirect', 'r');
+  $query->join('url_alias', 'a', 'r.source=a.alias');
+  $query->fields('r', array('rid'));
+  $rids = $query->execute()
+    ->fetchCol();
+
+  db_delete('redirect')
+    ->condition('rid', $rids, 'IN')
+    ->execute();
+}
+
+/**
+ * Give all permissions to administrators.
+ */
+function osha_update_7005() {
+  $role = user_role_load(3);
+  user_role_grant_permissions($role->rid, array_keys(module_invoke_all('permission')));
+}
+
+/**
+ * Add menu position rule for articles on inside-eu-osha/governance-eu-osha/internal_documents
+ */
+function osha_update_7006() {
+  if (module_exists('osha') && module_load_include('inc', 'osha', 'osha.utils')) {
+    $parent_menu = array('-------- Request of internal documents');
+    $condition = array('pages' => 'inside-eu-osha/governance-eu-osha/internal_documents/*');
+    osha_add_menu_position_rule('Governance Internal Documents Rule', $parent_menu, $condition);
+  }
+}
+
+/**
+ * Enable extra languages: Albanian, Serbian, Russian, Turkish, Macedonian
+ * and Bosnian.
+ */
+function osha_update_7007() {
+  $languages = language_list();
+  $add = array('sq', 'bs', 'sr', 'mk');
+  foreach ($add as $lang) {
+    if (!isset($languages[$lang])) {
+      locale_add_language($lang);
+    }
+  }
+  db_update('languages')
+    ->fields(array(
+      'weight' => 10,
+    ))
+    ->condition('language', $add, 'IN')
+    ->execute();
+}
+
+/**
+ * Give display permissions - for cookie privacy module.
+ */
+function osha_update_7008() {
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('display EU Cookie Compliance popup'));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('display EU Cookie Compliance popup'));
+}
+
+/**
+ * Enable extra languages: Serbo-Croatian.
+ */
+function osha_update_7009() {
+  $languages = language_list();
+  $add = array('sh');
+  foreach ($add as $lang) {
+    if (!isset($languages[$lang])) {
+      locale_add_language($lang);
+    }
+  }
+  db_update('languages')
+    ->fields(array(
+      'weight' => 10,
+    ))
+    ->condition('language', $add, 'IN')
+    ->execute();
+}
+
+/**
+ * Add all EU cookies strings into translation management workflow.
+ */
+function osha_update_7010() {
+  locale('<p><span style="font-size: small;"><strong>The EU-OSHA website uses cookies to gather information necessary for browsing the website, in accordance with the EU-OSHA privacy notice.</strong></span></p><p>By clicking on any link in the EU-OSHA web pages you are giving your consent for the use of cookies.</p>');
+  locale('OK, I agree');
+  locale('No, give me more info');
+  locale('More info');
+  locale('<h2>Thank you for accepting cookies</h2><p>You can now hide this message or find out more about cookies.</p>');
+}
+
+/**
+ * HCW-932
+ * Change "Tools and Resources" sentence by "Tools and Publications" in the whole website.
+ */
+function osha_update_7011() {
+  db_update('block')
+      ->fields(array(
+          'title' => 'Tools and publications',
+      ))
+      ->condition('bid', array('190', '191', '326'), 'IN')
+      ->condition('title', 'Tools and resources', '=')
+      ->execute();
+
+  db_update('menu_links')
+      ->fields(array(
+          'link_title' => 'Tools and publications',
+      ))
+      ->condition('mlid', 1372, '=')
+      ->condition('link_title', 'Tools and resources', '=')
+      ->execute();
+}
+
+/**
+ * Set replace with separator for some punctuation in aliases.
+ */
+function osha_update_7012() {
+  variable_set('pathauto_punctuation_hyphen', 1);
+  variable_set('pathauto_punctuation_plus', 1);
+  variable_set('pathauto_punctuation_underscore', 1);
+  variable_set('pathauto_punctuation_equal', 1);
+  variable_set('pathauto_punctuation_8249', 1);
+  variable_set('pathauto_punctuation_8250', 1);
+  variable_set('pathauto_punctuation_0171', 1);
+  variable_set('pathauto_punctuation_0187', 1);
+  variable_set('pathauto_punctuation_en-dash', 1);
+  variable_set('pathauto_punctuation_em-dash', 1);
+  variable_set('pathauto_punctuation_overline', 1);
+}
+
+/**
+ * MDR-952 - feature revert.
+ */
+function osha_update_7013() {
+  features_revert_module('osha');
+}
+
+/**
+ * New external url formatter.
+ */
+function osha_update_7014() {
+  features_revert_module('osha_resources');
+}
+
+/**
+ * Article Summary field format
+ */
+function osha_update_7015() {
+  features_revert_module('osha');
+}
+
+/**
+ * HW18-199 Development: Audit actions.
+ */
+function osha_update_7016() {
+  features_revert_module('osha');
+}
+
+/**
+ * New crop image style
+ */
+function osha_update_7017() {
+  features_revert_module('osha');
+}
+
+/**
+ * HW18-334 cover image.
+ */
+function osha_update_7018() {
+  features_revert_module('osha');
+}
+
+/**
+ * MDR-1489 - external url.
+ */
+function osha_update_7019() {
+  features_revert_module('osha');
+}
+
+/**
+ * MDR-1572 - Private Zone´s usability recommendations.
+ */
+function osha_update_7020() {
+  features_revert_module('osha');
+}
+
+/**
+ * MDR-1711 HWC18: Change number in Partners Documents date.
+ */
+function osha_update_7021() {
+  features_revert(array('osha' => 'field_base'));
+}
+
+/**
+ * MDR-1917 cannot select events on GP exchange page.
+ */
+function osha_update_7022() {
+  features_revert(array('osha_resources' => 'views_view'));
+}
+
+/**
+ * MDR-1917 cannot select events on GP exchange page.
+ */
+function osha_update_7023() {
+  db_delete('node')->condition('nid', 4221, '=')->execute();
+}
+
+/**
+ * MDR-1923 OSHwiki: recommended resources intro text.
+ */
+function osha_update_7024() {
+  features_revert(array('osha' => array('field_instance')));
+}
+
+/**
+ * MHOS-62 HWC - bad redirect.
+ */
+function osha_update_7025() {
+  variable_set('hwc_old_site_url', 'https://healthy-workplaces.eu/previous/all-ages-2016');
+}
+
+/**
+ * MDR-2001 Include a new filter in the back end, in 'Content' section.
+ */
+function osha_update_7026() {
+  features_revert(array('osha' => array('views_view')));
+}
+
+/**
+ * MDR-2067 HWC: Flags available in Drupal.
+ */
+function osha_update_7027() {
+  features_revert(array('osha' => array('views_view')));
+}
+
+/**
+ * MDR-2009 Back end - Events field - Tagging functionality.
+ */
+function osha_update_7028() {
+  variable_set('hwc_migration_news_url', '/export/news/list');
+  variable_set('hwc_migration_events_url', '/export/events/list');
+}
+
+/**
+ * MDR-2207 HWC: add pictures copyright.
+ */
+function osha_update_7029() {
+  features_revert(array('osha' => array('field_instance')));
+  features_revert(array('campaign_materials' => array('field_instance')));
+  features_revert(array('osha_news' => array('field_instance')));
+}
+
+/**
+ * MDR-2419 Include a new filter in the back end, in 'Content' section.
+ * MDR-2027 HWC: Changes in the workflow of news and events.
+ */
+function osha_update_7030() {
+  features_revert(array('osha' => array('views_view')));
+}
+
+/**
+ * MDR-2432 HWC - Display infographics.
+ */
+function osha_update_7031() {
+  features_revert(array('osha' => array('field_instance')));
+}
+
+/**
+ * MDR-2432 HWC - Display infographics.
+ */
+function osha_update_7032() {
+  $nid = variable_get('hwc_external_infographic_nid', FALSE);
+  if ($nid) {
+    $node = node_load($nid);
+    $node->field_migration_path_alias[LANGUAGE_NONE][0]['value'] = 'tools-and-publications/infographics/how-to-manage-dangerous-substances/how-to-manage-dangerous-substances-infographic';
+    node_save($node);
+  }
+}
+
+/**
+ * MDR-2713 New process for the HWC18 Newsletter subscribers.
+ */
+function osha_update_7033() {
+  variable_set('osha_newsletter_listserv', 'crm-campaign@osha.europa.eu');
+  variable_set('campaigns_newsletter_list_name', 'crm-campaign');
+}

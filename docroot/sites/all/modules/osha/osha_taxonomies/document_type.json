@@ -1,0 +1,52 @@
+{
+    "document": {
+        "Factsheets":{
+            "en":"Factsheets"
+        },
+        "Infographics":{
+            "en":"Infographics"
+        },
+        "Standard presentations":{
+            "en":"Standard presentations"
+        },
+        "Articles":{
+            "en":"Articles"
+        },
+        "Case studies":{
+            "en":"Case studies"
+        },
+        "Videos":{
+            "en":"Videos"
+        },
+        "Leaflets and brochures":{
+            "en":"Leaflets and brochures"
+        },
+        "Posters":{
+            "en":"Posters"
+        },
+        "Promotional items":{
+            "en":"Promotional items"
+        },
+        "Visual materials":{
+            "en":"Visual materials"
+        },
+        "Documents":{
+            "en":"Documents"
+        },
+        "Links":{
+            "en":"Links"
+        },
+        "Photos":{
+            "en":"Photos"
+        },
+        "Call for collaboration":{
+            "en":"Call for collaboration"
+        },
+        "Meeting documentation":{
+            "en":"Meeting documentation"
+        },
+        "Invitation":{
+            "en":"Invitation"
+        }
+    }
+}

@@ -1,0 +1,92 @@
+<?php
+
+/**
+ * Implements hook_install
+ */
+function osha_contact_install(){
+  add_new_fields();
+  enable_captcha();
+}
+
+/**
+ * Implements hook_uninstall
+ */
+function osha_contact_uninstall(){
+  remove_fields();
+}
+
+/**
+ * Implements hook_update_7001
+ */
+function osha_contact_update_7001() {
+  add_new_fields();
+  enable_captcha();
+}
+
+/**
+ * Update captcha for contacts to use default.
+ */
+function osha_contact_update_7002() {
+  enable_captcha();
+}
+
+/**
+ * Add Captcha Image validation
+ */
+function enable_captcha(){
+  $query = db_query("SELECT * FROM captcha_points WHERE form_id = 'contact_site_form' ")->fetchField();
+
+  $data = array(
+    'form_id' => 'contact_site_form',
+    'module' => NULL,
+    'captcha_type' => 'default',
+  );
+
+  if($query)
+    drupal_write_record('captcha_points', $data, 'form_id');
+  else
+    drupal_write_record('captcha_points', $data);
+}
+
+/**
+ * Add new fields to contact category form
+ */
+function add_new_fields(){
+  $schema = array();
+  osha_contact_schema_alter($schema);
+  foreach ($schema as $table =>$tablespecs){
+    if (isset($tablespecs['fields']))
+      foreach ($tablespecs['fields'] as $name => $spec)
+        db_add_field($table, $name, $spec);
+  }
+}
+
+/**
+ * Remove fields from contact category form
+ */
+function remove_fields(){
+  $schema = array();
+  osha_contact_schema_alter($schema);
+  foreach ($schema as $table =>$tablespecs){
+    if (isset($tablespecs['fields']))
+      foreach ($tablespecs['fields'] as $name => $spec)
+        db_drop_field($table, $name, $spec);
+  }
+}
+
+/**
+ * Implements hook_schema_alter
+ */
+function osha_contact_schema_alter(&$schema){
+  // Add fields to existing schema.
+  $schema['contact']['fields']['body'] = array(
+    'type' => 'text',
+    'size' => 'big',
+    'description' => 'EU-OSHA message body.',
+  );
+  $schema['contact']['fields']['from_email'] = array(
+    'type' => 'varchar',
+    'length' => 50,
+    'description' => 'E-mail from',
+  );
+}

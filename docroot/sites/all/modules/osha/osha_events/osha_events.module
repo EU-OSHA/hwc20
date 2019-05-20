@@ -1,0 +1,586 @@
+<?php
+/**
+ * @file
+ * Code for the OSHA Events feature.
+ */
+
+include_once 'osha_events.features.inc';
+
+
+/**
+ * Implements hook_theme().
+ */
+function osha_events_theme($existing, $type, $theme, $path) {
+  return array(
+    'event_location' => array(
+      'variables' => array('location' => NULL, 'city' => NULL, 'country' => NULL,),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function osha_events_field_formatter_info() {
+  $info = array(
+    'event_schedule' => array(
+      'label' => 'Event schedule view',
+      'field types' => array('field_collection'),
+      'description' => 'Display the field collection event schedule trough a view.',
+    ),
+  );
+  return $info;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function osha_events_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  switch ($display['type']) {
+    case 'event_schedule':
+      if (!empty($entity->{$field['field_name']})) {
+        $element[0] = array(
+          '#type' => 'markup',
+          '#markup' => views_embed_view('event_schedule'),
+        );
+      }
+      break;
+  }
+  return $element;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function osha_events_form_events_node_form_alter(&$form, &$form_state) {
+  global $user;
+
+  $is_admin = count(array_intersect(array(HWC_ROLE_ADMIN), $user->roles));
+
+  hwc_workflow_add_extra_fields($form, $form_state);
+  $access = TRUE;
+  if ($is_admin) {
+    $form['field_tags']['#access'] = TRUE;
+    $form['field_activity']['#access'] = TRUE;
+    $form['field_adonis']['#access'] = TRUE;
+    $form['field_unit_ref']['#access'] = TRUE;
+    $form['field_agency_role']['#access'] = TRUE;
+    $form['field_agency_initial_contact']['#access'] = TRUE;
+    $form['field_agency_rep_confirmed']['#access'] = TRUE;
+    $form['field_satisfaction_rate']['#access'] = TRUE;
+    $form['field_event_in_amp']['#access'] = TRUE;
+    $form['field_agency_contact_reply']['#access'] = TRUE;
+    $form['field_number_of_attendees']['#access'] = TRUE;
+    $form['field_color']['#access'] = TRUE;
+    $form['field_show_in_ncw']['#access'] = TRUE;
+    $form['field_show_eu_flag']['#access'] = TRUE;
+  }
+  else {
+    $access = FALSE;
+    if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
+      $form['field_for_the_web']['#access'] = FALSE;
+    }
+    $form['field_tags']['#access'] = FALSE;
+    $form['field_activity']['#access'] = FALSE;
+    $form['field_adonis']['#access'] = FALSE;
+    $form['field_unit_ref']['#access'] = FALSE;
+    $form['field_agency_role']['#access'] = FALSE;
+    $form['field_agency_initial_contact']['#access'] = FALSE;
+    $form['field_agency_rep_confirmed']['#access'] = FALSE;
+    $form['field_satisfaction_rate']['#access'] = FALSE;
+    $form['field_event_in_amp']['#access'] = FALSE;
+    $form['field_agency_contact_reply']['#access'] = FALSE;
+    $form['field_number_of_attendees']['#access'] = FALSE;
+    $form['field_color']['#access'] = FALSE;
+    $form['field_show_in_ncw']['#access'] = FALSE;
+    $form['field_show_eu_flag']['#access'] = FALSE;
+  }
+
+  $form['field_type_event']['#access'] = $access;
+  $form['field_agenda']['#access'] = $access;
+  $form['field_key_performance']['#access'] = $access;
+  $form['field_publications_exhibition_su']['#access'] = $access;
+  $form['field_media_promotion']['#access'] = $access;
+
+  $form['#validate'][] = 'osha_events_form_validate';
+  $form['actions']['#attributes']['class'] = array('container');
+  // Activity field changes.
+  if (isset($form['field_activity'][LANGUAGE_NONE][0])) {
+    unset($form['field_activity'][LANGUAGE_NONE]['add_more']);
+    // Extract the field field tree to change cardinality.
+    $field = $form['field_activity'][LANGUAGE_NONE][0]['tid'];
+
+    // Show the label as usual.
+    unset($field['#title_display']);
+
+    // Field is not required, so add also an empty option.
+    $field['#required'] = FALSE;
+    $field['#options'] = array('' => t('- None -')) + $field['#options'];
+    // Switch validator.
+    $field['#element_validate'] = array('options_field_widget_validate');
+
+    $form['field_activity'][LANGUAGE_NONE] = $field;
+  }
+
+  if (isset($form['field_related_documents']['#language'])) {
+    $lang = $form['field_related_documents']['#language'];
+    if (isset($form['field_related_documents'][$lang]['#file_upload_title'])) {
+      $form['field_related_documents'][$lang]['#file_upload_title'] = t('Upload extra files');
+    }
+  }
+
+  if (isset($form['title_field']['#language'])) {
+    $lang = $form['title_field']['#language'];
+    $form['title_field'][$lang][0]['value']['#maxlength'] = 150;
+    $form['title_field'][$lang][0]['value']['#attributes']['maxlength_js_label'][0] = '@remaining' . ' ' . t('left', array(), array('context' => 'characters left'));
+  }
+
+  if (!empty($form['#entity']->field_migration_source)) {
+    $form['title_field']['#disabled'] = TRUE;
+    $disabled = [
+      'language',
+      'revision_information',
+      'author',
+      'body',
+      'field_city',
+      'field_country_code',
+      'field_related_documents',
+      'field_start_date',
+      'field_website_of_event',
+      'field_contact_email',
+      'field_contact_name',
+      'field_contact_phone',
+      'field_partner_id',
+      'field_schedule',
+      'field_speaker',
+      'field_organizer',
+      'field_activity',
+      'field_location',
+      'field_tags',
+      'field_gallery',
+      'field_wf_notification',
+      'field_migration_source',
+      'field_show_in_ncw',
+      'field_modified_by',
+      'field_modified_on',
+      'field_adonis',
+      'field_agency_contact_reply',
+      'field_agency_initial_contact',
+      'field_agency_rep_confirmed',
+      'field_agency_role',
+      'field_color',
+      'field_event_in_amp',
+      'field_for_the_web',
+      'field_number_of_attendees',
+      'field_satisfaction_rate',
+      'field_unit_ref',
+      'field_event_in_amp',
+      'comment_settings',
+      'menu',
+      'metatags',
+      'redirect',
+      'additional_settings',
+      'options',
+    ];
+    foreach ($form as $k => $v) {
+      if (is_array($v) && in_array($k, $disabled)) {
+        $form[$k]['#access'] = FALSE;
+      }
+    }
+  }
+}
+
+/**
+ * Validate event speakers
+ *
+ * @param $form
+ * @param $form_state
+ */
+function osha_events_form_validate($form, $form_state) {
+  $values = $form_state['values'];
+  $start_date = $values['field_start_date'][LANGUAGE_NONE][0]['value'];
+  $end_date = $values['field_start_date'][LANGUAGE_NONE][0]['value2'];
+  if (!empty($start_date) || !empty($end_date)) {
+    // Accept talking date.
+    $start = (!empty($start_date) && !is_array($start_date)) ? strtotime($start_date) : -9999999999;
+    // Accept talking date. Fix talking date and end date.
+    if (!empty($end_date) && !is_array($end_date)) {
+      if (strlen($end_date) == 10) {
+        $end_date .= ' 23:59:59';
+      }
+      else {
+        $end_date = str_replace('00:00:00', '23:59:59', $end_date);
+      }
+      $end = strtotime($end_date);
+    }
+    else {
+      $end = 9999999999;
+    }
+    if ($end_date == $start_date) {
+      // End is empty ...
+      $end = 9999999999;
+    }
+    foreach ($values['field_schedule'][LANGUAGE_NONE] as $k => $row) {
+      if (is_numeric($k) && !empty($row['field_talking_date'][LANGUAGE_NONE][0]['value'])) {
+        $talk_date = $row['field_talking_date'][LANGUAGE_NONE][0]['value'];
+        if (!empty($talk_date) && $talk_date = strtotime($talk_date)) {
+          if ($talk_date < $start || $talk_date > $end) {
+            form_set_error("field_schedule][und][${k}][field_talking_date][und][0", t('Schedule event outside of event dates, please review'));
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_views_exposed_form_alter().
+ */
+function osha_events_form_views_exposed_form_alter(&$form, &$form_state) {
+  // CW-1085 Default date now for start date in views filter.
+  if ($form['#id'] == 'views-exposed-form-events-index-page') {
+    $form['field_start_date_value']['#date_format'] = 'd/m/Y';
+    $form['field_start_date_value2']['#date_format'] = 'd/m/Y';
+    if (empty($form_state['input'])) {
+      $date = new DateTime('now');
+      $form_state['input']['field_start_date_value']['date'] = $date->format('d/m/Y');
+      // Set the get value to prevent a bug in pager
+      // See ticket CW-1438 and Drupal bug: www.drupal.org/node/1415306
+      $_GET['field_start_date_value']['date'] = $date->format('d/m/Y');
+    }
+  }
+  elseif ($form['#id'] == 'views-exposed-form-events-search-page-1' || $form['#id'] == 'views-exposed-form-events-search-page') {
+    // HCW-976 Add 'name' attribute to submit button
+    $form['submit']['#name'] = 'submit';
+
+    // Add Events Calendar filter just after search exposed filter.
+    if ($form['#id'] == 'views-exposed-form-events-search-page-1') {
+      $block = block_load('views', 'events-block_1');
+    }
+    elseif ($form['#id'] == 'views-exposed-form-events-search-page') {
+      $block = block_load('views', 'events-block_2');
+    }
+    $rendered_block = _block_get_renderable_array(_block_render_blocks(array($block)));
+    $events_calendar = drupal_render($rendered_block);
+    $form['events_calendar'] = array(
+      '#type' => 'markup',
+      '#markup' => $events_calendar,
+    );
+
+    // Add placeholder for free text field.
+    $placeholder_text = ($form['#id'] == 'views-exposed-form-events-search-page') ? t('Search Upcoming events') : t('Search Past events');
+    $form['search_api_views_fulltext']['#attributes'] = array('placeholder' => array($placeholder_text), 'title' => array($placeholder_text));
+  }
+}
+
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function osha_events_element_info_alter(&$type) {
+  $type['date_popup']['#process'][] = 'osha_events_popup_date_process';
+  if (isset($type['link_field'])) {
+    $type['link_field']['#process'][] = 'osha_events_link_field_process';
+  }
+}
+
+/**
+ * Change field label
+ */
+function osha_events_link_field_process($element, $form_state, $complete_form) {
+  switch ($element['#field_name']) {
+    case 'field_website_of_event':
+      $element['title']['#title'] = t('Website name');
+      $element['url']['#title'] = t('Website url');
+      break;
+  }
+
+  return $element;
+}
+
+/**
+ * Implements hook_date_popup_pre_validate_alter().
+ */
+function osha_events_popup_date_process($element, &$form_state, $form) {
+  $element['#element_validate'] = array('osha_events_popup_date_validate');
+  return $element;
+}
+
+/**
+ * Implements hook_node_view().
+ */
+function osha_events_node_view($node, $view_mode, $langcode) {
+  if ($node->type == 'events') {
+    $wrapper = entity_metadata_wrapper('node', $node);
+    if (!empty($node->preprocess_fields)) {
+      foreach ($node->preprocess_fields as $field_name) {
+        switch ($field_name) {
+          case 'event_location':
+            $location = $wrapper->field_location->value();
+            $city = $wrapper->field_city->value();
+            $country = $wrapper->field_country_code->label();
+            $node->content[$field_name] = array(
+              '#markup' => theme('event_location', array('location' => $location, 'city' => $city, 'country' => $country))
+            );
+            break;
+        }
+      }
+    }
+  }
+}
+
+
+function osha_events_popup_date_validate($element, &$form_state, $form) {
+  if ($element['#name'] == 'field_start_date[und][0][value]') {
+    $date_format = trim($element['#date_format']);
+    if (strpos($date_format, ' ')) {
+      list($date_format, $time_format) = explode(" ", $element['#date_format']);
+    }
+    $element['#date_format'] = trim($date_format);
+    if (empty($form_state['input']['field_start_date'][LANGUAGE_NONE][0]['value']['time'])) {
+      $form_state['input']['field_start_date'][LANGUAGE_NONE][0]['value']['time'] = '00:00';
+    }
+  }
+  if ($element['#name'] == 'field_start_date[und][0][value2]') {
+    $date_format = trim($element['#date_format']);
+    if (strpos($date_format, ' ')) {
+      list($date_format, $time_format) = explode(" ", $element['#date_format']);
+    }
+    $element['#date_format'] = trim($date_format);
+    if (empty($form_state['input']['field_start_date'][LANGUAGE_NONE][0]['value2']['time'])) {
+      $form_state['input']['field_start_date'][LANGUAGE_NONE][0]['value2']['time'] = '00:00';
+    }
+  }
+  date_popup_validate($element, $form_state);
+}
+
+/**
+ * Implements hook_date_popup_process_alter().
+ * Altering Date Popup to remove labels and description for specific field
+ */
+function osha_events_date_popup_process_alter(&$element, &$form_state, $context) {
+  if ($element['#name'] == 'field_start_date_value' || $element['#name'] == 'field_start_date_value2') {
+    //unset($element['date']['#description']);
+    unset($element['date']['#title']);
+  }
+
+  if($element['#name'] == 'field_start_date[und][0][value]'){
+    $element['date']['#title'] = 'Starting date' .
+      ' <span class="required-custom" title="'.t('This field is required.').'">*</span>';
+  }
+
+  if($element['#name'] == 'field_start_date[und][0][value2]'){
+    $element['date']['#title'] = 'Ending date' .
+      ' <span class="required-custom" title="'.t('This field is required.').'">*</span>';
+  }
+}
+
+/**
+ * Implements hook_osha_tmgmt_i18n_string_list().
+ */
+function osha_events_osha_tmgmt_i18n_string_list() {
+  module_load_include('inc', 'osha_events', 'osha_events.translations');
+  return osha_events_get_translatable_strings();
+}
+
+
+/**
+ * Implements hook_user_role_insert().
+ */
+function osha_events_user_role_insert($role) {
+  if ($role->name == 'Events Editor') {
+    user_role_grant_permissions($role->rid, array(
+      'access contextual links',
+      'access dashboard',
+
+      'create files',
+      'view own private files',
+      'view own files',
+      'view files',
+
+      'edit own image files',
+      'edit any image files',
+      'delete own image files',
+      'download own image files',
+      'download any image files',
+
+      'use text format full_html',
+      'use text format filtered_html',
+
+      'access media browser',
+
+      'edit meta tags',
+      'access content',
+      'view own unpublished content',
+      'view revisions',
+
+      'create events content',
+      'edit own events content',
+      'edit any events content',
+      'delete own events content',
+      'delete any events content',
+
+      'create url aliases',
+      'access administration pages',
+      'view the administration theme',
+    ));
+  }
+}
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function osha_events_views_pre_view( view &$view, &$display_id, &$args) {
+  if (in_array($view->name, array('events_search'))) {
+    $params = drupal_get_query_parameters();
+    // Fix for HCW-1012.
+    // If emtpy search word, we search only for english, even if in other languages.
+    // We will render the translations from _pre_render.
+    if (empty($params['search_api_views_fulltext'])) {
+      $view_filters = $view->display_handler->get_option('filters');
+      $view_filters['search_api_language']['value'] = drupal_map_assoc(array('en'));
+      $overrides = array();
+      $overrides['filters'] = $view_filters;
+      foreach ($overrides as $option => $definition) {
+        $view->display_handler->override_option($option, $definition);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ *
+ * {@inheritdoc}
+ */
+function osha_events_views_pre_render(&$view) {
+  if ($view->name == 'events' && in_array($view->current_display, array('block_1', 'block_2'))) {
+    $month = '';
+
+    $selected = FALSE;
+    $url_params = drupal_get_query_parameters($_GET, array('search_api_views_fulltext', 'q'));
+    if (isset($url_params['f'][0]) && strpos($url_params['f'][0], 'field_start_date') !== FALSE) {
+      $filter_value = urldecode($url_params['f'][0]);
+      $filter_value = str_replace('field_start_date:value:', '', $filter_value);
+      $selected = TRUE;
+      list($selected_year, $selected_month) = explode('-', $filter_value);
+    }
+    foreach ($view->result as $key => $result) {
+      $row_month = format_date(strtotime($result->field_field_start_date[0]['raw']['value']), 'custom', 'm');
+      $row_month_raw = date('m', strtotime($result->field_field_start_date[0]['raw']['value']));
+      $row_year = date('Y', strtotime($result->field_field_start_date_1[0]['raw']['value']));
+
+      // Remove from display if start date is in the same month.
+      if ($month == $row_month) {
+        unset($view->result[$key]);
+        continue;
+      }
+      $month = $row_month;
+      $path = $view->current_display == 'block_1' ? 'media-centre/past-events' : 'media-centre/events';
+
+      // Add a css class to selected month.
+      $class = $class_year = '';
+      if ($selected) {
+        if ($selected_month == $row_month_raw) {
+          $class = 'current_month';
+        }
+        if ($selected_year == $row_year) {
+          $class_year = 'current_year';
+        }
+      }
+
+      // Overwrite month value with a link to search page.
+      $result->field_field_start_date[0]['rendered']['#markup']
+        = l($row_month, $path, array(
+          'query' => array('f' => array(
+                0 => urlencode('field_start_date:') . 'value:' . $row_year . '-' . $row_month_raw,
+              ),
+            ),
+           'attributes' => array(
+             'class' => array($class),
+           ),
+          )
+        );
+
+      // Overwrite year values with a link to search page.
+      $result->field_field_start_date_1[0]['rendered']['#markup']
+          = l($row_year, $path, array(
+              'query' => array('f' => array(
+                0 => urlencode('field_start_date:') . 'value:' . $row_year,
+              ),
+              ),
+              'attributes' => array(
+                'class' => array($class_year),
+              ),
+          )
+      );
+    }
+  }
+
+  // Breadcrumb and title for Monthly Posts.
+  if ($view->name == 'events_search' && in_array($view->current_display, array('page', 'page_1'))) {
+    $title = '';
+
+    if (isset($view->exposed_input['f'])) {
+      $pos = strpos($view->exposed_input['f'][0], ':');
+      $title = osha_events_get_view_title(substr($view->exposed_input['f'][0], $pos + 1));
+    }
+    // When searching in other lang than EN, we are getting en results.
+    foreach ($view->result as &$result) {
+      if (!empty($result->_entity_properties['nid'])) {
+        $node = node_load($result->_entity_properties['nid']);
+        if ($node) {
+          $wrapper = entity_metadata_wrapper('node', $node);
+          $result->_entity_properties['title_field'][0] = $wrapper->label();
+          $result->_entity_properties['body:value'][0] = $wrapper->body->value();
+        }
+      }
+    }
+
+    // Set view title.
+    $view->build_info['title'] = $title;
+    // Set view breadcrumb.
+    drupal_set_breadcrumb(
+      array(
+        l(t('Media centre'), '<front>'),
+        l(t('Events'), 'media-centre/events'),
+        $title,
+      )
+    );
+  }
+}
+
+/**
+ * Display custom title for monthly views.
+ *
+ * @return bool|null|string
+ *   View's title.
+ */
+function osha_events_get_view_title($title) {
+  if (preg_match('/([\d]{4}\-[\d]{2})/', $title)) {
+    $title = date(
+      'F Y',
+      mktime(0, 0, 0, substr($title, 5, 2), 1, substr($title, 0, 4))
+    );
+    $title = t('@data events', array('@data' => $title));
+  }
+  return $title;
+}
+
+function theme_event_location($vars) {
+  $output = '';
+  if (!empty($vars['location'])) {
+    $output .= '<span class="event-location-location">' .$vars['location'] .'</span>';
+  }
+  if (!empty($vars['city'])) {
+    $output .= '<span class="event-location-city">' .$vars['city'] .'</span>';
+  }
+  if (!empty($vars['country'])) {
+    $output .= '<span class="event-location-country">' .$vars['country'] .'</span>';
+  }
+  if (!empty($output)) {
+    $output = '<div class="event-location-container">' . $output . '</div>';
+  }
+  return $output;
+}

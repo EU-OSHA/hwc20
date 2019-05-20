@@ -1,0 +1,124 @@
+<?php
+
+/**
+ * Implements hook_uninstall().
+ */
+function osha_alert_service_uninstall() {
+
+  $path = drupal_lookup_path('source', 'alertservice');
+  if ($node = menu_get_object('node', 1, $path)) {
+    node_delete($node->nid);
+  }
+  $path = drupal_lookup_path('source', 'rss-feeds');
+  if ($node = menu_get_object('node', 1, $path)) {
+    node_delete($node->nid);
+  }
+}
+
+/**
+ * Implements hook_install().
+ */
+function osha_alert_service_install() {
+  global $user;
+  $path = drupal_lookup_path('source', 'alertservice');
+  if (!menu_get_object('node', 1, $path)) {
+    $alert_page                = new stdClass();
+    $alert_page->title         = 'Alert Service';
+    $alert_page->uid           = $user->uid;
+    $alert_page->name          = $user->name;
+    $alert_page->type          = 'page';
+    $alert_page->status        = NODE_PUBLISHED;
+    $alert_page->promote       = 0;
+    $alert_node = node_submit($alert_page);
+    node_save($alert_node);
+    $path = array(
+      'source' => 'node/' . $alert_node->nid,
+      'alias' => 'alertservice',
+      'language' => LANGUAGE_NONE,
+    );
+    path_save($path);
+  }
+  $path = drupal_lookup_path('source', 'rss-feeds');
+  if (!menu_get_object('node', 1, $path)) {
+    $page                = new stdClass();
+    $page->title         = 'Alert Service';
+    $page->uid           = $user->uid;
+    $page->name          = $user->name;
+    $page->type          = 'page';
+    $page->status        = NODE_PUBLISHED;
+    $page->promote       = 0;
+    $page->body['en'][0]['value'] = file_get_contents(drupal_get_path('module', 'osha_alert_service') . '/rss.html');
+    $page->body['en'][0]['format'] = 'full_html';
+    $node = node_submit($page);
+    node_save($node);
+    $path = array(
+      'source' => 'node/' . $node->nid,
+      'alias' => 'rss-feeds',
+      'language' => LANGUAGE_NONE,
+    );
+    path_save($path);
+  }
+}
+
+/**
+ * Implements hook_schema().
+ */
+function osha_alert_service_schema() {
+  $schema = array();
+  $schema['osha_alert_service'] = array(
+    'description' => 'Alert Service entity base table',
+    'fields' => array(
+      'id' => array(
+        'description' => 'Primary key of the Alert Service entity',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'email' => array(
+        'description' => 'Email address for the registered user',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'filters' => array(
+        'description' => 'Serialized array with filter settings',
+        'type' => 'text',
+        'size' => 'big',
+        'not null' => FALSE,
+        'default' => NULL,
+      ),
+      'schedule' => array(
+        'description' => 'How often user wants to receive alerts',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'token' => array(
+        'description' => 'Token sent via e-mail in order to confirm the address',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'confirmed' => array(
+        'description' => 'User has confirmed the address',
+        'type' => 'int',
+        'not null' => FALSE,
+        'default' => 0,
+      ),
+      'created' => array(
+        'description' => 'The Unix timestamp when the entry was created.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'last_alert' => array(
+        'description' => 'The Unix timestamp when the last alert was sent',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('id'),
+  );
+  return $schema;
+}

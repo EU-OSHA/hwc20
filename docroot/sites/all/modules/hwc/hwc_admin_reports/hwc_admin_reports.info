@@ -1,0 +1,17 @@
+name = HWC Admin Reports
+core = 7.x
+package = HWC
+version = 7.x-1.1
+project = hwc_admin_reports
+dependencies[] = ctools
+dependencies[] = phpexcel
+dependencies[] = strongarm
+dependencies[] = views
+dependencies[] = views_data_export
+dependencies[] = views_data_export_phpexcel
+features[ctools][] = strongarm:strongarm:1
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[variable][] = date_format_us_date_only_format
+features[variable][] = date_format_us_dt
+features[views_view][] = content_reports

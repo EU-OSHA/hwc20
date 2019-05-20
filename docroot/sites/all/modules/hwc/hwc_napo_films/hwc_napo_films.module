@@ -1,0 +1,23 @@
+<?php
+/**
+ * @file
+ * Code for the HWC NAPO films feature.
+ */
+
+include_once 'hwc_napo_films.features.inc';
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function hwc_napo_films_views_pre_render(&$view) {
+  if ($view->name == 'napo_film_carousel') {
+    hwc_napo_films_result_count(count($view->result));
+    drupal_add_js(drupal_get_path('module', 'hwc_napo_films') . '/video.js', array('weight' => 20));
+  }
+}
+
+function hwc_napo_films_result_count($add = 0) {
+  static $total = 0;
+  $total += $add;
+  return $total;
+}

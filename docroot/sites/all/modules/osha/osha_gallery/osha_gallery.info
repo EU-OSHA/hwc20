@@ -1,0 +1,6 @@
+name = OSHA gallery
+core = 7.x
+package = OSHA
+dependencies[] = plupload
+dependencies[] = field_formatter_settings
+configure = admin/config/content/osha_gallery

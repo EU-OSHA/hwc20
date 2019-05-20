@@ -1,0 +1,90 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function search_and_replace_schema() {
+  $schema['search_and_replace'] = array(
+    'description' => 'Search operations',
+    'fields' => array(
+      'id' => array(
+        'description' => 'Row identifier',
+        'type' => 'serial',
+        'not null' => TRUE,
+      ),
+      'undo_data' => array(
+        'description' => 'What was changed',
+        'type' => 'text',
+        'size' => 'big',
+        'not null' => TRUE,
+      ),
+      'undone' => array(
+        'description' => 'Whether the replacement has been undone',
+        'type' => 'int',
+        'size' => 'tiny',
+        'default' => 0,
+        'not null' => FALSE,
+      ),
+      'search' => array(
+        'description' => 'Text that was searched for',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'replaced' => array(
+        'description' => 'Text that was used as replacement',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'options' => array(
+        'description' => 'The options used for search',
+        'type' => 'text',
+        'size' => 'big',
+        'not null' => TRUE,
+      ),
+      'uid' => array(
+        'description' => 'User that performed the operation',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'nid' => array(
+        'description' => 'Nid if search was performed when in node context',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+        'default' => NULL,
+      ),
+      'created' => array(
+        'description' => 'Created timestamp.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('id'),
+    'foreign keys' => array(
+      'uid' => array(
+        'table' => 'users',
+        'columns' => array('uid' => 'uid'),
+      ),
+      'nid' => array(
+        'table' => 'node',
+        'columns' => array('nid' => 'nid'),
+      ),
+    ),
+  );
+
+  return $schema;
+}
+
+/**
+ * Add nid field to search_and_replace.
+ */
+function search_and_replace_update_7001() {
+  if (!db_field_exists('search_and_replace', 'nid')) {
+    $schema = search_and_replace_schema();
+    db_add_field('search_and_replace', 'nid', $schema['search_and_replace']['fields']['nid']);
+  }
+}

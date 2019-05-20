@@ -1,0 +1,234 @@
+
+/* CLIENT-SPECIFIC STYLES */
+html { min-width:100%; }
+body, table, td, a{-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;} /* Prevent WebKit and Windows mobile changing default text sizes */
+table, td{mso-table-lspace: 0pt; mso-table-rspace: 0pt;} /* Remove spacing between tables in Outlook 2007 and up */
+img{-ms-interpolation-mode: bicubic;} /* Allow smoother rendering of resized image in Internet Explorer */
+
+/* RESET STYLES */
+img{border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none;}
+table{border-collapse: collapse !important;}
+body{
+  height: 100% !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* iOS BLUE LINKS */
+a[x-apple-data-detectors] {
+  color: inherit !important;
+  text-decoration: none !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+}
+#content .old-newsletter .pink-arrow a {
+  font-family: 'Oswald', Arial, sans-serif;
+}
+.gmailfix {
+  display:none;
+  display:none!important;
+}
+
+#content .newsletter-container a {
+  font-family: inherit;
+}
+.newsletter-container.web-version {
+  margin: 0 auto !important;
+}
+
+@media only screen and (max-width: 600px) {
+  /* Positioning & layout */
+  .newsletter-container {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  table[width],
+  .template-image,
+  .template-container,
+  .template-column {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .responsive-column {
+    max-width: 100% !important;
+    width: auto !important;
+    display: block !important;
+    text-align: left !important;
+  }
+  img {
+    max-width: 100% !important;
+    width: auto;
+    height: auto !important;
+  }
+  .newsletter-section {
+    min-height: 0 !important;
+  }
+  .hidden-mobile {
+    display: none !important;
+  }
+  .visible-mobile {
+    display: block !important;
+  }
+  td.visible-mobile {
+    display: table-cell !important;
+  }
+  .prefix-arrow.visible-mobile {
+    display: inline !important;
+  }
+/*
+  .newsletter-multiple-columns,
+  .newsletter-full-width-2-col-blocks,
+  .newsletter-multiple-columns > tbody,
+  .newsletter-full-width-2-col-blocks > tbody,
+  .newsletter-multiple-columns > tbody > tr,
+  .newsletter-full-width-2-col-blocks > tbody > tr,
+  .newsletter-multiple-columns > tbody > tr > td,
+  .newsletter-full-width-2-col-blocks > tbody > tr > td,
+  .item-thumbnail-and-title,
+  .item-thumbnail-and-title > tbody,
+  .item-thumbnail-and-title > tbody > tr,
+  .item-thumbnail-and-title > tbody > tr > td,
+  */
+  .template-column {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .template-image {
+    text-align: center !important;
+  }
+  /* Styling */
+  .template-column > .newsletter-item {
+    background-color: transparent;
+    color: #003399;
+  }
+  .newsletter-full-width-2-col-blocks-item > .newsletter-item > tbody > tr > td {
+    padding: 5px 0px;
+  }
+
+  .newsletter-item {
+    border-bottom: 1px dashed #dddddd;
+  }
+
+  .newsletter-section > tbody > .row:last-child > .item:last-child > .newsletter-item {
+    border-bottom: none;
+  }
+
+  .newsletter-half-image-left-container {
+    background-image: none!important;
+  }
+  .newsletter-half-image {
+    padding-bottom: 0 !important;
+  }
+  .newsletter-half-image td {
+    padding-right: 0 !important;
+  }
+  .newsletter-half-content {
+    padding-top: 0 !important;
+  }
+  .multiple-columns-cell {
+    padding-bottom: 0px !important;
+  }
+
+  table,
+  p,
+  .newsletter-item-view-link {
+    font-size: 16px !important;
+  }
+  .header {
+    table-layout: auto !important;
+  }
+  .hwc-logo.visible-mobile {
+    padding-left: 0 !important;
+    padding-right: 10px !important;
+  }
+  .hwc-logo.visible-mobile a {
+    display: table-cell !important;
+    border-right: 1px solid #039 !important;
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+  }
+  /*
+  .hwc-logo.visible-mobile a img {
+    width: auto !important;
+    max-width: 88px !important;
+    height: auto !important;
+    max-height: 83px !important;
+  }
+  */
+  .hwc-logo.visible-mobile {
+    width: 107px !important;
+    max-width: 107px !important;
+  }
+  .osha-logos {
+    text-align: right !important;
+    width: 110px !important;
+    max-width: 110px !important;
+  }
+  .eu-logo {
+    width: 57px !important;
+    max-width: 57px !important;
+    text-align: right !important;
+    padding-right: 20px !important;
+  }
+  .header-banner-container {
+    background-size: 100% 100% !important;
+  }
+  .header-title {
+    font-size: 13px !important;
+    font-weight: normal !important;
+    padding-bottom: 13px !important;
+    padding-top: 13px !important;
+    letter-spacing: 0.5px !important;
+  }
+  .header-date {
+    font-size: 23px !important;
+    padding-bottom: 20px !important;
+    padding-top: 0 !important;
+  }
+  .section-title {
+    font-size: 27px !important;
+    height: 27px !important;
+    padding-top: 30px !important;
+  }
+  .highlight-title {
+    font-size: 27px !important;
+    line-height: 27px !important;
+  }
+  .item-date {
+    font-size: 14px !important;
+    padding-bottom: 14px !important;
+  }
+  .footer-social > td {
+    text-align: center !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+  .social-logo {
+    width: 25px !important;
+    max-width: 25px !important;
+    height: 25px !important;
+    max-height: 25px !important;
+  }
+  .spacing-blog {
+    display: none !important;
+  }
+
+}
+/*
+@media only screen and (max-width: 480px) {
+  .eu-logo {
+    text-align: center !important;
+  }
+  .eu-logo,
+  .osha-info {
+    display: block !important;
+    max-width: 100% !important;
+  }
+}
+*/
+

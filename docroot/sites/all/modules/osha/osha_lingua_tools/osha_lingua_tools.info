@@ -1,0 +1,8 @@
+name = osha lingua tools
+description = Lingua Tools for Osha website
+core = 7.x
+version = 7.1
+package = Osha
+
+files[] = osha_lingua_tools.install
+files[] = osha_lingua_tools.module

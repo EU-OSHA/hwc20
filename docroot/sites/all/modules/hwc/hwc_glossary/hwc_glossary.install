@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * MDR-1647 HW18:Add a glossary to the campaign website.
+ */
+function hwc_glossary_update_7001() {
+  features_revert_module('hwc_glossary');
+}
+
+/**
+ * MDR-1801 View is not showing the translation of the glossary list.
+ */
+function hwc_glossary_update_7002() {
+  features_revert_module('hwc_glossary');
+}

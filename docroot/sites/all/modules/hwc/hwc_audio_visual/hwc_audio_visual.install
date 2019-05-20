@@ -1,0 +1,29 @@
+<?php
+
+function hwc_audio_visual_install() {
+  _hwc_audio_visual_add_country_other();
+  variable_set('chosen_minimum_multiple', 20);
+  variable_set('chosen_minimum_single', 20);
+}
+
+/**
+ * Revert hwc audio visual module.
+ */
+function hwc_audio_visual_update_7001() {
+  features_revert_module('hwc_audio_visual');
+}
+
+/**
+ * Revert feature modules.
+ */
+function hwc_audio_visual_update_7002() {
+  features_revert_module('hwc_audio_visual');
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert feature modules.
+ */
+function hwc_audio_visual_update_7003() {
+  features_revert_module('hwc_audio_visual');
+}

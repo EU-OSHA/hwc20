@@ -1,0 +1,13 @@
+name = HWC Toolkit migration
+description = HWC Toolkit migration functionality
+core = 7.x
+package = HWC
+version = 7.x-1.0
+dependencies[] = hwc_toolkit
+dependencies[] = migrate
+files[] = hwc_toolkit_migration.migrate.inc
+files[] = hwc_toolkit_migration.migrate.tk_example.inc
+files[] = hwc_toolkit_migration.migrate.tk_tool.inc
+files[] = hwc_toolkit_migration.migrate.tk_topic.inc
+files[] = hwc_toolkit_migration.migrate.tk_article.inc
+files[] = hwc_toolkit_migration.migrate.taxonomies.inc

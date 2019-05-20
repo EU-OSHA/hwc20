@@ -1,0 +1,21 @@
+input.form-autocomplete[readonly=readonly],
+input.form-text[readonly=readonly],
+input.form-file[readonly=readonly],
+textarea.form-textarea[readonly=readonly],
+select.form-select[readonly=readonly] {
+    background: #dddddd;
+}
+input.form-checkbox[readonly=readonly] {
+    display: none;
+}
+input.form-checkbox[readonly=readonly]:checked + label {
+    font-weight: bold;
+}
+.node-in-translation {
+    background: #E66565 !important;
+}
+.legend-span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}

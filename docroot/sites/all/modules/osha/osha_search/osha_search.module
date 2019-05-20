@@ -1,0 +1,537 @@
+<?php
+/**
+ * @file
+ * Code for the osha_search feature.
+ */
+
+include_once 'osha_search.features.inc';
+module_load_include('inc', 'osha_search', 'osha_search.admin');
+
+/**
+ * Implements hook_facet_items().
+ */
+function osha_search_facet_items_alter(&$build, &$settings) {
+
+  $query_params = drupal_get_query_parameters();
+  if ($settings->facet == "field_sector_industry_covered") {
+    foreach ($build as $key => $item) {
+      $build[$key]["#markup"] = drupal_ucfirst(drupal_strtolower($item["#markup"]));
+    }
+  }
+  $path = arg(0) . '/' . arg(1);
+  if (in_array($settings->facet, ['field_priority_area', 'language', 'type'])
+    || ($path == 'tools-and-publications/practical-tools')
+    || ($path == 'practical-tools/')
+  ) {
+    $facet_items = [];
+    foreach ($build as $key => $item) {
+      if (($settings->facet == 'field_priority_area') && ($key == '!')) {
+        $build[$key]['#markup'] = t('No specific group');
+      }
+      if ($item['#active']) {
+        $query = _osha_search_strip_param_value($query_params, urlencode($settings->facet), $item['#indexed_value']);
+        $filter_label = '<span class="glyphicon glyphicon-remove"></span>' . $item['#markup'];
+        $facet_items[] = l($filter_label, $path, array('query' => $query, 'html' => TRUE));
+      }
+    }
+    if ($facet_items) {
+      drupal_add_js(array('facet_items' => [$settings->facet => $facet_items]), 'setting');
+    }
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function osha_search_menu() {
+  $items = array();
+  $items['search-autocomplete/%'] = array(
+    'page callback' => 'osha_search_autocomplete_callback',
+    'access callback' => TRUE,
+    'page arguments' => array(1),
+  );
+  $items['search-autocomplete'] = array(
+    'page callback' => 'osha_search_autocomplete_callback',
+    'access callback' => TRUE,
+  );
+  $items['admin/config/search/osha_search'] = array(
+    'title' => 'OSHA Search',
+    'description' => 'Config information for osha search',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('osha_search_admin_form'),
+    'access arguments' => array('administer site configuration'),
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function osha_search_block_info() {
+  // Block with clear filter link.
+  $blocks['osha_search_clear_filters'] = array(
+    'info' => t('Search filters header with clear filter'),
+    'status' => 1,
+    'region' => 'sidebar_first',
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => 'search/*',
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    'weight' => 0,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function osha_search_block_view($delta = '') {
+  if ($delta != 'osha_search_clear_filters') {
+    return;
+  }
+  drupal_add_js(drupal_get_path('module', 'osha_search') . '/facet.js', array('weight' => 20));
+  // Add header as in template.
+  $content['header'] = array(
+    '#type' => 'markup',
+    '#markup' => '<h3>' . t('Filter results') . '</h3><div class="clear-wrapper">',
+  );
+  // Active links will be added onlink via js in facet_item.
+  if (
+    (arg(0) == 'search')
+    || (arg(0) == 'practical-tools')
+    || (arg(1) == 'practical-tools')
+  ) {
+    $content['remove_filter'] = array(
+      '#type' => 'markup',
+      '#markup' => '<div id="remove_filter"></div>',
+    );
+  }
+
+  $query_params = drupal_get_query_parameters();
+
+  if (!empty($query_params)) {
+    // Clear filter link
+    // it's really just a link to current url without params.
+    $content['link'] = array(
+      '#type' => 'markup',
+      '#markup' => l(t('Clear filter'), current_path()),
+    );
+  }
+  $content['footer'] = array(
+    '#type' => 'markup',
+    '#markup' => '</div>',
+  );
+  return array(
+    'subject' => '<none>',
+    'content' => drupal_render($content),
+  );
+}
+
+/**
+ * Implements hook_search_api_solr_query_alter().
+ */
+function osha_search_search_api_solr_query_alter(array &$call_args, SearchApiQueryInterface $query) {
+  // Replace % with * to handle requested widlcard % (non-existing in solr).
+  if (!empty($call_args['query'])) {
+    $call_args['query'] = str_replace('%', '*', $call_args['query']);
+  }
+  // Handle special chars query.
+  $special_chars = variable_get('search_solr_custom_special_chars',
+    '#, @, &, ?, !, €, $, £, ¥');
+  $special_chars = explode(',', $special_chars);
+  foreach ($special_chars as $char) {
+    if (strpos($call_args['query'], trim($char)) !== FALSE) {
+      $call_args['query'] = '*' . $call_args['query'] . '*';
+      break;
+    }
+  }
+}
+
+/**
+ * Implements hook_views_post_render().
+ */
+function osha_search_views_post_render(&$view, &$output, &$cache) {
+  if ($view->name == 'search') {
+    drupal_add_js(drupal_get_path('module', 'osha_search') . '/sort.js', array('weight' => 20));
+    $form = drupal_get_form('osha_search_sort_form');
+    $order_html = '<div class="sort-container col-xs-3">' . drupal_render($form) . '</div><span class="count-container pull-right">';
+    $output = trim(str_replace('@order', $order_html, $output)) . '</span>';
+  }
+}
+
+function osha_search_sort_form($form, $form_state) {
+  $form = array(
+  );
+  $form['sort_by'] = [
+    '#type' => 'select',
+    '#title' => t('Order'),
+    '#default_value' => 'field_publication_date',
+    '#options' => [
+      'search_api_relevance' => t('Relevance'),
+      'field_publication_date' => t('Publication date'),
+      'title2' => t('Title'),
+    ],
+  ];
+  $form['sort_by']['#value'] = 'search_api_relevance';
+  if (!empty($_REQUEST['sort_by'])) {
+    $form['sort_by']['#value'] = $_REQUEST['sort_by'];
+  }
+  return $form;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function osha_search_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'search_block_form') {
+    // Overwrite the search page default url.
+    // Unset the form elements - the search view needs just the search param.
+    $form['#action'] = url('search');
+    $form['#method'] = 'get';
+    unset($form['#submit']);
+    unset($form['form_build_id']);
+    unset($form['form_id']);
+  }
+
+  /*
+   * SITUATION: Search forms with facet filters and keywords search.
+   * PROBLEM: When searching for a keyword after using a facet filter, the
+   * facet filter is ignored by Views.
+   * SOLUTION: Add facet filters as hidden form fields to Views exposed forms.
+   */
+
+  // Check if this form is a Search API form. This could be replaced with the
+  // value of a custom Views setting like ie. "Include facets".
+  if (isset($form_state['view']) && $form_state['view']->base_table === 'search_api_index_default_multilingual_node_index') {
+    // Get quary parameters.
+    $query_parameters = drupal_get_query_parameters();
+
+    // If any facet query parameters are provided.
+    if (!empty($query_parameters['f'])) {
+      // Iterate through facet query parameters.
+      foreach ($query_parameters['f'] as $key => $value) {
+        // Add hidden form field for facet parameter.
+        $form['f[' . $key . ']'] = array(
+          '#type' => 'hidden',
+          '#value' => $value,
+          '#weight' => -1,
+        );
+      }
+    }
+  }
+  if ($form['#id'] == 'views-exposed-form-search-site') {
+    if (!empty($form['sort_by'])) {
+      $form['sort_by']['#default_value'] = 'search_api_relevance';
+      $form['sort_order']['#access'] = FALSE;
+    }
+  }
+}
+
+/**
+ * Callback for pre_render form field sort_by.
+ */
+function osha_search_change_sort_field_empty_query($element) {
+  $element['#value'] = 'search_api_relevance';
+  return $element;
+}
+
+/**
+ * Callback for search autocomplete ajax call. CW-220.
+ *
+ * When using search_autocomplete module.
+ */
+function osha_search_autocomplete_callback($search = '*') {
+  if (empty(arg(1)) && !empty($_REQUEST['term'])) {
+    $search = $_REQUEST['term'];
+  }
+  $search = check_plain($search);
+  global $language;
+  $lang = $language->language;
+  $allowed_bundles = variable_get('osha_search_bundles', array());
+  $bundles = node_type_get_types();
+
+  $index = search_api_index_load('default_multilingual_node_index');
+  $server = search_api_server_load('solr_server');
+  $connection = new SearchApiSolrConnection($server->options);
+
+  // Build params - group by bundle, 3 rows each.
+  $params = array(
+    'group' => 'true',
+    'group.field' => 'ss_type',
+    'group.limit' => variable_get('osha_search_ac_items_limit', 3),
+  );
+  $params['fq'][] = 'ss_search_api_language:"' . $lang . '"';
+  $params['fq'][] = 'is_status:"1"';
+  // Add condition for excluded bundles.
+  foreach ($bundles as $key => $bundle) {
+    if (empty($allowed_bundles[$key])) {
+      $params['fq'][] = '{!tag=ss_type}*:* AND -(ss_type:"' . $key . '")';
+    }
+  }
+  // Add publication date.
+  $now = new DateTime('now');
+  $now = $now->format('Y-m-d\TH:m:i\Z');
+  $params['fq'][] = '((ds_field_publication_date:[* TO "' . $now . '"]) OR (*:* AND -ds_field_publication_date:[* TO *]))';
+  // Add searchable fields.
+  $fields = $index->getFields();
+//  $search_fields = $index->getFulltextFields();
+  $search_fields = variable_get('osha_search_ac_fields', array());
+  foreach ($search_fields as $field) {
+    $params['qf'][] = 'tm_' . $field . '^' . $fields[$field]['boost'];
+    $params['qf'][] = 'tm_und' . $field . '^' . $fields[$field]['boost'];
+    $params['qf'][] = 'tm_' . $lang . '_' . $field . '^' . $fields[$field]['boost'];
+  }
+  // Make the search.
+  $request = $connection->search($search, $params);
+
+  $data = json_decode($request->data);
+  $total_groups = count($data->grouped->ss_type->groups);
+  $total_items = $data->grouped->ss_type->matches;
+  $return = array();
+
+  $showing_categ = variable_get('osha_search_ac_categ_limit', 3);
+  $showing_items = variable_get('osha_search_ac_items_limit', 3);
+  $count_categ = 0;
+  $showed_items = 0;
+  $showed_categ = 0;
+  $total_on_showed_categ = 0;
+
+  foreach ($data->grouped->ss_type->groups as &$group) {
+    if ($count_categ++ < $showing_categ) {
+      $ret = osha_search_autocomplete_add_group($group, $lang, $showing_items, $search);
+      $showed_items += $ret['count'];
+      $showed_categ += ($ret['count']) ? 1 : 0;
+      $total_on_showed_categ += $group->doclist->numFound;
+      $return = array_merge($return, $ret['results']);
+    }
+    else {
+      break;
+    }
+  }
+
+  // Add extra link with search summery (see CW-220).
+  if (!empty($total_items) && $total_items - $total_on_showed_categ > 0) {
+    $text = t('@search_result more in @categories categories', array(
+      '@search_result' => $total_items - $total_on_showed_categ,
+      '@categories' => $total_groups - $showed_categ,
+    ));
+    $ac_item = array(
+      "link" => url('search/site', array(
+        'query' => array(
+          'search_block_form' => $search,
+        ),
+      )),
+      "value" => $text,
+      "fields" => array(
+        "search_link" => $text,
+      ),
+    );
+    $ac_item["group"] = array(
+      "group_id" => 'more_results',
+      "group_name" => t('More results'),
+    );
+    $return[] = $ac_item;
+  }
+  print_r(json_encode($return));
+  exit;
+}
+
+/**
+ * Format a group of results for search autocomplete response.
+ */
+function osha_search_autocomplete_add_group($group, $lang, $showing_items, $search, $see_all_path = 'search/site') {
+  $return = array();
+  $count_items = 0;
+  $bundles = node_type_get_types();
+  $in_this_categ = $group->doclist->numFound;
+  foreach ($group->doclist->docs as &$item) {
+    $count_items++;
+    $ac_item = array(
+      "link" => url('node/' . $item->is_nid),
+      "value" => current($item->{'tm_' . $lang . '_title_field'}),
+      "fields" => array(
+        "title_field" => current($item->{'tm_' . $lang . '_title_field'}),
+      ),
+    );
+    if (!empty($item->{'ss_field_wiki_page_url:url'})) {
+      $ac_item["link"] = $item->{'ss_field_wiki_page_url:url'};
+    }
+    if ($count_items == 1) {
+      $ac_item["group"] = array(
+        "group_id" => $item->ss_type,
+        "group_name" => t('@bundle', array(
+            '@bundle' => $bundles[$item->ss_type]->name,
+          )
+        ),
+      );
+    }
+    $return[] = $ac_item;
+    if ($count_items == $showing_items && $in_this_categ > $showing_items) {
+      $text = t('@search_result more in @bundle', array(
+        '@search_result' => $in_this_categ - $showing_items,
+        '@bundle' => $bundles[$group->groupValue]->name,
+      ));
+      $ac_item = array(
+        "link" => url($see_all_path,
+          array(
+            'query' => array(
+              'f' => array('type:' . $group->groupValue),
+              'search_block_form' => $search,
+            ),
+          )
+        ),
+        "value" => $text,
+        "fields" => array(
+          "search_type_link" => $text,
+        ),
+      );
+      $return[] = $ac_item;
+    }
+  }
+  return array(
+    'results' => $return,
+    'count' => $count_items,
+  );
+}
+
+/**
+ * Implements hook_form_views_exposed_form_alter().
+ */
+function osha_search_form_views_exposed_form_alter(&$form, &$form_state) {
+  // Set default language current language.
+  if (!empty($form['search_api_language'])) {
+    global $language;
+    if ($language->language != LANGUAGE_NONE) {
+      $form['search_api_language']['#default_value'] = $language->language;
+    }
+  }
+
+  if ($form['#id'] == 'views-exposed-form-search-directives-page') {
+    // Add Directives Year dropdown to non-search pages.
+    if ($form['#action'] != '/' . request_path()) {
+      $years = db_query(
+        'SELECT DISTINCT DATE_FORMAT(field_date_of_directive_value, \'%Y\') year
+        FROM field_data_field_date_of_directive
+        WHERE field_date_of_directive_value IS NOT NULL
+        ORDER BY year DESC')
+      ->fetchAllAssoc('year');
+
+      $years_options = array();
+      foreach ($years as $year => $year_ob) {
+        $years_options['field_date_of_directive:' . $year] = $year;
+      }
+      $form['f[0]'] = array(
+        '#title' => t('Date of directive'),
+        '#type' => 'select',
+        '#options' => array_merge(array('' => '- Any -'), $years_options),
+        '#weight' => '0',
+      );
+    }
+  }
+}
+
+/**
+ * Implements hook_post_features_enable_feature().
+ */
+function osha_search_post_features_enable_feature($component) {
+  features_revert_module('osha_search');
+}
+
+/**
+ * Implements hook_facetapi_widgets().
+ *
+ * Add selector widget for facets.
+ */
+function osha_search_facetapi_widgets() {
+  return array(
+    'facetapi_dropdown' => array(
+      'handler' => array(
+        'label' => t('Dropdown'),
+        'class' => 'OshaSearchWidgetDropdown',
+        'query types' => array('date'),
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_defaults_rebuild().
+ */
+function osha_search_search_api_index_defaults_rebuild() {
+  // Ugly Fix a hard to replicate error - summary fields get unchecked in index and breaks the search page.
+  $indexes = osha_search_default_search_api_index();
+  if (!empty($indexes['default_multilingual_node_index'])) {
+    $index = search_api_index_load('default_multilingual_node_index');
+    if (!empty($index)) {
+      $index->options['fields'] = $indexes['default_multilingual_node_index']->options['fields'];
+      $index->save();
+    }
+  }
+}
+
+/**
+ * Widget that renders facets as a dropdown.
+ *
+ * This widget renders facets in the same way as FacetapiWidgetLinks but uses
+ * JavaScript to transform the links drowpdown.
+ *
+ * Inspired from checkbox FacetapiWidgetCheckboxLinks
+ */
+class OshaSearchWidgetDropdown extends FacetapiWidgetLinks {
+
+  /**
+   * Overrides FacetapiWidgetLinks::init().
+   *
+   * Adds additional JavaScript settings and CSS.
+   */
+  public function init() {
+    parent::init();
+    $this->jsSettings['makeDropdown'] = 1;
+    drupal_add_js(drupal_get_path('module', 'osha_search') . '/facet.js', array('weight' => 20));
+    drupal_add_js(array('osha_search' => array('any_option' => t('- Any -'))), 'setting');
+    drupal_add_css(drupal_get_path('module', 'facetapi') . '/facetapi.css');
+  }
+
+  /**
+   * Overrides FacetapiWidgetLinks::getItemClasses().
+   *
+   * Sets the base class for checkbox facet items.
+   */
+  public function getItemClasses() {
+    return array('facetapi-dropdown');
+  }
+
+}
+
+/**
+ * Implements hook_osha_tmgmt_i18n_string_list().
+ */
+function osha_search_osha_tmgmt_i18n_string_list() {
+  module_load_include('inc', 'osha_search', 'osha_search.translations');
+  return osha_search_get_translatable_strings();
+}
+
+/**
+ * Implements hook_path_breadcrumbs_view_alter().
+ */
+function osha_search_path_breadcrumbs_view_alter(&$breadcrumbs, $path_breadcrumbs, $contexts) {
+  if ($path_breadcrumbs->machine_name == 'search') {
+    if (isset($_GET['search_block_form']) && !empty($_GET['search_block_form'])) {
+      // Add searched text to breadcrumb.
+      $breadcrumbs[] = $_GET['search_block_form'];
+    }
+  }
+}
+
+function _osha_search_strip_param_value($params, $name, $value = NULL) {
+  if (!empty($params['f'])) {
+    foreach ($params['f'] as $k => $v) {
+      if ($v == $name . ':' . $value) {
+        unset($params['f'][$k]);
+      }
+    }
+    if (!$params['f']) {
+      $params = [];
+    }
+  }
+  return $params;
+}

@@ -1,0 +1,75 @@
+# Sensitive information #
+#########################
+# Ignore configuration files that may contain sensitive information.
+docroot/sites/*/settings*.php
+*.local.php
+drush/aliases/aliases.drushrc.php
+conf/apache.conf
+conf/config.json
+.idea
+phpunit.xml
+results/*
+tmp
+
+docroot/CHANGELOG.txt
+docroot/COPYRIGHT.txt
+docroot/INSTALL.mysql.txt
+docroot/INSTALL.pgsql.txt
+docroot/INSTALL.sqlite.txt
+docroot/INSTALL.txt
+docroot/LICENSE.txt
+docroot/MAINTAINERS.txt
+docroot/README.txt
+docroot/UPGRADE.txt
+docroot/readme.md
+
+
+# User Generated Content #
+##########################
+docroot/files
+docroot/sites/*/files
+docroot/sites/*/private
+
+# Vagrant Files #
+#################
+.vagrant
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# It's better to unpack these files and commit the raw source, git has its own
+# built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon\?
+Thumbs.db
+
+# Allow these extensions for testing purposes #
+###############################################
+!docroot/sites/all/modules/osha/osha_migration/data/test/export/*/file/*.zip
+tmp

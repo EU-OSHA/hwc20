@@ -1,0 +1,151 @@
+<?php
+/**
+ * @file
+ * Code for the HWC Admin Reports feature.
+ */
+
+include_once 'hwc_admin_reports.features.inc';
+
+define('HWC_ADMIN_REPORTS_EXPORT_PATH', 'public://export-reports');
+
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function hwc_admin_reports_views_pre_view(&$view, &$display_id, &$args) {
+  if ($view->name == 'content_reports' && $display_id == 'views_data_export_news') {
+    variable_set('hwc_admin_reports_last_export_news', REQUEST_TIME);
+  }
+  else if ($view->name == 'content_reports' && $display_id == 'views_data_export_events') {
+    variable_set('hwc_admin_reports_last_export_events', REQUEST_TIME);
+  }
+}
+
+/**
+ * Implements hook_form_views_exposed_form_alter().
+ */
+function hwc_admin_reports_form_views_exposed_form_alter(&$form, &$form_state) {
+  $report_forms = array(
+    'views-exposed-form-content-reports-news',
+    'views-exposed-form-content-reports-events',
+    'views-exposed-form-content-reports-views-data-export-events',
+    'views-exposed-form-content-reports-views-data-export-news',
+  );
+  if (in_array($form['#id'], $report_forms)) {
+    // Add date popup to 'Post date' filter
+    $form['created']['#title'] = '';
+    $form['created']['#type'] = 'date_popup';
+    $form['created']['#size'] = '20';
+    $form['created']['#default_value'] = NULL;
+    $form['created']['#date_format'] = 'd/m/Y';
+    $form['created']['#date_label_position'] = 'within';
+    $form['created']['#date_year_range'] = '-3:+3';
+    $form['created']['#process'][0] = 'date_popup_element_process';
+  }
+  if ($form['#id'] == 'views-exposed-form-content-reports-news') {
+    // Added default value the last exprot time
+    $last_export = variable_get('hwc_admin_reports_last_export_news', NULL);
+    // Add filter by user as select instead of textfield
+    $users = hwc_admin_get_news_authors();
+    $user_options = array('' => '-- Please select --');
+    foreach ($users as $uid => $name) {
+      // $u = user_load($uid);
+      $label = $name;
+      if ($uid === 0) {
+        $name = 'Anonymous';
+        $label = 'Anonymous (imported)';
+      }
+
+      $user_options[$name] = $label;
+    }
+    $form['uid']['#type'] = 'select';
+    $form['uid']['#options'] = $user_options;
+  }
+  if ($form['#id'] == 'views-exposed-form-content-reports-events') {
+    // Added default value the last exported
+    $last_export = variable_get('hwc_admin_reports_last_export_events', NULL);
+    // Add filter by user as select instead of textfield
+    $users = hwc_admin_get_events_authors();
+    $user_options = array('' => '-- Please select --');
+    foreach ($users as $uid => $name) {
+      // $u = user_load($uid);
+      $label = $name;
+      if ($uid === 0) {
+        $name = 'Anonymous';
+        $label = 'Anonymous (imported)';
+      }
+
+      $user_options[$name] = $label;
+    }
+    $form['uid']['#type'] = 'select';
+    $form['uid']['#options'] = $user_options;
+  }
+  if (!empty($last_export)) {
+    $form['created']['#default_value'] = date('Y-m-d H:i:s', $last_export);
+  }
+}
+
+/**
+ * Implements hook_field_formatter_settings_form_alter().
+ */
+function hwc_admin_reports_field_formatter_settings_form_alter(array &$settings_form, array $context) {
+  if ($context['formatter'] == 'field_collection') {
+    if (isset($settings_form['text'])) {
+      // Max length for more tokens.
+      $settings_form['text']['#maxlength'] = 256;
+    }
+  }
+}
+
+
+function hwc_admin_get_news_authors() {
+  $q = db_select('node', 'a');
+  $q->innerJoin('users', 'b', 'a.uid = b.uid');
+  $q->fields('a', array('uid'));
+  $q->fields('b', array('name'));
+  $q->condition('a.type', 'news');
+  $q->orderBy('b.name');
+  $q->groupBy('a.uid');
+  return $q->execute()->fetchAllKeyed();
+}
+
+function hwc_admin_get_events_authors() {
+  $q = db_select('node', 'a');
+  $q->innerJoin('users', 'b', 'a.uid = b.uid');
+  $q->fields('a', array('uid'));
+  $q->fields('b', array('name'));
+  $q->condition('a.type', 'events');
+  $q->orderBy('b.name');
+  $q->groupBy('a.uid');
+  return $q->execute()->fetchAllKeyed();
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function hwc_admin_reports_views_pre_render(&$view) {
+  if ($view->name == 'content_reports' &&
+      in_array($view->current_display, array('views_data_export_events', 'views_data_export_news'))) {
+    foreach ($view->result as &$row) {
+      $node = $row->_field_data['nid']['entity'];
+      $section = reset($node->workbench_access);
+      $row->workbench_access[0] = '';
+      if (!empty($section) && is_numeric($section)) {
+        $w = entity_metadata_wrapper('taxonomy_term', $section);
+        $guid = $w->field_ldap_section_code->value();
+        if (!empty($guid)) {
+          $row->workbench_access[0] = $guid;
+        }
+      }
+      // Remove empty fields - with to, |
+      foreach ($row as $key => $value) {
+        if (isset($value[0]['rendered']['#markup'])) {
+          $markup = trim($value[0]['rendered']['#markup']);
+          if (in_array($markup, array('to', ''))) {
+            $row->{$key} = array();
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,218 @@
+<?php
+
+/**
+ * Set aliases for practical tools.
+ */
+function hwc_practical_tool_update_7001() {
+  variable_set('pathauto_node_practical_tool_pattern', 'tools-and-publications/practical-tools/[node:title]');
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'practical_tool');
+  $result = $query->execute();
+  if (isset($result['node'])) {
+    $nids = array_keys($result['node']);
+    $nodes = entity_load('node', $nids);
+    foreach ($nodes as $node) {
+      $node->path['pathauto'] = TRUE;
+      pathauto_node_update_alias($node, 'update', array('language' =>'en'));
+    }
+  }
+}
+
+/**
+ * revert hwc practical tool and osha publication module.
+ */
+function hwc_practical_tool_update_7002() {
+  features_revert_module('hwc_practical_tool');
+  features_revert_module('osha_publication');
+  features_revert_module('osha_resources');
+}
+
+/**
+ * revert hwc practical tool, osha and osha publication module.
+ */
+function hwc_practical_tool_update_7003() {
+  features_revert_module('hwc_practical_tool');
+  features_revert_module('osha_publication');
+  features_revert_module('osha');
+}
+
+/**
+ * revert hwc practical tool, osha and osha publication module.
+ */
+function hwc_practical_tool_update_7004() {
+  features_revert_module('hwc_audio_visual');
+  features_revert_module('hwc_practical_tool');
+  features_revert_module('osha_search');
+}
+
+/**
+ * revert hwc practical tool, osha and osha publication module.
+ */
+function hwc_practical_tool_update_7005() {
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * revert hwc practical tool, and audio visual
+ */
+function hwc_practical_tool_update_7006() {
+  features_revert_module('hwc_practical_tool');
+  features_revert_module('hwc_audio_visual');
+}
+
+/**
+ * revert hwc practical tool
+ */
+function hwc_practical_tool_update_7007() {
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * revert hwc practical tool
+ */
+function hwc_practical_tool_update_7008() {
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * revert hwc practical tool
+ */
+function hwc_practical_tool_update_7009() {
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * revert hwc practical tool
+ */
+function hwc_practical_tool_update_7010() {
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * revert hwc practical tool
+ */
+function hwc_practical_tool_update_7011() {
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * revert hwc practical tool
+ */
+function hwc_practical_tool_update_7012() {
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * revert hwc practical tool
+ */
+function hwc_practical_tool_update_7013() {
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * revert hwc practical tool
+ */
+function hwc_practical_tool_update_7014() {
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * revert hwc practical tool
+ */
+function hwc_practical_tool_update_7015() {
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * Revert hwc practical tool and osha search.
+ */
+function hwc_practical_tool_update_7016() {
+  features_revert_module('hwc_practical_tool');
+  features_revert_module('osha_search');
+}
+
+/**
+ * Revert hwc practical tool.
+ */
+function hwc_practical_tool_update_7017() {
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * Revert hwc practical tool.
+ */
+function hwc_practical_tool_update_7018() {
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * Revert hwc practical tool.
+ */
+function hwc_practical_tool_update_7019() {
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * Revert hwc practical tool.
+ */
+function hwc_practical_tool_update_7020() {
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * Revert hwc practical tool.
+ */
+function hwc_practical_tool_update_7021() {
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * Revert hwc practical tool.
+ */
+function hwc_practical_tool_update_7022() {
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * Revert hwc practical tool.
+ */
+function hwc_practical_tool_update_7023() {
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * Revert hwc practical tool.
+ */
+function hwc_practical_tool_update_7024() {
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * Revert hwc practical tool.
+ */
+function hwc_practical_tool_update_7025() {
+  features_revert(array('hwc_practical_tool' => 'views_view'));
+}
+
+/**
+ * Revert hwc practical tool.
+ */
+function hwc_practical_tool_update_7026() {
+  features_revert(array('hwc_practical_tool' => 'views_view'));
+}
+
+/**
+ * HW18-406 Practical tools: Change audiovisuals by Visual resources.
+ */
+function hwc_practical_tool_update_7027() {
+  features_revert(array('hwc_practical_tool' => 'field_base'));
+}
+
+/**
+ * MDR-2034 DS database not synchronising.
+ */
+function hwc_practical_tool_update_7028() {
+  features_revert(array('hwc_practical_tool' => 'field_base'));
+  features_revert(array('hwc_practical_tool' => 'field_instance'));
+}

@@ -1,0 +1,576 @@
+<?php
+/**
+ * @file
+ * Code for the Publication feature.
+ */
+
+include_once 'osha_publication.features.inc';
+
+define('OSHA_PUBLICATION_CONTENT_TYPE_PUBLICATION', 'publication');
+
+/**
+ * Implements hook_block_info().
+ */
+function osha_publication_block_info() {
+  $blocks = array();
+  $blocks['osha_publication_listing'] = array(
+    'info' => t('Publications listing'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['osha_publicatio_slideshow'] = array(
+    'info' => t('Publications slideshow'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
+  $blocks['osha_case_studies_listing'] = array(
+    'info' => t('Case studies listing'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+function osha_publication_result_count($add = 0) {
+  static $total = 0;
+  $total += $add;
+  return $total;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function osha_publication_block_view($delta = '') {
+  $block = array();
+  if ($delta == 'osha_publicatio_slideshow') {
+    $block['content']['slideshow'] = array(
+      '#type' => 'markup',
+      '#markup' => views_embed_view('publications_slideshow', 'slidehow'),
+    );
+  }
+  if ($delta == 'osha_publication_listing') {
+    module_load_include('inc', 'osha_publication', 'osha_publication.pages');
+    $block['content'] = drupal_get_form('osha_publication_menu_publications_form');
+  }
+  if ($delta == 'osha_case_studies_listing') {
+    module_load_include('inc', 'osha_publication', 'osha_publication.pages');
+    $block['content'] = drupal_get_form('osha_publication_menu_case_studies_form');
+  }
+  return $block;
+}
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function osha_publication_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['pub_teaser'] = array(
+    'label' => t('Publication listing'),
+    'custom settings' => TRUE,
+  );
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function osha_publication_preprocess_node(&$vars) {
+  if ($vars['view_mode'] == 'pub_teaser') {
+    $vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__pub_teaser';
+  }
+}
+
+/**
+ * Implements hook_url_inbound_alter().
+ */
+function osha_publication_url_inbound_alter(&$path, $original_path, $path_language) {
+  // For HWC this is no longer required.
+  return;
+}
+
+/**
+ * Implements hook_file_view().
+ */
+function osha_publication_node_view($node, $view_mode, $langcode) {
+  // For publications, the default url should serve the file.
+  // if the path ends with /view than should serve the node.
+  // See CW-1072.
+  if ($node->type != 'publication') {
+    return;
+  }
+  $args = arg();
+  if (end($args) == 'file_view' && $view_mode == 'full') {
+    $show_lang = $langcode;
+    if (empty($node->field_file[$langcode][0]) && $langcode != 'en') {
+      $show_lang = 'en';
+    }
+    if (!empty($node->field_file[$show_lang][0])) {
+      $file = (object) $node->field_file[$show_lang][0];
+      $headers = array(
+        'Content-Type'              => $file->filemime,
+        'Content-Disposition'       => 'filename="' . $file->filename . '"',
+        'Content-Length'            => $file->filesize,
+        'Content-Transfer-Encoding' => 'binary',
+        'Pragma'                    => 'no-cache',
+        'Cache-Control'             => 'must-revalidate, post-check=0, pre-check=0',
+        'Expires'                   => '0',
+        'Accept-Ranges'             => 'bytes',
+      );
+      file_transfer($file->uri, $headers);
+    }
+  }
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function osha_publication_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  // No longer needed for HWC.
+  return;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function osha_publication_form_lang_dropdown_form_alter(&$form, &$form_state, $form_id) {
+  // For HWC this is no longer required.
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function osha_publication_views_pre_render(&$view) {
+  global $language;
+
+  if ($view->name == 'publication_type') {
+    drupal_add_css(drupal_get_path('module', 'osha_publication') . '/tools_and_publications.css');
+    foreach ($view->result as $k => $row) {
+      $view->result[$k]->field_field_tools_publications_link[0]['raw']['url'] =
+        str_replace(
+          'node/160', 'napo-film',
+          $view->result[$k]->field_field_tools_publications_link[0]['raw']['url']);
+
+      $view->result[$k]->field_field_tools_publications_link[0]['raw']['url'] =
+        str_replace(
+          '/case-studies', '/case-studies?language%5B' . $language->language . '%5D=' . $language->language . '&sort=date',
+          $view->result[$k]->field_field_tools_publications_link[0]['raw']['url']);
+
+      $view->result[$k]->field_field_tools_publications_link[0]['raw']['url'] =
+        str_replace(
+          '/publications', '/publications?language%5B' . $language->language . '%5D=' . $language->language . '&sort=date',
+          $view->result[$k]->field_field_tools_publications_link[0]['raw']['url']);
+    }
+  }
+  if ($view->name == 'publications_slideshow') {
+    osha_publication_result_count(count($view->result));
+  }
+}
+
+/**
+ * Implements hook_post_features_enable_feature().
+ *
+ * {@inheritdoc}
+ */
+function osha_publication_post_features_enable_feature($component) {
+  // After the field_instance ...
+  if ($component == 'variable') {
+    menu_rebuild();
+    drupal_static_reset();
+    if ($role = user_role_load_by_name(HWC_ROLE_ADMIN)) {
+      $permissions = array(
+        'create publication content',
+        'edit own publication content',
+        'edit any publication content',
+        'delete own publication content',
+        'delete any publication content',
+      );
+      user_role_grant_permissions($role->rid, $permissions);
+    }
+  }
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function osha_publication_field_formatter_info() {
+  $info = array(
+    'file_publication_file' => array(
+      'label' => 'Publication file',
+      'field types' => array('file'),
+      'description' => 'Displays default icon per file type and lists all languages of the attachment.',
+    ),
+    'file_all_group_mimetype' => array(
+      'label' => 'All languages, group by MIME type',
+      'field types' => array('file'),
+      'description' => 'Show files in all languages and group by MIME type',
+    ),
+    'file_publication_related_res' => array(
+      'label' => 'Publication related resources',
+      'field types' => array('file'),
+      'description' => 'Displays default icon per file type and file description.',
+    ),
+    'file_document_files' => array(
+      'label' => 'Document files',
+      'field types' => array('file'),
+      'description' => 'Displays document files.',
+    ),
+    'publication_bookshop_id' => array(
+      'label' => 'Publication bookshop link',
+      'field types' => array('text'),
+      'description' => 'Displays link to EU bookshop.',
+    ),
+    'publication_twin_publications' => array(
+      'label' => 'Publication twin publications',
+      'field types' => array('entityreference'),
+      'description' => 'Displays twin publications as title and link to file in all languages.',
+    ),
+  );
+  return $info;
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function osha_publication_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $settings = $instance['display'][$view_mode]['settings'];
+  $element = array();
+
+  $wrap_tags = array(
+    '_none' => t('- None -'),
+    'div' => t('DIV'),
+    'h1' => t('H1'),
+    'h2' => t('H2'),
+    'h3' => t('H3'),
+    'h4' => t('H4'),
+    'h5' => t('H5'),
+    'h6' => t('H6'),
+    'span' => t('SPAN'),
+  );
+  $element['title_style'] = array(
+    '#title' => t('Wrap title in tag'),
+    '#type' => 'select',
+    '#default_value' => !empty($settings['title_style']) ? $settings['title_style'] : '_none',
+    '#options' => $wrap_tags,
+  );
+
+  $link_types = array(
+    'content' => t('Content'),
+  );
+  $element['title_link'] = array(
+    '#title' => t('Link title to'),
+    '#type' => 'select',
+    '#default_value' => $settings['title_link'],
+    '#empty_option' => t('Nothing'),
+    '#options' => $link_types,
+  );
+
+  $element['title_class'] = array(
+    '#title' => t('Tag classes'),
+    '#type' => 'textfield',
+    '#description' => t('A CSS class to use in the wrapper tag for the title.'),
+    '#default_value' => $settings['title_class'],
+    '#element_validate' => array('_title_validate_class'),
+  );
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function osha_publication_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $settings = $instance['display'][$view_mode]['settings'];
+  $summary = array();
+
+  if (empty($settings)) {
+    return;
+  }
+  $tag = isset($settings['title_style']) && $settings['title_style'] != '' && $settings['title_style'] != '_none' ? $settings['title_style'] : t('- None -');
+  $summary[] = t('Title wrap tag: @tag', array('@tag' => $tag));
+
+  $link_types = array(
+    'content' => t('Linked to content'),
+  );
+  // Display this setting only if field is linked.
+  if (isset($link_types[$settings['title_link']])) {
+    $summary[] = $link_types[$settings['title_link']];
+  }
+
+  // Display this setting only if wrapper has a class.
+  if (isset($settings['title_class']) && $settings['title_class'] != '_none' && $settings['title_class'] != '') {
+    $summary[] = t('Wrap tag classes: @classes', array('@classes' => $settings['title_class']));
+  }
+
+  return implode('<br />', $summary);
+}
+
+/**
+ * Implements hook_theme().
+ */
+function osha_publication_theme() {
+  $path = drupal_get_path('module', 'osha_publication');
+
+  return array(
+    'osha_publication_file_publication_file_format' => array(
+      'variables' => array('entity' => NULL, 'file' => NULL, 'delta' => NULL),
+    ),
+    'osha_publication_file_document_files' => array(
+      'template' => 'osha_publication_file_document_files',
+      'variables' => array(
+        'files' => NULL,
+        'entity' => NULL,
+      ),
+      'path' => $path . '/templates',
+    ),
+    'osha_publication_file_publication_related_res_format' => array(
+      'variables' => array('file' => NULL, 'delta' => NULL),
+    ),
+    'osha_publication_bookshop_id_format' => array(
+      'variables' => array('bookshop_id' => NULL, 'delta' => NULL),
+    ),
+  );
+}
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function osha_publication_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools' && $plugin_type == 'content_types') {
+    return 'plugins/' . $plugin_type;
+  }
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function osha_publication_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  switch ($display['type']) {
+    case 'file_publication_file':
+      foreach ($items as $delta => $item) {
+        $element[$delta] = array(
+          '#theme' => 'osha_publication_file_publication_file_format',
+          '#entity' => $entity,
+          '#file' => $item,
+          '#delta' => $delta,
+        );
+      }
+      break;
+
+    case 'file_document_files':
+      $element = array(
+        '#theme' => 'osha_publication_file_document_files',
+        '#files' => $items,
+        '#entity' => $entity,
+      );
+
+      break;
+
+    case 'file_publication_related_res':
+      foreach ($items as $delta => $item) {
+        $element[$delta] = array(
+          '#theme' => 'osha_publication_file_publication_related_res_format',
+          '#file' => $item,
+          '#delta' => $delta,
+        );
+      }
+      break;
+
+    case 'publication_bookshop_id':
+      foreach ($items as $delta => $item) {
+        $element[$delta] = array(
+          '#theme' => 'osha_publication_bookshop_id_format',
+          '#bookshop_id' => $item,
+          '#delta' => $delta,
+        );
+      }
+      break;
+
+    case 'publication_twin_publications':
+      $element[0] = array(
+        '#theme' => 'item_list',
+        '#items' => osha_publication_twin_publications_formatter($items),
+      );
+      break;
+
+    case 'file_all_group_mimetype':
+      $field_name = $field['field_name'];
+      $element[0] = array(
+        '#theme' => 'item_list',
+        '#items' => osha_publication_file_all_group_mimetype_formatter($entity->{$field_name}),
+      );
+      break;
+
+  }
+  return $element;
+}
+
+/**
+ * Formats the main attachment and show links in all languages.
+ */
+function theme_osha_publication_file_publication_file_format($element) {
+  $node = $element['entity'];
+  $file = (object) $element['file'];
+  $icon_directory = drupal_get_path('theme', 'hwc_frontend') . '/images/file_icons';
+
+  $output = "<span class='label_publication_file'>" . t('Download') . " </span>";
+  $output .= theme('file_icon', array('file' => $file, 'icon_directory' => $icon_directory));
+  $output .= "<span class='label_publication_file'>" . t('in:') . "</span>";
+
+  $file_fid = isset($node->field_file[$node->language][0]['fid']) ? $node->field_file[$node->language][0]['fid'] : NULL;
+
+  foreach ($node->field_file as $lang => $object) {
+    if ($lang == $node->language || $file_fid != $object[0]['fid']) {
+      $output .= '<a href="' . file_create_url($object[0]['uri']) . '">' . strtoupper($lang) . '</a> | ';
+    }
+  }
+  $output = substr($output, 0, -3);
+  return $output;
+}
+
+/**
+ * Formats the related resources (attached files) as icon and description/filename.
+ */
+function theme_osha_publication_file_publication_related_res_format($element) {
+  $file = (object) $element['file'];
+  $icon_directory = drupal_get_path('theme', 'hwc_frontend') . '/images/file_icons';
+
+  $name = ($file->description != NULL) ? $file->description : $file->filename;
+  $output = '<a href="' . file_create_url($file->uri) . '">';
+  $output .= theme('file_icon', array('file' => $file, 'icon_directory' => $icon_directory));
+  $output .= '<span>' . $name . '</span></a>';
+
+  return $output;
+}
+
+/**
+ * Formats the bookshop id as link to bookshop.europa.eu.
+ */
+function theme_osha_publication_bookshop_id_format($element) {
+  $code = $element['bookshop_id']['value'];
+  $url = 'http://bookshop.europa.eu/is-bin/INTERSHOP.enfinity/WFS/EU-Bookshop-Site/en_GB/-/EUR/ViewPublication-Start?PublicationKey=' . $code;
+  $image_path = drupal_get_path('theme', 'hwc_frontend') . '/images/content/eu_bookshop.gif';
+
+  return empty($code) ? '' : '<span>' . t('Order a printed copy') .
+    '<a href="' . $url . '"><img src="/' . $image_path .
+    '" alt="' . t('EU Bookshop: You can order a printed copy of this document') .
+    '" title="' . t('EU Bookshop: You can order a printed copy of this document') .
+    '"></a></span>';
+}
+
+/**
+ * Formats the related resources (attached files) as icon and description/filename.
+ */
+function osha_publication_twin_publications_formatter($items) {
+  global $language;
+  $languages = array('en');
+  if ($language->language != 'en') {
+    array_unshift($languages, $language->language);
+  }
+  $ret = array();
+  foreach ($items as $meta) {
+    $node = node_load($meta['target_id']);
+    $w = entity_metadata_wrapper('node', $meta['target_id']);
+    $title = $w->label();
+    $files = array();
+    foreach ($node->field_file as $lang => $value) {
+      if (in_array($lang, $languages)) {
+        foreach ($value as $delta => $file) {
+          $label = strtoupper($lang) . '<span class="glyphicon glyphicon-circle-arrow-down"></span>';
+          $link = l($label, file_create_url($file['uri']), array(
+            'absolute' => TRUE,
+            'html' => TRUE,
+            'attributes' => array(
+              'title' => $file['filename'],
+            ),
+          ));
+          $files[] = $link;
+          $size = round($file['filesize'] / 1000000, 1) . 'MB';
+          $extension = strtoupper(pathinfo($file['uri'], PATHINFO_EXTENSION));
+        }
+      }
+    };
+    $render = array(
+      'title' => array(
+        '#type' => 'item',
+        '#markup' => l($title, 'node/' . $meta['target_id']),
+      ),
+      'files' => array(
+        '#type' => 'item',
+        '#markup' => theme('item_list', array('items' => $files)),
+        '#title' => t('Download ') . $extension . ' (' . $size . ') ' . t('in:'),
+      ),
+    );
+    $ret[] = drupal_render($render);
+  }
+  return $ret;
+}
+
+function osha_publication_file_all_group_mimetype_formatter($items) {
+  $ret = array();
+  $groups = array();
+  $sizes = array();
+  foreach ($items as $langcode => $files) {
+    foreach ($files as $file) {
+      $mime = $file['filemime'];
+      $groups[$mime][$langcode][] = $file;
+    }
+    $sizes[$mime] = round($files[0]['filesize'] / 1000000, 1) . 'MB';
+  }
+  foreach ($groups as $mime => $value) {
+    $links = array();
+    foreach ($value as $langcode => $files) {
+      foreach ($files as $file) {
+        $title = strtoupper($langcode) . '<span class="glyphicon glyphicon-circle-arrow-down"></span>';
+        $links[] = l($title, file_create_url($file['uri']),
+          array(
+            'absolute' => TRUE,
+            'html' => TRUE,
+            'attributes' => array(
+              'title' => $file['filename'],
+            ),
+          )
+        );
+      }
+    }
+    $title = t('Download !mime (!size) in:', array('!mime' => hwc_mime_friendly_acronym($mime), '!size' => $sizes[$mime]));
+    $render = array(
+      'title' => array(
+        '#type' => 'item',
+        '#markup' => '<span>' . $title . '</span>',
+      ),
+      'files' => array(
+        '#type' => 'item',
+        '#markup' => theme('item_list', array('items' => $links)),
+      ),
+    );
+    $ret[] = drupal_render($render);
+  }
+  return $ret;
+}
+
+/**
+ * Implements hook_osha_tmgmt_i18n_string_list().
+ */
+function osha_publication_osha_tmgmt_i18n_string_list() {
+  module_load_include('inc', 'osha_publication', 'osha_publication.translations');
+  return osha_publication_get_translatable_strings();
+}
+
+/**
+ * Implements hook_panels_pane_content_alter().
+ */
+function osha_publication_panels_pane_content_alter(&$content, &$pane, $args, $context) {
+  if (isset($pane->configuration['admin_title'])) {
+    if ($pane->configuration['admin_title'] == 'publication_additional_resources_title') {
+      $node = reset($context)->data;
+      $title = '<h3>' . t('Additional resources') . '</h3>';
+      $content->content = !empty($node->field_aditional_resources) ? $title : '';
+    }
+  }
+}

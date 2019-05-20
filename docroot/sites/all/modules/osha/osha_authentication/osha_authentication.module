@@ -1,0 +1,243 @@
+<?php
+/**
+ * @file
+ * Code for the osha_authentication feature.
+ */
+
+include_once 'osha_authentication.features.inc';
+
+
+/**
+ * Implements Elysia hook_cronapi().
+ */
+function osha_authentication_cronapi() {
+  return array('osha_authentication_cron' => array(
+    'description' => 'Synchronize LDAP users to Drupal and set their roles',
+    'rule' => '*/10 * * * *', // Every 10 minutes
+  ));
+}
+
+/**
+ * Implements hook_cron().
+ */
+function osha_authentication_cron() {
+  watchdog('osha_authentication', 'Running ldap synchronization cron job', array(), WATCHDOG_INFO);
+  $ldap_servers = ldap_servers_get_servers('osha');
+  $ldap_server = $ldap_servers['osha'];
+  module_load_include('admin.inc', 'osha_authentication');
+  osha_authentication_ldap_sync($ldap_server);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function osha_authentication_form_user_login_alter(&$form, &$form_state) {
+  $form['name']['#title'] = t('E-mail');
+  array_unshift($form['#validate'], 'osha_authentication_user_login_validate');
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function osha_authentication_form_user_pass_alter(&$form, &$form_state) {
+  $form['name']['#title'] = t('E-mail');
+}
+
+/*function hwc_frontend_menu_local_tasks_alter(&$data) {
+  if (!empty($data['tabs'][0]['output']) && is_array($data['tabs'][0]['output'])) {
+    foreach($data['tabs'][0]['output'] as &$tab) {
+      if ($tab['#link']['path'] == 'user/password') {
+        $tab['#link']['title'] = t('Forgot password?');
+      }
+    }
+
+  }
+}*/
+
+/**
+ * Form validation hook for user_login form.
+ * @inheritdoc
+ */
+function osha_authentication_user_login_validate($form, &$form_state) {
+  // If username contains @ check for email
+  if (!empty($form_state['values']['name']) && strpos($form_state['values']['name'], '@') !== 0) {
+    // Try the database first (for existing users)
+    if ($account = db_select('users', 'a')->fields('a', array())->condition('mail', $form_state['values']['name'])->condition('status', 1)->execute()->fetchObject()) {
+      $form_state['values']['name'] = $account->name;
+      $form_state['input']['name'] = $account->name;
+      return;
+    }
+    // Try LDAP query for users that never logged in
+    if ($auth_conf = ldap_authentication_get_valid_conf()) {
+      $mail = osha_authentication_ldap_string_sanitize($form_state['values']['name']);
+      /**
+       * @var string $sid
+       * @var LdapServer $ldap_server
+       */
+      foreach ($auth_conf->enabledAuthenticationServers as $sid => $ldap_server) {
+        if ($result = $ldap_server->search('ou=people,dc=osha,dc=europa,dc=eu', 'mail=' . $mail, array('uid'))) {
+          if (!empty($result[0]['uid'][0])) {
+            $form_state['input']['name'] = $result[0]['uid'][0];
+            $form_state['values']['name'] = $result[0]['uid'][0];
+            break;
+          }
+        }
+      }
+    }
+  }
+}
+
+function osha_authentication_ldap_string_sanitize(&$input) {
+  $ret = str_replace('\\', '', $input);
+  $ret = str_replace(',', '', $ret);
+  $ret = str_replace('+', '', $ret);
+  $ret = str_replace('"', '', $ret);
+  $ret = str_replace('<', '', $ret);
+  $ret = str_replace('>', '', $ret);
+  $ret = str_replace(';', '', $ret);
+  $ret = str_replace('(', '', $ret);
+  $ret = str_replace(')', '', $ret);
+  $ret = str_replace('|', '', $ret);
+  return $ret;
+}
+
+/**
+ * Implements hook_ldap_entry_pre_provision_alter().
+ */
+function osha_authentication_ldap_entry_pre_provision_alter(&$ldap_entries, $ldap_server, $context) {
+  if ($context['action'] == 'update') {
+    // Alter user password
+    // @see http://www.openldap.org/faq/data/cache/347.html for {SHA} passwords
+    foreach ($ldap_entries as $key => $entry) {
+      if (isset($entry['userPassword'])) {
+        $existing = is_array($entry['userPassword']) ? current($entry['userPassword']) : $entry['userPassword'];
+        if (!empty($existing)) {
+          $password = "{SHA}" . base64_encode(pack( "H*", sha1($existing)));
+          $ldap_entries[$key]['userPassword'] = $password;
+        }
+      }
+    }
+  }
+}
+
+
+/**
+ * Implements hook_user_login().
+ */
+function osha_authentication_user_login(&$edit, $user) {
+  // Local accounts are ignored.
+  if ($user->uid > 1 && isset($user->data['ldap_user'])) {
+    module_load_include('admin.inc', 'osha_authentication');
+    module_load_include('api.inc', 'osha_workflow');
+
+    // Try the sid that performed authentication (creation?) or DEFAULT one.
+    $sid = !empty($user->data['ldap_user']['init']['sid']) ? $user->data['ldap_user']['init']['sid'] : 'osha';
+    /** @var LDAPServer $ldap_server */
+    $ldap_servers = ldap_servers_get_servers($sid);
+    $ldap_server = current($ldap_servers);
+    list($authorization, $languages) = osha_authentication_build_user_from_ldap($user, $ldap_server);
+
+    // Assign user the calculated roles.
+    $roles = osha_authentication_extract_user_roles(array_keys($authorization));
+
+    // Update user section assignment if user has roles 'campaign partner'.
+    // Remove user from all sections before rebuilding it.
+    workbench_access_rebuild_user($user->uid, array());
+    foreach ($authorization as $role => $sections) {
+      switch ($role) {
+        case HWC_ROLE_CAMPAIGN_PARTNER:
+          try {
+            workbench_access_rebuild_user($user->uid, array_unique($sections));
+          }
+          catch (Exception $e) {
+            watchdog(
+              'osha_authentication',
+              'Error while rebuilding user: !uid, !message',
+              array(
+                '!uid' => $user->uid,
+                '!message' => $e->getMessage(),
+              ),
+              WATCHDOG_ERROR
+            );
+          }
+          break;
+      }
+    }
+
+    // Configure translator skills
+    $user->tmgmt_translation_skills[LANGUAGE_NONE] = array();
+    foreach($languages as $target) {
+      $user->tmgmt_translation_skills[LANGUAGE_NONE][] = array(
+        'language_from' => 'en',
+        'language_to' => $target
+      );
+    }
+    // Save the user with new data
+    user_save($user, array('roles' => $roles));
+  }
+}
+
+
+/**
+ * Implements hook_ldap_authorization_maps_alter().
+ */
+function osha_authentication_ldap_authorization_maps_alter($user, $ldap_user, $ldap_server, $consumer_conf, &$proposed_ldap_authorizations, $op) {
+  module_load_include('admin.inc', 'osha_authentication');
+  $user->ldap_groups = $proposed_ldap_authorizations;
+}
+
+/**
+ * Based on LDAP group membership, build user roles and section assignment.
+ *
+ * @param stdClass $user
+ *   User object
+ *
+ * @return array
+ *   Array keyed by role name with values an array of sections
+ */
+function osha_authentication_build_user_from_ldap($user, $ldap_server) {
+  if (!isset($user->ldap_groups)) {
+    module_load_include('admin.inc', 'osha_authentication');
+    $user->ldap_groups = osha_authentication_ldap_fetch_user_groups($user->name, $ldap_server);
+  }
+  $authorizations = array();
+  $languages = array();
+  $language_list = language_list();
+  foreach ($user->ldap_groups as $dn) {
+    list($role_name, $language) = osha_authentication_get_role_from_dn($dn, $user);
+    // Section (Partner GUID) is read from user's 'gecos' attribute.
+    if (!empty($user->field_user_partner_guid[LANGUAGE_NONE][0]['value'])) {
+      $partner_guid = $user->field_user_partner_guid[LANGUAGE_NONE][0]['value'];
+      /** @var stdClass $term */
+      if ($term = osha_workflow_get_partner_section_by_guid($partner_guid)) {
+        $authorizations[$role_name][] = $term->tid;
+      }
+      else {
+        watchdog(
+          'osha_authentication',
+          'Cannot find partner section with GUID: !guid',
+          array('!guid' => $partner_guid),
+          WATCHDOG_ERROR
+        );
+      }
+    }
+    if (!array_key_exists($role_name, $authorizations)) {
+      $authorizations[$role_name] = array();
+    }
+    if (!empty($language)) {
+      foreach ($language_list as $key => $ob) {
+        if (strcasecmp($language, $ob->name) == 0) {
+          $languages[] = $key;
+        }
+      }
+    }
+  }
+  return array($authorizations, $languages);
+}
+
+function osha_authentication_build_user_language_skills($user, $ldap_server) {
+  if (!isset($user->ldap_groups)) {
+    module_load_include('admin.inc', 'osha_authentication');
+    $user->ldap_groups = osha_authentication_ldap_fetch_user_groups($user->name, $ldap_server);
+  }
+}

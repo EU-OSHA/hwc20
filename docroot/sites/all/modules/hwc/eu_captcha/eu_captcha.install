@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Installation/uninstallation related functions for the eu_captcha module.
+ */
+
+/**
+ * Implements hook_module_install().
+ */
+function eu_captcha_install() {
+  variable_set('captcha_default_challenge', 'eu_captcha/EUCAPTCHA');
+}
+
+/**
+ * On uninstall: remove module variables and clear variable cache
+ */
+function eu_captcha_uninstall() {
+  db_delete('variable')
+    ->condition('name', db_like('eu_captcha_') . '%', 'LIKE')
+    ->execute();
+  cache_clear_all('variables', 'cache');
+}

@@ -1,0 +1,368 @@
+<?php
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7001() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7002() {
+  features_revert_module('hwc_priority_areas');
+  $voc = taxonomy_vocabulary_machine_name_load('priority_area');
+  $tree = taxonomy_get_tree($voc->vid);
+  foreach($tree as $term) {
+    hwc_priority_areas_create_topic_related_node($term->tid);
+  }
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7003() {
+  features_revert_module('hwc_priority_areas');
+  $voc = taxonomy_vocabulary_machine_name_load('priority_area');
+  $tree = taxonomy_get_tree($voc->vid);
+  foreach($tree as $term) {
+    hwc_priority_areas_create_topic_related_node($term->tid);
+  }
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7004() {
+  features_revert_module('hwc_priority_areas');
+  features_revert_module('osha');
+}
+
+function hwc_priority_areas_create_topic_related_node($tid) {
+  $q = db_select('node', 'a');
+  $q->fields('a', array('nid', 'vid'));
+  $q->innerJoin('field_data_field_priority_area', 'fs', 'fs.entity_id = a.nid AND fs.revision_id = a.vid');
+  $q->condition('a.type', 'topic_related');
+  $q->condition('fs.field_priority_area_tid', $tid);
+  $nids = $q->execute()->fetchCol();
+  if ($nids) {
+    return $nids;
+  }
+  $term = taxonomy_term_load($tid);
+
+  $node = new stdClass();
+  node_submit($node);
+  // Do not delete/change this marker unless you know what you are doing!
+  $node->title_field['en'][0]['value'] = $term->name;
+  $node->field_priority_area[LANGUAGE_NONE][]['tid'] = $tid;
+  $node->language = 'en';
+  $node->type = 'topic_related';
+  $node->uid = 0;
+  $node->status = 1;
+  $node->path['pathauto'] = 0;
+  $node->path['alias'] = '';
+  node_save($node);
+  if (isset($node->nid)) {
+    return array($node->nid);
+  }
+  else {
+    return FALSE;
+  }
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7005() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7006() {
+  features_revert_module('hwc_priority_areas');
+}
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7007() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7008() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7009() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7010() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7011() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7012() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7013() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7014() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7015() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7016() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7017() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7018() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7019() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7020() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7021() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7022() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7023() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7024() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7025() {
+  features_revert_module('hwc_priority_areas');
+}
+
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7026() {
+  $tids = [778];
+  foreach ($tids as $tid) {
+    $term = taxonomy_term_load($tid);
+    $term->field_thumbnail = [];
+    $term->field_image = [];
+    taxonomy_term_save($term);
+  }
+}
+
+/**
+ * Revert priority areas module
+ */
+function hwc_priority_areas_update_7027() {
+  $tids = [779, 780, 781, 782, 783];
+  foreach ($tids as $tid) {
+    $term = taxonomy_term_load($tid);
+    $term->field_thumbnail = [];
+    $term->field_image = [];
+    taxonomy_term_save($term);
+  }
+}
+
+/**
+ * New crop image style.
+ */
+function hwc_priority_areas_update_7028() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Show checkboxes
+ */
+function hwc_priority_areas_update_7029() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module.
+ */
+function hwc_priority_areas_update_7030() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Revert priority areas module.
+ */
+function hwc_priority_areas_update_7031() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * Fix priority areas und language.
+ */
+function hwc_priority_areas_update_7032() {
+  $priority_area_vid = db_select('taxonomy_vocabulary', 'tv')
+    ->fields('tv', array('vid'))
+    ->condition('machine_name', 'priority_area')
+    ->execute()
+    ->fetchField();
+
+  if ($priority_area_vid) {
+
+    db_update('taxonomy_term_data')
+      ->fields(array(
+        'language' => 'en',
+      ))
+      ->condition('vid', $priority_area_vid, '=')
+      ->condition('language', 'und', '=')
+      ->execute();
+
+    db_update('field_data_field_introduction_text')
+      ->fields(array(
+        'language' => 'en',
+      ))
+      ->condition('language', 'und', '=')
+      ->execute();
+  }
+}
+
+/**
+ * HW18-425 Priority areas/ Carcinogens/ Little layout issue.
+ */
+function hwc_priority_areas_update_7033() {
+  features_revert(array('hwc_priority_areas' => 'views_view'));
+}
+
+/**
+ * HW18-425 Priority areas/ Carcinogens/ Little layout issue.
+ */
+function hwc_priority_areas_update_7034() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * HW18-438 Awareness rising article titles and bottom links.
+ */
+function hwc_priority_areas_update_7035() {
+  features_revert(array('hwc_priority_areas' => 'views_view'));
+}
+
+/**
+ * HW18-437 Priority areas title and h1 is not translated.
+ */
+function hwc_priority_areas_update_7036() {
+  features_revert(array('hwc_priority_areas' => 'page_manager_pages', 'page_manager_handlers'));
+}
+
+/**
+ * HW18-439 Facts and figures article titles and breadcrumb.
+ */
+function hwc_priority_areas_update_7037() {
+  features_revert(array('hwc_priority_areas' => 'page_manager_pages', 'page_manager_handlers'));
+}
+
+/**
+ * MDR-1894 Priority areas - Allow a third item in tools and publications section.
+ */
+function hwc_priority_areas_update_7038() {
+  features_revert(array('hwc_priority_areas' => 'views_view'));
+}
+
+/**
+ * MDR-1895 Priority areas - Facts and figures - Link campaign guide
+ * into publications section.
+ */
+function hwc_priority_areas_update_7039() {
+  features_revert_module('campaign_materials');
+  features_revert(array('hwc_priority_areas' => 'views_view'));
+}
+
+/**
+ * MDR-1971 HWC 18-19: Priority areas url is called "topics" instead of "priority areas".
+ */
+function hwc_priority_areas_update_7040() {
+  features_revert(array('hwc_priority_areas' => 'page_manager_pages'));
+}
+
+/**
+ * MDR-1894 Priority areas - Allow a third item in tools and publications section.
+ */
+function hwc_priority_areas_update_7041() {
+  features_revert(array('hwc_priority_areas' => 'views_view'));
+  features_revert(array('hwc_priority_areas' => 'field_base'));
+}

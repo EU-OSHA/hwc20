@@ -1,0 +1,78 @@
+<?php
+
+/**
+ * Remove duplicated aliases for en
+ */
+function ncw_migration_update_7001() {
+  $result = db_query("select count(pid) as cpid, source from url_alias where language='en' group by source having cpid > 1");
+  foreach($result as $row) {
+    // Get first path and remove it.
+    $path = db_select('url_alias')
+      ->fields('url_alias')
+      ->condition('source', $row->source)
+      ->orderBy('pid', 'ASC')
+      ->execute()
+      ->fetchAssoc();
+    db_delete('url_alias')
+      ->condition('pid', $path['pid'])
+      ->execute();
+  }
+}
+
+/**
+ * Set different channel for ncw migration cron.
+ */
+function ncw_migration_update_7002() {
+  cache_clear_all();
+  elysia_cron_set_job_channel('ncw_migration_cron', 'ncw_migration_cron');
+}
+
+/**
+ * MDR-1440 Possibility to tag an album as "HWC 18-19" and display also in HWC18-19 website.
+ */
+function ncw_migration_update_7003() {
+  $name = 'HWC 18-19';
+  $term = taxonomy_get_term_by_name($name, 'tags');
+  if (empty($term)) {
+    $voc = taxonomy_vocabulary_machine_name_load('tags');
+    $term = new stdClass();
+    $term->parent = 0;
+    $term->language = 'en';
+    $term->name = $name;
+    $term->vid = $voc->vid;
+    $term->field_tags_code[LANGUAGE_NONE][]['value'] = 'hwc_18_19';
+    taxonomy_term_save($term);
+  }
+}
+
+/**
+ * Set different channel for ncw migration cron.
+ */
+function ncw_migration_update_7004() {
+  variable_set('ncw_migration_publication_check_related', TRUE);
+}
+
+/**
+ * MDR-2034 DS database not synchronising.
+ */
+function ncw_migration_update_7005() {
+  variable_set('ncw_migration_ds_check_date', TRUE);
+}
+
+/**
+ * MDR-2350 events - change anonymous by EU-OSHA.
+ */
+function ncw_migration_update_7006() {
+  $mail = 'no-reply@osha.europa.eu';
+  $newUser = array(
+    'name' => 'EU-OSHA',
+    'pass' => drupal_random_key(8),
+    'mail' => $mail,
+    'status' => 0,
+    'init' => $mail,
+  );
+  $user = user_save(null, $newUser);
+  if ($user && $user->uid) {
+    variable_set('ncw_migration_default_uid', $user->uid);
+  }
+}

@@ -1,0 +1,929 @@
+<?php
+
+/**
+ * Sets section to default section for existing nodes.
+ */
+function hwc_update_7001() {
+  // Get node types that do not use workbench_access for access control.
+  $node_types = array();
+  foreach (node_type_get_names() as $type => $name) {
+    if (variable_get('workbench_access_node_type_' . $type, FALSE)) {
+      $node_types[$type] = $type;
+    }
+  }
+  $subquery = db_select('workbench_access_node', 'wa')
+    ->fields('wa', array('nid'));
+  $query = db_select('node', 'n')
+    ->fields('n')
+    ->condition('type', $node_types, 'IN')
+    ->condition('nid', $subquery, 'NOT IN')
+    ->execute();
+  while ($row = $query->fetchAssoc()) {
+    $wa_row = array(
+      'nid' => $row['nid'],
+      'access_id' => 'section',
+      'access_scheme' => 'taxonomy',
+    );
+    drupal_write_record('workbench_access_node', $wa_row);
+  }
+}
+
+/**
+ * Add publication menu position rules
+ */
+function hwc_update_7002() {
+  hwc_add_menu_position_rules();
+}
+
+/**
+ * Add press release menu position rules
+ */
+function hwc_update_7003() {
+  if (module_exists('osha') && module_load_include('inc', 'osha', 'osha.utils')) {
+    $condition = array('content_type' => array('press_release' => 'press_release'));
+    osha_add_menu_position_rule('Press Release', '---- Press room', $condition);
+  }
+}
+
+/**
+ * Add menu position rules for Get Involved Segments
+ */
+function hwc_add_menu_position_rules() {
+  if (module_exists('osha') && module_load_include('inc', 'osha', 'osha.utils')) {
+    $condition = array('pages' => 'workers'.PHP_EOL.'employers'.PHP_EOL.'osh-professionals'
+    .PHP_EOL.'hr-managers'.PHP_EOL.'researchers'.PHP_EOL.'policy-makers');
+    osha_add_menu_position_rule('Get Involved Sections', '---- How to get involved', $condition);
+  }
+}
+
+/**
+ * Set flags for country terms.
+ */
+function hwc_update_7004() {
+  // When saving a country term, attach the flag on field_flag.
+  $voc = taxonomy_vocabulary_machine_name_load('country');
+  $terms = taxonomy_term_load_multiple(array(), array('vid' => $voc->vid));
+  $dir = 'public://flags';
+  if (!file_prepare_directory($dir)) {
+    throw new DrupalUpdateException('Flags directory could not be created.');
+  }
+  foreach ($terms as $term) {
+    $path = drupal_get_path('theme', 'hwc_frontend');
+    $images_dir = $path . '/images/iso2_flags';
+    if (!is_dir($images_dir)) {
+      throw new DrupalUpdateException('Could not find the flags images source directory.');
+    }
+    $iso2 = strtoupper($term->field_iso2[LANGUAGE_NONE][0]['value']);
+    $image_filename = $iso2 . '.gif';
+    $image_dest_dir = $dir . '/' . $image_filename;
+    $image_path = $images_dir . '/' . $image_filename;
+    $filepath = drupal_realpath($image_path);
+    if (is_file($filepath)) {
+      // Create managed File object and associate with Image field.
+      $file = (object) array(
+        'uid' => 1,
+        'uri' => $filepath,
+        'filemime' => file_get_mimetype($filepath),
+        'status' => 1,
+        'type' => 'image',
+      );
+      if ($file = file_copy($file, $image_dest_dir)) {
+        $term->field_flag[LANGUAGE_NONE][0] = (array) $file;
+      }
+      taxonomy_term_save($term);
+    }
+    else {
+      drupal_set_message(strtr('Flag not found for @country', array('@country' => $term->name)), 'warning');
+    }
+  }
+}
+
+/**
+ * Set flags for country terms.
+ * - previous update function failed with file type bundle missing error.
+ */
+function hwc_update_7005() {
+  // When saving a country term, attach the flag on field_flag.
+  $voc = taxonomy_vocabulary_machine_name_load('country');
+  $terms = taxonomy_term_load_multiple(array(), array('vid' => $voc->vid));
+  $dir = 'public://flags';
+  if (!file_prepare_directory($dir)) {
+    throw new DrupalUpdateException('Flags directory could not be created.');
+  }
+  foreach ($terms as $term) {
+    $path = drupal_get_path('theme', 'hwc_frontend');
+    $images_dir = $path . '/images/iso2_flags';
+    if (!is_dir($images_dir)) {
+      throw new DrupalUpdateException('Could not find the flags images source directory.');
+    }
+    $iso2 = strtoupper($term->field_iso2[LANGUAGE_NONE][0]['value']);
+    $image_filename = $iso2 . '.gif';
+    $image_dest_dir = $dir . '/' . $image_filename;
+    $image_path = $images_dir . '/' . $image_filename;
+    $filepath = drupal_realpath($image_path);
+    if (is_file($filepath)) {
+      // Create managed File object and associate with Image field.
+      $file = (object) array(
+        'uid' => 1,
+        'uri' => $filepath,
+        'filemime' => file_get_mimetype($filepath),
+        'status' => 1,
+        'type' => 'image',
+      );
+      if ($file = file_copy($file, $image_dest_dir)) {
+        $term->field_flag[LANGUAGE_NONE][0] = (array) $file;
+      }
+      taxonomy_term_save($term);
+    }
+    else {
+      drupal_set_message(strtr('Flag not found for @country', array('@country' => $term->name)), 'warning');
+    }
+  }
+}
+
+/**
+ * Sets section to default section for existing nodes.
+ */
+function hwc_update_7006() {
+  // Get node types that do not use workbench_access for access control.
+  $node_types = array();
+  foreach (node_type_get_names() as $type => $name) {
+    if (variable_get('workbench_access_node_type_' . $type, FALSE)) {
+      $node_types[$type] = $type;
+    }
+  }
+  $subquery = db_select('workbench_access_node', 'wa')
+    ->fields('wa', array('nid'));
+  $query = db_select('node', 'n')
+    ->fields('n')
+    ->condition('type', $node_types, 'IN')
+    ->condition('nid', $subquery, 'NOT IN')
+    ->execute();
+  while ($row = $query->fetchAssoc()) {
+    $wa_row = array(
+      'nid' => $row['nid'],
+      'access_id' => 'section',
+      'access_scheme' => 'taxonomy',
+    );
+    drupal_write_record('workbench_access_node', $wa_row);
+  }
+}
+
+/**
+ * Set site's 404 page
+ */
+function hwc_update_7007() {
+  variable_set('site_404', 'page-not-found');
+}
+
+/**
+ * Finish job #3
+ */
+function hwc_update_7008() {
+  db_update('tmgmt_job_item')
+    ->fields(array('state' => TMGMT_JOB_ITEM_STATE_ACCEPTED))
+    ->condition('tjid', 3)
+    ->condition('state', TMGMT_JOB_ITEM_STATE_ACTIVE)
+    ->execute();
+
+  db_update('tmgmt_job')
+    ->fields(array('state' => TMGMT_JOB_STATE_FINISHED))
+    ->condition('tjid', 3)
+    ->execute();
+}
+
+/**
+ * Add translations from strings to voc: segment.
+ */
+function hwc_update_7009() {
+  _osha_tmgmt_add_translations_from_strings_to_terms('segment');
+}
+
+/**
+ * Fix "Other" literal string and translations (empty spaces).
+ */
+function hwc_update_7010() {
+  db_update('locales_source')
+    ->fields(array('source' => 'Other'))
+    ->condition('lid', 16570)
+    ->execute();
+
+  db_query("
+    UPDATE locales_target
+    SET translation = REPLACE(TRIM(translation), CHAR(9), '')
+    WHERE lid=16570")->execute();
+}
+
+
+/**
+ * Add translations to some new lid strings.
+ */
+function hwc_update_7011() {
+  $strings = array(
+    'Become a campaign partner',
+    'Privacy notice',
+    'Other',
+  );
+
+  foreach ($strings as $string) {
+    locale($string, '', 'bg');
+    _osha_tmgmt_add_translations_to_identical_strings($string);
+  }
+
+  $data = array(
+    'textgroup' => 'menu',
+    'location' => 'menu:item:2495:title',
+    'context' => 'item:2495:title',
+    'type' => 'item',
+    'string' => 'Campaign materials',
+    'objectid' => 2495,
+    'objectkey' => 2495,
+    'property' => 'title',
+  );
+  $i18nstring = new i18n_string_object($data);
+  $i18nstring->update();
+
+  $data = array(
+    'textgroup' => 'menu',
+    'location' => 'menu:item:2495:title',
+    'context' => 'item:2495:title',
+    'type' => 'item',
+    'string' => 'Campaign materials',
+    'objectid' => 2495,
+    'objectkey' => 2495,
+    'property' => 'title',
+  );
+  $i18nstring = new i18n_string_object($data);
+  $i18nstring->update();
+
+  $data = array(
+    'textgroup' => 'menu',
+    'location' => 'menu:item:2742:title',
+    'context' => 'item:2742:title',
+    'type' => 'item',
+    'string' => 'Site map',
+    'objectid' => 2742,
+    'objectkey' => 2742,
+    'property' => 'title',
+  );
+  $i18nstring = new i18n_string_object($data);
+  $i18nstring->update();
+
+  $data = array(
+    'textgroup' => 'menu',
+    'location' => 'menu:item:2743:title',
+    'context' => 'item:2743:title',
+    'type' => 'item',
+    'string' => 'Contact',
+    'objectid' => 2743,
+    'objectkey' => 2743,
+    'property' => 'title',
+  );
+  $i18nstring = new i18n_string_object($data);
+  $i18nstring->update();
+
+  $data = array(
+    'textgroup' => 'menu',
+    'location' => 'menu:item:11667:title',
+    'context' => 'item:11667:title',
+    'type' => 'item',
+    'string' => 'Campaign materials',
+    'objectid' => 11667,
+    'objectkey' => 11667,
+    'property' => 'title',
+  );
+  $i18nstring = new i18n_string_object($data);
+  $i18nstring->update();
+
+  $strings = array(
+    'Campaign materials',
+    'Site map',
+    'Contact',
+  );
+  foreach ($strings as $string) {
+    _osha_tmgmt_add_translations_to_identical_strings($string);
+  }
+
+  // Clear locale caches.
+  _locale_invalidate_js();
+}
+
+/**
+ * Certificate page breadcrumb literals.
+ */
+function hwc_update_7012() {
+  $strings = array(
+    'Get involved',
+    'Get your certificate of participation in the Healthy Workplace Campaign',
+  );
+
+  foreach ($strings as $string) {
+    locale($string, '', 'bg');
+    _osha_tmgmt_add_translations_to_identical_strings($string);
+  }
+}
+
+/**
+ * Add translation to Log in literal.
+ */
+function hwc_update_7013() {
+  $strings = array(
+    'Log in',
+  );
+
+  foreach ($strings as $string) {
+    _osha_tmgmt_add_translations_to_identical_strings($string);
+  }
+}
+
+/**
+ * Fix "See more" literal string and translations.
+ */
+function hwc_update_7014() {
+  db_update('locales_source')
+    ->fields(array('source' => 'See more'))
+    ->condition('lid', array(9426), 'IN')
+    ->execute();
+
+  db_query("
+    UPDATE locales_target
+    SET translation = REPLACE(TRIM(translation), '> ', '')
+    WHERE lid in (9426)")->execute();
+
+  _osha_tmgmt_add_translations_to_identical_strings('See more');
+}
+
+/**
+ * Translate front page banner.
+ */
+function hwc_update_7015() {
+//"Safety and health at work is everyone's concern. It's good for you. It's good for business."; // 14409
+//"Healthy Workplaces for All Ages"; //17456
+  $node = node_load(107);
+  $translation_handler = entity_translation_get_handler('node', $node);
+  // Init Translation to set original value.
+  if (empty($node->translations->original)) {
+    $translation_handler->initTranslations();
+    $translation_handler->saveTranslations();
+  }
+  $title_trans = db_select('locales_target')
+    ->fields('locales_target', array('language', 'translation'))
+    ->condition('lid', 17456)
+    ->execute()
+    ->fetchAllKeyed();
+
+  $body_trans = db_select('locales_target')
+    ->fields('locales_target', array('language', 'translation'))
+    ->condition('lid', 14409)
+    ->execute()
+    ->fetchAllKeyed();
+
+  foreach ($title_trans as $lang => $title) {
+    $node->title_field[$lang][0]['value'] = $title;
+    if (!empty($body_trans[$lang])) {
+      $node->body[$lang][0]['value'] = "<p id='tmgmt-1'>" . $body_trans[$lang] . "</p>";
+      $node->body[$lang][0]['format'] = "full_html";
+    }
+    $translation_handler->setTranslation(array(
+      'translate' => 0,
+      'status' => 1,
+      'uid' => 1,
+      'language' => $lang,
+      'source' => 'en',
+    ));
+  }
+  node_save($node);
+}
+
+/**
+ * Reset page title to use default one to use the t().
+ */
+function hwc_update_7016() {
+  variable_set('site_map_page_title', '');
+}
+
+/**
+ * Update translations for tools and publ breadcrumb.
+ */
+function hwc_update_7017() {
+  $strings = array(
+    'Tools and publications',
+  );
+  foreach ($strings as $string) {
+    _osha_tmgmt_add_translations_to_identical_strings($string);
+  }
+}
+
+/**
+ * Add translations from strings to voc and from voc to strings: segment.
+ */
+function hwc_update_7018() {
+  _osha_tmgmt_add_translations_from_strings_to_terms('segment');
+  _osha_tmgmt_add_translations_from_terms_to_strings('segment');
+}
+
+/**
+ * Enable node_revision_delete.
+ */
+function hwc_update_7019() {
+  module_enable(array('node_revision_delete'));
+}
+
+/**
+ * Add translations from strings to voc: org type and bus sector.
+ */
+function hwc_update_7020() {
+  _osha_tmgmt_add_translations_from_strings_to_terms('organisation_type');
+  _osha_tmgmt_add_translations_from_strings_to_terms('bussines_sector');
+}
+
+/**
+ * Update translations for tools and publ breadcrumb.
+ */
+function hwc_update_7021() {
+  $strings = array(
+    'Tools and publications',
+    'Practical tools',
+    'Campaign materials',
+  );
+  foreach ($strings as $string) {
+    _osha_tmgmt_add_translations_to_identical_strings($string);
+  }
+}
+
+/**
+ * Change placeholder - add it in paragraph and not use the comment tag.
+ */
+function hwc_update_7022() {
+  $vid = db_select('node', 'n')
+    ->fields('n', array('vid'))
+    ->condition('nid', 165)
+    ->execute()
+    ->fetchField();
+  $bodies = db_select('field_data_body', 'b')
+    ->fields('b', array('language', 'body_value'))
+    ->condition('revision_id', $vid)
+    ->execute()
+    ->fetchAllKeyed();
+  foreach ($bodies as $lang => $html) {
+    $html = str_replace('<!-- PLACEHOLDER-REGISTER-DO-NOT-REMOVE -->', '', $html);
+    $html = str_replace('[-PLACEHOLDER-REGISTER-DO-NOT-REMOVE-]', '', $html);
+    module_load_include('inc', 'osha_tmgmt', 'osha_tmgmt.retranslate');
+    $document = OshaTMGMTRetranslate::getDOMDocument($html);
+    $xpath = new DOMXPath($document);
+    $dom_list = $xpath->query("//*[@id='tmgmt-8']");
+    foreach ($dom_list as $idx => $dom_elem) {
+      $dom_elem->nodeValue = '[-PLACEHOLDER-REGISTER-DO-NOT-REMOVE-]' . $dom_elem->nodeValue;
+      $new_body = filter_dom_serialize($document);
+      db_update('field_data_body')
+        ->fields(array('body_value' => $new_body))
+        ->condition('language', $lang)
+        ->condition('entity_id', 165)
+        ->condition('revision_id', $vid)
+        ->execute();
+      db_update('field_revision_body')
+        ->fields(array('body_value' => $new_body))
+        ->condition('language', $lang)
+        ->condition('revision_id', $vid)
+        ->execute();
+    }
+  }
+}
+
+/**
+ * Enable some new modules.
+ */
+function hwc_update_7023() {
+  $modules = array(
+    'imce_mkdir',
+    'xmlsitemap',
+    'xmlsitemap_i18n',
+    'xmlsitemap_menu',
+    'xmlsitemap_node',
+    'hwc_sitemap',
+  );
+  module_enable($modules);
+}
+
+/**
+ * Remove translated aliases for node 100.
+ */
+function hwc_update_7024() {
+  db_delete('url_alias')
+    ->condition('source', 'node/100')
+    ->condition('language', 'en', '!=')
+    ->execute();
+}
+
+/**
+ * Fix multilingual link for piwik iframe in privacy notice.
+ */
+function hwc_update_7025() {
+  $url = 'https://piwik.osha.europa.eu/piwik/index.php?module=CoreAdminHome&action=optOut&language=en';
+  $url_ln = 'https://piwik.osha.europa.eu/piwik/index.php?module=CoreAdminHome&action=optOut&language=';
+  $node = node_load(102);
+  foreach ($node->body as $lang => $value) {
+    $node->body[$lang][0]['value'] = str_replace($url, $url_ln . $lang,  $value[0]['value']);
+  }
+  $node->workbench_moderation_state_new = 'published';
+  node_save($node);
+}
+
+/**
+ * Import some translations from string to string.
+ */
+function hwc_update_7026() {
+  $strings = array(
+    'Select',
+    'Logout',
+  );
+  foreach ($strings as $string) {
+    _osha_tmgmt_add_translations_to_identical_strings($string);
+  }
+}
+
+/**
+ * Set eu_cookie for all languages.
+ */
+function hwc_update_7027() {
+  $languages = language_list();
+  $en_settings = variable_get('eu_cookie_compliance_en');
+  unset($languages['en']);
+  foreach (array_keys($languages) as $lang) {
+    variable_set('eu_cookie_compliance_' . $lang, $en_settings);
+  }
+}
+
+/**
+ * Revert hwc module - add new image style
+ */
+function hwc_update_7028() {
+  features_revert_module('hwc');
+}
+
+/**
+ * Enable new custom module - hwc_webform2pdf_localization - used for certificate translation.
+ */
+function hwc_update_7029() {
+  $modules = array(
+    'hwc_webform2pdf_localization',
+  );
+  module_enable($modules);
+}
+
+/**
+ * MDR-776 - Revert hwc module - update newsletter_thumb image style
+ */
+function hwc_update_7030() {
+  features_revert_module('hwc');
+}
+
+/**
+ * Enable spamspna
+ */
+function hwc_update_7031() {
+  module_enable(['spamspan']);
+}
+
+/**
+ * Migrate news, events to fix the source field.
+ */
+function hwc_update_7032() {
+  module_enable(['views_json']);
+  features_revert_module('hwc');
+  features_revert_module('osha_news');
+  features_revert_module('osha_events');
+  ncw_migration_run_single('news');
+  ncw_migration_run_single('events');
+}
+
+/**
+ * enabled hwc priority areas module
+ */
+function hwc_update_7033() {
+  module_enable(['hwc_priority_areas']);
+}
+
+/**
+ * enabled napo films module
+ */
+function hwc_update_7034() {
+  module_enable(['hwc_napo_films']);
+}
+
+/**
+ * enabled get_your_certificate view and enable module osha_admin_reports
+ */
+function hwc_update_7035() {
+  module_enable(['osha_admin_reports']);
+  features_revert_module('hwc');
+}
+
+/**
+ * enabled good practice exchange module
+ */
+function hwc_update_7036() {
+  features_revert_module('osha_news');
+  module_enable(['hwc_good_practice_exchange']);
+}
+
+/**
+ * News and events title tag
+ */
+function hwc_update_7037() {
+  features_revert_module('osha_news');
+}
+
+/**
+ * Additional resources infographics display
+ */
+function hwc_update_7038() {
+  features_revert_module('hwc');
+}
+
+/**
+ * Enable qtip module.
+ */
+function hwc_update_7039() {
+}
+
+/**
+ * Enable qtip module.
+ */
+function hwc_update_7040() {
+  module_enable(['qtip']);
+}
+
+/**
+ * Act as partner block in footer.
+ */
+function hwc_update_7041() {
+  features_revert_module('hwc');
+}
+
+/**
+ * Enable qtip module.
+ */
+function hwc_update_7042() {
+  module_enable(['osha_flickr']);
+}
+
+/**
+ * MDR-1614 Flicker galleries can not be imported from NCW.
+ */
+function hwc_update_7043() {
+  migrate_static_registration();
+}
+
+/**
+ * MDR-1647 HW18:Add a glossary to the campaign website.
+ */
+function hwc_update_7044() {
+  module_enable(['lexicon', 'hwc_glossary']);
+}
+
+/**
+ * Improve security of the website against CSRF (Cross-Site Request Forgery) attacks.
+ */
+function hwc_update_7045() {
+  module_enable(['csrf_checks']);
+}
+
+/**
+ * MDR-1765 add custom dimensions to the piwik script - Campaign.
+ */
+function hwc_update_7046() {
+  variable_set('osha_menu_level_reverse', FALSE);
+}
+
+/**
+ * MDR-1900 HWC18-19: "Activity" field options.
+ */
+function hwc_update_7047() {
+  $name = '4.5 Healthy workplaces campaign 2018-2019';
+  $term = taxonomy_get_term_by_name($name, 'activity');
+  if (empty($term)) {
+    $voc = taxonomy_vocabulary_machine_name_load('activity');
+    $term = new stdClass();
+    $term->parent = 0;
+    $term->language = 'en';
+    $term->name = $name;
+    $term->vid = $voc->vid;
+    $term->field_activity_code[LANGUAGE_NONE][]['value'] = 'dangerous_substances_2018_19';
+    taxonomy_term_save($term);
+  }
+}
+
+/**
+ * MDR-1968 HWC 18-19 - Delete the access to taxonomy webpages.
+ */
+function hwc_update_7048() {
+  features_revert(array('hwc' => 'page_manager_handlers'));
+}
+
+/**
+ * MDR-2009 Back end - Events field - Tagging functionality.
+ */
+function hwc_update_7049() {
+  features_revert(array('hwc' => 'views_view'));
+}
+
+/**
+ * MDR-2041 "move" all articles to subfolders - view pages.
+ */
+function hwc_update_7050() {
+  features_revert(array('campaign_materials' => array('page_manager_pages', 'path_breadcrumbs')));
+  echo "campaign_materials\n";
+  features_revert(array('hwc' => array('page_manager_pages')));
+  echo "hwc\n";
+  features_revert(array('hwc_gallery' => array('views_view', 'path_breadcrumbs')));
+  echo "hwc_gallery\n";
+
+  features_revert(array('hwc_glossary' => array('views_view')));
+  echo "hwc_glossary\n";
+  features_revert(array('hwc_good_practice_exchange' => array('page_manager_pages')));
+  echo "hwc_good_practice_exchange\n";
+
+
+  features_revert(array('hwc_homepage' => array('views_view')));
+  echo "hwc_homepage\n";
+
+  features_revert(array('hwc_partner' => array('path_breadcrumbs', 'page_manager_pages')));
+  echo "hwc_partner\n";
+
+  features_revert_module('hwc_practical_tool');
+  echo "hwc_practical_tool\n";
+  features_revert(array('hwc_priority_areas' => array('views_view', 'page_manager_pages')));
+  echo "hwc_priority_areas\n";
+  features_revert(array('social_dashboard' => array('views_view', 'page_manager_pages')));
+  echo "social_dashboard\n";
+
+  features_revert(array('osha_flickr' => array('views_view')));
+  echo "osha_flickr\n";
+  features_revert(array('osha_publication' => array('page_manager_pages', 'path_breadcrumbs')));
+  echo "osha_publication\n";
+
+  features_revert(array('osha_search' => array('fe_block_settings')));
+  echo "osha_search\n";
+  features_revert(array('osha_news' => array('views_view', 'path_breadcrumbs')));
+  echo "osha_news\n";
+  features_revert(array('osha_events' => array('views_view', 'path_breadcrumbs', 'fe_block_settings')));
+  echo "osha_events\n";
+  features_revert(array('osha_press_release' => array('page_manager_pages', 'path_breadcrumbs')));
+  echo "osha_press_release\n";
+}
+
+/**
+ * MDR-2041 "move" all articles to subfolders - view pages.
+ */
+function hwc_update_7051() {
+  redirect_delete_by_path('media-centre/news');
+  redirect_delete_by_path('media-centre/events');
+  $urls = [
+    'campaign-materials' => 'tools-and-publications/campaign-materials',
+    'get-your-certificate' => 'get-involved/get-your-certificate',
+    'photo-gallery' => 'media-centre/photo-gallery',
+
+    'glossary_list' => 'about-topic/glossary-list',
+    'good-practice-exchange' => 'campaign-partners/good-practice-exchange',
+
+    'national-focal-points' => 'campaign-partners/national-focal-points',
+    'official-campaign-partners' => 'campaign-partners/official-campaign-partners',
+    'campaign-media-partners' => 'campaign-partners/campaign-media-partners',
+    'enterprise-europe-network' => 'campaign-partners/enterprise-europe-network',
+
+    'practical-tools' => 'tools-and-publications/practical-tools',
+    'priority-areas' => 'about-topic/priority-areas',
+    'social_media_centre' => 'media-centre/social-media-centre',
+
+
+    'publications' => 'tools-and-publications/publications',
+    'case-studies' => 'tools-and-publications/case-studies',
+
+    'news' => 'media-centre/news',
+    'events' => 'media-centre/events',
+    'past-events' => 'media-centre/past-events',
+    'press-room' => 'media-centre/press-room',
+  ];
+
+  $languages = language_list();
+  foreach ($urls as $old_url => $new_url) {
+    db_update('menu_links')
+      ->fields(array(
+        'link_path' => $new_url,
+        'router_path' => $new_url,
+      ))
+      ->condition('link_path', $old_url, '=')
+      ->execute();
+
+    foreach ($languages as $language => $lang) {
+      if (!$lang->enabled) {
+        continue;
+      }
+      // Redirect old alias.
+      $redirect = new stdClass();
+      redirect_object_prepare($redirect);
+      $redirect->source = $old_url;
+      $redirect->redirect = $new_url;
+      $redirect->language = $language;
+      // Check if the redirect exists before saving.
+      $hash = redirect_hash($redirect);
+      if (!redirect_load_by_hash($hash)) {
+        redirect_save($redirect);
+      }
+    }
+  }
+
+}
+
+/**
+ * MDR-2041 "move" all articles to subfolders - view pages.
+ */
+function hwc_update_7052() {
+  $links = [
+    1819 => 'tools-and-publications/case-studies',
+    1825 => 'tools-and-publications/publications',
+    1824 => 'tools-and-publications/practical-tools',
+    1817 => 'tools-and-publications/campaign-materials',
+  ];
+  foreach ($links as $tid => $link) {
+    $term = taxonomy_term_load($tid);
+    $term->field_tools_publications_link[LANGUAGE_NONE][0]['url'] = $link;
+    taxonomy_term_save($term);
+  }
+
+  db_update('menu_links')
+    ->fields(array(
+      'hidden' => 1,
+    ))
+    ->condition('mlid', 32031, '=')
+    ->execute();
+}
+
+/**
+ * MDR-2040 "move" all articles to subfolders - change articles only.
+ */
+function hwc_update_7053() {
+  hwc_update_main_menu_content_links();
+}
+
+/**
+ * MDR-2042 "move" all articles to subfolders - menu position rules.
+ */
+function hwc_update_7054() {
+  hwc_update_main_menu_position_rule();
+}
+
+/**
+ * MDR-2106 Publication first date.
+ */
+function hwc_update_7055() {
+  features_revert(array('hwc' => array('views_view')));
+  features_revert(array('osha_publication' => array('field_base', 'field_instance')));
+  features_revert(array('campaign_materials' => array('field_instance')));
+  features_revert(array('osha_events' => array('field_instance')));
+  features_revert(array('osha_infographics' => array('field_instance')));
+  features_revert(array('osha' => array('field_instance', 'views_view')));
+  features_revert(array('osha_press_release' => array('field_instance')));
+  features_revert(array('hwc_practical_tool' => array('field_instance')));
+
+}
+
+/**
+ * MDR-2255 HWC: Matomo script to overwrite the language for the URLs is not working.
+ */
+function hwc_update_7056() {
+  variable_set('piwik_translation_set', 1);
+  variable_set('piwik_query_parameters', 1);
+}
+
+/**
+ * MDR-2253 Events migration from HWC to NCW.
+ */
+function hwc_update_7057() {
+  features_revert(['hwc' => ['views_view']]);
+}
+
+/**
+ * MDR-2413 add canonicals for imported items on the campaign.
+ */
+function hwc_update_7058() {
+  features_revert(array('osha_press_release' => array('field_base', 'field_instance')));
+  features_revert(array('osha_note_to_editor' => array('field_base', 'field_instance')));
+  features_revert(array('osha_publication' => array('field_base', 'field_instance')));
+  features_revert(array('hwc_practical_tool' => array('field_base', 'field_instance')));
+}
+
+/**
+ * MDR-2522 Migration process from HWC18 to NCW.
+ */
+function hwc_update_7059() {
+  features_revert(['hwc' => ['views_view']]);
+}
+
+/**
+ * MDR-2636 News items and events migration from HWC to Corporate.
+ */
+function hwc_update_7060() {
+  features_revert(['hwc' => ['views_view']]);
+}

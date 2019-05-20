@@ -1,0 +1,35 @@
+<?php
+/**
+ * @file
+ * Code for the osh_image_gallery feature.
+ */
+
+include_once 'osh_image_gallery.features.inc';
+
+
+/**
+ * Implements hook_menu_alter().
+ */
+function osh_image_gallery_menu_alter(&$items) {
+  // Change callback to use our function.
+  $items['admin/content/file']['page callback'] = 'osh_image_gallery_admin_page_callback';
+  // Unset the thumbnail MENU_LOCAL_ACTION from File page.
+  unset($items['admin/content/file/thumbnails']);
+}
+
+/**
+ * Callback for admin File page.
+ */
+function osh_image_gallery_admin_page_callback() {
+  // Render our custom view for files.
+  drupal_add_library ( 'system' , 'ui.tabs' );
+  $media_path = drupal_get_path('module', 'media');
+  drupal_add_js($media_path . '/js/media.core.js');
+  drupal_add_js($media_path . '/js/media.browser.js');
+  drupal_add_js($media_path . '/js/media.browser.js');
+
+  $path = drupal_get_path('module', 'osh_image_gallery');
+  drupal_add_js($path . '/osh_image_gallery.js');
+
+  return views_embed_view('media_browser_osha');
+}

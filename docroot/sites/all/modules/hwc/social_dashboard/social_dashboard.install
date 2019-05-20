@@ -1,0 +1,200 @@
+<?php
+
+/**
+ * Implements hook_requirements().
+ */
+function social_dashboard_requirements($phase) {
+  $requirements = array();
+
+  if ($phase == 'runtime') {
+
+    $library_path = (module_exists('libraries') && libraries_get_path('twitter')) ? libraries_get_path('twitter') : 'sites/all/libraries/twitter';
+    $library_path .= '/TwitterAPIExchange.php';
+    // Check for the Twitter library.
+    if (!file_exists($library_path)) {
+      $requirements['twitter'] = array(
+        'value' => t('Not installed'),
+        'severity' => REQUIREMENT_ERROR,
+        'description' => t(
+          'The simplest PHP Wrapper for <a href="@gh">Twitter API</a> library is not installed. Please download the library and put it at sites/all/libraries/twitter/',
+          array('@gh' => 'https://github.com/J7mbo/twitter-api-php')
+        ),
+      );
+    }
+    else {
+      $requirements['twitter'] = array(
+        'value' => t('Installed'),
+        'severity' => REQUIREMENT_OK,
+      );
+    }
+    $requirements['twitter']['title'] = t('Twitter API Wrapper');
+
+
+    $library_path = (module_exists('libraries') && libraries_get_path('facebook')) ? libraries_get_path('facebook') : 'sites/all/libraries/facebook';
+    $library_path .= "/vendor/autoload.php";
+
+    // Check for the Facebook library.
+    if (!file_exists($library_path)) {
+      $requirements['facebook'] = array(
+        'value' => t('Not installed'),
+        'severity' => REQUIREMENT_ERROR,
+        'description' => t(
+          'The <a href="@gh">Facebook SDK</a> for PHP provides a native interface to the Graph API and Facebook Login.',
+          array('@gh' => 'https://github.com/facebook/php-graph-sdk')
+        ),
+      );
+    }
+    else {
+      $requirements['facebook'] = array(
+        'value' => t('Installed'),
+        'severity' => REQUIREMENT_OK,
+      );
+    }
+    $requirements['facebook']['title'] = t('Facebook SDK');
+
+
+    $library_path = (module_exists('libraries') && libraries_get_path('linkedin')) ? libraries_get_path('linkedin') : 'sites/all/libraries/linkedin';
+    $library_path .= "/vendor/autoload.php";
+
+    // Check for the Linkedin library.
+    if (!file_exists($library_path)) {
+      $requirements['linkedin'] = array(
+        'value' => t('Not installed'),
+        'severity' => REQUIREMENT_ERROR,
+        'description' => t(
+          'A library to connect with <a href="@gh">LinkedIn API</a>. Perfect if you are looking for an API client or SDK for LinkedIn',
+          array('@gh' => 'https://github.com/Happyr/LinkedIn-API-client')
+        ),
+      );
+    }
+    else {
+      $requirements['linkedin'] = array(
+        'value' => t('Installed'),
+        'severity' => REQUIREMENT_OK,
+      );
+    }
+    $requirements['linkedin']['title'] = t('LinkedIn API library');
+
+  }
+
+  return $requirements;
+}
+
+/**
+ * Implements hook_schema().
+ */
+function social_dashboard_schema() {
+  $schema = array();
+
+  $schema['dashboard_item'] = array(
+    'description' => t('Dashboard social module'),
+    'fields' => array(
+        'dashboard_item_id' => array(
+          'description' => 'Primary ID field for the table. Not used for anything except internal lookups.',
+          'type' => 'serial',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+          'no export' => TRUE,
+        ),
+        'name' => array(
+          'description' => 'Name for used to identify them programmatically.',
+          'type' => 'varchar',
+          'length' => '255',
+        ),
+        'social_id' => array(
+          'description' => 'Social_id for used to identify them programmatically.',
+          'type' => 'varchar',
+          'length' => '255',
+        ),
+        'source' => array(
+          'description' => 'Social source.',
+          'type' => 'varchar',
+          'length' => '255',
+        ),
+        'tags' => array(
+          'description' => 'A comma separated list of tags.',
+          'type' => 'varchar',
+          'length' => '255',
+        ),
+        'timestamp' => array(
+          'description' => '',
+          'type' => 'varchar',
+          'length' => '255',
+        ),
+        'weight' => array(
+          'description' => '',
+          'type' => 'varchar',
+          'length' => '255',
+        ),
+        'content' => array(
+          'description' => '',
+          'type' => 'varchar',
+          'length' => '255',
+        ),
+        'variables' => array(
+          'description' => 'Serialized array of variables.',
+          'type' => 'blob',
+          'size' => 'big',
+        ),
+      ) + entity_exportable_schema_fields(),
+    'primary key' => array('dashboard_item_id'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Revert social_dashboard module.
+ */
+function social_dashboard_update_7001() {
+  features_revert_module('social_dashboard');
+}
+
+/**
+ * Revert social_dashboard module.
+ */
+function social_dashboard_update_7002() {
+  features_revert_module('social_dashboard');
+}
+
+/**
+ * Revert social_dashboard module.
+ */
+function social_dashboard_update_7003() {
+  features_revert_module('social_dashboard');
+}
+
+/**
+ * Revert social_dashboard module.
+ */
+function social_dashboard_update_7004() {
+  features_revert_module('social_dashboard');
+}
+
+/**
+ * Revert social_dashboard module.
+ */
+function social_dashboard_update_7005() {
+  features_revert_module('social_dashboard');
+}
+
+/**
+ * Revert social_dashboard module.
+ */
+function social_dashboard_update_7006() {
+  features_revert_module('social_dashboard');
+}
+
+/**
+ * HW18-273 Implementation after usability recommendations.
+ */
+function social_dashboard_update_7007() {
+  features_revert_module('social_dashboard');
+}
+
+/**
+ * MDR-1929 LinkedIn in the social media page looks strange.
+ */
+function social_dashboard_update_7008() {
+  features_revert_module('social_dashboard');
+}

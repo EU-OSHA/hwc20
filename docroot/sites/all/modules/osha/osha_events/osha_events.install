@@ -1,0 +1,286 @@
+<?php
+
+/**
+ * Drop event content type and re-create on feature revert.
+ */
+function osha_events_update_7001() {
+  node_type_delete('events');
+  features_revert_module('osha_events');
+  // Populate the taxonomy with terms.
+  if ($voc = taxonomy_vocabulary_machine_name_load('organised_by')) {
+    $v = (object) array('name' => 'EU-OSHA', 'vid' => $voc->vid);
+    taxonomy_term_save($v);
+  }
+
+  db_delete('context_visibility_context')
+    ->condition('delta', 'events_index-block_1')
+    ->execute();
+
+  // CW-1077
+  db_insert('context_visibility_context')
+    ->fields(array(
+      'module' => 'views',
+      'delta' => 'events_index-block_1',
+      'context' => 'context_events',
+    ))->execute();
+}
+
+/**
+ * Delete events field_theme.
+ */
+function osha_events_update_7002() {
+  field_delete_field('field_theme');
+}
+
+/**
+ * Delete all events
+ */
+function osha_events_update_7003() {
+  $query = new EntityFieldQuery();
+
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'events');
+
+  $result = $query->execute();
+
+  if (isset($result['node'])) {
+    $nids = array_keys($result['node']);
+  }
+
+  node_delete_multiple($nids);
+}
+
+
+/**
+ * Create the 'Events Editor role'
+ */
+function osha_events_update_7004() {
+  $roles = array(
+    'Events Coordinator',
+    'Events Editor',
+  );
+  foreach($roles as $name) {
+    if (!user_role_load_by_name($name)) {
+      user_role_save((object)array(
+        'name' => $name,
+      ));
+      watchdog('osha_events', 'Created role !name', array('!name' => $name));
+    }
+  }
+}
+
+/**
+ * Add publication menu position rules
+ */
+function osha_events_update_7005() {
+  osha_events_add_menu_position_rules();
+}
+
+/**
+ * Add menu position rules for publication content type.
+ */
+function osha_events_add_menu_position_rules() {
+  if (module_exists('osha') && module_load_include('inc', 'osha', 'osha.utils')) {
+    $condition = array('content_type' => array('events' => 'events'));
+    osha_add_menu_position_rule('Events (menu position rule)', '---- Events', $condition);
+  }
+}
+
+/**
+ * Remove talking dates to be able to make field modifications.
+ */
+function osha_events_update_7006() {
+  db_delete('field_data_field_talking_date')
+    ->execute();
+  db_delete('field_revision_field_talking_date')
+    ->execute();
+}
+
+/**
+ * Revert osha_events.
+ */
+function osha_events_update_7007() {
+  features_revert_module('osha_events');
+}
+
+/**
+ * Revert osha_events.
+ */
+function osha_events_update_7008() {
+  features_revert_module('osha_events');
+}
+
+/**
+ * Revert osha_events.
+ */
+function osha_events_update_7009() {
+  features_revert_module('osha_events');
+}
+
+/**
+ * Revert osha_events.
+ */
+function osha_events_update_7010() {
+  features_revert_module('osha_events');
+}
+
+/**
+ * Revert osha_events.
+ */
+function osha_events_update_7011() {
+  features_revert_module('osha_events');
+}
+
+/**
+ * Revert osha_events.
+ */
+function osha_events_update_7012() {
+  features_revert_module('osha_events');
+}
+
+/**
+ * Revert osha_events.
+ */
+function osha_events_update_7013() {
+  features_revert_module('osha_events');
+}
+
+/**
+ * Revert osha_events.
+ */
+function osha_events_update_7014() {
+  features_revert_module('osha_events');
+}
+
+/**
+ * MDR-1688 - Update event content type - cleanup osha dump.
+ */
+function osha_events_update_7015() {
+  $tables = [
+    'field_data_field_adonis',
+    'field_revision_field_adonis',
+
+    'field_data_field_unit_ref',
+    'field_revision_field_unit_ref',
+
+    'field_data_field_agency_role',
+    'field_revision_field_agency_role',
+
+    'field_data_field_agency_initial_contact',
+    'field_revision_field_agency_initial_contact',
+
+    'field_data_field_agency_rep_confirmed',
+    'field_revision_field_agency_rep_confirmed',
+
+    'field_data_field_satisfaction_rate',
+    'field_revision_field_satisfaction_rate',
+
+    'field_data_field_event_in_amp',
+    'field_revision_field_event_in_amp',
+
+    'field_data_field_agency_contact_reply',
+    'field_revision_field_agency_contact_reply',
+
+    'field_data_field_number_of_attendees',
+    'field_revision_field_number_of_attendees',
+
+    'field_data_field_color',
+    'field_revision_field_color',
+  ];
+
+  foreach ($tables as $table) {
+    if (db_table_exists($table)) {
+      db_drop_table($table);
+    }
+  }
+}
+
+/**
+ * MDR-1688 HWC18: Changes on events' fields.
+ */
+function osha_events_update_7016() {
+  features_revert_module('osha_events');
+}
+
+/**
+ * MDR-1724 HWC18: Delete ‘tagging functionality' in the items to be uploaded from the Private Zone.
+ */
+function osha_events_update_7017() {
+  features_revert(array('osha_events' => array('field_instance')));
+}
+
+/**
+ * MDR-1919 Select manually and replicate in the NCW news and events created in the HWC.
+ */
+function osha_events_update_7018() {
+  features_revert_module('osha_events');
+}
+
+/**
+ * MDR-1964 Show EU flag for EU-OSHA events.
+ */
+function osha_events_update_7019() {
+  features_revert_module('osha_events');
+  features_revert(array('hwc_homepage' => array('views_view')));
+}
+
+/**
+ * MDR-2237 HWC: Display Organiser in Events list.
+ */
+function osha_events_update_7020() {
+  features_revert(array('osha_events' => array('views_view')));
+}
+
+/**
+ * MDR-2027 Changes in the workflow of news and events.
+ */
+function osha_events_update_7021() {
+  features_revert(array('osha_events' => 'field_base'));
+  features_revert(array('osha_events' => 'field_instance'));
+  features_revert(array('osha_news' => 'field_instance'));
+}
+
+/**
+ * MDR-2659 HWC18 Backend Events List- several improvements (Dev).
+ */
+function osha_events_update_7022() {
+  features_revert_module('osha_events');
+}
+
+/**
+ * MDR-2760 HWC18 - Events creation fields - Mandatory fields and value by default.
+ */
+function osha_events_update_7023() {
+  features_revert(array('osha_events' => 'field_instance'));
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'events');
+  $result = $query->execute();
+  if (isset($result['node'])) {
+    $events_nids = array_keys($result['node']);
+    $events = entity_load('node', $events_nids);
+    foreach ($events as $node) {
+      $changes = FALSE;
+      if (empty($node->field_key_performance[LANGUAGE_NONE][0]['value'])) {
+        $node->field_key_performance[LANGUAGE_NONE][0]['value'] = 'No';
+        $changes = TRUE;
+      }
+      if (empty($node->field_agenda[LANGUAGE_NONE][0]['value'])) {
+        $node->field_agenda[LANGUAGE_NONE][0]['value'] = 'No';
+        $changes = TRUE;
+      }
+      if (empty($node->field_publications_exhibition_su[LANGUAGE_NONE][0]['value'])) {
+        $node->field_publications_exhibition_su[LANGUAGE_NONE][0]['value'] = 'No';
+        $changes = TRUE;
+      }
+      if (empty($node->field_media_promotion[LANGUAGE_NONE][0]['value'])) {
+        $node->field_media_promotion[LANGUAGE_NONE][0]['value'] = 'No';
+        $changes = TRUE;
+      }
+      if ($changes) {
+        node_save($node);
+      }
+    }
+  }
+}

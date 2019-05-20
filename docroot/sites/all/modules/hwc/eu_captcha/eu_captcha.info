@@ -1,0 +1,11 @@
+name = EU CAPTCHA
+description = Verifies if user is a human without necessity to solve a captcha
+core = 7.x
+package = Spam control
+dependencies[] = captcha
+configure = admin/config/people/captcha/eu_captcha
+
+version = "7.x-0.1"
+core = "7.x"
+project = "eu_captcha"
+

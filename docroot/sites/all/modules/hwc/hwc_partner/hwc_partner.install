@@ -1,0 +1,269 @@
+<?php
+
+
+/**
+ * Increase module weight to execute after all other hooks (form editing)
+ */
+function hwc_partner_update_7001() {
+  db_update('system')
+    ->fields(array('weight' => 10))
+    ->condition('name', 'hwc_partner', '=')
+    ->execute();
+}
+
+/**
+ * Update permissions for Review Manager role
+ */
+function hwc_partner_update_7002() {
+  if ($role = user_role_load_by_name(HWC_ROLE_WEBSITE_MANAGERS)) {
+    user_role_grant_permissions($role->rid, array('use text format filtered_html'));
+  }
+}
+
+/**
+ * Give Supervisor role perm to masquerade.
+ */
+function hwc_partner_update_7003() {
+  if ($role = user_role_load_by_name(HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR)) {
+    user_role_grant_permissions($role->rid, array('masquerade as any user', 'masquerade as user'));
+  }
+}
+
+function hwc_partner_update_7004() {
+  locale('Partner´s News');
+  locale('Partner´s Events');
+}
+
+function hwc_partner_update_7005() {
+  _osha_tmgmt_add_translations_to_identical_strings('Campaign partners');
+  _osha_tmgmt_add_translations_to_identical_strings('Media partners');
+  _osha_tmgmt_add_translations_to_identical_strings('National focal points');
+  _osha_tmgmt_add_translations_to_identical_strings('Healthy Workplaces for All Ages');
+  _osha_tmgmt_add_translations_from_strings_to_terms('organisation_type');
+}
+
+/**
+ * Revert partner module.
+ */
+function hwc_partner_update_7006() {
+  features_revert_module('hwc_partner');
+}
+
+/**
+ * Revert partner module.
+ */
+function hwc_partner_update_7007() {
+  features_revert_module('hwc_partner');
+}
+
+/**
+ * Revert partner module.
+ */
+function hwc_partner_update_7008() {
+  features_revert_module('hwc_partner');
+}
+
+/**
+ * Revert partner module.
+ */
+function hwc_partner_update_7009() {
+  features_revert_module('hwc_partner');
+}
+
+/**
+ * Revert partner module.
+ */
+function hwc_partner_update_7010() {
+  features_revert_module('hwc_partner');
+}
+
+/**
+ * Revert partner module.
+ */
+function hwc_partner_update_7011() {
+  features_revert_module('hwc_partner');
+}
+
+/**
+ * Revert partner module.
+ */
+function hwc_partner_update_7012() {
+  cache_clear_all();
+  features_revert_module('hwc_partner');
+}
+
+/**
+ * Revert partner module.
+ */
+function hwc_partner_update_7013() {
+  cache_clear_all();
+  features_revert_module('hwc_partner');
+}
+
+/**
+ * Revert partner module.
+ */
+function hwc_partner_update_7014() {
+  features_revert_module('hwc_partner');
+}
+
+/**
+ * Revert partner module.
+ */
+function hwc_partner_update_7015() {
+  features_revert_module('hwc_partner');
+}
+
+/**
+ * Revert partner module.
+ */
+function hwc_partner_update_7016() {
+  features_revert_module('hwc_partner');
+}
+
+/**
+ * Revert partner module.
+ */
+function hwc_partner_update_7017() {
+  features_revert_module('hwc_partner');
+}
+
+/**
+ * Revert partner module.
+ */
+function hwc_partner_update_7018() {
+  features_revert_module('hwc_partner');
+}
+
+/**
+ * Revert partner module.
+ */
+function hwc_partner_update_7019() {
+  features_revert_module('hwc_partner');
+}
+
+/**
+ * Revert partner module.
+ */
+function hwc_partner_update_7020() {
+  features_revert_module('hwc_partner');
+}
+
+/**
+ * Remove delete partners from migration table.
+ */
+function hwc_partner_update_7021() {
+  $migrations = ['partner'];
+  foreach ($migrations as $migration) {
+    $table = 'migrate_map_' . strtolower($migration);
+    $query = db_select($table, 'm')->fields('m', ['destid1']);
+    $query->leftJoin('node', 'n', 'n.nid = m.destid1');
+    $query->condition('m.destid1', NULL, 'IS NOT');
+    $query->condition('n.nid', NULL);
+    $dest_ids = $query->execute()->fetchCol();
+    if ($dest_ids) {
+      db_delete($table)
+        ->condition('destid1', $dest_ids, 'IN')
+        ->execute();
+      if (function_exists('drush_log')) {
+        drush_log('Removed from ' . $table . ', ' . implode(', ', $dest_ids), 'status');
+      }
+    }
+  }
+}
+
+/**
+ * Revert partner module.
+ */
+function hwc_partner_update_7022() {
+  features_revert_module('hwc_partner');
+}
+
+/**
+ * HW18-253 MPs order in the HWC.
+ */
+function hwc_partner_update_7023() {
+  features_revert(array('hwc_partner' => 'views_view'));
+}
+
+/**
+ * MDR-1641 Dev - Apply the new layout (MDR-1640) not the EEN page.
+ */
+function hwc_partner_update_7024() {
+  features_revert(array('hwc_partner' => 'views_view'));
+}
+
+/**
+ * MDR-1641 Dev - Apply the new layout (MDR-1640) not the EEN page.
+ */
+function hwc_partner_update_7025() {
+  features_revert(array('hwc_partner' => 'views_view'));
+}
+
+/**
+ * HW18-377 Do SEO improvements.
+ */
+function hwc_partner_update_7026() {
+  features_revert_module('hwc_good_practice_exchange');
+  features_revert(array('hwc_partner' => 'page_manager_pages'));
+  features_revert(array('hwc_partner' => 'page_manager_handlers'));
+}
+
+/**
+ * HW18-404 Private zone: My news/ My events filters.
+ */
+function hwc_partner_update_7027() {
+  features_revert(array('hwc_partner' => 'page_manager_pages'));
+  features_revert(array('hwc_partner' => 'page_manager_handlers'));
+}
+
+/**
+ * MDR-1669 HW18: Country name clickable.
+ */
+function hwc_partner_update_7028() {
+  features_revert_module('hwc_partner');
+}
+
+/**
+ * HW18-446 Titles from head and breadcrumbs from campaign partners sections untranslated.
+ */
+function hwc_partner_update_7029() {
+  features_revert(array('hwc_partner' => 'page_manager_pages', 'page_manager_handlers'));
+  features_revert(array('hwc_good_practice_exchange' => 'page_manager_pages', 'page_manager_handlers'));
+}
+
+/**
+ * MDR-1726 HWC18: Reviewers and HWC Staff - Reviewers should be able to act as a partner.
+ */
+function hwc_partner_update_7030() {
+  if ($role = user_role_load_by_name(HWC_ROLE_WEBSITE_MANAGERS)) {
+    user_role_grant_permissions($role->rid, array('masquerade as any user', 'masquerade as user'));
+  }
+  if ($role = user_role_load_by_name(HWC_ROLE_HWC_STAFF_REVIEWERS)) {
+    user_role_grant_permissions($role->rid, array('masquerade as any user', 'masquerade as user'));
+  }
+}
+
+/**
+ * HW18-446 Titles from head and breadcrumbs from campaign partners.
+ */
+function hwc_partner_update_7031() {
+  features_revert(array('hwc_partner' => array('page_manager_pages')));
+  features_revert(array('hwc_partner' => array('page_manager_handlers')));
+
+  features_revert(array('hwc_good_practice_exchange' => array('page_manager_pages', 'page_manager_handlers')));
+}
+
+/**
+ * MDR-1798 changes to the media partners.
+ */
+function hwc_partner_update_7032() {
+  features_revert(array('hwc_partner' => array('views_view')));
+}
+
+/**
+ * MDR-2000 Direct access to the Good Practice exchange platform.
+ */
+function hwc_partner_update_7033() {
+  features_revert(array('hwc_partner' => array('page_manager_pages', 'page_manager_handlers')));
+}

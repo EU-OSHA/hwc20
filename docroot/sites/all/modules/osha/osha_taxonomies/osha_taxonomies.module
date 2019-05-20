@@ -1,0 +1,37 @@
+<?php
+/**
+ * @file
+ * Code for the osha_taxonomies feature.
+ */
+
+include_once 'osha_taxonomies.features.inc';
+
+define('OSHA_TAXONOMIES_ACTIVITY', 'activity');
+define('OSHA_TAXONOMIES_TAGS', 'tags');
+define('OSHA_TAXONOMIES_ESENER', 'esener');
+define('OSHA_TAXONOMIES_NACE_CODES', 'nace_codes');
+define('OSHA_TAXONOMIES_PUBLICATION_TYPES', 'publication_types');
+define('OSHA_TAXONOMIES_ARTICLE_TYPES', 'article_types');
+
+function osha_taxonomies_load_activity_by_code($code) {
+  return db_select('field_data_field_activity_code', 'a')->fields('a', array('entity_id'))->condition('field_activity_code_value', $code)->execute()->fetchField();
+}
+
+/**
+ * Implements Elysia hook_cronapi().
+ */
+function osha_taxonomies_cronapi() {
+  return array(
+    'osha_taxonomies_cron' => array(
+      'description' => 'Migrate Nace codes content',
+      'rule' => '45 2 * * *',
+    ),
+  );
+}
+
+/**
+ * Implements hook_cron().
+ */
+function osha_taxonomies_cron() {
+  ncw_migration_run_single('tax_nace_codes');
+}

@@ -1,0 +1,16 @@
+<?php
+
+
+function osha_authentication_enable() {
+  osha_authentication_update_7001();
+}
+
+/**
+ * Replace authentication handler.
+ */
+function osha_authentication_update_7001() {
+  // store old file path to be able to restore it when this module gets disabled again
+  variable_set('ldap_authentication_old_password_inc', variable_get('password_inc', 'includes/password.inc'));
+  // set file path to our own password.inc
+  variable_set('password_inc', drupal_get_path('module', 'ldap_authentication') . '/ldap_authentication.password.inc');
+}

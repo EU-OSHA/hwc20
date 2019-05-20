@@ -1,0 +1,72 @@
+<?php
+/**
+ * @file
+ * Code for the HWC Glossary feature.
+ */
+
+include_once 'hwc_glossary.features.inc';
+
+/**
+ * Implements hook_theme().
+ */
+function hwc_glossary_theme() {
+  $theme = array();
+  $path = drupal_get_path('module', 'hwc_glossary');
+  $theme['hwc_glossary_page_block'] = array(
+    'template' => 'hwc_glossary_page_block',
+    'variables' => array(
+      'languages' => NULL,
+    ),
+    'path' => $path . '/templates',
+  );
+  $theme['hwc_glossary_search_block'] = array(
+    'template' => 'hwc_glossary_search_block',
+    'variables' => array(
+      'items' => NULL,
+      'label' => NULL,
+    ),
+    'path' => $path . '/templates',
+  );
+  return $theme;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function hwc_glossary_block_info() {
+  $blocks = array();
+  $blocks['hwc_glossary_page'] = array(
+    'info' => t('HWC Glossary page'),
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    'pages' => "glossary\r\nglossary/*",
+  );
+  $blocks['hwc_glossary_search'] = array(
+    'info' => t('HWC Glossary search'),
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    'pages' => "glossary-search\r\nglossary-search/*",
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function hwc_glossary_block_view($delta = '') {
+  $block = array();
+  if ($delta == 'hwc_glossary_search') {
+    $block['subject'] = '<none>';
+    $block['content'] = theme('hwc_glossary_search_block');
+  }
+  if ($delta == 'hwc_glossary_page') {
+    $block['subject'] = '<none>';
+    $block['content'] = theme('hwc_glossary_page_block');
+  }
+  return $block;
+}
+

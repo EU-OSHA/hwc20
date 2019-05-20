@@ -1,0 +1,670 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function osha_gallery_menu() {
+  $items = array();
+  $items['node/%node/bulk_upload'] = array(
+    'title' => 'Bulk Upload',
+    'description' => 'Provides a form to bulk upload images to node field_images',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('osha_gallery_bulk_upload_form', 1),
+    'type' => MENU_LOCAL_TASK,
+    'access callback' => 'osha_gallery_bulk_upload_access_callback',
+    'access arguments' => array(1),
+  );
+  $items['node/%node/reorder_files'] = array(
+    'title' => 'Reorder images',
+    'description' => 'Provides an interface for reordering files',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('osha_gallery_reorder_files_form', 1),
+    'type' => MENU_LOCAL_TASK,
+    'access callback' => 'osha_gallery_bulk_upload_access_callback',
+    'access arguments' => array(1),
+  );
+  $items['admin/config/content/osha_gallery'] = array(
+    'title' => 'Gallery Configuration',
+    'description' => 'Configure parameters for the HWC website',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('osha_gallery_config_form'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function osha_gallery_permission() {
+  return array(
+    'use hwc gallery bulk upload' => array(
+      'title' => t('Use gallery bulk upload tab'),
+      'description' => t('Can access bulk upload screen on nodes'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_info_alter().
+ */
+function osha_gallery_field_formatter_info_alter(&$info) {
+  // Define extra fields for settings form to save them.
+  $info['colorbox']['settings']['use_image_caption_field'] = FALSE;
+  $info['galleryformatter_default']['module'] = 'osha_gallery';
+}
+
+/**
+ * Implements hook_field_formatter_settings_form_alter().
+ */
+function osha_gallery_field_formatter_settings_form_alter(array &$settings_form, array $context) {
+  if ($context['module'] == 'colorbox') {
+    // Add extra field on colorbox formatter so that colorbox uses field caption.
+    $settings = $context['formatter']['settings'];
+    $settings_form['use_image_caption_field'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Use image field caption'),
+      '#default_value' => $settings['use_image_caption_field'],
+    );
+  }
+}
+
+function osha_gallery_config_form($form, &$form_state) {
+  $form = array();
+  $fields = field_info_fields();
+  $options = array();
+  foreach ($fields as $field_name => $field_instance) {
+    $multiple_images = $field_instance['type'] == 'image' && $field_instance['cardinality'] == -1;
+    // TODO: implement for videos.
+    if ($multiple_images) {
+      foreach ($field_instance['bundles']['node'] as $bundle) {
+        $options[$bundle . '|' . $field_name] = $bundle . '-' . $field_name;
+      }
+    }
+  }
+
+  $form['osha_gallery_usable_fields_bundles'] = array(
+    '#title' => 'Usable fields',
+    '#type' => 'select',
+    '#options' => $options,
+    '#multiple' => TRUE,
+    '#default_value' => variable_get('osha_gallery_usable_fields_bundles', array()),
+  );
+
+  return system_settings_form($form);
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ * @see galleryformatter_field_formatter_view().
+ */
+function osha_gallery_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+
+  // if there are no images, dont do anything else
+  if(empty($items)){
+    return $element;
+  }
+  $modulepath = drupal_get_path('module', 'galleryformatter');
+  $settings = $display['settings'];
+  $settings['style'] = strtolower($settings['style']);
+
+  // Media field support (only images)
+  if ($field['type'] == 'media') {
+    foreach ($items as $delta => $item) {
+      if ($item['file']->type == 'image') {
+        $items[$delta] = (array) $item; // Compatibility with 7.x-1.0-beta4 and previous media versions
+        $items[$delta]['uri'] = $item['file']->uri;
+        $items[$delta]['filename'] = $item['file']->filename;
+      }
+    }
+    /**
+     * If it's not an image remove it from our items.
+     * We need to do it on another foreach in order not to mess up the $delta on the next run above.
+     */
+    $changed = FALSE;
+    foreach($items as $delta => $item) {
+      if ($item['file']->type !== 'image') {
+        unset($items[$delta]);
+        $changed = TRUE;
+      }
+    }
+    // if we removed from $items, reset the array keys
+    if ($changed) {
+      $items = array_values($items);
+    }
+  }
+
+  // Get the dimensions, and remove unfound files,
+  // to avoid errors when the image is no longer on the server but still in the image field.
+  $changed = FALSE;
+  foreach ($items as $delta => $item) {
+    $dimensions['slides'] = galleryformatter_getimage_dimensions($settings['slide_style'], $items[$delta]['uri']);
+    if (!$dimensions['slides']) {
+      unset($items[$delta]);
+      $changed = TRUE;
+    }
+  };
+  // if we removed from $items, reset the array keys
+  if ($changed) {
+    $items = array_values($items);
+  }
+
+  // if there are no images, dont do anything else
+  if(empty($items)) {
+    return $element;
+  }
+
+  $dimensions['slides'] = galleryformatter_getimage_dimensions($settings['slide_style'], $items[0]['uri']);
+  $dimensions['thumbs'] = galleryformatter_getimage_dimensions($settings['thumb_style'], $items[0]['uri']);
+  $num_of_images = count($items);
+
+  // prepare the renderable array
+  $renderitems = array();
+  $renderitems['thumbs'] = array();
+
+  // get the unique entity id for later
+  $ids = entity_extract_ids($entity_type, $entity);
+  $entity_id =  $ids[0];
+
+  foreach ($items as $delta => $item){
+    /*
+     *  prepare slides
+     */
+    // Grab and sanitize image information
+    // $renderitems['slides'][$delta]['description'] = $item['description']; // so far no description in d7 image fields
+    if (!empty($item['image_field_caption']['value'])) {
+      $item['title'] = check_markup($item['image_field_caption']['value'], $item['image_field_caption']['format']);
+    }
+    elseif (!empty($item['title'])) {
+      // Sanitize the title
+      if(strpos($item['title'], '<') !== FALSE) {
+        $item['title'] = strip_tags($item['title']);
+      }
+    }
+    else {
+      $item['title'] = ''; // prevents php notices
+    }
+    $renderitems['slides'][$delta]['title'] = $item['title'];
+    $item['filename'] = $item['filename'] = '';
+
+    // Check if alt attribute is already set and sanitize it, if not use the filename as alt attribute
+    if (isset($item['alt']) && !empty($item['alt'])) {
+      if(strpos($item['alt'], '<') !== FALSE) {
+        $item['alt'] = strip_tags($item['alt']);
+      }
+    }
+    else {
+      $item['alt'] = $item['filename'];
+    }
+    $renderitems['slides'][$delta]['alt'] = $item['alt'];
+
+    // If the title is empty use alt or the node title in that order.
+    if (empty($item['title'])) {
+      if (!empty($item['alt'])) {
+        $item['title'] = $item['alt'];
+      }
+      else {
+        if(!empty($entity->title)){
+          if(strpos($entity->title, '<') !== FALSE) {
+            $item['title'] = strip_tags($entity->title);
+          }
+          else {
+            $item['title'] = $entity->title;
+          }
+        }
+        // if we have more than one image, add the image count to the title so they are not all the same.
+        $item['title'] = ($num_of_images > 1) ? $item['title'] . t(' image ') . ($delta + 1) : $item['title'];
+      }
+    }
+
+    // prepare the unique hash id per image
+    $slideset_id = $field['field_name'] . '-' . $entity_id;
+    $renderitems['slides'][$delta]['hash_id'] = 'slide-' . $delta . '-' . $slideset_id;
+
+    $renderitems['slides'][$delta]['image'] = theme('image_formatter', array(
+        'item' => $item,
+        'image_style' => $settings['slide_style'],
+      )
+    );
+    if ($settings['link_to_full'] == TRUE) {
+      $settings['linking_method'] = isset($settings['linking_method']) ? $settings['linking_method'] : '';
+      /* @TODO
+       * doesnt work yet
+      $vars['gallery_style'] = 'galleryformatter-view-full '; // give the gallery a class for themers to play with
+       * */
+      $link_attributes = array(
+        'title' => $item['title'],
+        'class' => '',
+      );
+
+      if ($settings['linking_method'] !== 'onclick_full') {
+        $link_attributes['class'] = 'shownext';
+      }
+
+      // integration with other modules for jQuery modal windows
+      switch($settings['modal']) {
+        case 'none':
+          break;
+        case 'colorbox':
+          $link_attributes['class'] .= ($settings['linking_method'] == 'onclick_full') ? 'colorbox' : ' colorbox';
+          $link_attributes['rel'] = 'gallery-['. $slideset_id .']';
+          break;
+        case 'shadowbox':
+          $link_attributes['rel'] = 'shadowbox['.$slideset_id .']';
+          $element['#attached']['library'][] = array('shadowbox', 'shadowbox');
+          break;
+        case 'lightbox2':
+          $link_attributes['rel'] = 'lightbox['. $slideset_id .']';
+          break;
+        case 'fancybox':
+          $link_attributes['class'] = 'fancybox';
+          $link_attributes['rel'] = 'fancybox['. $slideset_id .']';
+          break;
+      }
+      $link_url = $settings['link_to_full_style'] ? image_style_url($settings['link_to_full_style'], $item['uri']) : file_create_url($item['uri']);
+
+      // link the slide image and include the span for the icon
+      $link_content = ($settings['linking_method'] == 'show_full_link') ? '<span class="view-full" title="'. t('View the full image') .'">'. t('View the full image') .'</span>' : '';
+      $image_rendered = $renderitems['slides'][$delta]['image'];
+      $link_content .= ($settings['linking_method'] == 'onclick_full') ? $image_rendered : '';
+
+      $renderitems['slides'][$delta]['image'] = l($link_content, $link_url, array('attributes' => $link_attributes, 'html' => TRUE,));
+      $renderitems['slides'][$delta]['image'] .= ($settings['linking_method'] == 'onclick_full') ? '' : $image_rendered;
+
+      // If colorbox add the share widget.
+      if ($settings['modal'] == 'colorbox') {
+        $renderitems['slides'][$delta]['image'] = l($link_content, $link_url,
+          array(
+            'attributes' => $link_attributes,
+            'attributes' => array(
+              'class' => array('colorbox-inline'),
+              'rel' => 'gallery-['. $slideset_id .']',
+            ),
+            'fragment' => 'colorbox-inline-' . md5($item['uri']),
+            'html' => TRUE,
+            'query' => array(
+              'title' => $item['title'] . hwc_news_share_widget($entity, array('type' => 'article', 'label' => t('Share this gallery'))),
+              'inline' => 'true',
+              'width' => 'auto',
+              'height' => 'auto',
+            ),
+          )
+        );
+        $image_vars = array(
+          'style_name' => $settings['link_to_full_style'],
+          'path' => $item['uri']
+        );
+        $popup = theme('image_style', $image_vars);
+        $renderitems['slides'][$delta]['image'] .= '<div style="display: none;"><div id="colorbox-inline-' . md5($item['uri']) . '">' . $popup . '</div></div>';
+      }
+
+      $renderitems['slides'][$delta]['full_image_url'] = $link_url;
+    } // END linking to original
+
+    /*
+     *  prepare thumbs
+     */
+    if($num_of_images > 1){
+      $renderitems['thumbs'][$delta]['image'] = theme('image_formatter', array(
+          'item' => $item,
+          'image_style' => $settings['thumb_style'],
+        )
+      );
+      $renderitems['thumbs'][$delta]['hash_id'] = 'slide-' . $delta . '-' . $slideset_id;
+    }
+  }
+
+  if($num_of_images > 1){
+    drupal_add_js($modulepath . '/theme/infiniteCarousel.js');
+    drupal_add_js($modulepath . '/theme/galleryformatter.js');
+  }
+  galleryformatter_add_css($settings['style']);
+  drupal_add_css($modulepath . '/theme/galleryformatter.css');
+
+  // prepare the variables for our theme function
+  $element['#theme'] ='galleryformatter';
+  $element['#slides'] = $renderitems['slides'];
+  $element['#thumbs'] = $renderitems['thumbs'];
+  $element['#settings'] = $settings;
+  $element['#dimensions'] = $dimensions;
+
+  return array($element);
+}
+
+function osha_gallery_get_usable_bundle_fields() {
+  $options = variable_get('osha_gallery_usable_fields_bundles', array());
+  $fields = array();
+  foreach ($options as  $option) {
+    list($bundle, $field) = explode('|', $option);
+    $info = field_info_instance('node', $field, $bundle);
+    $fields[$bundle][$field] = $info['label'];
+  }
+  return $fields;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function osha_gallery_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($form['#node_edit_form']) && empty($form_state['node']->nid)) {
+    // Create node form
+    $node = $form_state['node'];
+    $fields = osha_gallery_get_usable_bundle_fields();
+    $alter = FALSE;
+    if (array_key_exists($node->type, $fields)) {
+      foreach($fields[$node->type] as $field_name => $label) {
+        if (!empty($form[$field_name])) {
+          hide($form[$field_name]);
+          $alter = TRUE;
+        }
+      }
+    }
+    if ($alter) {
+      $form['actions']['submit']['#submit'][] = 'osha_gallery_node_form_submit_callback';
+    }
+  }
+
+}
+
+/**
+ * Callback after gallery create to redirect to bulk upload.
+ */
+function osha_gallery_node_form_submit_callback($form, &$form_state) {
+  $node = $form_state['node'];
+  $form_state['redirect'] = 'node/' . $node->nid . '/bulk_upload';
+}
+
+function osha_gallery_bulk_upload_access_callback($node) {
+  $fields = osha_gallery_get_usable_bundle_fields();
+  if (array_key_exists($node->type, $fields) && user_access('use hwc gallery bulk upload')) {
+    return TRUE;
+  }
+  return FALSE;
+}
+
+/**
+ * Bulk upload form - callback for menu "Bulk Upload".
+ */
+function osha_gallery_bulk_upload_form($form, &$form_state, $node) {
+  $form = array();
+  $form['#node'] = $node;
+  $form['description'] = array(
+    '#type' => 'item',
+    '#markup' => t('You can upload multiple images to this gallery.')
+  );
+  $usable_fields = osha_gallery_get_usable_bundle_fields();
+  $form['to_field'] = array(
+    '#title' => 'Upload files to field',
+    '#type' => 'select',
+    '#options' => $usable_fields[$node->type],
+  );
+  if (count($usable_fields[$node->type]) <= 1) {
+    $form['to_field']['#type'] = 'hidden';
+    $form['to_field']['#value'] = current(array_keys($form['to_field']['#options']));
+  }
+  $form['field_files'] = array(
+    '#type' => 'plupload',
+    '#title' => t('Upload files'),
+    '#autoupload' => TRUE,
+    '#upload_validators' => array(
+      'file_validate_extensions' => array('jpg jpeg gif png'),
+    ),
+    '#plupload_settings' => array(
+      'runtimes' => 'html5',
+      'chunk_size' => '1mb',
+    ),
+  );
+  $form['overwrite'] = array(
+    '#title' => t('Replace existing files'),
+    '#type' => 'checkbox',
+    '#default_value' => FALSE,
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Save',
+  );
+
+  return $form;
+}
+
+/**
+ * Validation callback.
+ */
+function osha_gallery_bulk_upload_form_validate($form, &$form_state) {
+  $node = $form['#node'];
+  $gallery_field_name = $form_state['values']['to_field'];
+  if (!isset($node->{$gallery_field_name})) {
+    form_set_error('to_field', 'The selected field is not available for this node.');
+  }
+}
+
+/**
+ * Submit callback for bulk upload.
+ */
+function osha_gallery_bulk_upload_form_submit($form, &$form_state) {
+  $node = $form['#node'];
+  $saved_files = array();
+  $failed_files = array();
+  $gallery_field_name = $form_state['values']['to_field'];
+  if (!empty($form_state['values']['field_files'])) {
+    foreach ($form_state['values']['field_files'] as $uploaded_file) {
+      $destination = 'public://osha_gallery/node_' . $node->nid;
+      if ($uploaded_file['status'] == 'done') {
+        $source = $uploaded_file['tmppath'];
+        file_prepare_directory($destination, FILE_CREATE_DIRECTORY);
+        $destination = file_stream_wrapper_uri_normalize($destination . '/' . $uploaded_file['name']);
+        $destination = file_unmanaged_move($source, $destination, FILE_EXISTS_RENAME);
+        if (empty($destination)) {
+          $failed_files[] = $uploaded_file['name'];
+          continue;
+        }
+        $file = plupload_file_uri_to_object($destination);
+        file_save($file);
+        $file->display = 1;
+        $file->description = '';
+        $saved_files[] = (array) $file;
+      }
+    }
+  }
+  if (!empty($failed_files)) {
+    drupal_set_message(t('The file @file could not be saved due to internal error. Please contact site administrator.', array('@file' => implode(', ', $failed_files))), 'warning');
+  }
+
+  $wrapper = entity_metadata_wrapper('node', $node);
+
+  if (!empty($form_state['values']['overwrite'])) {
+    $wrapper->{$gallery_field_name}->set($saved_files);
+  }
+  else {
+    foreach ($saved_files as $file) {
+      $wrapper->{$gallery_field_name}[] = $file;
+    }
+  }
+  $wrapper->save();
+  $form_state['redirect'] = 'node/' . $node->nid;
+}
+
+/**
+ * From for reordering the files form a field configured with osha_gallery.
+ * 2 steps form
+ * 1. If multiples fields as gallery, pick one.
+ * 2. Reorder the files of the field.
+ */
+function osha_gallery_reorder_files_form($form, &$form_state, $node) {
+  $usable_fields = osha_gallery_get_usable_bundle_fields();
+  $form = array();
+  $form['#nid'] = $node->nid;
+
+  if (!empty($form_state['values']['reorder_field'])) {
+    // If comes from first step of the form.
+    $field_name = $form_state['values']['reorder_field'];
+  }
+  elseif (count($usable_fields[$node->type]) == 1) {
+    // Skip the first step if only one field.
+    $field_name = current(array_keys($usable_fields[$node->type]));
+  }
+  else{
+    $field_name = '';
+  }
+  if (empty($field_name)) {
+    // First step.
+    $form['reorder_field'] = array(
+      '#title' => 'Reorder this field',
+      '#type' => 'select',
+      '#required' => TRUE,
+      '#options' => $usable_fields[$node->type],
+    );
+    $form['select'] = array(
+      '#type' => 'submit',
+      '#value' => 'Next',
+    );
+  }
+  else {
+    // Second step - reorder.
+    $form['#field_name'] = $field_name;
+    $form['help_text'] = array(
+      '#type' => 'item',
+      '#markup' => t('Please drag and drop to reorder the images and then press "Save".')
+    );
+    $form['help_text2'] = array(
+      '#type' => 'item',
+      '#markup' => t('The cover image of the gallery it\'s the first image. You can use the "Make first" link to move the image on the first position and than press "Save" to save your ordering')
+    );
+    $info = field_info_instance('node', $field_name, $node->type);
+    $wrapper = entity_metadata_wrapper('node', $node);
+    $files = $wrapper->{$field_name}->value();
+    $form['fids'] = array(
+      '#type' => 'container',
+      '#attributes' => array(
+        'id' => 'osha_gallery_files_sort_container',
+      ),
+      '#tree' => TRUE,
+    );
+
+    // Render files thumbnails in sort
+    foreach ($files as $file) {
+      $thumb = _osha_gallery_get_display_settings_field($file, $info, $node);
+      $form['fids'][] = array(
+        '#type' => 'hidden',
+        '#value' => $file['fid'],
+        '#attributes' => array(
+          'name' => 'fids[]'
+        ),
+        '#prefix' => '<div class="osha-gallery-reorder-field">' . drupal_render($thumb),
+        '#suffix' => '</div>',
+      );
+    }
+    $path = drupal_get_path('module', 'osha_gallery');
+    $form['#attached']['library'][] = array('system', 'ui.sortable');
+    $form['#attached']['js'][$path . '/js/osha_gallery_reorder.js'] = array('type' => 'file');
+    $form['#attached']['css'][$path . '/css/osha_gallery_reorder.css'] = array('type' => 'file');
+
+
+    $form['save'] = array(
+      '#type' => 'submit',
+      '#value' => 'Save',
+      '#submit' => array('osha_gallery_reorder_files_form_reorder_submit'),
+      '#validate' => array('osha_gallery_reorder_files_form_reorder_validate'),
+    );
+  }
+  return $form;
+}
+
+/**
+ *
+ */
+function osha_gallery_reorder_files_form_submit($form, &$form_state) {
+  // Just rebuild to go to step 2.
+  $form_state['rebuild'] = TRUE;
+}
+
+/**
+ * Validation of the reordering form.
+ */
+function osha_gallery_reorder_files_form_reorder_validate($form, &$form_state) {
+  $node = node_load($form['#nid']);
+  $field_name = $form['#field_name'];
+  $wrapper = entity_metadata_wrapper('node', $node);
+  $files = $wrapper->{$field_name}->value();
+  $reordered_files = $form_state['input']['fids'];
+  // Images might have been changed since the user opened the form.
+  foreach ($files as $file) {
+    if (!in_array($file['fid'], $reordered_files)) {
+      form_set_error('submit', 'Images have changed since you opened this form');
+      break;
+    }
+  }
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ *
+ * Add an anchor on the edit form of the node.
+ * @see manualcrop_field_widget_form_alter
+ */
+function osha_gallery_field_widget_form_alter(&$element, &$form_state, $context) {
+  if (user_access('use manualcrop')) {
+    $widget = $context['instance']['widget'];
+    if (manualcrop_supported_widgets($widget['type'])) {
+      if (!empty($widget['settings']['manualcrop_enable'])) {
+        foreach (element_children($element) as $key) {
+          $element[$key]['osha_gallery_edit_anchor'] = array(
+            '#type' => 'item',
+            '#markup' => '<span id="' . $element[$key]['#field_name'] . '-' . $element[$key]['#default_value']['fid'] . '"></span>',
+            '#weight' => -1,
+          );
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Callback for the reorder step 2 form.
+ */
+function osha_gallery_reorder_files_form_reorder_submit($form, &$form_state) {
+  $node = node_load($form['#nid']);
+  $field_name = $form['#field_name'];
+  $wrapper = entity_metadata_wrapper('node', $node);
+  $files = $wrapper->{$field_name}->value();
+  $reordered_files = array();
+  $reordered_fids = array_keys(array_flip($form_state['input']['fids']));
+  foreach ($files as $file) {
+    $delta = array_search($file['fid'], $reordered_fids);
+    $reordered_files[$delta] = $file;
+  }
+  ksort($reordered_files);
+  $wrapper->{$field_name}->set($reordered_files);
+  $wrapper->save();
+  drupal_set_message('The images have been reordered.');
+  $form_state['redirect'] = 'node/' . $node->nid;
+}
+
+function _osha_gallery_get_display_settings_field($file, $field_instance, $node) {
+  // @TODO handle other types of files and settings.
+  $html = array();
+  if (!empty($field_instance['display']['default']['settings']['colorbox_node_style'])) {
+    $img_style = $field_instance['display']['default']['settings']['colorbox_node_style'];
+    $html['image'] = array(
+      '#type' => 'item',
+      '#theme' => 'image',
+      '#path' => image_style_url($img_style, $file['uri']),
+    );
+    $html['edit_link'] = array(
+      '#type' => 'markup',
+      '#markup' => l(t('Edit'), 'node/' . $node->nid . '/edit', array(
+        'fragment' => $field_instance['field_name'] . '-' . $file['fid'],
+        'attributes' => array('class' => array('osha-gallery-action-link')),
+      )),
+    );
+    $html['make_first'] = array(
+      '#theme' => 'html_tag',
+      '#tag' => 'span',
+      '#value' => t('Make first'),
+      '#attributes' => array('class' => array('osha-gallery-make-first-button', 'osha-gallery-action-link')),
+    );
+  }
+  return $html;
+}

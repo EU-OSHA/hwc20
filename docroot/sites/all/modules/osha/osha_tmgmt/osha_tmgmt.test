@@ -1,0 +1,99 @@
+<?php
+
+class OshaTmgmtTest extends OshaWebTestCase {
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function getInfo() {
+    return array(
+      'name' => 'OSHA tmgmt tests',
+      'description' => 'Test alterations added to tmgmt',
+      'group' => 'OSHA',
+    );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setUp() {
+    parent::setUp(
+      array(
+        'tmgmt', 'tmgmt_i18n_string', 'tmgmt_language_combination',
+        'tmgmt_field', 'tmgmt_node', 'tmgmt_entity', 'tmgmt_entity_ui',
+        'osha_tmgmt', 'tmgmt_file',
+      )
+    );
+    $this->loginAsAdmin(array(
+      'create translation jobs',
+      'submit translation jobs',
+      'access administration pages',
+      'view the administration theme',
+    ));
+
+    // We need to do this as is in post_install.
+    /* @var TMGMTTranslator $file */
+    $file = tmgmt_translator_load('file');
+    $file->settings['export_format'] = 'xml';
+    $file->settings['allow_override'] = FALSE;
+    $file->save();
+  }
+
+  public function testHookInstall() {
+    $rows = db_query('SHOW COLUMNS FROM tmgmt_job_item')->fetchCol(0);
+    $this->assertTrue(in_array('source_language', $rows));
+    $this->assertTrue(in_array('target_language', $rows));
+    $this->assertTrue(in_array('character_count', $rows));
+    $this->assertTrue(in_array('page_count', $rows));
+
+    $rows = db_query('SHOW COLUMNS FROM tmgmt_job')->fetchCol(0);
+    $this->assertTrue(in_array('character_count', $rows));
+    $this->assertTrue(in_array('page_count', $rows));
+    $this->assertTrue(in_array('priority', $rows));
+  }
+
+  public function testContentSelectionView() {
+    $node = $this->drupalCreateNode();
+    // Get the sources screen.
+    $this->drupalGet('admin/tmgmt/sources');
+
+    $this->assertText($node->title);
+    $this->assertText('OSHA content');
+    $this->assertText('OSHA content selection');
+
+    // Add node to cart.
+    $this->drupalPost('admin/tmgmt/sources/osha', array('views_bulk_operations[0]' => 1), t('Add to cart'));
+    $this->assertText('Cart (1)');
+
+    // Check the cart.
+    $this->drupalGet('admin/tmgmt/cart');
+    $this->assertText($node->title);
+
+    // Checkout the cart.
+    $this->drupalPost(
+      'admin/tmgmt/cart',
+      array(
+        'items[1]' => 1,
+        'priority' => OSHA_TMGMT_JOB_PRIORITY_HIGH,
+        'target_language[]' => array('de'),
+      ),
+      t('Request re-translation')
+    );
+
+    // Check the jobs overview screen.
+    $this->drupalGet('admin/tmgmt');
+    $this->assertText('Translation job #1');
+    $this->assertText('Page count');
+    $this->assertText('Character count');
+    $this->assertText('Priority');
+    $this->assertText('High');
+
+    // Check the job detail page.
+    $this->drupalGet('admin/tmgmt/jobs/1');
+    $this->assertText('Translation job #1');
+    $this->assertText('Page count');
+    $this->assertText('Character count');
+    $this->assertText('Source language');
+    $this->assertText('Target language');
+  }
+}

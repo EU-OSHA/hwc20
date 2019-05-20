@@ -1,0 +1,529 @@
+<?php
+/**
+ * @file
+ * Code for the osha_alert_service feature.
+ */
+
+include_once 'osha_alert_service.features.inc';
+module_load_include('inc', 'osha_alert_service', 'osha_alert_service.admin');
+
+define('OSHA_ALERT_SERVICE_PRIVACY_PAGE_URL', 'alertservice/privacy-statement-alerts');
+
+/**
+ * Implements hook_entity_info().
+ */
+function osha_alert_service_entity_info() {
+  $info = array();
+  $info['osha_alert_service'] = array(
+    'label' => t('OSHA Alert'),
+    'base table' => 'osha_alert_service',
+    'entity keys' => array(
+      'id' => 'id',
+    ),
+    'module' => 'osha_alert_service',
+    'entity class' => 'Entity',
+    'controller class' => 'EntityAPIController',
+  );
+  return $info;
+}
+
+/**
+ * Load a single entity of type osha_alert_service by its token.
+ *
+ * @param string $token
+ *   Secret token.
+ *
+ * @return mixed
+ *   An array of entity objects indexed by their ids. When no results are
+ *   found, an empty array is returned.
+ */
+function osha_alert_service_osha_alert_service_load_by_token($token) {
+  $query = db_select('osha_alert_service', 's')
+    ->fields('s', array('id'))
+    ->condition('token', $token);
+  $ids = $query->execute()->fetchCol(0);
+  if (isset($ids[0])) {
+    return entity_load_single('osha_alert_service', $ids[0]);
+  }
+  return NULL;
+}
+
+/**
+ * Implements hook_menu().
+ */
+function osha_alert_service_menu() {
+  $menu['alertservice/verify_alert'] = array(
+    'title' => 'Validate Alert Service Subscription',
+    'description' => 'Endpoint where subscribers validate their subscription',
+    'page callback' => 'osha_alert_service_verify_alert_form',
+    'page arguments' => array(),
+    'access arguments' => array('access content'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => -12,
+    'file' => 'osha_alert_service.forms.inc',
+  );
+  $menu['alertservice/remove_alert'] = array(
+    'title' => 'Remove Alert Service Subscription',
+    'description' => 'Endpoint where subscribers remove from subscription',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('osha_alert_service_remove_alert_form'),
+    'access arguments' => array('access content'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => -12,
+    'file' => 'osha_alert_service.forms.inc',
+  );
+  $menu['admin/config/system/osha_alert_service'] = array(
+    'title' => 'OSHA Alert Service',
+    'description' => 'Config information for Osha Alert Service',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('osha_alert_service_admin_form'),
+    'access arguments' => array('administer site configuration'),
+  );
+  return $menu;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function osha_alert_service_block_info() {
+  $path = drupal_lookup_path('source', 'alertservice');
+  $pages = 'alertservice';
+  if ($node = menu_get_object('node', 1, $path)) {
+    $pages .= "\r\nnode/" . $node->nid;
+  }
+  $blocks['osha_alert_service_subscribe'] = array(
+    'info' => 'Alert Service Subscription',
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => $pages,
+  );
+  $blocks['osha_alert_block_front_view'] = array(
+    'info' => 'Block with link to alerts page',
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    'status' => 1,
+    'region' => 'sidebar_second',
+    'weight' => -28,
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => '<front>',
+  );
+  $blocks['osha_calls_rss'] = array(
+    'info' => t('Calls feed'),
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => 'node/1472',
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    'weight' => -5
+  );
+  $blocks['osha_news_rss'] = array(
+    'info' => t('News feed'),
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => 'oshnews',
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    'weight' => -5
+  );
+  $blocks['osha_job_vacancies_rss'] = array(
+    'info' => t('Job vacancies feed'),
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => 'node/21',
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    'weight' => 1
+  );
+  $blocks['osha_publication_rss'] = array(
+    'info' => t('Publication feed'),
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => 'tools-and-publications/publications',
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    'weight' => 0
+  );
+  $blocks['osha_events_rss'] = array(
+    'info' => t('Events feed'),
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => 'events',
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    'weight' => 1
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ * {@inheritdoc}
+ */
+function osha_alert_service_block_view($delta = '') {
+  module_load_include('inc', 'osha_alert_service', 'osha_alert_service.forms');
+  $ret = array();
+  switch ($delta) {
+    case 'osha_alert_service_subscribe':
+      $form = drupal_get_form('osha_alert_service_subscribe_form');
+      $ret['content'] = array(
+        '#type' => 'item',
+        '#markup' => drupal_render($form),
+      );
+      break;
+
+    case 'osha_alert_block_front_view':
+      $form = osha_alert_block_front_view();
+      $ret['content'] = array(
+        '#type' => 'item',
+        '#markup' => drupal_render($form),
+      );
+      break;
+    // Links to RSS feeds below (CW-743).
+    case 'osha_news_rss':
+      $ret['content'] = l(t('Click here for the RSS Feed'), 'rss-feeds/latest/news.xml',
+        array('attributes' => array('class' => array('rss-feed'))));
+      break;
+    case 'osha_calls_rss':
+      $ret['content'] = l(t('Click here for the RSS Feed'), 'rss-feeds/latest/calls.xml',
+        array('attributes' => array('class' => array('rss-feed'))));
+      break;
+    case 'osha_job_vacancies_rss':
+      $ret['content'] = l(t('Click here for the RSS Feed'), 'rss-feeds/latest/vacancies.xml',
+        array('attributes' => array('class' => array('rss-feed'))));
+      break;
+    case 'osha_publication_rss':
+      $ret['content'] = l(t('Click here for the RSS Feed'), 'rss-feeds/latest/publications.xml',
+        array('attributes' => array('class' => array('rss-feed'))));
+      break;
+    case 'osha_events_rss':
+      $ret['content'] = l(t('Click here for the RSS Feed'), 'rss-feeds/latest/events.xml',
+        array('attributes' => array('class' => array('rss-feed'))));
+      break;
+  }
+  return $ret;
+}
+
+
+function osha_alert_block_front_view() {
+  $url = url('alertservice');
+  $form['block'] = array(
+    '#type' => 'item',
+    '#markup' => t(
+      '<div class="link"><span>Interested in specific topics?</span><a href="!url">Try alert service</a></div>',
+      array('!url' => $url)),
+  );
+  // These variables are defined in osha_newsletter.module
+  $link_label = t(variable_get('subscribe_block_details_link_label', 'Privacy notice'));
+  $link_url = variable_get('osha_alert_service_privacy_policy_url', OSHA_ALERT_SERVICE_PRIVACY_PAGE_URL);
+  $form['details_link'] = array(
+    '#markup' => '<a class="privacy-policy-oshmail" title="Subscribe to newsletter" href='.url($link_url).'>'.$link_label.'</a><br/>',
+  );
+
+  return $form;
+}
+
+/**
+ * Implements hook_mail().
+ *
+ * {@inheritdoc}
+ */
+function osha_alert_service_mail($key, &$message, $params) {
+  $body = '';
+  switch ($key) {
+    case 'subscribe':
+      $message['subject'] = variable_get('osha_alert_service_subscribe_subject', 'Your subscription to EU-OSHA alert service');
+      $body = variable_get('osha_alert_service_subscribe_body',
+<<<EOT
+<p>EU-OSHA received a request to start sending alerts to <strong>[osha_alert_service:email]</strong>.</p>
+
+<p>Verify this EU-OSHA alert request: [osha_alert_service:subscribe_conf_link]</p>
+
+<p>Cancel this EU-OSHA alert request: [osha_alert_service:unsubscribe_link]</p>
+
+<p>If you are not able to click on the link, you can cut and paste it into your browser&#39;s address bar.</p>
+
+<p>If you did not initiate this request or believe it was sent in error you can safely ignore this message.</p>
+
+<p>Thanks,</p>
+<p><strong>The EU-OSHA alerts Team</strong></p>
+EOT
+      );
+      break;
+
+    case 'broken_subscription':
+      $message['subject'] = 'Your subscription page is broken';
+      $body = <<<EOT
+        Please visit the subscription page ([site:url]/alertservice) and fix it. Taxonomy Tags is empty!
+
+        Thank you,
+        Your faithful employee.
+EOT;
+      break;
+
+    case 'alert':
+      $message['subject'] = variable_get('osha_alert_service_alert_subject', 'EU-OSHA alert');
+      $body = variable_get('osha_alert_service_alert_body', 'EU-OSHA alert');
+      break;
+  }
+  $message['subject'] = token_replace($message['subject'], $params);
+  $message['body'][] = token_replace($body, $params);
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function osha_alert_service_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'views_exposed_form' && $form['#id'] == 'views-exposed-form-alert-service-subscription-default') {
+    $form['#access'] = FALSE;
+  }
+}
+
+/**
+ * Implements hook_cron_queue_info().
+ */
+function osha_alert_service_cron_queue_info() {
+  $queues['osha_alert_service_queue'] = array(
+    'worker callback' => 'osha_alert_service_send_alert',
+    'time' => variable_get('osha_alert_service_send_alert_process_time', 15),
+  );
+  return $queues;
+}
+
+/**
+ * Implements Elysia hook_cronapi().
+ */
+function osha_alert_service_cronapi() {
+  return array('osha_alert_service_cron' => array(
+    'description' => 'Send notifications to people registered to the alert service',
+    'rule' => '0 */3 * * *', // Every three hours
+  ));
+}
+
+/**
+ * Implements hook_cron().
+ *
+ * Queue all alerts we need to send into osha_alert_service_queue.
+ */
+function osha_alert_service_cron() {
+  /*
+  SELECT a.id FROM osha_alert_service a
+  WHERE (a.confirmed = 1 AND a.last_alert > 0)
+  AND (
+  (schedule = 'monthly' AND (UNIX_TIMESTAMP() - last_alert) > 2592000)
+  OR (schedule = 'weekly' AND (UNIX_TIMESTAMP() - last_alert) > 604800)
+  OR (schedule = 'daily' AND (UNIX_TIMESTAMP() - last_alert) > 86400)
+  );
+  */
+  $query = db_select('osha_alert_service', 'a')
+    ->fields('a', array('id'))
+    ->where(<<<EOT
+        (a.confirmed = 1 AND a.last_alert > 0)
+        AND (
+          (schedule = 'monthly' AND (UNIX_TIMESTAMP() - last_alert) > 2592000)
+          OR (schedule = 'weekly' AND (UNIX_TIMESTAMP() - last_alert) > 604800)
+          OR (schedule = 'daily' AND (UNIX_TIMESTAMP() - last_alert) > 86400)
+        )
+EOT
+  );
+  $ids = $query->execute()->fetchCol(0);
+  if (!empty($ids)) {
+    $subscribers = entity_load('osha_alert_service', array_values($ids));
+    /* @var DrupalQueue $queue */
+    $queue = DrupalQueue::get('osha_alert_service_queue', TRUE);
+    foreach ($subscribers as $item) {
+      $queue->createItem($item->id);
+    }
+  }
+}
+
+/**
+ * Get the alert view filtered content.
+ */
+function osha_alert_service_render_alert($entity) {
+  $settings = json_decode($entity->filters);
+  if (!$settings) {
+    return '';
+  }
+  /*
+  SELECT a.nid, a.type, a.created, c.title_field_value
+  FROM node a
+    INNER JOIN field_data_field_tags b ON (a.nid = b.entity_id AND a.vid = b.revision_id)
+  INNER JOIN field_data_title_field c ON (a.nid = c.entity_id AND a.vid = c.revision_id AND AND c.language = 'en')
+  WHERE
+    a.status = 1
+    AND b.field_tags_tid IN (18, 32, 37)
+    AND a.created >= 1423401066
+    AND a.type IN ('publication', 'news', 'event')
+  GROUP BY a.nid
+  ORDER BY a.type, a.created DESC
+  */
+  $q = db_select('node', 'a');
+  $q->fields('a', array('nid', 'type', 'created'));
+  $q->fields('c', array('title_field_value'));
+  $q->innerJoin('field_data_field_tags', 'b', 'a.nid = b.entity_id AND a.vid = b.revision_id');
+  $q->innerJoin('field_data_title_field', 'c', "a.nid = c.entity_id AND a.vid = c.revision_id AND c.language = 'en'");
+  $q->groupBy('a.nid');
+  $q->orderBy('a.type', 'ASC');
+  $q->orderBy('a.created', 'DESC');
+  $q->condition('a.status', 1);
+  $q->condition('b.field_tags_tid', $settings->section, 'IN');
+  $q->condition('a.created', $entity->last_alert, '>=');
+  $rows = $q->execute()->fetchAll();
+  if(empty($rows)) {
+    return '';
+  }
+  $output = '';
+  $row0 = $rows[0];
+  $prev_label = 'Type: ' . entity_bundle_label('node', $row0->type);
+  $table = array('rows' => array(), 'caption' => $prev_label, 'attributes' => array());
+  $languages = osha_language_list();
+  foreach($rows as $row) {
+    $label = 'Type: ' . entity_bundle_label('node', $row->type);
+    if ($label != $prev_label) {
+      $output .= theme_table($table);
+      $table = array('rows' => array(), 'caption' => $label, 'attributes' => array());
+    }
+
+    $cells = array(0 => l($row->title_field_value, 'node/' . $row->nid, array('absolute' => TRUE)), 1 => '&nbsp;');
+    // Get all translations needed for the result.
+    if (!empty($settings->languages)) {
+      $translations = db_select('entity_translation', 'et')
+        ->fields('et', array('language'))->condition('entity_type', 'node')
+        ->condition('language', $settings->languages, 'IN')
+        ->condition('status', 1)
+        ->condition('entity_id', $row->nid)
+        ->execute()->fetchCol();
+      if (!empty($translations)) {
+        $translations = osha_sort_language_list(array_combine($translations, $translations));
+        $scell = array();
+        foreach($translations as $tr) {
+          $lang = $languages[$tr];
+          $scell[] = l($lang->native, 'node/' . $row->nid, array('absolute' => TRUE, 'language' => $lang));
+        }
+        $cells[1] = 'Available also in: ' . implode(', ', $scell);
+      }
+    }
+    $table['rows'][] = $cells;
+    $prev_label = $label;
+  }
+  if (!empty($table['rows'])) {
+    $output .= theme_table($table);
+    $table = array('rows' => array(), 'caption' => $label, 'attributes' => array());
+  }
+  return $output;
+}
+
+/**
+ * Queue processing handler. Invoked for each item from the queue.
+ *
+ * @param int $item_id
+ *   osha_alert_service entity ID.
+ *
+ * @return bool
+ *   TRUE if there was any mail sent (can be FALSE if no content was found).
+ */
+function osha_alert_service_send_alert($item_id) {
+  // User still holds a valid subscription from last check.
+  if ($entity = entity_load_single('osha_alert_service', $item_id)) {
+    $params = array(
+      'osha_alert_service' => $entity,
+      'language' => 'en',
+      'view' => osha_alert_service_render_alert($entity),
+    );
+    if (empty($params['view'])) {
+      return FALSE;
+    }
+    drupal_mail('osha_alert_service', 'alert', $entity->email, 'en', $params);
+    $entity->last_alert = time();
+    entity_save('osha_alert_service', $entity);
+    return TRUE;
+  }
+  return FALSE;
+}
+
+/**
+ * Implements hook_token_info().
+ */
+function osha_alert_service_token_info() {
+  $alert['subscribe_conf_link'] = array(
+    'name' => t('Confirm Subscription Link'),
+    'description' => t('Link to subscribing confirmation page.'),
+  );
+  $alert['unsubscribe_link'] = array(
+    'name' => t('Unsubscribe Link'),
+    'description' => t('Link to unsubscribe confirmation page.'),
+  );
+  $alert['alert_content'] = array(
+    'name' => t('Content of the alert'),
+    'description' => t('The html list of content.'),
+  );
+  $alert['privacy_policy_url'] = array(
+    'name' => t('URL to Privacy notice Page'),
+    'description' => t('URL to Privacy notice Page'),
+  );
+  $info['tokens']['osha_alert_service'] = $alert;
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function osha_alert_service_tokens($type, $tokens, array $data = array(), array $options = array()) {
+  global $base_url;
+  $replacements = array();
+  if ($type == 'osha_alert_service' && !empty($data['osha_alert_service'])) {
+    $entity = $data['osha_alert_service'];
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        // Simple key values on the node.
+        case 'subscribe_conf_link':
+          $replacements[$original] = $base_url
+            . '/en/alertservice/verify_alert?token=' . $entity->token;
+          break;
+
+        case 'unsubscribe_link':
+          $replacements[$original] = $base_url
+            . '/en/alertservice/remove_alert?token=' . $entity->token;
+          break;
+
+        case 'alert_content':
+          $replacements[$original] = $data['view'];
+          break;
+
+        case 'privacy_policy_url':
+          $privacy_link = variable_get('osha_alert_service_privacy_policy_url', OSHA_PRIVACY_PAGE_URL);
+          $replacements[$original] = url($privacy_link, array('absolute' => TRUE));
+          break;
+      }
+    }
+  }
+  return $replacements;
+}
+
+/**
+ * Implements hook_osha_tmgmt_i18n_string_list().
+ *
+ * {@inheritdoc}
+ */
+function osha_alert_service_osha_tmgmt_i18n_string_list() {
+  module_load_include('inc', 'osha_alert_service', 'osha_alert_service.translate');
+  return osha_alert_service_get_translatable_strings();
+}
+
+
+if (!function_exists('entity_bundle_label')) {
+  /**
+   * Returns the label of a bundle.
+   *
+   * @param string $entity_type
+   *   The entity type; e.g. 'node' or 'user'.
+   * @param string $bundle_name
+   *   The bundle for which we want the label from
+   *
+   * @return
+   *   A string with the human-readable name of the bundle, or FALSE if not specified.
+   */
+  function entity_bundle_label($entity_type, $bundle_name) {
+    $labels = &drupal_static(__FUNCTION__, array());
+    if (empty($labels)) {
+      foreach (entity_get_info() as $type => $info) {
+        foreach ($info['bundles'] as $bundle => $bundle_info) {
+          $labels[$type][$bundle] = !empty($bundle_info['label']) ? $bundle_info['label'] : FALSE;
+        }
+      }
+    }
+    return $labels[$entity_type][$bundle_name];
+  }
+}

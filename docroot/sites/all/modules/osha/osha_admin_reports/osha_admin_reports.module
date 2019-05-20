@@ -1,0 +1,85 @@
+<?php
+/**
+ * @file
+ * Code for the OSHA Admin Reports feature.
+ */
+
+include_once 'osha_admin_reports.features.inc';
+
+
+/**
+ * Implements hook_cron().
+ */
+function osha_admin_reports_cron() {
+  // Remove old reports.
+  $files = file_scan_directory(file_directory_temp(), '/views_data_export_.*\.xls$/');
+  if (!empty($files)) {
+    foreach (array_keys($files) as $file) {
+      if (filemtime(drupal_realpath($file)) < strtotime("-1 day")) {
+        drupal_unlink($file);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_views_plugins_alter().
+ */
+function osha_admin_reports_views_plugins_alter(&$plugins) {
+  if (!empty($plugins['display']['views_data_export'])) {
+    $module_path = drupal_get_path('module', 'osha_admin_reports');
+    module_load_include('inc', 'phpexcel', 'phpexcel');
+    $style = $plugins['style']['views_data_export_xls'];
+    $style['name'] = 'views_data_export_xlsx';
+    $style['title'] = 'XLS excel file';
+    $style['path'] = $module_path;
+    $style['additional themes base'] = 'views_data_export_xlsx';
+
+    // Use template file from our module.
+    $style['theme path'] = $module_path . '/theme';
+    $style['theme file'] = 'osha_admin_reports.theme.inc';
+    $style['theme'] = 'views_data_export_xlsx';
+
+    // Add the new plugin.
+    $plugins['style']['views_data_export_xlsx'] = $style;
+  }
+}
+
+/**
+ * Preprocess XLS output template.
+ */
+function template_preprocess_views_data_export_xlsx(&$vars) {
+  global $user;
+  $vars['header'] = $vars['rows']['header'];
+  $vars['body'] = "";
+  $vars['footer'] = $vars['rows']['footer'];
+  $view = $vars['view'];
+  $headers = array('No data');
+  $data = array(array('No data'));
+
+  $excel_dir = file_directory_temp();
+  $excel_filename = 'views_data_export_' . time() . '_' . $user->uid . '.xls';
+  if (!file_prepare_directory($excel_dir, FILE_CREATE_DIRECTORY)) {
+    drupal_set_message(strtr('The @dir directory could not be created or it is not writable', array('@dir' => $excel_dir)), 'error');
+    drupal_goto();
+  }
+  $path = $excel_dir . '/' . $excel_filename;
+  module_load_include('inc', 'phpexcel', 'phpexcel');
+  if (!empty($view->style_plugin->rendered_fields)) {
+    $headers = array();
+    $field_names = array_keys($view->style_plugin->rendered_fields[0]);
+    foreach ($field_names as $field_name) {
+      $headers[] = $view->field[$field_name]->options['ui_name'];
+    }
+    $data = $view->style_plugin->rendered_fields;
+    foreach ($data as $key => $row) {
+      $data[$key] = array_values($row);
+    }
+    phpexcel_export($headers, $data, $path);
+  }
+  else {
+    phpexcel_export($headers, $data, $path);
+  }
+  $vars['body'] = file_get_contents($path);
+  return;
+}

@@ -1,0 +1,122 @@
+<?php
+
+function osha_publication_install() {
+  //osha_publication_add_menu_position_rules();
+}
+
+/**
+ * Add publication menu position rules.
+ */
+function osha_publication_update_7001() {
+  //osha_publication_add_menu_position_rules();
+}
+
+/**
+ * Add menu position rules for publication content type.
+ */
+function osha_publication_add_menu_position_rules() {
+  if (module_exists('osha') && module_load_include('inc', 'osha', 'osha.utils')) {
+    $condition = array('content_type' => array('publication' => 'publication'));
+    osha_add_menu_position_rule('Publications Menu Rule', '------ Publications', $condition);
+  }
+}
+
+/**
+ * Removes the redirects ending in /view for nodes.
+ */
+function osha_publication_update_7002() {
+  db_delete('redirect')
+    ->condition('source', db_like('%/view'), 'LIKE')
+    ->condition('redirect', db_like('node/%'), 'LIKE')
+    ->execute();
+}
+
+/**
+ * Set mappings "relevant for" terms from NCW to HWC.
+ */
+function osha_publication_update_7003() {
+  module_load_include('inc', 'ncw_migration', 'ncw_migration.migrate.taxonomies');
+  cache_clear_all();
+  drupal_static_reset();
+  migrate_static_registration(array('tax_segment'));
+  variable_set('hwc_migration_tax_segment_url', '/export/taxonomy/relevant_for');
+  drupal_static_reset();
+  ncw_migration_run_single('tax_segment');
+}
+
+/**
+ * New page and view.
+ */
+function osha_publication_update_7004() {
+  features_revert_module('osha_publication');
+}
+
+/**
+ * Publication container class wrapper.
+ */
+function osha_publication_update_7005() {
+  features_revert_module('osha_publication');
+}
+
+/**
+ * Publication type field order.
+ */
+function osha_publication_update_7006() {
+  features_revert_module('osha_publication');
+}
+
+/**
+ * Publication type settings.
+ */
+function osha_publication_update_7007() {
+  features_revert_module('osha_publication');
+}
+
+/**
+ * Tools and publication type.
+ */
+function osha_publication_update_7008() {
+  features_revert_module('osha_publication');
+}
+
+/**
+ * Tools and publication type.
+ */
+function osha_publication_update_7009() {
+  features_revert_module('osha_publication');
+}
+
+/**
+ * New crop image style.
+ */
+function osha_publication_update_7010() {
+  features_revert_module('osha_publication');
+}
+
+/**
+ * Tools and publications changes.
+ */
+function osha_publication_update_7011() {
+  features_revert_module('osha_publication');
+}
+
+/**
+ * Tools and publications changes.
+ */
+function osha_publication_update_7012() {
+  features_revert_module('osha_publication');
+}
+
+/**
+ * HW18-273 Implementation after usability recommendations.
+ */
+function osha_publication_update_7013() {
+  features_revert_module('osha_publication');
+}
+
+/**
+ * MDR-2129 2 changes in the Publications section.
+ */
+function osha_publication_update_7014() {
+  features_revert(array('osha_publication' => array('views_view')));
+}

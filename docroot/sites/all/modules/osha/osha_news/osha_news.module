@@ -1,0 +1,84 @@
+<?php
+/**
+ * @file
+ * Code for the News feature.
+ */
+
+include_once 'osha_news.features.inc';
+
+define('OSHA_NEWS_CONTENT_TYPE_NEWS', 'news');
+
+/**
+ * Implements hook_post_features_enable_feature().
+ *
+ * {@inheritdoc}
+ * {@codeCoverageIgnore}
+ */
+function osha_news_post_features_enable_feature($component) {
+  // After the field_instance ...
+  if ($component == 'variable') {
+    menu_rebuild();
+    drupal_static_reset();
+    if ($role = user_role_load_by_name(HWC_ROLE_ADMIN)) {
+      $permissions = array(
+        'create news content',
+        'edit own news content',
+        'edit any news content',
+        'delete own news content',
+        'delete any news content',
+      );
+      user_role_grant_permissions($role->rid, $permissions);
+    }
+  }
+}
+
+function _osha_news_form_after_build($form, $form_state) {
+  // always hide via states
+  $form['field_modified_on']['#states'] = [
+    'visible' => ['#edit-field-modified-on-und-0-value-day' => ['value' => [-1]]]
+  ];
+  return $form;
+}
+
+/**
+ * Implements hook_osha_tmgmt_i18n_string_list().
+ */
+function osha_news_osha_tmgmt_i18n_string_list() {
+  module_load_include('inc', 'osha_news', 'osha_news.translations');
+  return osha_news_get_translatable_strings();
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function osha_news_form_news_node_form_alter(&$form, &$form_state) {
+  hwc_workflow_add_extra_fields($form, $form_state);
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function osha_news_form_alter(&$form, &$form_state, $form_id) {
+  global $theme;
+
+  if ($theme != 'osha_admin' && $form_id == 'news_node_form') {
+    $form['actions']['#attributes']['class'] = array('container');
+    $form['field_aditional_resources']['#access'] = FALSE;
+
+    if (!isset($form['#after_build'])) {
+      $form['#after_build'] = array();
+    }
+    $form['#after_build'][] = '_osha_news_form_after_build';
+  }
+
+  if ($form_id == 'news_node_form') {
+    drupal_add_css(drupal_get_path('module', 'osha_news') . '/css/osha_news.css');
+  }
+
+  if ($form_id == 'events_node_form') {
+    if (!isset($form['#after_build'])) {
+      $form['#after_build'] = array();
+    }
+    $form['#after_build'][] = '_osha_news_form_after_build';
+  }
+}

@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function osha_linkchecker_enable() {
+  // Config linkchecker module.
+  $names = node_type_get_names();
+  $names = array_map('check_plain', $names);
+  foreach ($names as $name => $val) {
+    $names[$name] = $name;
+  }
+  variable_set('linkchecker_scan_nodetypes', $names);
+  variable_set('linkchecker_check_links_types', 0);
+  variable_set('linkchecker_extract_from_a', 1);
+  variable_set('linkchecker_check_library', 'core');
+//  variable_set('linkchecker_check_library', 'httprl');
+
+  // Scan for links.
+  if (drupal_is_cli()) {
+    print 'Scanning for links. Please wait...';
+    osha_linkchecker_scan_for_links();
+  }
+}
+
+/**
+ * MDR-1901 HWC18-19: Strange message in a new item.
+ */
+function osha_linkchecker_update_7001() {
+  variable_set('linkchecker_ignore_response_codes', "200\n206\n302\n304\n401\n403\n301\n900");
+}

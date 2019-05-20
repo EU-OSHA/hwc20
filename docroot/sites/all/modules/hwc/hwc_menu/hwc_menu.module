@@ -1,0 +1,45 @@
+<?php
+
+include_once 'hwc_menu.features.inc';
+define('HWC_MENU_RENDER_IMG_VAR_NAME', 'render_menu_image');
+
+/**
+ * Implements hook_menu_alter().
+ */
+function hwc_menu_menu_alter(&$items) {
+  // Make Contact title translatable.
+  $items['contact']['title callback'] = FALSE;
+}
+
+/**
+ * Implements hook_block_configure_alter().
+ */
+function hwc_menu_menu_block_configure_form_alter(&$form, &$form_state) {
+  $form['hwc_menu_settings'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('OSHA Menu Settings'),
+  );
+  $form['hwc_menu_settings'][HWC_MENU_RENDER_IMG_VAR_NAME] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Render Menu Image.'),
+    '#default_value' => variable_get('menu_block_' .
+      $form_state['values']['delta'] . '_' . HWC_MENU_RENDER_IMG_VAR_NAME, 0),
+    '#description' => t('Render Image in menu'),
+  );
+}
+
+/**
+ * Implements hook_menu_block_block_save().
+ */
+function hwc_menu_menu_block_block_save($delta, $form) {
+  variable_set('menu_block_' . $delta . '_' . HWC_MENU_RENDER_IMG_VAR_NAME,
+    $form[HWC_MENU_RENDER_IMG_VAR_NAME]);
+}
+
+/**
+ * Implements hook_menu_block_block_delete().
+ */
+function hwc_menu_menu_block_block_delete($form, $form_state) {
+  $delta = $form_state['values']['delta'];
+  variable_del('menu_block_' . $delta . '_' . HWC_MENU_RENDER_IMG_VAR_NAME);
+}
