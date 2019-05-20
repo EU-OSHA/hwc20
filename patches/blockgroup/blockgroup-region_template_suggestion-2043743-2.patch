@@ -1,0 +1,14 @@
+diff --git a/blockgroup.module b/blockgroup.module
+index 5c12c1a..26b76ca 100644
+--- a/blockgroup.module
++++ b/blockgroup.module
+@@ -391,6 +391,9 @@ function blockgroup_preprocess_block(&$variables) {
+ function blockgroup_preprocess_region(&$variables) {
+   if (substr($variables['region'], 0, 11) == 'blockgroup-') {
+     $variables['classes_array'][] = 'blockgroup';
++    // Allow the use of a region--blockgroup.tpl.php template that will affect
++    // all block group regions.
++    $variables['theme_hook_suggestions'][] = 'region__blockgroup';
+   }
+ }
+ 

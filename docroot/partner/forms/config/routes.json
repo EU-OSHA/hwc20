@@ -1,0 +1,40 @@
+{
+  "routes": {
+    "start": {
+      "index": "1",
+      "internal": "start",
+      "label": "Basic Requirements",
+      "next": "Involvement",
+      "submitText": "Start your application",
+      "route":"route=start",
+      "subsection":"START"
+    },
+    "company": {
+      "index": "2",
+      "internal": "company",
+      "label": "About your Organisation",
+      "next": "Involvement",
+      "submitText": "Next - Tell us about your campaign involvement",
+      "route":"route=company",
+      "subsection":"ORGANISATION"
+    },
+    "involvement": {
+      "index": "3",
+      "internal": "involvement",
+      "label": "About your Involvement",
+      "next": "Contact",
+      "submitText": "Finalise your registration - Give us your primary contact information",
+      "route":"route=involvement",
+      "subsection":"BECOME"
+    },
+    "contact": {
+      "index": "4",
+      "internal": "contact",
+      "label": "About your Main Contact",
+      "next": "Congrats",
+      "submitText": "Submit your Application",
+      "route":"route=contact",
+      "subsection":"PRIMARY_CONTACT"
+    }
+  }
+}

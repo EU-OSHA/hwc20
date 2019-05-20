@@ -1,0 +1,13 @@
+diff --git a/docroot/sites/all/modules/contrib/addtoany/addtoany.module b/docroot/sites/all/modules/contrib/addtoany/addtoany.module
+index 0426121..3c760cb 100644
+--- a/docroot/sites/all/modules/contrib/addtoany/addtoany.module
++++ b/docroot/sites/all/modules/contrib/addtoany/addtoany.module
+@@ -306,7 +306,7 @@ function _addtoany_create_button($node=NULL) {
+ 	// Permit blank button_text (so AddToAny Kit can set the icon) if set above, or use addtoany_link_text if set
+ 	$button_text = (isset($button_text)) ? $button_text : check_plain(variable_get('addtoany_link_text', ''));
+ 	if (strlen($button_text) > 0)
+-		$button_text = ' ' . $button_text; 
++		$button_text = ' ' . t($button_text);
+ 	
+ 	$button_innerHTML = ($button_setting == "text") ? $button_text : sprintf('<img src="%s"%s%s %s/>%s',
+ 		$button_image,

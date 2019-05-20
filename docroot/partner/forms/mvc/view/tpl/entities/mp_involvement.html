@@ -1,0 +1,56 @@
+<!--{if $HelpMessage != "print"}
+<div id="container-message" class="container-message">   
+
+        <div id="MESSAGE">
+            Please make sure you thoroughly check, whether all your information is still valid
+                       and indicate <br>     this by checking the button next to the appropiate fields
+                       <a class="close">[X]</a>
+        </div>            
+    </div>
+{else}
+{/if}-->
+{if !$mf}
+<div class="helpDialog hidden">
+    <span>If you have any doubts about how to fill in this form or if you need any assistance, you can leave us a message and we will contact you as soon as possible.</span>
+    <br>
+    <div class="error-msg hidden" id="helpError"></div>
+    <label for="email">Your email:</label>
+    <input id="email" type="text" placeholder="your@email.com"/>
+    <br>
+    <label for="message">Your message:</label>
+    <textarea id="message" placeholder="Write here your question"></textarea>
+</div>
+{/if}
+
+<fieldset>
+    <legend id="PLEDGE">
+        Your campaign Contribution
+        <img id="PLEDGE_check" class="hidden" src="mvc/view/img/tick_16.png" title="You have validated this section" />
+    </legend>
+    
+    <div class="separatorFieldSet">&nbsp;</div>
+    
+    <div class="marginRightForm">
+        {$attributes.involvement_osh_campaignpledge}
+    </div>
+        <div class="hidden">
+            {$attributes.helpMessage}
+            {$attributes.contact_osh_mainemailAux}
+            {$attributes.company_osh_orgnameAux}
+            {$attributes.contact_osh_maincontactpersonfirstnameAux}
+            {$attributes.contact_osh_maincontactpersonlastnameAux}
+            {$attributes.osh_yourcampaignpledgesection}
+        </div>
+</fieldset>
+{if $HelpMessage != "print"}
+<div class="helpDiv">
+    <div data-section="PLEDGE" class="validation{$locked}">I validate the information filled in this section
+        <span class="helpIcon" name="helpIcon" title="Please, check this box in order to validate this section">?</span>
+    </div>
+    <div class="helpSection" style="float: right; margin-right:5%;">
+        <span class="helpIcon" name="helpIcon">?</span>
+        <a class="helpButton" name="helpButton">HELP</a>
+    </div>
+    <div class="separatorSection">&nbsp;</div>
+</div>
+{/if}

@@ -1,0 +1,310 @@
+{
+  "sections": {
+    "title": "1. About your organisation",
+    "sections": {
+        "ORGANISATION": "About your Organisation",
+        "GENERAL_INFORMATION": "About your General Contact Information",
+        "CEO": "About your CEO"
+    },
+    "sections_mf": {
+        "ORGANISATION": "About your Organisation",
+        "GENERAL_INFORMATION": "About your General Contact Information"
+    }
+  },
+  "attributes": {
+    "company_osh_orgname": {
+      "name": "company_osh_orgname",
+      "label": "Organisation name",
+      "publicProfile": "publicProfile",
+      "section": "ORGANISATION",
+      "type": "text",
+      "validator": "not_null"
+    },
+    "company_osh_orgnameAux": {
+      "name": "company_osh_orgnameAux",
+      "label": "Organisation name",
+      "section": "ORGANISATION",
+      "type": "text"
+    },
+    "contact_osh_mainemailAux": {
+      "name": "contact_osh_mainemailAux",
+      "label": "E-mail",
+      "section": "PRIMARY_CONTACT",
+      "type": "text"
+    },
+    "company_osh_orgtype": {
+      "name": "company_osh_orgtype",
+      "label": "Organisation Type",
+      "publicProfile": "publicProfile",
+      "section": "ORGANISATION",
+      "type": "dropdown",
+      "validator": "not_null"
+    },
+    "company_osh_logoimage": {
+      "name": "company_osh_logoimage",
+      "label": "Organisation´s logo",
+      "helpText" : "Please upload your company logo in .png or .jpg file format. The file size must not exceed 1MB",
+      "helpTextImageLoaded" : "Please, if you want to change this logo, please upload a new one in png. or jpg. file format. The file must not exceed 1MB",
+      "publicProfile": "publicProfile",
+      "section": "ORGANISATION",
+      "type": "image",
+      "validator": "not_null"
+    },
+    "company_osh_yourmissionstatement": {
+      "name": "company_osh_yourmissionstatement",
+      "label": "Mandate",
+      "placeholder": "Brief description of the mandate of your organisation.",
+      "publicProfile": "publicProfile",
+      "section": "ORGANISATION",
+      "type": "textarea",
+      "validator": "not_null"
+    },
+    "company_osh_facebookprofile": {
+      "name": "company_osh_facebookprofile",
+      "label": "Facebook Profile",
+      "placeholder": "Please indicate your facebook profile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text"
+    },
+    "company_osh_twitterprofile": {
+      "name": "company_osh_twitterprofile",
+      "label": "Twitter Profile",
+      "placeholder": "Please indicate your twitter profile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text"
+    },
+    "company_osh_youtubeprofile": {
+      "name": "company_osh_youtubeprofile",
+      "label": "Youtube Profile",
+      "placeholder": "Please indicate your Youtube profile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text"
+    },
+    "company_osh_linkedinprofile": {
+      "name": "company_osh_linkedinprofile",
+      "label": "LinkedIn Profile",
+      "placeholder": "Please indicate your LinkedIn profile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text"
+    },
+    "company_osh_slideshareprofile": {
+      "name": "company_osh_slideshareprofile",
+      "label": "SlideShare Profile",
+      "placeholder": "Please indicate your Slide Share profile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text"
+    },
+    "company_osh_pinterestprofile": {
+      "name": "company_osh_pinterestprofile",
+      "label": "Pinterest Profile",
+      "placeholder": "Please indicate your pinterest profile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text"
+    },
+    "company_osh_googleplusprofile": {
+      "name": "company_osh_googleplusprofile",
+      "label": "Google+ Profile",
+      "placeholder": "Please indicate your Google+ profile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text"
+    },
+    "company_osh_address": {
+      "name": "company_osh_address",
+      "label": "Address",
+      "publicProfile": "publicProfile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text",
+      "validator": "not_null"
+    },
+    "company_osh_city": {
+      "name": "company_osh_city",
+      "label": "City",
+      "publicProfile": "publicProfile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text",
+      "validator": "not_null"
+    },
+    "company_osh_zipcode": {
+      "name": "company_osh_zipcode",
+      "label": "Postal Code",
+      "publicProfile": "publicProfile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text",
+      "maxLength": "10",
+      "validator": [
+            "size",
+            "not_null"
+            ]
+    },
+    "company_osh_country": {
+      "name": "company_osh_country",
+      "label": "Country",
+      "publicProfile": "publicProfile",
+      "section": "GENERAL_INFORMATION",
+      "type": "dropdown",
+      "validator": "not_null"
+    },
+    "company_osh_generalemail": {
+      "name": "company_osh_generalemail",
+      "label": "General email Address",
+      "publicProfile": "publicProfile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text",
+      "validator": [
+        "not_null",
+        "email"
+      ]
+    },
+    "company_osh_generalphone": {
+      "name": "company_osh_generalphone",
+      "label": "General telephone number",
+      "placeholder": "0000 0000",
+      "publicProfile": "publicProfile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text",
+      "validator": "not_null"
+    },
+    "company_osh_prefixgeneralphone": {
+      "name": "company_osh_prefixgeneralphone",
+      "label": "General telephone number Prefix",
+      "helpText": "Select your prefix from the drop-down",
+      "placeholder": "+00",
+      "section": "GENERAL_INFORMATION",
+      "type": "dropdown",
+      "validator": "not_null"
+    },
+    "company_osh_homepage": {
+      "name": "company_osh_homepage",
+      "label": "Homepage",
+      "publicProfile": "publicProfile",
+      "placeholder": "http(s)://www.example.com",
+      "section": "GENERAL_INFORMATION",
+      "type": "text"
+    },
+    "company_osh_dedicatedsite": {
+      "name": "company_osh_dedicatedsite",
+      "label": "Dedicated Campaign URL",
+      "placeholder": "http(s)://www.example.com",
+      "publicProfile": "publicProfile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text"
+    },
+    "company_osh_dedicatedcampaignsite": {
+      "name": "company_osh_dedicatedcampaignsite",
+      "label": "Dedicated Campaign URL",
+      "placeholder": "http(s)://www.example.com",
+      "publicProfile": "publicProfile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text"
+    },
+    "company_osh_category": {
+       "name": "company_osh_category",
+       "type": "text"
+    },
+    "company_osh_leads": {
+       "name": "company_osh_leads",
+       "type": "text"
+    },
+    "company_osh_ceo_firstname": {
+      "name": "company_osh_ceo_firstname",
+      "label": "CEO´s name",
+      "helpText": "Name of your CEO, President, General Director or other.",
+      "publicProfile": "publicProfile",
+      "section": "CEO",
+      "type": "text",
+      "validator": "not_null"
+    },
+    "company_osh_ceo_lastname": {
+      "name": "company_osh_ceo_lastname",
+      "label": "CEO's surname",
+      "publicProfile": "publicProfile",
+      "section": "CEO",
+      "type": "text",
+      "validator": "not_null"
+    },
+    "company_osh_ceoimage": {
+      "name": "company_osh_ceoimage",
+      "label": "CEO's photo",
+      "publicProfile": "publicProfile",
+      "section": "CEO",
+      "type": "image",
+      "validator": "not_null"
+    },
+    "company_osh_positionid": {
+      "name": "company_osh_positionid",
+      "label": "CEO's position",
+      "helpText": "Please indicate the actual position, such as President, General Director, CEO, Chairman, etc.",
+      "publicProfile": "publicProfile",
+      "section": "CEO",
+      "type": "text",
+      "validator": "not_null"
+    },
+    "company_osh_quoteonhwc": {
+      "name": "company_osh_quoteonhwc",
+      "label": "CEO's quote on the Campaign",
+      "helpText": "This quote will be published together with the CEO’s photo on the campaign website.",
+      "publicProfile": "publicProfile",
+      "section": "CEO",
+      "type": "textarea",
+      "validator": "not_null"
+    }
+  },
+  "map": {
+    "company_osh_address": "osh_address",
+    "company_osh_city": "osh_city",
+    "company_osh_conferenceactivity": "osh_conferenceactivity",
+    "company_osh_country": "osh_country",
+    "company_osh_generalemail":"osh_generalemail",
+    "company_osh_generalphone":"osh_generalphone",
+    "company_osh_prefixgeneralphone":"osh_prefixgeneralphone",
+    "company_osh_zipcode": "osh_zipcode",
+    "company_osh_orgname": "osh_orgname",
+    "company_osh_orgtype": "osh_orgtype",
+    "company_osh_dedicatedsite": "osh_dedicatedsite",
+    "company_osh_homepage": "osh_homepage",
+    "company_osh_logoimage": "osh_logoimage",
+    "company_osh_facebookprofile": "osh_facebookprofile",
+    "company_osh_pinterestprofile": "osh_pinterestprofile",
+    "company_osh_twitterprofile": "osh_twitterprofile",
+    "company_osh_yourmissionstatement": "osh_yourmissionstatement",
+    "company_osh_youtubeprofile": "osh_youtubeprofile",
+    "company_osh_linkedinprofile": "osh_linkedinprofile",
+    "company_osh_googleplusprofile": "osh_googleplusprofile",
+    "company_osh_slideshareprofile": "osh_slideshareprofile",
+    "company_osh_bussinessector": "osh_bussinessector",
+    "company_osh_category": "osh_category",
+    "company_osh_leads": "osh_leads",
+    "company_osh_dedicatedcampaignsite": "osh_dedicatedsite"
+  },
+  "map_mf": {
+    "company_osh_orgname": "osh_companyorganisationname",
+    "company_osh_orgtype": "osh_orgtype",
+    "company_osh_generalemail":"generalemailaddress1",
+    "company_osh_bussinessector": "osh_bussinessector",
+    "company_osh_address": "osh_phaddress",
+    "company_osh_city": "osh_phtown",
+    "company_osh_homepage": "websiteurl",
+    "company_osh_country": "osh_phcountryid",
+    "company_osh_mainemail": "osh_mainemail",
+    "company_osh_generalphone": "osh_phone1",
+    "company_osh_yourmissionstatement": "osh_yourmissionstatement",
+    "company_osh_zipcode": "osh_phcp",
+    "company_osh_osh_appform_osh_country": "osh_account_osh_country",
+    "company_osh_othercountries": "osh_othercountries",
+    "company_osh_name": "osh_name",
+    "company_osh_logoimage": "osh_logoimage",
+    "company_osh_socialdialoguepartner": "osh_socialdialogpartner",
+    "company_osh_dedicatedcampaignsite": "osh_dedicatedsite",
+    "company_osh_facebookprofile": "osh_facebookprofile",
+    "company_osh_pinterestprofile": "osh_pinterestprofile",
+    "company_osh_twitterprofile": "osh_twitterprofile",
+    "company_osh_youtubeprofile": "osh_youtubeprofile",
+    "company_osh_linkedinprofile": "osh_linkedinprofile",
+    "company_osh_googleplusprofile": "osh_googleplusprofile",
+    "company_osh_slideshareprofile": "osh_slideshareprofile",
+    "company_osh_category": "osh_category",
+    "company_osh_leads": "osh_leads",
+    "company_osh_prefixgeneralphone": "osh_prefixgeneralphone",
+    "company_osh_dedicatedsite": "osh_dedicatedsite"
+  }
+}

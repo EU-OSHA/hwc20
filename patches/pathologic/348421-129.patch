@@ -1,0 +1,17 @@
+diff --git a/pathologic.module b/pathologic.module
+index 438fd90..8286d51 100644
+--- a/pathologic.module
++++ b/pathologic.module
+@@ -361,6 +361,12 @@ function _pathologic_replace($matches) {
+         $parts['path'] = $path;
+         $parts['language_obj'] = $language_obj;
+       }
++      else {
++        $languages = language_list();
++        if (isset($languages[$cached_settings['langcode']])) {
++          $parts['language_obj'] = $languages[$cached_settings['langcode']];
++        }
++      }
+     }
+   }
+ 

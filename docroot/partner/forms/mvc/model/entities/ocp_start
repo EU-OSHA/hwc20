@@ -1,0 +1,32 @@
+{
+  "sections": {
+    "title": "0. Basic Requirements",
+    "sections": {
+        "START": "Basic Requirements"
+    },
+    "sections_mf": {
+    }
+  },
+  "attributes": {
+
+    "contact_osh_basicrequirements": {
+      "name": "contact_osh_basicrequirements",
+      "label": "I agree with all the requirements",
+      "section": "START",
+      "type": "basicRequirements",
+      "validator": [
+              "true",
+              "not_null"]
+    },
+    "helpMessage": {
+      "name": "helpMessage",
+      "section": "START",
+      "type": "text"
+    }
+  },
+  "map": {
+    "contact_osh_basicrequirements": "osh_basicrequirements"
+  },
+  "map_mf": {
+  }
+}

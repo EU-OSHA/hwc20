@@ -1,0 +1,81 @@
+<label class="control-label" for="{$fieldName}">{$fieldLabel}</label>
+<div class="control-group">
+    {if !empty($fieldValue.content)}
+    <div class="{$fieldName}_image_container"><img src="data:{$fieldValue.mime};base64,{$fieldValue.content}"></div>
+    {else}
+    <div class="{$fieldName}_image_container">No image available</div>
+    {/if}
+    {if !$locked}
+    <button class="{$fieldName}_popup-modal" href="#{$fieldName}_test-modal">Upload your image</button>
+    {/if}
+    <div id="{$fieldName}_test-modal" class="white-popup-block mfp-hide">
+        <div class="imageBox" id="{$fieldName}_imageBox">
+            <div class="thumbBox" id="{$fieldName}_thumbBox"></div>
+            <div class="spinner" id="{$fieldName}_spinner" style="display: none">Loading...</div>
+        </div>
+        <div class="action">
+            <input {$disabled} id="{$fieldName}" name="{$fieldName}" type="hidden">
+            <input {$disabled} type="button" id="{$fieldName}_btnCrop" value="Crop" style="float: right" data-section="{$fieldSection}">
+            <input {$disabled} type="button" id="{$fieldName}_btnZoomIn" value="+" style="float: right" data-section="{$fieldSection}">
+            <input {$disabled} type="button" id="{$fieldName}_btnZoomOut" value="-" style="float: right" data-section="{$fieldSection}">
+            <input {$disabled} id="{$fieldName}_file" name="{$fieldName}_file" type="file" data-section="{$fieldSection}"><br/>
+        </div>
+        <button class="save_image" name="save_image" data-target="{$fieldName}_image_container" data-cropperkey="{$fieldName}_cropper">Save Image</button>
+        <p><a class="{$fieldName}_popup-modal-dismiss" href="#">Close</a></p>
+
+    </div>
+</div>
+
+<script type="text/javascript" nonce="{$nonce}">
+    $(window).load(function () {
+        var options =
+        {
+            thumbBox: '#{$fieldName}_thumbBox',
+            spinner: '#{$fieldName}_spinner',
+            imgSrc: ''
+        };
+        var cropper = $('#{$fieldName}_imageBox').cropbox(options);
+        $('#{$fieldName}_file').on('change', function () {
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                options.imgSrc = e.target.result;
+                cropper = $('#{$fieldName}_imageBox').cropbox(options);
+            };
+            if ($('#{$fieldName}_thumbBox').find('img')) {
+                $('#{$fieldName}_thumbBox > img').remove();
+            }
+            reader.readAsDataURL(this.files[0]);
+            this.files = [];
+        });
+        $('#{$fieldName}_btnCrop').on('click', function () {
+            var img = cropper.getDataURL();
+            if ($('#{$fieldName}_thumbBox').find('img')) {
+                $('#{$fieldName}_thumbBox > img').remove();
+                $('#{$fieldName}_imageBox').css("background-image", "");
+            }
+            $('#{$fieldName}_thumbBox').append('<img src="' + img + '">');
+            $('#{$fieldName}').attr('value', img);
+            $('#{$fieldName}').attr('data-error', '');
+        });
+        $('#{$fieldName}_btnZoomIn').on('click', function () {
+            cropper.zoomIn();
+        });
+        $('#{$fieldName}_btnZoomOut').on('click', function () {
+            cropper.zoomOut();
+        })
+    });
+
+    $(function () {
+        $('.{$fieldName}_popup-modal').magnificPopup({
+            key: "{$fieldName}_cropper",
+            type: 'inline',
+            preloader: true,
+            modal: true
+        });
+        $(document).on('click', '.{$fieldName}_popup-modal-dismiss', function (e) {
+            e.preventDefault();
+            $.magnificPopup.close();
+        });
+    });
+</script>

@@ -1,0 +1,37 @@
+{
+  "defaultRoute": "start",
+  "defaultEntity": "ocp",
+  "defaultPartnerType": "new",
+  "defaultBundle": "MaintenanceForm",
+  "maintenanceRoute": "MaintenanceForm",
+  "title": "OSHA",
+  "pdfFilename": "osha",
+  "pdfcommand": "\"C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe\" --load-error-handling ignore --encoding utf-8 --header-spacing 10 --footer-spacing 10",
+  "lang": "en",
+  "urlParams": {
+    "session_id": "session_id",
+    "entity": "osh_category",
+    "entity_mf": "memberof.osh_categoryid",
+    "partner_type": "osh_leads",
+    "status_code": "statuscode",
+    "maintenance_mode": "mf",
+    "locked": "locked",
+    "potential": "potential",
+    "graceperiod": "graceperiod"
+  },
+  "sections_validated": {
+    "START": true,
+    "ORGANISATION": true,
+    "GENERAL_INFORMATION": true,
+    "DESCRIPTION": true,
+    "CHIEF": true,
+    "CEO": true,
+    "OSH": true,
+    "COMMUNICATION_REP": true,
+    "BECOME": true,
+    "INVOLVEMENT": true,
+    "PLEDGE": true,
+    "PRIMARY_CONTACT": true,
+    "OTHER_USERS": true
+  }
+}

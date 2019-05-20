@@ -1,0 +1,14 @@
+diff --git a/docroot/sites/all/modules/contrib/shs/shs.module b/docroot/sites/all/modules/contrib/shs/shs.module
+index b9f73bc..cf9d1f2 100644
+--- a/docroot/sites/all/modules/contrib/shs/shs.module
++++ b/docroot/sites/all/modules/contrib/shs/shs.module
+@@ -684,6 +684,9 @@ function shs_taxonomy_term_insert($term) {
+  * Implements hook_hook_taxonomy_term_update().
+  */
+ function shs_taxonomy_term_update($term) {
++  if (empty($term->parent)) {
++    return;
++  }
+   // Update vocabulary cache for the terms parents.
+   foreach ($term->parent as $parent) {
+     shs_term_get_children($term->vid, $parent, array('node_count' => TRUE), TRUE);

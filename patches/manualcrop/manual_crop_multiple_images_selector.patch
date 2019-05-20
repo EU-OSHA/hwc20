@@ -1,0 +1,13 @@
+diff --git a/manualcrop/manualcrop.js b/manualcrop/manualcrop.js
+index cb4b2ef..6c97ffb 100644
+--- a/manualcrop/manualcrop.js
++++ b/manualcrop/manualcrop.js
+@@ -860,7 +860,7 @@ ManualCrop.isLoaded = function(selector, callback) {
+   // Collect all images.
+   var images = selector.filter('img');
+   if (images.length != selector.length) {
+-    images = images.add(selector.find('img'));
++    images = images.add(selector.find('img').filter('.manualcrop-image'));
+   }
+ 
+   if (!images.length) {

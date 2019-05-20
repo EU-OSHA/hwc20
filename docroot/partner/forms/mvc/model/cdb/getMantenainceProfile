@@ -1,0 +1,160 @@
+{
+    "getMantenainceProfileResult": [
+        {
+            "RecordName": "contact",
+            "RecordId": "228c817d-443f-e511-9404-000c293f1c16",
+            "Fields": {
+                "account.osh_publicationradio": {
+                    "AttributeLogicalName": "osh_publicationradio",
+                    "EntityLogicalName": "account",
+                    "Value": false
+                },
+                "account.accountid": {
+                    "AttributeLogicalName": "accountid",
+                    "EntityLogicalName": "account",
+                    "Value": "0cce1973-443f-e511-9404-000c293f1c16"
+                },
+                "account.osh_readershipsmes": {
+                    "AttributeLogicalName": "osh_readershipsmes",
+                    "EntityLogicalName": "account",
+                    "Value": false
+                },
+                "account.osh_publicationonline": {
+                    "AttributeLogicalName": "osh_publicationonline",
+                    "EntityLogicalName": "account",
+                    "Value": false
+                },
+                "account.osh_publicationother": {
+                    "AttributeLogicalName": "osh_publicationother",
+                    "EntityLogicalName": "account",
+                    "Value": false
+                },
+                "account.osh_socialdialogpartner": {
+                    "AttributeLogicalName": "osh_socialdialogpartner",
+                    "EntityLogicalName": "account",
+                    "Value": false
+                },
+                "osh_reconfirmemail": false,
+                "account.osh_readershipacademics": {
+                    "AttributeLogicalName": "osh_readershipacademics",
+                    "EntityLogicalName": "account",
+                    "Value": false
+                },
+                "account.osh_readershipeuinstitutions": {
+                    "AttributeLogicalName": "osh_readershipeuinstitutions",
+                    "EntityLogicalName": "account",
+                    "Value": false
+                },
+                "account.websiteurl": {
+                    "AttributeLogicalName": "websiteurl",
+                    "EntityLogicalName": "account",
+                    "Value": "http://website.com"
+                },
+                "account.osh_readershiposhcommunity": {
+                    "AttributeLogicalName": "osh_readershiposhcommunity",
+                    "EntityLogicalName": "account",
+                    "Value": false
+                },
+                "account.osh_readershiptrade": {
+                    "AttributeLogicalName": "osh_readershiptrade",
+                    "EntityLogicalName": "account",
+                    "Value": false
+                },
+                "contactid": "228c817d-443f-e511-9404-000c293f1c16",
+                "account.osh_dedicatedcampaignsite": {
+                    "AttributeLogicalName": "osh_dedicatedcampaignsite",
+                    "EntityLogicalName": "account",
+                    "Value": "prueva de Ramon"
+                },
+                "account.osh_publicationprint": {
+                    "AttributeLogicalName": "osh_publicationprint",
+                    "EntityLogicalName": "account",
+                    "Value": false
+                },
+                "account.osh_orgtype": {
+                    "AttributeLogicalName": "osh_orgtype",
+                    "EntityLogicalName": "account",
+                    "Value": {
+                        "Value": 3
+                    }
+                },
+                "account.osh_publicationtv": {
+                    "AttributeLogicalName": "osh_publicationtv",
+                    "EntityLogicalName": "account",
+                    "Value": false
+                },
+                "account.osh_readershipspecialist": {
+                    "AttributeLogicalName": "osh_readershipspecialist",
+                    "EntityLogicalName": "account",
+                    "Value": false
+                },
+                "memberof.osh_wgrole1": {
+                    "AttributeLogicalName": "osh_wgrole1",
+                    "EntityLogicalName": "osh_memberof",
+                    "Value": {
+                        "Id": "c9d50f39-c615-e511-93fd-000c293f1c16",
+                        "LogicalName": "osh_wgrol",
+                        "Name": "Main Contact"
+                    }
+                },
+                "account.osh_publicationnewsletter": {
+                    "AttributeLogicalName": "osh_publicationnewsletter",
+                    "EntityLogicalName": "account",
+                    "Value": false
+                },
+                "address.osh_name": {
+                    "AttributeLogicalName": "osh_name",
+                    "EntityLogicalName": "osh_orgaddress",
+                    "Value": ", , ,  "
+                },
+                "memberof.osh_categoryid": {
+                    "AttributeLogicalName": "osh_categoryid",
+                    "EntityLogicalName": "osh_memberof",
+                    "Value": {
+                        "Id": "923d9ff0-611e-e511-93fd-000c293f1c16",
+                        "LogicalName": "osh_category",
+                        "Name": "Official Campaign Partners"
+                    }
+                },
+                "account.name": {
+                    "AttributeLogicalName": "name",
+                    "EntityLogicalName": "account",
+                    "Value": "Everis prueba"
+                }
+            }
+        },
+        {
+            "RecordName": "contact",
+            "RecordId": "be70d980-4e3f-e511-9404-000c293f1c16",
+            "Fields": {
+                "fullname": "Prueva00Firstname Prueva00lastname",
+                "emailaddress1": "Prueva00email@gmail.com",
+                "contactid": "be70d980-4e3f-e511-9404-000c293f1c16"
+            }
+        },
+        {
+            "RecordName": "contact",
+            "RecordId": "ca70d980-4e3f-e511-9404-000c293f1c16",
+            "Fields": {
+                "fullname": "Prueva01Firstname Prueva01lastname",
+                "emailaddress1": "Prueva01email@gmail.com)=",
+                "contactid": "ca70d980-4e3f-e511-9404-000c293f1c16"
+            }
+        },
+        {
+            "RecordName": "contact",
+            "RecordId": "228c817d-443f-e511-9404-000c293f1c16",
+            "Fields": {
+                "contactid": "228c817d-443f-e511-9404-000c293f1c16"
+            }
+        }
+    ],
+    "returnPaises": {
+        "AD": "ANDORRA",
+        "EG": "EGYPT",
+        "DE": "GERMANY"
+    },
+    "returnCode": 1,
+    "returnName": "OK",
+    "returnMessage": "OK"
+}

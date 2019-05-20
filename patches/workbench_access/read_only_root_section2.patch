@@ -1,0 +1,55 @@
+diff --git a/docroot/sites/all/modules/contrib/workbench_access/workbench_access.admin.inc b/docroot/sites/all/modules/contrib/workbench_access/workbench_access.admin.inc
+index 835106e..b3e075f 100644
+--- a/docroot/sites/all/modules/contrib/workbench_access/workbench_access.admin.inc
++++ b/docroot/sites/all/modules/contrib/workbench_access/workbench_access.admin.inc
+@@ -546,7 +546,7 @@ function workbench_access_editors($access_type = NULL, $access_type_id = NULL, $
+       }
+       else {
+         $row = array(
+-          str_repeat('-', $section['depth']) . ' ' . l($section['name'], 'admin/config/workbench/access/' . "{$type}s/" . $active['access_scheme']['access_type'] . '/' . $access_id),
++          str_repeat('-', $section['depth']) . ' ' . $section['name'],
+         );
+       }
+       $roles = workbench_access_get_roles('access workbench access by role');
+@@ -573,12 +573,15 @@ function workbench_access_editors($access_type = NULL, $access_type_id = NULL, $
+             array(':access_scheme' => $active['access_scheme']['access_type'], ':access_id' => $access_id)
+           )->fetchField();
+         }
+-        if ($access_id == $root_section) {
+-          $row[] = format_plural($count, '1 editor', '@count editors');
+-        }
+-        else {
+-          $row[] = l(format_plural($count, '1 editor', '@count editors'), 'admin/config/workbench/access/editors/' . $active['access_scheme']['access_type'] . '/' . $access_id);
++        $extra = '';
++        if ($count) {
++          $extra = db_query("SELECT u.name FROM {workbench_access_user} wau INNER JOIN {users} u ON wau.uid = u.uid
++            WHERE wau.access_scheme = :access_scheme AND wau.access_id = :access_id",
++            array(':access_scheme' => $active['access_scheme']['access_type'], ':access_id' => $access_id)
++          )->fetchAllKeyed(0, 0);
++          $extra = ' (' . implode(', ', $extra) . ')';
+         }
++        $row[] = format_plural($count, '1 editor', '@count editors') . $extra;
+       }
+       else {
+         $count2 = db_query("SELECT COUNT(war.rid) FROM {workbench_access_role} war
+@@ -587,12 +590,15 @@ function workbench_access_editors($access_type = NULL, $access_type_id = NULL, $
+           array(':access_scheme' => $active['access_scheme']['access_type'], ':access_id' => $access_id, ':rids' => array_keys($roles))
+         )->fetchField();
+ 
+-        if ($access_id == $root_section) {
+-          $row[] = format_plural($count2, '1 role', '@count roles');
+-        }
+-        else {
+-          $row[] = l(format_plural($count2, '1 role', '@count roles'), 'admin/config/workbench/access/roles/' . $active['access_scheme']['access_type'] . '/' . $access_id);
++        $extra = '';
++        if ($count2) {
++          $extra = db_query("SELECT u.name FROM {workbench_access_user} wau INNER JOIN {users} u ON wau.uid = u.uid
++            WHERE wau.access_scheme = :access_scheme AND wau.access_id = :access_id",
++            array(':access_scheme' => $active['access_scheme']['access_type'], ':access_id' => $access_id)
++          )->fetchAllKeyed(0, 0);
++          $extra = ' (' . implode(', ', $extra) . ')';
+         }
++        $row[] = format_plural($count2, '1 role', '@count roles') . $extra;
+       }
+       $rows[] = $row;
+     }

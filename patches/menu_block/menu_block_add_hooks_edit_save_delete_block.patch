@@ -1,0 +1,83 @@
+diff --git a/docroot/sites/all/modules/contrib/menu_block/menu_block.admin.inc b/docroot/sites/all/modules/contrib/menu_block/menu_block.admin.inc
+index 992a0cc..7c4e246 100644
+--- a/docroot/sites/all/modules/contrib/menu_block/menu_block.admin.inc
++++ b/docroot/sites/all/modules/contrib/menu_block/menu_block.admin.inc
+@@ -167,6 +167,11 @@ function menu_block_delete_submit($form, &$form_state) {
+   variable_del("menu_block_{$delta}_expanded");
+   variable_del("menu_block_{$delta}_sort");
+ 
++  foreach (module_implements('menu_block_block_delete') as $module) {
++    $function = $module . '_menu_block_block_delete';
++    $function($form, $form_state);
++  }
++
+   db_delete('block')
+     ->condition('module', 'menu_block')
+     ->condition('delta', $delta)
+@@ -443,6 +448,8 @@ function menu_block_configure_form($form, &$form_state) {
+     $form['display_options']['#default_value'] = 'advanced';
+   }
+ 
++  drupal_alter('menu_block_configure_form', $form, $form_state);
++
+   return $form;
+ }
+ 
+@@ -487,6 +494,10 @@ function _menu_block_block_save($delta = '', $edit = array()) {
+       variable_set("menu_block_{$delta}_depth", $edit['depth']);
+       variable_set("menu_block_{$delta}_expanded", $edit['expanded']);
+       variable_set("menu_block_{$delta}_sort", $edit['sort']);
++      foreach (module_implements('menu_block_block_save') as $module) {
++        $function = $module . '_menu_block_block_save';
++        $function($delta, $edit);
++      }
+     }
+   }
+ }
+diff --git a/docroot/sites/all/modules/contrib/menu_block/menu_block.api.php b/docroot/sites/all/modules/contrib/menu_block/menu_block.api.php
+index 3d7a4c9..4ee99b7 100644
+--- a/docroot/sites/all/modules/contrib/menu_block/menu_block.api.php
++++ b/docroot/sites/all/modules/contrib/menu_block/menu_block.api.php
+@@ -93,5 +93,42 @@ function hook_menu_block_get_sort_menus() {
+ }
+ 
+ /**
++ * Alter the configuration form for menu blocks.
++ *
++ * @param array $form
++ *   The form after all menu_block inputs are added.
++ */
++function hook_menu_block_configure_form_alter(&$form) {
++}
++
++/**
++ * Function called when a menu_block is saved.
++ *
++ * Useful to set variables that you previously added to form with
++ * hook_menu_block_configure_form_alter
++ *
++ * @param int $delta
++ *   Block id
++ * @param array $edit
++ *   The submitted form
++ */
++function hook_menu_block_block_save($delta, $edit) {
++}
++
++/**
++ * Function called when a menu_block is deleted.
++ *
++ * Useful to unset variables that you've previously set using
++ * hook_menu_block_configure_form_alter
++ *
++ * @param int $delta
++ *   Block id
++ * @param array $edit
++ *   Submitted form
++ */
++function hook_menu_block_block_delete($delta, $edit) {
++}
++
++/**
+  * @} End of "addtogroup hooks".
+  */

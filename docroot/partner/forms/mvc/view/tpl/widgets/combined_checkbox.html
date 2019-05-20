@@ -1,0 +1,11 @@
+<div style="margin-bottom: 0;" class="control-group combined {$required}">
+    <label class="control-label screen-left" style="margin-bottom: -1.8%; margin-left: 3%; font-weight: normal;" for="{$fieldName}">{$fieldLabel}</label>
+    {if !empty($fieldPublicProfile)}<img src="{$appurl}mvc/view/img/screen.png" title="Fields displayed on campaign site" class="screen-right"/>{/if}
+    {if !empty($fieldHelpText)}
+    <p class="help-block">{$fieldHelpText}</p>
+    {/if}
+    <div class="controls">
+        <input {$disabled} type="checkbox" style="display: block;" class="combined-checkbox" data-target="{$fieldName}" data-section="{$fieldSection}" {if $fieldValue} checked="true" {/if} value="{if $fieldValue == true || $fieldValue == 'true' || $fieldValue == 1 || $fieldValue == 'on'}true{else}false{/if}"/>
+        <textarea {$disabled} class="field combined-textbox" {if empty($fieldValue)}style="display:none;"{/if} id="{$fieldName}" name="{$fieldName}" placeholder="{$fieldPlaceholder}" type="text" data-section="{$fieldSection}">{if !empty($fieldValue)}{$fieldValue}{/if}</textarea>
+    </div>
+</div>

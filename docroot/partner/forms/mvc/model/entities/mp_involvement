@@ -1,0 +1,132 @@
+{
+  "sections": {
+    "title": "2. About your involvement",
+    "sections": {
+        "PLEDGE": "Your campaign Contribution"
+    },
+    "sections_mf": {
+        "PLEDGE": "Your campaign Contribution"
+    }
+  },
+  "attributes": {
+    "involvement_osh_campaignpledge": {
+      "name": "involvement_osh_campaignpledge",
+      "label": "Your Campaign Pledge",
+      "helpText": "Please, briefly explain how your Media Outlet is going to support / give visibility to the Campaign",
+      "publicProfile": "publicProfile",
+      "section": "PLEDGE",
+      "type": "textarea",
+      "validator": "not_null"
+    },
+    "helpMessage": {
+      "name": "helpMessage",
+      "type": "text"
+    },
+    "company_osh_orgnameAux": {
+      "name": "company_osh_orgnameAux",
+      "label": "Organisation name",
+      "section": "PLEDGE",
+      "type": "text"
+    },
+    "contact_osh_mainemailAux": {
+      "name": "contact_osh_mainemailAux",
+      "label": "E-mail",
+      "section": "PLEDGE",
+      "type": "text"
+    },
+    "contact_osh_maincontactpersonfirstnameAux": {
+      "name": "contact_osh_maincontactpersonfirstnameAux",
+      "label": "Primary name",
+      "section": "PRIMARY_CONTACT",
+      "type": "text"
+    },
+    "contact_osh_maincontactpersonlastnameAux": {
+      "name": "contact_osh_maincontactpersonlastnameAux",
+      "label": "Last Name",
+      "section": "PRIMARY_CONTACT",
+      "type": "text"
+    },
+    "osh_yourcampaignpledgesection": {
+      "name": "osh_yourcampaignpledgesection",
+      "section": "PLEDGE",
+      "type": "text"
+    },
+    "involvement_osh_category": {
+      "name": "involvement_osh_category",
+      "type": "text"
+    },
+    "involvement_osh_leads": {
+      "name": "involvement_osh_leads",
+      "type": "text"
+    },
+    "involvement_osh_conferenceactivity": {
+      "name": "involvement_osh_conferenceactivity",
+      "label": "Conferences, seminars or workshops exclusively or partly dedicated to the campaign topic",
+      "placeholder": "Please provide some information on topic, main objectives, profile of participants, etc.",
+      "section": "INVOLVEMENT",
+      "type": "combined_checkbox"
+    },
+    "involvement_osh_trainingsessions": {
+      "name": "involvement_osh_trainingsessions",
+      "label": "Training sessions",
+      "placeholder": "Please provide some information on topic, main objectives, profile of participants, etc.",
+      "section": "INVOLVEMENT",
+      "type": "combined_checkbox"
+    },
+    "involvement_osh_partnershipswithotherorganisations": {
+      "name": "involvement_osh_partnershipswithotherorganisations",
+      "label": "Partnerships with other organisations and schools / colleges / training centres",
+      "placeholder": "Please provide some information on planned activities.",
+      "section": "INVOLVEMENT",
+      "type": "combined_checkbox"
+    },
+    "involvement_osh_promotioninthemedia": {
+      "name": "involvement_osh_promotioninthemedia",
+      "label": "Promotion in the media (press release, press conference, advertorials, etc.).",
+      "placeholder": "Please provide some information on planned activities.",
+      "section": "INVOLVEMENT",
+      "type": "combined_checkbox"
+    },
+    "involvement_osh_bestpractice": {
+      "name": "involvement_osh_bestpractice",
+      "label": "Best practice competition / activities",
+      "placeholder": "Please provide some information on planned activities.",
+      "section": "INVOLVEMENT",
+      "type": "combined_checkbox"
+    },
+    "involvement_osh_otheractivities": {
+      "name": "involvement_osh_otheractivities",
+      "label": "Other activities",
+      "placeholder": "Please provide some information on planned activities.",
+      "section": "INVOLVEMENT",
+      "type": "combined_checkbox"
+    }
+  },
+  "map": {
+    "involvement_osh_campaignpledge": "osh_campaignpledge",
+    "involvement_osh_category": "osh_category",
+    "involvement_osh_leads": "osh_leads",
+    "involvement_osh_conferenceactivity": "osh_conferenceactivity",
+    "involvement_osh_trainingsessions": "osh_trainingsessions",
+    "involvement_osh_partnershipswithotherorganisations": "osh_partnershipswithotherorganisations",
+    "involvement_osh_promotioninthemedia": "osh_promotioninthemedia",
+    "involvement_osh_bestpractice": "osh_bestpractice",
+    "involvement_osh_otheractivities": "osh_otheractivities",
+    "osh_yourcampaignpledgesection": "osh_yourcampaignpledgesection",
+    "contact_osh_mainemailAux": "contact_osh_mainemailAux",
+    "company_osh_orgnameAux": "company_osh_orgnameAux",
+    "contact_osh_maincontactpersonfirstnameAux": "contact_osh_maincontactpersonfirstnameAux",
+    "contact_osh_maincontactpersonlastnameAux": "contact_osh_maincontactpersonlastnameAux"
+  },
+  "map_mf": {
+    "involvement_osh_campaignpledge": "osh_campaignpledge",
+    "involvement_osh_category": "osh_category",
+    "involvement_osh_leads": "osh_leads",
+    "involvement_osh_conferenceactivity": "osh_conferenceactivity",
+    "involvement_osh_trainingsessions": "osh_trainingsessions",
+    "involvement_osh_partnershipswithotherorganisations": "osh_partnershipswithotherorganisations",
+    "involvement_osh_promotioninthemedia": "osh_promotioninmedia",
+    "involvement_osh_bestpractice": "osh_bestpractice",
+    "involvement_osh_otheractivities": "osh_otheractivities"
+  }
+}

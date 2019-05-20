@@ -1,0 +1,13 @@
+diff --git a/ldap_authentication/ldap_authentication.module b/ldap_authentication/ldap_authentication.module
+index 965a4d9..3e797a4 100644
+--- a/ldap_authentication/ldap_authentication.module
++++ b/ldap_authentication/ldap_authentication.module
+@@ -220,7 +220,7 @@ function _ldap_authentication_verify_user_profile() {
+  */
+ function ldap_authentication_init() {
+   $auth_conf = ldap_authentication_get_valid_conf();
+-  if ($auth_conf->templateUsagePromptUser) {
++  if ($auth_conf) {
+     ldap_authentication_check_for_email_template();
+   }
+ }

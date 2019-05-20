@@ -1,0 +1,20 @@
+{
+  "messages": {
+    "not_null": "",
+    "numeric": "The field must be numeric",
+    "size": "The maximum size of this field is ",
+    "email": "The field must be a valid email address",
+    "email_confirm": "Emails do not match",
+    "url": "the field must be a valid URL",
+    "session_not_defined": "Fatal error: Session ID not defined",
+    "configuration_error": "Configuration error",
+    "error_contacting_cdb": "Error contacting the CDB",
+    "no_partner_type": "No Partner Type received",
+    "resource_not_found": "Resource could not be found or read",
+    "bad_config": "Bad configuration error",
+    "undefined_error": "Undefined error",
+    "data_unavailable": "Data could not be parsed",
+    "captcha": "Value entered is not correct",
+    "true": "You must accept to continue"
+  }
+}

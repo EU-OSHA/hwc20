@@ -1,0 +1,415 @@
+{
+  "sections": {
+    "title": "1. About your Media Outlet",
+    "sections": {
+        "ORGANISATION": "About your Media Outlet",
+        "GENERAL_INFORMATION": "About your General Contact Information",
+        "CHIEF": "Editor in Chief"
+    },
+    "sections_mf": {
+        "ORGANISATION": "About your Media Outlet",
+        "GENERAL_INFORMATION": "About your General Contact Information",
+        "CHIEF": "Editor in Chief"
+    }
+  },
+  "attributes": {
+    "company_osh_orgname": {
+      "name": "company_osh_orgname",
+      "label": "Name of your Media Outlet",
+      "publicProfile": "publicProfile",
+      "section": "ORGANISATION",
+      "type": "text",
+      "validator": "not_null"
+    },
+    "helpMessage": {
+      "name": "helpMessage",
+      "type": "text"
+    },
+    "company_osh_orgnameAux": {
+      "name": "company_osh_orgnameAux",
+      "label": "Organisation name",
+      "section": "ORGANISATION",
+      "type": "text"
+    },
+    "contact_osh_mainemailAux": {
+      "name": "contact_osh_mainemailAux",
+      "label": "E-mail",
+      "section": "ORGANISATION",
+      "type": "text"
+    },
+    "contact_osh_maincontactpersonfirstnameAux": {
+      "name": "contact_osh_maincontactpersonfirstnameAux",
+      "label": "Primary name",
+      "section": "PRIMARY_CONTACT",
+      "type": "text"
+    },
+    "contact_osh_maincontactpersonlastnameAux": {
+      "name": "contact_osh_maincontactpersonlastnameAux",
+      "label": "Last Name",
+      "section": "PRIMARY_CONTACT",
+      "type": "text"
+    },
+    "company_osh_publicationonline": {
+      "name": "company_osh_publicationonline",
+      "label": "Online",
+      "section": "ORGANISATION",
+      "type": "checkbox"
+    },
+    "company_osh_publicationprint": {
+      "name": "company_osh_publicationprint",
+      "label": "Print",
+      "section": "ORGANISATION",
+      "type": "checkbox"
+    },
+    "company_osh_publicationnewsletter": {
+      "name": "company_osh_publicationnewsletter",
+      "label": "Newsletter",
+      "section": "ORGANISATION",
+      "type": "checkbox"
+    },
+    "company_osh_publicationradio": {
+      "name": "company_osh_publicationradio",
+      "label": "Radio",
+      "section": "ORGANISATION",
+      "type": "checkbox"
+    },
+    "company_osh_publicationtv": {
+      "name": "company_osh_publicationtv",
+      "label": "TV",
+      "section": "ORGANISATION",
+      "type": "checkbox"
+    },
+    "company_osh_publicationother": {
+      "name": "company_osh_publicationother",
+      "label": "Other",
+      "section": "ORGANISATION",
+      "type": "checkbox"
+    },
+
+    "company_osh_readershiposhcommunity": {
+      "name": "company_osh_readershiposhcommunity",
+      "label": "OSH community",
+      "section": "ORGANISATION",
+      "type": "checkbox"
+    },
+    "company_osh_readershipsmes": {
+      "name": "company_osh_readershipsmes",
+      "label": "SMEs",
+      "section": "ORGANISATION",
+      "type": "checkbox"
+    },
+    "company_osh_readershiptrade": {
+      "name": "company_osh_readershiptrade",
+      "label": "Trade",
+      "section": "ORGANISATION",
+      "type": "checkbox"
+    },
+    "company_osh_readershipacademics": {
+      "name": "company_osh_readershipacademics",
+      "label": "Academics",
+      "section": "ORGANISATION",
+      "type": "checkbox"
+    },
+    "company_osh_readershipspecialist": {
+      "name": "company_osh_readershipspecialist",
+      "label": "Specialist",
+      "section": "ORGANISATION",
+      "type": "checkbox"
+    },
+    "company_osh_readershipeuinstitutions": {
+      "name": "company_osh_readershipeuinstitutions",
+      "label": "EU Institutions",
+      "section": "ORGANISATION",
+      "type": "checkbox"
+    },
+    "company_osh_readershipgeneralaudience": {
+      "name": "company_osh_readershipgeneralaudience",
+      "label": "General Audience",
+      "section": "ORGANISATION",
+      "type": "checkbox"
+    },
+    "company_osh_logoimage": {
+      "name": "company_osh_logoimage",
+      "label": "Organisation’s logo",
+      "helpText" : "Please upload your company logo in .png or .jpg file format. The file size must not exceed 1MB",
+      "helpTextImageLoaded" : "Please, if you want to change this logo, please upload a new one in png. or jpg. file format. The file must not exceed 1MB",
+      "publicProfile": "publicProfile",
+      "section": "ORGANISATION",
+      "type": "image",
+      "validator": [
+        "image",
+        "not_null"
+      ]
+    },
+    "company_osh_address": {
+      "name": "company_osh_address",
+      "label": "Address",
+      "publicProfile": "publicProfile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text",
+      "validator": "not_null"
+    },
+    "company_osh_city": {
+      "name": "company_osh_city",
+      "label": "City",
+      "publicProfile": "publicProfile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text",
+      "validator": "not_null"
+    },
+    "company_osh_zipcode": {
+      "name": "company_osh_zipcode",
+      "label": "Postal Code",
+      "publicProfile": "publicProfile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text",
+      "maxLength": "10",
+      "validator": [
+            "size",
+            "not_null"
+            ]
+    },
+    "company_osh_country": {
+      "name": "company_osh_country",
+      "label": "Country",
+      "publicProfile": "publicProfile",
+      "section": "GENERAL_INFORMATION",
+      "type": "dropdown",
+      "validator": "not_null"
+    },
+    "company_osh_generalemail": {
+      "name": "company_osh_generalemail",
+      "label": "General email Address",
+      "publicProfile": "publicProfile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text",
+      "validator": [
+        "email",
+        "not_null"
+      ]
+    },
+    "company_osh_generalphone": {
+      "name": "company_osh_generalphone",
+      "label": "General telephone number",
+      "placeholder": "0000 0000",
+      "publicProfile": "publicProfile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text",
+      "validator": "not_null"
+    },
+    "company_osh_prefixgeneralphone": {
+          "name": "company_osh_prefixgeneralphone",
+          "label": "General telephone number Prefix",
+          "helpText": "Select your prefix from the drop-down",
+          "publicProfile": "publicProfile",
+          "placeholder": "+00",
+          "section": "GENERAL_INFORMATION",
+          "type": "dropdown",
+          "validator": "not_null"
+    },
+    "company_osh_homepage": {
+      "name": "company_osh_homepage",
+      "label": "Homepage",
+      "publicProfile": "publicProfile",
+      "placeholder": "http(s)://www.example.com",
+      "section": "GENERAL_INFORMATION",
+      "type": "text"
+    },
+    "company_osh_ceo_firstname": {
+      "name": "company_osh_ceo_firstname",
+      "label": "Name of editor in chief",
+      "publicProfile": "publicProfile",
+      "section": "CHIEF",
+      "type": "text",
+      "validator": "not_null"
+    },
+    "company_osh_ceo_lastname": {
+      "name": "company_osh_ceo_lastname",
+      "label": "Surname of editor in chief",
+      "publicProfile": "publicProfile",
+      "section": "CHIEF",
+      "type": "text",
+      "validator": "not_null"
+    },
+    "company_osh_facebookprofile": {
+      "name": "company_osh_facebookprofile",
+      "label": "Facebook Profile",
+      "placeholder": "Please indicate your facebook profile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text"
+    },
+    "company_osh_twitterprofile": {
+      "name": "company_osh_twitterprofile",
+      "label": "Twitter Profile",
+      "placeholder": "Please indicate your twitter profile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text"
+    },
+    "company_osh_youtubeprofile": {
+      "name": "company_osh_youtubeprofile",
+      "label": "Youtube Profile",
+      "placeholder": "Please indicate your Youtube profile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text"
+    },
+    "company_osh_linkedinprofile": {
+      "name": "company_osh_linkedinprofile",
+      "label": "LinkedIn Profile",
+      "placeholder": "Please indicate your LinkedIn profile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text"
+    },
+    "company_osh_slideshareprofile": {
+      "name": "company_osh_slideshareprofile",
+      "label": "SlideShare Profile",
+      "placeholder": "Please indicate your Slide Share profile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text"
+    },
+    "company_osh_pinterestprofile": {
+      "name": "company_osh_pinterestprofile",
+      "label": "Pinterest Profile",
+      "placeholder": "Please indicate your pinterest profile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text"
+    },
+    "company_osh_googleplusprofile": {
+      "name": "company_osh_googleplusprofile",
+      "label": "Google+ Profile",
+      "placeholder": "Please indicate your Google+ profile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text"
+    },
+    "osh_aboutyourorgsection": {
+      "name": "osh_aboutyourorgsection",
+      "section": "ORGANISATION",
+      "type": "text"
+    },
+    "osh_gencontactinfsection": {
+      "name": "osh_gencontactinfsection",
+      "section": "ORGANISATION",
+      "type": "text"
+    },
+    "osh_aboutyourceosection": {
+      "name": "osh_aboutyourceosection",
+      "section": "ORGANISATION",
+      "type": "text"
+    },
+    "company_osh_category": {
+      "name": "company_osh_category",
+      "type": "text"
+    },
+    "company_osh_leads": {
+      "name": "company_osh_leads",
+      "type": "text"
+    },
+    "company_osh_editorchange": {
+      "name": "company_osh_editorchange",
+      "label": "CEO change",
+      "type": "contact_change",
+      "helpText": "true"
+    },
+    "company_osh_ceo_firstname_clone": {
+      "name": "company_osh_ceo_firstname_clone",
+      "section": "CEO",
+      "type": "text"
+    },
+    "company_osh_ceo_lastname_clone": {
+      "name": "company_osh_ceo_lastname_clone",
+      "section": "CEO",
+      "type": "text"
+    }
+  },
+  "map": {
+    "company_osh_address": "osh_address",
+    "company_osh_editorchange" : "osh_ceo_changed",
+    "company_osh_ceo_firstname": "osh_ceofirstname",
+    "company_osh_ceo_lastname": "osh_ceolastname",
+    "company_osh_city": "osh_city",
+    "company_osh_conferenceactivity": "osh_conferenceactivity",
+    "company_osh_country": "osh_country",
+    "company_osh_generalemail":"osh_generalemail",
+    "company_osh_generalphone":"osh_generalphone",
+    "company_osh_prefixgeneralphone": "osh_prefixgeneralphone",
+    "company_osh_mainphone": "osh_mainphone",
+    "company_osh_zipcode": "osh_zipcode",
+    "company_osh_orgname": "osh_orgname",
+    "company_osh_logoimage": "osh_logoimage",
+    "company_osh_homepage": "osh_homepage",
+    "company_osh_facebookprofile": "osh_facebookprofile",
+    "company_osh_pinterestprofile": "osh_pinterestprofile",
+    "company_osh_twitterprofile": "osh_twitterprofile",
+    "company_osh_youtubeprofile": "osh_youtubeprofile",
+    "company_osh_linkedinprofile": "osh_linkedinprofile",
+    "company_osh_googleplusprofile": "osh_googleplusprofile",
+    "company_osh_slideshareprofile": "osh_slideshareprofile",
+    "company_osh_category": "osh_category",
+    "company_osh_leads": "osh_leads",
+    "company_osh_publicationonline": "osh_publicationonline",
+    "company_osh_publicationtv": "osh_publicationtv",
+    "company_osh_publicationother": "osh_publicationother",
+    "company_osh_publicationprint": "osh_publicationprint",
+    "company_osh_publicationnewsletter": "osh_publicationnewsletter",
+    "company_osh_publicationradio": "osh_publicationradio",
+    "company_osh_readershiposhcommunity": "osh_readershiposhcommunity",
+    "company_osh_readershipsmes": "osh_readershipsmes",
+    "company_osh_readershipeuinstitutions": "osh_readershipeuinstitutions",
+    "company_osh_readershiptrade": "osh_readershiptrade",
+    "company_osh_bussinessector": "osh_bussinessector",
+    "company_osh_orgtype": "osh_orgtype",
+    "company_osh_readershipacademics": "osh_readershipacademics",
+    "company_osh_readershipgeneralaudience": "osh_readershipgeneralaudience",
+    "osh_aboutyourorgsection": "osh_aboutyourorgsection",
+    "osh_gencontactinfsection": "osh_gencontactinfsection",
+    "osh_aboutyourceosection": "osh_aboutyourceosection",
+    "contact_osh_mainemailAux": "contact_osh_mainemailAux",
+    "contact_osh_maincontactpersonfirstnameAux": "contact_osh_maincontactpersonfirstnameAux",
+    "contact_osh_maincontactpersonlastnameAux": "contact_osh_maincontactpersonlastnameAux"
+  },
+  "map_mf": {
+    "company_osh_orgname": "osh_companyorganisationname",
+    "company_osh_address": "osh_phaddress",
+    "company_osh_bussinessector": "osh_bussinessector",
+    "company_osh_ceo_firstname": "osh_ceofirstname",
+    "company_osh_ceo_lastname": "osh_ceolastname",
+    "company_osh_city": "osh_phtown",
+    "company_osh_conferenceactivity": "osh_conferenceactivity",
+    "company_osh_country": "osh_phcountryid",
+    "company_osh_generalemail": "generalemailaddress1",
+    "company_osh_generalphone": "osh_phone1",
+    "company_osh_prefixgeneralphone": "osh_prefixgeneralphone",
+    "company_osh_yourmissionstatement": "osh_yourmissionstatement",
+    "company_osh_zipcode": "osh_phcp",
+    "company_osh_orgname": "osh_companyorganisationname",
+    "company_osh_osh_appform_osh_country": "osh_account_osh_country",
+    "company_osh_othercountries": "osh_othercountries",
+    "company_osh_orgtype": "osh_orgtype",
+    "company_osh_name": "osh_name",
+    "company_osh_logoimage": "osh_logoimage",
+    "company_osh_ceoimage": "osh_ceoimage",
+    "company_osh_socialdialoguepartner": "osh_socialdialogpartner",
+    "company_osh_homepage": "websiteurl",
+    "company_osh_facebookprofile": "osh_facebookprofile",
+    "company_osh_pinterestprofile": "osh_pinterestprofile",
+    "company_osh_twitterprofile": "osh_twitterprofile",
+    "company_osh_youtubeprofile": "osh_youtubeprofile",
+    "company_osh_linkedinprofile": "osh_linkedinprofile",
+    "company_osh_googleplusprofile": "osh_googleplusprofile",
+    "company_osh_slideshareprofile": "osh_slideshareprofile",
+    "company_osh_category": "osh_category",
+    "company_osh_leads": "osh_leads",
+    "company_osh_publicationonline": "osh_publicationonline",
+    "company_osh_publicationtv": "osh_publicationtv",
+    "company_osh_publicationother": "osh_publicationother",
+    "company_osh_publicationprint": "osh_publicationprint",
+    "company_osh_publicationnewsletter": "osh_publicationnewsletter",
+    "company_osh_publicationradio": "osh_publicationradio",
+    "company_osh_readershiposhcommunity": "osh_readershiposhcommunity",
+    "company_osh_readershipsmes": "osh_readershipsmes",
+    "osh_dedicatedsite": "osh_dedicatedsite",
+    "company_osh_readershipeuinstitutions": "osh_readershipeuinstitutions",
+    "company_osh_readershiptrade": "osh_readershiptrade",
+    "company_osh_readershipacademics": "osh_readershipacademics",
+    "company_osh_readershipgeneralaudience": "osh_readershipgeneralaudience"
+  }
+}

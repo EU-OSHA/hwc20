@@ -1,0 +1,375 @@
+{
+  "sections": {
+    "title": "3. About your Main Contact",
+    "sections": {
+        "PRIMARY_CONTACT": "About your Main Contact Person"
+    },
+    "sections_mf": {
+        "PRIMARY_CONTACT": "About your Main Contact Person",
+        "OTHER_USERS": "Other users"
+    }
+  },
+  "attributes": {
+    "contact_osh_maincontactpersonfirstname": {
+      "name": "contact_osh_maincontactpersonfirstname",
+      "label": "Name of main contact person for the campaign",
+      "publicProfile": "publicProfile",
+      "section": "PRIMARY_CONTACT",
+      "type": "text",
+      "validator": "not_null"
+    },
+    "contact_osh_maincontactpersonfirstname_clone": {
+      "name": "contact_osh_maincontactpersonfirstname_clone",
+      "section": "PRIMARY_CONTACT",
+      "label": "Previous name of main contact person for the campaign",
+      "type": "text"
+    },
+    "contact_osh_maincontactpersonlastname": {
+      "name": "contact_osh_maincontactpersonlastname",
+      "label": "Surname",
+      "publicProfile": "publicProfile",
+      "section": "PRIMARY_CONTACT",
+      "type": "text",
+      "validator": "not_null"
+    },
+    "contact_osh_maincontactpersonlastname_clone": {
+      "name": "contact_osh_maincontactpersonlastname_clone",
+      "section": "PRIMARY_CONTACT",
+      "label": "Previous surname",
+      "type": "text"
+    },
+    "contact_osh_positionmaincontactperson": {
+      "name": "contact_osh_positionmaincontactperson",
+      "label": "Position",
+      "section": "PRIMARY_CONTACT",
+      "type": "text"
+    },
+    "contact_osh_positionmaincontactperson_clone": {
+      "name": "contact_osh_positionmaincontactperson_clone",
+      "section": "PRIMARY_CONTACT",
+      "label": "Previous position",
+      "type": "text"
+    },
+    "contact_osh_mainemail": {
+      "name": "contact_osh_mainemail",
+      "label": "Email address",
+      "helpText": "IMPORTANT: All future communications related to this application will be sent to this address.<br><br>This field cannot be directly changed in the form. If you want to modify it, please, contact EU-OSHA in partners@healthy-workplaces.com",
+      "section": "PRIMARY_CONTACT",
+      "type": "text",
+      "validator": [
+        "email",
+        "not_null"
+      ]
+    },
+    "contact_osh_mainemail_clone": {
+      "name": "contact_osh_mainemail_clone",
+      "section": "PRIMARY_CONTACT",
+      "label": "Previous e-mail",
+      "type": "text"
+    },
+    "helpMessage": {
+      "name": "helpMessage",
+      "section": "PRIMARY_CONTACT",
+      "type": "text"
+    },
+    "company_osh_orgnameAux": {
+      "name": "company_osh_orgnameAux",
+      "label": "Organisation name",
+      "section": "PRIMARY_CONTACT",
+      "type": "text"
+    },
+    "contact_osh_mainemailAux": {
+      "name": "contact_osh_mainemailAux",
+      "label": "E-mail",
+      "section": "PRIMARY_CONTACT",
+      "type": "text"
+    },
+    "contact_osh_maincontactpersonfirstnameAux": {
+      "name": "contact_osh_maincontactpersonfirstnameAux",
+      "label": "Primary name",
+      "section": "PRIMARY_CONTACT",
+      "type": "text"
+    },
+    "contact_osh_maincontactpersonlastnameAux": {
+      "name": "contact_osh_maincontactpersonlastnameAux",
+      "label": "Last Name",
+      "section": "PRIMARY_CONTACT",
+      "type": "text"
+    },
+    "contact_osh_confirm_mainemail": {
+      "name": "contact_osh_confirm_mainemail",
+      "label": "Re-confirm email",
+      "section": "PRIMARY_CONTACT",
+      "type": "text",
+      "validator": [
+         "email_confirm",
+         "not_null"
+      ]
+     },
+    "contact_osh_confirm_mainemail_clone": {
+      "name": "contact_osh_confirm_mainemail_clone",
+      "section": "PRIMARY_CONTACT",
+      "label": "Previous email confirmation",
+      "type": "text"
+    },
+    "contact_osh_mainphone": {
+      "name": "contact_osh_mainphone",
+      "label": "Telephone number",
+      "placeholder": "0000 0000",
+      "section": "PRIMARY_CONTACT",
+      "type": "text"
+    },
+    "contact_osh_prefixmaincontactphone": {
+      "name": "contact_osh_prefixmaincontactphone",
+      "label": "Telephone number Prefix",
+      "helpText": "Select your prefix from the drop-down",
+      "placeholder": "+00",
+      "section": "PRIMARY_CONTACT",
+      "type": "dropdown"
+    },
+
+    "contact_osh_mainphone_clone": {
+      "name": "contact_osh_mainphone_clone",
+      "label": "Previous telephone number",
+      "section": "PRIMARY_CONTACT",
+      "type": "text"
+    },
+     "contact_osh_prefixmaincontactphone_clone": {
+           "name": "contact_osh_prefixmaincontactphone_clone",
+           "label": "Previous telephone prefix",
+           "placeholder": "+00",
+           "section": "OTHER_USERS",
+           "type": "dropdown"
+         },
+    "contact_osh_captcha": {
+      "name": "contact_osh_captcha",
+      "section": "PRIMARY_CONTACT",
+      "type": "captcha",
+      "validator": [
+         "not_null",
+         "captcha"
+      ]
+    },
+    "contact_osh_otherusername1": {
+      "name": "contact_osh_otherusername1",
+      "label": "Name of the additional user",
+      "section": "OTHER_USERS",
+      "type": "text"
+    },
+    "contact_osh_otherusermail1": {
+      "name": "contact_osh_otherusermail1",
+      "label": "Email address of additional user",
+      "section": "OTHER_USERS",
+      "type": "text",
+      "validator": "email"
+    },
+    "contact_osh_otheruserphone1": {
+      "name": "contact_osh_otheruserphone1",
+      "label": "Telephone of additional user",
+      "placeholder": "0000 0000",
+      "section": "OTHER_USERS",
+      "type": "text"
+    },
+     "contact_osh_otheruserprefix1": {
+       "name": "contact_osh_otheruserprefix1",
+       "label": "Prefix of the telephone of additional user",
+       "placeholder": "+00",
+       "section": "OTHER_USERS",
+       "type": "dropdown"
+     },
+    "contact_osh_otherusername2": {
+      "name": "contact_osh_otherusername2",
+      "label": "Name of the additional user",
+      "section": "OTHER_USERS",
+      "type": "text"
+    },
+    "contact_osh_otherusermail2": {
+      "name": "contact_osh_otherusermail2",
+      "label": "Email address of additional user",
+      "section": "OTHER_USERS",
+      "type": "text",
+      "validator": "email"
+    },
+    "contact_osh_otheruserphone2": {
+      "name": "contact_osh_otheruserphone2",
+      "placeholder": "0000 0000",
+      "label": "Telephone of additional user",
+      "section": "OTHER_USERS",
+      "type": "text"
+    },
+      "contact_osh_otheruserprefix2": {
+        "name": "contact_osh_otheruserprefix2",
+        "label": "Prefix of the telephone of additional user",
+        "placeholder": "+00",
+        "section": "OTHER_USERS",
+        "type": "dropdown"
+      },
+    "contact_osh_otherusername3": {
+      "name": "contact_osh_otherusername3",
+      "label": "Name of the additional user",
+      "section": "OTHER_USERS",
+      "type": "text"
+    },
+    "contact_osh_otherusermail3": {
+      "name": "contact_osh_otherusermail3",
+      "label": "Email address of additional user",
+      "section": "OTHER_USERS",
+      "type": "text",
+      "validator": "email"
+    },
+    "contact_osh_otheruserphone3": {
+      "name": "contact_osh_otheruserphone3",
+      "placeholder": "0000 0000",
+      "label": "Telephone of additional user",
+      "section": "OTHER_USERS",
+      "type": "text"
+    },
+    "contact_osh_otheruserprefix3": {
+        "name": "contact_osh_otheruserprefix3",
+        "label": "Prefix of the telephone of additional user",
+        "placeholder": "+00",
+        "section": "OTHER_USERS",
+        "type": "dropdown"
+      },
+    "contact_osh_otherusername4": {
+      "name": "contact_osh_otherusername4",
+      "label": "Name of the additional user",
+      "section": "OTHER_USERS",
+      "type": "text"
+    },
+    "contact_osh_otherusermail4": {
+      "name": "contact_osh_otherusermail4",
+      "label": "Email address of additional user",
+      "section": "OTHER_USERS",
+      "type": "text",
+      "validator": "email"
+    },
+    "contact_osh_otheruserphone4": {
+      "name": "contact_osh_otheruserphone4",
+      "placeholder": "0000 0000",
+      "label": "Telephone of additional user",
+      "section": "OTHER_USERS",
+      "type": "text"
+    },
+    "contact_osh_otheruserprefix4": {
+        "name": "contact_osh_otheruserprefix4",
+        "label": "Prefix of the telephone of additional user",
+        "placeholder": "+00",
+        "section": "OTHER_USERS",
+        "type": "dropdown"
+      },
+    "contact_osh_otherusername5": {
+      "name": "contact_osh_otherusername5",
+      "label": "Name of the additional user",
+      "section": "OTHER_USERS",
+      "type": "text"
+    },
+    "contact_osh_otherusermail5": {
+      "name": "contact_osh_otherusermail5",
+      "label": "Email address of additional user",
+      "section": "OTHER_USERS",
+      "type": "text",
+      "validator": "email"
+    },
+    "contact_osh_otheruserphone5": {
+      "name": "contact_osh_otheruserphone5",
+      "placeholder": "0000 0000",
+      "label": "Telephone of additional user",
+      "section": "OTHER_USERS",
+      "type": "text"
+    },
+    "contact_osh_otheruserprefix5": {
+        "name": "contact_osh_otheruserprefix5",
+        "label": "Prefix of the telephone of additional user",
+        "placeholder": "+00",
+        "section": "OTHER_USERS",
+        "type": "dropdown"
+      },
+    "osh_primarycontactsection": {
+      "name": "osh_primarycontactsection",
+      "section": "PRIMARY_CONTACT",
+      "type": "text"
+    },
+    "contact_osh_category": {
+      "name": "contact_osh_category",
+      "type": "text"
+    },
+    "contact_osh_leads": {
+      "name": "contact_osh_leads",
+      "type": "text"
+    },
+    "contact_osh_maincontactchange": {
+      "name": "contact_osh_maincontactchange",
+      "label": "Main contact change",
+      "type": "contact_change",
+      "helpText": "true"
+    }
+  },
+  "map": {
+    "contact_osh_maincontactpersonfirstname": "osh_firstname",
+    "contact_osh_maincontactpersonlastname": "osh_lastname",
+    "contact_osh_positionmaincontactperson": "osh_positionmaincontactperson",
+    "contact_osh_mainemail": "osh_mainemail",
+    "contact_osh_mainphone": "osh_mainphone",
+    "contact_osh_prefixmaincontactphone": "osh_prefixmaincontactphone",
+    "contact_osh_category": "osh_category",
+    "contact_osh_leads": "osh_leads",
+    "contact_osh_maincontactchange": "osh_maincontactchange",
+    "contact_osh_otherusername1": "fullname1",
+    "contact_osh_otherusermail1": "osh_otheruseremail1",
+    "contact_osh_otheruserphone1": "osh_otheruserphone1",
+    "contact_osh_otheruserprefix1": "osh_otheruserprefix1",
+    "contact_osh_otherusername2": "fullname2",
+    "contact_osh_otherusermail2": "osh_otheruseremail2",
+    "contact_osh_otheruserphone2": "osh_otheruserphone2",
+    "contact_osh_otheruserprefix2": "osh_otheruserprefix2",
+    "contact_osh_otherusername3": "fullname3",
+    "contact_osh_otherusermail3": "osh_otheruseremail3",
+    "contact_osh_otheruserphone3": "osh_otheruserphone3",
+    "contact_osh_otheruserprefix3": "osh_otheruserprefix3",
+    "contact_osh_otherusername4": "fullname4",
+    "contact_osh_otherusermail4": "osh_otheruseremail4",
+    "contact_osh_otheruserphone4": "osh_otheruserphone4",
+    "contact_osh_otheruserprefix4": "osh_otheruserprefix4",
+    "contact_osh_otherusername5": "fullname5",
+    "contact_osh_otherusermail5": "osh_otheruseremail5",
+    "contact_osh_otheruserphone5": "osh_otheruserphone5",
+    "contact_osh_otheruserprefix5": "osh_otheruserprefix5",
+    "osh_primarycontactsection": "osh_primarycontactsection",
+    "company_osh_orgnameAux": "company_osh_orgnameAux",
+    "contact_osh_maincontactpersonfirstnameAux": "contact_osh_maincontactpersonfirstnameAux",
+    "contact_osh_maincontactpersonlastnameAux": "contact_osh_maincontactpersonlastnameAux"
+  },
+  "map_mf": {
+    "contact_osh_maincontactpersonfirstname": "firstname",
+    "contact_osh_maincontactpersonlastname": "lastname",
+    "contact_osh_positionmaincontactperson": "osh_position",
+    "contact_osh_mainemail": "emailaddress1",
+    "contact_osh_mainphone": "telephone1",
+    "contact_osh_prefixmaincontactphone": "osh_prefixmaincontactphone",
+    "contact_osh_otherusername1": "fullname1",
+    "contact_osh_otherusermail1": "osh_otheruseremail1",
+    "contact_osh_otheruserphone1": "osh_otheruserphone1",
+    "contact_osh_otheruserprefix1": "osh_otheruserprefix1",
+    "contact_osh_otherusername2": "fullname2",
+    "contact_osh_otherusermail2": "osh_otheruseremail2",
+    "contact_osh_otheruserphone2": "osh_otheruserphone2",
+    "contact_osh_otheruserprefix2": "osh_otheruserprefix2",
+    "contact_osh_otherusername3": "fullname3",
+    "contact_osh_otherusermail3": "osh_otheruseremail3",
+    "contact_osh_otheruserphone3": "osh_otheruserphone3",
+    "contact_osh_otheruserprefix3": "osh_otheruserprefix3",
+    "contact_osh_otherusername4": "fullname4",
+    "contact_osh_otherusermail4": "osh_otheruseremail4",
+    "contact_osh_otheruserphone4": "osh_otheruserphone4",
+    "contact_osh_otheruserprefix4": "osh_otheruserprefix4",
+    "contact_osh_otherusername5": "fullname5",
+    "contact_osh_otherusermail5": "osh_otheruseremail5",
+    "contact_osh_otheruserphone5": "osh_otheruserphone5",
+    "contact_osh_otheruserprefix5": "osh_otheruserprefix5",
+    "contact_osh_category": "osh_category",
+    "contact_osh_leads": "osh_leads",
+    "company_osh_osh_appform_osh_country": "returnPaises"
+
+  }
+}

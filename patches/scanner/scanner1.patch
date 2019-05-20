@@ -1,0 +1,29 @@
+diff --git a/docroot/sites/all/modules/contrib/scanner/scanner.module b/docroot/sites/all/modules/contrib/scanner/scanner.module
+index 10b7992..6c4af16 100644
+--- a/docroot/sites/all/modules/contrib/scanner/scanner.module
++++ b/docroot/sites/all/modules/contrib/scanner/scanner.module
+@@ -94,12 +94,12 @@ function scanner_menu() {
+     'type' => MENU_LOCAL_TASK,
+     'weight' => 1,
+   );
+-  $items['admin/content/scanner/undo'] = array(// Shows up on scanner page as tab.
++  /*$items['admin/content/scanner/undo'] = array(// Shows up on scanner page as tab.
+     'title' => 'Undo',
+     'page callback' => 'scanner_undo_page',
+     'access arguments' => array('perform search and replace'),
+     'type' => MENU_LOCAL_TASK,
+-  );
++  );*/
+   $items['admin/config/scanner'] = array(// Shows up on admin page.
+     'title' => 'Search and Replace Scanner',
+     'description' => 'Configure defaults and what fields can be searched and replaced.',
+@@ -1034,7 +1034,8 @@ function scanner_execute($searchtype = 'search') {
+ 
+         // NOTE: a revision only created for the first change of the node.
+         // subsequent changes of the same node do not generate additional revisions:
+-        if (!isset($undo_data[$thenode->nid]['new_vid'])) {
++        $undo_data[$thenode->nid]['new_vid'] = '1'; //With this line we avoid to create a new revision
++		if (!isset($undo_data[$thenode->nid]['new_vid'])) {
+           $thenode->revision = TRUE;
+           $thenode->log = t('@name replaced %search with %replace via Scanner Search and Replace module.', array('@name' => $user->name, '%search' => $search, '%replace' => $replace));
+           $undo_data[$thenode->nid]['old_vid'] = $thenode->vid;

@@ -1,0 +1,14 @@
+diff --git a/docroot/sites/all/modules/contrib/recaptcha/recaptcha.module b/docroot/sites/all/modules/contrib/recaptcha/recaptcha.module
+index 6903e91..df06c2b 100644
+--- a/docroot/sites/all/modules/contrib/recaptcha/recaptcha.module
++++ b/docroot/sites/all/modules/contrib/recaptcha/recaptcha.module
+@@ -63,7 +63,8 @@ function recaptcha_captcha($op, $captcha_type = '') {
+           '#markup' => '<div class="g-recaptcha" data-sitekey="' . $recaptcha_site_key . '"></div>',
+         );
+
+-        drupal_add_js('https://www.google.com/recaptcha/api.js', array('defer' => TRUE, 'async' => TRUE));
++        global $language;
++        drupal_add_js('https://www.google.com/recaptcha/api.js?hl='.$language->language, array('defer' => TRUE, 'async' => TRUE));
+       }
+       return $captcha;
+   }

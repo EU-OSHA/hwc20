@@ -1,0 +1,16 @@
+diff --git a/galleryformatter.module b/galleryformatter.module
+index 0ba06ca..91a306d 100644
+--- a/galleryformatter.module
++++ b/galleryformatter.module
+@@ -246,7 +246,10 @@ function galleryformatter_field_formatter_view($entity_type, $entity, $field, $i
+      */
+     // Grab and sanitize image information
+     // $renderitems['slides'][$delta]['description'] = $item['description']; // so far no description in d7 image fields
+-    if (!empty($item['title'])) {
++    if (!empty($item['image_field_caption']['value'])) {
++      $item['title'] = check_markup($item['image_field_caption']['value'], $item['image_field_caption']['format']);
++    }
++    elseif (!empty($item['title'])) {
+       // Sanitize the title
+       if(strpos($item['title'], '<') !== FALSE) {
+         $item['title'] = strip_tags($item['title']);

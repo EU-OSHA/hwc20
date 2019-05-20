@@ -1,0 +1,13 @@
+diff --git a/nodequeue.module b/nodequeue.module
+index a9c2d6d..3ac6159 100644
+--- a/nodequeue.module
++++ b/nodequeue.module
+@@ -1071,7 +1071,7 @@ function nodequeue_subqueue_remove_node($sqid, $nid) {
+   if ($pos = nodequeue_get_subqueue_position($sqid, $nid)) {
+     nodequeue_subqueue_remove($sqid, $pos);
+     if (module_exists('apachesolr')) {
+-      apachesolr_mark_node($nid);
++      apachesolr_mark_entity('node', $nid);
+     }
+   }
+ }

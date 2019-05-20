@@ -1,0 +1,14 @@
+diff --git a/includes/webform2pdf.theme.inc b/includes/webform2pdf.theme.inc
+index 271fa40..66c1299 100644
+--- a/includes/webform2pdf.theme.inc
++++ b/includes/webform2pdf.theme.inc
+@@ -216,6 +216,9 @@ function theme_webform2pdf_pdf_content($vars) {
+ function theme_webform2pdf_content($vars) {
+   $email = array(
+     'html' => 'text',
++    // Undefined index: "exclude_empty" in Webform module.
++    // @see https://www.drupal.org/node/2499749
++    'exclude_empty' => 1,
+     'excluded_components' => array(),
+   );
+ 

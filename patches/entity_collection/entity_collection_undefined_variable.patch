@@ -1,0 +1,13 @@
+diff --git a/entity_collection.module b/entity_collection.module
+index 21f994e..147c80c 100644
+--- a/entity_collection.module
++++ b/entity_collection.module
+@@ -735,7 +735,7 @@ function entity_collection_entity_delete($entity, $type) {
+   }
+   // Remove any data attached to this entity collection.
+   if ($type == 'entity_collection') {
+-    $storge = EntityCollectionStorage::getBundleStorage($entity->bundle);
++    $storage = EntityCollectionStorage::getBundleStorage($entity->bundle);
+     if ($storage) {
+       $storage->drop($entity);
+       field_attach_delete($type, $entity);

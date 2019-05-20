@@ -1,0 +1,13 @@
+diff --git a/includes/features.node.inc b/includes/features.node.inc
+index 9461778..dc20a21 100644
+--- a/includes/features.node.inc
++++ b/includes/features.node.inc
+@@ -76,7 +76,7 @@ function node_features_export_render($module, $data, $export = NULL) {
+       foreach ($elements as $key => $t) {
+         if ($t) {
+           $text = str_replace("'", "\'", $info->$key);
+-          $text = !empty($text) ? "t('{$text}')" : "''";
++          $text = !empty($text) ? "'{$text}'" : "''";
+           $output[] = "      '{$key}' => {$text},";
+         }
+         else {

@@ -1,0 +1,167 @@
+{
+  "sections": {
+    "title": "2. About your involvement",
+    "sections": {
+        "BECOME": "Why do you want to become a partner?",
+        "INVOLVEMENT": "Your support for the campaign",
+        "PLEDGE": "Your campaign pledge for Publication on Campaign Website"
+    },
+    "sections_mf": {
+        "PLEDGE": "Your campaign pledge for Publication on Campaign Website"
+    }
+  },
+  "attributes": {
+    "involvement_osh_tobeanocponhwc": {
+      "name": "involvement_osh_tobeanocponhwc",
+      "label": "Why do you want to be an Official Campaign Partner of the 'Healthy Workplaces Manage Dangerous Substances'?",
+      "placeholder": "Please explain briefly what motivates you to become a partner of the campaign",
+      "section": "BECOME",
+      "type": "textarea",
+      "validator": "not_null"
+    },
+    "company_osh_orgnameAux": {
+      "name": "company_osh_orgnameAux",
+      "label": "Organisation name",
+      "section": "BECOME",
+      "type": "text"
+    },
+    "helpMessage": {
+      "name": "helpMessage",
+      "section": "BECOME",
+      "type": "text"
+    },
+    "contact_osh_mainemailAux": {
+      "name": "contact_osh_mainemailAux",
+      "label": "E-mail",
+      "section": "BECOME",
+      "type": "text"
+    },
+    "contact_osh_maincontactpersonfirstnameAux": {
+      "name": "contact_osh_maincontactpersonfirstnameAux",
+      "label": "Primary name",
+      "section": "PRIMARY_CONTACT",
+      "type": "text"
+    },
+    "contact_osh_maincontactpersonlastnameAux": {
+      "name": "contact_osh_maincontactpersonlastnameAux",
+      "label": "Last Name",
+      "section": "PRIMARY_CONTACT",
+      "type": "text"
+    },
+    "involvement_osh_promoteandsupportcampaign": {
+      "name": "involvement_osh_promoteandsupportcampaign",
+      "label": "How do you plan to promote and support the campaign via your website and other electronic means  (Intranet, Newsletter, social media etc.)?",
+      "section": "INVOLVEMENT",
+      "type": "textarea",
+      "validator": "not_null"
+    },
+    "involvement_osh_campaignpledge": {
+      "name": "involvement_osh_campaignpledge",
+      "label": "How does your Organisation plan to contribute to making this campaign a joint success?",
+      "publicProfile": "publicProfile",
+      "section": "PLEDGE",
+      "type": "textarea",
+      "validator": "not_null"
+    },
+    "osh_tobecomeapartnersection": {
+      "name": "osh_tobecomeapartnersection",
+      "section": "PLEDGE",
+      "type": "text"
+    },
+    "osh_supportforcampaignsection": {
+      "name": "osh_supportforcampaignsection",
+      "section": "PLEDGE",
+      "type": "text"
+    },
+    "osh_yourcampaignpledgesection": {
+      "name": "osh_yourcampaignpledgesection",
+      "section": "PLEDGE",
+      "type": "text"
+    },
+    "involvement_osh_category": {
+      "name": "involvement_osh_category",
+      "type": "text"
+    },
+    "involvement_osh_leads": {
+      "name": "involvement_osh_leads",
+      "type": "text"
+    },
+    "involvement_osh_conferenceactivity": {
+      "name": "involvement_osh_conferenceactivity",
+      "label": "Conferences, seminars or workshops exclusively or partly dedicated to the campaign topic",
+      "placeholder": "Please provide some information on topic, main objectives, profile of participants, etc.",
+      "section": "INVOLVEMENT",
+      "type": "combined_checkbox"
+    },
+    "involvement_osh_trainingsessions": {
+      "name": "involvement_osh_trainingsessions",
+      "label": "Training sessions",
+      "placeholder": "Please provide some information on topic, main objectives, profile of participants, etc.",
+      "section": "INVOLVEMENT",
+      "type": "combined_checkbox"
+    },
+    "involvement_osh_partnershipswithotherorganisations": {
+      "name": "involvement_osh_partnershipswithotherorganisations",
+      "label": "Partnerships with other organisations and schools / colleges / training centres",
+      "placeholder": "Please provide some information on planned activities.",
+      "section": "INVOLVEMENT",
+      "type": "combined_checkbox"
+    },
+    "involvement_osh_promotioninthemedia": {
+      "name": "involvement_osh_promotioninthemedia",
+      "label": "Promotion in the media (press release, press conference, advertorials, etc.).",
+      "placeholder": "Please provide some information on planned activities.",
+      "section": "INVOLVEMENT",
+      "type": "combined_checkbox"
+    },
+    "involvement_osh_bestpractice": {
+      "name": "involvement_osh_bestpractice",
+      "label": "Best practice competition / activities",
+      "placeholder": "Please provide some information on planned activities.",
+      "section": "INVOLVEMENT",
+      "type": "combined_checkbox"
+    },
+    "involvement_osh_involvedinsteeringcommitteegroup": {
+      "name": "involvement_osh_involvedinsteeringcommitteegroup",
+      "label": "I am interested to take part in the work of the Official Campaign Partners Steering Group.",
+      "placeholder": "http://www.google.es",
+      "section": "INVOLVEMENT",
+      "type": "combined_checkbox_link"
+    },
+    "involvement_osh_otheractivities": {
+      "name": "involvement_osh_otheractivities",
+      "label": "Other activities",
+      "placeholder": "Please provide some information on planned activities.",
+      "section": "INVOLVEMENT",
+      "type": "combined_checkbox"
+    }
+  },
+  "map": {
+    "involvement_osh_tobeanocponhwc": "osh_tobeanocponhwc",
+    "involvement_osh_promoteandsupportcampaign": "osh_promoteandsupportcampaign",
+    "involvement_osh_campaignpledge": "osh_campaignpledge",
+    "involvement_osh_category": "osh_category",
+    "involvement_osh_leads": "osh_leads",
+    "involvement_osh_conferenceactivity": "osh_conferenceactivity",
+    "involvement_osh_trainingsessions": "osh_trainingsessions",
+    "involvement_osh_partnershipswithotherorganisations": "osh_partnershipswithotherorganisations",
+    "involvement_osh_promotioninthemedia": "osh_promotioninthemedia",
+    "involvement_osh_bestpractice": "osh_bestpractice",
+    "involvement_osh_involvedinsteeringcommitteegroup": "osh_involvedinsteeringcommitteegroup",
+    "involvement_osh_otheractivities": "osh_otheractivities",
+    "osh_tobecomeapartnersection": "osh_tobecomeapartnersection",
+    "osh_supportforcampaignsection": "osh_supportforcampaignsection",
+    "osh_yourcampaignpledgesection": "osh_yourcampaignpledgesection",
+    "contact_osh_mainemailAux": "contact_osh_mainemailAux",
+    "company_osh_orgnameAux": "company_osh_orgnameAux",
+    "contact_osh_maincontactpersonfirstnameAux": "contact_osh_maincontactpersonfirstnameAux",
+    "contact_osh_maincontactpersonlastnameAux": "contact_osh_maincontactpersonlastnameAux"
+  },
+  "map_mf": {
+    "involvement_osh_tobeanocponhwc": "osh_tobeanocp",
+    "involvement_osh_promoteandsupportcampaign": "osh_questionpromoteandsupport",
+    "involvement_osh_campaignpledge": "osh_campaignpledge",
+    "involvement_osh_category": "osh_category",
+    "involvement_osh_leads": "osh_leads"
+  }
+}

@@ -1,0 +1,62 @@
+From 64da5965a5e33e9ec080ef74a5761bbc0e5df7a7 Mon Sep 17 00:00:00 2001
+From: Ivan Arias <iarias@bilbomatica.es>
+Date: Tue, 23 Dec 2014 11:35:53 +0100
+Subject: [PATCH] scanner tab fix
+
+---
+ .../all/modules/contrib/scanner/scanner.module     | 30 +++++++++++++++++++++-
+ 1 file changed, 29 insertions(+), 1 deletion(-)
+
+diff --git a/docroot/sites/all/modules/contrib/scanner/scanner.module b/docroot/sites/all/modules/contrib/scanner/scanner.module
+index 6c4af16..dd7858f 100644
+--- a/docroot/sites/all/modules/contrib/scanner/scanner.module
++++ b/docroot/sites/all/modules/contrib/scanner/scanner.module
+@@ -107,6 +107,18 @@ function scanner_menu() {
+     'page arguments' => array('scanner_admin_form'),
+     'access arguments' => array('administer scanner settings'),
+   );
++
++  $items['admin/content/scanner'] = array(
++    'title' => 'Search and Replace',
++    'description' => 'Find (and replace) keywords in all your content.',
++    'page callback' => 'scanner_view',
++    'access callback' => 'scanner_access',
++	'weight' => 70,
++    'type' => MENU_LOCAL_TASK
++  );
++  
++
++
+   return $items;
+ }
+ 
+@@ -251,7 +263,9 @@ function scanner_view() {
+     return $output;
+   }
+    
+-  $output .= drupal_render(drupal_get_form('scanner_form'));
++  //$output .= drupal_render(drupal_get_form('scanner_form'));
++  $scanner_form = drupal_get_form('scanner_form');
++  $output = drupal_render($scanner_form);
+   
+   return $output;
+ }
+@@ -1406,3 +1420,17 @@ function theme_scanner_replace_item($variables) {
+ 
+   return $output;
+ }
++
++function scanner_access() {
++	global $user;
++	$useradmin = 0;
++	
++	foreach ($user->roles as $userrol){
++		if ($userrol=='administrator'){
++			return true;
++		}
++	}	
++	
++	return false;
++
++}
+\ No newline at end of file

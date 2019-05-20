@@ -1,0 +1,18 @@
+diff --git a/views/entity_translation.views.inc b/views/entity_translation.views.inc
+index 3353c1d..400763f 100644
+--- a/views/entity_translation.views.inc
++++ b/views/entity_translation.views.inc
+@@ -194,6 +194,13 @@ function entity_translation_views_data() {
+       'handler' => 'entity_translation_handler_field_label',
+     ),
+   );
++  $data['entity_translation']['table']['join']['node'] = array(
++    'left_field' => 'nid',
++    'field' => 'entity_id',
++    'extra' => array(
++      array('field' => 'entity_type', 'value' => 'node'),
++    ),
++  );
+   return $data;
+ }
+ 

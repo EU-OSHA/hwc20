@@ -1,0 +1,22 @@
+{if !$printable}
+            {if empty($hideButtons) && !($locked && $actionType ==="submit")}
+            <div class="control-group">
+                <label class="control-label" for="next"></label>
+                <div class="controls">
+                    {if !$locked}
+                    <input id="next" readonly name="next" value="{$submit_text}" {if $actionType ==="submit"}type="submit"{else}type="next"{/if} />
+                    {else}
+                    <input id="nextInLocked" readonly class="nextInLocked" name="next" value="{$submit_text}" type="submit" />
+                    {/if}
+                </div>
+            </div>
+            {/if}
+        {if !$locked}
+        </form>
+        {/if}
+    {if !isset($fullwidth)}
+    </div>
+    {/if}
+</div>
+<div class="clear"></div>
+{/if}

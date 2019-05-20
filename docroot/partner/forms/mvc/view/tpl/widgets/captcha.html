@@ -1,0 +1,13 @@
+<div class="control-group captcha required" nonce="{$nonce}">
+    <label class="control-label" for="captcha"></label>
+    <div class="controls">
+        <img id="captcha" src="lib/securimage/securimage_show.php?sid=<?php echo md5(uniqid()) ?>" alt="CAPTCHA Image">
+        <object type="application/x-shockwave-flash" data="lib/securimage/securimage_play.swf?bgcol=#ffffff&amp;icon_file=lib/securimage/images/audio_icon.png&amp;audio_file=lib/securimage/securimage_play.php" height="32" width="32">
+            <param name="movie" value="lib/securimage/securimage_play.swf?bgcol=#ffffff&amp;icon_file=lib/securimage/images/audio_icon.png&amp;audio_file=lib/securimage/securimage_play.php"/>
+        </object>
+
+        <p class="help-block">Please copy the characters from the image into the field below</p>
+        <input {$disabled} class="field" type="text" id="contact_osh_captcha" name="captcha_code" size="10" maxlength="6" data-section="{$fieldSection}">
+        <a href="#" id="refresh">Refresh</a>
+    </div>
+</div>

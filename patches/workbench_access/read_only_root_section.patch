@@ -1,0 +1,62 @@
+diff --git a/docroot/sites/all/modules/contrib/workbench_access/workbench_access.admin.inc b/docroot/sites/all/modules/contrib/workbench_access/workbench_access.admin.inc
+index bd65baf..835106e 100644
+--- a/docroot/sites/all/modules/contrib/workbench_access/workbench_access.admin.inc
++++ b/docroot/sites/all/modules/contrib/workbench_access/workbench_access.admin.inc
+@@ -528,6 +528,8 @@ function workbench_access_editors($access_type = NULL, $access_type_id = NULL, $
+     if (user_access('administer workbench access')) {
+       $output .= ' ' . t('You may <a href="!url">enable or disable sections</a>.', array('!url' => url('admin/config/workbench/access/sections'))) . '</p>';
+     }
++
++    $root_section = 'section';
+     $rows = array();
+     foreach ($active['tree'] as $access_id => $section) {
+       if (!isset($active['active'][$access_id])) {
+@@ -537,9 +539,16 @@ function workbench_access_editors($access_type = NULL, $access_type_id = NULL, $
+       if ($section['depth'] == 0 || !isset($active['active'][$section['parent']])) {
+         $parent = $section['name'];
+       }
+-      $row = array(
+-        str_repeat('-', $section['depth'] ) . ' ' . l($section['name'], 'admin/config/workbench/access/' . "{$type}s/" . $active['access_scheme']['access_type'] . '/' . $access_id),
+-      );
++      if ($access_id == $root_section) {
++        $row = array(
++          str_repeat('-', $section['depth']) . ' ' . $section['name'],
++        );
++      }
++      else {
++        $row = array(
++          str_repeat('-', $section['depth']) . ' ' . l($section['name'], 'admin/config/workbench/access/' . "{$type}s/" . $active['access_scheme']['access_type'] . '/' . $access_id),
++        );
++      }
+       $roles = workbench_access_get_roles('access workbench access by role');
+       if (empty($roles)) {
+         if (user_access('administer permissions')) {
+@@ -564,7 +573,12 @@ function workbench_access_editors($access_type = NULL, $access_type_id = NULL, $
+             array(':access_scheme' => $active['access_scheme']['access_type'], ':access_id' => $access_id)
+           )->fetchField();
+         }
+-        $row[] = l(format_plural($count, '1 editor', '@count editors'), 'admin/config/workbench/access/editors/' . $active['access_scheme']['access_type'] . '/' . $access_id);
++        if ($access_id == $root_section) {
++          $row[] = format_plural($count, '1 editor', '@count editors');
++        }
++        else {
++          $row[] = l(format_plural($count, '1 editor', '@count editors'), 'admin/config/workbench/access/editors/' . $active['access_scheme']['access_type'] . '/' . $access_id);
++        }
+       }
+       else {
+         $count2 = db_query("SELECT COUNT(war.rid) FROM {workbench_access_role} war
+@@ -572,7 +586,13 @@ function workbench_access_editors($access_type = NULL, $access_type_id = NULL, $
+           AND war.rid IN (:rids)",
+           array(':access_scheme' => $active['access_scheme']['access_type'], ':access_id' => $access_id, ':rids' => array_keys($roles))
+         )->fetchField();
+-        $row[] = l(format_plural($count2, '1 role', '@count roles'),  'admin/config/workbench/access/roles/' . $active['access_scheme']['access_type'] . '/' . $access_id);
++
++        if ($access_id == $root_section) {
++          $row[] = format_plural($count2, '1 role', '@count roles');
++        }
++        else {
++          $row[] = l(format_plural($count2, '1 role', '@count roles'), 'admin/config/workbench/access/roles/' . $active['access_scheme']['access_type'] . '/' . $access_id);
++        }
+       }
+       $rows[] = $row;
+     }

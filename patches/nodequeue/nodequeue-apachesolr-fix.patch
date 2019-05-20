@@ -1,0 +1,13 @@
+diff --git a/nodequeue.module b/nodequeue.module
+index b201102..8e567bd 100644
+--- a/nodequeue.module
++++ b/nodequeue.module
+@@ -1081,7 +1081,7 @@ function nodequeue_subqueue_add($queue, &$subqueue, $nid) {
+       nodequeue_check_subqueue_size($queue, $subqueue, $queue->size);
+     }
+     if (module_exists('apachesolr')) {
+-      apachesolr_mark_node($nid);
++      apachesolr_mark_entity('node', $nid);
+     }
+     // Invoke the hook to notify other modules of the node addition.
+     module_invoke_all('nodequeue_add', $subqueue->sqid, $nid);

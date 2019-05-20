@@ -1,0 +1,10 @@
+<div id="progressbar" class="center">
+    <div class="row">
+        {foreach from=$steps key=id item=step}
+        
+        <div id="progressbar-{$step.index}"  class="col-md-4 progressbar-text {if $step.index == 1}progressbar-first{if $currentStep >= $step.index}-active{/if}{/if} {if $basicRequirements == false && $step.index > 1}progressbar-disabled{elseif $step.index > 1 && $currentStep >= $step.index}progressbar-active{/if} {if $step.index >= $totalSteps}progressbar-last{if $basicRequirements == false}-disabled{/if}{if $currentStep >= $step.index}-active{/if}{/if}">
+            <a  data-ajax="?route={$current_Route}&amp;action=savesessionajax" href="{$appurl}?{$step.route}" class="progressbar-text-a">{$step.index -1} . {$step.label}</a>
+        </div>
+        {/foreach}
+    </div>
+</div>

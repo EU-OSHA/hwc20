@@ -1,0 +1,105 @@
+diff --git a/nodeblock.install b/nodeblock.install
+index ab6b1ed..311eb58 100644
+--- a/nodeblock.install
++++ b/nodeblock.install
+@@ -217,6 +217,8 @@ function nodeblock_uninstall() {
+       variable_del('nodeblock_comment_link_' . $type_name);
+       variable_del('nodeblock_node_link_' . $type_name);
+       variable_del('nodeblock_view_mode_' . $type_name);
++      variable_del('nodeblock_node_override_block_available_' . $type_name);
++      variable_del('nodeblock_node_overrides_' . $type_name);
+     }
+   }
+   db_delete('block')
+diff --git a/nodeblock.module b/nodeblock.module
+index 716a7ec..16a64f1 100644
+--- a/nodeblock.module
++++ b/nodeblock.module
+@@ -75,6 +75,14 @@ function nodeblock_type_node_overrides($type) {
+ }
+ 
+ /**
++ * Utility function to retrieve default block availability setting.
++ */
++function nodeblock_type_node_override_block_available($type) {
++  $type = field_extract_bundle('node', $type);
++  return variable_get('nodeblock_node_override_block_available_' . $type, 'disabled');
++}
++
++/**
+  * Returns an array with default nodeblock settings for a node.
+  */
+ function _nodeblock_defaults($type) {
+@@ -146,12 +154,28 @@ function nodeblock_form_node_type_form_alter(&$form, &$form_state) {
+     );
+   }
+ 
+-  $form['nodeblock_settings']['nodeblock_node_overrides'] = array(
+-    '#type' => 'checkboxes',
++  $form['nodeblock_settings']['overrides'] = array(
++    '#type' => 'fieldset',
+     '#title' => t('Overrides per node'),
++    '#description' => t("Allow users to override these values per node."),
++  );
++
++  $form['nodeblock_settings']['overrides']['nodeblock_node_override_block_available'] = array(
++    '#type' => 'select',
++    '#title' => t('Available as block'),
++    '#default_value' => nodeblock_type_node_override_block_available($form['#node_type']),
++    '#options' => array(
++      'disabled' => t('Disabled'),
++      'enabled_on' => t('Enabled, default on'),
++      'enabled_off' => t('Enabled, default off'),
++    ),
++    '#description' => t("Allow users to override block availability."),
++  );
++  
++  $form['nodeblock_settings']['overrides']['nodeblock_node_overrides'] = array(
++    '#type' => 'checkboxes',
+     '#default_value' => nodeblock_type_node_overrides($form['#node_type']),
+     '#options' => array(
+-      'nodeblock' => t('Available as block'),
+       'view_mode' => t('View mode'),
+       'block_title' => t('Block title'),
+       'machine_name' => t('Machine name'),
+@@ -159,8 +183,8 @@ function nodeblock_form_node_type_form_alter(&$form, &$form_state) {
+       'comment_link' => t('Comments display'),
+       'translation_fallback' => t('Translation fallback'),
+     ),
+-    '#description' => t("Allow users to override these values per node."),
+   );
++  
+ }
+ 
+ /**
+@@ -172,7 +196,7 @@ function nodeblock_form_node_form_alter(&$form, &$form_state) {
+   if (nodeblock_type_enabled($node->type) && user_access('maintain nodeblock')) {
+     $overrides = nodeblock_type_node_overrides($node->type);
+ 
+-    if (count($overrides)) {
++    if (count($overrides) || nodeblock_type_node_override_block_available($node->type) != 'disabled') {
+       $form['nodeblock'] = array(
+         '#type' => 'fieldset',
+         '#title' => t('Node Block'),
+@@ -180,10 +204,19 @@ function nodeblock_form_node_form_alter(&$form, &$form_state) {
+         '#group' => 'additional_settings',
+       );
+ 
+-      if (isset($overrides['nodeblock'])) {
++      if (nodeblock_type_node_override_block_available($node->type) != 'disabled') {
++        if (isset($node->nodeblock['enabled'])){
++          $default_enabled = $node->nodeblock['enabled'];
++        }
++        elseif(nodeblock_type_node_override_block_available($node->type) == 'enabled_on'){
++          $default_enabled = TRUE;
++        }
++        else{
++          $default_enabled = FALSE;
++        }
+         $form['nodeblock']['enabled'] = array(
+           '#type' => 'checkbox',
+-          '#default_value' => isset($node->nodeblock) ? $node->nodeblock['enabled'] : TRUE,
++          '#default_value' => $default_enabled,
+           '#required' => FALSE,
+           '#title' => t('Create a block for this node'),
+           '#description' => t('Should a block be created for this node?'),

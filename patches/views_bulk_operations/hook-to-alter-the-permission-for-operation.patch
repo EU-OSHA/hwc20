@@ -1,0 +1,17 @@
+diff --git views_bulk_operations.module views_bulk_operations.module
+index e74eeb1..3d7a253 100644
+--- views_bulk_operations.module
++++ views_bulk_operations.module
+@@ -1074,8 +1074,11 @@ function views_bulk_operations_queue_item_process($queue_item_data, &$log = NULL
+       }
+     }
+ 
++    $has_access = FALSE;
++    drupal_alter('vbo_action_access', $has_access, $operation);
++
+     // If the current entity can't be accessed, skip it and log a notice.
+-    if (!_views_bulk_operations_entity_access($operation, $entity_type, $entity, $account)) {
++    if (!_views_bulk_operations_entity_access($operation, $entity_type, $entity, $account) && !$has_access) {
+       $message = 'Skipped %operation on @type %title due to insufficient permissions.';
+       $arguments = array(
+         '%operation' => $operation->label(),

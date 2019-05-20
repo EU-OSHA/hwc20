@@ -1,0 +1,27 @@
+diff --git a/on_the_web.module b/on_the_web.module
+index 4721e38..fd7f7df 100755
+--- a/on_the_web.module
++++ b/on_the_web.module
+@@ -47,6 +47,13 @@ function on_the_web_settings_form($form, &$form_state) {
+     '#description' => t('Unchecking this box his will remove the target="_blank" attribute from these links.'),
+   );
+ 
++  $form['on_the_web_site_name'] = array(
++    '#type' => 'textfield',
++    '#title' => t('Site name used in title attribute'),
++    '#default_value' => variable_get('on_the_web_site_name', 'Drupal'),
++    '#description' => t('The site name used in title attribute for services images'),
++  );
++
+   $form['services'] = array(
+     '#type' => 'fieldset',
+     '#title' => t('Social media site links'),
+@@ -188,7 +195,7 @@ function on_the_web_display_block($delta) {
+ 
+   // Get the appropriate name to use in links.
+   if (variable_get('on_the_web_sitename', TRUE)) {
+-    $name = variable_get('site_name', 'Drupal');
++    $name = variable_get('on_the_web_site_name', 'Drupal');
+   }
+   else {
+     $name = t('Us');

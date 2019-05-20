@@ -1,0 +1,21 @@
+<div class="control-group {$required}">
+    <div>
+        <label class="control-label screen-left" for="{$fieldName}">{$fieldLabel}</label>
+        {if !empty($fieldPublicProfile)}<img src="{$appurl}mvc/view/img/screen.png" title="Fields displayed on campaign site" class="screen-right"/>{/if}
+    </div>
+    {if !empty($fieldHelpText)}
+    <p class="help-block">{$fieldHelpText}</p>
+    {/if}
+    <div class="controls">
+        <select {$disabled} class="field dropdown-multiple" id="{$fieldName}" name="{$fieldName}[]"
+                data-section="{$fieldSection}" multiple="multiple">
+            {foreach from=$fieldValue key=id item=value}
+            {if $value.selected}
+            <option value="{$value.id}" selected="selected">{$value.name}</option>
+                {else}
+            <option value="{$value.id}">{$value.name}</option>
+                {/if}
+            {/foreach}
+        </select>
+    </div>
+</div>

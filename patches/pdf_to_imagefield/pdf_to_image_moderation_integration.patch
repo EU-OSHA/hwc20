@@ -1,0 +1,36 @@
+diff --git a/docroot/sites/all/modules/contrib/pdf_to_imagefield/pdf_to_image.module b/docroot/sites/all/modules/contrib/pdf_to_imagefield/pdf_to_image.module
+index a4e174a..a816824 100644
+--- a/docroot/sites/all/modules/contrib/pdf_to_imagefield/pdf_to_image.module
++++ b/docroot/sites/all/modules/contrib/pdf_to_imagefield/pdf_to_image.module
+@@ -427,7 +427,6 @@ function pdf_to_image_generate_process($entity_type, $entity, $field_id, $field_
+       'entity' => $entity, // Don't actually need the whole thing, just the id really.
+       'entity_type' => $entity_type,
+       'entity_id' => $id,
+-      'entity_vid' => $vid,
+       'image'  => array(
+         'field'    => field_info_field($target_field),
+         'instance' => field_info_instance($entity_type, $target_field, $field_instance['bundle']),
+@@ -569,13 +568,21 @@ function pdf_to_image_generate_process_attach($success, $results, $operations) {
+ 
+   $field_name = $results['params']['image']['field']['field_name'];
+   $entity_id = $results['params']['entity_id'];
+-  $entity_vid = $results['params']['entity_vid'];
+   $entity_type = $results['params']['entity_type'];
+ 
+   if (isset($entity_id) && is_numeric($entity_id)) {
+     // Don't use the entity as given, load it again as things may have happened
+     // to it since the batch job began.
+-    $entity = entity_revision_load($entity_type, $entity_vid);
++    $entity = entity_load_unchanged($entity_type, $entity_id);
++    if (!empty($entity->workbench_moderation['current'])) {
++      $state = $entity->workbench_moderation['current']->state;
++      $entity = workbench_moderation_node_current_load($entity);
++      if (isset($entity->workbench_moderation['published'])) {
++        $entity->workbench_moderation_state_current = $entity->workbench_moderation['published']->state;
++      }
++      $entity->workbench_moderation_state_new = $state;
++    }
++
+     if (is_object($entity)) {
+       //Set translation as an empty array and reset static cache
+       //This forces field_language to return the correct lang_code

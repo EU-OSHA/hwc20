@@ -1,0 +1,13 @@
+diff --git a/docroot/sites/all/modules/contrib/ldap/ldap_user/LdapUserConf.class.php b/docroot/sites/all/modules/contrib/ldap/ldap_user/LdapUserConf.class.php
+index 8a14b28..6b6a4c1 100644
+--- a/docroot/sites/all/modules/contrib/ldap/ldap_user/LdapUserConf.class.php
++++ b/docroot/sites/all/modules/contrib/ldap/ldap_user/LdapUserConf.class.php
+@@ -743,7 +743,7 @@ class LdapUserConf {
+     );
+ 
+     if ($result) {
+-      watchdog('ldap_user', 'LDAP entry on server %sid synched dn=%dn. username=%username, uid=%uid', $tokens, WATCHDOG_INFO);
++      // watchdog('ldap_user', 'LDAP entry on server %sid synched dn=%dn. username=%username, uid=%uid', $tokens, WATCHDOG_INFO);
+     }
+     else {
+       watchdog('ldap_user', 'LDAP entry on server %sid not synched because error. username=%username, uid=%uid', $tokens, WATCHDOG_ERROR);

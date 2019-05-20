@@ -1,0 +1,19 @@
+diff --git a/webform2pdf.module b/webform2pdf.module
+index 4893f7e..c3b26f0 100644
+--- a/webform2pdf.module
++++ b/webform2pdf.module
+@@ -193,11 +193,11 @@ function webform2pdf_mail_alter(&$message) {
+         $node = node_load($webform2pdf_send2pdf['nid']);
+         $filename = theme('webform2pdf_filename', array('node' => $node, 'submission' => $webform2pdf_send2pdf['sid']));
+         unset($node);
+-
+-        if (webform_email_html_capable()) {
++        $html_capable = variable_get('webform_email_html_capable', false);
++        if ($html_capable) {
+           if (module_exists('mimemail')) {
+             $attachment = new stdClass;
+-            $attachment->filecontent = theme('webform2pdf_mail2pdf', $webform2pdf_send2pdf['nid'], $webform2pdf_send2pdf['sid']);
++            $attachment->filecontent = theme('webform2pdf_mail2pdf', array('nid'=>$webform2pdf_send2pdf['nid'],'sid'=> $webform2pdf_send2pdf['sid']));
+             $attachment->filename = $filename;
+             $attachment->filemime = 'application/pdf';
+             $message['params']['attachments'][] = $attachment;

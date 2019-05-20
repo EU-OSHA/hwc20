@@ -1,0 +1,15 @@
+Index: field_collection.module
+===================================================================
+--- field_collection.module	(revision 2430)
++++ field_collection.module	(working copy)
+@@ -827,7 +827,9 @@
+  */
+ function field_collection_item_delete($id) {
+   $fci = field_collection_item_load($id);
+-  $fci->delete();
++  if(!empty($fci)) {
++    $fci->delete();
++  }
+ }
+ 
+ /**

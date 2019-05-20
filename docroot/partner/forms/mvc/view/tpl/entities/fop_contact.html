@@ -1,0 +1,151 @@
+{if !$mf}
+<div class="helpDialog hidden">
+    <span>If you have any doubts about how to fill in this form or if you need any assistance, you can leave us a message and we will contact you as soon as possible.</span>
+    <br>
+    <div class="error-msg hidden" id="helpError"></div>
+    <label for="email">Your email:</label>
+    <input id="email" type="text" placeholder="your@email.com"/>
+    <br>
+    <label for="message">Your message:</label>
+    <textarea id="message" placeholder="Write here your question"></textarea>
+</div>
+{/if}
+
+<fieldset>
+    <legend id="PRIMARY_CONTACT">
+        About your Main Contact Person
+    </legend>
+    
+    <div class="separatorFieldSet">&nbsp;</div>
+
+    <div>
+        {$attributes.contact_osh_maincontactchange}
+    </div>
+
+    <div class="main-contact-change">
+        <div class="float-left">
+        {$attributes.contact_osh_maincontactpersonfirstname}
+        {$attributes.contact_osh_maincontactpersonlastname}
+        </div>
+        <div class="float-right">
+            {$attributes.contact_osh_prefixmaincontactphone}
+            {$attributes.contact_osh_mainphone}
+            {$attributes.contact_osh_mainemail}
+            <!--{$attributes.contact_osh_confirm_mainemail}-->
+        </div>
+    </div>
+    <div class="hidden">
+        {$attributes.contact_osh_mainemailAux}
+        {$attributes.company_osh_orgnameAux}
+    </div>
+</fieldset>
+{if $HelpMessage != "print"}
+<div class="helpDiv">
+    <div data-section="PRIMARY_CONTACT" class="validation{$locked}">I validate the information filled in this section</div>
+    <div class="helpSection" style="float: right; margin-right:5%;">
+        <span class="helpIcon" name="helpIcon">?</span>
+        <a class="helpButton" name="helpButton">HELP</a>
+    </div>
+    <div class="separatorSection">&nbsp;</div>
+</div>
+{/if}
+{if $mf}
+<fieldset id="osh_otheruser">
+    <legend id="OTHER_USERS">
+        Other users
+        <div data-section="OTHER_USERS" class="validation{$locked}"></div>
+    </legend>
+    
+    <div class="separatorFieldSet">&nbsp;</div>
+    <p id="general-text">In this section you can add additional contacts for your own organisation. These new users will be able to make changes to your organisational profile. You will always be notified of such changes</p>
+
+   <div id="otherUserField1">
+        {$attributes.contact_osh_otherusername1}
+        {$attributes.contact_osh_otherusermail1}
+       {$attributes.contact_osh_otheruserprefix1}
+       {$attributes.contact_osh_otheruserphone1}
+        <div class="removeOtherUserDiv" style="margin-top: 2%;">
+            <button id="removeOtherUser1" type="button">
+                Remove user
+            </button>
+        </div>
+    </div>
+   <div id="otherUserField2" style="margin-top: 5%;">
+        {$attributes.contact_osh_otherusername2}
+        {$attributes.contact_osh_otherusermail2}
+       {$attributes.contact_osh_otheruserprefix2}
+        {$attributes.contact_osh_otheruserphone2}
+        <div class="removeOtherUserDiv" style="margin-top: 2%;">
+            <button id="removeOtherUser2" type="button">
+                Remove user
+            </button>
+        </div>
+    </div>
+   <div id="otherUserField3" style="margin-top: 5%;">
+        {$attributes.contact_osh_otherusername3}
+        {$attributes.contact_osh_otherusermail3}
+       {$attributes.contact_osh_otheruserprefix3}
+        {$attributes.contact_osh_otheruserphone3}
+        <div class="removeOtherUserDiv" style="margin-top: 2%;">
+            <button id="removeOtherUser3" type="button">
+                Remove user
+            </button>
+        </div>
+    </div>
+    <div id="otherUserField4" style="margin-top: 5%;">
+        {$attributes.contact_osh_otherusername4}
+        {$attributes.contact_osh_otherusermail4}
+        {$attributes.contact_osh_otheruserprefix4}
+        {$attributes.contact_osh_otheruserphone4}
+        <div class="removeOtherUserDiv" style="margin-top: 2%;">
+            <button id="removeOtherUser4" type="button">
+                Remove user
+            </button>
+        </div>
+    </div>
+    <div id="otherUserField5" style="margin-top: 5%;">
+        {$attributes.contact_osh_otherusername5}
+        {$attributes.contact_osh_otherusermail5}
+        {$attributes.contact_osh_otheruserprefix5}
+        {$attributes.contact_osh_otheruserphone5}
+        <div class="removeOtherUserDiv" style="margin-top: 2%;">
+            <button id="removeOtherUser5" type="button">
+                Remove user
+            </button>
+        </div>
+    </div>
+   
+   
+   <button class="addOtherUser" style="margin-top: 1%;" type="button">
+        Add user
+    </button>
+</fieldset>
+{if $HelpMessage != "print"}
+<div class="helpDiv">
+    <div data-section="OTHER_USERS" class="validation{$locked}">I validate the information filled in this section</div>
+    <div class="helpSection" style="float: right; margin-right:5%;">
+        <span class="helpIcon" name="helpIcon">?</span>
+        <a class="helpButton" name="helpButton">HELP</a>
+    </div>
+    <div class="separatorSection">&nbsp;</div>
+</div>
+{/if}
+{/if}
+{if $HelpMessage == "print"}
+<div id="footerPrintFriendly">
+    <table style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" align="center" bgcolor="#4d8102" border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody><tr>
+             <td class="block_td percent_td" width="50%"><img src="http://hwc-crm.osha.europa.eu/footer-2017.png" alt="" height="88" width="350"></td>
+             <td class="block_td percent_td" align="center" valign="middle" width="50%">
+				 <p style="margin:20px 0 !important; color:#ffffff; font-weight:700; font-family: Arial, Helvetica, sans-serif; font-size:16px; line-height: 20px;mso-line-height-rule: exactly;">Follow us on: 
+					<a href="https://www.facebook.com/EuropeanAgencyforSafetyandHealthatWork" target="_blank"><img src="https://hwc-crm.osha.europa.eu/facebook.jpg" alt="facebook" align="absmiddle" height="20" border="0" width="20"></a>
+					<a href="https://twitter.com/eu_osha" target="_blank"><img src="https://hwc-crm.osha.europa.eu/twitter.jpg" alt="twitter" align="absmiddle" height="20" border="0" width="20"></a>
+					<a href="https://www.linkedin.com/company/european-agency-for-safety-and-health-at-work" target="_blank"><img src="https://hwc-crm.osha.europa.eu/linkedin.jpg" alt="linkedin" align="absmiddle" height="20" border="0" width="20"></a>
+					<a href="https://www.youtube.com/user/EUOSHA" target="_blank"><img src="https://hwc-crm.osha.europa.eu/youtube.jpg" alt="youtube" align="absmiddle" height="20" border="0" width="20"></a>
+					<a href="https://osha.europa.eu/en/tools-and-publications/blog" target="_blank"><img src="https://hwc-crm.osha.europa.eu/blogger.jpg" alt="blogger" align="absmiddle" height="20" border="0" width="20"></a>
+				</p>
+			</td>          
+          </tr>
+         </tbody></table>
+</div>
+{/if}

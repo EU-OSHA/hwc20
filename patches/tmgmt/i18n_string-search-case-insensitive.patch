@@ -1,0 +1,14 @@
+diff --git a/docroot/sites/all/modules/contrib/tmgmt/sources/i18n_string/tmgmt_i18n_string.module b/docroot/sites/all/modules/contrib/tmgmt/sources/i18n_string/tmgmt_i18n_string.module
+index 2220b77..1b02f85 100644
+--- a/docroot/sites/all/modules/contrib/tmgmt/sources/i18n_string/tmgmt_i18n_string.module
++++ b/docroot/sites/all/modules/contrib/tmgmt/sources/i18n_string/tmgmt_i18n_string.module
+@@ -78,7 +78,8 @@ function tmgmt_i18n_string_get_strings($type, $search_label = NULL, $target_lang
+   $select->join('locales_source', 'ls', 'ls.lid = i18n_s.lid');
+   $select->addField('ls', 'source');
+   if (!empty($search_label)) {
+-    $select->condition('ls.source', "%$search_label%", 'LIKE');
++    $select->where('LOWER(CAST(ls.source AS CHAR)) LIKE :search',
++      array(':search' => "%" . db_like(strtolower($search_label)) . "%"));
+   }
+
+   foreach ($languages as $langcode) {

@@ -1,0 +1,27 @@
+diff --git a/docroot/sites/all/modules/contrib/spamspan/spamspan.module b/docroot/sites/all/modules/contrib/spamspan/spamspan.module
+index af76f3e..e79d2c8 100644
+--- a/docroot/sites/all/modules/contrib/spamspan/spamspan.module
++++ b/docroot/sites/all/modules/contrib/spamspan/spamspan.module
+@@ -72,14 +72,14 @@ function spamspan_filter_info() {
+     'settings callback' => '_spamspan_filter_settings',
+     'tips callback' => '_spamspan_filter_tips',
+     'default settings' => array(
+-      'spamspan_at' => ' [at] ',
+-      'spamspan_use_graphic' => 0,
+-      'spamspan_dot_enable' => 0,
+-      'spamspan_dot' => ' [dot] ',
+-      'spamspan_use_form' => FALSE,
+-      'spamspan_use_url' => '<a href="/#formname?goto=#email">#displaytext</a>',
+-      'spamspan_email_encode' => TRUE,
+-      'spamspan_email_default' => 'contact_us_general_enquiry',
++      'spamspan_at' => variable_get('spamspan_at', ' [at] '),
++      'spamspan_use_graphic' => variable_get('spamspan_use_graphic', 0),
++      'spamspan_dot_enable' => variable_get('spamspan_dot_enable', 0),
++      'spamspan_dot' => variable_get('spamspan_dot', ' [dot] '),
++      'spamspan_use_form' => variable_get('spamspan_use_form', FALSE),
++      'spamspan_use_url' => variable_get('spamspan_use_url', '<a href="/#formname?goto=#email">#displaytext</a>'),
++      'spamspan_email_encode' => variable_get('spamspan_email_encode', TRUE),
++      'spamspan_email_default' => variable_get('spamspan_email_default', 'contact_us_general_enquiry'),
+     ),
+   );
+   return $filters;

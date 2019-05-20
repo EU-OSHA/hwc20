@@ -1,0 +1,3 @@
+/vendor/
+/.idea/*
+/lib/dwoo/lib/compiled/*

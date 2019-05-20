@@ -1,0 +1,20 @@
+{
+  "viewPath": "mvc/view/tpl/",
+  "viewEntitiesPath": "mvc/view/tpl/entities/",
+  "widgetsPath": "mvc/view/tpl/widgets/",
+  "htmlPath": "mvc/view/tpl/html/",
+  "cssPath": "mvc/view/css/",
+  "jsPath": "mvc/view/js/",
+  "modelPath": "mvc/model/",
+  "entitiesPath": "mvc/model/entities/",
+  "bundlesPath": "mvc/model/bundles/",
+  "tempPath": "tmp/",
+  "imagePath": "mvc/view/img/",
+  "langPath": "lang/",
+  "htmlHeaderTpl": "html_header.html",
+  "htmlFooterTpl": "html_footer.html",
+  "headerTpl": "header.html",
+  "footerTpl": "footer.html",
+  "validationWidgetTpl": "validation",
+  "printableTpl": "printable"
+}

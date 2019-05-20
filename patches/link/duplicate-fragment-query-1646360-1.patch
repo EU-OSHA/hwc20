@@ -1,0 +1,21 @@
+diff --git a/link.module b/link.module
+index b5a42ab..47759aa 100644
+--- a/link.module
++++ b/link.module
+@@ -351,6 +351,16 @@ function _link_load($field, $item, $instance) {
+  * Prepares the item attributes and url for storage.
+  */
+ function _link_process(&$item, $delta = 0, $field, $entity) {
++  // Unset query to prevent duplicates
++  if (!empty($item['query'])) {
++    $item['url'] .= '?' . http_build_query($item['query']);
++    $item['query'] = array();
++  }
++  // Unset fragment to prevent duplicates
++  if (!empty($item['fragment'])) {
++    $item['url'] .= '#' . $item['fragment'];
++    $item['fragment'] = '';
++  }
+   // Trim whitespace from URL.
+   $item['url'] = trim($item['url']);
+ 

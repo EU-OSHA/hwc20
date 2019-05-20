@@ -1,0 +1,13 @@
+diff --git a/docroot/sites/all/modules/contrib/search_autocomplete/js/jquery.autocomplete.js b/docroot/sites/all/modules/contrib/search_autocomplete/js/jquery.autocomplete.js
+index 9b3865e..9016a06 100644
+--- a/docroot/sites/all/modules/contrib/search_autocomplete/js/jquery.autocomplete.js
++++ b/docroot/sites/all/modules/contrib/search_autocomplete/js/jquery.autocomplete.js
+@@ -66,7 +66,7 @@
+               }
+               // Internal URL:
+               else if (Drupal.settings.search_autocomplete[key].type == 'internal' || Drupal.settings.search_autocomplete[key].type == 'view') {
+-                $.getJSON(Drupal.settings.search_autocomplete[key].datas + request.term, { }, function (results) {
++                $.getJSON(Drupal.settings.search_autocomplete[key].datas + encodeURI(request.term), { }, function (results) {
+                   // Only return the number of values set in the settings.
+                   if (!results.length && NoResultsLabel) {
+                       results = [NoResultsLabel];

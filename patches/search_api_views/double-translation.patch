@@ -1,0 +1,13 @@
+diff --git a/search_api_views/search_api_views.views.inc b/search_api_views/search_api_views.views.inc
+index b55a85a..c7dd56e 100644
+--- a/search_api_views/search_api_views.views.inc
++++ b/search_api_views/search_api_views.views.inc
+@@ -82,7 +82,7 @@ function search_api_views_views_data() {
+         if ($group) {
+           // @todo Entity type label instead of $group?
+           $table[$id]['group'] = $group;
+-          $name = t('!field (indexed)', array('!field' => $name));
++          $name = $name . ' (indexed)';
+         }
+         $table[$id]['title'] = $name;
+         $table[$id]['help'] = empty($info['description']) ? t('(No information available)') : $info['description'];

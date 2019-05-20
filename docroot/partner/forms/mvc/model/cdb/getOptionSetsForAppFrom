@@ -1,0 +1,56 @@
+{
+    "getOptionSetsForAppFromResult": [
+        {
+            "Name": "osh_bussinessector",
+            "Values": {
+                "0": "International Public Body",
+                "1": "EU Institution or Body",
+                "2": "EU-Level Network, NGO or Association",
+                "3": "National Policy- making organisation",
+                "4": "National Public Body",
+                "5": "Lobby Group",
+                "6": "National NGO",
+                "7": "Trade Union (European)",
+                "8": "Trade Union (National)",
+                "9": "Employers Association (European)",
+                "10": "Employers Association (National)",
+                "11": "Statutory Insurance Organisation",
+                "12": "OSH Service Provider",
+                "13": "Private Company (large enterprise)",
+                "14": "Private Company (SME)",
+                "15": "Journalist/Media Organisation",
+                "16": "University/Research or Expert Institute",
+                "17": "Public Administration",
+                "18": "Public Sector/Enterprise",
+                "19": "Bilateral Body",
+                "20": "Professional Association",
+                "21": "Health and Social Care Sector",
+                "22": "Educational Establishment",
+                "23": "Self-Employed",
+                "24": "Other",
+                "863680001": "Item"
+            }
+        },
+        {
+            "Name": "osh_appformtype",
+            "Values": {
+                "0": "AppForm",
+                "1": "Change for request"
+            }
+        },
+        {
+            "Name": "osh_orgtype",
+            "Values": {
+                "0": "Workers",
+                "1": "Employers",
+                "2": "OSH professionals",
+                "3": "HR managers",
+                "4": "Researchers",
+                "5": "Policy makers"
+            }
+        }
+    ],
+    "returnCode": 1,
+    "returnName": "OK",
+    "returnMessage": "OK"
+}

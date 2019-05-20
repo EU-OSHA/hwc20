@@ -1,0 +1,13 @@
+diff --git a/rules.module b/rules.module
+index d2ff900..37e5dac 100644
+--- a/rules.module
++++ b/rules.module
+@@ -223,7 +223,7 @@ function rules_fetch_data($hook) {
+       }
+     }
+     // Support class discovery.
+-    if (isset($discover[$hook])) {
++    if (isset($discover[$hook]) && isset($data[$hook])) {
+       $data[$hook] += rules_discover_plugins($discover[$hook]);
+     }
+     drupal_alter('rules_'. $hook, $data[$hook]);

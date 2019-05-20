@@ -1,0 +1,112 @@
+{if $show_print_version || $show_pdf_version}
+<script nonce="{$nonce}">
+    $(document).ready(function() {
+        window.open("{$appurl}&action={if $show_print_version}printable{else}pdf{/if}", 'popup');
+    });
+</script>
+{/if}
+{if !$printable}
+{if $progressbar}
+    <div id="blankDiv" style="width: 20%; float: left; height: 3vw;"></div>
+    {$progressbar}
+{/if}
+{if $partner_type == "current"}
+<!--<div class="review-fields">Please make sure that you thoroughly check, whether all your information is still valid and indicate this by checking the button next to each section</div>-->
+{/if}
+<div id="content">
+    <div id="containerMobileDialog">
+        <center>
+            <div id="mobileDialog">
+                <span>Due to the nature of this visualization, we cannot ensure a satisfactory user experience for mobile and tablet screens.</span>
+            </div>
+        </center>
+    </div>
+    {if $sidebar}{$sidebar}{/if}
+    {if !isset($fullwidth)}<div id="form" class="main-form sidebar-border">{/if}
+        {if !$locked}
+        <form class="form-horizontal {if !empty($partner_type)}{$partner_type}{/if} {if $mf}mf{/if}" method="post" autocomplete="off" action="{$appurl}&action=send{if $actionType}&action_type={$actionType}{/if}" onload="checkAllfields()">
+            {if $HelpMessage != "print" && !$mf && $route != "involvement" && $route != "start"}
+            <div id="container-message" class="container-message">
+                <div id="MESSAGE">
+                    <a class="close">[X]</a>
+                    <div style="width: 95%;">
+                        Please, check whether all your information is still valid, make changes when necessary and tick the green box at the end of each section when you consider that the information is correct.<img style="width: 18px;height: 18px;" src="mvc/view/img/validation-NoCheckv2.png"/>
+                    <br>If you are not able to complete/review all the information in one session, you can press the "Save a Draft" button <img src="mvc/view/img/saveButtonImg.png"/> (on the left of your screen) and you will receive an email with a link to access again the form for completion.
+                        In order to finish and submit the final form it is compulsory to complete all the sections and click the green box at the end of each section.
+                    </div>
+                               
+                </div>            
+            </div>
+        {else}
+            <!-- <a id="printpage" style="float: right; margin: 1%; ">
+                         <img src="mvc/view/img/print.png" title="Print" height="40" width="40">
+                </a> -->
+        {/if}
+        <div id="dataErrorDialog" class="dialog errorDialog hidden">
+        <a class="closeDialog">[X]</a>
+        <img src="mvc/view/img/alertIcon.png"/><br>
+        <p>Error: Some fields contain errors</p>
+    </div>
+    <div id="fillRequiredDialog" class="dialog errorDialog hidden">
+        <a class="closeDialog">[X]</a>
+        <img src="mvc/view/img/alertIcon.png"/><br>
+        <p><i id="fillRequiredFieldName" style="color:black"></i><span id="errorMessage"> is required. Please fill it in order to continue.</span></p>
+    </div>
+    <div id="unconfirmedSectionDiv" class="dialog errorDialog hidden">
+        <a class="closeDialog">[X]</a>
+        <img src="mvc/view/img/alertIcon.png"/><br>
+        <p>The application form cannot be submitted yet; <i id="unconfirmedSectionName" style="color:black"></i> section is pending to be validated</p>
+    </div>
+    <div id="captchaDialog" class="dialog errorDialog hidden">
+        <a class="closeDialog">[X]</a>
+        <img src="mvc/view/img/alertIcon.png"/><br>
+        <p>The data introduced is not correct. Please try again</p>
+    </div>
+    <div id="captchaAndFieldDialog" class="dialog errorDialog hidden">
+        <a class="closeDialog">[X]</a>
+        <img src="mvc/view/img/alertIcon.png"/><br>
+        <p>CAPTCHA is incorrect. Try again and mandatory above fields are incompleted. Please check again.</p>
+    </div>
+    <div id="checkFieldsDialog" class="dialog errorDialog hidden">
+        <a class="closeDialog">[X]</a>
+        <img src="mvc/view/img/alertIcon.png"/><br>
+        <p>Section check cannot be ticked until the mandatory fields are filled</p>
+    </div>
+    <div id="nameandemailrequiredDialog" class="dialog errorDialog hidden">
+        <a class="closeDialog">[X]</a>
+        <img src="mvc/view/img/alertIcon.png"/><br>
+        <p>The fields Company/Organisation name and E-mail, name and surname of the Primary Contact are required for save the information</p>
+        <p class="saveExplanation">When saving as a draft, you will receive an automatic email with a link from which you will be able to come back to continue your application. In order to do so, the completion of the organisation's name and your primary contact's email, name and surname is mandatory</p>
+    </div>
+    <div id="maxSocialNetDialog" class="dialog errorDialog hidden">
+        <a class="closeDialog">[X]</a>
+        <img src="mvc/view/img/alertIcon.png"/><br>
+        <p>You cannot add more than one profile per social network</p>
+    </div>
+    <div id="invalidSocialUrl" class="dialog errorDialog hidden">
+        <a class="closeDialog">[X]</a>
+        <img src="mvc/view/img/alertIcon.png"/><br>
+        <p>Invalid URL. Please enter a valid URL in order to continue</p>
+    </div>
+    <div id="checkInvalidFields" class="dialog errorDialog hidden">
+        <a class="closeDialog">[X]</a>
+        <img src="mvc/view/img/alertIcon.png"/><br>
+        <p>Section check cannot be ticked until the all the fields are not correctly filled</p>
+    </div>
+    <div id="sectionRequiredDialog" class="dialog errorDialog hidden">
+        <a class="closeDialog">[X]</a>
+        <img src="mvc/view/img/alertIcon.png"/><br>
+        <p>There are sections unconfirmed or there are mandatory fields not filled</p>
+    </div>
+    <div id="divtoshow">
+        <span>Required field</span>
+    </div>
+
+        {/if}
+        {if $fieldsValidatingDialog}
+            <div id="fieldsValidatingDialog" class="dialog errorDialog">
+                <a class="closeDialog" style="color: black; font-size: inherit;">[X]</a>
+                <p style="color: black; font-weight: inherit;">Your changes are being reviewed by the campaign team. <br> You will receive feedback shortly. Thanks for participating in the Healthy Workplaces Campaign.</p>
+            </div>
+        {/if}
+{/if}

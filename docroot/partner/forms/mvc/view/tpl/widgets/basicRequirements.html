@@ -1,0 +1,17 @@
+<div class="control-group {$required}">
+    <div>
+        <label class="control-label screen-left" for="{$fieldName}">{$fieldLabel}</label>
+        {if !empty($fieldPublicProfile)}<img src="{$appurl}mvc/view/img/screen.png" title="Fields displayed on campaign site" class="screen-right"/>{/if}
+
+            <label class="radio inline basicRequirements" for="{$fieldName}">
+                <input {$disabled} class="field" name="{$fieldName}" id="{$fieldName}-yes" value="on" type="radio" {if $fieldValue && $fieldValue != 'No'}checked="true" {/if} data-section="{$fieldSection}">
+                Yes
+            </label>
+            <label class="radio inline basicRequirements" for="{$fieldName}">
+                <input {$disabled} class="field" name="{$fieldName}" id="{$fieldName}-no" value="" type="radio" {if !$fieldValue || $fieldValue == 'No'}checked="true" {/if} data-section="{$fieldSection}">
+                No
+            </label>
+
+    </div>
+
+</div>

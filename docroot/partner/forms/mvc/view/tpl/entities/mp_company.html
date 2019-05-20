@@ -1,0 +1,187 @@
+{if $mf}
+{if $HelpMessage == "print"}
+<div id="headerPrintFriendly">
+    <table style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;" align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0">
+          <tbody><tr>
+             <td width="100%"><img class="img_scale" src="http://hwc-crm.osha.europa.eu/healthy-workplaces-2017.png" alt="Healthy Workplaces for All Ages" title="Healthy Workplaces for All Ages" style="display: inline-block;" height="112" border="0" width="700"></td>
+          </tr>
+         </tbody></table>
+</div>
+{/if}
+{/if}
+
+<div class="helpDialog hidden">
+    <span>If you have any doubts about how to fill in this form or if you need any assistance, you can leave us a message and we will contact you as soon as possible.</span>
+    <br>
+    <div class="error-msg hidden" id="helpError"></div>
+    <label for="email">Your email:</label>
+    <input id="email" type="text" placeholder="your@email.com"/>
+    <br>
+    <label for="message">Your message:</label>
+    <textarea id="message" placeholder="Write here your question"></textarea>
+</div>
+
+<fieldset>
+    <legend id="ORGANISATION">
+        About your Media Outlet
+        <img id="ORGANISATION_check" class="hidden" src="mvc/view/img/tick_16.png" title="You have validated this section" />
+    </legend>
+    
+    <div class="separatorFieldSet">&nbsp;</div>
+    
+    <div class="float-left">
+        {$attributes.company_osh_orgname}
+        {$attributes.company_osh_logoimage}
+    </div>
+
+    <div class="hidden">
+        {$attributes.helpMessage}
+        {$attributes.contact_osh_mainemailAux}
+        {$attributes.company_osh_orgnameAux}
+        {$attributes.contact_osh_maincontactpersonfirstnameAux}
+        {$attributes.contact_osh_maincontactpersonlastnameAux}
+        {$attributes.osh_aboutyourorgsection}
+        {$attributes.osh_gencontactinfsection}
+        {$attributes.osh_aboutyourceosection}
+    </div>
+    <div>
+        <div class="float-left div-checkbox">
+            <label>Media type</label>
+            <p style="font-size: smaller;" class="multipleLabelMP">Multiple selections are possible.</p>
+            {$attributes.company_osh_publicationonline}
+            {$attributes.company_osh_publicationprint}
+            {$attributes.company_osh_publicationnewsletter}
+            {$attributes.company_osh_publicationradio}
+            {$attributes.company_osh_publicationtv}
+            {$attributes.company_osh_publicationother}
+        </div>
+        <div class="float-right div-checkbox">
+            <label>Target audience</label>
+            <p style="font-size: smaller;" class="multipleLabelMP">Multiple selections are possible.</p>
+            {$attributes.company_osh_readershiposhcommunity}
+            {$attributes.company_osh_readershipsmes}
+            {$attributes.company_osh_readershiptrade}
+            {$attributes.company_osh_readershipacademics}
+           <!-- {$attributes.company_osh_readershipspecialist} -->
+            {$attributes.company_osh_readershipeuinstitutions}
+            {$attributes.company_osh_readershipgeneralaudience}
+        </div>
+    </div>
+</fieldset>
+{if $HelpMessage != "print"}
+<div class="helpDiv">
+    <div data-section="ORGANISATION" class="validation{$locked}">I validate the information filled in this section
+        <span class="helpIcon" name="helpIcon" title="Please, check this box in order to validate this section">?</span>
+    </div>
+    <div class="helpSection" style="float: right; margin-right:5%;">
+        <span class="helpIcon" name="helpIcon">?</span>
+        <a class="helpButton" name="helpButton">HELP</a>
+    </div>
+    <div class="separatorSection">&nbsp;</div>
+</div>
+{/if}
+<fieldset>
+    <legend id="GENERAL_INFORMATION">
+        About your General Contact Information
+        <img id="GENERAL_INFORMATION_check" class="hidden" src="mvc/view/img/tick_16.png" title="You have validated this section" />
+    </legend>
+    
+    <div class="separatorFieldSet">&nbsp;</div>
+    
+    <div class="float-left">
+        {$attributes.company_osh_address}
+        {$attributes.company_osh_zipcode}
+        {$attributes.company_osh_homepage}
+        <!-- (CRG - #48 - 13.10.2015) -->
+        <div class="socialNetworks">
+            <div>
+                <label for="company_osh_selectsocialnetworks" style="padding-top: 1vw; display: inline-block;">
+                    Social media profiles
+                </label>
+                <img src="{$urlBase}mvc/view/img/screen.png" style="margin-bottom: 4%;" title="Fields displayed on campaign site" class="screen-right"/>
+                <p class="help-block">Write the complete URL of the selected social network</p>
+            </div>
+        <div>
+            <select data-tb="socialNetworkTextBox" class="company_osh_selectsocialnetworks" id="company_osh_selectsocialnetworks" name="company_osh_selectsocialnetworks" data-section="GENERAL_INFORMATION"  aria-hidden="true">
+                <option data-target="containerSocialNetworks" data-sn="Facebook" data-url="https://www.facebook.com/" id="option_company_osh_facebookprofile" value="company_osh_facebookprofile">Facebook</option>
+                <option data-target="containerSocialNetworks" data-sn="Twitter" data-url="https://twitter.com/" id="option_company_osh_twitterprofile" value="company_osh_twitterprofile">Twitter</option>
+                <option data-target="containerSocialNetworks" data-sn="Youtube" data-url="https://www.youtube.com/channel/" id="option_company_osh_youtubeprofile" value="company_osh_youtubeprofile">YouTube</option>
+                <option data-target="containerSocialNetworks" data-sn="Linkedin" data-url="https://www.linkedin.com/in/" id="option_company_osh_linkedinprofile" value="company_osh_linkedinprofile">LinkedIn</option>
+                <option data-target="containerSocialNetworks" data-sn="SlideShare"  data-url="http://www.slideshare.net/" id="option_company_osh_slideprofile" value="company_osh_slideshareprofile">SlideShare</option>
+                <option data-target="containerSocialNetworks" data-sn="Pinterest"  data-url="https://www.pinterest.com/" id="option_company_osh_pinterestprofile" value="company_osh_pinterestprofile">Pinterest</option>
+                <option data-target="containerSocialNetworks" data-sn="Google+"  data-url="https://plus.google.com/" id="option_company_osh_googleplusprofile" value="company_osh_googleplusprofile">Google+</option>
+            </select>
+        </div>
+        <div style="display: inline-block; margin-left: 1vw;">
+            <input  id="socialNetworkTextBox" type="text" placeholder="URL" />
+        </div>
+		<button type="button" data-selector="company_osh_selectsocialnetworks" data-target="containerSocialNetworks" id="plusSN" data-target="showSN"><img src="{$urlBase}mvc/view/img/add_blue.png" /><span>Add</span></button>
+		<div id="listContentSocialNetworks">
+			<div id="containerSocialNetworks"></div>
+		</div>
+                <div id="SocialNetHidden">
+                    
+                    {$attributes.company_osh_facebookprofile}
+                    {$attributes.company_osh_twitterprofile}
+                    {$attributes.company_osh_youtubeprofile}
+                    {$attributes.company_osh_linkedinprofile}
+                    {$attributes.company_osh_slideshareprofile}
+                    {$attributes.company_osh_pinterestprofile}
+                    {$attributes.company_osh_googleplusprofile}
+                </div>
+          </div>
+        <!-- (/CRG - #48 - 13.10.2015) -->
+    </div>
+    <div class="float-right">
+        {$attributes.company_osh_city}
+        {$attributes.company_osh_country}
+        {$attributes.company_osh_generalemail}
+        {$attributes.company_osh_prefixgeneralphone}
+        {$attributes.company_osh_generalphone}
+    </div>
+</fieldset>
+{if $HelpMessage != "print"}
+<div class="helpDiv">
+    <div data-section="GENERAL_INFORMATION" class="validation{$locked}">I validate the information filled in this section
+        <span class="helpIcon" name="helpIcon" title="Please, check this box in order to validate this section">?</span>
+    </div>
+    <div class="helpSection" style="float: right; margin-right:5%;">
+        <span class="helpIcon" name="helpIcon">?</span>
+        <a class="helpButton" name="helpButton">HELP</a>
+    </div>
+    <div class="separatorSection">&nbsp;</div>
+</div>
+{/if}
+<fieldset>
+    <legend id="CHIEF">
+        About your Editor
+        <img id="CHIEF_check" class="hidden" src="mvc/view/img/tick_16.png" title="You have validated this section" />
+    </legend>
+    
+    <div class="separatorFieldSet">&nbsp;</div>
+    {if $mf}{$attributes.company_osh_editorchange}{/if}
+    <div class="main-contact-change">
+        <div class="float-left">
+            {$attributes.company_osh_ceo_firstname}
+        </div>
+        <div class="float-right">
+            {$attributes.company_osh_ceo_lastname}
+        </div>
+    </div>
+    <div class="hidden">
+        {$attributes.company_osh_ceo_firstname_clone}
+        {$attributes.company_osh_ceo_lastname_clone}
+    </div>
+</fieldset>
+{if $HelpMessage != "print"}
+<div class="helpDiv">
+    <div data-section="CHIEF" class="validation{$locked}">I validate the information filled in this section
+        <span class="helpIcon" name="helpIcon" title="Please, check this box in order to validate this section">?</span>
+    </div>
+    <div class="helpSection" style="float: right; margin-right:5%;">
+        <span class="helpIcon" name="helpIcon">?</span>
+        <a class="helpButton" name="helpButton">HELP</a>
+    </div>
+    <div class="separatorSection">&nbsp;</div>
+</div>
+{/if}

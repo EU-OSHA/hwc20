@@ -1,0 +1,89 @@
+diff --git a/token_formatters/token_formatters.field.inc b/token_formatters/token_formatters.field.inc
+index 56fb647..e1b60c7 100644
+--- a/token_formatters/token_formatters.field.inc
++++ b/token_formatters/token_formatters.field.inc
+@@ -55,6 +55,17 @@ function token_formatters_field_formatter_info() {
+     ),
+   );
+ 
++  $info['token_formatters_field_collection'] = array(
++    'label' => t('Tokenized text'),
++    'description' => t('Display tokenized text as an optional link with tokenized destination.'),
++    'field types' => array('field_collection'),
++    'settings' => array(
++      'text' => '[entity:label]',
++      'link' => '[entity:url]',
++      'check_access' => TRUE,
++    ),
++  );
++
+   return $info;
+ }
+ 
+@@ -86,6 +97,11 @@ function token_formatters_field_formatter_settings_form($field, $instance, $view
+       // Access for files is provided by file_entity.
+       $element['check_access']['#access'] = module_exists('file_entity');
+       break;
++    case 'token_formatters_field_collection':
++      $element += _token_formatters_field_formatter_settings_form('field_collection_item', $settings);
++      // Access for files is provided by file_entity.
++      $element['check_access']['#access'] = module_exists('field_collection');
++      break;
+   }
+ 
+   return $element;
+@@ -133,6 +149,7 @@ function token_formatters_field_formatter_settings_summary($field, $instance, $v
+     case 'token_formatters_user_reference':
+     case 'token_formatters_term_reference':
+     case 'token_formatters_file':
++    case 'token_formatters_field_collection':
+       $summary += _token_formatters_field_formatter_settings_summary($settings);
+       break;
+   }
+@@ -350,6 +367,36 @@ function _token_formatters_field_formatter_prepare_view_file($entity_type, $enti
+ }
+ 
+ /**
++ * Duplicate of node_reference_field_formatter_prepare_view() that optionally checks view access.
++ */
++function _token_formatters_field_formatter_prepare_view_field_collection($entity_type, $entities, $field, $instances, $langcode, &$items, $displays) {
++  $target_ids = array();
++
++  // Collect every possible entity attached to any of the entities.
++  foreach ($entities as $id => $entity) {
++    foreach ($items[$id] as $delta => $item) {
++      if (!empty($item['value'])) {
++        $target_ids[] = $item['value'];
++      }
++    }
++  }
++
++  if ($target_ids) {
++    $target_fcs = field_collection_item_load_multiple($target_ids);
++  }
++  else {
++    $target_fcs = array();
++  }
++
++  // Iterate through the fieldable entities again to attach the loaded data.
++  foreach ($entities as $id => $entity) {
++    foreach ($items[$id] as $delta => $item) {
++      $items[$id][$delta] = $target_fcs[$item['value']];
++    }
++  }
++}
++
++/**
+  * Implements hook_field_formatter_view().
+  */
+ function token_formatters_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+@@ -373,6 +420,9 @@ function token_formatters_field_formatter_view($entity_type, $entity, $field, $i
+       case 'token_formatters_file':
+         $element[$delta] = _token_formatters_field_formatter_view('file', (object) $item, $settings);
+         break;
++      case 'token_formatters_field_collection':
++        $element[$delta] = _token_formatters_field_formatter_view('field_collection_item', (object) $item, $settings);
++        break;
+     }
+   }
+ 

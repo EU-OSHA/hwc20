@@ -1,0 +1,24 @@
+diff --git a/docroot/sites/all/modules/contrib/entity_collection/entity_collection_db/plugins/entity_collection_storage/db.inc b/docroot/sites/all/modules/contrib/entity_collection/entity_collection_db/plugins/entity_collection_storage/db.inc
+index b93af12..95cf635 100644
+--- a/docroot/sites/all/modules/contrib/entity_collection/entity_collection_db/plugins/entity_collection_storage/db.inc
++++ b/docroot/sites/all/modules/contrib/entity_collection/entity_collection_db/plugins/entity_collection_storage/db.inc
+@@ -57,11 +57,15 @@ class EntityCollectionStorageDB extends EntityCollectionStorage {
+     $query->addField('rs', 'position');
+     $query->orderBy('position', 'DESC');
+     $query->condition('parent', isset($item->parent) && isset($item->parent->entity_id) ? $item->parent->entity_id : 0);
+-    $position = $query->execute()->fetchField();
+-    if ($position > 0) {
+-      $position++;
++    $query->condition('name', $collection->name);
++    if (empty($item->position)) {
++      $position = $query->execute()->fetchField();
++      if ($position > 0) {
++        $position++;
++      }
++      $item->position = $position;
+     }
+-    $this->save($collection, $item, $contexts, $position);
++    $this->save($collection, $item, $contexts, $item->position, 1);
+   }
+ 
+   /**

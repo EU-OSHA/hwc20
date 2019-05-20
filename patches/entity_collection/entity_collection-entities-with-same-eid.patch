@@ -1,0 +1,12 @@
+diff --git a/entity_collection_db/plugins/entity_collection_storage/db.inc b/entity_collection_db/plugins/entity_collection_storage/db.inc
+index 857185f..b93af12 100644
+--- a/entity_collection_db/plugins/entity_collection_storage/db.inc
++++ b/entity_collection_db/plugins/entity_collection_storage/db.inc
+@@ -94,6 +94,7 @@ class EntityCollectionStorageDB extends EntityCollectionStorage {
+       ->fields('rs', array('eid'))
+       ->condition('eid', $entity_id)
+       ->condition('name', $collection->name)
++      ->condition('entity_type', $type)
+       ->condition('contexts', $this->serializeContexts($contexts))
+       ->execute()->fetchField();
+   }

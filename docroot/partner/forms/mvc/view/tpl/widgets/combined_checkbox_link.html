@@ -1,0 +1,14 @@
+<div style="margin-bottom: 0;" class="control-group combined {$required}">
+    <div style="margin-bottom: 0;" class="control-group combined {$required}">
+        <label class="control-label screen-left" style="margin-bottom: -1.8%; margin-left: 3%; font-weight: bold;" for="{$fieldName}">{$fieldLabel}</label>
+        {if !empty($fieldPublicProfile)}<img src="{$appurl}mvc/view/img/screen.png" title="Fields displayed on campaign site" class="screen-right"/>{/if}
+        {if !empty($fieldHelpText)}
+        <p class="help-block">{$fieldHelpText}</p>
+        {/if}
+        <div class="controls">
+            <input {$disabled} type="checkbox" for="{$fieldName}" style="display:block" class="field combined-checkbox combined-checkbox-link" id="{$fieldName}_aux" data-section="{$fieldSection}"  value="{if $fieldValue == 'true' || $fieldValue == 'on'}on{else}false{/if}" {if $fieldValue == 'true' || $fieldValue == '1' || $fieldValue == 'on'} checked="true" {/if}/>
+            <input name="{$fieldName}" style="display:none"  id="{$fieldName}" data-section="{$fieldSection}" value="{if $fieldValue == true || $fieldValue == 'true' || $fieldValue == 1 || $fieldValue == 'on'}true{else}false{/if}"/>
+            <a href="{$fieldPlaceholder}"  class="field combined-textbox">{$fieldPlaceholder}</a>
+        </div>
+    </div>
+</div>

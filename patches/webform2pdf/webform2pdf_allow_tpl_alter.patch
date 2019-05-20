@@ -1,0 +1,27 @@
+diff --git a/docroot/sites/all/modules/contrib/webform2pdf/includes/webform2pdf.mail.inc b/docroot/sites/all/modules/contrib/webform2pdf/includes/webform2pdf.mail.inc
+index 64535086..61ae46bd 100644
+--- a/docroot/sites/all/modules/contrib/webform2pdf/includes/webform2pdf.mail.inc
++++ b/docroot/sites/all/modules/contrib/webform2pdf/includes/webform2pdf.mail.inc
+@@ -2,6 +2,8 @@
+ 
+ function webform2pdf_send2pdf($node, $submission) {
+   $webform2pdf = _webform2pdf_get_template($node->nid);
++
++  drupal_alter('webform2pdf_submission_template', $submission, $template);
+   $nopdf = array();
+   if (isset($webform2pdf['enabled']) && $webform2pdf['enabled'] && $webform2pdf['pdf_send_email']) {
+     $no_mail = isset($webform2pdf['no_send_email_addr']) ? $webform2pdf['no_send_email_addr'] : FALSE;
+diff --git a/docroot/sites/all/modules/contrib/webform2pdf/includes/webform2pdf.theme.inc b/docroot/sites/all/modules/contrib/webform2pdf/includes/webform2pdf.theme.inc
+index 66c1299b..aa984f8c 100644
+--- a/docroot/sites/all/modules/contrib/webform2pdf/includes/webform2pdf.theme.inc
++++ b/docroot/sites/all/modules/contrib/webform2pdf/includes/webform2pdf.theme.inc
+@@ -234,6 +234,9 @@ function theme_webform2pdf_mail2pdf($vars) {
+   $submission = webform_menu_submission_load($vars['sid'], $vars['nid']);
+ 
+   $template = _webform2pdf_get_template($node->nid);
++
++  drupal_alter('webform2pdf_submission_template', $submission, $template);
++
+   $pdf = theme('webform2pdf_pdf_init', array('node' => $node, 'template' => $template));
+   if ( !empty($pdf) ) {
+     $pdf = theme('webform2pdf_pdf_header', array('pdf' => $pdf, 'node' => $node, 'template' => $template));

@@ -1,0 +1,43 @@
+diff --git a/docroot/sites/all/modules/contrib/menuimage/menuimage.module b/docroot/sites/all/modules/contrib/menuimage/menuimage.module
+index bfb9b44..2dc3b5f 100755
+--- a/docroot/sites/all/modules/contrib/menuimage/menuimage.module
++++ b/docroot/sites/all/modules/contrib/menuimage/menuimage.module
+@@ -29,9 +29,11 @@ function menuimage_form_menu_edit_item_alter(&$form, &$form_state) {
+   ", array(':mlid' => $mlid)
+   )->fetchField())) {
+     $options = unserialize($result);
+-    $fid = (isset($options['content']['image']) ? $options['content']['image'] : 0);
+-    if (!($file = file_load($fid))) {
+-      $fid = 0;
++    $file_uri = (isset($options['content']['image']) ? $options['content']['image'] : '');
++    $files = file_load_multiple(array(), array('uri' => $file_uri));
++    if (!empty($files)) {
++      $file = current($files);
++      $fid = $file->fid;
+     }
+   }
+   $temp = image_field_info();
+@@ -50,7 +52,7 @@ function menuimage_form_menu_edit_item_alter(&$form, &$form_state) {
+         'imagepreview' => array(
+           '#type' => "markup",
+           '#markup' => '<div style="float: left; min-width: 75px; height: 75px; margin: 10px 20px 0px 0px; border: 1px solid #ccc;">' . theme("image", array(
+-            'path' => ($file && $fid != 0 ? $file->uri : $blank),
++            'path' => !empty($file_uri) ? $file_uri : $blank,
+             'height' => 75,
+           )) . '</div>',
+         ),
+@@ -94,12 +96,13 @@ function menuimage_edit_item_submit(&$form, &$form_state) {
+         if (!array_key_exists("content", $options)) {
+           $options['content'] = array();
+         }
+-        $options['content']['image'] = $fid;
++        $options['content']['image'] = '';
+         if ($file = file_load($fid)) {
+           $file->status = FILE_STATUS_PERMANENT;
+           file_save($file);
+           file_usage_add($file, "menuimage", "menu", $mlid);
+         }
++        $options['content']['image'] = $file->uri;
+       }
+       else {
+         if (isset($options['content']['image'])) {

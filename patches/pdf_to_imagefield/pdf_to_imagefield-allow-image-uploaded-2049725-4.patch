@@ -1,0 +1,45 @@
+From 41f40df14ce05589de78662475cbaee0a53b3ebf Mon Sep 17 00:00:00 2001
+From: Dan Morrison <dan@coders.co.nz>
+Date: Thu, 25 Jul 2013 14:01:41 +1200
+Subject:  Dan Morrison: Generated with Drush iq
+
+---
+ pdf_to_image.module |   22 +++++++++++++++++++++-
+ 1 files changed, 21 insertions(+), 1 deletions(-)
+
+diff --git a/pdf_to_image.module b/pdf_to_image.module
+index 5251a5a..ac8625f 100644
+--- a/pdf_to_image.module
++++ b/pdf_to_image.module
+@@ -364,7 +364,27 @@ function pdf_to_image_generate_process($entity_type, $entity, $field_id, $field_
+   if (!empty($field_instance['widget']['settings']['pdf_to_image']['target_field'])) {
+     $target_field = $field_instance['widget']['settings']['pdf_to_image']['target_field'];
+   }
+-  // Should I check if the target field is already populated and stop then?
++
++  // Should check if the target field is already populated and stop.
++  $current_images = field_get_items('node', $entity, $target_field);
++  if (empty($entity->original)) {
++    // Brand new node.
++    // Don't generate an image if the imagefield already has image uploaded in it.
++    if (!empty($current_images[0]['fid'])) {
++      return;
++    }
++  }
++  else {
++    // Updating existing node.
++    // Don't generate a new image if the PDF file didn't change, and the image has not been removed.
++    $new_files = field_get_items('node', $entity, $field_id);
++    $existing_files = field_get_items('node', $entity->original, $field_id);
++    if ($new_files[0]['fid'] == $existing_files[0]['fid'] && ! empty($current_images)) {
++      // File unchanged
++      return;
++    }
++    // Else it's an update, but it does require a remake.
++  }
+
+   if ($target_field && $count) {
+     // Arguments to give to the batch job.
+--
+1.7.4.4
+

@@ -1,0 +1,138 @@
+<!--{if $HelpMessage != "print"}
+<div id="container-message" class="container-message">   
+
+        <div id="MESSAGE">
+            Please make sure you thoroughly check, whether all your information is still valid
+                       and indicate <br>     this by checking the button next to the appropiate fields
+                       <a class="close">[X]</a>
+        </div>            
+    </div>
+{else}
+{/if}-->
+
+
+{if !$mf}
+<div class="helpDialog hidden">
+    <span>If you have any doubts about how to fill in this form or if you need any assistance, you can leave us a message and we will contact you as soon as possible.</span>
+    <br>
+    <div class="error-msg hidden" id="helpError"></div>
+    <label for="email">Your email:</label>
+    <input id="email" type="text" placeholder="your@email.com"/>
+    <br>
+    <label for="message">Your message:</label>
+    <textarea id="message" placeholder="Write here your question"></textarea>
+</div>
+<fieldset>
+    <legend id="BECOME">
+        Why do you want to become a partner?
+        <img id="BECOME_check" class="hidden" src="mvc/view/img/tick_16.png" title="You have validated this section" />
+    </legend>
+    
+    <div class="separatorFieldSet">&nbsp;</div>
+    
+     <!--<p class='promoteText'>Why do you want to be an Official Campaign Partner of the Healthy Workplaces Campaign 2016-17 on ‘Healthy Workplaces for All Ages’?</p> -->
+     <div id="promoteText" class="promoteText marginRightForm">
+        {$attributes.involvement_osh_tobeanocponhwc}
+     </div>
+</fieldset>
+{if $HelpMessage != "print"}
+<div class="helpDiv">
+    <div data-section="BECOME" class="validation{$locked}">I validate the information filled in this section
+        <span class="helpIcon" name="helpIcon" title="Please, check this box in order to validate this section">?</span>
+    </div>
+    <div class="helpSection" style="float: right; margin-right:5%;">
+        <span class="helpIcon" name="helpIcon">?</span>
+        <a class="helpButton" name="helpButton">HELP</a>
+    </div>
+    <div class="separatorSection">&nbsp;</div>
+</div>
+{/if}
+<fieldset>
+    <legend id="INVOLVEMENT">
+        Your support for the campaign
+        <img id="INVOLVEMENT_check" class="hidden" src="mvc/view/img/tick_16.png" title="You have validated this section" />
+    </legend>
+    
+    <div class="separatorFieldSet">&nbsp;</div>
+    
+    <!--<p class='promoteText'>How do you plan to promote and support the campaign via your website and other electronic means  (Intranet, Newsletter, social media etc.)?</p>-->
+    <div id="promoteText" class="promoteText marginRightForm" style="width: 100%">
+        {$attributes.involvement_osh_promoteandsupportcampaign}
+    </div>
+    
+    <div style= "display: inline-block;">
+         <p class='promoteText2'>What other activities do you plan to get substantially involved in the campaign?</p>
+    </div>
+    <p class='promoteText3 promoteText2' style="min-width: 75%;">Please select among the following and describe them briefly.</p>
+
+    <div style="margin-left:30px">
+        {$attributes.involvement_osh_conferenceactivity}
+        {$attributes.involvement_osh_trainingsessions}
+        {$attributes.involvement_osh_partnershipswithotherorganisations}
+        {$attributes.involvement_osh_promotioninthemedia}
+        {$attributes.involvement_osh_bestpractice}
+        {$attributes.involvement_osh_otheractivities}
+    </div>
+    <!--
+    <br>
+    <br>
+
+    <div>
+        {$attributes.involvement_osh_involvedinsteeringcommitteegroup}
+    </div>
+    -->
+
+    <div class="hidden">
+            {$attributes.helpMessage}
+            {$attributes.contact_osh_mainemailAux}
+            {$attributes.company_osh_orgnameAux}
+            {$attributes.contact_osh_maincontactpersonfirstnameAux}
+            {$attributes.contact_osh_maincontactpersonlastnameAux}
+            {$attributes.osh_tobecomeapartnersection}
+            {$attributes.osh_supportforcampaignsection}
+            {$attributes.osh_yourcampaignpledgesection}
+        </div>
+</fieldset>
+{if $HelpMessage != "print"}
+<div class="helpDiv">
+    <div data-section="INVOLVEMENT" class="validation{$locked}">I validate the information filled in this section
+        <span class="helpIcon" name="helpIcon" title="Please, check this box in order to validate this section">?</span>
+    </div>
+    <div class="helpSection" style="float: right; margin-right:5%;">
+        <span class="helpIcon" name="helpIcon">?</span>
+        <a class="helpButton" name="helpButton">HELP</a>
+    </div>
+    <div class="separatorSection">&nbsp;</div>
+</div>
+{/if}
+{else}
+
+{/if}
+<fieldset>
+    <legend id="PLEDGE">
+        Your campaign pledge for Publication on Campaign Website
+        <img id="PLEDGE_check" class="hidden" src="mvc/view/img/tick_16.png" title="You have validated this section" />
+    </legend>
+    
+    <div class="separatorFieldSet">&nbsp;</div>
+
+    <div id="general-text">
+        Please, remember that your Campaign Pledge will be visible on the Campaign Website.
+    </div>
+
+    <div class="marginRightForm">
+        {$attributes.involvement_osh_campaignpledge}
+    </div>
+</fieldset>
+{if $HelpMessage != "print"}
+<div class="helpDiv">
+    <div data-section="PLEDGE" class="validation{$locked}">I validate the information filled in this section
+        <span class="helpIcon" name="helpIcon" title="Please, check this box in order to validate this section">?</span>
+    </div>
+    <div class="helpSection" style="float: right; margin-right:5%;">
+        <span class="helpIcon" name="helpIcon">?</span>
+        <a class="helpButton" name="helpButton">HELP</a>
+    </div>
+    <div class="separatorSection">&nbsp;</div>
+</div>
+{/if}

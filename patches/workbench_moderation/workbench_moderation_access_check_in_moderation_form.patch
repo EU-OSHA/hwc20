@@ -1,0 +1,15 @@
+diff --git a/workbench_moderation.module b/workbench_moderation.module
+index edd40e0..c30fc9e 100644
+--- a/workbench_moderation.module
++++ b/workbench_moderation.module
+@@ -1758,6 +1758,10 @@ function workbench_moderation_get_moderation_links($node, $url_options = array()
+ function workbench_moderation_moderate_form($form, &$form_state, $node, $destination = NULL) {
+   global $user;
+   $form = array();
++  if (!_workbench_moderation_access('update', $node)) {
++    $form['#access'] = FALSE;
++    return $form;
++  }
+ 
+   // Build links to available moderation states.
+   $links = array();
