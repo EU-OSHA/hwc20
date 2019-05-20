@@ -1,0 +1,94 @@
+//rewrite styles for responsive design
+
+@media only screen and (max-width : 320px) {
+/*header*/
+header{
+	&.navbar-default {
+		.campaigns-header {
+			.navbar-header{
+				.row{
+					padding: 0px;
+				}
+				a.pull-left{
+					padding-right: .5em;
+					margin-right: .5em;
+					img{
+						margin-left: 15px;
+						width: 90px;
+					}
+				}
+				a img.pull-left{
+					width: 120px;
+				}
+				img:nth-child(3){
+				}
+				
+				.header-text{
+				    font-size: @size7;
+				    width: 120px;
+				    padding-top: 3em;
+				    padding-left: 0.8em;
+				}
+				.header_top_bar{
+					.region-above-header{
+						display: none;
+					}
+				}
+				.region-header{
+					#block-search-form{
+						margin-top:.5em;
+						.input-group{
+							width: inherit;
+							input{
+								width: 150px;
+								float: right;
+							}
+						}
+					}
+					
+				}
+			}
+		}
+	}
+}
+.xs-menu{
+	#block-search-form{
+	}
+}
+/*FIN header*/
+
+/*home*/
+#block-osha-newsletter-osha-newsletter-subscribe, #block-osha-newsletter-osha-newsletter-image{
+	padding-right: 15px;
+	padding-left: 15px;
+	#edit-email{
+		width: 175px;
+		margin-left: 0px;
+	}
+	.captcha{
+		margin-left: -260px;
+	}
+}
+/*FIN home*/
+
+/*Publications*/
+
+#edit-text{
+	max-width: 215px !important;
+}
+
+#block-osha-newsletter-osha-newsletter-image #campaigns-newsletter-subscribe-form #edit-email{
+
+}
+
+
+
+
+
+}
+
+@media only screen and (max-width : 335px) {
+  .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu.sticky-toolkit{
+    top: 109px;
+  }
+}

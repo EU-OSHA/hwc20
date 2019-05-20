@@ -1,0 +1,13 @@
+name = reCAPTCHA
+description = Verifies if user is a human without necessity to solve a captcha
+core = 7.x
+package = Spam control
+dependencies[] = captcha
+configure = admin/config/people/captcha/recaptcha
+
+; Information added by Drupal.org packaging script on 2015-02-15
+version = "7.x-2.0-alpha1+3-dev"
+core = "7.x"
+project = "recaptcha"
+datestamp = "1424034783"
+

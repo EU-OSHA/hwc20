@@ -1,0 +1,582 @@
+/**
+ * @file
+ * Print styling
+ */
+
+/**
+ * By importing this CSS file as media "all", we allow this print file to be
+ * aggregated with other stylesheets, for improved front-end performance.
+ */
+
+@media print {
+
+/*Header*/
+#navbar{
+	display:block!important;
+}
+
+.navbar-header{
+	display:block!important;
+}
+
+.navbar-header .col-xs-12.col-sm-9{
+	width: 100% !important ;
+	margin-bottom: 20px;
+}
+
+.navbar-header img{
+	width: 75px!important;
+    height: 75px!important;
+    margin-left: 0px!important;
+}
+
+header.navbar-default .navbar-header img:nth-child(3){
+	padding-top: 25px!important;
+    padding-bottom: 15px!important;
+    padding-right: 17px!important;
+}
+header.navbar-default .campaigns-header .row:first-of-type {
+    padding: 0px !important;
+}
+header.navbar-default .campaigns-header .navbar-header a img.pull-left {
+    width: 120px!important;
+    height: auto!important;
+    margin-top: 20px!important;
+    margin-left: 0!important;
+    margin-right: 15px !important;
+}
+
+.header-text{
+	padding-top: 20px!important;
+    padding-left: 20px!important;
+    font-size: 16px!important;
+}
+
+.col-xs-12.col-sm-3.xs-menu{
+	display:none;
+}
+
+.breadcrumb{
+	margin-left: 0px!important;
+    padding-left: 0px!important;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+header.navbar-default .navbar-collapse{
+	display: none !important;
+}
+.main-container h1, .main-container .title-alt , .view-news .views-row{
+	border-bottom: 1px dotted #000;
+}
+
+.node-type-article article .dot-separator.green{
+	border-top: 1px dotted #000;
+}
+
+/*End header*/
+
+/*Home*/
+
+.homepage-slider img{
+	display:none;
+}
+
+html:lang(en) #homepage_slider .views-field-title span {
+	width: 100%!important;
+}
+
+#homepage_slider .views-field-title span{
+	width: 100%!important;
+    float: none!important;
+    padding-left: 25px;
+    text-align: left!important;
+    display: block!important;
+}
+
+#homepage_slider #num_slides > div div a img{
+	display:none;
+}
+
+#homepage_slider #num_slides > div .views-field.views-field-body div{
+	width:100%!important;
+	text-align: left!important;
+	padding-left: 50px!important;
+}
+
+#homepage_slider {
+	height:130px!important;
+}
+
+#homepage_slider #num_slides > div{
+	height:130px!important;
+}
+
+#homepage_slider #num_slides > div .views-field.views-field-body{
+	top:6em!important;
+}
+
+#block-views-news-oshnews-latest, .panels-flexible-column-first, .panels-flexible-column-new-1, .panels-flexible-column-new-main, .tools-and-resources-block{
+	text-align: left!important;
+}
+
+#block-views-news-oshnews-latest, .panels-flexible-column-new-1{
+	border:0px!important;
+}
+
+#block-views-frontpage-events-block, .panels-flexible-column-last, .panels-flexible-column-new-2{
+	text-align: left!important;
+}
+
+#block-views-partners-block-1{
+	display:none;
+}
+
+header.navbar-default{
+	position: relative !important;
+}
+body.toolbar-drawer, body.toolbar, body.logged-in {
+    padding-top: 0px !important;
+}
+
+h1{
+	padding-top: 0px!important;
+	text-align: left!important;
+	margin-left: 15px!important;
+    margin-right: 0px!important;
+    margin-bottom: 0px!important;
+}
+
+h1.page-header{
+	margin-left: 0px!important;
+}
+
+h2{
+	padding-top: 0px!important;
+	text-align: left!important;
+	margin: 0px!important;
+}
+
+a:before{
+ 	display:none;
+}
+
+a:after{
+ 	display:none;
+}
+
+.pager , .back-to-link , video , button , #become-partner-link , .more-link , .kssattr-atfieldname-text{
+	display:none!important;
+}
+
+.footer{
+	display:none;
+}
+
+.node-article .field-name-field-image + .field-name-title-field{
+	position:relative!important;
+	height:auto!important;
+	margin-bottom: 0px!important;
+}
+
+.hwc-share-widget , .img-responsive{
+	display:none;
+}
+
+.icon.recommended-resources{
+	display:none;
+}
+
+.field-name-field-image{
+	display:none;
+}
+
+.col-xs-12.col-sm-9 .pull-left img{
+	display:block!important;
+}
+
+/*Practical tools*/
+#edit-left-column , #search{
+	display:none!important;
+}
+
+.pane-hwc-practical-tool-hwc-practical-tool-listing .node-practical-tool{
+	border-bottom: 1px dotted #000;
+}
+
+/*Publications*/
+
+.publication-item{
+	border-bottom: 1px dotted #000;
+}
+
+.container-fluid .section-introduction .field-type-text-with-summary{
+	padding:0px!important;
+	margin:0px!important;
+}
+
+.section-introduction p{
+	text-align: left!important;
+}
+
+.col.col-md-9.form-wrapper.form-group{
+	margin-left:0px!important;
+	padding-left:0px!important;
+}
+
+#publications_slideshow{
+	display:none;
+}
+
+.publication-item{
+	min-height: 0!important;
+	display: block!important;
+}
+
+/*Publications Detail*/
+
+.panels-flexible-region.panels-flexible-region-container-left.panels-flexible-region-first.col-md-4{
+	display:none;
+}
+
+.node-type-publication .panels-flexible-row-container-main-row{
+	margin-top: 0px!important;
+}
+
+.node-type-publication .pane-node-field-publication-type, .node-type-publication .pane-node-field-country, .node-type-publication .pane-node-field-free, .node-type-publication .pane-node-field-tool-type{
+	margin-bottom: 0px!important;
+	padding:0px!important;
+}
+
+.pane-node-field-file{
+	display: none;
+}
+
+/*Campaign materials*/
+
+.field-name-field-related-documents{
+	display:none;
+}
+
+.page-campaign-materials .view-id-view_campaign_materials .views-row{
+	border-bottom: 1px dotted #000;
+}
+
+/*Infographics*/
+
+.field-name-field-file{
+	display:none;
+}
+
+.view-infographic .views-row{
+	    border-bottom: 1px dotted #000;
+}
+
+/*Press room*/
+
+.node-type-press-release h2{
+	padding-bottom: 15px!important;
+}
+
+.view-press-releases .views-row:first-child{
+	border-top: 1px dotted #000!important;
+}
+
+.view-press-releases .views-row{
+	border-bottom: 1px dotted #000!important;
+}
+
+.page-press-room .section-introduction .field-type-text-with-summary, .page-campaign-materials .section-introduction .field-type-text-with-summary{
+	border-bottom: 1px dotted #000!important;
+}
+
+#mini-panel-press_room_blocks .pane-osha-press-release-osha-press-rel-become-partner ,
+#mini-panel-press_room_blocks .pane-press-contacts ,
+#mini-panel-press_room_blocks .pane-osha-press-release-osha-press-kit
+{
+	text-align: left!important;
+	padding-top: 10px!important;
+	padding-bottom: 10px!important;
+}
+
+#mini-panel-press_room_blocks .pane-press-contacts .views-field-field-press-contact-email{
+	margin-bottom: 10px!important;
+}
+
+#mini-panel-press_room_blocks .pane-press-contacts{
+	border:0px!important;
+	padding-top: 10px!important;
+}
+
+.osha-press-contact-block-link{
+	display:none;
+}
+
+/*News Detail*/
+
+.node-type-news h2{
+	padding-bottom: 15px!important;
+}
+
+/* How to get involved */
+
+.get-involved-section {
+    margin-top: 0px!important;
+}
+
+.get-involved-section .texts .text-block p:before{
+	display:none!important;
+}
+
+.get-involved-section .information-tailored h3:before{
+	display:none!important;
+}
+
+.image-block img{
+	display:none!important;
+}
+
+.get-involved-section .information-tailored .images-section .image-block .link{
+	padding: 0px!important;
+	margin-top: -40px;
+}
+
+/* Become a campaign partner */
+
+.btn-become-a-campaign-partner{
+	display:none!important;
+}
+
+.become-partner .coments{
+	margin-top:0px!important;
+    margin-bottom: 0px!important;
+}
+
+.become-partner .coments .col h2{
+	padding-top: 10px!important;
+	padding-bottom: 10px!important;
+}
+
+.become-partner .coments .col h2:before{
+	display:none!important;
+}
+
+.become-partner .coments .col-2{
+	border:0px!important;
+}
+
+.text-center{
+	text-align: left!important;
+}
+
+.become-partner .partners .partner .partner-image{
+	display:none!important;
+}
+
+.become-partner .see-also .see-also-title p:before{
+	display:none!important;
+}
+
+.become-partner .partners .partner .partner-opinion .quottes-left ,
+.become-partner .partners .partner .partner-opinion .quottes-right
+{
+	background: none!important;
+
+}
+
+.become-partner .partners .partner .partner-name h3{
+	margin-top: 0px!important;
+	margin-bottom: 0px!important;
+}
+
+.become-partner .partners{
+	padding: 0px!important;
+	margin:0px!important;
+}
+
+.more-resources , .more-links , .media-outlet{
+	padding-left: 15px!important;
+}
+
+.page-national-focal-points .main-container > .row div.page_title, .page-official-campaign-partners .main-container > .row div.page_title, .page-campaign-media-partners .main-container > .row div.page_title{
+	height:auto!important;
+	padding:0px!important;
+	margin: 0px!important;
+}
+
+.page-national-focal-points .main-container > .row div.page_title h1, .page-official-campaign-partners .main-container > .row div.page_title h1, .page-campaign-media-partners .main-container > .row div.page_title h1{
+	height:auto!important;
+	padding-top: 26px!important;
+}
+
+/* Newsletter */
+
+.page-node-129 #block-osha-newsletter-osha-newsletter-latest{
+	border-top: 1px dotted #000;
+}
+
+
+.iframe-partnership{
+	display:block!important;
+	position:absolute;
+	top:220px;
+}
+
+.logged-in .iframe-partnership{
+	top:280px;
+}
+
+.iframe-update{
+	display:block!important;
+	position:absolute;
+	top:280px;
+}
+
+.toolbar.overlay-displace-top , .workbench-info-block , .tabs--primary.nav.nav-tabs{
+	display:none;
+}
+
+.top_anchor{
+	display:none!important;
+}
+
+#share-popup-container {
+	display: none;
+}
+
+/*toolkit*/
+.toolkit-page aside{
+	display: none;
+
+}
+.toolkit-page .above_title{
+	display: none !important;
+}
+
+.toolkit-page .region-content.col-md-9{
+	width: 100% !important;
+	padding: 0px !important;
+}
+
+.toolkit-page .start-here .col{
+	margin-bottom: 20px !important;
+	width: 100% !important;
+	display: block;
+	padding: 0px !important;
+}
+
+.toolkit-page .start-here .col .col-inner{
+	padding: 0px !important;
+}
+.toolkit-page .start-here .col h3{
+	text-align: left;
+}
+.toolkit-page .start-here .col h3:before{
+	display: none !important;
+}
+
+.toolkit-page .start-here .col .subtitle{
+	margin-bottom: 0px !important;
+	text-align: left;
+}
+
+.toolkit-page .start-here .col .see-more{
+	display: none;
+}
+
+.toolkit-page #block-views-tool-examples-carousel-popular,
+.toolkit-page #block-views-tool-examples-carousel-block{
+	display: none;
+}
+
+.container-fluid{
+	padding: 0px !important;
+}
+
+.toolkit-page.node-type-tk-article h2{
+	margin-bottom: 30px !important;
+}
+
+.toolkit-page.node-type-tk-article .field-name-field-tk-topics .group-left{
+	display: none !important;
+}
+
+.toolkit-page .main-container .field-name-field-tk-topics .field-items .field-item .node-tk-topic .group-right{
+	padding: 0px;
+    display: block;
+    position: relative;
+    width: 100%;
+    right: inherit;
+    left: inherit;
+}
+
+.toolkit-page .main-container .field-name-field-tk-topics .field-items .field-item .node-tk-topic .group-right .field-name-node-link{
+	display: none !important;
+}
+
+.toolkit-page #block-hwc-toolkit-toolkit-nav,
+.toolkit-page .pane-hwc-toolkit-toolkit-nav{
+	display: none !important;
+}
+
+.toolkit-page .main-container h2{
+	margin-bottom: 30px !important;
+}
+
+.node-type-tk-topic .node-tk-topic .group-left .box-check-content{
+	padding: 0px !important;
+}
+
+.node-type-tk-topic .node-tk-topic .group-left{
+	width: 100% !important;
+}
+.toolkit-page .well{
+	display: none !important;
+}
+
+.nav-up{
+	position: relative !important;
+    top: 0px !important;
+}
+
+.toolkit-page .main-container .view-tk-tools .views-row .views-field-field-image{
+	display: none !important;
+}
+
+.toolkit-page .key-content.col-md-9.col-sm-12{
+	width: 100% !important;
+}
+
+.toolkit-page .main-container .view-tk-tools .views-row{
+	width: 100% !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+.toolkit-page .main-container .view-tk-tools .views-row a{
+	height: inherit !important;
+	text-align: left !important;
+}
+
+.toolkit-page .main-container .node-tk-tool .field-name-field-benefits{
+	padding: 0px !important;
+	margin-bottom: 10px !important;
+}
+
+.page-node-6358 .node-tk-article .group-left{
+	width: 100% !important;
+}
+
+.node-type-tk-example #block-hwc-toolkit-toolkit-go-back a{
+	display: none !important;
+}
+
+.node-type-tk-example .node-tk-example .group-left{
+	width: 100% !important;
+}
+
+.node-type-tk-example .node-tk-example .group-left .field-name-field-download-pdf,
+.node-type-tk-example .node-tk-example .group-left .field-name-field-external-link{
+	display: none !important;
+}
+
+}

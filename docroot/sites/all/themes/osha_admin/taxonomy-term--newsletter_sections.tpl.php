@@ -1,0 +1,1 @@
+../hwc_frontend/templates/taxonomy-term--newsletter_sections.tpl.php

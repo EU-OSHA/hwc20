@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Provides install, updated, and uninstall functions for recaptcha.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function recaptcha_uninstall() {
+  db_delete('variable')
+    ->condition('name', 'recaptcha_%', 'LIKE')
+    ->execute();
+  cache_clear_all('variables', 'cache');
+}
+
+/**
+ * Update variables from 7.x-1.x.
+ */
+function recaptcha_update_7200() {
+  $transaction = db_transaction();
+  try {
+    $site_key = variable_get('recaptcha_public_key');
+    $secret_key = variable_get('recaptcha_private_key');
+
+    // Cleanup all variables
+    db_delete('variable')
+      ->condition('name', 'recaptcha_%', 'LIKE')
+      ->execute();
+    cache_clear_all('variables', 'cache');
+
+    if ($site_key !== NULL) {
+      variable_set('recaptcha_site_key', $site_key);
+    }
+    if ($secret_key !== NULL) {
+      variable_set('recaptcha_private_key', $secret_key);
+    }
+  }
+  catch (Exception $e) {
+    $transaction->rollback();
+    throw $e;
+  }
+}

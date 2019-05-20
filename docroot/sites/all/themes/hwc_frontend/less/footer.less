@@ -1,0 +1,93 @@
+// Insert your styling here.
+.footer{
+	background: @footer-bg-color @footer-bg-image no-repeat left;
+	border: none;
+	padding-bottom: 1em;
+	padding-top: 0;
+	padding-left: @margin;
+	color: @footer-color;
+	min-height: 130px;
+	height: 100%;
+	margin-top: 10px;
+	background-size: cover;
+	overflow: hidden;
+	ul{
+		li{
+			a{
+				color: @footer-color;
+				padding-left: 0;
+			}
+			:hover, :focus{
+				background: none;
+			}
+			::after{
+				content: "|";
+				padding-left: 1em;
+			}
+			&.last ::after{
+				content: "";
+			}
+		}
+			
+	}
+	h3{
+		font-size: @h3-default-size;
+		font-weight: bold;
+		margin-bottom: 20px;
+		float: left;
+		width: 100%;
+	}
+
+	p{
+		float: left;
+	}
+
+	div.on-the-web{
+		display: inline-block;
+		float: right;
+  		margin-right: 40px;
+		text-align: right;
+		a{
+			width: 20px;
+			height: 20px;
+			margin-left: 10px;
+			display: inline-block;
+			img{
+				display: none;
+			}
+		}
+		span:last-child{
+			margin-right: @margin;
+		}
+		.otw-twitter{
+			a{
+				background: url("../images/footer/twitter.png") no-repeat;
+			}
+		}
+		.otw-facebook{
+			a{
+				background: url("../images/footer/facebook.png") no-repeat;
+			}
+		}
+		.otw-youtube{
+			a{
+				background: url("../images/footer/youtube.png") no-repeat;
+			}
+		}
+		.otw-flickr{
+			a{
+				background: url("../images/footer/flickr.png") no-repeat;
+			}
+		}
+		.otw-linkedin{
+			a{
+				background: url("../images/footer/linkedin.png") no-repeat;
+			}
+		}
+		.otw-blogger{
+			a{
+				background: url("../images/footer/blogger.png") no-repeat;
+			}
+		}
+	}
+}

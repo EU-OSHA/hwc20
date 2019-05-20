@@ -1,0 +1,335 @@
+/* Menu dropdown */
+@media only screen and (min-width : 768px) {
+    ul.nav li.dropdown:hover ul.dropdown-menu {
+        display: block;
+    }
+    ul.nav li.dropdown ul.dropdown-menu {
+        margin-top: 0;
+    }
+}
+
+
+.page-practical-tools fieldset.panel, .page-practical-tools fieldset.panel .panel-body {
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+}
+
+#block-search-form .input-group { width: 250px; }
+#block-search-form input { width: 204px; font-size: 1em; float:right; }
+
+div.workbench-info-block {
+  clear:both;
+}
+
+/* Sliders styling */
+
+/* jssor slider bullet navigator skin 12 css */
+.jssorb12 { bottom: 16px; right: 6px; position: absolute; }
+.jssorb12 div, .jssorb12 div:hover, .jssorb12 .av {
+  position: absolute;
+  /* size of bullet elment */
+  width: 16px;
+  height: 16px;
+  background: url(/sites/all/libraries/jquery-slider-master/img/b12.png) no-repeat;
+  overflow: hidden;
+  cursor: pointer;
+}
+.jssorb12 div { background-position: -7px -7px; }
+.jssorb12 div:hover, .jssorb12 .av:hover { background-position: -37px -7px; }
+.jssorb12 .av { background-position: -67px -7px; }
+.jssorb12 .dn, .jssorb12 .dn:hover { background-position: -97px -7px; }
+
+#homepage_slider,
+#publications_slideshow { position: relative; top: 0; left: 0; width: 1138px; height: 230px; overflow: hidden; }
+
+#homepage_slider #num_slides { cursor: move; position: absolute; top: 0; width: 1138px; height: 160px; overflow: hidden; }
+
+.jssorb03 { position: absolute; bottom: 4px; right: 6px; }
+.jssora03l { width: 55px; height: 55px; top: 115px; left: 8px; }
+.jssora03r { width: 55px; height: 55px; top: 115px; right: 8px }
+#publications_slideshow #num_slides { cursor: move; position: absolute; left: 1em; top: 1px; width: 1138px; height: 230px; overflow: hidden; }
+#publications_slideshow .prototype { position: absolute; width: 21px; height: 21px; text-align:center; line-height:21px; color:white; font-size:12px; }
+
+.navbar-header {
+    width: 100%;
+}
+#block-lang-dropdown-language {
+    width: auto !important;
+    float: right;
+    margin: 4px 0px;
+}
+#lang_dropdown_select_language_chosen {
+    width: 150px !important;
+    height: auto !important;
+    border: none;
+    padding: 0;
+    margin: 5px 0;
+    font-size:1em;
+}
+#search-block-form {
+    float: right;
+    width: auto !important;
+    margin: 5px;
+}
+/* Homepage newsletter block START */
+#block-osha-newsletter-osha-newsletter-image {
+    height: 300px;
+    position: relative;
+}
+#block-osha-newsletter-osha-newsletter-image .block-title {
+    /*Endika*/
+    /*position: absolute;*/
+    /*width: 100%;*/
+    color: #ffffff;
+    text-align: center;
+    /*margin: 0;*/
+    /*top: 15px;*/
+}
+#block_newsletter_image_text {
+    /*position: absolute;*/
+    /*width: 100%;*/
+    color: #ffffff;
+    text-align: center;
+    /*top: 60px;*/
+}
+.page-node-129  #join_subscribers img {
+    position: absolute;
+    height: 300px;
+    width: 100%;
+    z-index: -10;
+}
+#views-exposed-form-search-site {
+    margin: 10px 0 0 0;
+}
+#views-exposed-form-search-site .form-type-textfield,
+#views-exposed-form-search-site input,
+#views-exposed-form-search-site button {
+    display: inline-block;
+    margin: 0;
+}
+#views-exposed-form-search-site button {
+    margin-left: -4px;
+    margin-top: -2px;
+}
+#block-osha-newsletter-osha-newsletter-image .captcha {
+    margin-top: 15px;
+}
+#block-osha-newsletter-osha-newsletter-image .form-item-captcha-response label {
+    clear: both;
+}
+#block-osha-newsletter-osha-newsletter-image .form-item-captcha-response {
+    width: 100%;
+    text-align: center;
+}
+#block-osha-newsletter-osha-newsletter-image .form-item-captcha-response input {
+    max-width: 50px;
+}
+#campaigns-newsletter-subscribe-form .captcha {
+    display: none;
+    z-index: 100;
+}
+#block-osha-newsletter-osha-newsletter-image .form-item-security-code {
+    margin-top: 20px;
+}
+/* Homepage newsletter block END */
+
+.dropdown-toggle {
+    display: inline-block;
+    padding: 10px;
+}
+.dropdown-toggle:hover {
+    background-color: #d6d6d6;
+}
+/* Corporate captcha */
+#captcha_0 {
+    display: block !important;
+    margin-top: 5px !important;
+}
+.captchaContainer {
+    position: relative;
+}
+.captcha .help-block{
+    color: white;
+}
+.page-node-129 #captcha_0_readaudio, #captcha_0_refresh {
+    display: inline-block !important;
+}
+.page-node-129 #captcha_0_readaudio img, #captcha_0_refresh img {
+    height: 25px;
+    width: 27px;
+    z-index: 10;
+}
+.page-node-129 #captcha_0_img {
+    height: 55px !important;
+    width: 215px !important;
+}
+.page-node-129 #captcha_0 #security_code {
+    color: #000000;
+}
+/* Captcha for newsletter subscribe on homepage */
+#block-osha-newsletter-osha-newsletter-image #captcha_0 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 257px;
+}
+#block-osha-newsletter-osha-newsletter-image .captchaContainer {
+    width: 257px;
+    height:82px;
+}
+#block-osha-newsletter-osha-newsletter-image #captcha_0_readaudio img,#block-osha-newsletter-osha-newsletter-image #captcha_0_refresh img {
+    position: absolute;
+    right: 0;
+    left: auto;
+}
+#block-osha-newsletter-osha-newsletter-image #captcha_0_readaudio img {
+    top: 0;
+}
+#block-osha-newsletter-osha-newsletter-image #captcha_0_refresh img {
+    top: 43px;
+    height: 37px;
+    width: 38px;
+}
+#block-osha-newsletter-osha-newsletter-image #captcha_0_img {
+    left: 0;
+    z-index: 10;
+}
+.page-node-add-news #views-form-aditional-resources-entityreference-view-widget-1 .form-type-checkbox label {
+    visibility: hidden;
+    font-size: 0;
+    position: relative !important;
+    overflow: visible;
+}
+.page-node-add-news #views-form-aditional-resources-entityreference-view-widget-1 .form-type-checkbox label:before {
+    visibility: visible;
+    font-size: 16px;
+}
+.char-anchor {
+    width: 100%;
+    clear: both;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ddd;
+}
+.hwc-char-link {
+    text-transform: uppercase;
+    padding: 5px 10px;
+}
+.hwc-char-link.disabled {
+    color: #ddd;
+}
+
+#hwc-practical-tool-menu-tools-form div.practical-tool-item ul.links.list-inline{
+    display: none;
+}
+
+.pane-hwc-practical-tool-hwc-practical-tool-listing .access-tool-link, .node-type-practical-tool .access-tool-link {
+    color: #003399;
+    background-color: transparent;
+    font-weight: bold;
+    font-style: italic;
+}
+.pane-hwc-practical-tool-hwc-practical-tool-listing .access-tool-link:before {
+    content: ">";
+    padding-right: 0.0em;
+}
+.node-type-practical-tool .page_title .page-header {
+    display: none;
+}
+.node-type-practical-tool .pane-node-title-field {
+    color: #003399;
+    border: none;
+    text-align: left;
+    font-weight: normal;
+    font-size: 30px;
+    font-style: italic;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+.no-margin-bottom {
+    margin-bottom: 0px;
+}
+
+.webform-client-form-240 .form-text {
+    width: 100%;
+}
+.webform-client-form-240 .webform-component-select .chosen-container {
+    max-width: 100% !important;
+    width: auto !important;
+    display: block !important;
+    padding: 0;
+}
+.webform-client-form-240 .chosen-single {
+    height: 33px;
+    line-height: 33px;
+    border: none !important;
+    background: none !important;
+    border-radius: 0 !important;
+}
+.webform-client-form-240 .chosen-single > div > b {
+    /*put some border to center the icon*/
+    box-sizing: border-box;
+    border-top: 5px solid #ffffff;
+}
+
+.node-external-url .field-name-field-image {
+    float: left;
+    width: auto !important;
+    height: auto !important;
+}
+.node-external-url .field-name-field-image img {
+    width: auto !important;
+    height: auto !important;
+}
+
+.view-display-id-block_2 {
+    display: none;
+}
+
+div#newsletter-subscription-form-wrapper_2 form > div {
+    border-bottom: 1px dotted #749b00;
+    padding-bottom: 2em;
+}
+#newsletter-subscription-form-wrapper_2 {
+    text-align: left;
+    font-weight: bold;
+}
+#newsletter-subscription-form-wrapper_2 form input {
+    color: #003399;
+    border: 1px solid #003399;
+    margin: 0px;
+    font-weight: normal;
+}
+#captcha_1 {
+    display: block !important;
+    margin-top: 5px !important;
+    margin-left: auto !important;
+}
+.footer h2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+.page-practical-tools fieldset.panel, .page-practical-tools fieldset.panel .panel-body {
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+}
+
+div.loader {
+    margin-top: 150px;
+    text-align: center;
+    height: 600px;
+}
+
+div.loader p{
+   padding-top: 1em;
+}
+
+.newsletter-wrapper table td, table th {
+    vertical-align: middle;
+    padding: 7px;
+    border: 0;
+    color: #000;
+}
+

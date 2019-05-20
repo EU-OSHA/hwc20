@@ -1,0 +1,12 @@
+name = Entity Collection Database storage
+description = "Store collections in a database."
+core = 7.x
+package = Entity Collection
+dependencies[] = entity_collection
+files[] = plugins/entity_collection_storage/db.inc
+; Information added by Drupal.org packaging script on 2014-03-05
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "entity_collection"
+datestamp = "1394007508"
+

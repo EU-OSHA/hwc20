@@ -1,0 +1,240 @@
+#edit-changed-wrapper {
+  width: 500px;
+}
+
+#edit-changed-wrapper label,
+#edit-changed-wrapper div.views-widget label:first-child,
+#edit-changed-wrapper div.form-item,
+#edit-changed-wrapper #edit-changed-min,
+#edit-changed-wrapper div.views-widget
+{
+  display: inline;
+}
+
+#edit-changed-wrapper label:first-child {
+  display: block;
+}
+
+
+.view-id-tmgmt_node_selection_view div.sort-by-wrapper {
+  clear: both;
+}
+
+tr.osha_newsletter_section_admin_content {
+  background: #d3e7f4;
+}
+
+
+/* newsletter wrapper */
+.newsletter-wrapper table,
+.newsletter-wrapper tr td:last-child {
+  border: 0px;
+  margin-bottom: 0px;
+}
+
+.newsletter-wrapper .blue-line td,
+.newsletter-wrapper .right-column td,
+.newsletter-wrapper .left-column td {
+  padding: 0px;
+}
+
+.newsletter-wrapper .newsletter-month,
+.newsletter-wrapper .newsletter-number {
+  height: 31px;
+}
+
+.newsletter-wrapper .category-name td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.newsletter-wrapper table td, table th {
+  vertical-align: middle;
+  padding: 7px;
+  border: 0;
+  color: #000;
+}
+
+/* view-id-reporting_view */
+.view-id-reporting_view .view-header{
+  padding: 10px;
+  background-color: #DDDDDD;
+  border-radius: 5px;
+}
+.view-id-reporting_view .view-header h4{
+  color: #606060;
+}
+.view-id-reporting_view .view-header h4 > span{
+  color: #3399FF;
+}
+.view-id-reporting_view .views-exposed-form {
+    border: 1px solid #000;
+    margin-top: 20px;
+}
+.view-id-reporting_view #views-exposed-form-reporting-view-page .views-exposed-widget{
+  margin: 4px 0 4px;
+  text-align: left;
+  padding-left: 10px;
+}
+.view-id-reporting_view #views-exposed-form-reporting-view-page .views-submit-button{
+  padding-left: 20px;
+}
+
+.view-id-reporting_view .view-content{
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+.view-id-reporting_view .view-content h3{
+  padding-left: 30px;
+  font-size: 1.2em;
+}
+.view-id-reporting_view .view-content h3 ~ .views-row{
+  padding: 10px;
+}
+.view-id-reporting_view .view-content h3 ~ .views-row-odd{
+  background-color: #ededed;
+  padding: 10px;
+}
+.view-id-reporting_view .view-content h3 ~ .views-row-even{
+  background-color: #e4e4e4;
+  padding: 10px;
+}
+
+.view-id-reporting_view .view-footer{
+  padding-top: 10px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+ul.primary {
+  height: auto;
+}
+
+#block-system-main .view-events .red{
+  height:15px;
+  width:15px;
+  float:left;
+  margin-right: 1em;
+  background:red;
+  margin-top: 3px;
+}
+
+#block-system-main .view-events .grey{
+  height:15px;
+  width:15px;
+  float:left;
+  margin-right: 1em;
+  background:grey;
+  margin-top: 3px;
+}
+
+#block-system-main .view-events .black{
+  height:15px;
+  width:15px;
+  float:left;
+  margin-right: 1em;
+  background:black;
+  margin-top: 3px;
+}
+
+#block-system-main .view-events .blue{
+  height:15px;
+  width:15px;
+  float:left;
+  margin-right: 1em;
+  background:blue;
+  margin-top: 3px;
+}
+
+#block-system-main .view-events .yellow{
+  height:15px;
+  width:15px;
+  float:left;
+  margin-right: 1em;
+  background:yellow;
+  margin-top: 3px;
+}
+
+#block-system-main .view-events .green{
+  height:15px;
+  width:15px;
+  float:left;
+  margin-right: 1em;
+  background:green;
+  margin-top: 3px;
+}
+
+/*MDR-2215 HWC: "Path: p" line and explanation in the summary and the body of news and events*/
+#edit-body-und-0-value_path_row ,
+#edit-field-summary-und-0-value_path_row ,
+#edit-field-summary-en-0-value_path_row ,
+#edit-body-en-0-value_path_row{
+  display: none;
+}
+
+#edit-body-und-0-format > div.description , 
+#edit-field-summary-und-0-format > div.description,
+#edit-field-summary-en-0-format > div.description,
+#edit-body-en-0-format > div.description {
+  padding-left: 1em;
+}
+
+#block-system-main .view-admin-events .red {
+  height: 15px;
+  width: 15px;
+  float: left;
+  margin-right: 1em;
+  background: red;
+  margin-top: 3px;
+}
+
+#block-system-main .view-admin-events .grey {
+  height: 15px;
+  width: 15px;
+  float: left;
+  margin-right: 1em;
+  background: grey;
+  margin-top: 3px;
+}
+
+#block-system-main .view-admin-events .black {
+  height: 15px;
+  width: 15px;
+  float: left;
+  margin-right: 1em;
+  background: black;
+  margin-top: 3px;
+}
+
+#block-system-main .view-admin-events .blue {
+  height: 15px;
+  width: 15px;
+  float: left;
+  margin-right: 1em;
+  background: blue;
+  margin-top: 3px;
+}
+
+#block-system-main .view-admin-events .yellow {
+  height: 15px;
+  width: 15px;
+  float: left;
+  margin-right: 1em;
+  background: yellow;
+  margin-top: 3px;
+}
+
+#block-system-main .view-admin-events .green {
+  height: 15px;
+  width: 15px;
+  float: left;
+  margin-right: 1em;
+  background: green;
+  margin-top: 3px;
+}
+
+#block-system-main .views-field-field-color {
+  visibility: hidden;
+  display: none;
+}

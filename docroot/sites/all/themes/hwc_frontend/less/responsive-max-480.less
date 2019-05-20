@@ -1,0 +1,493 @@
+//rewrite styles for responsive design
+
+@media only screen and (max-width : 480px) {
+
+#colorbox{
+	margin-top: -3em;
+}
+
+#colorbox, #cboxWrapper{
+	height: 475px!important;
+	
+}
+
+#cboxTitle{
+	position: relative!important;
+}
+
+#cboxContent{
+	height: 400px!important;
+}
+	
+
+.btn-default-hwc{
+	display: block;
+    margin: 0 auto;
+}
+
+.page-get-your-certificate .hwc-share-widget {
+	ul{
+		overflow: hidden;
+	} 
+	
+	li{
+		float: none !important;
+		display: inline-block;
+		vertical-align: initial;
+	}
+	li[class="pull-right"]{
+		margin-left: 0px;
+	}
+}
+
+.become-partner .partners .partner .partner-name h3{
+	font-size: 27px;
+}
+
+/*Header*/
+header{
+	&.navbar-default {
+		.campaigns-header {
+			.navbar-header{
+				.row{
+					padding: 0px;
+				}
+				a.pull-left{
+					padding-right: .5em;
+					margin-right: .5em;
+					img{
+						margin-left: 15px;
+						width: 95px;
+					}
+				}
+				a img.pull-left{
+					width: 125px;
+					margin-top: 45px; 
+				}
+				img:nth-child(3){
+					width: 40px;
+				    padding: 63px 0 0;
+				}
+				
+				.header-text{
+				    font-size: @size7;
+				    width: 120px;
+				    padding-top: 3em;
+				    padding-left: 0.8em;
+				}
+				.header_top_bar{
+					.region-above-header{
+						display: none;
+					}
+				}
+				.region-header{
+					#block-search-form{
+						margin-top:0.5em;
+						.input-group{
+							width: inherit;
+							input{
+								width: 150px;
+								float: right;
+								height: 25px;
+							}
+							button{
+								height: 25px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.xs-menu{
+    margin-top: 1em;
+	#block-search-form{
+		display:block;
+		float: left;
+		padding-left: 0;
+		margin-left: 0;
+		width: 180px;
+	}
+	#block-menu-menu-header-login{
+		display:block;
+		clear: both;
+	}
+}
+/*FIN header*/
+
+.front{
+	//slider
+	#block-views-frontpage-slider-block{
+		margin-left: 0px;
+		margin-right: 0px;
+		img{
+			right: -1221px !important;
+			transform: scale(1.5) !important;
+    		-webkit-transform: scale(1.5) !important;
+    		-moz-transform: scale(1.5) !important;
+		}
+	}
+	#homepage_slider{
+		margin-bottom: 0;
+		height: 356px !important;
+		img{
+			display: none !important;
+		}
+		#num_slides{
+			> div{
+				background: url(../images/content/mobile-top-background.png) no-repeat -200px 0px !important;
+			}
+		}
+		.views-field-title{
+			> span{
+				font-size: 22px !important;
+			}
+			.line-1{
+				line-height: 27px;
+			}
+		}
+	}
+}
+.page-node-129{
+	.pane-osha-newsletter-osha-newsletter-subscribe-extra{
+		#subscribe-extra{
+			#edit-subscribe-details{
+				#edit-submit{
+					display: block;
+					position: inherit;
+					margin: 10px auto;
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+/*container*/	
+ /*home*/
+#block-osha-newsletter-osha-newsletter-image{
+	#campaigns-newsletter-subscribe-form, 
+	#campaigns-newsletter-subscribe-captcha-form{
+		>div{
+			display: block;
+		}
+		#edit-email{
+			width: 100%;
+		}
+		button{
+			width: 100%;
+			position: inherit;	
+			left: 0;
+			margin: 1em 0;		
+		}
+	}
+	#block_newsletter_image_text{
+		.form-group{
+			display: block;
+			width: 100%;
+		}	
+	}
+}
+#block-osha-newsletter-osha-newsletter-subscribe, 
+#block-osha-newsletter-osha-newsletter-image{
+	form{
+		input{
+    		width: 100%;
+		}
+	}
+
+}
+.front #campaigns-newsletter-subscribe-form .checkbox input[type=checkbox]:checked:before, 
+.front #campaigns-newsletter-subscribe-captcha-form .checkbox input[type=checkbox]:checked:before {
+    margin-right: 0;
+    height: 16px;
+    left: -19px;
+    top: 1px;
+}
+/*FIN home*/
+
+/*news*/
+//detail
+.node-type-news{
+	.field-type-image {
+		img {
+	    	padding: 0 3em;
+		}
+	}
+}
+/*end news*/
+
+/*create events & news*/
+.page-node-add-events, .page-node-add-news{
+	.node-events-form, .node-news-form{
+		.field-name-field-related-documents{
+			.form-file{
+				max-width: 200px !important;
+			}
+		}
+		.form-managed-file{
+			.image-widget-data{
+				input{
+					max-width: 64%;
+				}
+				span.input-group-btn{
+					float: left;
+				    display: block !important;
+				    width: inherit;
+				    height: 14px;
+					width: 36%;
+				    button{
+				    	max-width: 100%;
+				    	span{
+				    		height: initial !important;
+				    	}
+				    }
+				}
+			}
+		}
+	}
+}
+/*fin create events & news*/
+	
+.view-mode-full .hwc-share-widget{
+	ul{
+		overflow: hidden;
+		.share-this-article{
+			top: -5px;
+		}
+
+		li[id*="facebook-share-button-"]{
+		    //display: block; 
+		}
+		li[id*="facebook-like-button-"]{
+		    //display: block; 
+		}
+		li[id*="twitter-share-button-"]{	
+		   //display: block; 
+		   margin-top: 5px;
+		}
+		li[id*="linked-in-"]{
+		  //display: block; 
+		  margin-top: 5px;
+		}
+		li[class="pull-right"]{
+		   display: inline-block;
+		   //margin-top:-25px;
+		   margin-top: 5px;
+		   vertical-align: bottom;
+		}
+		.label.label-rss.pull-right{
+			display: inline-block;
+			//margin-left: -34px;
+    		//margin-top: -2px !important;
+    		float: none !important;
+    		margin-top: 0px;
+		}
+		.pull-right{
+			float: none !important;
+		}
+	}
+}
+
+.hwc-share-widget{
+	ul{
+		.share-this-article{
+			top: -5px;
+			display: block;
+			clear: both;
+		}
+	}
+}
+/*gallery*/
+.page-media-center-photo-gallery, .view-photo-gallery, .page-photo-gallery{
+	.view-content{
+		margin-left: @margin-movil;
+		margin-right: 0;
+		.views-row[class*="col-"]{
+			margin-bottom: 1em;
+			margin-right:1em;
+			width: 98%;
+			&:nth-child(2n+1), &:nth-child(2n){
+				margin-right:1em;
+				padding: 0px;
+				//padding-right: @margin-movil;
+			}
+		}
+	}
+}
+/*End gallery*/
+.node-type-flickr-gallery,
+.node-type-hwc-gallery{
+	.hwc-share-widget{
+		ul{
+			left: 0px;
+			li{
+				display: inline-block !important;
+				margin-top: 0px !important;
+				margin-bottom: 5px;
+				margin-left: 0px !important;
+			}
+			li.label{
+				display: inline-block !important;
+				margin-bottom: 0px;
+				vertical-align: top;
+			}
+		}
+	}
+}
+
+/*Focal points*/
+
+.view-display-id-fop img{
+	width: 78px;
+	height:48px;
+}
+/*FIn container*/
+
+/*Oficial campaigns partners*/
+
+.view-id-partners_list .quicktabs-views-group{
+	float:none;
+}
+
+/* Videos */
+
+.video-iframe{
+	width:320px!important;
+	height:210px!important;
+}
+
+/* Media partners */
+
+.view-id-partners_list .quicktabs-views-group, .view-id-partners_list .views-row{
+	float:none;
+	width: 100%;
+	border-right: 1px dotted #749b00;
+	.views-field-field-logo{
+		margin: 0 auto;
+	}
+
+}
+
+button.navbar-toggle.active{
+	position: absolute;
+    top: 0px;
+    right: 0em;
+}
+
+header.navbar-default .campaigns-header .navbar-header .region-header #block-lang-dropdown-language, header.navbar-default .campaigns-header .navbar-header .region-header #block-menu-menu-header-login ~ #block-lang-dropdown-language{
+	bottom: -1px;
+	position: relative;
+	float: left;
+    //padding-left: 1em;
+}
+
+.node-type-article .hwc-share-widget {
+	li{
+		display: inline-block!important;
+	}
+
+	.share-this-article{
+		display: block;
+		width: 100%;
+	}
+}
+
+
+.pane-node-field-access-tool-link .field-label-inline .field-label, .pane-node-field-access-tool-link-fc .field-label-inline .field-label, .pane-node-field-external-urls .field-label-inline .field-label{
+	width: 100%;
+}
+
+/*Fix DA language*/
+.main-container h1 {
+    font-size: 1.60em;
+}
+
+.main-container h2{
+	font-size: 1.45em!important;
+}
+
+.employers-section .case-studies .one-resource h4, .employers-section .other-practical-tools .one-resource h4, .employers-section .publications .one-resource h4{
+	font-size:1.4em;
+}
+
+.pane-hwc-practical-tool-hwc-practical-tool-listing #edit-content .form-type-radios.form-item-sort div{
+	display: block;
+}
+
+.pane-hwc-practical-tool-hwc-practical-tool-listing #edit-content .form-type-radios.form-item-sort label{
+	float: none;
+}
+
+.get-involved-section .information-tailored h3{
+	font-size:1.95em;
+}
+
+/*napo film*/
+.page-node-160{
+	#block-views-napo-film-carousel-slidehow{
+		margin-bottom: 40px;
+		height: 249px;
+		#napo_films{
+			width: 100%;
+			max-width: 1170px;
+			margin: 0 auto;
+			height: 214px !important;
+			> div{
+				height: 214px !important;
+				position: relative !important;
+			}
+			.napo_films{
+				height: 265px;
+
+				.num_slides{
+					font-size: 16px;
+					//position: inherit !important;
+					overflow: hidden !important;
+					margin: 0 auto;
+					width: 100%;
+					height: 301px;
+					>div{
+						//position: relative !important;
+						height: auto !important;
+						.napo-film-title{
+						    display: none;
+						}
+						.video-js{
+							max-width: 1000px;
+						    margin: 0 auto;
+						    width: 100%;
+						    height: 171px;
+						}
+						.hwc-share-widget{
+
+						}
+					}
+				}
+				.jssora03l, .jssora03r{
+					top: 50px;
+				}
+			}
+		}
+	}
+}
+
+}
+
+@media only screen and (max-width : 500px) {
+
+.pane-hwc-good-practice-exchange-gpep-links{
+	.hwc-gpep-links{
+		.partners-documents{
+			margin-right: 0px;
+			margin-bottom: 2em;
+			width: 100% !important;
+		}
+		.communications{
+			margin-left: 0px;
+			width: 100% !important;
+		}
+	}
+}
+
+}

@@ -1,0 +1,1 @@
+../hwc_frontend/templates/node--newsletter_item.tpl.php

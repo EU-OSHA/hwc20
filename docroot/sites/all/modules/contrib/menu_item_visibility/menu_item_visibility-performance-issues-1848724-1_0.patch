@@ -1,0 +1,59 @@
+diff --git a/menu_item_visibility.module b/menu_item_visibility.module
+index e468220..5c31388 100644
+--- a/menu_item_visibility.module
++++ b/menu_item_visibility.module
+@@ -44,12 +44,22 @@ function menu_item_visibility_translated_menu_link_alter(&$item, $map) {
+  * Load all visibility data for a menu link.
+  */
+ function menu_item_visibility_load($mlid) {
+-  $visibility = array();
+-  if (!empty($mlid)) {
+-    $visibility['roles'] = db_query("SELECT rid FROM {menu_links_visibility_role} WHERE mlid = :mlid", array(':mlid' => $mlid))->fetchCol();
+-    module_invoke_all('menu_item_visibility_load', $visibility, $mlid);
+-  }
+-  return $visibility;
++
++  $visibilities = &drupal_static(__FUNCTION__);
++  $configured_mlids = menu_item_visibility_get_all_configured_mlids();
++
++  // Only hit the db if we haven't already and the given mlid has custom role
++  // visibility settings configured.
++  if (empty($visibilities[$mlid]) && in_array($mlid, $configured_mlids)) {
++
++    $visibilities[$mlid] = array();
++    if (!empty($mlid)) {
++      $visibilities[$mlid]['roles'] = db_query("SELECT rid FROM {menu_links_visibility_role} WHERE mlid = :mlid", array(':mlid' => $mlid))->fetchCol();
++      module_invoke_all('menu_item_visibility_load', $visibilities[$mlid], $mlid);
++    }
++   }
++
++  return empty($visibilities[$mlid]) ? array() : $visibilities[$mlid];
+ }
+ 
+ /**
+@@ -134,3 +144,25 @@ function menu_item_visibility_form_menu_edit_item_alter(&$form, &$form_state) {
+     '#description' => t('Show this menu link only for the selected role(s). If you select no roles, the menu link will be visible to all users.'),
+   );
+ }
++
++/**
++ * Gets a list of all mlids that have been configured with custom settings.
++ *
++ * @return array
++ *   An array of mlids that have custom visibility settings.
++ */
++function menu_item_visibility_get_all_configured_mlids() {
++
++  $mlids = &drupal_static(__FUNCTION__);
++
++  if (empty($mlids)) {
++
++    $mlids = db_select('menu_links_visibility_role', 'r')
++              ->distinct()
++              ->fields('r', array('mlid'))
++              ->execute()
++              ->fetchCol('mlid');
++  }
++
++  return $mlids;
++}

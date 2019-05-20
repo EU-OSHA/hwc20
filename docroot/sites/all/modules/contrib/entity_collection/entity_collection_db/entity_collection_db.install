@@ -1,0 +1,81 @@
+<?php
+/**
+ * @file
+ * Install-related things for entity collection.
+ */
+
+/**
+ * Implements of hook_schema().
+ */
+function entity_collection_db_schema() {
+  $schema['entity_collection_storage'] = array(
+    'fields' => array(
+      'rsid' => array(
+        'description' => 'Serial ID',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+      ),
+      'eid' => array(
+        'description' => 'The entity id',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'name' => array(
+        'description' => 'Machine-readable name for a entity_collection.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+      ),
+      'entity_type' => array(
+        'description' => 'The entity type.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'entity' => array(
+        'description' => 'An entity object.',
+        'type' => 'blob',
+        'not null' => FALSE,
+        'size' => 'big',
+      ),
+      'position' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Position.',
+      ),
+      'parent' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'default' => '',
+        'description' => 'The parent, if any.',
+      ),
+      'depth' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'The parent, if any.',
+      ),
+      'style' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'description' => 'The styles to be used to render this row',
+      ),
+      'contexts' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'description' => 'The contexts used.'
+      ),
+    ),
+    'primary key' => array('rsid'),
+    'indexes' => array(
+      'parent' => array('parent'),
+      'name' => array('name'),
+      'eid' => array('eid'),
+    ),
+  );
+  return $schema;
+}
