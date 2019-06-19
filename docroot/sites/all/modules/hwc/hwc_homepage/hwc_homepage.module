@@ -73,6 +73,13 @@ function hwc_homepage_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['article_nav'] = array(
+    'info' => t('Article navigation'),
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   return $blocks;
 }
 
@@ -148,6 +155,54 @@ function hwc_homepage_block_save($delta = '', $edit = array()) {
  */
 function hwc_homepage_block_view($delta = '') {
   $block = array();
+
+  if ($delta == 'article_nav') {
+    $all_data = menu_tree_all_data('main-menu');
+    $active_trail = menu_get_active_trail();
+    $last = end($active_trail);
+    if ($last['menu_name'] != 'main-menu') {
+      $last = menu_get_item();
+      $last['p1'] = '';
+      $last['p2'] = '';
+      $last['link_path'] = $last['path'];
+    }
+    $prev = [];
+    $next = [];
+    $found = FALSE;
+    foreach ($all_data as $menu) {
+      if ($last['p1'] && $menu['link']['mlid'] != $last['p1']) {
+        continue;
+      }
+      foreach ($menu['below'] as $sub_menu) {
+        if ($sub_menu['link']['hidden']) {
+          continue;
+        }
+        if ($sub_menu['link']['mlid'] == $last['p2']) {
+          $found = TRUE;
+          continue;
+        }
+        if ($sub_menu['link']['link_path'] == $last['link_path']) {
+          $found = TRUE;
+          continue;
+        }
+        if (!$found) {
+          $prev = $sub_menu['link'];
+        }
+        if ($found && !$next) {
+          $next = $sub_menu['link'];
+          break;
+        }
+      }
+      if ($found) {
+        break;
+      }
+    }
+    $markup = theme('article_navigation', ['prev' => $prev, 'next' => $next]);
+    $block['content'] = array(
+      '#type' => 'markup',
+      '#markup' => $markup,
+    );
+  }
   if ($delta == 'splash_title_banner_countdown') {
     drupal_add_js(drupal_get_path('module', 'hwc_homepage') . '/js/moment.min.js');
     drupal_add_js(drupal_get_path('module', 'hwc_homepage') . '/js/splash-page.js');
@@ -245,6 +300,12 @@ function hwc_homepage_block_view($delta = '') {
  */
 function hwc_homepage_theme() {
   return array(
+    'article_navigation' => array(
+      'variables' => array(
+        'nid' => NULL,
+      ),
+      'template' => 'templates/hwc_article_navigation',
+    ),
     'hwc_homepage_title_banner_countdown' => array(
       'variables' => array('data' => NULL),
       'template' => 'templates/hwc_homepage_title_banner_countdown',

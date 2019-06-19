@@ -12,6 +12,35 @@ function hwc_homepage_default_fe_block_settings() {
 
   $export['version'] = '2.0';
 
+  $export['hwc_homepage-article_nav'] = array(
+    'cache' => 8,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'article_nav',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'hwc_homepage',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'hwc_frontend',
+        'weight' => 19,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '<none>',
+    'visibility' => 0,
+  );
+
   $export['hwc_homepage-splash_browsing_content'] = array(
     'cache' => 8,
     'css_class' => '',

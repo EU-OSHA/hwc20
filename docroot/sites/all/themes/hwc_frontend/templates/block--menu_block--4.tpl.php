@@ -9,7 +9,9 @@
 ?>
 <?php
 $node = menu_get_object();
-if (isset($node) && isset($node->field_article_type) && $node->field_article_type[LANGUAGE_NONE][0]['tid'] != HWC_INTRODUCTION_ARTICLE) {
+if (isset($node) && isset($node->field_article_type) && $node->field_article_type[LANGUAGE_NONE][0]['tid'] == HWC_INTRODUCTION_ARTICLE) {
+}
+else {
   ?>
     <div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
       <?php print $content; ?>
