@@ -110,3 +110,10 @@ function hwc_homepage_update_7014() {
 function hwc_homepage_update_7015() {
   variable_set('trim_titles_max_len', 100);
 }
+
+/**
+ * .
+ */
+function hwc_homepage_update_7016() {
+  features_revert_module('hwc_homepage');
+}
