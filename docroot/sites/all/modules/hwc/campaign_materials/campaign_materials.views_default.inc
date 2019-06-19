@@ -37,6 +37,26 @@ function campaign_materials_views_default_views() {
   $handler->display->display_options['style_options']['row_class'] = 'row';
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'teaser';
+  /* Relationship: Nodequeue: Queue */
+  $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
+  $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
+  $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
+  $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
+    'splash_campaign_material' => 'splash_campaign_material',
+    'publication_queue' => 0,
+    'featured_press_release' => 0,
+    'press_contacts_queue' => 0,
+    'featured_partner_frontpage' => 0,
+    'featured_gallery' => 0,
+    'good_practice_exchange' => 0,
+    'good_practice_exchange_intro' => 0,
+    'homepage_about_the_topic' => 0,
+    'most_popular_tools_and_examples' => 0,
+    'tools_and_examples' => 0,
+    'splash_banners' => 0,
+  );
   /* Field: Field: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -130,6 +150,56 @@ function campaign_materials_views_default_views() {
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
+
+  /* Display: Splash page */
+  $handler = $view->new_display('block', 'Splash page', 'splash');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Download Campaign resources';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['title']['element_wrapper_class'] = 'box-before-title';
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+  /* Field: Content: Summary */
+  $handler->display->display_options['fields']['field_summary']['id'] = 'field_summary';
+  $handler->display->display_options['fields']['field_summary']['table'] = 'field_data_field_summary';
+  $handler->display->display_options['fields']['field_summary']['field'] = 'field_summary';
+  $handler->display->display_options['fields']['field_summary']['label'] = '';
+  $handler->display->display_options['fields']['field_summary']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_summary']['element_wrapper_class'] = 'materials_teaser';
+  $handler->display->display_options['fields']['field_summary']['settings'] = array(
+    'field_formatter_class' => '',
+  );
+  /* Field: Content: Files */
+  $handler->display->display_options['fields']['field_related_documents']['id'] = 'field_related_documents';
+  $handler->display->display_options['fields']['field_related_documents']['table'] = 'field_data_field_related_documents';
+  $handler->display->display_options['fields']['field_related_documents']['field'] = 'field_related_documents';
+  $handler->display->display_options['fields']['field_related_documents']['label'] = '';
+  $handler->display->display_options['fields']['field_related_documents']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_related_documents']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_related_documents']['type'] = 'file_download_link';
+  $handler->display->display_options['fields']['field_related_documents']['settings'] = array(
+    'text' => 'Download',
+    'field_formatter_class' => 'download-button',
+  );
+  $handler->display->display_options['fields']['field_related_documents']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_related_documents']['multi_type'] = 'ul';
   $translatables['view_campaign_materials'] = array(
     t('Master'),
     t('> See more'),
@@ -145,8 +215,11 @@ function campaign_materials_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
+    t('queue'),
     t('Block'),
     t('more'),
+    t('Splash page'),
+    t('Download Campaign resources'),
   );
   $export['view_campaign_materials'] = $view;
 

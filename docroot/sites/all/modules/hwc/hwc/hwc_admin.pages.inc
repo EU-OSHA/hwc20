@@ -18,6 +18,13 @@ function hwc_admin_config_form() {
     '#description' => 'URIs that exists in current website but you want to redirect to the previous websites. One uri per line in format  path/to/page|redirect/to/full/url',
   );
 
+
+  $form['splash_mode'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Splash mode'),
+    '#default_value' => variable_get('splash_mode', FALSE),
+  );
+
   $form['disable_masquerading_notifications'] = array(
     '#type' => 'checkbox',
     '#title' => t('Disable notifications when acts as a partner'),
@@ -230,4 +237,64 @@ function hwc_admin_config_form_submit($form, &$form_state) {
       ]
     ));
   }
+}
+
+function hwc_splash_mode_form($form, &$form_state) {
+  if (variable_get('splash_mode', FALSE)) {
+    $mode = 'Splash mode ON!';
+  }
+  else {
+    $mode = 'Splash mode OFF!';
+  }
+  $form['mode'] = array(
+    '#markup' => '<h2>' . $mode . '</h2>',
+  );
+  $form['test'] = array(
+    '#type' => 'submit',
+    '#value' => t('Toogle splash mode'),
+  );
+  return $form;
+}
+
+function hwc_splash_mode_form_submit($form, &$form_state) {
+  $splash_blocks = array(
+    'splash_browsing_content',
+    'splash_download_news_campaign',
+    'splash_title_banner_countdown',
+  );
+  $home_blocks = array(
+    'frontpage_slider-block',
+    'front_page_blocks_set',
+    'hwc_homepage_tools_and_resources',
+    'hwc_homepage_topics',
+    'osha_newsletter_image',
+    'partners-block_1',
+  );
+
+  if (variable_get('splash_mode', FALSE)) {
+    variable_set('splash_mode', FALSE);
+    drupal_set_message('Splash mode turn off!');
+    $enable = $home_blocks;
+    $disable = $splash_blocks;
+  }
+  else {
+    variable_set('splash_mode', TRUE);
+    drupal_set_message('Splash mode turn on!');
+    $enable = $splash_blocks;
+    $disable = $home_blocks;
+  }
+
+  db_update('block')
+    ->fields(array(
+      'status' => 0,
+    ))
+    ->condition('delta', $disable, 'IN')
+    ->execute();
+  db_update('block')
+    ->fields(array(
+      'status' => 1,
+    ))
+    ->condition('delta', $enable, 'IN')
+    ->condition('theme', 'hwc_frontend')
+    ->execute();
 }

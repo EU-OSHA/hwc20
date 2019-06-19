@@ -1,0 +1,55 @@
+header.navbar-default .campaigns-header .navbar-header .header-text {
+	max-width: 310px;
+}
+
+header.navbar-default .campaigns-header #block-menu-menu-header-login a {
+    background: #003399 url(../images/header/login.png) no-repeat 7px center;
+    border-radius: 5px;
+    height: 26px;
+    padding-top: 4px;
+}
+
+header.navbar-default .campaigns-header #block-menu-menu-header-login a:hover {
+    opacity: 0.8;
+}
+
+header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language #lang_dropdown_select_language_chosen {
+    background-color: #d9e996;
+    border: 1px solid #003399;
+    border-radius: 5px;
+    padding-left: 0.5em;
+}
+
+header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language #lang_dropdown_select_language_chosen > .chosen-single span, header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language select span{
+	padding-top: 2px;
+}
+
+header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language:after {
+  background: url(../images/header/select.png) 5px 11px no-repeat transparent;
+
+}
+
+#block-search-form input {
+    width: 204px;
+    height: 34px;
+    font-size: 1em;
+    float: right;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+header.navbar-default .campaigns-header .navbar-header #block-search-form button{
+	border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-bottom: 8px;
+    height: 34px;
+}
+
+header.navbar-default .campaigns-header .navbar-header #block-search-form button:hover{
+    opacity: 0.8;
+}
+
+.region-above-header.region a#text_resize_increase,
+.region-above-header.region a#text_resize_decrease{
+    color:#91afd9;
+}

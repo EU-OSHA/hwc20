@@ -927,3 +927,39 @@ function hwc_update_7059() {
 function hwc_update_7060() {
   features_revert(['hwc' => ['views_view']]);
 }
+
+/*
+ * .
+ */
+function hwc_update_7061() {
+  $map = [
+    1123 => 'About the topic',
+    1372 => 'Tools and publications',
+    1120 => 'Get involved',
+    1119 => 'Campaign partners',
+    1121 => 'Media centre',
+  ];
+  foreach ($map as $mid => $title) {
+
+    $node = new stdClass();
+    $node->type = 'article';
+    $node->title = $title;
+    node_object_prepare($node);
+    $node->field_summary['en']['0']['value'] = $title;
+    $node->language = 'en';
+    $node->uid = 1;
+    $node->status = 1;
+    $node->workbench_access = 'section';
+    $node->workbench_moderation_state_new = 'published';
+    $node->field_article_type[LANGUAGE_NONE][0]['tid'] = HWC_INTRODUCTION_ARTICLE;
+    $node->field_publication_date[LANGUAGE_NONE][0] = [
+      'value' => format_date(strtotime('now'), 'custom', 'Y-m-d H:i:s', 'Europe/Madrid'),
+      'timezone' => 'Europe/Madrid',
+      'timezone_db' => 'Europe/Madrid',
+    ];
+    node_save($node);
+    $menu_link = menu_link_load($mid);
+    $menu_link['link_path'] = 'node/' . $node->nid;
+    menu_link_save($menu_link);
+  }
+}

@@ -292,7 +292,7 @@ jQuery(document).ready(function() {
 	
 	//Fixing responsive menu to iPhone
 	jQuery(document).ready(function() {
-		jQuery(".dropdown-toggle").dropdown();
+		
 		//Hover for download episodes on iPad
 		document.addEventListener("touchstart", function() {},false);
 	});
@@ -364,7 +364,7 @@ jQuery(document).ready(function() {
 	    jQuery(this).removeClass('x onX').val('').change();
 	});
 	 */
-	 jQuery("#edit-search-block-form--2 ,#osha-publication-menu-publications-form input, #osha-publication-menu-case-studies-form input, #edit-search-api-views-fulltext-wrapper input").addClear();
+	 
 	/************************** FUNCTIONS *******************************/
 
 	function funcionesDesktop () {

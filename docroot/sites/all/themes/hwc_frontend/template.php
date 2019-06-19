@@ -34,17 +34,19 @@ function hwc_frontend_menu_link__menu_block($variables) {
   if (!$render_img) {
     return theme_menu_link($variables);
   }
-  $output_link = l($element['#title'], $element['#href'], $element['#localized_options']);
-  $output_image = "";
-  if (!empty($element['#localized_options']['content']['image'])
-    && $image_url = file_create_url($element['#localized_options']['content']['image'])) {
-    $image = '<img src="' . $image_url . '"/>';
-    $output_image = l($image, $element['#href'], array('html' => TRUE));
+
+  if (!empty($element['#localized_options']['content']['image']) && $image_url = file_create_url($element['#localized_options']['content']['image'])) {
+    $text = '<span class="content-img"><img src="' . $image_url . '"/></span><h2>' . $element['#title'] . '</h2><p>' . $element['#title'] . '</p>';
+    $output_link = l($text, $element['#href'], array('html' => TRUE));
   }
-  return '<li' . drupal_attributes($element['#attributes']) . '>
-    <div class="introduction-title">' . $output_link . '</div>
-    <div class="introduction-image">' . $output_image . '</div>
-    </li>';
+  else {
+    $output_link = l($element['#title'], $element['#href'], $element['#localized_options']);
+  }
+  $text = '<span class="content-img"><img src="' . $image_url . '"/></span><h2>' . $element['#title'] . '</h2><p>' . $element['#title'] . '</p>';
+  $output_link = l($text, $element['#href'], array('html' => TRUE));
+
+  $element['#attributes']['class'][] = 'content-box-sub';
+  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output_link . '</li>';
 }
 /**
  * Overrides theme_menu_link().
@@ -122,8 +124,11 @@ function hwc_frontend_preprocess_html(&$vars) {
     }
   }
 
+  if (drupal_is_front_page() && variable_get('splash_mode', FALSE)) {
+    $vars['classes_array'][] = 'splash-page';
+  }
   if (!empty($vars['is_front'])) {
-    $vars['head_title'] = t('Healthy Workplaces MANAGE DANGEROUS SUBSTANCES 2018-19');
+    $vars['head_title'] = t('Healthy Workplaces LIGHTEN THE LOAD 2018-19');
   }
   if (arg(0) . arg(2) == 'nodeedit') {
     if ($n->type == 'news' || $n->type == 'events') {
@@ -180,7 +185,21 @@ function hwc_get_views_class_map() {
   return $views_map;
 }
 
+function hwc_frontend_css_alter(&$css) {
+  if (drupal_is_front_page() && variable_get('splash_mode', FALSE)) {
+    unset($css['sites/all/themes/hwc_frontend/css/hwc20.css']);
+  }
+}
+
 function hwc_frontend_preprocess_page(&$vars) {
+  $n = menu_get_object('node');
+  if ($n) {
+    switch ($n->type) {
+      case "article":
+        $variables['theme_hook_suggestions'][] = 'page__node__article';
+        break;
+    }
+  }
 
   if (arg(0) == 'good-practice-exchange-platform') {
     $breadcrumb = [];
@@ -188,9 +207,14 @@ function hwc_frontend_preprocess_page(&$vars) {
     $breadcrumb[] = drupal_get_title();
     drupal_set_breadcrumb($breadcrumb);
   }
-
-
-
+  if (drupal_is_front_page()) {
+    if (variable_get('splash_mode', FALSE)) {
+      $vars['theme_hook_suggestions'][] = 'page__splash';
+    }
+    else {
+      $vars['theme_hook_suggestions'][] = 'page__front';
+    }
+  }
   $vars['back_to_pz'] = hwc_partner_back_to_private_zone();
   $vars['page']['content']['#post_render'] = ['hwc_content_post_render'];
   // Change Events page title.

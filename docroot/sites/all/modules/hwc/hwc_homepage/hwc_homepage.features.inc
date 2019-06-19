@@ -75,6 +75,98 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'count' => 0,
   );
 
+  // Exported nodequeues: splash_banners
+  $nodequeues['splash_banners'] = array(
+    'name' => 'splash_banners',
+    'title' => 'Splash banners',
+    'subqueue_title' => '',
+    'size' => 0,
+    'link' => '',
+    'link_remove' => '',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 0,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'frontpage_slider',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
+  // Exported nodequeues: splash_campaign_material
+  $nodequeues['splash_campaign_material'] = array(
+    'name' => 'splash_campaign_material',
+    'title' => 'Splash campaign material',
+    'subqueue_title' => '',
+    'size' => 0,
+    'link' => '',
+    'link_remove' => '',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 0,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'campaign_materials',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
+  // Exported nodequeues: splash_events
+  $nodequeues['splash_events'] = array(
+    'name' => 'splash_events',
+    'title' => 'Splash events',
+    'subqueue_title' => '',
+    'size' => 0,
+    'link' => '',
+    'link_remove' => '',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 0,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'events',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
+  // Exported nodequeues: splash_news
+  $nodequeues['splash_news'] = array(
+    'name' => 'splash_news',
+    'title' => 'Splash news',
+    'subqueue_title' => '',
+    'size' => 0,
+    'link' => '',
+    'link_remove' => '',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 0,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'news',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
   return $nodequeues;
 }
 
@@ -111,6 +203,14 @@ function hwc_homepage_node_info() {
       'name' => 'Frontpage Banner',
       'base' => 'node_content',
       'description' => 'Frontpage banner content',
+      'has_title' => '1',
+      'title_label' => 'Title',
+      'help' => '',
+    ),
+    'previous_campaign' => array(
+      'name' => 'Previous HWC sections',
+      'base' => 'node_content',
+      'description' => '',
       'has_title' => '1',
       'title_label' => 'Title',
       'help' => '',
