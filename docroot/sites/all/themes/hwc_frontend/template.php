@@ -35,14 +35,18 @@ function hwc_frontend_menu_link__menu_block($variables) {
     return theme_menu_link($variables);
   }
 
+  $description = '';
+  if (!empty($element['#localized_options']['attributes']['title'])) {
+    $description = $element['#localized_options']['attributes']['title'];
+  }
   if (!empty($element['#localized_options']['content']['image']) && $image_url = file_create_url($element['#localized_options']['content']['image'])) {
-    $text = '<span class="content-img"><img src="' . $image_url . '"/></span><h2>' . $element['#title'] . '</h2><p>' . $element['#title'] . '</p>';
+    $text = '<span class="content-img"><img src="' . $image_url . '"/></span><h2>' . $element['#title'] . '</h2><p>' . $description . '</p>';
     $output_link = l($text, $element['#href'], array('html' => TRUE));
   }
   else {
     $output_link = l($element['#title'], $element['#href'], $element['#localized_options']);
   }
-  $text = '<span class="content-img"><img src="' . $image_url . '"/></span><h2>' . $element['#title'] . '</h2><p>' . $element['#title'] . '</p>';
+  $text = '<span class="content-img"><img src="' . $image_url . '"/></span><h2>' . $element['#title'] . '</h2><p>' . $description . '</p>';
   $output_link = l($text, $element['#href'], array('html' => TRUE));
 
   $element['#attributes']['class'][] = 'content-box-sub';

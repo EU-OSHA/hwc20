@@ -1182,6 +1182,8 @@ function hwc_node_view($node, $view_mode, $langcode) {
 
 function hwc_news_share_widget($node, $options = array()) {
   global $language;
+  return '';
+  //todo check
   /** @var stdClass $wrapper */
   $type = 'other';
   if (!empty($options['page']) && $options['page'] === TRUE) {
