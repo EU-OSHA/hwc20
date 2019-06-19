@@ -37,6 +37,28 @@ function hwc_homepage_views_pre_render(&$view){
  */
 function hwc_homepage_block_info() {
   $blocks = array();
+  $blocks['splash_title_banner_countdown'] = array(
+    'info' => t('Splash Title / Banner / Countdown'),
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['splash_download_news_campaign'] = array(
+    'info' => t('Splash Download / News / Events / Previous campaigns'),
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['splash_browsing_content'] = array(
+    'info' => t('Splash Start browsing the content'),
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+
   $blocks['hwc_homepage_tools_and_resources'] = array(
     'info' => t('Tools and publications'),
     'status' => 1,
@@ -121,12 +143,55 @@ function hwc_homepage_block_save($delta = '', $edit = array()) {
   }
 }
 
-
 /**
  * Implements hook_block_view().
  */
 function hwc_homepage_block_view($delta = '') {
   $block = array();
+  if ($delta == 'splash_title_banner_countdown') {
+    drupal_add_js(drupal_get_path('module', 'hwc_homepage') . '/js/moment.min.js');
+    drupal_add_js(drupal_get_path('module', 'hwc_homepage') . '/js/splash-page.js');
+    $blocks[] = block_load('views', 'splash_banners-block');
+    $array = _block_get_renderable_array(_block_render_blocks($blocks));
+    $data = render($array);
+    $block['content'] = theme('hwc_homepage_title_banner_countdown', ['data' => $data]);
+  }
+  if ($delta == 'splash_download_news_campaign') {
+    $data = [];
+
+    $download = block_load('views', 'view_campaign_materials-splash');
+    $array = _block_get_renderable_array(_block_render_blocks([$download]));
+    $data['download'] = render($array);
+
+    $news = block_load('views', 'news-splash');
+    $array = _block_get_renderable_array(_block_render_blocks([$news]));
+    $data['news'] = render($array);
+
+    $events = block_load('views', 'frontpage_events-splash');
+    $array = _block_get_renderable_array(_block_render_blocks([$events]));
+    $data['events'] = render($array);
+
+    $campaign = block_load('views', 'splash_previous_campaigns-splash');
+    $array = _block_get_renderable_array(_block_render_blocks([$campaign]));
+    $data['campaign'] = render($array);
+
+    $block['content'] = theme('hwc_homepage_download_news_events_campaign', ['data' => $data]);
+  }
+  if ($delta == 'splash_browsing_content') {
+    $data = [];
+    $all_data = menu_tree_all_data('main-menu', NULL, 3);
+    foreach ($all_data as $row_key => $row) {
+      $new_item = $row;
+      $new_item['below'] = [];
+      foreach ($row['below'] as $subkey => $submenu) {
+        $new_item['below'][$subkey] = $submenu;
+      }
+      if ($new_item['below']) {
+        $data[$row_key] = $new_item;
+      }
+    }
+    $block['content'] = theme('hwc_homepage_browsing_content', ['data' => $data]);
+  }
   if ($delta == 'hwc_homepage_topics') {
     $voc = taxonomy_vocabulary_machine_name_load('priority_area');
     $tree = taxonomy_get_tree($voc->vid);
@@ -173,6 +238,26 @@ function hwc_homepage_block_view($delta = '') {
     $block['subject'] = l(t('Tools and publications'), 'tools_and_publications');
   }
   return $block;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function hwc_homepage_theme() {
+  return array(
+    'hwc_homepage_title_banner_countdown' => array(
+      'variables' => array('data' => NULL),
+      'template' => 'templates/hwc_homepage_title_banner_countdown',
+    ),
+    'hwc_homepage_download_news_events_campaign' => array(
+      'variables' => array('data' => NULL),
+      'template' => 'templates/hwc_homepage_download_news_events_campaign',
+    ),
+    'hwc_homepage_browsing_content' => array(
+      'variables' => array('data' => NULL),
+      'template' => 'templates/hwc_homepage_browsing_content',
+    ),
+  );
 }
 
 /**

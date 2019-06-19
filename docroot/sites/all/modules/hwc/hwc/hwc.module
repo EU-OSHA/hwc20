@@ -16,6 +16,8 @@ define('HWC_ROLE_SUPERADMIN', 'Superadministrators');
 define('HWC_SOLR_SEARCH_INDEX', 'default_multilingual_node_index');
 define('HWC_NAPO_WEBSITE', 'https://www.napofilm.net/');
 
+define ('HWC_INTRODUCTION_ARTICLE', 73);
+
 /**
  * Implements Elysia hook_cronapi().
  */
@@ -246,6 +248,14 @@ function hwc_menu() {
     'description' => 'Configure parameters for the HWC website',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('hwc_admin_config_form'),
+    'access arguments' => array('configure hwc website'),
+    'file' => 'hwc_admin.pages.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['admin/config/system/splash'] = array(
+    'title' => 'Toggle splash mode',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('hwc_splash_mode_form'),
     'access arguments' => array('configure hwc website'),
     'file' => 'hwc_admin.pages.inc',
     'type' => MENU_NORMAL_ITEM,

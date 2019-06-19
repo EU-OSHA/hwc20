@@ -1,0 +1,371 @@
+/*General*/
+header.navbar-default .campaigns-header .navbar-header .header-text {
+  max-width: 310px;
+}
+body {
+  padding-top: 175px;
+}
+.btn-background-green {
+  background: #cade97;
+  color: #00309d;
+  border: 2px solid #00309d;
+  padding: 0.6em 2em;
+  border-radius: 7px;
+}
+.btn-background-green:hover {
+  text-decoration: none;
+  opacity: 0.8;
+  border: 2px solid #FFF;
+}
+.btn-background-transparent {
+  background: transparent;
+  color: #00309d;
+  border: 2px solid #bcd75b;
+  padding: 0.6em 2em;
+  border-radius: 7px;
+}
+.btn-background-transparent:hover {
+  text-decoration: none;
+  opacity: 0.8;
+  border: 2px solid #00309d;
+}
+.download-button {
+  border: 1px solid #57575a;
+  border-radius: 5px;
+  background: url(../images/ico-download-button.png) 6px 5px no-repeat;
+  padding-left: 2.1em;
+  color: #57575a;
+  padding: 0.2em 0.7em 0.2em 2.1em;
+  background-size: 16px;
+  font-weight: 500;
+}
+.download-button:hover {
+  text-decoration: none;
+  opacity: 0.8;
+  color: #a1c800;
+  border-radius: 15px;
+  transition: 0.5s;
+}
+.content-buttom {
+  margin-top: 1.5em;
+}
+.content-buttom .see-more-button-20 {
+  background: url(../images/ico-plus-20.png) no-repeat 98% 3px #0030a0;
+  text-transform: uppercase;
+  color: #FFF;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 7px 3.5em 6px 0.7em;
+}
+.content-buttom .see-more-button-20:hover {
+  color: #FFF;
+  background: url(../images/ico-plus-20-hover.png) no-repeat 98% 3px #0030a0;
+  text-decoration: none;
+}
+/* Next Campaign 2020-2022 */
+.intro-splash-20 {
+  min-height: 343px;
+}
+.intro-splash-20 .views-row-first {
+  background: #9fc600;
+  min-height: 343px;
+  text-align: center;
+}
+.intro-splash-20 .views-row-first h1 {
+  padding-top: 2em;
+  border-bottom: 0;
+  font-size: 1.8em;
+  font-style: italic;
+  font-weight: 400;
+}
+.intro-splash-20 .views-row-first h2 {
+  color: #FFF;
+  font-style: normal;
+  font-weight: 600;
+}
+.intro-splash-20 .views-row-first p {
+  color: #FFF;
+  padding-top: 1em;
+  padding-bottom: 4em;
+  max-width: 422px;
+  margin: 0 auto;
+  font-size: 1.2em;
+}
+.intro-splash-20 .views-row-first .btn-background-transparent {
+  margin-left: 1em;
+}
+.intro-splash-20 .views-row-last {
+  background: url('../images/background-right-column.png') no-repeat #e2e2e2;
+  min-height: 343px;
+  background-size: cover;
+}
+.intro-splash-20 .views-row-last .img-right-column {
+  background: url(../images/splash-background.png) no-repeat transparent;
+  min-height: 343px;
+  background-position-x: center;
+  background-position-y: -46px;
+}
+/* Coming Soon */
+.comming-soon {
+  background: #00309d;
+  float: left;
+  width: 100%;
+  text-align: center;
+  color: #FFF;
+  min-height: 140px;
+}
+.comming-soon h2 {
+  text-align: center;
+  color: #FFF;
+  font-weight: 400;
+  margin-right: 2em;
+  padding-top: 0.3em;
+}
+.content-counter {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 3em;
+}
+ul.time-and-counters {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.time-and-counters li {
+  display: inline-block;
+}
+ul.time-and-counters li .counter-value {
+  min-width: 72px;
+  display: block;
+  float: left;
+  border: 3px solid #FFF;
+  padding: 0.5em 1em;
+  margin-right: 4px;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+ul.time-and-counters li .counter-label {
+  padding-right: 1em;
+  text-transform: uppercase;
+  padding-top: 18px;
+  display: block;
+  float: left;
+  padding-left: 2px;
+}
+/*Before the Campaign starts, here is what you can do*/
+.before-the-campaign {
+  background: #efeff1;
+  min-height: 480px;
+}
+.before-the-campaign h2 {
+  text-align: center;
+  padding-top: 2em;
+  padding-bottom: 1em;
+  color: #00309d;
+  font-weight: 400;
+}
+.content-box-before {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-bottom: 4em;
+}
+.content-box-before .box-before {
+  background: #FFF;
+  border-radius: 7px;
+  padding: 1.5em 1.5em 2em 1.5em;
+  margin-right: 2em;
+  width: 320px;
+  float: left;
+}
+.content-box-before .box-before h3 {
+  color: #00309d;
+  margin-top: 0;
+  font-weight: 400;
+}
+.content-box-before .box-before p {
+  padding: 0.2em 0;
+}
+.content-box-before .box-before .img-previous-campaign img {
+  max-width: 280px;
+  margin-top: 1em;
+}
+.content-box-before div:nth-child(1) > div.box-before-title:nth-child(2) {
+  padding-top: 0;
+  border-top: 0;
+}
+.content-box-before .box-before-title {
+  color: #00309d;
+  font-size: 1.3em;
+  font-weight: 600;
+  border-top: 1px solid #CCC;
+  margin-top: 1.1em;
+  padding-top: 0.7em;
+}
+.content-box-before .box-before-title.previous {
+  border-top: 0;
+  margin-top: 0;
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+}
+.content-box-before .two-box-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.content-box-before .two-box-column h3 {
+  background: url(../images/grey-h3-line.png) repeat-x 50% 75%;
+}
+.content-box-before .two-box-column h3:before {
+  content: ' ';
+  width: 49px;
+  display: block;
+  height: 45px;
+  float: left;
+}
+.content-box-before .two-box-column h3 span {
+  background: #FFF;
+  padding-right: 0.7em;
+}
+.content-box-before .two-box-column .titlte-news-events {
+  padding-top: 0.5em;
+}
+.content-box-before .two-box-column .titlte-news-events a {
+  font-size: 1.2em;
+  font-style: italic;
+}
+.content-box-before .two-box-column p {
+  clear: both;
+}
+.content-box-before .two-box-column .content-date-country {
+  clear: both;
+  color: #57575a;
+}
+.content-box-before .two-box-column .content-date-country .date {
+  clear: both;
+  font-weight: bold;
+}
+.content-box-before .two-box-column .content-date-country .city,
+.content-box-before .two-box-column .content-date-country .country {
+  float: right;
+  font-weight: bold;
+}
+.content-box-before .two-box-column .content-date-country .country {
+  font-style: italic;
+}
+.content-box-before .two-box-column .content-event img {
+  float: left;
+  margin-right: 2em;
+  margin-top: 0.8em;
+}
+.content-box-before .box-before.news {
+  height: 100%;
+  margin-bottom: 2em;
+}
+.content-box-before .box-before.news h3:before {
+  background: url(../images/news-h3-ico.png) no-repeat #ffffff;
+  background-size: 38px;
+  background-position: -2px -4px;
+}
+.content-box-before .box-before.news img {
+  max-width: 280px;
+  margin-top: 0.5em;
+}
+.content-box-before .box-before.events h3:before {
+  background: url(../images/events-h3-ico.png) no-repeat #ffffff;
+  background-size: 38px;
+  background-position: -2px -4px;
+}
+/* Start browsing the content */
+.start-browsing {
+  background: url(../images/background-start-browsing.png) no-repeat;
+  float: left;
+  width: 100%;
+  color: #FFF;
+  min-height: 480px;
+  padding-top: 2em;
+  padding-bottom: 6em;
+}
+.start-browsing h2 {
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  color: #FFF;
+  font-weight: 400;
+}
+.start-browsing .content-boxes {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.start-browsing .start-browsing-box {
+  background: #FFF;
+  border-radius: 10px;
+  padding: 1em;
+  margin-bottom: 1.5em;
+  width: 320px;
+  height: 255px;
+  margin-right: 2em;
+}
+.start-browsing .start-browsing-box h3 {
+  color: #00309d;
+  margin-top: 0;
+  font-style: italic;
+  padding-left: 0.3em;
+  padding-top: 0.2em;
+}
+.start-browsing .start-browsing-box ul {
+  list-style: none;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.start-browsing .start-browsing-box ul li {
+  color: #000;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #cade97;
+}
+.start-browsing .start-browsing-box ul li:last-child {
+  border-bottom: 0;
+}
+/* Footer */
+.footer {
+  background: #57575a;
+}
+.footer h2 {
+  font-size: 15px;
+  font-weight: 500;
+}
+.footer div.on-the-web span:nth-child(1) {
+  padding-top: 5px;
+  padding-right: 2em;
+}
+.footer div.on-the-web span {
+  display: block;
+  float: left;
+}
+.footer div.on-the-web a {
+  width: 33px;
+  height: 28px;
+  margin-left: 10px;
+  display: inline-block;
+}
+.footer div.on-the-web a:hover {
+  opacity: 0.8;
+}
+.footer div.on-the-web .otw-slideshare a {
+  background: url(../images/footer/slideshare.png) no-repeat;
+}
+.footer ul li a {
+  padding-right: 20px;
+}
+.footer ul li ::after {
+  display: none;
+}

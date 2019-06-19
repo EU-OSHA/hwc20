@@ -88,7 +88,7 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
             </a>
             <a href="http://osha.europa.eu" title="EU-OSHA" target="_blank"><img class="pull-left" src="/<?php print $theme_dir . '/logo-osha.png'; ?>" alt="<?php print t('EU-OSHA logo'); ?>" /></a>
             <img class="pull-left" src="/<?php print $theme_dir . '/logo-eu.png'; ?>" alt="<?php print t('EU logo'); ?>" />
-			<div class="header-text"><?php echo t('Healthy Workplaces MANAGE DANGEROUS SUBSTANCES 2018-19'); ?></div>
+			<div class="header-text"><?php echo t('Healthy Workplaces LIGHTEN THE LOAD 2018-19'); ?></div>
           </div>
           <div class="col-xs-12 col-sm-3 xs-menu">
             <div class="header_top_bar">
@@ -171,15 +171,18 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
     <?php endif; ?>
   </div>
 </div>
-<footer class="footer">
-  <?php print render($page['footer']); ?>
-  <h2>
-    <?php print t("Safety and health at work is everyone's concern. It's good for you. It's good for business."); ?>
-  </h2>
-  <p>
-    <?php print t("European Agency for Safety and Health at Work | an agency of the European Union"); ?>
-  </p>
-  <div class="on-the-web">
-    <?php $my_block = module_invoke('on_the_web', 'block_view', 'on_the_web'); print render($my_block['content']); ?>
-  </div>
-</footer></div>
+    <footer class="footer">
+        <div class="container">
+          <?php print render($page['footer']); ?>
+            <div class="content-second-footer">
+                <div class="intro-footer">
+                    <p><?php print t("Safety and health at work is everyone's concern. It's good for you. It's good for business."); ?></p>
+                    <p><?php print t("European Agency for Safety and Health at Work | an agency of the European Union"); ?></p>
+                </div>
+            </div>
+            <div class="on-the-web"><span><?php print('Follow us:'); ?></span>
+              <?php $my_block = module_invoke('on_the_web', 'block_view', 'on_the_web'); print render($my_block['content']); ?>
+            </div>
+        </div>
+    </footer>
+</div>

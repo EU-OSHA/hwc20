@@ -25,18 +25,25 @@ regions[page_top]       = 'Page top'
 regions[page_bottom]    = 'Page bottom'
 regions[contact_form_widget]   = 'Contact form widget'
 
-stylesheets[all][] = css/style.css
+
 scripts[] = js/addclear.js
 scripts[] = js/campaigns.js
 scripts[] = js/back_button.js
 scripts[] = js/napo-video.js
+
 files[] = theme/menu/menu.inc
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Stylesheets
 ;;;;;;;;;;;;;;;;;;;;;
 
+stylesheets[all][] = css/style.css
 stylesheets[all][] = css/hwc_override.css
+
+stylesheets[all][] = css/hwc20.css
+stylesheets[all][] = css/hwc20-style.css
+stylesheets[all][] = css/rewrite.css
+
 stylesheets[all][] = css/print.css
 
 ; For information on choosing the desired method, please read the Drupal
