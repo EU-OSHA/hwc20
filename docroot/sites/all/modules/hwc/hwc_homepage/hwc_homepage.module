@@ -80,9 +80,16 @@ function hwc_homepage_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['footer_section'] = array(
+    'info' => t('Footer section'),
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+
   return $blocks;
 }
-
 
 /**
  * Implements hook_block_configure().
@@ -136,7 +143,6 @@ function hwc_homepage_info_tailored_intro_text($form, &$form_state) {
   variable_set('menu_information_tailored_intro_text', $intro_text);
 }
 
-
 /**
  * Implements hook_block_save().
  */
@@ -155,6 +161,21 @@ function hwc_homepage_block_save($delta = '', $edit = array()) {
  */
 function hwc_homepage_block_view($delta = '') {
   $block = array();
+  if ($delta == 'footer_section') {
+    $data = [];
+    $all_data = menu_tree_all_data('main-menu', NULL, 3);
+    foreach ($all_data as $row_key => $row) {
+      $new_item = $row;
+      $new_item['below'] = [];
+      foreach ($row['below'] as $subkey => $submenu) {
+        $new_item['below'][$subkey] = $submenu;
+      }
+      if ($new_item['below']) {
+        $data[$row_key] = $new_item;
+      }
+    }
+    $block['content'] = theme('hwc_footer_section', ['data' => $data]);
+  }
 
   if ($delta == 'article_nav') {
     $all_data = menu_tree_all_data('main-menu');
@@ -313,6 +334,10 @@ function hwc_homepage_theme() {
     'hwc_homepage_download_news_events_campaign' => array(
       'variables' => array('data' => NULL),
       'template' => 'templates/hwc_homepage_download_news_events_campaign',
+    ),
+    'hwc_footer_section' => array(
+      'variables' => array('data' => NULL),
+      'template' => 'templates/hwc_footer_section',
     ),
     'hwc_homepage_browsing_content' => array(
       'variables' => array('data' => NULL),
