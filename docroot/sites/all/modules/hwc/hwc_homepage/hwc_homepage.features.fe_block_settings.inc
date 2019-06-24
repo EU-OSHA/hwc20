@@ -21,7 +21,7 @@ function hwc_homepage_default_fe_block_settings() {
     'i18n_mode' => 0,
     'module' => 'hwc_homepage',
     'node_types' => array(),
-    'pages' => '',
+    'pages' => 'about-topic/*',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
@@ -38,7 +38,7 @@ function hwc_homepage_default_fe_block_settings() {
       ),
     ),
     'title' => '<none>',
-    'visibility' => 0,
+    'visibility' => 1,
   );
 
   $export['hwc_homepage-footer_section'] = array(
@@ -197,7 +197,7 @@ function hwc_homepage_default_fe_block_settings() {
     'i18n_mode' => 0,
     'module' => 'menu_block',
     'node_types' => array(),
-    'pages' => '',
+    'pages' => 'about-topic/*',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
@@ -214,7 +214,7 @@ function hwc_homepage_default_fe_block_settings() {
       ),
     ),
     'title' => '<none>',
-    'visibility' => 0,
+    'visibility' => 1,
   );
 
   $export['panels_mini-splash_page'] = array(

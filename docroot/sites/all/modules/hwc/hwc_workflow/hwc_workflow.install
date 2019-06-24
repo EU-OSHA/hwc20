@@ -254,7 +254,7 @@ function hwc_workflow_update_7014() {
     'access_id' => 'section',
     'access_scheme' => 'taxonomy',
   );
-  drupal_write_record('workbench_access_role', $role);
+//  drupal_write_record('workbench_access_role', $role);
   variable_set('chosen_minimum_multiple', 5);
 }
 
