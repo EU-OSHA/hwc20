@@ -35,7 +35,7 @@ function osha_publication_default_page_manager_handlers() {
           'name' => 'node_type',
           'settings' => array(
             'type' => array(
-              'publication' => 'publication',
+              'rule_test' => 'rule_test',
             ),
           ),
           'context' => 'argument_entity_id:node_1',
@@ -674,6 +674,9 @@ function osha_publication_default_page_manager_pages() {
       'default' => NULL,
       'middle' => NULL,
     ),
+    'middle' => array(
+      'style' => '-1',
+    ),
   );
   $display->cache = array();
   $display->title = 'Publications';
@@ -706,7 +709,7 @@ function osha_publication_default_page_manager_pages() {
   );
   $pane->css = array(
     'css_id' => '',
-    'css_class' => 'section-introduction',
+    'css_class' => 'section-introduction container',
   );
   $pane->extras = array();
   $pane->position = 0;
@@ -730,7 +733,10 @@ function osha_publication_default_page_manager_pages() {
   $pane->style = array(
     'settings' => NULL,
   );
-  $pane->css = array();
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'content-fluid green-background',
+  );
   $pane->extras = array();
   $pane->position = 1;
   $pane->locks = array();

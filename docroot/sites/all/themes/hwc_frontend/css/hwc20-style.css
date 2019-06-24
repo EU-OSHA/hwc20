@@ -1220,7 +1220,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
   position: absolute;
   right: 0;
 }
-.box-latest-publications.last {
+.box-latest-publications.views-row-last {
   margin-right: 0;
 }
 /* Publications List */

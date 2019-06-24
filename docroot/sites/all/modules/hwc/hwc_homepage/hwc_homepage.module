@@ -168,6 +168,9 @@ function hwc_homepage_block_view($delta = '') {
       $new_item = $row;
       $new_item['below'] = [];
       foreach ($row['below'] as $subkey => $submenu) {
+        if ($submenu['link']['hidden']) {
+          continue;
+        }
         $new_item['below'][$subkey] = $submenu;
       }
       if ($new_item['below']) {
@@ -260,6 +263,9 @@ function hwc_homepage_block_view($delta = '') {
       $new_item = $row;
       $new_item['below'] = [];
       foreach ($row['below'] as $subkey => $submenu) {
+        if ($submenu['link']['hidden']) {
+          continue;
+        }
         $new_item['below'][$subkey] = $submenu;
       }
       if ($new_item['below']) {

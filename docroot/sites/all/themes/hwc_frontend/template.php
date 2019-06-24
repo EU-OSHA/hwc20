@@ -219,6 +219,9 @@ function hwc_frontend_preprocess_page(&$vars) {
       $vars['theme_hook_suggestions'][] = 'page__front';
     }
   }
+  if (arg(0) . arg(1) . arg(2) == 'tools-and-publicationspublications') {
+    $vars['theme_hook_suggestions'][] = 'page__publications';
+  }
   $vars['back_to_pz'] = hwc_partner_back_to_private_zone();
   $vars['page']['content']['#post_render'] = ['hwc_content_post_render'];
   // Change Events page title.
@@ -683,11 +686,59 @@ function hwc_frontend_preprocess_image_style(&$variables) {
 + */
 function hwc_frontend_pager($variables) {
   // Overwrite pager links.
-  $variables['tags'][0] = '«';
-  $variables['tags'][1] = '‹';
-  $variables['tags'][3] = '›';
-  $variables['tags'][4] = '»';
+  $variables['tags'][0] = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-first.png">';
+  $variables['tags'][1] = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png">';
+  $variables['tags'][3] = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-next.png">';
+  $variables['tags'][4] = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-end.png">';
   return theme_pager($variables);
+}
+
+function hwc_frontend_pager_link($variables) {
+  $text = $variables['text'];
+  $page_new = $variables['page_new'];
+  $element = $variables['element'];
+  $parameters = $variables['parameters'];
+  $attributes = $variables['attributes'];
+
+  $page = isset($_GET['page']) ? $_GET['page'] : '';
+  if ($new_page = implode(',', pager_load_array($page_new[$element], $element, explode(',', $page)))) {
+    $parameters['page'] = $new_page;
+  }
+
+  $query = array();
+  if (count($parameters)) {
+    $query = drupal_get_query_parameters($parameters, array());
+  }
+  if ($query_pager = pager_get_query_parameters()) {
+    $query = array_merge($query, $query_pager);
+  }
+
+  // Set each pager link title.
+  if (!isset($attributes['title'])) {
+    static $titles = NULL;
+    if (!isset($titles)) {
+      $titles = array(
+        t('« first') => t('Go to first page'),
+        t('‹ previous') => t('Go to previous page'),
+        t('next ›') => t('Go to next page'),
+        t('last »') => t('Go to last page'),
+      );
+    }
+    if (isset($titles[$text])) {
+      $attributes['title'] = $titles[$text];
+    }
+    elseif (is_numeric($text)) {
+      $attributes['title'] = t('Go to page @number', array('@number' => $text));
+    }
+  }
+
+  // @todo l() cannot be used here, since it adds an 'active' class based on the
+  //   path only (which is always the current path for pager links). Apparently,
+  //   none of the pager links is active at any time - but it should still be
+  //   possible to use l() here.
+  // @see http://drupal.org/node/1410574
+  $attributes['href'] = url($_GET['q'], array('query' => $query));
+  return '<a' . drupal_attributes($attributes) . '>' . ($text) . '</a>';
 }
 
 /**

@@ -74,7 +74,6 @@
  */
 
 global $language;
-
 $theme_dir = drupal_get_path('theme', 'hwc_frontend');
 ?>
 <?php if (!empty($page['above_header'])): ?>
@@ -121,16 +120,16 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
     </div>
   </div>
 </header>
-<div class="main-container">
+
+<div class="main-container container-fluid">
+
   <div class="row">
     <section class="<?php print (!empty($content_class)) ? $content_class : ''; ?>">
-        <div class="col-md-12 col-xs-12 title-row">
     <?php /* print $content_column_class; */ ?>
       <?php if (!empty($page['highlighted'])): ?>
         <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
       <?php endif; ?>
-            <section class="title-section">
-            <?php
+      <?php
       $external_infographic = variable_get('hwc_external_infographic_nid', 7150);
       $node_nid = NULL;
       $node_type = NULL;
@@ -201,7 +200,6 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
       <div class="below_title">
         <?php print render($page['below_title']); ?>
       </div>
-    </section>
       <?php if (!empty($tabs)): ?>
         <?php print render($tabs); ?>
       <?php endif; ?>
@@ -211,6 +209,7 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
       <?php if (!empty($action_links)): ?>
         <ul class="action-links"><?php print render($action_links); ?></ul>
       <?php endif; ?>
+
 	  <?php if (!empty($page['sidebar_first'])): ?>
 		  <aside class="col-xs-12 col-sm-6 col-md-3" role="complementary">
 			<?php print render($page['sidebar_first']); ?>
@@ -218,7 +217,6 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
 	  <?php endif; ?>
       <div id="skip-to-content" style="visibility: hidden; height: 0px"><a href="#skip-to-content" rel="nofollow" accesskey="S" style="visibility: hidden;"><?php print t('Skip to content'); ?></a></div>
       <?php print render($page['content']); ?>
-        </div>
     </section>
 
     <?php if (!empty($page['sidebar_second'])): ?>
