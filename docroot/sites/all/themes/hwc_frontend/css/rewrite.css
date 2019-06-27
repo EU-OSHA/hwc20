@@ -1,3 +1,7 @@
+.contextual-links-region{
+    clear: both;
+}
+
 header.navbar-default .campaigns-header .navbar-header .header-text {
 	max-width: 310px;
 }
@@ -29,6 +33,25 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
 
 }
 
+header.navbar-default .navbar-collapse nav ul.menu li > span.nolink{
+    display: inline-block;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    overflow: hidden;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.dropdown-menu{
+    background-clip: inherit;
+}
+
+#block-views-frontpage-slider-block{
+    clear: both;
+}
+
 #block-search-form input {
     width: 204px;
     height: 34px;
@@ -52,4 +75,76 @@ header.navbar-default .campaigns-header .navbar-header #block-search-form button
 .region-above-header.region a#text_resize_increase,
 .region-above-header.region a#text_resize_decrease{
     color:#91afd9;
+}
+
+#block-menu-menu-footer-menu{
+    clear: both;
+}
+
+.above_title .back-to-link {
+    border-bottom: 0px dotted #749b00;
+}
+
+/*Publications*/
+
+.section-introduction p{
+    text-align: left;
+}
+
+.section-introduction .field-type-text-with-summary{
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 2em;
+}
+
+.form-item-relevant-for, .form-item-field-publication-type, .form-item-language, .form-item-field-priority-area, .form-item-languages{
+    border-bottom: 0;
+}
+
+#edit-left-column{
+    padding-left: 0;
+}
+
+.checkbox label:before{
+    border-radius: 0.2em;
+    display: inline-block;
+    float: left;
+    border: 1px solid #003399;
+    width: 21px;
+    height: 21px;
+    padding-left: 5px;
+    padding-top: 0;
+    padding-right: 5px;
+    padding-bottom: 14px;
+}
+
+.checkbox input[type=checkbox]:checked:before{
+    padding: 0;
+}
+
+.form-item-field-publication-type > label.active:after, .form-item-language > label.active:after, .form-item-field-priority-area > label.active:after, .form-item-relevant-for > label.active:after, .form-item-languages > label.active:after, .form-item-publication-type > label.active:after{
+    content: ' ';
+}
+
+.control-label.active{
+    padding-bottom: 1em;
+    font-size: 1.8rem;
+}
+
+a.chosen-single{
+    background: transparent !important;
+    background-color: transparent !important;
+    width: auto !important;
+    box-shadow: 0 0 0 white inset, 0 0 0 rgba(0, 0, 0, 0.1) !important;
+    border: 0 !important;
+    padding-left: 0 !important;
+    color: #003399 !important;
+}
+
+.chosen-container-single .chosen-single div b{
+    display: none;
+}
+
+#osha-publication-menu-publications-form .form-type-textfield{
+    width: 100%;
 }

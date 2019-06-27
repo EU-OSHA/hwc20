@@ -10,12 +10,12 @@
   url("https://stackpath.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular") format("svg")
 }
 
-body.splash-page {
-    padding-top: 150px;
+body {
+    padding-top: 213px;
 }
 
-body {
-    padding-top: 203px;
+body.logged-in {
+    padding-top: 264px !important;
 }
 
 .main-container.container{
@@ -30,6 +30,11 @@ body {
     border-radius: 7px;
     font-weight: 600;
     position: relative;
+    font-size: 1.4rem;
+    max-width: 210px;
+    display: block;
+    float: left;
+
     &:hover{
     	background: #e5f1ac;
     	color:#00309d;
@@ -88,6 +93,12 @@ body {
 }
 
 /* Next Campaign 2020-2022 */
+
+.front .container-fluid{
+	padding-left: 0;
+	padding-right: 0;
+}
+
 .intro-splash-20{
 	background: #94c000;
 	float: left;
@@ -234,6 +245,35 @@ ul.time-and-counters{
 		    		border-radius: 10px;
 		    	}
 		    }
+		    ul{
+		    	list-style: none;
+		    	padding-left: 0;
+		    	span.file{
+		    		img{
+		    			display: none;
+		    		}
+		    	}
+		    	span.file-size{
+		    		display: none;
+		    	}
+		    	a{
+		    		border: 1px solid #57575a;
+				    border-radius: 5px;
+				    background: url(../images/ico-download-button.png) 6px 5px no-repeat;
+				    padding-left: 2.1em;
+				    color: #57575a;
+				    padding: 0.2em 0.7em 0.2em 2.1em;
+				    background-size: 16px;
+				    font-weight: 500;
+				    &:hover{
+				    	text-decoration: none;
+				    	opacity: 0.8;
+				    	color:#a1c800;
+				    	border-radius: 15px;
+				    	transition: 0.5s;
+				    }
+		    	}
+		    }
 		}
 
 		div:nth-child(1) > div.box-before-title:nth-child(2){
@@ -313,6 +353,31 @@ ul.time-and-counters{
 					margin-top: 0.8em;
 				}
 			}
+
+			.more-link{
+				background-color: transparent;
+				padding-left: 0;
+				a{
+					background: url(../images/ico-plus-20.png) no-repeat 99% 2px #0030a0;
+				    text-transform: uppercase;
+				    color: #FFF;
+				    border-top-left-radius: 7px;
+				    border-bottom-left-radius: 7px;
+				    border-top-right-radius: 15px;
+				    border-bottom-right-radius: 15px;
+				    padding: 3px 3.5em 4px 0.7em;
+					-webkit-transition: all 0.3s;
+					-moz-transition: all 0.3s;
+					-o-transition: all 0.3s;
+					transition: all 0.3s;
+					float: left;
+				    &:hover{
+				    	color: #FFF;
+				    	background: url(../images/ico-plus-20-hover.png) no-repeat 99% 2px #b9d643;
+				    	text-decoration: none;
+				    }
+				}
+			}
 		}
 
 		.box-before.news{
@@ -353,7 +418,7 @@ ul.time-and-counters{
 	width: 100%;
 	color:#FFF;
 	padding-top: 2em;
-	padding-bottom: 6em;
+	padding-bottom: 4em;
 	h2{
 		text-align: center;
 		padding-top: 1em;
@@ -376,7 +441,7 @@ ul.time-and-counters{
 		padding: 1em;
 		margin-bottom: 1.5em;
 		width: 320px;
-		height: 255px;
+		height: auto;
 		margin-right: 2em;
 		h3{
 			color:#00309d;
@@ -1075,6 +1140,8 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 
 .footer{
   margin-top: 0;
+  height: auto;
+  padding-bottom: 15px;
 }
 
 .footer-section{
@@ -1101,7 +1168,9 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 
 
 /*Introductory Page > Article*/
-.breadcrumb_hwc20{
+
+.breadcrumb{
+	background: transparent;
 	padding: 15px 10px 5px 70px;
 	list-style: none;
 	li {
@@ -1109,27 +1178,39 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 		font-size: 13px;
 		color: white;
 	}
-}
+	span{
+		color:#FFF;
+	}
 
-.breadcrumb_hwc20 li+li:before {
-  padding: 8px;
-  color: white;
-  content: ">\00a0";
+	span{
+		color:#FFF;
+		a{
+			color:#FFF;
+			text-decoration: underline;
+			&:hover{
+				text-decoration: none;
+			}
+		}
+		
+		&:before {
+		  padding: 8px;
+		  color: white;
+		  content: ">\00a0";
+		}
+	}
+	span.first:before{
+		content: " ";
+	}
+	.delimiter{
+		display: none;
+	}
 }
-
-.breadcrumb_hwc20 li a {
-  color: white;
-  text-decoration: underline;
-}
-
-.breadcrumb_hwc20 li a:hover {
-  text-decoration: none;
-}
-
 
 .title-section{
 	background: url(../images/banner-background-article.png);
 	min-height: 225px;
+	margin-left: -15px;
+	margin-right: -15px;
 	padding-top: 0;
 	h1{
 		color: white;
@@ -1308,6 +1389,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 .box-latest-publications{
     background: #FFF;
     width: 32.5%;
+    min-height: 235px;
     float: left;
     position: relative;
     margin-right: 1em;
@@ -1581,7 +1663,7 @@ span.title-select{
     padding-top: 5px;
 }
 
-.content-languages-download select.new-select-style{
+.content-languages-download .new-select-style{
     width: 58%!important;
     background: url(../images/header/select.png) no-repeat scroll 96% center transparent;
     color: #003399;
@@ -1722,6 +1804,7 @@ div.publications-detail-right-column > a.download{
 
 .content-fluid.green-background{
 	background: #daea96;
+	padding-bottom: 1.5em;
 }
 
 .content-fluid.grey-background{
@@ -1868,13 +1951,11 @@ label.option {
     color: #003399;
 }
 
-select.new-select-style {
+.new-select-style {
     height: 35px;
-    border: 1px solid #003399;
-    border-radius: 5px;
-    -moz-appearance: button;
-    -webkit-appearance: button;
-    background: url(../images/green-select.png) no-repeat scroll 94% center #FFF;
+    border: 1px solid #003399 !important;
+    border-radius: 5px !important;
+    background: url(../images/green-select.png) no-repeat scroll 94% center #FFF !important;
     padding-left: 10px;
     width: 100%!important;
     color: #003399;
@@ -1972,6 +2053,12 @@ span.pages{
 }
 
 .container{
+	
+	.menu-level-2 ul.menu.nav{
+		display: flex;
+		flex-wrap: wrap;
+	}
+
 	.content-box-sub {
 	    float: left;
 	    width: 23.7%;
@@ -2068,6 +2155,7 @@ span.pages{
 
 .footer{
 	background: #57575a;
+	min-height: auto;
 	h2{
 		font-size: 15px;
     	font-weight: 500;
