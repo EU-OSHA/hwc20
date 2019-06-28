@@ -389,8 +389,9 @@ function social_dashboard_views_default_views() {
   $handler->display->display_options['footer']['area_text_custom']['id'] = 'area_text_custom';
   $handler->display->display_options['footer']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['footer']['area_text_custom']['field'] = 'area_text_custom';
+  /*MDR-3035 Media Centre - See more on LinkedIn button*/
   $handler->display->display_options['footer']['area_text_custom']['content'] = '<div class="more-link">
-  <a href="https://www.linkedin.com/company-beta/73952/" target="_blank">
+  <a href="https://www.linkedin.com/company/european-agency-for-safety-and-health-at-work" target="_blank">
     See more on Linkedin  </a>
 </div>';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -475,7 +476,7 @@ function social_dashboard_views_default_views() {
     t('Linkedin world'),
     t('<h2><a href="__social_link__">Linkedin</a></h2>'),
     t('<div class="more-link">
-  <a href="https://www.linkedin.com/company-beta/73952/" target="_blank">
+  <a href="https://www.linkedin.com/company/european-agency-for-safety-and-health-at-work" target="_blank">
     See more on Linkedin  </a>
 </div>'),
   );
