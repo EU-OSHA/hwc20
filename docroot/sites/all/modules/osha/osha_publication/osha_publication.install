@@ -126,4 +126,8 @@ function osha_publication_update_7014() {
  */
 function osha_publication_update_7015() {
   features_revert_module('osha_publication');
+  $term = taxonomy_get_term_by_name('Promotional Material', 'publication_types');
+  if (!empty($term)) {
+    variable_set('campaign_materials_tid', $term->tid);
+  }
 }
