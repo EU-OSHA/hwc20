@@ -126,8 +126,25 @@ body.logged-in {
   justify-content: center;
   align-items: center;
 }
+.intro-splash-20 .views-row-last {
+  background: #FFF;
+  padding-left: 0;
+  padding-right: 0;
+}
 .intro-splash-20 .views-row-last .img-right-column {
   text-align: center;
+  /* IE10+ */
+  background-image: -ms-linear-gradient(top, #ededed 0%, #f6f6f6 47%, #ededed 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-linear-gradient(top, #ededed 0%, #f6f6f6 47%, #ededed 100%);
+  /* Opera */
+  background-image: -o-linear-gradient(top, #ededed 0%, #f6f6f6 47%, #ededed 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(47, #f6f6f6), color-stop(100, #ededed));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-linear-gradient(top, #ededed 0%, #f6f6f6 47%, #ededed 100%);
+  /* W3C Markup */
+  background-image: linear-gradient(to bottom, #ededed 0%, #f6f6f6 47%, #ededed 100%);
 }
 .intro-splash-20 .views-row-last .img-right-column img {
   margin: 0 auto;
@@ -226,6 +243,7 @@ ul.time-and-counters li .counter-label {
 .before-the-campaign .content-box-before .box-before ul {
   list-style: none;
   padding-left: 0;
+  padding-top: 15px;
 }
 .before-the-campaign .content-box-before .box-before ul span.file img {
   display: none;
@@ -260,7 +278,7 @@ ul.time-and-counters li .counter-label {
   font-weight: 600;
   border-top: 1px solid #CCC;
   margin-top: 1.1em;
-  padding: 0.7em 0;
+  padding: 5px 0;
 }
 .before-the-campaign .content-box-before .box-before-title.previous {
   border-top: 0;
@@ -300,6 +318,7 @@ ul.time-and-counters li .counter-label {
 .before-the-campaign .content-box-before .two-box-column .content-date-country {
   clear: both;
   color: #57575a;
+  padding-bottom: 20px;
 }
 .before-the-campaign .content-box-before .two-box-column .content-date-country .date {
   clear: both;
@@ -323,7 +342,7 @@ ul.time-and-counters li .counter-label {
   padding-left: 0;
 }
 .before-the-campaign .content-box-before .two-box-column .more-link a {
-  background: url(../images/ico-plus-20.png) no-repeat 99% 2px #0030a0;
+  background: url(../images/ico-plus-20.png) no-repeat 98.5% 2px #0030a0;
   text-transform: uppercase;
   color: #FFF;
   border-top-left-radius: 7px;
@@ -2044,6 +2063,7 @@ span.pages {
 /* Footer */
 .splash-page .footer {
   min-height: auto;
+  clear: both;
 }
 .footer {
   background: #57575a;

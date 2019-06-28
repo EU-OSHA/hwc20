@@ -145,8 +145,28 @@ body.logged-in {
 		}
 	}
 	.views-row-last{
+		background: #FFF;
+		padding-left: 0;
+    	padding-right: 0;
     	.img-right-column{
     		text-align: center;
+    		/* IE10+ */ 
+			background-image: -ms-linear-gradient(top, #ededed 0%, #F6F6F6 47%, #ededed 100%);
+
+			/* Mozilla Firefox */ 
+			background-image: -moz-linear-gradient(top, #ededed 0%, #F6F6F6 47%, #ededed 100%);
+
+			/* Opera */ 
+			background-image: -o-linear-gradient(top, #ededed 0%, #F6F6F6 47%, #ededed 100%);
+
+			/* Webkit (Safari/Chrome 10) */ 
+			background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(47, #F6F6F6), color-stop(100, #ededed));
+
+			/* Webkit (Chrome 11+) */ 
+			background-image: -webkit-linear-gradient(top, #ededed 0%, #F6F6F6 47%, #ededed 100%);
+
+			/* W3C Markup */ 
+			background-image: linear-gradient(to bottom, #ededed 0%, #F6F6F6 47%, #ededed 100%);
     		img{
     			margin:0 auto;
     		}
@@ -256,6 +276,7 @@ ul.time-and-counters{
 		    ul{
 		    	list-style: none;
 		    	padding-left: 0;
+		    	padding-top: 15px;
 		    	span.file{
 		    		img{
 		    			display: none;
@@ -295,7 +316,7 @@ ul.time-and-counters{
 			font-weight: 600;
 			border-top:1px solid #CCC;
 			margin-top: 1.1em;
-	    	padding: 0.7em 0;
+	    	padding: 5px 0;
 		}
 
 		.box-before-title.previous{
@@ -341,6 +362,7 @@ ul.time-and-counters{
 			.content-date-country{
 				clear: both;
 				color:#57575a;
+				padding-bottom: 20px;
 				.date{
 					clear: both;
 					font-weight: bold;
@@ -366,7 +388,7 @@ ul.time-and-counters{
 				background-color: transparent;
 				padding-left: 0;
 				a{
-					background: url(../images/ico-plus-20.png) no-repeat 99% 2px #0030a0;
+					background: url(../images/ico-plus-20.png) no-repeat 98.5% 2px #0030a0;
 				    text-transform: uppercase;
 				    color: #FFF;
 				    border-top-left-radius: 7px;
@@ -951,12 +973,12 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 }
 
 .box-news{
-  padding-right: 0.5em;
+ 	padding-right: 0.5em;
 	img{
 		width: 225px;
-    height: 225px;
-    border-radius:10px;
-  }
+		height: 225px;
+		border-radius:10px;
+	}
 }
 
 .box-events{
@@ -2298,6 +2320,7 @@ span.pages{
 .splash-page{
 	.footer{
 		min-height: auto;
+		clear: both;
 	}
 }
 
