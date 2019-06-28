@@ -246,15 +246,19 @@ function hwc_workflow_update_7014() {
   module_load_include('inc', 'hwc_workflow', 'hwc_workflow.permissions');
 
   $role = user_role_load_by_name(HWC_ROLE_EEN_REVIEW_MANAGER);
-  user_role_grant_permissions($role->rid, hwc_workflow_permission_role_een_rm());
+  if ($role) {
+    user_role_grant_permissions($role->rid, hwc_workflow_permission_role_een_rm());
+  }
 
   $r1 = user_role_load_by_name(HWC_ROLE_EEN_REVIEW_MANAGER);
-  $role = array(
-    'rid' => $r1->rid,
-    'access_id' => 'section',
-    'access_scheme' => 'taxonomy',
-  );
-//  drupal_write_record('workbench_access_role', $role);
+  if ($r1) {
+    $role = array(
+      'rid' => $r1->rid,
+      'access_id' => 'section',
+      'access_scheme' => 'taxonomy',
+    );
+    //  drupal_write_record('workbench_access_role', $role);
+  }
   variable_set('chosen_minimum_multiple', 5);
 }
 
