@@ -22,8 +22,14 @@ body.logged-in {
 	padding-bottom: 2em;
 }
 
+.date-display-single{
+	color: #57575a;
+	float: left;
+}
+
 .btn-background-transparent{
 	background: transparent;
+	width: 208px;
     color: #e5f1ac;
     border: 3px solid #bcd75b;
     padding: 0.6em 2.5em 0.6em 1.5em;
@@ -31,7 +37,6 @@ body.logged-in {
     font-weight: 600;
     position: relative;
     font-size: 1.4rem;
-    max-width: 210px;
     display: block;
     float: left;
 
@@ -122,21 +127,24 @@ body.logged-in {
 		}
 
 		p{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
 			color: #FFF;
 		    padding-top: 1em;
-		    padding-bottom: 4em;
-		    max-width: 422px;
+		    padding-bottom: 3em;
+		    max-width: 430px;
 		    margin: 0 auto;
 		    font-size: 1.2em;
 		}
 
 		.btn-background-transparent{
-			margin-left: 1em;
+			display: flex;
+    		justify-content: center;
+    		align-items: center;
 		}
 	}
 	.views-row-last{
-		background: url('../images/background-right-column.png') no-repeat #e2e2e2;
-    	background-size: cover;
     	.img-right-column{
     		text-align: center;
     		img{
@@ -287,7 +295,7 @@ ul.time-and-counters{
 			font-weight: 600;
 			border-top:1px solid #CCC;
 			margin-top: 1.1em;
-	    	padding-top: 0.7em;
+	    	padding: 0.7em 0;
 		}
 
 		.box-before-title.previous{
@@ -371,6 +379,7 @@ ul.time-and-counters{
 					-o-transition: all 0.3s;
 					transition: all 0.3s;
 					float: left;
+					margin-top: 1em;
 				    &:hover{
 				    	color: #FFF;
 				    	background: url(../images/ico-plus-20-hover.png) no-repeat 99% 2px #b9d643;
@@ -469,7 +478,134 @@ ul.time-and-counters{
 	}
 }
 
-/*Dev 2*/
+/*Splash events*/
+
+.code_EN{
+	background: url(../images/events/big/England-180x180.png) no-repeat center;
+}
+.code_AT{
+	background: url(../images/events/big/Austria-180x180.png) no-repeat center;
+}
+.code_CH{
+	background: url(../images/events/big/Switzerland-180x180.png) no-repeat center;
+}
+.code_BG{
+	background: url(../images/events/big/Bulgaria-180x180.png) no-repeat center;
+}
+.code_BE{
+	background: url(../images/events/big/Belgium-180x180.png) no-repeat center;
+}
+.code_CZ{
+	background: url(../images/events/big/Czech-Republic-180x180.png) no-repeat center;
+}
+.code_CS{
+	background: url(../images/events/big/Czech-Republic-180x180.png) no-repeat center;
+}
+.code_DK{
+	background: url(../images/events/big/Denmark-180x180.png) no-repeat center;
+}
+.code_DE{
+	background: url(../images/events/big/Germany-180x180.png) no-repeat center;
+}
+.code_EL{
+	background: url(../images/events/big/Greece-180x180.png) no-repeat center;
+}
+.code_ES{
+	background: url(../images/events/big/Spain-180x180.png) no-repeat center;
+}
+.code_EU{
+	background: url(../images/events/big/European-Union-180x180.png) no-repeat center;
+}
+.code_EE{
+	background: url(../images/events/big/Estonia-180x180.png) no-repeat center;
+}
+.code_FI{
+	background: url(../images/events/big/Finland-180x180.png) no-repeat center;
+}
+.code_HR{
+	background: url(../images/events/big/Croatia-180x180.png) no-repeat center;
+}
+.code_FR{
+	background: url(../images/events/big/France-180x180.png) no-repeat center;
+}
+.code_HU{
+	background: url(../images/events/big/Hungary-180x180.png) no-repeat center;
+}
+.code_IS{
+	background: url(../images/events/big/Iceland-180x180.png) no-repeat center;
+}
+.code_IT{
+	background: url(../images/events/big/Italy-180x180.png) no-repeat center;
+}
+.code_LV{
+	background: url(../images/events/big/Latvia-180x180.png) no-repeat center;
+}
+.code_LT{
+	background: url(../images/events/big/Lithuania-180x180.png) no-repeat center;
+}
+.code_LU{
+	background: url(../images/events/big/Luxembourg-180x180.png) no-repeat center;
+}
+.code_LI{
+	background: url(../images/events/big/Liechtenstein-180x180.png) no-repeat center;
+}
+.code_NL{
+	background: url(../images/events/big/Netherlands-180x180.png) no-repeat center;
+}
+.code_MT{
+	background: url(../images/events/big/Malta-180x180.png) no-repeat center;
+}
+.code_NO{
+	background: url(../images/events/big/Norway-180x180.png) no-repeat center;
+}
+.code_PL{
+	background: url(../images/events/big/Poland-180x180.png) no-repeat center;
+}
+.code_PT{
+	background: url(../images/events/big/Portugal-180x180.png) no-repeat center;
+}
+.code_RO{
+	background: url(../images/events/big/Romania-180x180.png) no-repeat center;
+}
+.code_SK{
+	background: url(../images/events/big/Slovakia-180x180.png) no-repeat center;
+}
+.code_SI{
+	background: url(../images/events/big/Slovenia-180x180.png) no-repeat center;
+}
+.code_SE{
+	background: url(../images/events/big/Sweden-180x180.png) no-repeat center;
+}
+.code_IE{
+	background: url(../images/events/big/Ireland-180x180.png) no-repeat center;
+}
+.code_UK{
+	background: url(../images/events/big/United-Kingdom-180x180.png) no-repeat center;
+}
+.code_CN{
+	background: url(../images/events/big/China-180x180.png) no-repeat center;
+}
+.code_CY{
+	background: url(../images/events/big/Republic-of-Cyprus-180x180.png) no-repeat center;
+}
+.code_US{
+	background: url(../images/events/big/eeuu-180x180.png) no-repeat center;
+}
+
+.event_country{
+	width: 65px;
+    height: 65px;
+    background-size: cover;
+    float: left;
+}
+
+#block-views-frontpage-events-splash > div > div.view-content > div{
+	text-align: left;
+    width: 100%;
+    float: left;
+}
+
+
 /*Header*/
 header.navbar-default .navbar-collapse nav ul.menu li {
 	width: 15%;
@@ -1227,19 +1363,31 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 	margin-top: 3em;
 }
 
+.region.region-sidebar-first.well{
+	background: transparent;
+	border: 0;
+	box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.05);
+}
+
+#block-menu-block-4{
+	width: 225px;
+}
+
 .left-menu ul{
 	list-style: none;
 	li{
 		background-color: #daea96;
-  	border-top-right-radius: 15px;
-  	border-bottom-right-radius: 15px;
-  	border-top-left-radius: 15px;
-  	border-bottom-left-radius: 15px;
-  	padding: 0.5em 1.5em;
-  	margin-bottom: 1em;
-  	a{
-  		text-decoration: none;
-  	}
+	  	border-top-right-radius: 18px;
+	  	border-bottom-right-radius: 18px;
+	  	border-top-left-radius: 18px;
+	  	border-bottom-left-radius: 18px;
+	  	padding: 0.5em 0.8em 0.5em 1.5em;
+	  	margin-bottom: 1em;
+	  	a{
+	  		text-decoration: none;
+	  		padding: 0 20px 0 0;
+
+	  	}
 	}
 	li:hover{
 		background-color:#0030a0;
@@ -1247,23 +1395,23 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 			color:white;	
 		}
 	}
-	.selected{
+	.active{
     background-color: #0030a0;
     position: relative;
     a{
       color:white;
       display: block;
-      width: 90%;
-    }
-    &:before{
-     content: '';
-     width: 15px;
-     height: 15px;
-     border-radius: 10px;
-     background: #acc700;
-     position: absolute;
-     right: 14px;
-     top: 27%;
+      width: 100%;
+      &:before{
+		content: '';
+		width: 15px;
+		height: 15px;
+		border-radius: 10px;
+		background: #acc700;
+		position: absolute;
+		right: 0;
+		top: 10%;
+	    }
     }
   }
 }

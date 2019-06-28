@@ -44,6 +44,14 @@ header.navbar-default .navbar-collapse nav ul.menu li > span.nolink{
     padding-right: 3px;
 }
 
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
+    background-color: #003399;
+}
+
+.main-container h1, .main-container .title-alt{
+    border-bottom: 0;
+}
+
 .dropdown-menu{
     background-clip: inherit;
 }

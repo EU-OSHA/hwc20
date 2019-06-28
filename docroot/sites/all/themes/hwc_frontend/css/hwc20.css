@@ -92,19 +92,10 @@ body {
   margin: 0 auto;
   font-size: 1.2em;
 }
-.intro-splash-20 .views-row-first .btn-background-transparent {
-  margin-left: 1em;
-}
 .intro-splash-20 .views-row-last {
   background: url('../images/background-right-column.png') no-repeat #e2e2e2;
   min-height: 343px;
   background-size: cover;
-}
-.intro-splash-20 .views-row-last .img-right-column {
-  background: url(../images/splash-background.png) no-repeat transparent;
-  min-height: 343px;
-  background-position-x: center;
-  background-position-y: -46px;
 }
 /* Coming Soon */
 .comming-soon {
