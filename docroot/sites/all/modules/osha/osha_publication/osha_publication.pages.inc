@@ -125,8 +125,8 @@ function osha_publication_menu_publications_faceted_form($variables) {
 
   $response = call_user_func($search_callback, $form_state, $sort);
 
-  $per_page = 4;
-  $form['content']['results-native'] = osha_publication_menu_publications_native_results($form_state, $response, $per_page, $sort, $current_page, $per_page);
+  $per_page = 5;
+  $form['content']['results-native'] = osha_publication_menu_publications_native_results($form_state, $response, $per_page, $sort, $current_page);
   $start = $current_page * $per_page;
   $shown = 0;
   if (isset($form['content']['results-native']['#shown'])) {
@@ -222,6 +222,7 @@ function osha_publication_menu_publications_search($form_state, $sort) {
   $query->condition('type', 'publication');
   $query->condition('field_file:file', 0, '>');
   $query->condition('field_publication_type', CASE_STUDY_TID, "<>");
+  $query->condition('field_publication_type', CAMPAIGN_MATERIALS_TID, "<>");
   $query->condition('language', 'und', "<>");
   $query->keys($text);
   $query->fields(array('title_field', 'body:value'));

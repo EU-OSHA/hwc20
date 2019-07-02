@@ -74,7 +74,6 @@
  */
 
 global $language;
-
 $theme_dir = drupal_get_path('theme', 'hwc_frontend');
 ?>
 <?php if (!empty($page['above_header'])): ?>
@@ -121,113 +120,111 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
         </div>
     </div>
 </header>
-
-<div class="main-container container-fluid">
-
-  <?php /* print $content_column_class; */ ?>
-  <?php if (!empty($page['highlighted'])): ?>
-      <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
-  <?php endif; ?>
-    <a id="main-content"></a>
-  <?php print render($title_prefix); ?>
-    <div class="above_title">
-      <?php print render($page['above_title']); ?>
-    </div>
-  <?php if ($show_title) { ?>
-      <div class="page_title">
-  <?php
-  $external_infographic = variable_get('hwc_external_infographic_nid', 7150);
-  $node_nid = NULL;
-  $node_type = NULL;
-  /*If is a external infographic, change the breadcrumbs*/
-  $n = menu_get_object('node');
-  if ($n) {
-    $node_nid = $n->nid;
-    $node_type = $n->type;
-    switch ($node_type) {
-      case "article":
-        if ($node_nid == $external_infographic) { ?>
-            <div class="breadcrumb breadcrumb-external-infographic contextual-links-region">
-            <span class="inline odd first">
+<div class="main-container">
+    <div class="row">
+        <section class="<?php print (!empty($content_class)) ? $content_class : ''; ?>">
+            <div class="col-md-12 col-xs-12 title-row">
+              <?php /* print $content_column_class; */ ?>
+              <?php if (!empty($page['highlighted'])): ?>
+                  <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
+              <?php endif; ?>
+                <section class="title-section">
+                  <?php if ($show_title) { ?>
+                      <div class="page_title">
+                    <?php
+                    $external_infographic = variable_get('hwc_external_infographic_nid', 7150);
+                    $node_nid = NULL;
+                    $node_type = NULL;
+                    /*If is a external infographic, change the breadcrumbs*/
+                    $n = menu_get_object('node');
+                    if ($n) {
+                      $node_nid = $n->nid;
+                      $node_type = $n->type;
+                      switch ($node_type) {
+                        case "article":
+                          if ($node_nid == $external_infographic) { ?>
+                              <div class="breadcrumb breadcrumb-external-infographic contextual-links-region">
+                              <span class="inline odd first">
                       <?php print '<a href="/' . $language->language . '">' . t("Home") . '</a>'; ?>
                     </span>
-            <span class="delimiter">»</span>
-            <span class="inline even">
+                              <span class="delimiter">»</span>
+                              <span class="inline even">
                       <?php print '<a href="/' . $language->language . '/tools-and-publications">' . t("Tools and Publications") . '</a>'; ?>
                     </span>
-            <span class="delimiter">»</span>
-            <span class="inline even">
+                              <span class="delimiter">»</span>
+                              <span class="inline even">
                       <?php print '<a href="/' . $language->language . '/tools-and-publications/infographics">' . t("Infographics") . '</a>'; ?>
                     </span>
-            <span class="delimiter">»</span>
-            <span class="inline odd last"><?php print $n->title; ?></span>
-            </div><?php
-        }
-        break;
+                              <span class="delimiter">»</span>
+                              <span class="inline odd last"><?php print $n->title; ?></span>
+                              </div><?php
+                          }
+                          break;
 
-      case "infographic": ?>
-          <div class="breadcrumb breadcrumb-external-infographic contextual-links-region">
-          <span class="inline odd first">
+                        case "infographic": ?>
+                            <div class="breadcrumb breadcrumb-external-infographic contextual-links-region">
+                            <span class="inline odd first">
                   <?php print '<a href="/' . $language->language . '">' . t("Home") . '</a>' ?>
                 </span>
-          <span class="delimiter">»</span>
-          <span class="inline even">
+                            <span class="delimiter">»</span>
+                            <span class="inline even">
                   <?php print '<a href="/' . $language->language . '/tools-and-publications">' . t("Tools and Publications") . '</a>' ?>
                 </span>
-          <span class="delimiter">»</span>
-          <span class="inline odd last">
+                            <span class="delimiter">»</span>
+                            <span class="inline odd last">
                    <?php print t("Infographics"); ?>
                 </span>
-          </div><?php
-        break;
+                            </div><?php
+                          break;
 
-    }
-  }
-  if (!empty($breadcrumb) && ($node_nid != $external_infographic) && ($node_type != 'infographic')) {
-    print $breadcrumb;
-  }
-  if (!empty($back_to_pz)) {
-    print $back_to_pz;
-  } ?>
-    <?php if (!empty($title)) { ?>
-          <h1 class="page-header"><?php print $title; ?></h1>
-    <?php } ?>
-      </div>
-    <?php
-  }
-  print render($title_suffix);
-  print $messages; ?>
-    <div class="below_title">
-      <?php print render($page['below_title']); ?>
-    </div>
-    <div class="container">
-        <div class="row">
-          <?php if (!empty($tabs)): ?>
-            <?php print render($tabs); ?>
-          <?php endif; ?>
-          <?php if (!empty($page['help'])): ?>
-            <?php print render($page['help']); ?>
-          <?php endif; ?>
-          <?php if (!empty($action_links)): ?>
-              <ul class="action-links"><?php print render($action_links); ?></ul>
-          <?php endif; ?>
+                      }
+                    }
+                    if (!empty($breadcrumb) && ($node_nid != $external_infographic) && ($node_type != 'infographic')) {
+                      print $breadcrumb;
+                    }
+                    if (!empty($back_to_pz)) {
+                      print $back_to_pz;
+                    } ?>
+                      <a id="main-content"></a>
+                    <?php print render($title_prefix); ?>
+                      <div class="above_title">
+                        <?php print render($page['above_title']); ?>
+                      </div>
+                    <?php if (!empty($title)): ?>
+                          <h1 class="page-header"><?php print $title; ?></h1>
+                    <?php endif; ?>
+                      </div><?php
+                  }
+                  print render($title_suffix);
+                  print $messages; ?>
+                    <div class="below_title">
+                      <?php print render($page['below_title']); ?>
+                    </div>
+                </section>
+              <?php if (!empty($tabs)): ?>
+                <?php print render($tabs); ?>
+              <?php endif; ?>
+              <?php if (!empty($page['help'])): ?>
+                <?php print render($page['help']); ?>
+              <?php endif; ?>
+              <?php if (!empty($action_links)): ?>
+                  <ul class="action-links"><?php print render($action_links); ?></ul>
+              <?php endif; ?>
+              <?php if (!empty($page['sidebar_first'])): ?>
+                  <aside class="col-xs-12 col-sm-6 col-md-3" role="complementary">
+                    <?php print render($page['sidebar_first']); ?>
+                  </aside>  <!-- /#sidebar-first -->
+              <?php endif; ?>
+                <div id="skip-to-content" style="visibility: hidden; height: 0px"><a href="#skip-to-content" rel="nofollow" accesskey="S" style="visibility: hidden;"><?php print t('Skip to content'); ?></a></div>
+              <?php print render($page['content']); ?>
+            </div>
+        </section>
 
-          <?php if (!empty($page['sidebar_first'])): ?>
-              <aside class="col-md-3" role="complementary">
-                <?php print render($page['sidebar_first']); ?>
-              </aside>  <!-- /#sidebar-first -->
-          <?php endif; ?>
-            <aside class="col-md-6">
-            <div id="skip-to-content" style="visibility: hidden; height: 0px"><a href="#skip-to-content" rel="nofollow" accesskey="S" style="visibility: hidden;"><?php print t('Skip to content'); ?></a></div>
-          <?php print render($page['content']); ?>
-            </aside>
-          <?php if (!empty($page['sidebar_second'])): ?>
-              <aside>
-                <?php print render($page['sidebar_second']); ?>
-              </aside>  <!-- /#sidebar-second -->
-          <?php endif; ?>
-
-        </div>
+      <?php if (!empty($page['sidebar_second'])): ?>
+          <aside class="col-xs-12 col-sm-8 col-sm-offset-2">
+            <?php print render($page['sidebar_second']); ?>
+          </aside>  <!-- /#sidebar-second -->
+      <?php endif; ?>
     </div>
 </div>
 <footer class="footer">

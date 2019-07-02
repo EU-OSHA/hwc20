@@ -50,6 +50,7 @@ features[field_instance][] = node-frontpage_slider-field_image
 features[field_instance][] = node-frontpage_slider-title_field
 features[field_instance][] = node-previous_campaign-body
 features[field_instance][] = node-previous_campaign-field_icon
+features[field_instance][] = node-previous_campaign-title_field
 features[field_instance][] = taxonomy_term-tools_and_publications_type-description_field
 features[field_instance][] = taxonomy_term-tools_and_publications_type-field_image
 features[field_instance][] = taxonomy_term-tools_and_publications_type-field_tools_publications_link

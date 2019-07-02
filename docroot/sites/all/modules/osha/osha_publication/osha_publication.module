@@ -6,6 +6,10 @@
 
 include_once 'osha_publication.features.inc';
 
+if (!defined('CAMPAIGN_MATERIALS_TID')) {
+  //todo create campaign_materials term
+  define('CAMPAIGN_MATERIALS_TID', variable_get('campaign_materials_tid', 521));
+}
 define('CASE_STUDY_TID', 521);
 define('OSHA_PUBLICATION_CONTENT_TYPE_PUBLICATION', 'publication');
 define('SOLR_SEARCH_INDEX', 'default_multilingual_node_index');
@@ -180,6 +184,13 @@ function osha_publication_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'cache' => DRUPAL_NO_CACHE,
   );
+  $blocks['osha_campaign_materials_listing'] = array(
+    'info' => t('Campaign materials listing'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+  );
   return $blocks;
 }
 
@@ -197,6 +208,7 @@ function osha_publication_block_view($delta = '') {
   if ($delta == 'osha_publicatio_slideshow') {
     $block['content'] = views_embed_view('publications_slideshow', 'slidehow');
   }
+
   if ($delta == 'osha_publication_listing') {
     module_load_include('inc', 'osha_publication', 'osha_publication.pages');
     $block['content'] = drupal_get_form('osha_publication_menu_publications_form');
@@ -205,6 +217,11 @@ function osha_publication_block_view($delta = '') {
     module_load_include('inc', 'osha_publication', 'osha_publication_case_studies.pages');
     module_load_include('inc', 'osha_publication', 'osha_publication.pages');
     $block['content'] = drupal_get_form('osha_publication_menu_case_studies_form');
+  }
+  if ($delta == 'osha_campaign_materials_listing') {
+    module_load_include('inc', 'osha_publication', 'osha_publication_campaign_materials.pages');
+    module_load_include('inc', 'osha_publication', 'osha_publication.pages');
+    $block['content'] = drupal_get_form('osha_publication_menu_campaign_materials_form');
   }
   return $block;
 }

@@ -117,3 +117,10 @@ function hwc_homepage_update_7015() {
 function hwc_homepage_update_7016() {
   features_revert_module('hwc_homepage');
 }
+
+/**
+ * HW20-19 HWC20 - Splash page: (reduced Home page) Development.
+ */
+function hwc_homepage_update_7017() {
+  features_revert(array('hwc_homepage' => 'views_view'));
+}

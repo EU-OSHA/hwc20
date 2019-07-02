@@ -27,9 +27,7 @@ if ($row->field_field_show_eu_flag && $row->field_field_show_eu_flag[0]['raw']['
   $country_code = 'EU';
 }
 
-$content = '<div class="event_day_month">
-  <div class="event_country code_' . $country_code . '"> </div>
-</div>';
+$content = '<div class="event_country code_' . $country_code . '"> </div>';
 
 $tooltip = $row->field_field_country_code[0]['rendered']['#markup'];
 echo hwc_qtip_text($content, $tooltip);

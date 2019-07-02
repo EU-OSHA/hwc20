@@ -132,7 +132,7 @@ function hwc_frontend_preprocess_html(&$vars) {
     $vars['classes_array'][] = 'splash-page';
   }
   if (!empty($vars['is_front'])) {
-    $vars['head_title'] = t('Healthy Workplaces LIGHTEN THE LOAD 2018-19');
+    $vars['head_title'] = t('Healthy Workplaces LIGHTEN THE LOAD 2020-22');
   }
   if (arg(0) . arg(2) == 'nodeedit') {
     if ($n->type == 'news' || $n->type == 'events') {
@@ -196,11 +196,16 @@ function hwc_frontend_css_alter(&$css) {
 }
 
 function hwc_frontend_preprocess_page(&$vars) {
+  $vars['head_text'] = t('Healthy Workplaces LIGHTEN THE LOAD 2020-22');
   $n = menu_get_object('node');
   if ($n) {
     switch ($n->type) {
       case "article":
-        $variables['theme_hook_suggestions'][] = 'page__node__article';
+        $vars['theme_hook_suggestions'][] = 'page__node__article';
+        break;
+
+      case "publication":
+        $vars['theme_hook_suggestions'][] = 'page__node__publication';
         break;
     }
   }

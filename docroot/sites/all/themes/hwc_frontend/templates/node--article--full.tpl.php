@@ -8,7 +8,9 @@
 /** @var array $content */
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <?php if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
+  <?php
+  print render($content['share_widget']);
+  if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
     <header>
       <?php print render($title_prefix); ?>
       <?php if (!$page && $title): ?>
@@ -34,11 +36,10 @@
     }
     print render($content['title_field']);
   ?>
-  <div class="container">
+  <div>
     <?php
     print render($content['field_summary']);
     print render($content['body']);
-    print render($content['share_widget']);
     // Additional resources.
     if (!empty($content['field_recommended_resources']) || !empty($content['field_recommended_articles'])) {
       print '<div class="dot-separator green"></div><div class="icon recommended-resources"></div>' . '<h2>' . t('Recommended resources for you') . '</h2>';
