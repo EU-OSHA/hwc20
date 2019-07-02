@@ -128,6 +128,13 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
   <?php if (!empty($page['highlighted'])): ?>
       <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
   <?php endif; ?>
+    <a id="main-content"></a>
+  <?php print render($title_prefix); ?>
+    <div class="above_title">
+      <?php print render($page['above_title']); ?>
+    </div>
+  <?php if ($show_title) { ?>
+      <div class="page_title">
   <?php
   $external_infographic = variable_get('hwc_external_infographic_nid', 7150);
   $node_nid = NULL;
@@ -182,17 +189,11 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
   if (!empty($back_to_pz)) {
     print $back_to_pz;
   } ?>
-    <a id="main-content"></a>
-  <?php print render($title_prefix); ?>
-    <div class="above_title">
-      <?php print render($page['above_title']); ?>
-    </div>
-  <?php
-  if ($show_title) {?><div class="page_title">
-    <?php if (!empty($title)): ?>
+    <?php if (!empty($title)) { ?>
           <h1 class="page-header"><?php print $title; ?></h1>
-    <?php endif; ?>
-      </div><?php
+    <?php } ?>
+      </div>
+    <?php
   }
   print render($title_suffix);
   print $messages; ?>
