@@ -307,6 +307,13 @@ function hwc_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'region' => 'footer',
   );
+  $blocks['article_related_resources'] = array(
+    'info' => t('Article related resources'),
+    'status' => 1,
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'region' => 'sidebar_second',
+  );
+
   return $blocks;
 }
 
@@ -341,6 +348,26 @@ function hwc_block_view($delta = '') {
     $block['subject'] = "<none>";
     $block['content'] = NULL;
   }
+  if ($delta == 'article_related_resources') {
+    $block['title'] = '<none>';
+    $block['subject'] = "<none>";
+    $block['content'] = '
+<div class="col-md-3 related-resources">
+   <span class="related-resources-title">' . t('Related resources') . '</span>
+   <div class="related-resources-boxes container-recommended-tools direction-column">
+      <div>
+         <a class="recommended-tool max-width priority-areas" href="#"><span>' . t('Priority Areas') . '</span></a>
+      </div>
+      <div>
+         <a class="recommended-tool max-width osh-wiki" href="#"><span>' . t('OSH Wiki') . '</span></a>
+      </div>
+      <div>
+         <a class="recommended-tool max-width osh-newsletter" href="#"><span>' . t('OSH Newsletter') . '</span></a>
+      </div>
+   </div>
+</div>';
+  }
+
   return $block;
 }
 

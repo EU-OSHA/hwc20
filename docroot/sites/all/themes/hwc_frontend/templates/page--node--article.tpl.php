@@ -80,151 +80,154 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
 <?php if (!empty($page['above_header'])): ?>
 <?php endif; ?>
 <header id="navbar" class="navbar navbar-default container-fluid"><?php // print $navbar_classes; ?>
-  <div class="container-fluid campaigns-header">
-    <div class="row">
-      <div class="navbar-header">
+    <div class="container-fluid campaigns-header">
         <div class="row">
-          <div class="col-xs-12 col-sm-9">
-            <a class="pull-left" accesskey="0" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-              <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-            </a>
-            <a href="http://osha.europa.eu" title="EU-OSHA" target="_blank"><img class="pull-left" src="/<?php print $theme_dir . '/logo-osha.png'; ?>" alt="<?php print t('EU-OSHA logo'); ?>" /></a>
-            <img class="pull-left" src="/<?php print $theme_dir . '/logo-eu.png'; ?>" alt="<?php print t('EU logo'); ?>" />
-			<div class="header-text"><?php echo $head_text; ?></div>
-          </div>
-          <div class="col-xs-12 col-sm-3 xs-menu">
-            <div class="header_top_bar">
-              <div class="vertical-align">
-                <?php print render($page['above_header']); ?>
-              </div>
+            <div class="navbar-header">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-9">
+                        <a class="pull-left" accesskey="0" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+                            <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+                        </a>
+                        <a href="http://osha.europa.eu" title="EU-OSHA" target="_blank"><img class="pull-left" src="/<?php print $theme_dir . '/logo-osha.png'; ?>" alt="<?php print t('EU-OSHA logo'); ?>" /></a>
+                        <img class="pull-left" src="/<?php print $theme_dir . '/logo-eu.png'; ?>" alt="<?php print t('EU logo'); ?>" />
+                        <div class="header-text"><?php echo $head_text; ?></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 xs-menu">
+                        <div class="header_top_bar">
+                            <div class="vertical-align">
+                              <?php print render($page['above_header']); ?>
+                            </div>
+                        </div>
+                      <?php print render($page['header']); ?>
+                        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <?php print render($page['header']); ?>
-			<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			  <span class="sr-only">Toggle navigation</span>
-			  <span class="icon-bar"></span>
-			  <span class="icon-bar"></span>
-			  <span class="icon-bar"></span>
-			</button>
-          </div>
         </div>
-      </div>
+        <div class="row">
+            <div class="navbar-collapse collapse">
+                <nav>
+                  <?php if (!empty($primary_nav)): ?>
+                    <?php print render($primary_nav); ?>
+                  <?php endif; ?>
+                </nav>
+            </div>
+        </div>
     </div>
-    <div class="row">
-		<div class="navbar-collapse collapse">
-		  <nav>
-			<?php if (!empty($primary_nav)): ?>
-			  <?php print render($primary_nav); ?>
-			<?php endif; ?>
-		  </nav>
-		</div>
-    </div>
-  </div>
 </header>
 
 <div class="main-container container-fluid">
 
-  <div class="row">
-    <section class="<?php print (!empty($content_class)) ? $content_class : ''; ?>">
-    <?php /* print $content_column_class; */ ?>
-      <?php if (!empty($page['highlighted'])): ?>
-        <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
-      <?php endif; ?>
-      <?php
-      $external_infographic = variable_get('hwc_external_infographic_nid', 7150);
-      $node_nid = NULL;
-      $node_type = NULL;
-      /*If is a external infographic, change the breadcrumbs*/
-      $n = menu_get_object('node');
-      if ($n) {
-          $node_nid = $n->nid;
-          $node_type = $n->type;
-          switch ($node_type) {
+    <div class="container">
+        <div class="row">
+          <?php /* print $content_column_class; */ ?>
+          <?php if (!empty($page['highlighted'])): ?>
+              <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
+          <?php endif; ?>
+          <?php
+          $external_infographic = variable_get('hwc_external_infographic_nid', 7150);
+          $node_nid = NULL;
+          $node_type = NULL;
+          /*If is a external infographic, change the breadcrumbs*/
+          $n = menu_get_object('node');
+          if ($n) {
+            $node_nid = $n->nid;
+            $node_type = $n->type;
+            switch ($node_type) {
               case "article":
                 if ($node_nid == $external_infographic) { ?>
-                  <div class="breadcrumb breadcrumb-external-infographic contextual-links-region">
+                    <div class="breadcrumb breadcrumb-external-infographic contextual-links-region">
                     <span class="inline odd first">
                       <?php print '<a href="/' . $language->language . '">' . t("Home") . '</a>'; ?>
-                    </span> 
-                    <span class="delimiter">»</span> 
+                    </span>
+                    <span class="delimiter">»</span>
                     <span class="inline even">
                       <?php print '<a href="/' . $language->language . '/tools-and-publications">' . t("Tools and Publications") . '</a>'; ?>
-                    </span> 
+                    </span>
                     <span class="delimiter">»</span>
                     <span class="inline even">
                       <?php print '<a href="/' . $language->language . '/tools-and-publications/infographics">' . t("Infographics") . '</a>'; ?>
-                    </span> 
+                    </span>
                     <span class="delimiter">»</span>
                     <span class="inline odd last"><?php print $n->title; ?></span>
-                  </div><?php
+                    </div><?php
                 }
                 break;
 
               case "infographic": ?>
-            <div class="breadcrumb breadcrumb-external-infographic contextual-links-region">
-                <span class="inline odd first">
+                  <div class="breadcrumb breadcrumb-external-infographic contextual-links-region">
+                  <span class="inline odd first">
                   <?php print '<a href="/' . $language->language . '">' . t("Home") . '</a>' ?>
                 </span>
-                <span class="delimiter">»</span>
-                <span class="inline even">
+                  <span class="delimiter">»</span>
+                  <span class="inline even">
                   <?php print '<a href="/' . $language->language . '/tools-and-publications">' . t("Tools and Publications") . '</a>' ?>
                 </span>
-                <span class="delimiter">»</span>
-                <span class="inline odd last">
+                  <span class="delimiter">»</span>
+                  <span class="inline odd last">
                    <?php print t("Infographics"); ?>
                 </span>
-              </div><?php
+                  </div><?php
                 break;
 
+            }
           }
-      }
-      if (!empty($breadcrumb) && ($node_nid != $external_infographic) && ($node_type != 'infographic')) {
-          print $breadcrumb;
-      }
-      if (!empty($back_to_pz)) {
-        print $back_to_pz;
-      } ?>
-      <a id="main-content"></a>
-      <?php print render($title_prefix); ?>
-      <div class="above_title">
-        <?php print render($page['above_title']); ?>
-      </div>
-      <?php
-      if ($show_title) {?><div class="page_title">
-        <?php if (!empty($title)): ?>
-          <h1 class="page-header"><?php print $title; ?></h1>
-        <?php endif; ?>
-      </div><?php
-      }
-      print render($title_suffix);
-      print $messages; ?>
-      <div class="below_title">
-        <?php print render($page['below_title']); ?>
-      </div>
-      <?php if (!empty($tabs)): ?>
-        <?php print render($tabs); ?>
-      <?php endif; ?>
-      <?php if (!empty($page['help'])): ?>
-        <?php print render($page['help']); ?>
-      <?php endif; ?>
-      <?php if (!empty($action_links)): ?>
-        <ul class="action-links"><?php print render($action_links); ?></ul>
-      <?php endif; ?>
-	  <?php if (!empty($page['sidebar_first'])): ?>
-		  <aside class="col-xs-12 col-sm-6 col-md-3" role="complementary">
-			<?php print render($page['sidebar_first']); ?>
-		  </aside>  <!-- /#sidebar-first -->
-	  <?php endif; ?>
-      <div id="skip-to-content" style="visibility: hidden; height: 0px"><a href="#skip-to-content" rel="nofollow" accesskey="S" style="visibility: hidden;"><?php print t('Skip to content'); ?></a></div>
-      <?php print render($page['content']); ?>
-    </section>
+          if (!empty($breadcrumb) && ($node_nid != $external_infographic) && ($node_type != 'infographic')) {
+            print $breadcrumb;
+          }
+          if (!empty($back_to_pz)) {
+            print $back_to_pz;
+          } ?>
+            <a id="main-content"></a>
+          <?php print render($title_prefix); ?>
+            <div class="above_title">
+              <?php print render($page['above_title']); ?>
+            </div>
+          <?php
+          if ($show_title) {?><div class="page_title">
+            <?php if (!empty($title)): ?>
+                  <h1 class="page-header"><?php print $title; ?></h1>
+            <?php endif; ?>
+              </div><?php
+          }
+          print render($title_suffix);
+          print $messages; ?>
+            <div class="below_title">
+              <?php print render($page['below_title']); ?>
+            </div>
+          <?php if (!empty($tabs)): ?>
+            <?php print render($tabs); ?>
+          <?php endif; ?>
+          <?php if (!empty($page['help'])): ?>
+            <?php print render($page['help']); ?>
+          <?php endif; ?>
+          <?php if (!empty($action_links)): ?>
+              <ul class="action-links"><?php print render($action_links); ?></ul>
+          <?php endif; ?>
 
-    <?php if (!empty($page['sidebar_second'])): ?>
-      <aside class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <?php print render($page['sidebar_second']); ?>
-      </aside>  <!-- /#sidebar-second -->
-    <?php endif; ?>
-  </div>
+          <?php if (!empty($page['sidebar_first'])): ?>
+              <aside class="col-md-3" role="complementary">
+                <?php print render($page['sidebar_first']); ?>
+              </aside>  <!-- /#sidebar-first -->
+          <?php endif; ?>
+            <aside class="col-md-6">
+            <div id="skip-to-content" style="visibility: hidden; height: 0px"><a href="#skip-to-content" rel="nofollow" accesskey="S" style="visibility: hidden;"><?php print t('Skip to content'); ?></a></div>
+          <?php print render($page['content']); ?>
+            </aside>
+          <?php if (!empty($page['sidebar_second'])): ?>
+              <aside class="col-md-3 related-resources">
+                <?php print render($page['sidebar_second']); ?>
+              </aside>  <!-- /#sidebar-second -->
+          <?php endif; ?>
+
+        </div>
+    </div>
 </div>
 <footer class="footer">
     <div class="container">

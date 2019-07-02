@@ -201,7 +201,7 @@ function hwc_frontend_preprocess_page(&$vars) {
   if ($n) {
     switch ($n->type) {
       case "article":
-        $variables['theme_hook_suggestions'][] = 'page__node__article';
+        $vars['theme_hook_suggestions'][] = 'page__node__article';
         break;
     }
   }
