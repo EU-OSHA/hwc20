@@ -1238,7 +1238,7 @@ function hwc_news_share_widget($node, $options = array()) {
     'node' => $node,
     'language' => $language,
     'options' => $options,
-    'label' => t('Share this article'),
+    'label' => t('Share this on'),
     'type' => $type,
   );
   // Custom label for videos related articles.

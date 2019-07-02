@@ -203,6 +203,10 @@ function hwc_frontend_preprocess_page(&$vars) {
       case "article":
         $vars['theme_hook_suggestions'][] = 'page__node__article';
         break;
+
+      case "publication":
+        $vars['theme_hook_suggestions'][] = 'page__node__publication';
+        break;
     }
   }
 
@@ -281,7 +285,7 @@ function hwc_frontend_preprocess_page(&$vars) {
         }
         $link_title = t('Back to publications list');
         $link_href = 'publications';
-        $tag_vars['element']['#value'] = t('Publications');
+//        $tag_vars['element']['#value'] = t('Publications');
         $vars['page']['above_title']['title-alternative'] = array(
           '#type' => 'item',
           '#markup' => theme('html_tag', $tag_vars),
