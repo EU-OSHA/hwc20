@@ -283,13 +283,13 @@ function hwc_frontend_preprocess_page(&$vars) {
           );
           break;
         }
-        $link_title = t('Back to publications list');
-        $link_href = 'publications';
+//        $link_title = t('Back to publications list');
+//        $link_href = 'publications';
 //        $tag_vars['element']['#value'] = t('Publications');
-        $vars['page']['above_title']['title-alternative'] = array(
-          '#type' => 'item',
-          '#markup' => theme('html_tag', $tag_vars),
-        );
+//        $vars['page']['above_title']['title-alternative'] = array(
+//          '#type' => 'item',
+//          '#markup' => theme('html_tag', $tag_vars),
+//        );
         break;
 
       case 'press_release':
