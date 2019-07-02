@@ -124,83 +124,83 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
 
 <div class="main-container container-fluid">
 
-    <div class="container">
-        <div class="row">
-          <?php /* print $content_column_class; */ ?>
-          <?php if (!empty($page['highlighted'])): ?>
-              <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
-          <?php endif; ?>
-          <?php
-          $external_infographic = variable_get('hwc_external_infographic_nid', 7150);
-          $node_nid = NULL;
-          $node_type = NULL;
-          /*If is a external infographic, change the breadcrumbs*/
-          $n = menu_get_object('node');
-          if ($n) {
-            $node_nid = $n->nid;
-            $node_type = $n->type;
-            switch ($node_type) {
-              case "article":
-                if ($node_nid == $external_infographic) { ?>
-                    <div class="breadcrumb breadcrumb-external-infographic contextual-links-region">
-                    <span class="inline odd first">
+  <?php /* print $content_column_class; */ ?>
+  <?php if (!empty($page['highlighted'])): ?>
+      <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
+  <?php endif; ?>
+  <?php
+  $external_infographic = variable_get('hwc_external_infographic_nid', 7150);
+  $node_nid = NULL;
+  $node_type = NULL;
+  /*If is a external infographic, change the breadcrumbs*/
+  $n = menu_get_object('node');
+  if ($n) {
+    $node_nid = $n->nid;
+    $node_type = $n->type;
+    switch ($node_type) {
+      case "article":
+        if ($node_nid == $external_infographic) { ?>
+            <div class="breadcrumb breadcrumb-external-infographic contextual-links-region">
+            <span class="inline odd first">
                       <?php print '<a href="/' . $language->language . '">' . t("Home") . '</a>'; ?>
                     </span>
-                    <span class="delimiter">»</span>
-                    <span class="inline even">
+            <span class="delimiter">»</span>
+            <span class="inline even">
                       <?php print '<a href="/' . $language->language . '/tools-and-publications">' . t("Tools and Publications") . '</a>'; ?>
                     </span>
-                    <span class="delimiter">»</span>
-                    <span class="inline even">
+            <span class="delimiter">»</span>
+            <span class="inline even">
                       <?php print '<a href="/' . $language->language . '/tools-and-publications/infographics">' . t("Infographics") . '</a>'; ?>
                     </span>
-                    <span class="delimiter">»</span>
-                    <span class="inline odd last"><?php print $n->title; ?></span>
-                    </div><?php
-                }
-                break;
+            <span class="delimiter">»</span>
+            <span class="inline odd last"><?php print $n->title; ?></span>
+            </div><?php
+        }
+        break;
 
-              case "infographic": ?>
-                  <div class="breadcrumb breadcrumb-external-infographic contextual-links-region">
-                  <span class="inline odd first">
+      case "infographic": ?>
+          <div class="breadcrumb breadcrumb-external-infographic contextual-links-region">
+          <span class="inline odd first">
                   <?php print '<a href="/' . $language->language . '">' . t("Home") . '</a>' ?>
                 </span>
-                  <span class="delimiter">»</span>
-                  <span class="inline even">
+          <span class="delimiter">»</span>
+          <span class="inline even">
                   <?php print '<a href="/' . $language->language . '/tools-and-publications">' . t("Tools and Publications") . '</a>' ?>
                 </span>
-                  <span class="delimiter">»</span>
-                  <span class="inline odd last">
+          <span class="delimiter">»</span>
+          <span class="inline odd last">
                    <?php print t("Infographics"); ?>
                 </span>
-                  </div><?php
-                break;
+          </div><?php
+        break;
 
-            }
-          }
-          if (!empty($breadcrumb) && ($node_nid != $external_infographic) && ($node_type != 'infographic')) {
-            print $breadcrumb;
-          }
-          if (!empty($back_to_pz)) {
-            print $back_to_pz;
-          } ?>
-            <a id="main-content"></a>
-          <?php print render($title_prefix); ?>
-            <div class="above_title">
-              <?php print render($page['above_title']); ?>
-            </div>
-          <?php
-          if ($show_title) {?><div class="page_title">
-            <?php if (!empty($title)): ?>
-                  <h1 class="page-header"><?php print $title; ?></h1>
-            <?php endif; ?>
-              </div><?php
-          }
-          print render($title_suffix);
-          print $messages; ?>
-            <div class="below_title">
-              <?php print render($page['below_title']); ?>
-            </div>
+    }
+  }
+  if (!empty($breadcrumb) && ($node_nid != $external_infographic) && ($node_type != 'infographic')) {
+    print $breadcrumb;
+  }
+  if (!empty($back_to_pz)) {
+    print $back_to_pz;
+  } ?>
+    <a id="main-content"></a>
+  <?php print render($title_prefix); ?>
+    <div class="above_title">
+      <?php print render($page['above_title']); ?>
+    </div>
+  <?php
+  if ($show_title) {?><div class="page_title">
+    <?php if (!empty($title)): ?>
+          <h1 class="page-header"><?php print $title; ?></h1>
+    <?php endif; ?>
+      </div><?php
+  }
+  print render($title_suffix);
+  print $messages; ?>
+    <div class="below_title">
+      <?php print render($page['below_title']); ?>
+    </div>
+    <div class="container">
+        <div class="row">
           <?php if (!empty($tabs)): ?>
             <?php print render($tabs); ?>
           <?php endif; ?>
