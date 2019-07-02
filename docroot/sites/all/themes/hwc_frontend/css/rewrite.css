@@ -93,6 +93,38 @@ header.navbar-default .campaigns-header .navbar-header #block-search-form button
     border-bottom: 0px dotted #749b00;
 }
 
+/*Articles*/
+article .hwc-share-widget ul{
+    text-align: right;
+    padding-bottom: 1em;
+}
+
+.hwc-share-widget ul .share-this-article{
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: normal;
+}
+
+.hwc-share-widget ul li[id*="facebook-share-button-"] {
+    background: url(../images/header/header-ico-facebook.png) no-repeat center bottom;
+}
+
+.hwc-share-widget ul li[id*="twitter-share-button-"]{
+    background: url(../images/header/header-ico-twetter.png) no-repeat center bottom;
+}
+
+.hwc-share-widget ul li[id*="linked-in-"]{
+    background: url(../images/header/header-ico-linkedin.png) no-repeat center bottom;    
+}
+
+.hwc-share-widget ul li{
+    height: 20px !important;
+}
+
+.hwc-share-widget ul li a{
+    height: 20px !important;
+}
+
 /*Publications*/
 
 .section-introduction p{

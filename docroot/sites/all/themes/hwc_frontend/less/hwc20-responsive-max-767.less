@@ -27,6 +27,20 @@
 		}
 	}
 
+	.before-the-campaign .content-box-before .two-box-column{
+		flex-direction: row;
+		margin-bottom: 1em;
+		.box-before.news{
+			width: 42%;
+    		margin-right: 1%;
+		}
+		.box-before.events{
+			width: 56%;
+    		margin-right: 0;
+		}
+
+	}
+
 	.before-the-campaign .content-box-before .box-before{
 		width: 100%;
 		margin-right: 1em;
@@ -95,6 +109,7 @@
 		min-height: auto;
 		width: 100%;
     	padding-bottom: 4em;
+    	margin: 0;
 		h1{
 			font-size: 2.5em;
 		}
@@ -150,4 +165,28 @@
 		}
 	}
 
+}
+
+
+
+
+
+@media (max-width: 600px){
+
+.before-the-campaign .content-box-before .two-box-column{
+	flex-direction: column;
+	margin-bottom: 0;
+	.box-before.news{
+		width: 100%;
+		margin-right: 0;
+		img{
+			max-width: 215px;
+		}
+	}
+	.box-before.events{
+		width: 100%;
+		margin-right: 0;
+	}
+
+}
 }
