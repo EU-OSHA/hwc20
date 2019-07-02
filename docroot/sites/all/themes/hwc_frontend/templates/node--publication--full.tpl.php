@@ -21,6 +21,9 @@ $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"
     <div class="publication-detail">
         <div class="back-to-publications"><?php print l($back_text, 'tools-and-publications/publications', ['html' => TRUE]); ?></div>
         <div class="col-md-9">
+            <h2><?php print strip_tags(render($content['title_field']), '<a>'); ?></h2>
+        </div>
+        <div class="col-md-9">
             <div class="publications-row">
                 <div class="publications-left-column hidden-xs"><?php print render($content['field_cover_image']); ?></div>
                 <div class="publications-detail-right-column">
