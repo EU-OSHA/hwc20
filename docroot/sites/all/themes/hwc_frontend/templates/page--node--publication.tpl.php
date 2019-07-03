@@ -123,7 +123,7 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
 <div class="main-container">
     <div class="row">
         <section class="<?php print (!empty($content_class)) ? $content_class : ''; ?>">
-            <div class="col-md-12 col-xs-12 title-row">
+            <div class="">
               <?php /* print $content_column_class; */ ?>
               <?php if (!empty($page['highlighted'])): ?>
                   <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
