@@ -113,3 +113,10 @@ function osha_news_update_7016() {
   features_revert(array('osha_news' => 'field_instance'));
   features_revert(array('osha_news' => 'image'));
 }
+
+/**
+ * HW20-25 HWC20 - News list and detail development.
+ */
+function osha_news_update_7019() {
+  features_revert(array('osha_news' => 'views_view'));
+}

@@ -26,9 +26,6 @@
  *
  * @ingroup views_templates
  */
-if (@$_GET['search_block_form']) {
-  echo sprintf('<div class="results-for">%s: <b>%s</b></div>', t('Results for'), check_plain(@$_GET['search_block_form']));
-}
 ?>
 <div class="<?php print $classes; ?>">
   <?php print render($title_prefix); ?>
@@ -64,7 +61,6 @@ if (@$_GET['search_block_form']) {
     </div>
   <?php endif; ?>
 
-
   <?php if ($attachment_after): ?>
     <div class="attachment attachment-after">
       <?php print $attachment_after; ?>
@@ -74,17 +70,18 @@ if (@$_GET['search_block_form']) {
   <?php if ($more): ?>
     <?php print $more; ?>
   <?php endif; ?>
-<div class="content-pagination container">
-  <?php if ($pager): ?>
-    <?php print $pager; ?>
-  <?php endif; ?>
-  <?php if ($footer): ?>
-      <div class="view-footer">
-        <?php print $footer; ?>
-      </div>
-  <?php endif; ?>
-</div>
 
+    <div class="content-pagination container">
+      <?php if ($pager): ?>
+        <?php print $pager; ?>
+      <?php endif; ?>
+
+        <?php if ($footer): ?>
+    <div class="view-footer">
+      <?php print $footer; ?>
+    </div>
+  <?php endif; ?>
+    </div>
   <?php if ($feed_icon): ?>
     <div class="feed-icon">
       <?php print $feed_icon; ?>
