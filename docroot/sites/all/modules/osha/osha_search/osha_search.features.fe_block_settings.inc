@@ -14,7 +14,7 @@ function osha_search_default_fe_block_settings() {
 
   $export['facetapi-0CytJ17GKzhRj01QOSWuDS3Op30a9Ojl'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'content-filters',
     'custom' => 0,
     'delta' => '0CytJ17GKzhRj01QOSWuDS3Op30a9Ojl',
     'i18n_block_language' => array(),
@@ -103,7 +103,7 @@ tools-and-publications/practical-tools',
 
   $export['facetapi-bhmRHTzU2n0ejKZP9wDI0S1oi2DgbSDm'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'content-filters',
     'custom' => 0,
     'delta' => 'bhmRHTzU2n0ejKZP9wDI0S1oi2DgbSDm',
     'i18n_block_language' => array(),
@@ -225,35 +225,6 @@ good-practice-exchange-platform',
     ),
     'title' => '<none>',
     'visibility' => 0,
-  );
-
-  $export['views--exp-search-site'] = array(
-    'cache' => -1,
-    'css_class' => '',
-    'custom' => 0,
-    'delta' => '-exp-search-site',
-    'i18n_block_language' => array(),
-    'i18n_mode' => 0,
-    'module' => 'views',
-    'node_types' => array(),
-    'pages' => 'search',
-    'roles' => array(),
-    'themes' => array(
-      'hwc_frontend' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
-        'theme' => 'hwc_frontend',
-        'weight' => -94,
-      ),
-      'seven' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
-    ),
-    'title' => '',
-    'visibility' => 1,
   );
 
   return $export;

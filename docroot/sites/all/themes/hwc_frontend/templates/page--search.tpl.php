@@ -124,7 +124,9 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
 <div class="main-container">
   <div class="row">
     <section class="<?php print (!empty($content_class)) ? $content_class : ''; ?>">
-        <div class="col-md-12 col-xs-12 title-row">
+        <div class="">
+          <?php if ($show_title) {?>
+              <div class="page_title">
     <?php /* print $content_column_class; */ ?>
       <?php if (!empty($page['highlighted'])): ?>
         <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
@@ -189,8 +191,6 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
       <div class="above_title">
         <?php print render($page['above_title']); ?>
       </div>
-      <?php
-      if ($show_title) {?><div class="page_title">
         <?php if (!empty($title)): ?>
           <h1 class="page-header"><?php print $title; ?></h1>
         <?php endif; ?>

@@ -20,6 +20,7 @@ $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"
 <div class="container">
     <div class="publication-detail">
         <div class="back-to-publications"><?php print l($back_text, 'tools-and-publications/publications', ['html' => TRUE]); ?></div>
+        <div class="share-this"><?php print render($content['share_widget']); ?></div>
         <div class="col-md-9">
             <h2><?php print strip_tags(render($content['title_field']), '<a>'); ?></h2>
         </div>
