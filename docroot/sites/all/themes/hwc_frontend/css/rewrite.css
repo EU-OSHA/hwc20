@@ -196,3 +196,50 @@ a.chosen-single{
 #osha-publication-menu-publications-form .form-type-textfield{
     width: 100%;
 }
+
+
+/* General Search  */
+
+.page-search .region-sidebar-first .views-exposed-widgets #edit-search-block-form--3-wrapper{
+    padding-right: 0;
+}
+
+.page-search .region-sidebar-first .views-exposed-widgets .views-submit-button button{
+    right: 6px;
+    top: 13px;
+    height: 22px;
+    color: #FFF!important;
+}
+
+.page-search .region-sidebar-first .views-exposed-widgets .form-type-textfield input{
+    border-radius: 5px;
+}
+
+.page-search .region-sidebar-first .block.block-facetapi{
+    clear: both;
+    width: 100%;
+    border-bottom: 1px solid #003399;
+}
+
+.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]{
+    display: block;
+    float: left;
+    margin-top: -1px;
+}
+
+.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links{
+    padding-left: 0;
+}
+
+.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:before{
+    border: 1px solid #003399;
+    border-radius: 0.2em;
+    width: 21px;
+    height: 21px;
+    float: left;
+}
+
+.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:checked:before{
+    float: left;
+}
+
