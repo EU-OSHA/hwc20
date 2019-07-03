@@ -2704,6 +2704,9 @@ span.pages {
   }
   .page-search .region-sidebar-first .block.block-facetapi h2 {
     background-color: transparent;
+    padding-left: 0;
+    margin-left: 0;
+    padding-top: 15px;
   }
   .page-search .view-footer {
     right: auto;
@@ -2731,6 +2734,24 @@ span.pages {
     margin-top: 1.5em;
     float: left;
     width: 100%;
+  }
+}
+@media (max-width: 1200px) and (min-width: 990px) {
+  .page-tools-and-publications #edit-left-column {
+    width: 100%;
+    display: flex;
+  }
+  .page-tools-and-publications #edit-left-column .content-filters {
+    width: 48%;
+    margin-right: 1em;
+  }
+  .page-publications .views-exposed-widget,
+  .page-publications .page-events .views-exposed-widget {
+    width: 32%!important;
+  }
+  .page-publications #content,
+  .page-events #content {
+    width: 96.1%!important;
   }
 }
 @media (max-width: 768px) {
