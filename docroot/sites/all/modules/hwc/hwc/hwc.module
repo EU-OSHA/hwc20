@@ -473,6 +473,7 @@ function hwc_field_extra_fields() {
     ),
   );
   $extra['node']['news'] = $share_widget;
+  $extra['node']['publication'] = $share_widget;
   $extra['node']['events'] = $share_widget;
   $extra['node']['article'] = $share_widget;
   $extra['node']['hwc_gallery'] = $share_widget;
@@ -1142,6 +1143,7 @@ function hwc_node_view($node, $view_mode, $langcode) {
   $share_widget_content_types = array(
     'news',
     'events',
+    'publication',
     'article',
     'hwc_gallery',
     'flickr_gallery',
@@ -1175,7 +1177,6 @@ function hwc_node_view($node, $view_mode, $langcode) {
       $node->content['share_widget'] = array('#markup' => hwc_news_share_widget($node, $options));
     }
   }
-
   if ($view_mode == 'full'
     && in_array($node->type, $share_widget_content_types)
     && !in_array($node->nid, $no_share_widget)) {
@@ -1253,6 +1254,9 @@ function hwc_news_share_widget($node, $options = array()) {
   $vars = $options + $vars;
   switch ($vars['type']) {
     case 'article':
+      $widget = theme('article_share_widget', $vars);
+      break;
+    case 'publication':
       $widget = theme('article_share_widget', $vars);
       break;
 

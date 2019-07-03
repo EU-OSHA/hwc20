@@ -165,7 +165,7 @@ function hwc_homepage_views_default_views() {
   $handler->display->display_options['title'] = 'Events';
   $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['use_more_always'] = TRUE;
-  $handler->display->display_options['use_more_text'] = 'More events';
+  $handler->display->display_options['use_more_text'] = 'See all Events';
   $handler->display->display_options['link_display'] = 'custom_url';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -358,7 +358,7 @@ function hwc_homepage_views_default_views() {
   $translatables['frontpage_events'] = array(
     t('Master'),
     t('Events'),
-    t('More events'),
+    t('See all Events'),
     t('Apply'),
     t('Reset'),
     t('Sort by'),

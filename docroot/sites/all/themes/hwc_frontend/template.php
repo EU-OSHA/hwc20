@@ -274,8 +274,8 @@ function hwc_frontend_preprocess_page(&$vars) {
 
       case 'publication':
         if ($node->field_publication_type[LANGUAGE_NONE][0]['tid'] == 521 /* Case Studies */) {
-          $link_title = t('Back to case studies list');
-          $link_href = 'case-studies';
+//          $link_title = t('Back to case studies list');
+//          $link_href = 'case-studies';
           $tag_vars['element']['#value'] = t('Case studies');
           $vars['page']['above_title']['title-alternative'] = array(
             '#type' => 'item',
@@ -283,8 +283,8 @@ function hwc_frontend_preprocess_page(&$vars) {
           );
           break;
         }
-        $link_title = t('Back to publications list');
-        $link_href = 'publications';
+//        $link_title = t('Back to publications list');
+//        $link_href = 'publications';
         $tag_vars['element']['#value'] = t('Publications');
         $vars['page']['above_title']['title-alternative'] = array(
           '#type' => 'item',
