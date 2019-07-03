@@ -130,6 +130,8 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
         <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
       <?php endif; ?>
             <section class="title-section">
+              <?php if ($show_title) { ?>
+                  <div class="page_title">
             <?php
       $external_infographic = variable_get('hwc_external_infographic_nid', 7150);
       $node_nid = NULL;
@@ -189,8 +191,6 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
       <div class="above_title">
         <?php print render($page['above_title']); ?>
       </div>
-      <?php
-      if ($show_title) {?><div class="page_title">
         <?php if (!empty($title)): ?>
           <h1 class="page-header"><?php print $title; ?></h1>
         <?php endif; ?>
