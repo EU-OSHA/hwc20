@@ -1,5 +1,13 @@
 @media (max-width: 768px){
 
+	body {
+	    padding-top: 190px;
+	}
+
+	body.splash-page{
+		padding-top: 190px;
+	}
+
 	header.navbar-default .campaigns-header .navbar-header .region-header #block-lang-dropdown-language, header.navbar-default .campaigns-header .navbar-header .region-header #block-menu-menu-header-login ~ #block-lang-dropdown-language{
 		background: transparent;
 		padding-bottom: 1em;
@@ -106,10 +114,11 @@
 
 	.title-section{
 		float: left;
-		min-height: auto;
-		width: 100%;
-    	padding-bottom: 4em;
+    	min-height: auto;
+    	width: 100%;
+    	padding-bottom: 0;
     	margin: 0;
+    	background: none;
 		h1{
 			font-size: 2.5em;
 		}
@@ -159,6 +168,12 @@
 	.page-publications .main-container {
 	    padding-right: 0 !important;
 	    padding-left: 0 !important;
+	}
+
+	/* News */
+	.page-news .main-container h1{
+		border-bottom: 0;
+    	padding-bottom: 0;
 	}
 
 	/*Footer*/
