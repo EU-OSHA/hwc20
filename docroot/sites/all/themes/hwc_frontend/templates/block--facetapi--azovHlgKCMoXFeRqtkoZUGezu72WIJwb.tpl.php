@@ -1,4 +1,4 @@
-<div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
+<div id="<?php print $block_html_id; ?>" class="content-filters <?php print $classes; ?>"<?php print $attributes; ?>>
 <?php
 $checked = hwc_priority_areas_is_selected_facet() ? '' : 'checked';
 $link = hwc_priority_areas_generate_all_facet_link();
