@@ -170,12 +170,12 @@ article .hwc-share-widget ul{
     padding: 0;
 }
 
-.form-item-field-publication-type > label.active:after, .form-item-language > label.active:after, .form-item-field-priority-area > label.active:after, .form-item-relevant-for > label.active:after, .form-item-languages > label.active:after, .form-item-publication-type > label.active:after{
-    content: ' ';
-}
-
 .control-label.active{
     padding-bottom: 1em;
+    font-size: 1.8rem;
+}
+
+#edit-field-priority-area > div > label{
     font-size: 1.8rem;
 }
 
@@ -195,6 +195,14 @@ a.chosen-single{
 
 #osha-publication-menu-publications-form .form-type-textfield{
     width: 100%;
+}
+
+.form-item-field-publication-type > label.active:after, .form-item-language > label.active:after, .form-item-field-priority-area > label.active:after, .form-item-relevant-for > label.active:after, .form-item-languages > label.active:after, .form-item-publication-type > label.active:after{
+    content: '';
+}
+
+.form-item-field-publication-type > label:after, .form-item-language > label:after, .form-item-field-priority-area > label:after, .form-item-relevant-for > label:after, .form-item-languages > label:after, .form-item-publication-type > label:after{
+    content: '';
 }
 
 
@@ -243,3 +251,8 @@ a.chosen-single{
     float: left;
 }
 
+/* News detail */
+
+.page-node .node-news .field-name-body{
+    padding-bottom: 2em;
+}
