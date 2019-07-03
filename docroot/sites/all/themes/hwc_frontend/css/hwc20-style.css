@@ -26,6 +26,9 @@ body.splash-page #sliding-popup.sliding-popup-top {
   color: #57575a;
   float: left;
 }
+.region-content .views-row .date-display-single {
+  float: none;
+}
 .btn-background-transparent {
   background: transparent;
   width: 208px;
@@ -93,7 +96,7 @@ body.splash-page #sliding-popup.sliding-popup-top {
   text-decoration: none;
 }
 /* Next Campaign 2020-2022 */
-.front .container-fluid {
+.container-fluid {
   padding-left: 0;
   padding-right: 0;
 }
@@ -1253,21 +1256,24 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 }
 .page_title {
   background: url(../images/banner-background-article.png);
-  min-height: 225px;
-  margin-left: -15px;
-  margin-right: -15px;
+  height: 225px;
   padding-top: 0;
   margin-bottom: 2em;
 }
 .page_title h1 {
-  color: white;
-  font-size: 4em;
-  margin: 0;
+  color: #FFF;
+  font-size: 3.2em;
   padding: 0;
   border: 0;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
-  padding-top: 2em;
+  width: 100%;
+  margin: 0 auto;
+  height: 184px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 25px;
 }
 .content {
   margin-top: 3em;
@@ -1279,7 +1285,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
   padding-top: 0;
 }
 #block-menu-block-4 {
-  width: 225px;
+  width: 100%;
 }
 .left-menu ul {
   list-style: none;
@@ -1369,10 +1375,11 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 }
 .previous-next {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   border-top: 1px solid black;
   margin-top: 2em;
   padding-top: 2em;
+  padding-bottom: 1em;
 }
 .previous-next a {
   align-self: center;
@@ -1381,6 +1388,23 @@ header.navbar-default .navbar-collapse nav ul.menu li {
   height: 49px;
 }
 .previous-next img:hover {
+  opacity: 0.8;
+}
+.previous-next.two-arrows {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid black;
+  margin-top: 2em;
+  padding-top: 2em;
+  padding-bottom: 1em;
+}
+.previous-next.two-arrows a {
+  align-self: center;
+}
+.previous-next.two-arrows img {
+  height: 49px;
+}
+.previous-next.two-arrows img:hover {
   opacity: 0.8;
 }
 .previous {
@@ -1398,7 +1422,6 @@ header.navbar-default .navbar-collapse nav ul.menu li {
   display: flex;
   flex-direction: column;
   margin-left: 1em;
-  padding-bottom: 2em;
 }
 .previous-text span {
   width: 100px;
@@ -1430,11 +1453,12 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 }
 .box-latest-publications {
   background: #FFF;
-  width: 32.5%;
+  width: 32.2%;
   min-height: 235px;
   float: left;
   position: relative;
   margin-right: 1em;
+  margin-bottom: 1em;
   border-radius: 10px;
 }
 .box-latest-publications .left-column {
@@ -1739,6 +1763,13 @@ div.publications-detail-right-column > a.download {
   margin-left: 3em;
   padding-left: 1em;
 }
+/*Events list*/
+.view-events-search .views-field-title-field {
+  padding-top: 1em;
+}
+#block-osha-events-events-links a.active {
+  color: #FFF;
+}
 /* Publications Related Resources */
 .related-reources h2 {
   margin-bottom: 0;
@@ -1815,7 +1846,7 @@ div.publications-detail-right-column > a.download {
 }
 .content-fluid.green-background {
   background: #daea96;
-  padding-bottom: 1.5em;
+  padding-bottom: 1em;
 }
 .content-fluid.grey-background {
   background: #efefef;
@@ -2033,7 +2064,7 @@ span.pages {
 .container .content-box-sub {
   float: left;
   width: 23.7%;
-  margin-right: 1em;
+  margin-right: 0.7em;
   margin-bottom: 3em;
   display: flex;
 }
@@ -2212,15 +2243,39 @@ span.pages {
 }
 @media (max-width: 992px) {
   body {
-    padding-top: 196px;
+    padding-top: 190px;
   }
   .container {
     padding-left: 15px;
     padding-right: 15px;
   }
+  .page_title h1 {
+    font-size: 2.6em;
+    width: 480px;
+  }
+  #block-text-resize-0,
+  #block-hwc-hwc-print-friendly {
+    display: none;
+  }
+  #block-on-the-web-0 {
+    float: right;
+  }
   .main-container h2 {
     margin-left: 15px;
     margin-right: 15px;
+  }
+  .region.region-sidebar-first.well {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .node-article .hwc-share-widget {
+    padding-top: 0;
+  }
+  header.navbar-default .campaigns-header .row:first-of-type {
+    padding: 0;
+  }
+  .navbar-default {
+    border-color: transparent;
   }
   ul.time-and-counters li {
     width: 100px;
@@ -2240,9 +2295,14 @@ span.pages {
     background: #acc700;
     padding-bottom: 2em;
   }
+  /*Sub homes*/
+  .container .content-box-sub {
+    margin-right: 0;
+  }
   /*Introductory page article*/
   .related-resources {
     margin-top: 2em;
+    padding-bottom: 1em;
   }
   .left-menu ul {
     padding-left: 0;
@@ -2523,6 +2583,10 @@ span.pages {
   .home-intro .second-row-left-column:after {
     display: none;
   }
+  /* Subhome */
+  .container .content-box-sub {
+    width: 48.7%;
+  }
   /*Publications page*/
   .page-publications .main-container {
     padding-right: 0 !important;
@@ -2557,7 +2621,11 @@ span.pages {
 @media (max-width: 480px) {
   /* Splash page */
   body {
-    padding-top: 150px;
+    padding-top: 147px;
+  }
+  .page_title h1 {
+    font-size: 2em;
+    width: 320px;
   }
   .container .content-box-sub {
     width: 100%;

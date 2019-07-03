@@ -39,6 +39,10 @@ body.splash-page #sliding-popup.sliding-popup-top{
 	float: left;
 }
 
+.region-content .views-row .date-display-single{
+	float: none;
+}
+
 .btn-background-transparent{
 	background: transparent;
 	width: 208px;
@@ -111,7 +115,7 @@ body.splash-page #sliding-popup.sliding-popup-top{
 
 /* Next Campaign 2020-2022 */
 
-.front .container-fluid{
+.container-fluid{
 	padding-left: 0;
 	padding-right: 0;
 }
@@ -1395,20 +1399,24 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 
 .page_title{
 	background: url(../images/banner-background-article.png);
-	min-height: 225px;
-	margin-left: -15px;
-	margin-right: -15px;
+	height: 225px;
 	padding-top: 0;
 	margin-bottom: 2em;
+
 	h1{
-		color: white;
-		font-size: 4em;
-		margin:0;
+		color: #FFF;
+		font-size: 3.2em;
 		padding:0;
 		border:0;
 		margin-top: 0 !important;
 		margin-bottom: 0 !important;
-		padding-top: 2em;
+	    width: 100%;
+	    margin: 0 auto;
+	    height: 184px;
+    	display: flex;
+    	align-items: flex-end;
+    	justify-content: center;
+   	 	padding-bottom: 25px;
 	}
 }
 
@@ -1424,7 +1432,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 }
 
 #block-menu-block-4{
-	width: 225px;
+	width: 100%;
 }
 
 .left-menu ul{
@@ -1522,19 +1530,38 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 
 .previous-next{
 	display: flex;
-  justify-content: space-between;
-  border-top: 1px solid black;
-  margin-top: 2em;
-  padding-top: 2em;
-  a{
-  	align-self: center;
-  }
-  img{
-  	height: 49px;
-    &:hover{
-      opacity: 0.8;
-    }
-  }
+  	justify-content: flex-end;
+  	border-top: 1px solid black;
+  	margin-top: 2em;
+  	padding-top: 2em;
+  	padding-bottom: 1em;
+	a{
+		align-self: center;
+	}
+  	img{
+  		height: 49px;
+    	&:hover{
+      	opacity: 0.8;
+    	}
+  	}
+}
+
+.previous-next.two-arrows{
+	display: flex;
+  	justify-content: space-between;
+  	border-top: 1px solid black;
+  	margin-top: 2em;
+  	padding-top: 2em;
+  	padding-bottom: 1em;
+	a{
+		align-self: center;
+	}
+  	img{
+  		height: 49px;
+    	&:hover{
+      	opacity: 0.8;
+    	}
+  	}
 }
 
 .previous {
@@ -1553,7 +1580,6 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 	display: flex;
 	flex-direction: column;
 	margin-left: 1em;
-	padding-bottom: 2em;
 	span{
 		width: 100px;
 	}
@@ -1592,11 +1618,12 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 
 .box-latest-publications{
     background: #FFF;
-    width: 32.5%;
+    width: 32.2%;
     min-height: 235px;
     float: left;
     position: relative;
     margin-right: 1em;
+    margin-bottom: 1em;
     border-radius: 10px;
     .left-column{
       float: left;
@@ -1947,6 +1974,17 @@ div.publications-detail-right-column > a.download{
     padding-left: 1em;
 }
 
+/*Events list*/
+.view-events-search{
+	.views-field-title-field{
+		padding-top: 1em;
+	}
+}
+
+#block-osha-events-events-links a.active{
+	color: #FFF;
+}
+
 /* Publications Related Resources */
 
 .related-reources  h2{
@@ -2038,7 +2076,7 @@ div.publications-detail-right-column > a.download{
 
 .content-fluid.green-background{
 	background: #daea96;
-	padding-bottom: 1.5em;
+	padding-bottom: 1em;
 }
 
 .content-fluid.grey-background{
@@ -2296,7 +2334,7 @@ span.pages{
 	.content-box-sub {
 	    float: left;
 	    width: 23.7%;
-	    margin-right: 1em;
+	    margin-right: 0.7em;
 	    margin-bottom: 3em;
 	    display: flex;
 	    a {

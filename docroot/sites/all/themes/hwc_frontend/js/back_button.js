@@ -16,3 +16,10 @@
         }
     }
 })(jQuery);
+
+
+jQuery(document).ready(function($){
+    if ($(".previous-next .previous")[0]){
+        $(".previous-next").addClass('two-arrows');
+    }
+});
