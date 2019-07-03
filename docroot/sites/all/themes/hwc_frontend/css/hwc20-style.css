@@ -2737,6 +2737,9 @@ span.pages {
   body {
     padding-top: 190px;
   }
+  body.splash-page {
+    padding-top: 190px;
+  }
   header.navbar-default .campaigns-header .navbar-header .region-header #block-lang-dropdown-language,
   header.navbar-default .campaigns-header .navbar-header .region-header #block-menu-menu-header-login ~ #block-lang-dropdown-language {
     background: transparent;
@@ -2906,6 +2909,9 @@ span.pages {
   /* Splash page */
   body {
     padding-top: 147px;
+  }
+  body.splash-page {
+    padding-top: 143px;
   }
   .page_title h1 {
     font-size: 2em;
