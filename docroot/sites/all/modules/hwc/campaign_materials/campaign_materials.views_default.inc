@@ -114,7 +114,7 @@ function campaign_materials_views_default_views() {
     ),
     'trim_preserve_tags' => '',
   );
-  /* Field: Content: Files */
+  /* Field: Content: Related documents */
   $handler->display->display_options['fields']['field_related_documents']['id'] = 'field_related_documents';
   $handler->display->display_options['fields']['field_related_documents']['table'] = 'field_data_field_related_documents';
   $handler->display->display_options['fields']['field_related_documents']['field'] = 'field_related_documents';
@@ -183,10 +183,21 @@ function campaign_materials_views_default_views() {
   $handler->display->display_options['fields']['field_summary']['label'] = '';
   $handler->display->display_options['fields']['field_summary']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_summary']['element_wrapper_class'] = 'materials_teaser';
+  $handler->display->display_options['fields']['field_summary']['type'] = 'smart_trim_format';
   $handler->display->display_options['fields']['field_summary']['settings'] = array(
+    'trim_link' => '0',
+    'trim_length' => '70',
+    'trim_type' => 'chars',
+    'trim_suffix' => '...',
+    'more_link' => '0',
+    'more_text' => 'Read more',
+    'trim_options' => array(
+      'text' => 0,
+    ),
+    'trim_preserve_tags' => '',
     'field_formatter_class' => '',
   );
-  /* Field: Content: Files */
+  /* Field: Content: Related documents */
   $handler->display->display_options['fields']['field_related_documents']['id'] = 'field_related_documents';
   $handler->display->display_options['fields']['field_related_documents']['table'] = 'field_data_field_related_documents';
   $handler->display->display_options['fields']['field_related_documents']['field'] = 'field_related_documents';
@@ -200,6 +211,12 @@ function campaign_materials_views_default_views() {
   );
   $handler->display->display_options['fields']['field_related_documents']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_related_documents']['multi_type'] = 'ul';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Nodequeue: Position */
+  $handler->display->display_options['sorts']['position']['id'] = 'position';
+  $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['position']['field'] = 'position';
+  $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
   $translatables['view_campaign_materials'] = array(
     t('Master'),
     t('> See more'),
