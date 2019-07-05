@@ -196,7 +196,15 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
     <?php
   }
   print render($title_suffix);
-  print $messages; ?>
+  print $messages;
+  $content_cols = 12;
+  if (!empty($page['sidebar_first'])) {
+    $content_cols -= 3;
+  }
+  if (!empty($page['sidebar_second'])) {
+    $content_cols -= 3;
+  }
+  ?>
     <div class="below_title">
       <?php print render($page['below_title']); ?>
     </div>
@@ -217,7 +225,7 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
                 <?php print render($page['sidebar_first']); ?>
               </aside>  <!-- /#sidebar-first -->
           <?php endif; ?>
-            <aside class="col-md-6">
+            <aside class="col-md-<?php print $content_cols ?>">
             <div id="skip-to-content" style="visibility: hidden; height: 0px"><a href="#skip-to-content" rel="nofollow" accesskey="S" style="visibility: hidden;"><?php print t('Skip to content'); ?></a></div>
           <?php print render($page['content']); ?>
             </aside>
