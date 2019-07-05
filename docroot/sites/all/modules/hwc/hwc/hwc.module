@@ -1153,6 +1153,10 @@ function hwc_node_view($node, $view_mode, $langcode) {
   $no_share_widget = array(
     160, 162, 241, 242, 243, 244, 245, 246,
   );
+  $no_share_nids = variable_get('no_share_nids', []);
+  foreach ($no_share_nids as $nid) {
+    $no_share_widget[] = $nid;
+  }
 
   if (($view_mode == 'full' && !empty($node->field_activity))) {
     $wrapper = entity_metadata_wrapper('node', $node);
@@ -1261,7 +1265,7 @@ function hwc_news_share_widget($node, $options = array()) {
       break;
 
     default:
-      $widget = theme('news_share_widget', $vars);
+      $widget = theme('article_share_widget', $vars);
       break;
   }
   return $widget;
