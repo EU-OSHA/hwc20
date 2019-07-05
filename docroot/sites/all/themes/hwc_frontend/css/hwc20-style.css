@@ -333,7 +333,7 @@ ul.time-and-counters li .counter-label {
 }
 .before-the-campaign .content-box-before .two-box-column .titlte-news-events a {
   font-size: 1.2em;
-  font-style: italic;
+  font-style: normal;
 }
 .before-the-campaign .content-box-before .two-box-column p {
   clear: both;
@@ -1289,6 +1289,12 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 .content {
   margin-top: 3em;
 }
+.introductory-page .field-name-body {
+  text-align: center;
+  font-size: 1.7rem;
+  padding-bottom: 2em;
+  color: #003399;
+}
 .region.region-sidebar-first.well {
   background: transparent;
   border: 0;
@@ -1357,7 +1363,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 .share-this .otw-twitter a {
   margin-left: 15px !important;
 }
-.share-this .hwc-share-widget {
+.hwc-share-widget {
   border-top: 0 ;
   border-bottom: 0;
 }
