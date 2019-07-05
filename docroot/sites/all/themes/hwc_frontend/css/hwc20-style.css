@@ -1370,6 +1370,9 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 .publication-detail {
   background: none !important;
 }
+.related-resources {
+  padding-bottom: 1em;
+}
 .related-resources-title {
   color: #003399;
   font-size: 1.6em;
@@ -1633,6 +1636,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
   position: relative;
   clear: both;
   width: 100%;
+  min-height: 50px;
 }
 /* Publication detail */
 .publications-row {
@@ -2232,6 +2236,7 @@ span.pages {
 .page-media-centre-news .main-container,
 .page-search .main-container {
   background: #efefef;
+  padding-bottom: 2em;
 }
 .page-media-centre-news .main-container #block-system-main .view,
 .page-search .main-container #block-system-main .view {
@@ -2368,6 +2373,9 @@ span.pages {
 .page-media-centre-news .main-container #block-system-main .view .views-row .views-field-field-article-type,
 .page-search .main-container #block-system-main .view .views-row .views-field-field-article-type {
   color: #003399;
+}
+.page-search .views-row img {
+  border: 0;
 }
 .page-search .region-sidebar-first .block.block-facetapi h2:after {
   color: #c1e000;

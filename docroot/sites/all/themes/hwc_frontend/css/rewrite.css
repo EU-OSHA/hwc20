@@ -2,6 +2,10 @@
     clear: both;
 }
 
+.region-sidebar-second .contextual-links-region{
+    clear: none;
+}
+
 header.navbar-default .campaigns-header .navbar-header .header-text {
 	max-width: 310px;
 }
