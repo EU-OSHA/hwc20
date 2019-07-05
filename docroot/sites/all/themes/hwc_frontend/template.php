@@ -650,6 +650,9 @@ function hwc_frontend_preprocess_node(&$vars) {
   if ($n) {
     switch ($n->type) {
       case "article":
+        if ($n->field_article_type[LANGUAGE_NONE][0]['tid'] == 73) {
+          $vars['classes_array'][] = 'introductory-page';
+        }
         $external_infographic = variable_get('hwc_external_infographic_nid', 7150);
         if ($n->nid == $external_infographic) {
           $vars['theme_hook_suggestions'][] = 'node__external_infographic';
