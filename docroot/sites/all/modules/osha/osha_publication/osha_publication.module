@@ -306,6 +306,36 @@ function osha_publication_form_lang_dropdown_form_alter(&$form, &$form_state, $f
 }
 
 /**
+ * Implements Elysia hook_cronapi().
+ */
+function osha_publication_cronapi() {
+  return array('osha_publication_cron' => array(
+    'description' => 'Publication  pdf pages count update',
+    'rule' => '*/15 * * * *', // Every 15 minutes
+  ));
+}
+
+function osha_publication_cron() {
+  $result = views_get_view_result('publication_pages_count');
+  $diff = variable_get('node_changed_diff', 0);
+  foreach ($result as $row) {
+    $changed = date('Y-m-d H:i:s', $row->node_changed + $diff);
+    if ($changed > $row->field_field_pages_count_updated[0]['raw']['value']) {
+      $uri = $row->field_field_file[0]['raw']['uri'];
+      $path = drupal_realpath($uri);
+      $pages_count = pdf_to_image_count_pages($path);
+      $node = node_load($row->nid);
+      $node->field_pages_count[LANGUAGE_NONE][0]['value'] = $pages_count;
+      $node->field_pages_count_updated[LANGUAGE_NONE][0]['timezone'] = 'Europe/Madrid';
+      $node->field_pages_count_updated[LANGUAGE_NONE][0]['timezone_db'] = 'Europe/Madrid';
+      $node->field_pages_count_updated[LANGUAGE_NONE][0]['date_type'] = 'datetime';
+      $node->field_pages_count_updated[LANGUAGE_NONE][0]['value'] = date('Y-m-d H:i:s');
+      node_save($node);
+    }
+  }
+}
+
+/**
  * Implements hook_views_pre_render().
  */
 function osha_publication_views_pre_render(&$view) {

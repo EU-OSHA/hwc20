@@ -87,11 +87,11 @@ function osha_publication_path_breadcrumbs_settings_info() {
   $path_breadcrumb->path = 'tools-and-publications/publications';
   $path_breadcrumb->data = array(
     'titles' => array(
-      0 => 'Tools and publications',
+      0 => '%site:current-page:menu-link:pb-join:name',
       1 => '!page_title',
     ),
     'paths' => array(
-      0 => '<none>',
+      0 => '%site:current-page:menu-link:pb-join:url',
       1 => '<none>',
     ),
     'home' => 1,
