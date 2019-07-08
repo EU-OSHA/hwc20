@@ -29,7 +29,7 @@ if ($pages_count) {
         <h2><?php print strip_tags(render($content['title_field']), '<a>'); ?></h2>
         <p><?php print strip_tags(render($content['body'])) ?></p>
       <?php
-      print l(t('See more'), $node_url . '/view', array(
+      print l(t('See more'), $node_url, array(
         'attributes' => array('class' => ['news-see-more-button']),
         'query' => $url_query,
         'external' => TRUE,
