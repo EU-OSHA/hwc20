@@ -135,12 +135,12 @@ body.splash-page #sliding-popup.sliding-popup-top{
 }
 
 .intro-splash-20{
-	background: #94c000;
+	background: url(../images/background-splash-box1.png) #94c000;
 	float: left;
 	width: 100%;
 	.views-row-first{
 		text-align: center;
-		padding-bottom: 4em;
+		padding-bottom: 0;
 		h1{
 			padding-top: 2em;
 		    border-bottom: 0;
@@ -1413,7 +1413,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 
 .page_title{
 	background: url(../images/banner-background-article.png);
-	height: 225px;
+	height: 185px;
 	padding-top: 0;
 	margin-bottom: 2em;
 
@@ -1426,12 +1426,16 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 		margin-bottom: 0 !important;
 	    width: 100%;
 	    margin: 0 auto;
-	    height: 184px;
+	    height: 125px;
     	display: flex;
     	align-items: flex-end;
     	justify-content: center;
    	 	padding-bottom: 25px;
 	}
+}
+
+.title-section{
+	min-height: 185px;
 }
 
 .content{
@@ -1451,7 +1455,8 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 	background: transparent;
 	border: 0;
 	box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.05);
-	padding-top: 0;
+	padding-top: 21px;
+
 }
 
 #block-menu-block-4{
@@ -1527,7 +1532,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 }
 
 .publication-detail{
-	background: none !important;;
+	background: none !important;
 }
 
 .related-resources{
@@ -1718,6 +1723,11 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 
 /* Publications List */
 
+.node-article .content{
+	margin-top: 1em;
+    margin-bottom: 1em;
+}
+
 .content-filters{
     float: left;
     padding: 1em;
@@ -1791,6 +1801,11 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 		h2{
 		    margin-top: 0;
 		    line-height:23px;
+		}
+
+		.news-see-more-button{
+			position: absolute;
+    		bottom: 15px;
 		}
 	}
 
@@ -2126,6 +2141,12 @@ div.publications-detail-right-column > a.download{
 .content-fluid.green-background{
 	background: #daea96;
 	padding-bottom: 1em;
+	h2{
+		font-style: normal;
+    	font-weight: 400;
+    	padding-top: 20px;
+    	margin-top: 0;
+	}
 }
 
 .content-fluid.grey-background{
@@ -2383,6 +2404,7 @@ span.pages{
 	.menu-level-2 ul.menu.nav{
 		display: flex;
 		flex-wrap: wrap;
+		justify-content: center;
 	}
 
 	.content-box-sub {
@@ -2489,7 +2511,7 @@ span.pages{
 	}
 
 	div.on-the-web{
-
+		margin-top: 15px;
 		span:nth-child(1){
 			padding-top: 5px;
 			padding-right: 2em;
@@ -2531,6 +2553,7 @@ span.pages{
 	.intro-footer{
 		> p:nth-child(1){
 			font-weight: 600;
+			margin-bottom: 0;
 		}
 	}
 
@@ -2690,6 +2713,7 @@ span.pages{
 			}
 		} 
 	}
+
 	.views-exposed-widgets{
 		margin-bottom: 2em;
 		input{
