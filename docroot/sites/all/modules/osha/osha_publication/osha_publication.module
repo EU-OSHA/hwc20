@@ -371,7 +371,7 @@ function osha_publication_download_form($form, $form_state) {
     '#chosen' => TRUE,
     '#attributes' => ['class' => array('new-select-style')],
     '#options' => $options,
-    '#suffix' => '<a href="#" id="download_pdf"><img alt="download" src="/' . THEME_IMAGES_PATH . '/download-ico.png"></a>',
+    '#suffix' => '<a href="#" id="download_pdf" target="_blank"><img alt="download" src="/' . THEME_IMAGES_PATH . '/download-ico.png"></a>',
   );
   $form['content']['submit'] = array(
     '#type' => 'submit',
