@@ -111,9 +111,6 @@ function osha_publication_menu_publications_faceted_form($variables) {
   );
   $form['content']['exposed-widgets']['language'] = [];
 
-  $form['#attached']['js'] = array(
-    drupal_get_path('module', 'osha_publication') . '/js/form.js',
-  );
   if (!empty($text)) {
     $form['content']['exposed-widgets']['search_phrase'] = array(
       '#type' => 'markup',
