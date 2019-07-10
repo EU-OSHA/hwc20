@@ -52,6 +52,23 @@ header.navbar-default .campaigns-header .navbar-header .header_top_bar .region-a
     min-width: 282px;
 }
 
+header.navbar-default .navbar-collapse nav ul.menu > li.first a{
+    height: 27px;
+}
+
+header.navbar-default .navbar-collapse nav ul.menu li a .caret{
+    height: 27px;
+}
+
+#block-on-the-web-0{
+    margin-top: 6px;
+}
+
+header.navbar-default .navbar-collapse nav ul.menu > li.first a:before{
+    background: url("/sites/all/themes/hwc_frontend/images/header/home-ico-v2.png") 50% 3px no-repeat;
+    height: 27px;
+}
+
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
     background-color: #003399;
 }
@@ -97,20 +114,24 @@ header.navbar-default .campaigns-header .navbar-header #block-search-form button
     clear: both;
 }
 
+#block-text-resize-0{
+    padding-left: 10px;
+}
+
 .above_title .back-to-link {
     border-bottom: 0px dotted #749b00;
 }
 
 /*Articles*/
+
+.node-type-article article{
+    margin-left: 0;
+    margin-right: 0;
+}
+
 article .hwc-share-widget ul{
     text-align: right;
     padding-bottom: 1em;
-}
-
-.hwc-share-widget ul .share-this-article{
-    color: #333;
-    font-size: 1.3rem;
-    font-weight: normal;
 }
 
 .hwc-share-widget ul li[id*="facebook-share-button-"] {
@@ -137,7 +158,21 @@ article .hwc-share-widget ul{
     opacity: 0.8;
 }
 
+.hwc-share-widget ul .share-this-article{
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: normal;
+}
+
+.hwc-share-widget ul .share-this-article:hover{
+    opacity: 1;
+}
+
 /*Publications*/
+
+.container .field.field-name-body p a{
+    border-bottom: 0;
+}
 
 .section-introduction p{
     text-align: left;
@@ -211,6 +246,14 @@ a.chosen-single{
 
 
 /* General Search  */
+
+body > div.main-container > div > aside > div > div:nth-child(2){
+    margin-top: 29px;
+}
+
+.results-for .searched-text, .results-for b{
+    font-size: 1em;
+}
 
 .page-search .region-sidebar-first .views-exposed-widgets #edit-search-block-form--3-wrapper{
     padding-right: 0;
