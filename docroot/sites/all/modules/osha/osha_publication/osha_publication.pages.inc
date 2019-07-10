@@ -111,9 +111,6 @@ function osha_publication_menu_publications_faceted_form($variables) {
   );
   $form['content']['exposed-widgets']['language'] = [];
 
-  $form['#attached']['js'] = array(
-    drupal_get_path('module', 'osha_publication') . '/js/form.js',
-  );
   if (!empty($text)) {
     $form['content']['exposed-widgets']['search_phrase'] = array(
       '#type' => 'markup',
@@ -255,7 +252,6 @@ function osha_publication_menu_publications_search($form_state, $sort) {
 
 function osha_publication_menu_publications_native_results($form_state, $results, $per_page, $sort, $current_page) {
   global $language, $current_page;
-  $start = $current_page * $per_page;
 
   $restrict = [];
   if (!empty($results['results'])) {
@@ -305,6 +301,7 @@ function osha_publication_menu_publications_native_results($form_state, $results
   $nids = array_unique($nids);
 
   $current_page = pager_default_initialize(count($nids), $per_page);
+  $start = $current_page * $per_page;
   $page = array_chunk($nids, $per_page, TRUE);
   $nodes = node_load_multiple($page[$current_page]);
   foreach ($nodes as $node) {
@@ -317,11 +314,11 @@ function osha_publication_menu_publications_native_results($form_state, $results
     $pager_params['text'] = $text;
   }
   $total = "";
-  if ($results['result count']) {
-    $total = ' <span>(' . $results['result count'] . ')</span>';
+  if ($nids) {
+    $total = ' <span>(' . count($nids) . ')</span>';
   }
 
-  $pager_total = '<div class="pager-total"><span>(' . ($start + 1) . ' - ' . ($start + count($nodes)) . ')</span></div>';
+  $pager_total = '<div class="pager-total"><span>' . ($start + 1) . ' - ' . ($start + count($nodes)) . '</span></div>';
   $ret = array(
     '#nids' => $nids,
     '#shown' => count($nodes),

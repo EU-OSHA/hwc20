@@ -3,7 +3,7 @@
 </section>
 <section class="comming-soon">
   <div class="content-counter">
-    <h2><?php print t('Coming Soon...') ?></h2>
+    <h2><?php print t('Coming Soon') ?></h2>
     <time id="eventTime" datetime="2019-10-31T14:30:00+01:00"></time>
     <ul class="time-and-counters">
       <li id="count-days">

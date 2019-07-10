@@ -219,8 +219,12 @@ function osha_search_views_default_views() {
   $handler->display->display_options['fields']['search_api_excerpt']['field'] = 'search_api_excerpt';
   $handler->display->display_options['fields']['search_api_excerpt']['label'] = '';
   $handler->display->display_options['fields']['search_api_excerpt']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['search_api_excerpt']['alter']['text'] = '[search_api_excerpt] <a href=\'[url]\'>See more</a>';
+  $handler->display->display_options['fields']['search_api_excerpt']['alter']['text'] = '<div class="views-field views-field-search-api-excerpt"><span class="field-content">[search_api_excerpt]</span></div>
+<a href=\'[url]\'>See more</a>';
+  $handler->display->display_options['fields']['search_api_excerpt']['element_type'] = '0';
   $handler->display->display_options['fields']['search_api_excerpt']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['search_api_excerpt']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['search_api_excerpt']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['search_api_excerpt']['link_to_entity'] = 0;
   /* Field: Indexed Multilingual Content: Country */
   $handler->display->display_options['fields']['field_country']['id'] = 'field_country';
@@ -439,7 +443,8 @@ function osha_search_views_default_views() {
     t('No results'),
     t('Relevance'),
     t('Site search'),
-    t('[search_api_excerpt] <a href=\'[url]\'>See more</a>'),
+    t('<div class="views-field views-field-search-api-excerpt"><span class="field-content">[search_api_excerpt]</span></div>
+<a href=\'[url]\'>See more</a>'),
     t('Country'),
     t('Provider'),
     t('Type'),

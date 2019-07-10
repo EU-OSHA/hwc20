@@ -26,7 +26,7 @@ if ($pages_count) {
     <span><?php print $publication_type; ?></span>
     <div class="publication-see-more-bottom-container">
       <?php
-      print l(t('See more'), $node_url . '/view', array(
+      print l(t('See more'), $node_url, array(
         'attributes' => array('class' => ['news-see-more-button']),
         'query' => $url_query,
         'external' => TRUE,

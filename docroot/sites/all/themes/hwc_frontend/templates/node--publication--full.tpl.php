@@ -39,7 +39,7 @@ $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"
         </div>
         <div class="col-md-3 content-downloads">
           <?php
-          print render(drupal_get_form('osha_publication_download_form'));
+          print render($content['download_form']);
           if ($content['field_banner_publications_office']['#items'][0]['value']) {
             echo theme('osha_publication_bookshop_id_format', ['title' => $node->title]);
           }
