@@ -171,5 +171,12 @@ function osha_search_update_7019() {
  * HW20-28 HWC20 General search development.
  */
 function osha_search_update_7020() {
-  features_revert(array('osha_search' => 'views_view'));
+  features_revert(array('osha_search' => ['views_view']));
+}
+
+/**
+ * HW20-28 HWC20 General search development.
+ */
+function osha_search_update_7021() {
+  features_revert(array('osha_search' => ['views_view']));
 }
