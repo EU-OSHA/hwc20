@@ -21,7 +21,7 @@ function campaign_materials_path_breadcrumbs_settings_info() {
       1 => '!page_title',
     ),
     'paths' => array(
-      0 => '<none>',
+      0 => 'tools-and-publications',
       1 => '<none>',
     ),
     'home' => 1,

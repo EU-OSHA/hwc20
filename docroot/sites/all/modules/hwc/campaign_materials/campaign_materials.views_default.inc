@@ -114,7 +114,7 @@ function campaign_materials_views_default_views() {
     ),
     'trim_preserve_tags' => '',
   );
-  /* Field: Content: Related documents */
+  /* Field: Content: Files */
   $handler->display->display_options['fields']['field_related_documents']['id'] = 'field_related_documents';
   $handler->display->display_options['fields']['field_related_documents']['table'] = 'field_data_field_related_documents';
   $handler->display->display_options['fields']['field_related_documents']['field'] = 'field_related_documents';
@@ -155,6 +155,12 @@ function campaign_materials_views_default_views() {
   $handler = $view->new_display('block', 'Splash page', 'splash');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Download Campaign resources';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
