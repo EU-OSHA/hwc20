@@ -258,6 +258,9 @@ function osha_events_strongarm() {
       'priority_areas' => array(
         'custom_settings' => TRUE,
       ),
+      'hwc_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
