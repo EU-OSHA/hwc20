@@ -295,8 +295,7 @@ function hwc_partner_block_view($delta = '') {
   elseif ($delta == 'hwc_partner_login_text') {
     // Did this to use it in panels.
     $block['title'] = '<none>';
-    $block['content'] = '<div class="text-center text-info">' . t('The private zone is allowed only to Campaign Partners. 
-    Get more information on how to <a href="@link" target="_blank">become a campaign partner</a>', ['@link' => url('become-campaign-partner')]) . '</div>';
+    $block['content'] = '<none>';
   }
   elseif ($delta == 'hwc_partner_profile_title') {
     // Did this to use it in panels.
