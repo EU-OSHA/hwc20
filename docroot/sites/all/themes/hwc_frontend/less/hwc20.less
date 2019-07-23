@@ -11,7 +11,7 @@
 }
 
 body {
-    padding-top: 213px;
+    padding-top: 210px;
 }
 
 body.logged-in {
@@ -1935,6 +1935,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
     padding: 1em;
     background:#daea96;
     float: left;
+    border-radius: 5px;
     
     .form-group{
     	margin-bottom: 0px;
@@ -1955,7 +1956,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
     	//display: none;
     }
 
-    #edit-submit--3{
+    button{
     	display: none;
     }
 }
@@ -2437,8 +2438,7 @@ span.pages{
 	    h2 {
 		    font-family: 'Open Sans', sans-serif;
 		    color: #003399;
-		    font-size: 1em;
-		    letter-spacing: 1px;
+		    font-size: 1.1em;
 		    margin: 0;
 		    clear: both;
 		    line-height: 20px;
@@ -2446,6 +2446,7 @@ span.pages{
 		    font-weight: bold;
 		    font-style: normal;
 		    padding-left: 0;
+    		letter-spacing: 0;
 		}
 		p{
 			color:#333333;
@@ -2614,11 +2615,16 @@ span.pages{
 					    border-radius: 3px;
 					    color: #b0b1b3;
 					    text-transform: uppercase;
-					    margin-left: 1em;
 					    padding: 2px 7px 2px 7px;
 					    font-size: 12px;
 					    font-weight: normal;
 					    font-style: normal;
+					    display: block;
+					    float: left;
+					    position: absolute;
+					    bottom: 0;
+					    margin-left: 0;
+
 					    &:hover{
 							text-decoration: none;
 							color: #58595b;
@@ -2636,8 +2642,11 @@ span.pages{
 					    }
 					}
 					.field-name-field-summary{
-						line-height: 25px;
 						font-weight: normal;
+						margin-top: 0;
+					}
+					.field-name-body{
+						padding-bottom: 2em;
 					}
 					h2{
 						margin-top: 0;
@@ -2646,7 +2655,7 @@ span.pages{
 							font-style: italic;
 						    font-size: 2.1rem;
 						    font-weight: normal;
-						    padding-top: 0.6em;
+						    padding-top: 0;
 						    display: block;
     						&:before{
     							padding-right: 0;
@@ -2703,6 +2712,10 @@ span.pages{
 					}
 					.views-field-field-article-type{
 						color: #003399;
+					}
+
+					.views-field-field-country{
+						padding-top: 5px;
 					}
 				}
 			}
