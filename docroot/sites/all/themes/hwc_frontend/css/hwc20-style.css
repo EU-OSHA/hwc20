@@ -4,6 +4,13 @@
   src: url("https://stackpath.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.eot");
   src: url("https://stackpath.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("https://stackpath.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("https://stackpath.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.woff") format("woff"), url("https://stackpath.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("https://stackpath.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular") format("svg");
 }
+header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language select {
+  background: #d9e996 !important;
+  background-color: #d9e996;
+  border: 1px solid #003399;
+  border-radius: 5px;
+  padding-left: 0.5em;
+}
 body {
   padding-top: 210px;
 }
@@ -2151,7 +2158,7 @@ span.pages {
 .container .content-box-sub h2 {
   font-family: 'Open Sans', sans-serif;
   color: #003399;
-  font-size: 1.1em;
+  font-size: 1.1em !important;
   margin: 0;
   clear: both;
   line-height: 20px;
@@ -2555,7 +2562,21 @@ span.pages {
 }
 @media (max-width: 992px) {
   body {
-    padding-top: 207px;
+    padding-top: 230px;
+  }
+  #navbar > div > div:nth-child(1) > div > div > div.col-xs-12.col-sm-9 {
+    padding-top: 1em;
+    padding-left: 1em!important;
+  }
+  header.navbar-default .campaigns-header .navbar-header a img.pull-left {
+    margin-top: 31px;
+  }
+  header.navbar-default .campaigns-header .navbar-header img:nth-child(3) {
+    padding-top: 39px;
+    margin-top: -2px;
+  }
+  #navbar > div > div:nth-child(1) > div > div > div.col-xs-12.col-sm-3.xs-menu {
+    padding-right: 10px;
   }
   .container {
     padding-left: 15px;
@@ -2595,6 +2616,13 @@ span.pages {
   }
   .breadcrumb_hwc20 {
     display: none;
+  }
+  .view .views-row h2 {
+    margin-left: 0;
+  }
+  .view .views-row .field.field-name-field-summary {
+    margin-left: 0;
+    margin-right: 0;
   }
   /*Splash page*/
   .intro-splash-20 .views-row-first {
@@ -2841,6 +2869,40 @@ span.pages {
   }
 }
 @media (max-width: 768px) {
+  .before-the-campaign .content-box-before .two-box-column {
+    flex-direction: row;
+    margin-bottom: 1em;
+  }
+  .before-the-campaign .content-box-before .two-box-column .box-before.news {
+    width: 42%;
+    margin-right: 1%;
+  }
+  .before-the-campaign .content-box-before .two-box-column .box-before.events {
+    width: 56%;
+    margin-right: 0;
+  }
+  .before-the-campaign .content-box-before .box-before {
+    width: 100%;
+    margin-right: 1em;
+  }
+  .comming-soon h2 {
+    width: 100%;
+  }
+  ul.time-and-counters {
+    width: 255px;
+    margin: 0 auto;
+    padding-top: 1em;
+  }
+  ul.time-and-counters li .counter-label {
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 1em;
+  }
+  #block-hwc-homepage-splash-download-news-campaign > section > div.content-box-before > div:nth-child(3) {
+    width: 742px;
+  }
+}
+@media (max-width: 767px) {
   body {
     padding-top: 190px;
   }
@@ -2852,6 +2914,36 @@ span.pages {
     background: transparent;
     padding-bottom: 1em;
     padding-right: 0px;
+    display: block !important;
+    position: absolute;
+    top: 1px;
+    right: 56px;
+  }
+  header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language:after {
+    background: url(../images/header/select-mobile.png) 5px 11px no-repeat #003399 !important;
+  }
+  header.navbar-default .campaigns-header .navbar-header .region-header #block-menu-menu-header-login {
+    float: right;
+  }
+  header.navbar-default .campaigns-header .navbar-header .region-header #block-menu-menu-header-login ul li a {
+    background: #003399 url(../images/header/login.png) no-repeat 6px 3px;
+    min-width: 80px;
+    text-align: right;
+    padding-top: 0;
+  }
+  .xs-menu #block-search-form {
+    float: right;
+  }
+  #block-system-main div div.form-type-textfield,
+  #block-system-main div div.form-type-password {
+    display: block;
+  }
+  header.navbar-default .navbar-collapse nav ul.menu.nav.navbar-nav li span {
+    display: none;
+  }
+  header.navbar-default .campaigns-header .navbar-header .region-header #block-search-form.expanded .input-group input {
+    min-width: 190px;
+    height: 31px;
   }
   .intro-splash-20 .views-row-first {
     padding-bottom: 1em;
@@ -2922,9 +3014,52 @@ span.pages {
   header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language select {
     color: #FFF;
     width: auto !important;
+    background: #003399 !important;
   }
   header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language select option {
     background: #003399;
+  }
+  .page-media-centre-news .main-container #block-system-main .view .views-row .more-link {
+    bottom: -15px;
+    right: 0;
+  }
+  .page-search .main-container #block-system-main .view .views-row .more-link {
+    bottom: 10px;
+    right: 0;
+  }
+  header.navbar-default .campaigns-header .navbar-header .region-header #block-search-form .input-group input {
+    width: 0;
+    height: 31px;
+  }
+  #edit-search-block-form--2 {
+    position: absolute;
+    width: 0;
+    min-width: 0;
+    background: #FFF;
+    top: -3px;
+    right: 27px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color: #003399;
+    height: 30px;
+    font-size: 0.8rem;
+    opacity: 0;
+  }
+  #edit-search-block-form--2.expand,
+  #block-search-form.expand {
+    width: 220px;
+    min-width: 220px;
+    opacity: 1;
+    z-index: 99999999999;
+    -webkit-transition: width 0.3s ease-in-out;
+    -moz-transition: width 0.3s ease-in-out;
+    -o-transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out;
+  }
+  #search-block-form > div > div > div.input-group > span.input-group-btn > button {
+    pointer-events: none;
   }
   /*Home*/
   .priority-area-box {
@@ -3064,7 +3199,7 @@ span.pages {
 @media (max-width: 480px) {
   /* Splash page */
   body {
-    padding-top: 145px;
+    padding-top: 142px;
   }
   body.splash-page {
     padding-top: 143px;
@@ -3075,9 +3210,12 @@ span.pages {
   }
   .container .content-box-sub {
     width: 100%;
-    margin-left: 3em;
-    margin-right: 3em;
-    margin-bottom: 2.5em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1em;
+  }
+  .container .content-box-sub h2 {
+    padding: 10px 0 0 0;
   }
   .field.field-name-field-summary {
     margin-left: 0;
@@ -3116,5 +3254,8 @@ span.pages {
   }
   .publication-detail .share-this {
     width: 100%;
+  }
+  #block-menu-block-3 {
+    padding: 0;
   }
 }

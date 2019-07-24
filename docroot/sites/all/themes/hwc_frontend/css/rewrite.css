@@ -28,13 +28,23 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
     padding-left: 0.5em;
 }
 
-header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language #lang_dropdown_select_language_chosen > .chosen-single span, header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language select span{
+header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language select span{
 	padding-top: 2px;
+}
+
+header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language #lang_dropdown_select_language_chosen > .chosen-single span{
+    padding-top: 1px;
+}
+
+#lang-dropdown-select-language{
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
 }
 
 header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language:after {
   background: url(../images/header/select.png) 5px 11px no-repeat transparent;
-
 }
 
 header.navbar-default .navbar-collapse nav ul.menu li > span.nolink{
@@ -292,6 +302,9 @@ body > div.main-container > div > aside > div > div:nth-child(2){
     width: 21px;
     height: 21px;
     float: left;
+    content:' ';
+    margin-top: -2px; /* Tablet need it */
+    margin-left: -3px; /* Tablet need it */
 }
 
 .page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:checked:before{

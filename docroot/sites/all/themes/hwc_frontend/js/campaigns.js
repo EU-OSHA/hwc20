@@ -455,4 +455,22 @@ jQuery(document).ready(function() {
 		});
 
 
+
+		/* Responsive Search Menu */
+		if (jQuery(window).width() < 768) {
+			jQuery('.region-header .input-group-btn').on('click', function() {
+			    if (jQuery('#edit-search-block-form--2').css('opacity') == 0) {
+			       jQuery('#edit-search-block-form--2').css('display', 'block');
+			       jQuery('#edit-search-block-form--2').addClass('expand');
+			       jQuery('#block-search-form').addClass('expand'); 
+			    }
+			    else {
+			        jQuery('#edit-search-block-form--2').css('display', 'none');
+			        jQuery('#edit-search-block-form--2').removeClass('expand');
+			        jQuery('#block-search-form').removeClass('expand');
+			        //jQuery("#edit-submit--2").click() TO DO
+			    }
+			});
+		}  
+
 });
