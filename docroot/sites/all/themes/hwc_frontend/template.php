@@ -669,6 +669,10 @@ function hwc_frontend_preprocess_node(&$vars) {
 
 }
 
+function osha_frontend_pagerer_standard($variables) {
+  return osha_pagerer_theme_handler('pagerer_standard', $variables);
+}
+
 function hwc_frontend_file_upload_help($variables) {
   return theme_file_upload_help($variables);
 }

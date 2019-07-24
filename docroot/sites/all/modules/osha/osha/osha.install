@@ -408,3 +408,10 @@ function osha_update_7033() {
   variable_set('osha_newsletter_listserv', 'crm-campaign@osha.europa.eu');
   variable_set('campaigns_newsletter_list_name', 'crm-campaign');
 }
+
+/**
+ * Enable pagerer module.
+ */
+function osha_update_7034() {
+  module_enable(array('pagerer'));
+}
