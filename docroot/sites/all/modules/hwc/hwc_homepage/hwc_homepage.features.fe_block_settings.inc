@@ -157,66 +157,6 @@ function hwc_homepage_default_fe_block_settings() {
     'visibility' => 1,
   );
 
-  $export['menu_block-3'] = array(
-    'cache' => -1,
-    'css_class' => '',
-    'custom' => 0,
-    'delta' => 3,
-    'i18n_block_language' => array(),
-    'i18n_mode' => 0,
-    'module' => 'menu_block',
-    'node_types' => array(
-      0 => 'article',
-    ),
-    'pages' => '',
-    'roles' => array(),
-    'themes' => array(
-      'hwc_frontend' => array(
-        'region' => 'content',
-        'status' => 1,
-        'theme' => 'hwc_frontend',
-        'weight' => 18,
-      ),
-      'seven' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
-    ),
-    'title' => '<none>',
-    'visibility' => 0,
-  );
-
-  $export['menu_block-4'] = array(
-    'cache' => -1,
-    'css_class' => 'left-menu',
-    'custom' => 0,
-    'delta' => 4,
-    'i18n_block_language' => array(),
-    'i18n_mode' => 0,
-    'module' => 'menu_block',
-    'node_types' => array(),
-    'pages' => 'about-topic/*',
-    'roles' => array(),
-    'themes' => array(
-      'hwc_frontend' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
-        'theme' => 'hwc_frontend',
-        'weight' => 0,
-      ),
-      'seven' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
-    ),
-    'title' => '<none>',
-    'visibility' => 1,
-  );
-
   $export['panels_mini-splash_page'] = array(
     'cache' => -1,
     'css_class' => '',

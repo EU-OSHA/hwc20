@@ -208,7 +208,7 @@ function hwc_homepage_node_info() {
       'help' => '',
     ),
     'previous_campaign' => array(
-      'name' => 'Previous HWC sections',
+      'name' => 'Previous Campaign Section',
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

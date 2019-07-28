@@ -576,7 +576,7 @@ function hwc_homepage_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -593,14 +593,9 @@ function hwc_homepage_field_default_field_instances() {
         'weight' => 0,
       ),
       'default' => array(
-        'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 1,
       ),
       'highlights_item' => array(
@@ -667,7 +662,7 @@ function hwc_homepage_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_icon',
     'label' => 'Icon',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
@@ -702,6 +697,104 @@ function hwc_homepage_field_default_field_instances() {
       ),
       'type' => 'image_image',
       'weight' => 1,
+    ),
+    'workbench_access_field' => 0,
+  );
+
+  // Exported field_instance: 'node-previous_campaign-field_previous_campaign'.
+  $field_instances['node-previous_campaign-field_previous_campaign'] = array(
+    'bundle' => 'previous_campaign',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'body' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
+      'highlights_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'highlights_item_alternative' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'hwc_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'newsletter_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'osha_resources' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'osha_slideshow' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'priority_areas' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'pub_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'title_body' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_previous_campaign',
+    'label' => 'Previous campaign',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 2,
     ),
     'workbench_access_field' => 0,
   );
@@ -805,7 +898,7 @@ function hwc_homepage_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => -5,
+      'weight' => 0,
     ),
   );
 
@@ -1030,6 +1123,7 @@ function hwc_homepage_field_default_field_instances() {
   t('Link');
   t('Linked content to Find out more button');
   t('Name');
+  t('Previous campaign');
   t('Title');
 
   return $field_instances;

@@ -88,6 +88,33 @@ function hwc_homepage_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
+  // Exported field_base: 'field_previous_campaign'.
+  $field_bases['field_previous_campaign'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_previous_campaign',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'HWC16' => 'HWC16',
+        'HWC18' => 'HWC18',
+        'Both' => 'Both',
+      ),
+      'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_tools_publications_link'.
   $field_bases['field_tools_publications_link'] = array(
     'active' => 1,
