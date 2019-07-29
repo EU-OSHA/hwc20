@@ -334,6 +334,7 @@ function hwc_block_info() {
  *     is empty the block will not be shown.
  */
 function hwc_block_view($delta = '') {
+  global $language;
   $block = array();
   if ($delta == 'page_share_widget') {
     $block['title'] = '<none>';
@@ -351,21 +352,26 @@ function hwc_block_view($delta = '') {
   if ($delta == 'article_related_resources') {
     $block['title'] = '<none>';
     $block['subject'] = "<none>";
-    $block['content'] = '
+    $node = menu_get_object();
+    if ($node->field_related_resource) {
+      $resources = [];
+      foreach($node->field_related_resource[LANGUAGE_NONE] as $term) {
+        $wrapper = entity_metadata_wrapper('taxonomy_term', $term['tid']);
+        $link = $wrapper->language($language->language)->field_resource_link->value()['url'];
+        $name = $wrapper->label();
+        $options = [
+          'html' => TRUE,
+        ];
+        $options['attributes']['class'][] = 'recommended-tool max-width';
+        $options['attributes']['class'][] = str_replace(' ', '-', strtolower($name));
+        $resources[] = '<div>' . l($name, '<span>' . $link . '</span>', $options) . '</div>';
+      }
+      $block['content'] = '
 <div class="col-md-3 related-resources">
    <span class="related-resources-title">' . t('Related resources') . '</span>
-   <div class="related-resources-boxes container-recommended-tools direction-column">
-      <div>
-         <a class="recommended-tool max-width priority-areas" href="#"><span>' . t('Priority Areas') . '</span></a>
-      </div>
-      <div>
-         <a class="recommended-tool max-width osh-wiki" href="#"><span>' . t('OSH Wiki') . '</span></a>
-      </div>
-      <div>
-         <a class="recommended-tool max-width osh-newsletter" href="#"><span>' . t('OSH Newsletter') . '</span></a>
-      </div>
-   </div>
+   <div class="related-resources-boxes container-recommended-tools direction-column">' . implode('', $resources) . '</div>
 </div>';
+    }
   }
 
   return $block;
@@ -476,6 +482,7 @@ function hwc_field_extra_fields() {
   $extra['node']['publication'] = $share_widget;
   $extra['node']['events'] = $share_widget;
   $extra['node']['article'] = $share_widget;
+  $extra['node']['previous_campaign'] = $share_widget;
   $extra['node']['hwc_gallery'] = $share_widget;
   $extra['node']['flickr_gallery'] = $share_widget;
   $extra['node']['press_release'] = $share_widget;
@@ -1257,9 +1264,14 @@ function hwc_news_share_widget($node, $options = array()) {
   // Merge default vars with ones from options.
   $vars = $options + $vars;
   switch ($vars['type']) {
+    case 'previous_campaign':
+      $widget = theme('article_share_widget', $vars);
+      break;
+
     case 'article':
       $widget = theme('article_share_widget', $vars);
       break;
+
     case 'publication':
       $widget = theme('article_share_widget', $vars);
       break;

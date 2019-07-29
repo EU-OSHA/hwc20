@@ -124,3 +124,11 @@ function hwc_homepage_update_7016() {
 function hwc_homepage_update_7017() {
   features_revert(array('hwc_homepage' => 'views_view'));
 }
+
+/**
+ * HW20-45 HWC20 Development - Previous Campaign, DS Campaign, All ages Campaign.
+ */
+function hwc_homepage_update_7018() {
+  features_revert_module('hwc_homepage');
+  variable_set('pathauto_node_previous_campaign_pattern', 'previous-campaigns/[node:field-previous-campaign]/[node:title]');
+}

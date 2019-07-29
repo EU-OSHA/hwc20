@@ -9,3 +9,10 @@ function hwc_menu_update_7001() {
     ->condition('menu_name', 'menu-information-tailored')
     ->execute();
 }
+
+/**
+ * HW20-45 HWC20 Development - Previous Campaign, DS Campaign, All ages Campaign.
+ */
+function hwc_menu_update_7002() {
+  features_revert_module('hwc_menu');
+}

@@ -247,28 +247,35 @@ function hwc_homepage_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '8',
+          'weight' => '9',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '7',
+          'weight' => '8',
         ),
         'redirect' => array(
-          'weight' => '5',
+          'weight' => '6',
         ),
         'workbench_access' => array(
           'weight' => '3',
         ),
         'xmlsitemap' => array(
-          'weight' => '4',
+          'weight' => '5',
         ),
         'language' => array(
-          'weight' => '6',
+          'weight' => '7',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'share_widget' => array(
+          'default' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__previous_campaign'] = $strongarm;

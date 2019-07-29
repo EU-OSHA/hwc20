@@ -204,6 +204,10 @@ function hwc_frontend_preprocess_page(&$vars) {
         $vars['theme_hook_suggestions'][] = 'page__node__article';
         break;
 
+      case "previous_campaign":
+        $vars['theme_hook_suggestions'][] = 'page__node__previous_campaign';
+        break;
+
       case "publication":
         $vars['theme_hook_suggestions'][] = 'page__node__publication';
         break;
