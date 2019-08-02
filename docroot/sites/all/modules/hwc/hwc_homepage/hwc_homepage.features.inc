@@ -207,14 +207,6 @@ function hwc_homepage_node_info() {
       'title_label' => 'Title',
       'help' => '',
     ),
-    'previous_campaign' => array(
-      'name' => 'Previous Campaign Section',
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => 'Title',
-      'help' => '',
-    ),
   );
   drupal_alter('node_info', $items);
   return $items;
