@@ -13,8 +13,8 @@ header.navbar-default .campaigns-header .navbar-header .header-text {
 header.navbar-default .campaigns-header #block-menu-menu-header-login a {
     background: #003399 url(../images/header/login.png) no-repeat 7px center;
     border-radius: 5px;
-    height: 26px;
-    padding-top: 4px;
+    height: 25px;
+    padding-top: 3px;
 }
 
 header.navbar-default .campaigns-header #block-menu-menu-header-login a:hover {
@@ -293,7 +293,7 @@ body > div.main-container > div > aside > div > div:nth-child(2){
 }
 
 .page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links{
-    padding-left: 0;
+    padding-left: 4px;
 }
 
 .page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:before{
@@ -307,8 +307,13 @@ body > div.main-container > div > aside > div > div:nth-child(2){
     margin-left: -3px; /* Tablet need it */
 }
 
+.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li #facetapi-link--all--checkbox{
+    margin-right: 15px;
+}
+
 .page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:checked:before{
     float: left;
+    margin-top: 0px;
 }
 
 /* News detail */
