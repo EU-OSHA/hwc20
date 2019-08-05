@@ -10,12 +10,21 @@
   url("https://stackpath.bootstrapcdn.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular") format("svg")
 }
 
+#sliding-popup{
+	position: fixed;
+	top:0 !important;
+}
+
 header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language select{
 	background: #d9e996 !important;
 	background-color: #d9e996;
     border: 1px solid #003399;
     border-radius: 5px;
     padding-left: 0.5em;
+}
+
+body.logged-in .navbar-header .col-xs-12.col-sm-9{
+	padding-top: 57px;
 }
 
 body.splash-page #sliding-popup.sliding-popup-top{
@@ -971,7 +980,6 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 		border-bottom-right-radius: 15px;
 		background: url(../images/ico-plus-20-hover-plus.png) no-repeat 98% 0px;
 		padding-right: 2em;
-		right: 0;
 		transition: 300ms;
 	}
 }
@@ -1372,6 +1380,10 @@ header.navbar-default .navbar-collapse nav ul.menu li {
     border-left: 0;
 }
 
+.footer-section div.col-md-2:nth-child(6) {
+    padding-right: 0;
+}
+
 
 /* Introductory Page > Article */
 
@@ -1506,6 +1518,77 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 	    }
     }
   }
+}
+
+.accordion-menu{
+	max-width: 265px;
+    float: right;
+	ul .active{
+		background: transparent;
+	}
+	 ul .active a:before{
+	 	content: initial;
+	}
+
+	.left-menu ul li:hover {
+    	background-color: transparent;
+	}
+
+	.menu-level-2{
+		ul{
+			li{
+				background-color: transparent;
+				a{
+					border: 2px solid;
+					padding: 10px 15px;
+					display: block;
+					margin-bottom: 15px;
+					border-radius: 3px;
+					text-decoration: none;
+					cursor: pointer;
+					color: white;
+					font-weight: bold;
+					background-color: #0030a0;
+					border-top-right-radius: 15px;
+					border-bottom-right-radius: 15px;
+					border-top-left-radius: 15px;
+					border-bottom-left-radius: 15px;
+					padding: 0.5em 0.5em;
+					margin-bottom: 0.5em;
+					padding-left: 1em;
+				}
+				ul{
+					background: transparent;
+					padding-left: 2em;
+					li{
+						background-color: #ecf4cb;
+						padding: 0.5em 0.5em;
+						a{
+							background: transparent;
+							border: 0;
+    						color: #0030a0;
+    						padding: 0 1em;
+    						margin-bottom: 0;
+    						font-weight: normal;
+						}
+					}
+					li.active{
+						background-color: #daea96;
+						a{
+							font-weight: bold;					
+						}
+					}
+
+					li:hover{
+						background-color: #daea96;
+						a{
+							font-weight: bold;					
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 .max-width{
@@ -2406,7 +2489,7 @@ span.pages{
 
 .container{
 	
-	.menu-level-2 ul.menu.nav{
+	.menu-name-main-menu ul.menu.nav{
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;

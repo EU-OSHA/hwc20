@@ -485,4 +485,9 @@ jQuery(document).ready(function() {
 			jQuery("body.splash-page").css('padding-top', calculate_height_resize + 10);
     	});
 
+    	/* Cookies declined */
+		jQuery(".decline-button").click(function() {
+			jQuery('#sliding-popup').fadeOut(200);
+		});
+
 });
