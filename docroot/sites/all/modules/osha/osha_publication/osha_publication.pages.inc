@@ -111,13 +111,6 @@ function osha_publication_menu_publications_faceted_form($variables) {
   );
   $form['content']['exposed-widgets']['language'] = [];
 
-  if (!empty($text)) {
-    $form['content']['exposed-widgets']['search_phrase'] = array(
-      '#type' => 'markup',
-      '#markup' => '<div class="results-for">' . t('Results for !text', array('!text' => '<span class="searched-text">' . check_plain($text) . '</span>')) . '</div>',
-    );
-  }
-
   $facets_def = call_user_func($facet_callback);
 
   $response = call_user_func($search_callback, $form_state, $sort);
