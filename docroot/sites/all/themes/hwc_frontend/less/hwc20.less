@@ -120,7 +120,7 @@ select{
 		transition: all 0.3s;
 	    &:hover{
 	    	color: #FFF;
-	    	background: url(../images/ico-plus-20-hover.png) no-repeat 99% 2px #b9d643;
+	    	background: url(../images/ico-plus-20-hover.png) no-repeat 99% 2px #8fc900;
 	    	text-decoration: none;
 	    }
 	}
@@ -170,7 +170,7 @@ select{
 			justify-content: space-between;
 			color: #FFF;
 		    padding-top: 1em;
-		    padding-bottom: 3em;
+		    padding-bottom: 2em;
 		    max-width: 430px;
 		    margin: 0 auto;
 		    font-size: 1.2em;
@@ -226,7 +226,8 @@ select{
 		color:#FFF;
 		font-weight: 400;
 		margin-right: 2em;
-		padding-top: 0.3em;
+		font-size: 4rem;
+    	padding-top: 3px;
 	}	
 }
 
@@ -236,8 +237,8 @@ select{
     display: flex;
     flex-wrap:wrap;
     justify-content: center;
-    padding-top: 3em;
-    padding-bottom: 2.6em;
+    padding-top: 2em;
+    padding-bottom: 1.6em;
 }
 
 ul.time-and-counters{
@@ -288,7 +289,7 @@ ul.time-and-counters{
 		.box-before{
 			background: #FFF;
 		    border-radius: 7px;
-		    padding: 1.5em 1.5em 2em 1.5em;
+		    padding: 1.5em;
 		    margin-right: 2em;
 		    width: 320px;
 		    float: left;
@@ -306,7 +307,7 @@ ul.time-and-counters{
 		    .img-previous-campaign{
 		    	img{
 		    		width:100%;
-		    		margin-top: 1em;
+		    		margin-top: 26px;
 		    		border-radius: 10px;
 		    	}
 		    }
@@ -445,7 +446,7 @@ ul.time-and-counters{
 					margin-top: 1em;
 				    &:hover{
 				    	color: #FFF;
-				    	background: url(../images/ico-plus-20-hover.png) no-repeat 98.5% 2px #b9d643;
+				    	background: url(../images/ico-plus-20-hover.png) no-repeat 98.5% 2px #8fc900;
 				    	text-decoration: none;
 				    }
 				}
@@ -456,9 +457,15 @@ ul.time-and-counters{
 			height: 100%;
 			margin-bottom: 2em;
 			h3{
+				position: relative;
 				&:before{
 					background: url(../images/news-h3-ico.png) no-repeat #ffffff;
-					background-position: -2px -4px;
+					position: absolute;
+					top: -13px;
+					left: -4px;
+				}
+				span{
+					padding-left: 50px;
 				}
 			}
 
@@ -472,9 +479,15 @@ ul.time-and-counters{
 
 		.box-before.events{
 			h3{
+				position: relative;
 				&:before{
 					background: url(../images/events-h3-ico.png) no-repeat #ffffff;
-					background-position: -2px -4px;
+					position: absolute;
+					top: -13px;
+					left: -7px;
+				}
+				span{
+					padding-left: 50px;
 				}
 			}
 		}
@@ -1561,9 +1574,9 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 					padding: 0.5em 0.5em;
 					margin-bottom: 0.5em;
 					padding-left: 1em;
+					padding-right: 30px;
+					position: relative;
 				}
-
-				
 
 				.nolink:after {
 				    content: "\e250";
@@ -1571,6 +1584,9 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 				    float: right;
 				    vertical-align: middle;
 				    color: #FFF;
+				    position: absolute;
+    				right: 10px;
+    				top: 35%;
 				}
 
 				.active-trail.nolink:after {
@@ -1916,6 +1932,14 @@ header.navbar-default .navbar-collapse nav ul.menu li {
     	align-items: flex-end;    	
     	.form-group{
 			margin-bottom: 0;
+			padding-bottom: 0;
+    	}
+    	.form-item-language{
+    		padding-bottom: 0;
+    	}
+
+    	.chosen-container-multi .chosen-choices li.search-choice{
+    		margin-top: 0;
     	}
 	}
 
@@ -2146,6 +2170,7 @@ span.title-select{
 .chosen-container-multi .chosen-choices{
 	overflow: initial;
 	background: transparent;
+	border: 0;
 }
 
 .content-languages-download a img{
@@ -2792,6 +2817,7 @@ span.pages{
 					    }
 					    &:before{
 					    	content: '';
+					    	display: none;
 					    }
 					}
 					.field-name-field-summary{
