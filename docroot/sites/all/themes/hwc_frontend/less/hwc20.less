@@ -1543,7 +1543,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 		ul{
 			li{
 				background-color: transparent;
-				a{
+				.nolink{
 					border: 2px solid;
 					padding: 10px 15px;
 					display: block;
@@ -1562,6 +1562,40 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 					margin-bottom: 0.5em;
 					padding-left: 1em;
 				}
+
+				
+
+				.nolink:after {
+				    content: "\e250";
+				    font-family: "Glyphicons Halflings";
+				    float: right;
+				    vertical-align: middle;
+				    color: #FFF;
+				}
+
+				.active-trail.nolink:after {
+				    content: "\e252";
+				    font-family: "Glyphicons Halflings";
+				    float: right;
+				    vertical-align: middle;
+				    color: #bcd75b;
+				}
+
+				.up-arrow:after {
+				    content: "\e252";
+				    font-family: "Glyphicons Halflings";
+				    float: right;
+				    vertical-align: middle;
+				    color: #bcd75b;
+				}
+				.active-trail.nolink.closed-down-arrow:after {
+				    content: "\e250";
+				    font-family: "Glyphicons Halflings";
+				    float: right;
+				    vertical-align: middle;
+				    color: #FFF;
+				}
+
 				ul{
 					background: transparent;
 					padding-left: 2em;
