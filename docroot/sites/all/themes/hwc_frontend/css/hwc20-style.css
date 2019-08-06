@@ -21,6 +21,12 @@ body.logged-in .navbar-header .col-xs-12.col-sm-9 {
 body.splash-page #sliding-popup.sliding-popup-top {
   margin-top: 45px;
 }
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-appearance: button;
+}
 .main-container.container {
   padding-bottom: 2em;
 }
@@ -400,7 +406,6 @@ ul.time-and-counters li .counter-label {
 }
 .before-the-campaign .content-box-before .box-before.news h3:before {
   background: url(../images/news-h3-ico.png) no-repeat #ffffff;
-  background-size: 38px;
   background-position: -2px -4px;
 }
 .before-the-campaign .content-box-before .box-before.news img {
@@ -411,7 +416,6 @@ ul.time-and-counters li .counter-label {
 }
 .before-the-campaign .content-box-before .box-before.events h3:before {
   background: url(../images/events-h3-ico.png) no-repeat #ffffff;
-  background-size: 38px;
   background-position: -2px -4px;
 }
 #block-views-view-campaign-materials-splash > div > div > div:nth-child(1) > div {
@@ -1429,6 +1433,16 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 .accordion-menu .menu-level-2 ul li ul li:hover a {
   font-weight: bold;
 }
+.left-menu.accordion-menu ul.menu > li.expanded ul.menu {
+  display: none;
+}
+.left-menu.accordion-menu ul.menu > li.expanded.active ul.menu {
+  display: block;
+}
+.main-container div.contextual-links-wrapper {
+  left: 5px;
+  right: auto;
+}
 .max-width {
   width: 100%;
 }
@@ -1665,6 +1679,15 @@ header.navbar-default .navbar-collapse nav ul.menu li {
   width: 32.3%!important;
   margin-right: 1em;
 }
+.page-publications #edit-exposed-widgets {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: flex-end;
+}
+.page-publications #edit-exposed-widgets .form-group {
+  margin-bottom: 0;
+}
 .page-publications .views-exposed-widgets > div:last-child {
   margin-right: 0;
 }
@@ -1766,6 +1789,10 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 }
 .page-publication-detail .publications-detail h2 a:hover {
   text-decoration: underline;
+}
+.publication-detail .publications-left-column {
+  float: left;
+  margin-right: 2em;
 }
 .publications-detail-right-column {
   width: 100%;
@@ -2394,6 +2421,8 @@ span.pages {
   position: absolute;
   bottom: 0;
   margin-left: 0;
+  transition: 300ms;
+  background-position: 110%;
 }
 .page-media-centre-news .main-container #block-system-main .view .views-row .more-link:hover,
 .page-search .main-container #block-system-main .view .views-row .more-link:hover {
@@ -2405,7 +2434,7 @@ span.pages {
   border-bottom-left-radius: 3px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background: url(../images/ico-plus-20-hover.png) no-repeat 98% 0px;
+  background: url(../images/ico-plus-20-hover-plus.png) no-repeat 98% 0px;
   padding-right: 2em;
 }
 .page-media-centre-news .main-container #block-system-main .view .views-row .more-link:before,
@@ -2556,13 +2585,19 @@ span.pages {
 }
 .page-search #views-exposed-form-search-site .views-submit-button button {
   background: #003399 !important;
-  height: 36px;
+  height: 35px;
   padding: 0 1em;
-  margin-top: 24px;
+  margin-top: 25px;
   border-radius: 5px;
+  margin-left: 5px;
 }
 .page-search #views-exposed-form-search-site .views-submit-button button:hover {
   opacity: 0.8;
+}
+div.workbench-info-block {
+  position: absolute;
+  top: 25px;
+  right: 0;
 }
 @media (max-width: 1200px) {
   .start-browsing {
@@ -2780,6 +2815,10 @@ span.pages {
   .page-events .views-exposed-widget {
     width: 100% !important;
     margin-top: 1em;
+    margin-right: 0;
+  }
+  #edit-text {
+    max-width: 100% !important;
   }
   .sidebars_first .form-checkboxes {
     display: block;

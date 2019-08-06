@@ -31,6 +31,13 @@ body.splash-page #sliding-popup.sliding-popup-top{
 	margin-top: 45px;
 }
 
+select{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	-webkit-appearance: button;
+}
+
 .main-container.container{
 	padding-bottom: 2em;
 }
@@ -451,7 +458,6 @@ ul.time-and-counters{
 			h3{
 				&:before{
 					background: url(../images/news-h3-ico.png) no-repeat #ffffff;
-					background-size: 38px;
 					background-position: -2px -4px;
 				}
 			}
@@ -468,7 +474,6 @@ ul.time-and-counters{
 			h3{
 				&:before{
 					background: url(../images/events-h3-ico.png) no-repeat #ffffff;
-					background-size: 38px;
 					background-position: -2px -4px;
 				}
 			}
@@ -1591,6 +1596,17 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 	}
 }
 
+.left-menu.accordion-menu ul.menu > li.expanded ul.menu {
+  display: none;
+}
+.left-menu.accordion-menu ul.menu > li.expanded.active ul.menu {
+  display: block;
+}
+.main-container div.contextual-links-wrapper {
+  left: 5px;
+  right: auto;
+}
+
 .max-width{
 	width: 100%;
 }
@@ -1855,6 +1871,16 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 	    margin-right: 1em;
 	}
 
+	#edit-exposed-widgets{
+		display: flex;
+    	flex-wrap: wrap;
+    	width: 100%;
+    	align-items: flex-end;    	
+    	.form-group{
+			margin-bottom: 0;
+    	}
+	}
+
 	.views-exposed-widgets > div:last-child{
     	margin-right: 0;
 	}
@@ -1970,6 +1996,12 @@ header.navbar-default .navbar-collapse nav ul.menu li {
       text-decoration: underline;
     }
   }
+
+}
+
+.publication-detail .publications-left-column{
+	float: left;
+	margin-right: 2em;
 }
 
 .publications-detail-right-column {
@@ -2706,7 +2738,8 @@ span.pages{
 					    position: absolute;
 					    bottom: 0;
 					    margin-left: 0;
-
+					    transition: 300ms;
+					   	background-position: 110%;
 					    &:hover{
 							text-decoration: none;
 							color: #58595b;
@@ -2716,7 +2749,7 @@ span.pages{
 							border-bottom-left-radius: 3px;
 							border-top-right-radius: 15px;
 							border-bottom-right-radius: 15px;
-							background: url(../images/ico-plus-20-hover.png) no-repeat 98% 0px;
+							background: url(../images/ico-plus-20-hover-plus.png) no-repeat 98% 0px;
 							padding-right: 2em;
 					    }
 					    &:before{
@@ -2882,12 +2915,19 @@ span.pages{
 
 	#views-exposed-form-search-site .views-submit-button button{
 		background: #003399 !important;
-		height: 36px;
+		height: 35px;
 		padding: 0 1em;
-	    margin-top: 24px;
+	    margin-top: 25px;
 	    border-radius: 5px;
+	    margin-left: 5px;
 	    &:hover{
 	    	opacity: 0.8;
 	    }
 	}
 } 
+
+div.workbench-info-block{
+	position: absolute;
+	top: 25px;
+	right: 0;
+}
