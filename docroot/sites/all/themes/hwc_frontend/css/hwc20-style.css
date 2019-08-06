@@ -1386,7 +1386,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 .accordion-menu .menu-level-2 ul li {
   background-color: transparent;
 }
-.accordion-menu .menu-level-2 ul li a {
+.accordion-menu .menu-level-2 ul li .nolink {
   border: 2px solid;
   padding: 10px 15px;
   display: block;
@@ -1404,6 +1404,34 @@ header.navbar-default .navbar-collapse nav ul.menu li {
   padding: 0.5em 0.5em;
   margin-bottom: 0.5em;
   padding-left: 1em;
+}
+.accordion-menu .menu-level-2 ul li .nolink:after {
+  content: "\e250";
+  font-family: "Glyphicons Halflings";
+  float: right;
+  vertical-align: middle;
+  color: #FFF;
+}
+.accordion-menu .menu-level-2 ul li .active-trail.nolink:after {
+  content: "\e252";
+  font-family: "Glyphicons Halflings";
+  float: right;
+  vertical-align: middle;
+  color: #bcd75b;
+}
+.accordion-menu .menu-level-2 ul li .up-arrow:after {
+  content: "\e252";
+  font-family: "Glyphicons Halflings";
+  float: right;
+  vertical-align: middle;
+  color: #bcd75b;
+}
+.accordion-menu .menu-level-2 ul li .active-trail.nolink.closed-down-arrow:after {
+  content: "\e250";
+  font-family: "Glyphicons Halflings";
+  float: right;
+  vertical-align: middle;
+  color: #FFF;
 }
 .accordion-menu .menu-level-2 ul li ul {
   background: transparent;
