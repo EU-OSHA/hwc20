@@ -1433,6 +1433,16 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 .accordion-menu .menu-level-2 ul li ul li:hover a {
   font-weight: bold;
 }
+.left-menu.accordion-menu ul.menu > li.expanded ul.menu {
+  display: none;
+}
+.left-menu.accordion-menu ul.menu > li.expanded.active ul.menu {
+  display: block;
+}
+.main-container div.contextual-links-wrapper {
+  left: 5px;
+  right: auto;
+}
 .max-width {
   width: 100%;
 }
