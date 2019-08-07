@@ -90,7 +90,7 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
             </a>
             <a href="http://osha.europa.eu" title="EU-OSHA" target="_blank"><img class="pull-left" src="/<?php print $theme_dir . '/logo-osha.png'; ?>" alt="<?php print t('EU-OSHA logo'); ?>" /></a>
             <img class="pull-left" src="/<?php print $theme_dir . '/logo-eu.png'; ?>" alt="<?php print t('EU logo'); ?>" />
-			<div class="header-text"><?php echo $head_text; ?></div>
+      <div class="header-text"><?php echo $head_text; ?></div>
           </div>
           <div class="col-xs-12 col-sm-3 xs-menu">
             <div class="header_top_bar">
@@ -99,25 +99,25 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
               </div>
             </div>
             <?php print render($page['header']); ?>
-			<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			  <span class="sr-only">Toggle navigation</span>
-			  <span class="icon-bar"></span>
-			  <span class="icon-bar"></span>
-			  <span class="icon-bar"></span>
-			</button>
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
           </div>
         </div>
       </div>
     </div>
     <div class="row">
-		<div class="navbar-collapse collapse">
-		  <nav>
-			<?php if (!empty($primary_nav)): ?>
-			  <?php print render($primary_nav); ?>
-			<?php endif; ?>
-		  </nav>
-		</div>
+    <div class="navbar-collapse collapse">
+      <nav>
+      <?php if (!empty($primary_nav)): ?>
+        <?php print render($primary_nav); ?>
+      <?php endif; ?>
+      </nav>
+    </div>
     </div>
   </div>
 </header>
@@ -211,14 +211,16 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
       <?php if (!empty($action_links)): ?>
         <ul class="action-links"><?php print render($action_links); ?></ul>
       <?php endif; ?>
-	  <?php if (!empty($page['sidebar_first'])): ?>
-		  <aside class="col-xs-12 col-sm-6 col-md-3" role="complementary">
-			<?php print render($page['sidebar_first']); ?>
-		  </aside>  <!-- /#sidebar-first -->
-	  <?php endif; ?>
+    <?php if (!empty($page['sidebar_first'])): ?>
+      <section class="container">
+      <aside class="col-xs-12 col-sm-6 col-md-3 search-sidebar-left" role="complementary">
+      <?php print render($page['sidebar_first']); ?>
+      </aside>  <!-- /#sidebar-first -->
+    <?php endif; ?>
       <div id="skip-to-content" style="visibility: hidden; height: 0px"><a href="#skip-to-content" rel="nofollow" accesskey="S" style="visibility: hidden;"><?php print t('Skip to content'); ?></a></div>
       <?php print render($page['content']); ?>
         </div>
+      </section>
     </section>
 
     <?php if (!empty($page['sidebar_second'])): ?>
