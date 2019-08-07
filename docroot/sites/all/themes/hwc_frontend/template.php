@@ -64,6 +64,17 @@ function hwc_frontend_menu_link__menu_block($variables) {
  */
 function hwc_frontend_menu_link(array $variables) {
   $element = $variables['element'];
+  if (arg(1) == 'campaign-materials') {
+    $exclude = variable_get('campaign_materials_exclude', []);
+    $include = variable_get('campaign_materials_include', []);
+    if (in_array($element['#href'], $exclude)) {
+      $element['#attributes']['class'] = [];
+    }
+    if (in_array($element['#href'], $include)) {
+      $element['#attributes']['class'] = ['expanded', 'active-trail', 'active'];
+    }
+  }
+
   $sub_menu = '';
   if ($element['#below']) {
     // Prevent dropdown functions from being added to management menu so it
