@@ -1940,7 +1940,12 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 
     	.chosen-container-multi .chosen-choices li.search-choice{
     		margin-top: 0;
+    		box-shadow: 0 0 0 white inset, 0 0 0 rgba(0, 0, 0, 0.05);
+    		background: transparent;
+    		border: 0;
+    		padding: 2px 20px 0 0;
     	}
+
 	}
 
 	.views-exposed-widgets > div:last-child{
@@ -1973,10 +1978,14 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 	    margin-left: 0em;
 	}
 
-	.publications-right-column {
-		h2{
-		    margin-top: 0;
-		    line-height:23px;
+	.content-fluid{
+		.publications-right-column {
+			h2{
+			    margin-top: 0;
+			    line-height:23px;
+			    padding-top: 0;
+			    padding-bottom: 0;
+			}
 		}
 	}
 
@@ -2306,7 +2315,7 @@ div.publications-detail-right-column > a.download{
 .page-publications #content, .page-events #content {
     width: 80.1%!important;
     border-top: 0px solid #003399;
-    margin-top: 3em;
+    margin-top: 2em;
     margin-left: 10px!important;
 }
 
@@ -2466,7 +2475,7 @@ label.option {
 }
 
 .search-new-design {
-    height: 35px;
+    height: 34px;
     border: 1px solid #003399;
     border-radius: 5px !important;
     background: url(../images/green-search.png) no-repeat 96% 55% #FFF;
@@ -2478,7 +2487,7 @@ label.option {
 }
 
 .new-select-style {
-    height: 35px;
+    height: 100%;
     border: 1px solid #003399 !important;
     border-radius: 5px !important;
     background: url(../images/green-select.png) no-repeat scroll 94% center #FFF !important;
@@ -2491,14 +2500,14 @@ label.option {
 .views-exposed-widgets .views-exposed-widget label {
     color: #003399 !important;
     font-family: "Open Sans" !important;
-    font-size: 0.9em !important;
-    font-weight: bold !important;
+    font-size: 1.2em !important;
+    font-weight: normal !important;
     padding-bottom: 0.1em;
 }
 
 .page-publications .sidebars_first, .page-events .sidebars_first {
     border-top: 0px solid #003399;
-    margin-top: 41px;
+    margin-top: 43px;
     margin-right: 0em;
 }
 
@@ -2548,6 +2557,15 @@ span.pages{
 .content-fluid{
 	h2{
 		color: #003399;
+	}
+}
+
+.page-publications{
+	.content-fluid{
+		h2{
+			padding-top: 0.5em;
+    		padding-bottom: 0.5em;
+		}
 	}
 }
 
@@ -2906,10 +2924,14 @@ span.pages{
 	.views-row img{
 		border: 0;
 	}
+
+	.search-sidebar-left{
+		padding-top: 11px;
+	}
+
 	.region-sidebar-first{
 		.block.block-facetapi{
 			h2{
-				padding-bottom: 0.5em;
 				&:after{
 					color:#c1e000;
 				}
@@ -2973,7 +2995,7 @@ span.pages{
 
 	.views-widget-sort-by > .form-item-sort-by > label{
 		margin-top: 0;
-		margin-bottom: 7px;
+		margin-bottom: 5px;
 		font-style: normal;
 	}
 
@@ -2981,7 +3003,7 @@ span.pages{
 		background: #003399 !important;
 		height: 35px;
 		padding: 0 1em;
-	    margin-top: 25px;
+	    margin-top: 30px;
 	    border-radius: 5px;
 	    margin-left: 5px;
 	    &:hover{
