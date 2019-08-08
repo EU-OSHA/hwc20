@@ -1,23 +1,23 @@
 <?php
 /**
  * @file
- * hwc_homepage.features.taxonomy.inc
+ * hwc_previous_campaigns.features.taxonomy.inc
  */
 
 /**
  * Implements hook_taxonomy_default_vocabularies().
  */
-function hwc_homepage_taxonomy_default_vocabularies() {
+function hwc_previous_campaigns_taxonomy_default_vocabularies() {
   return array(
-    'tools_and_publications_type' => array(
-      'name' => 'Tools and publications type',
-      'machine_name' => 'tools_and_publications_type',
+    'related_resources' => array(
+      'name' => 'Related resources',
+      'machine_name' => 'related_resources',
       'description' => '',
       'hierarchy' => 0,
       'module' => 'taxonomy',
       'weight' => 0,
       'language' => 'und',
-      'i18n_mode' => 1,
+      'i18n_mode' => 4,
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',

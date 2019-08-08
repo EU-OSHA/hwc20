@@ -13,58 +13,76 @@ window.onorientationchange = function() {
 
 jQuery(document).ready(function() {
 
-    jQuery(".start-here .col-inner").click(function() {
-        window.location = jQuery(this).find("a").attr("href");
-        return false;
-    });
+	jQuery(".start-here .col-inner").click(function() {
+		window.location = jQuery(this).find("a").attr("href");
+		return false;
+	});
 
-    if ((jQuery('.fb-post').length) && (jQuery(window).width()<=1024)) {
-        setTimeout(ipad_fix_iframe_width, 5000);
-    }
+	if ((jQuery('.fb-post').length) && (jQuery(window).width()<=1024)) {
+		setTimeout(ipad_fix_iframe_width, 5000);
+	}
 
-    //menu toolkit
-    jQuery("#block-hwc-toolkit-toolkit-left-menu .key-menu-container >.menu >.menu__item.expanded >span").click(function(){
-    	if(jQuery(this).siblings("ul").is(":visible")){
-    		jQuery(this).removeClass("up-arrow");
-    		jQuery(this).addClass("closed-down-arrow");
-    		jQuery('#block-hwc-toolkit-toolkit-left-menu').removeClass("opened");
-    		jQuery(this).siblings("ul").slideUp();
-    	}else{
-    		jQuery(this).addClass("up-arrow");
-    		jQuery(this).removeClass("closed-down-arrow");
-    		jQuery('#block-hwc-toolkit-toolkit-left-menu').addClass("opened");
-    		jQuery(this).siblings("ul").slideDown();
-    	}
-    	
-    });
+	//menu toolkit
+	jQuery("#block-hwc-toolkit-toolkit-left-menu .key-menu-container >.menu >.menu__item.expanded >span").click(function(){
+		if(jQuery(this).siblings("ul").is(":visible")){
+			jQuery(this).removeClass("up-arrow");
+			jQuery(this).addClass("closed-down-arrow");
+			jQuery('#block-hwc-toolkit-toolkit-left-menu').removeClass("opened");
+			jQuery(this).siblings("ul").slideUp();
+		}
+		else {
+			jQuery(this).addClass("up-arrow");
+			jQuery(this).removeClass("closed-down-arrow");
+			jQuery('#block-hwc-toolkit-toolkit-left-menu').addClass("opened");
+			jQuery(this).siblings("ul").slideDown();
+		}
 
-    //menu toolkit tablet & mobile
-    jQuery("#block-hwc-toolkit-toolkit-left-menu .key-menu-container >.menu-index").click(function(){
-    	if(jQuery(this).siblings(".menu").is(":visible")){
-    		jQuery(this).removeClass("up-arrow");
-    		jQuery(this).addClass("closed-down-arrow");
-    		jQuery('#block-hwc-toolkit-toolkit-left-menu').removeClass("opened");
-    		jQuery(this).siblings(".menu").slideUp();
-    	}else{
-    		jQuery(this).addClass("up-arrow");
-    		jQuery(this).removeClass("closed-down-arrow");
-    		jQuery('#block-hwc-toolkit-toolkit-left-menu').addClass("opened");
-    		jQuery(this).siblings(".menu").slideDown();
-    	}
-    	
-    });
+	});
 
-    //toolkit download pdf & links
-    jQuery(".node-type-tk-example .node-tk-example .group-left .field-name-field-download-pdf .field-label, .node-type-tk-example .node-tk-example .group-left .field-name-field-external-link .field-label").click(function(){
-    	if(jQuery(this).siblings(".field-items").is(":visible")){
-    		jQuery(this).removeClass("up-arrow");
-    		jQuery(this).siblings(".field-items").slideUp();
-    	}else{
-    		jQuery(this).addClass("up-arrow");
-    		jQuery(this).siblings(".field-items").slideDown();
-    	}
-    });
+	//menu toolkit tablet & mobile
+	jQuery("#block-hwc-toolkit-toolkit-left-menu .key-menu-container >.menu-index").click(function(){
+		if(jQuery(this).siblings(".menu").is(":visible")){
+			jQuery(this).removeClass("up-arrow");
+			jQuery(this).addClass("closed-down-arrow");
+			jQuery('#block-hwc-toolkit-toolkit-left-menu').removeClass("opened");
+			jQuery(this).siblings(".menu").slideUp();
+		}
+		else {
+			jQuery(this).addClass("up-arrow");
+			jQuery(this).removeClass("closed-down-arrow");
+			jQuery('#block-hwc-toolkit-toolkit-left-menu').addClass("opened");
+			jQuery(this).siblings(".menu").slideDown();
+		}
 
+	});
+
+	//toolkit download pdf & links
+	jQuery(".node-type-tk-example .node-tk-example .group-left .field-name-field-download-pdf .field-label, .node-type-tk-example .node-tk-example .group-left .field-name-field-external-link .field-label").click(function(){
+		if(jQuery(this).siblings(".field-items").is(":visible")){
+			jQuery(this).removeClass("up-arrow");
+			jQuery(this).siblings(".field-items").slideUp();
+		}
+		else {
+			jQuery(this).addClass("up-arrow");
+			jQuery(this).siblings(".field-items").slideDown();
+		}
+	});
+
+	// Prev. camp. accordion menu.
+	jQuery(".left-menu.accordion-menu ul.menu > li.expanded > span").click(function(){
+		if(jQuery(this).siblings("ul").is(":visible")){
+			jQuery(this).removeClass("up-arrow");
+			jQuery(this).addClass("closed-down-arrow");
+			jQuery('.left-menu.accordion-menu').removeClass("opened");
+			jQuery(this).siblings("ul").slideUp();
+		}
+		else {
+			jQuery(this).addClass("up-arrow");
+			jQuery(this).removeClass("closed-down-arrow");
+			jQuery('.left-menu.accordion-menu').addClass("opened");
+			jQuery(this).siblings("ul").slideDown();
+		}
+	});
 
     // Detect objectFit support
 	//if('objectFit' in document.documentElement.style === false) {

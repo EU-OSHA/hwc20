@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the HWC Previous Campaigns feature.
+ */
+
+include_once 'hwc_previous_campaigns.features.inc';

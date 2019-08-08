@@ -701,55 +701,23 @@ el.remove();
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'eu_cookie_compliance_en';
-  $strongarm->value = array(
-    'popup_enabled' => 1,
-    'popup_clicking_confirmation' => 0,
-    'popup_position' => 1,
-    'popup_agree_button_message' => 'OK, I agree',
-    'popup_disagree_button_message' => 'No, give me more info',
-    'popup_info' => array(
-      'value' => '<p><span style="font-size: small;"><strong>The EU-OSHA website uses cookies to gather information necessary for browsing the website, in accordance with the EU-OSHA privacy notice.</strong></span></p><p>By clicking on any link in the EU-OSHA web pages you are giving your consent for the use of cookies.</p>',
-      'format' => 'full_html',
-    ),
-    'popup_agreed_enabled' => 0,
-    'popup_hide_agreed' => 1,
-    'popup_find_more_button_message' => 'More info',
-    'popup_hide_button_message' => 'Hide',
-    'popup_agreed' => array(
-      'value' => '<h2>Thank you for accepting cookies</h2><p>You can now hide this message or find out more about cookies.</p>',
-      'format' => 'full_html',
-    ),
-    'popup_link' => 'node/102',
-    'popup_link_new_window' => 1,
-    'popup_height' => '120',
-    'popup_width' => '100%',
-    'popup_delay' => '1',
-    'popup_bg_hex' => '575958',
-    'popup_text_hex' => 'ffffff',
-    'domains_option' => '1',
-    'domains_list' => '',
-    'exclude_paths' => '',
-  );
-  $export['eu_cookie_compliance_en'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'exclude_node_title_content_type_modes_article';
   $strongarm->value = array(
-    'full' => 'full',
     'teaser' => 'teaser',
     'osha_resources' => 'osha_resources',
+    'full' => 0,
     'rss' => 0,
     'search_index' => 0,
     'search_result' => 0,
     'diff_standard' => 0,
     'title_body' => 0,
     'body' => 0,
+    'priority_areas' => 0,
+    'hwc_teaser' => 0,
     'osha_slideshow' => 0,
     'highlights_item' => 0,
     'newsletter_item' => 0,
+    'highlights_item_alternative' => 0,
     'pub_teaser' => 0,
     'print' => 0,
     'token' => 0,
@@ -772,9 +740,12 @@ el.remove();
     'diff_standard' => 0,
     'title_body' => 0,
     'body' => 0,
+    'priority_areas' => 0,
+    'hwc_teaser' => 0,
     'osha_slideshow' => 0,
     'highlights_item' => 0,
     'newsletter_item' => 0,
+    'highlights_item_alternative' => 0,
     'pub_teaser' => 0,
     'print' => 0,
     'token' => 0,
@@ -900,7 +871,7 @@ el.remove();
       'display' => array(
         'share_widget' => array(
           'default' => array(
-            'weight' => '4',
+            'weight' => '0',
             'visible' => TRUE,
           ),
           'body' => array(
@@ -1552,13 +1523,6 @@ el.remove();
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_document_pattern';
-  $strongarm->value = '';
-  $export['pathauto_node_document_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_events_pattern';
   $strongarm->value = 'media-centre/events/[node:title]';
   $export['pathauto_node_events_pattern'] = $strongarm;
@@ -1780,6 +1744,16 @@ el.remove();
   $strongarm->name = 'workbench_moderation_default_state_internal_url';
   $strongarm->value = 'draft';
   $export['workbench_moderation_default_state_internal_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'xmlsitemap_settings_node_article';
+  $strongarm->value = array(
+    'status' => '1',
+    'priority' => '0.5',
+  );
+  $export['xmlsitemap_settings_node_article'] = $strongarm;
 
   return $export;
 }

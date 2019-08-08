@@ -26,7 +26,7 @@ function osha_publication_menu_publications_form($form, $form_state) {
   return osha_publication_menu_publications_faceted_form($variables);
 }
 
-/**
+/* Publications faceted form.
  * @param $variables
  *
  * @return array
@@ -111,13 +111,6 @@ function osha_publication_menu_publications_faceted_form($variables) {
   );
   $form['content']['exposed-widgets']['language'] = [];
 
-  if (!empty($text)) {
-    $form['content']['exposed-widgets']['search_phrase'] = array(
-      '#type' => 'markup',
-      '#markup' => '<div class="results-for">' . t('Results for !text', array('!text' => '<span class="searched-text">' . check_plain($text) . '</span>')) . '</div>',
-    );
-  }
-
   $facets_def = call_user_func($facet_callback);
 
   $response = call_user_func($search_callback, $form_state, $sort);
@@ -149,7 +142,7 @@ function osha_publication_menu_publications_faceted_form($variables) {
       }
       else {
         $type = 'checkboxes';
-        $class = '';//search-facet-field
+        $class = '';
       }
 
       foreach ($facets[$field_name] as $facet_value) {
@@ -180,10 +173,12 @@ function osha_publication_menu_publications_faceted_form($variables) {
     }
   }
 
-  $form['content']['exposed-widgets']['lang'] = $form['left-column']['language']['language'];
-  $form['content']['exposed-widgets']['lang']['#prefix'] = '<div id="edit-search-api-views-fulltext-wrapper" class="views-exposed-widget views-widget-filter-search_api_language">';
-  $form['content']['exposed-widgets']['lang']['#suffix'] = '</div>';
-  $form['content']['exposed-widgets']['language1']['#chosen'] = FALSE;
+  $form['content']['exposed-widgets']['language'] = $form['left-column']['language']['language'];
+  $form['content']['exposed-widgets']['language']['#prefix'] = '<div id="edit-search-api-views-fulltext-wrapper" class="views-exposed-widget views-widget-filter-search_api_language">';
+  $form['content']['exposed-widgets']['language']['#suffix'] = '</div>';
+
+  $form['content']['exposed-widgets']['language']['#chosen'] = TRUE;
+  $form['content']['exposed-widgets']['language']['#multiple'] = TRUE;
   unset($form['left-column']['language']);
 
   $native_nids = [];

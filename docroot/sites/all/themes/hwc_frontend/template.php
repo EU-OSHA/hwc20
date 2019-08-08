@@ -27,6 +27,12 @@ function hwc_frontend_html_head_alter(&$head_elements) {
  */
 function hwc_frontend_menu_link__menu_block($variables) {
   $element = &$variables['element'];
+  if ($class = $element['#localized_options']['attributes']['class']) {
+    if (($class[0] == 'previous-campaigns') && ($element['#bid']['delta'] == 5)) {
+      $element['#href'] = '<nolink>';
+    }
+  }
+
   $delta = $element['#bid']['delta'];
   // Render or not the Menu Image.
   // Get the variable provided by osha_menu module.
@@ -52,11 +58,23 @@ function hwc_frontend_menu_link__menu_block($variables) {
   $element['#attributes']['class'][] = 'content-box-sub';
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output_link . '</li>';
 }
+
 /**
  * Overrides theme_menu_link().
  */
 function hwc_frontend_menu_link(array $variables) {
   $element = $variables['element'];
+  if (arg(1) == 'campaign-materials') {
+    $exclude = variable_get('campaign_materials_exclude', []);
+    $include = variable_get('campaign_materials_include', []);
+    if (in_array($element['#href'], $exclude)) {
+      $element['#attributes']['class'] = [];
+    }
+    if (in_array($element['#href'], $include)) {
+      $element['#attributes']['class'] = ['expanded', 'active-trail', 'active'];
+    }
+  }
+
   $sub_menu = '';
   if ($element['#below']) {
     // Prevent dropdown functions from being added to management menu so it
@@ -72,13 +90,6 @@ function hwc_frontend_menu_link(array $variables) {
       $element['#title'] .= ' <span class="caret"></span>';
       $element['#attributes']['class'][] = 'dropdown';
       $element['#localized_options']['html'] = TRUE;
-      // Set dropdown trigger element to # to prevent inadvertant page loading
-      // when a submenu link is clicked.
-//      $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
-//      $element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
-//      $element['#localized_options']['attributes']['role'] = 'button';
-//      $element['#localized_options']['attributes']['aria-haspopup'] = 'true';
-//      $element['#localized_options']['attributes']['aria-expanded'] = 'false';
     }
   }
   // On primary navigation menu, class 'active' is not set on active menu item.

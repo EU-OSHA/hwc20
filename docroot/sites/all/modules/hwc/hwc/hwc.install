@@ -963,3 +963,19 @@ function hwc_update_7061() {
     menu_link_save($menu_link);
   }
 }
+
+/*
+ * HW20-129 Tablet Campaign materials - menu highlighted wrong.
+ */
+function hwc_update_7062() {
+  $nodes = node_load_multiple(NULL, ["title" => "Get involved", 'type' => 'article']);
+  $node = current($nodes);
+  variable_set('campaign_materials_exclude', ['node/' . $node->nid]);
+
+  $nodes = node_load_multiple(NULL, ["title" => "Tools and publications", 'type' => 'article']);
+  $node = end($nodes);
+  variable_set('campaign_materials_include', [
+    'node/' . $node->nid,
+    'tools-and-publications/campaign-materials'
+  ]);
+}
