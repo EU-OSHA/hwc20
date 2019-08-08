@@ -513,5 +513,32 @@ jQuery(document).ready(function() {
 		if (jQuery(".results-for")[0]){
 			jQuery('.sidebars_first').addClass('with-result-for');
 		}
+});
+
+
+/* Publications filter accorddions */
+
+jQuery(document).ready(function($) {
+  $("#edit-field-publication-type > div > label").on("click", function() {
+    if ($(this).hasClass("active")) {
+      $("#edit-field-publication-type .form-checkboxes").slideDown(200);
+    }else{
+      $("#edit-field-publication-type .form-checkboxes").slideUp(200);
+    }
+  });
+  $("#edit-field-priority-area > div > label").on("click", function() {
+    if ($(this).hasClass("active")) {
+      $("#edit-field-priority-area .form-checkboxes").slideDown(200);
+    }else{
+      $("#edit-field-priority-area .form-checkboxes").slideUp(200);
+    }
+  });
+
+   if (jQuery(window).width() < 1200) {
+   	$("#edit-field-publication-type > div > label").removeClass('active');
+   	$("#edit-field-priority-area > div > label").removeClass('active');
+   	$("#edit-field-publication-type .form-checkboxes").css('display' , 'none');
+   	$("#edit-field-priority-area .form-checkboxes").css('display' , 'none');
+   }
 
 });

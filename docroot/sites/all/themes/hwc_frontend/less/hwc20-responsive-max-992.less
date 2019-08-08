@@ -159,7 +159,7 @@
 
 	.box-latest-publications{
 		width: 100%;
-		min-height: auto;
+		min-height: auto !important;
 	}
 
 	.sidebars_first{
@@ -356,7 +356,6 @@
 	.page-tools-and-publications{
 		#edit-left-column{
 			width: 100%;
-	    	display: flex;
 	    	.content-filters{
 	    		width: 48%;
 	    		margin-right: 1em;
@@ -391,7 +390,30 @@
 }
 
 @media (max-width: 1200px){
-	.box-latest-publications .left-column{
-		display: none !important;
+
+	.box-latest-publications{
+		min-height: 170px;
+
+		.left-column{
+			display: none !important;
+		}
+
+		.right-column {
+		    float: left;
+		    width: 100%;
+		    padding: 1em;
+		    h2{
+				padding-bottom: 0;
+				padding-top: 0;
+				 a{
+					padding-top: 1em;
+				}
+			}
+		}
 	}
+
+	.page-publications #content, .page-events #content{
+		margin-top: 0;
+	}
+
 }

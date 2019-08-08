@@ -149,23 +149,3 @@ jQuery(document).ready(function($){
     }
 
 })(jQuery);
-
-
-/* Publications filter accorddions */
-
-jQuery(document).ready(function($) {
-  $("#edit-field-publication-type > div > label").on("click", function() {
-    if ($(this).hasClass("active")) {
-      $("#edit-field-publication-type .form-checkboxes").slideDown(200);
-    }else{
-      $("#edit-field-publication-type .form-checkboxes").slideUp(200);
-    }
-  });
-  $("#edit-field-priority-area > div > label").on("click", function() {
-    if ($(this).hasClass("active")) {
-      $("#edit-field-priority-area .form-checkboxes").slideDown(200);
-    }else{
-      $("#edit-field-priority-area .form-checkboxes").slideUp(200);
-    }
-  });
-});
