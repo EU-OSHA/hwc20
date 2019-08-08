@@ -195,6 +195,7 @@ article .hwc-share-widget ul{
 }
 
 .form-item-relevant-for, .form-item-field-publication-type, .form-item-language, .form-item-field-priority-area, .form-item-languages{
+    padding-top: 5px;
     border-bottom: 0;
 }
 
@@ -246,11 +247,20 @@ a.chosen-single{
     width: 100%;
 }
 
+
 .form-item-field-publication-type > label.active:after, .form-item-language > label.active:after, .form-item-field-priority-area > label.active:after, .form-item-relevant-for > label.active:after, .form-item-languages > label.active:after, .form-item-publication-type > label.active:after{
-    content: '';
+    color: #c1e000;
+    padding-top: 2px;
 }
 
+
 .form-item-field-publication-type > label:after, .form-item-language > label:after, .form-item-field-priority-area > label:after, .form-item-relevant-for > label:after, .form-item-languages > label:after, .form-item-publication-type > label:after{
+    color: #c1e000;
+    padding-top: 2px;
+}
+
+
+#edit-search-api-views-fulltext-wrapper label:after{
     content: '';
 }
 

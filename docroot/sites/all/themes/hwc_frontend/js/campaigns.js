@@ -508,4 +508,10 @@ jQuery(document).ready(function() {
 			jQuery('#sliding-popup').fadeOut(200);
 		});
 
+
+		//Add class if "result for" search appears
+		if (jQuery(".results-for")[0]){
+			jQuery('.sidebars_first').addClass('with-result-for');
+		}
+
 });

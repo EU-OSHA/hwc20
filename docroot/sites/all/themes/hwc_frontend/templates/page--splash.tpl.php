@@ -73,6 +73,20 @@
  * @ingroup themeable
  */
 $theme_dir = drupal_get_path('theme', 'hwc_frontend');
+
+
+
+global $language;
+
+if ($language->language=="en"){
+    $idioma = "";
+     $logo_Osha = '/images/header/logos/EU-OSHA.png';
+  }else{
+    $idioma = $language->language;
+    $logo = str_replace("logo.png", "/images/header/logos/" .$idioma ."_logo.jpg", $logo);
+    $logo_Osha = '/images/header/logos/EU-OSHA-'. $idioma . '.png';
+}
+
 ?>
 <?php if (!empty($page['above_header'])): ?>
 <?php endif; ?>
@@ -85,7 +99,9 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
                         <a class="pull-left" accesskey="0" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
                             <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
                         </a>
-                        <a href="http://osha.europa.eu" title="EU-OSHA" target="_blank"><img class="pull-left" src="/<?php print $theme_dir . '/logo-osha.png'; ?>" alt="<?php print t('EU-OSHA logo'); ?>" /></a>
+                        <a href="http://osha.europa.eu" title="EU-OSHA" target="_blank">
+                            <?php print '<img class="pull-left" alt="'.t("EU-OSHA logo").'" src="'.base_path() . path_to_theme() .$logo_Osha .'">'; ?>
+                        </a>
                         <img class="pull-left" src="/<?php print $theme_dir . '/logo-eu.png'; ?>" alt="<?php print t('EU logo'); ?>" />
                         <div class="header-text"><?php echo $head_text; ?></div>
                     </div>
