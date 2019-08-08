@@ -79,48 +79,9 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
 ?>
 <?php if (!empty($page['above_header'])): ?>
 <?php endif; ?>
-<header id="navbar" class="navbar navbar-default container-fluid"><?php // print $navbar_classes; ?>
-  <div class="container-fluid campaigns-header">
-    <div class="row">
-      <div class="navbar-header">
-        <div class="row">
-          <div class="col-xs-12 col-sm-9">
-            <a class="pull-left" accesskey="0" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-              <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-            </a>
-            <a href="http://osha.europa.eu" title="EU-OSHA" target="_blank"><img class="pull-left" src="/<?php print $theme_dir . '/logo-osha.png'; ?>" alt="<?php print t('EU-OSHA logo'); ?>" /></a>
-            <img class="pull-left" src="/<?php print $theme_dir . '/logo-eu.png'; ?>" alt="<?php print t('EU logo'); ?>" />
-      <div class="header-text"><?php echo $head_text; ?></div>
-          </div>
-          <div class="col-xs-12 col-sm-3 xs-menu">
-            <div class="header_top_bar">
-              <div class="vertical-align">
-                <?php print render($page['above_header']); ?>
-              </div>
-            </div>
-            <?php print render($page['header']); ?>
-      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-    <div class="navbar-collapse collapse">
-      <nav>
-      <?php if (!empty($primary_nav)): ?>
-        <?php print render($primary_nav); ?>
-      <?php endif; ?>
-      </nav>
-    </div>
-    </div>
-  </div>
-</header>
+<?php
+  include(drupal_get_path('theme', 'hwc_frontend').'/templates/header.tpl.php');
+?>
 <div class="main-container">
   <div class="row">
     <section class="<?php print (!empty($content_class)) ? $content_class : ''; ?>">
