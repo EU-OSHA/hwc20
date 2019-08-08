@@ -2867,6 +2867,7 @@ div.workbench-info-block {
   }
   .box-latest-publications {
     width: 100%;
+    min-height: auto;
   }
   .sidebars_first {
     margin-left: 10px;
@@ -3048,6 +3049,11 @@ div.workbench-info-block {
   }
   .footer div.on-the-web a {
     margin-left: 3px;
+  }
+}
+@media (max-width: 1200px) {
+  .box-latest-publications .left-column {
+    display: none !important;
   }
 }
 @media (max-width: 768px) {

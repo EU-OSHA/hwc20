@@ -159,6 +159,7 @@
 
 	.box-latest-publications{
 		width: 100%;
+		min-height: auto;
 	}
 
 	.sidebars_first{
@@ -387,7 +388,10 @@
 			margin-left: 3px;
 		}
 	}
+}
 
-
-	
+@media (max-width: 1200px){
+	.box-latest-publications .left-column{
+		display: none !important;
+	}
 }
