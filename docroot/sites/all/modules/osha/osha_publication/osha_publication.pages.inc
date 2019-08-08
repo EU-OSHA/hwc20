@@ -199,6 +199,7 @@ function osha_publication_menu_publications_faceted_form($variables) {
       '<p class="no-results">' .
       t('You can try using some different keywords or filters to try to get better results.') .
       '</p>';
+    $form['#attributes']['class'][] = 'no-results';
   }
   return $form;
 }
