@@ -357,25 +357,18 @@ function hwc_block_view($delta = '') {
       $resources = [];
       foreach($node->field_resources[LANGUAGE_NONE] as $term) {
         $wrapper = entity_metadata_wrapper('taxonomy_term', $term['tid']);
-        $link = $wrapper->language($language->language)->field_resource_link->value()['url'];
-        $icon = $wrapper->language($language->language)->field_icon->value();
+        $icon = $wrapper->language($language->language)->field_icon->value()['uri'];
+        $image = theme('image_style', ['style_name' => 'medium_large', 'path' => $icon]);
         $name = $wrapper->label();
-
-        $vars = array(
-          'style_name' => 'medium_large',
-          'path' => $link,
-        );
-        $name .= theme('image_style', $vars);
-
+        $link = $wrapper->language($language->language)->field_resource_link->value()['url'];
         $options = [
           'html' => TRUE,
+          'attributes' => ['class' => ['recommended-tool max-width']]
         ];
-        $options['attributes']['class'][] = 'recommended-tool max-width';
-        $options['attributes']['class'][] = str_replace(' ', '-', strtolower($name));
-        $resources[] = '<div>' . l($name, '<span>' . $link . '</span>', $options) . '</div>';
+        $resources[] = '<div>' . l($image . '<span>' . $name . '</span>', $link, $options) . '</div>';
       }
       $block['content'] = '
-<div class="col-md-3 related-resources">
+<div class="related-resources">
    <span class="related-resources-title">' . t('Related resources') . '</span>
    <div class="related-resources-boxes container-recommended-tools direction-column">' . implode('', $resources) . '</div>
 </div>';
