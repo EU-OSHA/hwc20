@@ -1345,6 +1345,9 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 #block-menu-block-4 {
   width: 100%;
 }
+aside.col-md-3 .region.region-sidebar-first.well {
+  padding: 0;
+}
 .left-menu ul {
   list-style: none;
 }
@@ -1402,6 +1405,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 }
 .accordion-menu .menu-level-2 ul li {
   background-color: transparent;
+  padding: 0.5em 0;
 }
 .accordion-menu .menu-level-2 ul li .nolink {
   border: 2px solid;
@@ -2234,6 +2238,12 @@ label.option {
 }
 .page-publications .sidebars_first.with-result-for {
   margin-top: 63px;
+}
+.no-results .sidebars_first.with-result-for {
+  display: none;
+}
+.no-results .two_column {
+  padding-top: 2em;
 }
 .sidebars_first,
 .publications-sidebar-first {
