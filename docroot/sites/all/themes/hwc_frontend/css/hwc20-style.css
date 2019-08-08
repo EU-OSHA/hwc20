@@ -2225,9 +2225,12 @@ label.option {
 }
 .page-publications .sidebars_first,
 .page-events .sidebars_first {
-  border-top: 0px solid #003399;
+  border-top: 0;
   margin-top: 37px;
   margin-right: 0em;
+}
+.no-results .content-filters {
+  border: 0;
 }
 .page-publications .sidebars_first.with-result-for {
   margin-top: 63px;
@@ -2674,6 +2677,10 @@ div.workbench-info-block {
   top: 25px;
   right: 0;
 }
+/* Previous Campaigns */
+#block-hwc-homepage-previous-campaign-nav {
+  clear: both;
+}
 @media (max-width: 1200px) {
   .start-browsing {
     background: url(../images/background-start-browsing.png) repeat-y;
@@ -2867,7 +2874,7 @@ div.workbench-info-block {
   }
   .box-latest-publications {
     width: 100%;
-    min-height: auto;
+    min-height: auto !important;
   }
   .sidebars_first {
     margin-left: 10px;
@@ -3021,7 +3028,6 @@ div.workbench-info-block {
 @media (max-width: 1200px) and (min-width: 990px) {
   .page-tools-and-publications #edit-left-column {
     width: 100%;
-    display: flex;
   }
   .page-tools-and-publications #edit-left-column .content-filters {
     width: 48%;
@@ -3052,8 +3058,27 @@ div.workbench-info-block {
   }
 }
 @media (max-width: 1200px) {
+  .box-latest-publications {
+    min-height: 170px;
+  }
   .box-latest-publications .left-column {
     display: none !important;
+  }
+  .box-latest-publications .right-column {
+    float: left;
+    width: 100%;
+    padding: 1em;
+  }
+  .box-latest-publications .right-column h2 {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+  .box-latest-publications .right-column h2 a {
+    padding-top: 1em;
+  }
+  .page-publications #content,
+  .page-events #content {
+    margin-top: 0;
   }
 }
 @media (max-width: 768px) {

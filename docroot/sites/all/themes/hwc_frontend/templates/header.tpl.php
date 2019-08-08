@@ -4,11 +4,11 @@ global $language;
 
 if ($language->language=="en"){
     $idioma = "";
-     $logo_osha = '/images/EU-OSHA.png';
+     $logo_osha = '/images/header/logos/EU-OSHA.png';
   }else{
     $idioma = $language->language;
     $logo = str_replace("logo.png", "/images/header/logos/" .$idioma ."_logo.jpg", $logo);
-    $logo_osha = '/images/EU-OSHA-'. $idioma . '.png';
+    $logo_osha = '/images/header/logos/EU-OSHA-'. $idioma . '.png';
 }
 
 $theme_dir = drupal_get_path('theme', 'hwc_frontend');
