@@ -79,9 +79,8 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
 ?>
 <?php if (!empty($page['above_header'])): ?>
 <?php endif; ?>
-
 <?php
-  include(drupal_get_path('theme', 'hwc_frontend').'/templates/header.tpl.php');
+include(drupal_get_path('theme', 'hwc_frontend').'/templates/header.tpl.php');
 ?>
 
 <div class="main-container container-fluid">
@@ -97,27 +96,29 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
     </div>
   <?php if ($show_title) { ?>
       <div class="page_title">
-  <?php
-  if (!empty($breadcrumb)) {
-    print $breadcrumb;
-  }
-  if (!empty($back_to_pz)) {
-    print $back_to_pz;
-  } ?>
-    <?php if (!empty($title)) { ?>
-          <h1 class="page-header"><?php print $title; ?></h1>
-    <?php } ?>
+        <?php
+        if (!empty($breadcrumb)) {
+          print $breadcrumb;
+        }
+        if (!empty($back_to_pz)) {
+          print $back_to_pz;
+        } ?>
+        <?php if (!empty($title)) { ?>
+            <h1 class="page-header"><?php print $title; ?></h1>
+        <?php } ?>
       </div>
     <?php
   }
   print render($title_suffix);
   print $messages;
+
   $content_cols = 12;
   $sidebar_first = render($page['sidebar_first']);
   if (!empty($sidebar_first)) {
     $content_cols -= 3;
   }
-  if (!empty($page['sidebar_second'])) {
+  $sidebar_second = render($page['sidebar_second']);
+  if (!empty($sidebar_second)) {
     $content_cols -= 3;
   }
   ?>
@@ -142,12 +143,12 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
               </aside>  <!-- /#sidebar-first -->
           <?php endif; ?>
             <aside class="col-md-<?php print $content_cols ?>">
-            <div id="skip-to-content" style="visibility: hidden; height: 0px"><a href="#skip-to-content" rel="nofollow" accesskey="S" style="visibility: hidden;"><?php print t('Skip to content'); ?></a></div>
-          <?php print render($page['content']); ?>
+                <div id="skip-to-content" style="visibility: hidden; height: 0px"><a href="#skip-to-content" rel="nofollow" accesskey="S" style="visibility: hidden;"><?php print t('Skip to content'); ?></a></div>
+              <?php print render($page['content']); ?>
             </aside>
-          <?php if (!empty($page['sidebar_second'])): ?>
-              <aside>
-                <?php print render($page['sidebar_second']); ?>
+          <?php if (!empty($sidebar_second)): ?>
+              <aside class="col-md-3" role="complementary">
+                <?php print $sidebar_second; ?>
               </aside>  <!-- /#sidebar-second -->
           <?php endif; ?>
 
