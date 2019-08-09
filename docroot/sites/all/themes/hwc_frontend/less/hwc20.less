@@ -859,69 +859,17 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 	font-weight: 600;
 	min-height: 78px;
 	min-width: 220px;
+	position: relative;
+
+	img{
+		position: absolute;
+    	left: 17px;
+	}
+
   	span{
 	    display: block;
-	    width: 90px;
+	   	width: 145px;
 	}
-}
-
-.recommended-tool.campaign-guide{
-	background: url(../images/related-resources/rr-campaign-guide-v2.png) no-repeat 1em;
-  	background-size: 40px;
-}
-.recommended-tool.tools-resources{
-	background: url(../images/related-resources/rr-tools-and-resources-v2.png) no-repeat 1em;
-  	background-size: 40px;
-}
-.recommended-tool.priority-areas{
-	background: url(../images/related-resources/rr-priority-areas.png) no-repeat 1em;
-  	background-size: 40px;
-}
-.recommended-tool.european-week{
-	background: url(../images/related-resources/rr-european-weeek.png) no-repeat 1em;
-  	background-size: 40px;
-}
-.recommended-tool.osh-wiki{
-	background: url(../images/related-resources/rr-osh-wiki.png) no-repeat 1em;
-  	background-size: 40px;
-}
-.recommended-tool.osh-newsletter{
-	background: url(../images/related-resources/rr-osh-newsletter.png) no-repeat 1em;
-  	background-size: 40px;
-}
-
-.recommended-tool.campaign-guide:hover{
-	background: url(../images/related-resources/rr-campaign-guide-v2-hover.png) no-repeat 1em #00309d;
-  	background-size: 40px;
-}
-.recommended-tool.tools-resources:hover{
-	background: url(../images/related-resources/rr-tools-and-resources-v2-hover.png) no-repeat 1em #00309d;
-  	background-size: 40px;
-}
-.recommended-tool.priority-areas:hover{
-	background: url(../images/related-resources/rr-priority-areas-hover.png) no-repeat 1em #00309d;
-  	background-size: 40px;
-}
-.recommended-tool.european-week:hover{
-	background: url(../images/related-resources/rr-european-weeek-hover.png) no-repeat 1em #00309d;
-  	background-size: 40px;
-}
-.recommended-tool.osh-wiki:hover{
-	background: url(../images/related-resources/rr-osh-wiki-hover.png) no-repeat 1em #00309d;
-  	background-size: 40px;
-}
-.recommended-tool.osh-newsletter:hover{
-	background: url(../images/related-resources/rr-osh-newsletter-hover.png) no-repeat 1em #00309d;
-  	background-size: 40px;
-}
-
-.recommended-tool:hover{
-    border:2px solid #00309d;
-    background:  !important;
-   	color: white !important;
-   	a{
-   		color:white !important;
-   	}
 }
 
 .container-recommended-tools{
@@ -938,8 +886,13 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 	margin-top: 1.5em;
   	div{
 	  a:hover{
-   		color: white !important;
+   		color: #FFF;
+   		background: #00309d; 
    		text-decoration: none;
+   		border: 2px solid #00309d;
+   		img{
+   			filter: brightness(0) invert(1);
+   		}
 	  }
   	}	
   	.recommended-tool{
@@ -1548,6 +1501,7 @@ aside.col-md-3{
 .accordion-menu{
 	max-width: 265px;
     float: right;
+    padding-right: 1em;
 	ul .active{
 		background: transparent;
 	}
@@ -1575,10 +1529,7 @@ aside.col-md-3{
 					color: white;
 					font-weight: bold;
 					background-color: #0030a0;
-					border-top-right-radius: 15px;
-					border-bottom-right-radius: 15px;
-					border-top-left-radius: 15px;
-					border-bottom-left-radius: 15px;
+					border-radius: 25px;
 					padding: 0.5em 0.5em;
 					margin-bottom: 0.5em;
 					padding-left: 1em;
@@ -3045,4 +2996,54 @@ div.workbench-info-block{
 
 #block-hwc-homepage-previous-campaign-nav{
 	clear: both;
+}
+
+.accordion-menu{
+	float: left;
+}
+
+.main-container{
+	.node-campaign-18, .node-campaign-16{
+
+		.body-summary{
+			font-weight:bold;
+			padding-bottom: 1em;
+		}
+
+		h2{
+			color: #003399;
+	    	font-size: 2.2em;
+	    	font-weight: 500;
+	    	font-style: normal;
+	    	margin-left: 0;
+		}
+
+		h3{
+			color: #003399;
+	    	font-size: 1.3em;
+	    	font-weight: 600;
+		}
+
+		.links{
+			background: url('../images/target-blank.png') no-repeat 100% 50%;
+			font-style: normal !important;
+			font-weight: 600 !important;
+			font-size: 1.3em;
+			text-decoration: underline;
+			padding-right: 1.5em;
+			&:hover{
+				text-decoration: none;
+			}
+		}
+
+		a{
+			img{
+			width: 100%;
+			height: auto;
+				&:hover{
+					opacity: 0.8;
+				}
+			}
+		}
+	}
 }
