@@ -2690,6 +2690,33 @@ div.workbench-info-block {
 .main-container .node-campaign-16 a img:hover {
   opacity: 0.8;
 }
+#block-hwc-campaign-resources .campaign-resources-title {
+  background: url(../images/grey-h3-line.png) repeat-x 50% 75%;
+  width: 100%;
+  display: block;
+  padding-bottom: 0em;
+  margin-bottom: 1em;
+  margin-top: 2em;
+}
+#block-hwc-campaign-resources .campaign-resources-title span {
+  color: #003399;
+  font-size: 1.4em;
+  font-weight: 500;
+  padding-top: 1em;
+  background: #FFF;
+  padding-right: 0.7em;
+}
+#block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+#block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes div {
+  display: flex;
+  width: 49%;
+  margin-bottom: 1em;
+}
 @media (max-width: 1200px) {
   .start-browsing {
     background: url(../images/background-start-browsing.png) repeat-y;
