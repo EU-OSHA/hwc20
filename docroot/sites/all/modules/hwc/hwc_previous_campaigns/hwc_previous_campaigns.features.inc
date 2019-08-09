@@ -21,12 +21,37 @@ function hwc_previous_campaigns_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function hwc_previous_campaigns_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: relres.
+  $styles['relres'] = array(
+    'label' => 'relres',
+    'effects' => array(
+      9 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 40,
+          'height' => 40,
+          'upscale' => 1,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function hwc_previous_campaigns_node_info() {
   $items = array(
     'campaign_16' => array(
-      'name' => 'Campaign 16',
+      'name' => 'Article Campaign 16',
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
@@ -34,7 +59,7 @@ function hwc_previous_campaigns_node_info() {
       'help' => '',
     ),
     'campaign_18' => array(
-      'name' => 'Campaign 18',
+      'name' => 'Article Campaign 18',
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
