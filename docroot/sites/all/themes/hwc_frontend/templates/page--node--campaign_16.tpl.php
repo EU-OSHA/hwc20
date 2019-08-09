@@ -142,7 +142,7 @@ include(drupal_get_path('theme', 'hwc_frontend').'/templates/header.tpl.php');
                 <?php print $sidebar_first; ?>
               </aside>  <!-- /#sidebar-first -->
           <?php endif; ?>
-            <aside class="col-md-<?php print $content_cols ?>">
+            <aside class="col-md-<?php print $content_cols ?> col-xs-12">
                 <div id="skip-to-content" style="visibility: hidden; height: 0px"><a href="#skip-to-content" rel="nofollow" accesskey="S" style="visibility: hidden;"><?php print t('Skip to content'); ?></a></div>
               <?php print render($page['content']); ?>
             </aside>
