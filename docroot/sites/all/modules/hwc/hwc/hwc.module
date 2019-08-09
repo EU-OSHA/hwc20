@@ -358,7 +358,7 @@ function hwc_block_view($delta = '') {
       foreach($node->field_resources[LANGUAGE_NONE] as $term) {
         $wrapper = entity_metadata_wrapper('taxonomy_term', $term['tid']);
         $icon = $wrapper->language($language->language)->field_icon->value()['uri'];
-        $image = theme('image_style', ['style_name' => 'medium_large', 'path' => $icon]);
+        $image = theme('image_style', ['style_name' => 'relres', 'path' => $icon]);
         $name = $wrapper->label();
         $link = $wrapper->language($language->language)->field_resource_link->value()['url'];
         $options = [
