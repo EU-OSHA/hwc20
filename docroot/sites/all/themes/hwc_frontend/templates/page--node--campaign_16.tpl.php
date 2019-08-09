@@ -138,7 +138,7 @@ include(drupal_get_path('theme', 'hwc_frontend').'/templates/header.tpl.php');
           <?php endif; ?>
 
           <?php if (!empty($sidebar_first)): ?>
-              <aside class="col-md-3" role="complementary">
+              <aside class="col-md-3 col-xs-12" role="complementary">
                 <?php print $sidebar_first; ?>
               </aside>  <!-- /#sidebar-first -->
           <?php endif; ?>
@@ -147,7 +147,7 @@ include(drupal_get_path('theme', 'hwc_frontend').'/templates/header.tpl.php');
               <?php print render($page['content']); ?>
             </aside>
           <?php if (!empty($sidebar_second)): ?>
-              <aside class="col-md-3" role="complementary">
+              <aside class="col-md-3 col-xs-12" role="complementary">
                 <?php print $sidebar_second; ?>
               </aside>  <!-- /#sidebar-second -->
           <?php endif; ?>
