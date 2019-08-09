@@ -30,17 +30,14 @@ function hwc_previous_campaigns_image_default_styles() {
   $styles['relres'] = array(
     'label' => 'relres',
     'effects' => array(
-      12 => array(
-        'name' => 'manualcrop_crop_and_scale',
+      9 => array(
+        'name' => 'image_scale',
         'data' => array(
           'width' => 40,
           'height' => 40,
-          'upscale' => 0,
-          'respectminimum' => 1,
-          'onlyscaleifcrop' => 0,
-          'style_name' => 'relres',
+          'upscale' => 1,
         ),
-        'weight' => 0,
+        'weight' => 2,
       ),
     ),
   );

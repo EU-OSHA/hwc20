@@ -313,6 +313,12 @@ function hwc_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'region' => 'sidebar_second',
   );
+  $blocks['campaign_resources'] = array(
+    'info' => t('Campaign resources'),
+    'status' => 1,
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'region' => 'sidebar_second',
+  );
 
   return $blocks;
 }
@@ -349,6 +355,7 @@ function hwc_block_view($delta = '') {
     $block['subject'] = "<none>";
     $block['content'] = NULL;
   }
+
   if ($delta == 'article_related_resources') {
     $block['title'] = '<none>';
     $block['subject'] = "<none>";
@@ -371,6 +378,32 @@ function hwc_block_view($delta = '') {
 <div class="related-resources">
    <span class="related-resources-title">' . t('Related resources') . '</span>
    <div class="related-resources-boxes container-recommended-tools direction-column">' . implode('', $resources) . '</div>
+</div>';
+    }
+  }
+
+  if ($delta == 'campaign_resources') {
+    $block['title'] = '<none>';
+    $block['subject'] = "<none>";
+    $node = menu_get_object();
+    if ($node->field_campaign_resources) {
+      $resources = [];
+      foreach($node->field_campaign_resources[LANGUAGE_NONE] as $term) {
+        $wrapper = entity_metadata_wrapper('taxonomy_term', $term['tid']);
+        $icon = $wrapper->language($language->language)->field_icon->value()['uri'];
+        $image = theme('image_style', ['style_name' => 'relres', 'path' => $icon]);
+        $name = $wrapper->label();
+        $link = $wrapper->language($language->language)->field_resource_link->value()['url'];
+        $options = [
+          'html' => TRUE,
+          'attributes' => ['class' => ['recommended-tool max-width']]
+        ];
+        $resources[] = '<div>' . l($image . '<span>' . $name . '</span>', $link, $options) . '</div>';
+      }
+      $block['content'] = '
+<div class="campaign-resources">
+   <span class="campaign-resources-title">' . t('Campaign Resources') . '</span>
+   <div class="campaign-resources-boxes">' . implode('', $resources) . '</div>
 </div>';
     }
   }
