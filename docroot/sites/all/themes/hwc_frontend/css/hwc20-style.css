@@ -779,66 +779,15 @@ header.navbar-default .navbar-collapse nav ul.menu li {
   font-weight: 600;
   min-height: 78px;
   min-width: 220px;
+  position: relative;
+}
+.recommended-tool img {
+  position: absolute;
+  left: 17px;
 }
 .recommended-tool span {
   display: block;
-  width: 90px;
-}
-.recommended-tool.campaign-guide {
-  background: url(../images/related-resources/rr-campaign-guide-v2.png) no-repeat 1em;
-  background-size: 40px;
-}
-.recommended-tool.tools-resources {
-  background: url(../images/related-resources/rr-tools-and-resources-v2.png) no-repeat 1em;
-  background-size: 40px;
-}
-.recommended-tool.priority-areas {
-  background: url(../images/related-resources/rr-priority-areas.png) no-repeat 1em;
-  background-size: 40px;
-}
-.recommended-tool.european-week {
-  background: url(../images/related-resources/rr-european-weeek.png) no-repeat 1em;
-  background-size: 40px;
-}
-.recommended-tool.osh-wiki {
-  background: url(../images/related-resources/rr-osh-wiki.png) no-repeat 1em;
-  background-size: 40px;
-}
-.recommended-tool.osh-newsletter {
-  background: url(../images/related-resources/rr-osh-newsletter.png) no-repeat 1em;
-  background-size: 40px;
-}
-.recommended-tool.campaign-guide:hover {
-  background: url(../images/related-resources/rr-campaign-guide-v2-hover.png) no-repeat 1em #00309d;
-  background-size: 40px;
-}
-.recommended-tool.tools-resources:hover {
-  background: url(../images/related-resources/rr-tools-and-resources-v2-hover.png) no-repeat 1em #00309d;
-  background-size: 40px;
-}
-.recommended-tool.priority-areas:hover {
-  background: url(../images/related-resources/rr-priority-areas-hover.png) no-repeat 1em #00309d;
-  background-size: 40px;
-}
-.recommended-tool.european-week:hover {
-  background: url(../images/related-resources/rr-european-weeek-hover.png) no-repeat 1em #00309d;
-  background-size: 40px;
-}
-.recommended-tool.osh-wiki:hover {
-  background: url(../images/related-resources/rr-osh-wiki-hover.png) no-repeat 1em #00309d;
-  background-size: 40px;
-}
-.recommended-tool.osh-newsletter:hover {
-  background: url(../images/related-resources/rr-osh-newsletter-hover.png) no-repeat 1em #00309d;
-  background-size: 40px;
-}
-.recommended-tool:hover {
-  border: 2px solid #00309d;
-  background: !important;
-  color: white !important;
-}
-.recommended-tool:hover a {
-  color: white !important;
+  width: 145px;
 }
 .container-recommended-tools {
   padding: 0;
@@ -854,8 +803,13 @@ header.navbar-default .navbar-collapse nav ul.menu li {
   margin-top: 1.5em;
 }
 .container-recommended-tools div a:hover {
-  color: white !important;
+  color: #FFF;
+  background: #00309d;
   text-decoration: none;
+  border: 2px solid #00309d;
+}
+.container-recommended-tools div a:hover img {
+  filter: brightness(0) invert(1);
 }
 .container-recommended-tools .recommended-tool {
   width: 95%;
@@ -1345,6 +1299,9 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 #block-menu-block-4 {
   width: 100%;
 }
+aside.col-md-3 .region.region-sidebar-first.well {
+  padding: 0;
+}
 .left-menu ul {
   list-style: none;
 }
@@ -1390,6 +1347,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 .accordion-menu {
   max-width: 265px;
   float: right;
+  padding-right: 1em;
 }
 .accordion-menu ul .active {
   background: transparent;
@@ -1402,6 +1360,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 }
 .accordion-menu .menu-level-2 ul li {
   background-color: transparent;
+  padding: 0.5em 0;
 }
 .accordion-menu .menu-level-2 ul li .nolink {
   border: 2px solid;
@@ -1414,10 +1373,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
   color: white;
   font-weight: bold;
   background-color: #0030a0;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
+  border-radius: 25px;
   padding: 0.5em 0.5em;
   margin-bottom: 0.5em;
   padding-left: 1em;
@@ -2235,6 +2191,12 @@ label.option {
 .page-publications .sidebars_first.with-result-for {
   margin-top: 63px;
 }
+.no-results .sidebars_first.with-result-for {
+  display: none;
+}
+.no-results .two_column {
+  padding-top: 2em;
+}
 .sidebars_first,
 .publications-sidebar-first {
   border-top: 5px solid #003399;
@@ -2681,6 +2643,50 @@ div.workbench-info-block {
 #block-hwc-homepage-previous-campaign-nav {
   clear: both;
 }
+.accordion-menu {
+  float: left;
+}
+.main-container .node-campaign-18 .body-summary,
+.main-container .node-campaign-16 .body-summary {
+  font-weight: bold;
+  padding-bottom: 1em;
+}
+.main-container .node-campaign-18 h2,
+.main-container .node-campaign-16 h2 {
+  color: #003399;
+  font-size: 2.2em;
+  font-weight: 500;
+  font-style: normal;
+  margin-left: 0;
+}
+.main-container .node-campaign-18 h3,
+.main-container .node-campaign-16 h3 {
+  color: #003399;
+  font-size: 1.3em;
+  font-weight: 600;
+}
+.main-container .node-campaign-18 .links,
+.main-container .node-campaign-16 .links {
+  background: url('../images/target-blank.png') no-repeat 100% 50%;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 1.3em;
+  text-decoration: underline;
+  padding-right: 1.5em;
+}
+.main-container .node-campaign-18 .links:hover,
+.main-container .node-campaign-16 .links:hover {
+  text-decoration: none;
+}
+.main-container .node-campaign-18 a img,
+.main-container .node-campaign-16 a img {
+  width: 100%;
+  height: auto;
+}
+.main-container .node-campaign-18 a img:hover,
+.main-container .node-campaign-16 a img:hover {
+  opacity: 0.8;
+}
 @media (max-width: 1200px) {
   .start-browsing {
     background: url(../images/background-start-browsing.png) repeat-y;
@@ -2827,7 +2833,7 @@ div.workbench-info-block {
   }
   /*Introductory page article*/
   .related-resources {
-    margin-top: 2em;
+    margin-top: 0;
     padding-bottom: 1em;
   }
   .left-menu ul {
@@ -2838,23 +2844,22 @@ div.workbench-info-block {
   }
   .related-resources-boxes {
     flex-direction: row;
-    margin-top: 1em;
+    padding-bottom: 1em;
   }
   .related-resources-boxes div {
     width: 30%;
   }
+  .container-recommended-tools {
+    justify-content: flex-start;
+  }
   .recommended-tool {
-    width: 30%;
+    width: 100%;
     margin: 0;
     min-width: auto;
-    padding-top: 4em;
     padding-left: 0;
     padding-right: 0;
     justify-content: center;
     text-align: center;
-    background-position-x: 50% !important;
-    background-position-y: 10% !important;
-    min-height: 121px;
   }
   .recommended-tool a {
     word-break: break-word;
@@ -3267,6 +3272,9 @@ div.workbench-info-block {
   }
   #search-block-form > div > div > div.input-group > span.input-group-btn > button {
     pointer-events: none;
+  }
+  .related-resources-boxes div {
+    width: 100%;
   }
   /*Home*/
   .priority-area-box {
