@@ -25,12 +25,12 @@ function hwc_previous_campaigns_field_default_field_instances() {
       ),
       'default' => array(
         'label' => 'hidden',
-        'module' => 'text',
+        'module' => 'hwc',
         'settings' => array(
           'field_formatter_class' => '',
         ),
-        'type' => 'text_default',
-        'weight' => 0,
+        'type' => 'body_with_summary',
+        'weight' => 2,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -135,7 +135,7 @@ function hwc_previous_campaigns_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 4,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -234,7 +234,7 @@ function hwc_previous_campaigns_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 1,
+        'weight' => 3,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -355,7 +355,7 @@ function hwc_previous_campaigns_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 5,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -458,10 +458,16 @@ function hwc_previous_campaigns_field_default_field_instances() {
         'weight' => 0,
       ),
       'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 4,
+        'label' => 'hidden',
+        'module' => 'title',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'title_class' => '',
+          'title_link' => '',
+          'title_style' => 'h2',
+        ),
+        'type' => 'title_linked',
+        'weight' => 1,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -562,12 +568,12 @@ function hwc_previous_campaigns_field_default_field_instances() {
       ),
       'default' => array(
         'label' => 'hidden',
-        'module' => 'text',
+        'module' => 'hwc',
         'settings' => array(
           'field_formatter_class' => '',
         ),
-        'type' => 'text_default',
-        'weight' => 1,
+        'type' => 'body_with_summary',
+        'weight' => 2,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -672,7 +678,7 @@ function hwc_previous_campaigns_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -771,7 +777,7 @@ function hwc_previous_campaigns_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -892,7 +898,7 @@ function hwc_previous_campaigns_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -995,10 +1001,16 @@ function hwc_previous_campaigns_field_default_field_instances() {
         'weight' => 0,
       ),
       'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 5,
+        'label' => 'hidden',
+        'module' => 'title',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'title_class' => '',
+          'title_link' => '',
+          'title_style' => 'h2',
+        ),
+        'type' => 'title_linked',
+        'weight' => 1,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1132,7 +1144,9 @@ function hwc_previous_campaigns_field_default_field_instances() {
         'manualcrop_keyboard' => 1,
         'manualcrop_maximize_default_crop_area' => 0,
         'manualcrop_require_cropping' => array(),
-        'manualcrop_styles_list' => array(),
+        'manualcrop_styles_list' => array(
+          'relres' => 'relres',
+        ),
         'manualcrop_styles_mode' => 'include',
         'manualcrop_thumblist' => 0,
         'preview_image_style' => 'thumbnail',

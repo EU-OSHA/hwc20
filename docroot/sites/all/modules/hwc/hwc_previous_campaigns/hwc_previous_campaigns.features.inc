@@ -21,6 +21,34 @@ function hwc_previous_campaigns_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function hwc_previous_campaigns_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: relres.
+  $styles['relres'] = array(
+    'label' => 'relres',
+    'effects' => array(
+      12 => array(
+        'name' => 'manualcrop_crop_and_scale',
+        'data' => array(
+          'width' => 40,
+          'height' => 40,
+          'upscale' => 0,
+          'respectminimum' => 1,
+          'onlyscaleifcrop' => 0,
+          'style_name' => 'relres',
+        ),
+        'weight' => 0,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function hwc_previous_campaigns_node_info() {

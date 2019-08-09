@@ -193,7 +193,14 @@ function hwc_previous_campaigns_strongarm() {
           'weight' => '5',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'share_widget' => array(
+          'default' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__campaign_16'] = $strongarm;
