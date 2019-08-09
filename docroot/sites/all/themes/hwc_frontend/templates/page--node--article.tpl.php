@@ -182,16 +182,16 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
           <?php endif; ?>
 
           <?php if (!empty($page['sidebar_first'])): ?>
-              <aside class="col-md-3" role="complementary">
+              <aside class="col-md-3 col-xs-12" role="complementary">
                 <?php print render($page['sidebar_first']); ?>
               </aside>  <!-- /#sidebar-first -->
           <?php endif; ?>
-            <aside class="col-md-<?php print $content_cols ?>">
+            <aside class="col-md-<?php print $content_cols ?> col-xs-12">
             <div id="skip-to-content" style="visibility: hidden; height: 0px"><a href="#skip-to-content" rel="nofollow" accesskey="S" style="visibility: hidden;"><?php print t('Skip to content'); ?></a></div>
           <?php print render($page['content']); ?>
             </aside>
           <?php if (!empty($page['sidebar_second'])): ?>
-              <aside>
+              <aside class="col-md-3 col-xs-12" role="complementary">
                 <?php print render($page['sidebar_second']); ?>
               </aside>  <!-- /#sidebar-second -->
           <?php endif; ?>

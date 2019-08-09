@@ -1498,119 +1498,6 @@ aside.col-md-3{
   }
 }
 
-.accordion-menu{
-	max-width: 265px;
-    float: right;
-    padding-right: 1em;
-	ul .active{
-		background: transparent;
-	}
-	 ul .active a:before{
-	 	content: initial;
-	}
-
-	.left-menu ul li:hover {
-    	background-color: transparent;
-	}
-
-	.menu-level-2{
-		ul{
-			li{
-				background-color: transparent;
-				padding: 0.5em 0;
-				.nolink{
-					border: 2px solid;
-					padding: 10px 15px;
-					display: block;
-					margin-bottom: 15px;
-					border-radius: 3px;
-					text-decoration: none;
-					cursor: pointer;
-					color: white;
-					font-weight: bold;
-					background-color: #0030a0;
-					border-radius: 25px;
-					padding: 0.5em 0.5em;
-					margin-bottom: 0.5em;
-					padding-left: 1em;
-					padding-right: 30px;
-					position: relative;
-				}
-
-				.nolink:after {
-				    content: "\e250";
-				    font-family: "Glyphicons Halflings";
-				    float: right;
-				    vertical-align: middle;
-				    color: #FFF;
-				    position: absolute;
-    				right: 10px;
-    				top: 35%;
-				}
-
-				.active-trail.nolink:after {
-				    content: "\e252";
-				    font-family: "Glyphicons Halflings";
-				    float: right;
-				    vertical-align: middle;
-				    color: #bcd75b;
-				}
-
-				.up-arrow:after {
-				    content: "\e252";
-				    font-family: "Glyphicons Halflings";
-				    float: right;
-				    vertical-align: middle;
-				    color: #bcd75b;
-				}
-				.active-trail.nolink.closed-down-arrow:after {
-				    content: "\e250";
-				    font-family: "Glyphicons Halflings";
-				    float: right;
-				    vertical-align: middle;
-				    color: #FFF;
-				}
-
-				ul{
-					background: transparent;
-					padding-left: 2em;
-					li{
-						background-color: #ecf4cb;
-						padding: 0.5em 0.5em;
-						a{
-							background: transparent;
-							border: 0;
-    						color: #0030a0;
-    						padding: 0 1em;
-    						margin-bottom: 0;
-    						font-weight: normal;
-						}
-					}
-					li.active{
-						background-color: #daea96;
-						a{
-							font-weight: bold;					
-						}
-					}
-
-					li:hover{
-						background-color: #daea96;
-						a{
-							font-weight: bold;					
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-.left-menu.accordion-menu ul.menu > li.expanded ul.menu {
-  display: none;
-}
-.left-menu.accordion-menu ul.menu > li.expanded.active ul.menu {
-  display: block;
-}
 .main-container div.contextual-links-wrapper {
   left: 5px;
   right: auto;
@@ -2993,6 +2880,123 @@ div.workbench-info-block{
 }
 
 /* Previous Campaigns */
+
+.accordion-menu{
+	max-width: 265px;
+    float: right;
+    padding-right: 1em;
+	ul .active{
+		background: transparent;
+	}
+	 ul .active a:before{
+	 	content: initial;
+	}
+
+	.left-menu ul li:hover {
+    	background-color: transparent;
+	}
+
+	.menu-level-2{
+		ul{
+			li{
+				background-color: transparent;
+				padding: 0;
+				margin-bottom: 0.5em;
+				.nolink{
+					border: 2px solid;
+					padding: 10px 15px;
+					display: block;
+					margin-bottom: 15px;
+					border-radius: 3px;
+					text-decoration: none;
+					cursor: pointer;
+					color: white;
+					font-weight: bold;
+					background-color: #0030a0;
+					border-radius: 25px;
+					padding: 0.5em 0.5em;
+					margin-bottom: 0.5em;
+					padding-left: 1em;
+					padding-right: 30px;
+					position: relative;
+				}
+
+				.nolink:after {
+				    content: "\e250";
+				    font-family: "Glyphicons Halflings";
+				    float: right;
+				    vertical-align: middle;
+				    color: #FFF;
+				    position: absolute;
+    				right: 10px;
+    				top: 7px;
+				}
+
+				.active-trail.nolink:after {
+				    content: "\e252";
+				    font-family: "Glyphicons Halflings";
+				    float: right;
+				    vertical-align: middle;
+				    color: #bcd75b;
+				}
+
+				.up-arrow:after {
+				    content: "\e252";
+				    font-family: "Glyphicons Halflings";
+				    float: right;
+				    vertical-align: middle;
+				    color: #bcd75b;
+				}
+				.active-trail.nolink.closed-down-arrow:after {
+				    content: "\e250";
+				    font-family: "Glyphicons Halflings";
+				    float: right;
+				    vertical-align: middle;
+				    color: #FFF;
+				}
+
+				ul{
+					background: transparent;
+					padding-left: 2em;
+					li{
+						background-color: #ecf4cb;
+						padding: 0.5em 0.5em;
+						margin-top: 4px;
+						margin-bottom: 13px;
+						a{
+							background: transparent;
+							border: 0;
+    						color: #0030a0;
+    						padding: 0 1em;
+    						margin-bottom: 0;
+    						font-weight: normal;
+						}
+					}
+					li.active{
+						background-color: #daea96;
+						a{
+							font-weight: bold;					
+						}
+					}
+
+					li:hover{
+						background-color: #daea96;
+						a{
+							font-weight: bold;					
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.left-menu.accordion-menu ul.menu > li.expanded ul.menu {
+  display: none;
+}
+.left-menu.accordion-menu ul.menu > li.expanded.active ul.menu {
+  display: block;
+}
 
 #block-hwc-homepage-previous-campaign-nav{
 	clear: both;
