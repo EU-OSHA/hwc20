@@ -402,7 +402,7 @@ function hwc_block_view($delta = '') {
       }
       $block['content'] = '
 <div class="campaign-resources">
-   <span class="campaign-resources-title">' . t('Campaign Resources') . '</span>
+   <span class="campaign-resources-title"><span>' . t('Campaign Resources') . '</span></span>
    <div class="campaign-resources-boxes">' . implode('', $resources) . '</div>
 </div>';
     }
