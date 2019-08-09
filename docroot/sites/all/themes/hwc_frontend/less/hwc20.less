@@ -851,14 +851,14 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 	color: #00309d;
 	border: 2px solid #bcd75b;
 	padding: 1em 1em;
-	border-radius: 7px;
+	border-radius: 12px;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 	font-size: 15px;
 	font-weight: 600;
 	min-height: 78px;
-	min-width: 220px;
+	min-width: 200px;
 	position: relative;
 
 	img{
@@ -868,7 +868,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 
   	span{
 	    display: block;
-	   	width: 145px;
+	   	width: 114px;
 	}
 }
 
@@ -1541,6 +1541,7 @@ aside.col-md-3{
 
 .related-resources{
 	padding-bottom: 1em;
+	width: 200px;
 }
 
 .related-resources-title{
@@ -3081,6 +3082,26 @@ div.workbench-info-block{
 				display: flex;
 				width: 49%;
 				margin-bottom: 1em;
+			}
+			a{
+				min-height: 113px;
+				span{
+					font-size: 1.3em;
+    				padding-right: 17px;
+				}
+				img{
+				   width: 70px;
+ 				   height: 70px;
+				}
+				&:hover{
+					color: #FFF;
+					background: #00309d;
+					text-decoration: none;
+					border: 2px solid #00309d;
+					img{
+			   			filter: brightness(0) invert(1);
+			   		}
+				}
 			}
 		}
 	}

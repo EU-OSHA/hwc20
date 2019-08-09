@@ -771,14 +771,14 @@ header.navbar-default .navbar-collapse nav ul.menu li {
   color: #00309d;
   border: 2px solid #bcd75b;
   padding: 1em 1em;
-  border-radius: 7px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   font-size: 15px;
   font-weight: 600;
   min-height: 78px;
-  min-width: 220px;
+  min-width: 200px;
   position: relative;
 }
 .recommended-tool img {
@@ -787,7 +787,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 }
 .recommended-tool span {
   display: block;
-  width: 145px;
+  width: 114px;
 }
 .container-recommended-tools {
   padding: 0;
@@ -1381,6 +1381,7 @@ aside.col-md-3 .region.region-sidebar-first.well {
 }
 .related-resources {
   padding-bottom: 1em;
+  width: 200px;
 }
 .related-resources-title {
   color: #003399;
@@ -2716,6 +2717,26 @@ div.workbench-info-block {
   display: flex;
   width: 49%;
   margin-bottom: 1em;
+}
+#block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a {
+  min-height: 113px;
+}
+#block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a span {
+  font-size: 1.3em;
+  padding-right: 17px;
+}
+#block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a img {
+  width: 70px;
+  height: 70px;
+}
+#block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a:hover {
+  color: #FFF;
+  background: #00309d;
+  text-decoration: none;
+  border: 2px solid #00309d;
+}
+#block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a:hover img {
+  filter: brightness(0) invert(1);
 }
 @media (max-width: 1200px) {
   .start-browsing {
