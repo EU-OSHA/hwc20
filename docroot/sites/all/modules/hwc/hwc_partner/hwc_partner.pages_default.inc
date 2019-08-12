@@ -1667,7 +1667,7 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   $display->content['new-f2b8dcc5-13ec-44a6-85dc-6185f0fbeeee'] = $pane;
   $display->panels['right_'][7] = 'new-f2b8dcc5-13ec-44a6-85dc-6185f0fbeeee';
   $pane = new stdClass();
-  $pane->pid = 'new-51f425e0-af15-4ffc-86c9-6511a8d06b61';
+  $pane->pid = 'new-2777ca3c-dd72-4b8f-ab77-2360a08c79db';
   $pane->panel = 'right__';
   $pane->type = 'views';
   $pane->subtype = 'partner_content';
@@ -1701,9 +1701,9 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
-  $pane->uuid = '51f425e0-af15-4ffc-86c9-6511a8d06b61';
-  $display->content['new-51f425e0-af15-4ffc-86c9-6511a8d06b61'] = $pane;
-  $display->panels['right__'][0] = 'new-51f425e0-af15-4ffc-86c9-6511a8d06b61';
+  $pane->uuid = '2777ca3c-dd72-4b8f-ab77-2360a08c79db';
+  $display->content['new-2777ca3c-dd72-4b8f-ab77-2360a08c79db'] = $pane;
+  $display->panels['right__'][0] = 'new-2777ca3c-dd72-4b8f-ab77-2360a08c79db';
   $pane = new stdClass();
   $pane->pid = 'new-77cc5bf8-5bbc-40ce-8d91-e31ff9f96577';
   $pane->panel = 'statement_';

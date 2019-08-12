@@ -267,3 +267,10 @@ function hwc_partner_update_7032() {
 function hwc_partner_update_7033() {
   features_revert(array('hwc_partner' => array('page_manager_pages', 'page_manager_handlers')));
 }
+
+/**
+ * HW20-49 HWC20 Development - Official Campaign Partners.
+ */
+function hwc_partner_update_7034() {
+  features_revert(array('hwc_partner' => array('views_view')));
+}

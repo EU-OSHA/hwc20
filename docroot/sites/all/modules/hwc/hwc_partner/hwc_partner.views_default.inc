@@ -775,7 +775,8 @@ function hwc_partner_views_default_views() {
   $handler->display->display_options['fields']['field_logo']['table'] = 'field_data_field_logo';
   $handler->display->display_options['fields']['field_logo']['field'] = 'field_logo';
   $handler->display->display_options['fields']['field_logo']['label'] = '';
-  $handler->display->display_options['fields']['field_logo']['alter']['text'] = '<img src="[field_logo-fid]" title="[title_field]" alt="[title_field]" />';
+  $handler->display->display_options['fields']['field_logo']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_logo']['alter']['text'] = '[field_logo]<span>[title_field]</span>';
   $handler->display->display_options['fields']['field_logo']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_logo']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['field_logo']['alter']['alt'] = '[title_field]';
@@ -784,6 +785,7 @@ function hwc_partner_views_default_views() {
   $handler->display->display_options['fields']['field_logo']['settings'] = array(
     'image_style' => 'medium',
     'image_link' => '',
+    'field_formatter_class' => '',
   );
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
@@ -1206,7 +1208,7 @@ function hwc_partner_views_default_views() {
     t('Desc'),
     t('<p>Find the media partner in your country</p>'),
     t('term from field_country'),
-    t('<img src="[field_logo-fid]" title="[title_field]" alt="[title_field]" />'),
+    t('[field_logo]<span>[title_field]</span>'),
     t('[title_field]'),
     t('Block'),
     t('term from field_orgtype'),
