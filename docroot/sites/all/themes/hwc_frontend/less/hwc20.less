@@ -843,7 +843,6 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 }
 
 .recommended-tool{
-	flex-wrap: wrap;
 	padding: 5px;
 	color: white;
 	text-align: right;	
@@ -854,21 +853,21 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 	border-radius: 12px;
 	display: flex;
 	align-items: center;
-	justify-content: flex-end;
+	justify-content: flex-start;
 	font-size: 15px;
 	font-weight: 600;
 	min-height: 78px;
 	min-width: 200px;
 	position: relative;
-
 	img{
-		position: absolute;
-    	left: 17px;
+		float: left;
 	}
-
   	span{
 	    display: block;
-	   	width: 114px;
+	   	float: right;
+	   	width: 100%;
+		padding-left: 1em;
+		word-break: break-word;
 	}
 }
 
@@ -1567,6 +1566,7 @@ aside.col-md-3{
   	.recommended-tool{
 	    margin-left:0;
 	    margin-top:1em;
+	    padding-left: 1em;
 	}
 }
 
@@ -2930,7 +2930,10 @@ div.workbench-info-block{
 				    color: #FFF;
 				    position: absolute;
     				right: 10px;
-    				top: 7px;
+    				top: 0;
+    				height: 100%;
+    				display: flex;
+    				align-items: center;
 				}
 
 				.active-trail.nolink:after {
@@ -3053,6 +3056,8 @@ div.workbench-info-block{
 	}
 }
 
+/* Previous campaign */
+
 #block-hwc-campaign-resources{
 
 	.campaign-resources-title{
@@ -3087,12 +3092,18 @@ div.workbench-info-block{
 				min-height: 113px;
 				span{
 					font-size: 1.3em;
-    				padding-right: 17px;
+					display: block;
+					width: 135px;					
+					text-align: right;
+					padding-left: 1em;
+					word-break: break-word;
 				}
+
 				img{
-				   width: 70px;
- 				   height: 70px;
+					width: 88px;
+ 					height: 60px;
 				}
+
 				&:hover{
 					color: #FFF;
 					background: #00309d;
