@@ -2752,13 +2752,36 @@ div.workbench-info-block {
   display: flex;
   flex-wrap: wrap;
 }
+.view-id-partners_list .quicktabs-views-group {
+  display: flex;
+  padding: 0px 20px 15px;
+}
 .view-id-partners_list .quicktabs-views-group .views-field-field-logo {
   max-width: 100%;
   text-align: center;
   display: flex;
+  justify-content: center;
+}
+.view-id-partners_list .quicktabs-views-group .views-field-field-logo .field-content {
+  display: flex;
+}
+.view-id-partners_list .quicktabs-views-group .views-field-field-logo a {
+  font-size: 0.9em;
+  font-style: normal;
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
 }
 .view-id-partners_list .quicktabs-views-group .views-field-field-logo img {
   max-width: 150px;
+}
+.view-id-partners_list .quicktabs-views-group .views-field-field-logo span.logo-content {
+  display: flex;
+  height: 190px;
+}
+.view-id-partners_list .quicktabs-views-group .views-field-field-logo span.title-box-content {
+  display: flex;
+  justify-content: center;
 }
 @media (max-width: 1200px) {
   .start-browsing {

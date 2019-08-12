@@ -3127,12 +3127,38 @@ div.workbench-info-block{
 	}
 
 	.quicktabs-views-group{
+		    display: flex;
+		    padding: 0px 20px 15px;
 		.views-field-field-logo{
 			max-width: 100%;
 			text-align: center;
 			display: flex;
+			justify-content: center;
+			
+			.field-content{
+				display: flex;
+			}
+
+			a{
+				font-size: 0.9em;
+				font-style: normal;
+				font-weight: normal;
+				display: flex;
+				flex-direction: column;
+			}
+
 			img{
 				max-width: 150px;
+			}
+
+			span.logo-content{
+				display: flex;
+				height: 190px;
+			}
+
+			span.title-box-content{
+				display: flex;
+				justify-content: center;
 			}
 		}
 	}
