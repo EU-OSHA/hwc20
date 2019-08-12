@@ -763,7 +763,6 @@ header.navbar-default .navbar-collapse nav ul.menu li {
   display: flex;
 }
 .recommended-tool {
-  flex-wrap: wrap;
   padding: 5px;
   color: white;
   text-align: right;
@@ -771,23 +770,25 @@ header.navbar-default .navbar-collapse nav ul.menu li {
   color: #00309d;
   border: 2px solid #bcd75b;
   padding: 1em 1em;
-  border-radius: 7px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   font-size: 15px;
   font-weight: 600;
   min-height: 78px;
-  min-width: 220px;
+  min-width: 200px;
   position: relative;
 }
 .recommended-tool img {
-  position: absolute;
-  left: 17px;
+  float: left;
 }
 .recommended-tool span {
   display: block;
-  width: 145px;
+  float: right;
+  width: 100%;
+  padding-left: 1em;
+  word-break: break-word;
 }
 .container-recommended-tools {
   padding: 0;
@@ -1381,6 +1382,7 @@ aside.col-md-3 .region.region-sidebar-first.well {
 }
 .related-resources {
   padding-bottom: 1em;
+  width: 200px;
 }
 .related-resources-title {
   color: #003399;
@@ -1405,6 +1407,7 @@ aside.col-md-3 .region.region-sidebar-first.well {
 .related-resources-boxes .recommended-tool {
   margin-left: 0;
   margin-top: 1em;
+  padding-left: 1em;
 }
 .direction-column {
   flex-direction: column;
@@ -2584,7 +2587,10 @@ div.workbench-info-block {
   color: #FFF;
   position: absolute;
   right: 10px;
-  top: 7px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 .accordion-menu .menu-level-2 ul li .active-trail.nolink:after {
   content: "\e252";
@@ -2690,6 +2696,7 @@ div.workbench-info-block {
 .main-container .node-campaign-16 a img:hover {
   opacity: 0.8;
 }
+/* Previous campaign */
 #block-hwc-campaign-resources .campaign-resources-title {
   background: url(../images/grey-h3-line.png) repeat-x 50% 75%;
   width: 100%;
@@ -2716,6 +2723,30 @@ div.workbench-info-block {
   display: flex;
   width: 49%;
   margin-bottom: 1em;
+}
+#block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a {
+  min-height: 113px;
+}
+#block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a span {
+  font-size: 1.3em;
+  display: block;
+  width: 135px;
+  text-align: right;
+  padding-left: 1em;
+  word-break: break-word;
+}
+#block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a img {
+  width: 88px;
+  height: 60px;
+}
+#block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a:hover {
+  color: #FFF;
+  background: #00309d;
+  text-decoration: none;
+  border: 2px solid #00309d;
+}
+#block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a:hover img {
+  filter: brightness(0) invert(1);
 }
 @media (max-width: 1200px) {
   .start-browsing {
@@ -2865,6 +2896,7 @@ div.workbench-info-block {
   .related-resources {
     margin-top: 0;
     padding-bottom: 1em;
+    width: 100%;
   }
   .left-menu ul {
     padding-left: 0;
@@ -2877,7 +2909,9 @@ div.workbench-info-block {
     padding-bottom: 1em;
   }
   .related-resources-boxes div {
-    width: 30%;
+    width: 29%;
+    margin-right: 1em;
+    display: flex;
   }
   .container-recommended-tools {
     justify-content: flex-start;
@@ -3303,8 +3337,14 @@ div.workbench-info-block {
   #search-block-form > div > div > div.input-group > span.input-group-btn > button {
     pointer-events: none;
   }
-  .related-resources-boxes div {
+  .recommended-tool img {
+    position: relative;
+    left: auto;
+  }
+  .recommended-tool span {
     width: 100%;
+    padding-top: 10px;
+    padding-left: 0;
   }
   /*Home*/
   .priority-area-box {
@@ -3350,6 +3390,7 @@ div.workbench-info-block {
     width: 85%;
     margin-bottom: 1em;
     margin: 1em auto;
+    padding-left: 0;
   }
   .news-item {
     clear: both;
@@ -3438,6 +3479,28 @@ div.workbench-info-block {
   .footer .intro-footer {
     float: left;
     padding-bottom: 2em;
+  }
+  /* Previous campaign */
+  .related-resources {
+    width: 100%;
+    padding: 2em;
+  }
+  .container-recommended-tools .recommended-tool {
+    width: 100%;
+    margin: 1em 0;
+    display: block;
+  }
+  .container-recommended-tools .recommended-tool img {
+    float: none;
+    margin: 0 auto;
+  }
+  #block-hwc-campaign-resources .campaign-resources-title {
+    width: 310px;
+    margin: 2em auto;
+  }
+  #block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes div {
+    width: 310px;
+    margin: 0 auto 1em;
   }
 }
 @media (max-width: 600px) {

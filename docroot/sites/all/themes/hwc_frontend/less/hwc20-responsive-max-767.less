@@ -224,8 +224,16 @@
 	    pointer-events: none;
 	}
 
-	.related-resources-boxes div{
-		width: 100%;
+	.recommended-tool{
+		img{
+			position: relative;
+			left: auto;
+		}
+		span{
+			width: 100%;
+			padding-top: 10px;
+			padding-left: 0;
+		}
 	}
 
 	/*Home*/
@@ -277,6 +285,7 @@
 	    width: 85%;
 	    margin-bottom: 1em;
 	    margin: 1em auto;
+	    padding-left: 0;
 	}
 
 	.news-item{
@@ -389,6 +398,39 @@
 		}
 	}
 
+	/* Previous campaign */
+
+	.related-resources{
+		width: 100%;
+		padding: 2em;
+	}
+
+	.container-recommended-tools .recommended-tool{
+		width: 100%;
+		margin: 1em 0;
+		display: block;
+		img{
+			float: none;
+			margin:0 auto;
+		}
+	}
+
+	#block-hwc-campaign-resources{
+
+		.campaign-resources-title{
+			width: 310px;
+			margin: 2em auto;
+		}
+
+		.campaign-resources{
+			.campaign-resources-boxes{
+				div {
+					width: 310px;
+					margin: 0 auto 1em;
+				}
+			}
+		}
+	}
 }
 
 
@@ -396,21 +438,20 @@
 
 
 @media (max-width: 600px){
-
-.before-the-campaign .content-box-before .two-box-column{
-	flex-direction: column;
-	margin-bottom: 0;
-	.box-before.news{
-		width: 100%;
-		margin-right: 0;
-		img{
-			max-width: 215px;
+	.before-the-campaign .content-box-before .two-box-column{
+		flex-direction: column;
+		margin-bottom: 0;
+		.box-before.news{
+			width: 100%;
+			margin-right: 0;
+			img{
+				max-width: 215px;
+			}
 		}
-	}
-	.box-before.events{
-		width: 100%;
-		margin-right: 0;
-	}
+		.box-before.events{
+			width: 100%;
+			margin-right: 0;
+		}
 
-}
+	}
 }
