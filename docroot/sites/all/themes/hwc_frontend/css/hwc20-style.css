@@ -2748,6 +2748,18 @@ div.workbench-info-block {
 #block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a:hover img {
   filter: brightness(0) invert(1);
 }
+.view-id-partners_list .quicktabs-tabpage {
+  display: flex;
+  flex-wrap: wrap;
+}
+.view-id-partners_list .quicktabs-views-group .views-field-field-logo {
+  max-width: 100%;
+  text-align: center;
+  display: flex;
+}
+.view-id-partners_list .quicktabs-views-group .views-field-field-logo img {
+  max-width: 150px;
+}
 @media (max-width: 1200px) {
   .start-browsing {
     background: url(../images/background-start-browsing.png) repeat-y;
