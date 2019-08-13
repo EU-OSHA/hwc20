@@ -114,6 +114,9 @@ select {
   content: '';
   padding-right: 0;
 }
+.section-introduction p {
+  font-size: 1em;
+}
 /* Next Campaign 2020-2022 */
 .container-fluid {
   padding-left: 0;
@@ -2748,40 +2751,89 @@ div.workbench-info-block {
 #block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a:hover img {
   filter: brightness(0) invert(1);
 }
-.view-id-partners_list .quicktabs-tabpage {
+.page-official-campaign-partners article {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 2em;
+}
+.view-id-partners_list {
+  float: left;
+  padding-bottom: 2em;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: normal;
+}
+.view-id-partners_list .col-md-2.col-sm-3.col-xs-6 {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1em;
+  min-height: 310px;
+}
+.view-id-partners_list .col-md-2.col-sm-3.col-xs-6 .views-field-field-logo {
+  max-width: 100%;
+  text-align: center;
+}
+.view-id-partners_list .col-md-2.col-sm-3.col-xs-6 .views-field-field-logo a {
+  font-style: normal;
+  font-weight: normal;
+}
+.view-id-partners_list .col-md-2.col-sm-3.col-xs-6 .views-field-field-logo img {
+  max-width: 150px;
+}
+.view-id-partners_list .col-md-2.col-sm-3.col-xs-6 .views-field-field-logo span.logo-content {
+  display: flex;
+}
+.view-id-partners_list .col-md-2.col-sm-3.col-xs-6 .views-field-field-logo span.title-box-content {
+  display: flex;
+  justify-content: center;
+  padding: 10px 5px;
+}
+.page-campaign-partners-national-focal-points .col-md-2.col-sm-3.col-xs-6 {
+  min-height: auto;
+  display: flex;
+  justify-content: center;
+}
+.page-campaign-partners-national-focal-points .hwc-alpha-pager-view-title-field {
+  width: 100%;
+}
+.page-campaign-partners-enterprise-europe-network .view-content {
   display: flex;
   flex-wrap: wrap;
 }
-.view-id-partners_list .quicktabs-views-group {
-  display: flex;
-  padding: 0px 20px 15px;
+.page-campaign-partners-campaign-media-partners .view-id-partners_list .view-header,
+.page-campaign-partners-enterprise-europe-network .view-id-partners_list .view-header {
+  width: 100%;
 }
-.view-id-partners_list .quicktabs-views-group .views-field-field-logo {
-  max-width: 100%;
-  text-align: center;
+.page-campaign-partners-campaign-media-partners .view-partners-list,
+.page-campaign-partners-enterprise-europe-network .view-partners-list {
   display: flex;
+  flex-wrap: wrap;
+}
+.page-campaign-partners-campaign-media-partners .col-md-2.col-sm-3.col-xs-6,
+.page-campaign-partners-enterprise-europe-network .col-md-2.col-sm-3.col-xs-6 {
+  min-height: auto;
+  display: block;
   justify-content: center;
-}
-.view-id-partners_list .quicktabs-views-group .views-field-field-logo .field-content {
   display: flex;
 }
-.view-id-partners_list .quicktabs-views-group .views-field-field-logo a {
-  font-size: 0.9em;
-  font-style: normal;
-  font-weight: normal;
-  display: flex;
-  flex-direction: column;
+.page-campaign-partners-campaign-media-partners .hwc-alpha-pager-view-title-field,
+.page-campaign-partners-enterprise-europe-network .hwc-alpha-pager-view-title-field {
+  width: 100%;
+  font-weight: bold;
 }
-.view-id-partners_list .quicktabs-views-group .views-field-field-logo img {
-  max-width: 150px;
+.page-campaign-partners-campaign-media-partners .view-id-partners_list .views-row .views-field-field-logo,
+.page-campaign-partners-enterprise-europe-network .view-id-partners_list .views-row .views-field-field-logo {
+  padding: 0;
+  min-height: auto;
 }
-.view-id-partners_list .quicktabs-views-group .views-field-field-logo span.logo-content {
-  display: flex;
-  height: 190px;
+.page-campaign-partners-campaign-media-partners .view-id-partners_list .views-row .views-field-name-field,
+.page-campaign-partners-enterprise-europe-network .view-id-partners_list .views-row .views-field-name-field {
+  margin-top: 0;
 }
-.view-id-partners_list .quicktabs-views-group .views-field-field-logo span.title-box-content {
-  display: flex;
-  justify-content: center;
+.view-id-partners_list .hwc-char-link,
+.view-id-partners_list .quicktabs-tabs li,
+.view-id-partners_list div[id*="hwc-char-"] {
+  font-weight: bold;
 }
 @media (max-width: 1200px) {
   .start-browsing {
@@ -3217,6 +3269,9 @@ div.workbench-info-block {
   }
   #block-hwc-homepage-splash-download-news-campaign > section > div.content-box-before > div:nth-child(3) {
     width: 742px;
+  }
+  .view-id-partners_list .col-md-2.col-sm-3.col-xs-6 {
+    min-height: 350px;
   }
 }
 @media (max-width: 767px) {

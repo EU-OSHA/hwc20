@@ -135,6 +135,10 @@ select{
 	padding-right: 0;
 }
 
+.section-introduction p{
+	font-size: 1em;
+}
+
 /* Next Campaign 2020-2022 */
 
 .container-fluid{
@@ -3118,33 +3122,29 @@ div.workbench-info-block{
 	}	
 }
 
+.page-official-campaign-partners article{
+	margin-left: 0;
+	margin-right:  0;
+	padding: 2em;
+}
 
 .view-id-partners_list{
-
-	.quicktabs-tabpage{
-		display: flex;
-		flex-wrap: wrap;
-	}
-
-	.quicktabs-views-group{
-		    display: flex;
-		    padding: 0px 20px 15px;
+	float: left;
+	padding-bottom: 2em;
+	font-size: 1em;
+	font-style: normal;
+	font-weight: normal;
+	.col-md-2.col-sm-3.col-xs-6{
+	display: flex;
+	flex-wrap: wrap;
+	padding: 1em;
+	min-height: 310px;
 		.views-field-field-logo{
 			max-width: 100%;
 			text-align: center;
-			display: flex;
-			justify-content: center;
-			
-			.field-content{
-				display: flex;
-			}
-
 			a{
-				font-size: 0.9em;
 				font-style: normal;
-				font-weight: normal;
-				display: flex;
-				flex-direction: column;
+				font-weight: normal;					
 			}
 
 			img{
@@ -3153,15 +3153,67 @@ div.workbench-info-block{
 
 			span.logo-content{
 				display: flex;
-				height: 190px;
 			}
 
 			span.title-box-content{
 				display: flex;
 				justify-content: center;
+				padding: 10px 5px;
 			}
 		}
-	}
-} 
-	 
+	}	
+}	 
 
+.page-campaign-partners-national-focal-points{
+	.col-md-2.col-sm-3.col-xs-6{
+		min-height: auto;
+		display: flex;
+    	justify-content: center;
+	}
+	.hwc-alpha-pager-view-title-field{
+		width: 100%;
+	}
+}
+
+.page-campaign-partners-enterprise-europe-network{
+	.view-content{
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+.page-campaign-partners-campaign-media-partners, .page-campaign-partners-enterprise-europe-network{
+
+	.view-id-partners_list .view-header{
+		width: 100%;
+	}
+
+	.view-partners-list{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.col-md-2.col-sm-3.col-xs-6{
+		min-height: auto;
+		display: block;
+    	justify-content: center;
+    	display: flex; 
+	}
+
+	.hwc-alpha-pager-view-title-field{
+		width: 100%;
+		font-weight: bold;
+	}
+
+	.view-id-partners_list .views-row .views-field-field-logo{
+		padding: 0;
+		min-height: auto;
+	}
+
+	.view-id-partners_list .views-row .views-field-name-field{
+		margin-top: 0;	
+	}
+}
+
+.view-id-partners_list .hwc-char-link, .view-id-partners_list .quicktabs-tabs li, .view-id-partners_list div[id*="hwc-char-"]{
+	font-weight: bold;
+}
