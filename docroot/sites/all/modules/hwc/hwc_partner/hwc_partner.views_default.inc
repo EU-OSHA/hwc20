@@ -1190,12 +1190,17 @@ function hwc_partner_views_default_views() {
   $handler->display->display_options['fields']['field_logo']['table'] = 'field_data_field_logo';
   $handler->display->display_options['fields']['field_logo']['field'] = 'field_logo';
   $handler->display->display_options['fields']['field_logo']['label'] = '';
+  $handler->display->display_options['fields']['field_logo']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_logo']['alter']['text'] = '<span class="logo-content">[field_logo]</span><span class="title-box-content">[title_field]</span>';
+  $handler->display->display_options['fields']['field_logo']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_logo']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_logo']['alter']['alt'] = '[title_field]';
   $handler->display->display_options['fields']['field_logo']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_logo']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_logo']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_logo']['settings'] = array(
     'image_style' => 'medium',
-    'image_link' => 'content',
+    'image_link' => '',
     'field_formatter_class' => '',
   );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
