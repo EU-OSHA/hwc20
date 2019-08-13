@@ -288,3 +288,10 @@ function hwc_partner_update_7035() {
 function hwc_partner_update_7036() {
   features_revert_module('hwc_partner');
 }
+
+/**
+ * HW20-48 HWC20 Development - National Focal Points list and detail.
+ */
+function hwc_partner_update_7037() {
+  features_revert_module('hwc_partner');
+}
