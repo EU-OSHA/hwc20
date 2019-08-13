@@ -274,3 +274,10 @@ function hwc_partner_update_7033() {
 function hwc_partner_update_7034() {
   features_revert(array('hwc_partner' => array('views_view')));
 }
+
+/**
+ * HW20-50 HWC20 Development - Media partners.
+ */
+function hwc_partner_update_7035() {
+  features_revert(array('hwc_partner' => array('views_view')));
+}
