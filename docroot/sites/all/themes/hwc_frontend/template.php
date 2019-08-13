@@ -211,6 +211,14 @@ function hwc_frontend_preprocess_page(&$vars) {
   $n = menu_get_object('node');
   if ($n) {
     switch ($n->type) {
+      case "partner":
+        $tid = $n->field_partner_type[LANGUAGE_NONE][0]['tid'];
+        $term = taxonomy_term_load($tid);
+        $wrapper = entity_metadata_wrapper('taxonomy_term', $term);
+        $vars['partner_type'] = $wrapper->name->value();
+        $vars['theme_hook_suggestions'][] = 'page__node__partner';
+        break;
+
       case "article":
         $vars['theme_hook_suggestions'][] = 'page__node__article';
         break;
