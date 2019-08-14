@@ -3303,16 +3303,16 @@ campaign-partners/national-focal-points
     ),
   );
   $pane->configuration = array(
-    'label' => 'above',
+    'label' => 'hidden',
     'formatter' => 'text_default',
     'delta_limit' => 0,
     'delta_offset' => '0',
     'delta_reversed' => FALSE,
     'formatter_settings' => array(),
     'context' => 'argument_entity_id:node_1',
-    'override_title' => 0,
-    'override_title_text' => '',
-    'override_title_heading' => 'h2',
+    'override_title' => 1,
+    'override_title_text' => 'Mission Statement',
+    'override_title_heading' => 'div',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -3946,171 +3946,6 @@ campaign-partners/national-focal-points
   $display->content['new-8b0536ff-9636-49a4-a551-63c0a0affeb0'] = $pane;
   $display->panels['right_'][0] = 'new-8b0536ff-9636-49a4-a551-63c0a0affeb0';
   $pane = new stdClass();
-  $pane->pid = 'new-249112dd-020c-473e-87b5-653d3edd5346';
-  $pane->panel = 'right_';
-  $pane->type = 'entity_field';
-  $pane->subtype = 'node:field_main_contact';
-  $pane->shown = TRUE;
-  $pane->access = array(
-    'plugins' => array(
-      0 => array(
-        'name' => 'hwc_partner_detail_only',
-        'settings' => NULL,
-        'not' => FALSE,
-      ),
-    ),
-  );
-  $pane->configuration = array(
-    'label' => 'inline',
-    'formatter' => 'title_linked',
-    'delta_limit' => 0,
-    'delta_offset' => '0',
-    'delta_reversed' => FALSE,
-    'formatter_settings' => array(
-      'title_style' => '_none',
-      'title_link' => '',
-      'title_class' => '',
-    ),
-    'context' => 'argument_entity_id:node_1',
-    'override_title' => 0,
-    'override_title_text' => '',
-    'override_title_heading' => 'h2',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 1;
-  $pane->locks = array();
-  $pane->uuid = '249112dd-020c-473e-87b5-653d3edd5346';
-  $display->content['new-249112dd-020c-473e-87b5-653d3edd5346'] = $pane;
-  $display->panels['right_'][1] = 'new-249112dd-020c-473e-87b5-653d3edd5346';
-  $pane = new stdClass();
-  $pane->pid = 'new-b0d55297-4c9d-4800-9bfb-6098978f972e';
-  $pane->panel = 'right_';
-  $pane->type = 'entity_field';
-  $pane->subtype = 'node:title_field';
-  $pane->shown = TRUE;
-  $pane->access = array(
-    'plugins' => array(
-      0 => array(
-        'name' => 'hwc_partner_detail_only',
-        'settings' => NULL,
-        'not' => FALSE,
-      ),
-    ),
-  );
-  $pane->configuration = array(
-    'label' => 'hidden',
-    'formatter' => 'title_linked',
-    'delta_limit' => 0,
-    'delta_offset' => '0',
-    'delta_reversed' => FALSE,
-    'formatter_settings' => array(
-      'title_style' => 'div',
-      'title_link' => '',
-      'title_class' => '',
-      'field_formatter_class' => '',
-    ),
-    'context' => 'argument_entity_id:node_1',
-    'override_title' => 0,
-    'override_title_text' => '',
-    'override_title_heading' => 'h2',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 2;
-  $pane->locks = array();
-  $pane->uuid = 'b0d55297-4c9d-4800-9bfb-6098978f972e';
-  $display->content['new-b0d55297-4c9d-4800-9bfb-6098978f972e'] = $pane;
-  $display->panels['right_'][2] = 'new-b0d55297-4c9d-4800-9bfb-6098978f972e';
-  $pane = new stdClass();
-  $pane->pid = 'new-b4c58a13-6a77-4758-a4e7-522b788832e0';
-  $pane->panel = 'right_';
-  $pane->type = 'entity_field';
-  $pane->subtype = 'node:field_general_email';
-  $pane->shown = TRUE;
-  $pane->access = array(
-    'plugins' => array(
-      0 => array(
-        'name' => 'hwc_partner_detail_only',
-        'settings' => NULL,
-        'not' => FALSE,
-      ),
-    ),
-  );
-  $pane->configuration = array(
-    'label' => 'hidden',
-    'formatter' => 'email_spamspan',
-    'delta_limit' => 0,
-    'delta_offset' => '0',
-    'delta_reversed' => FALSE,
-    'formatter_settings' => array(),
-    'context' => 'argument_entity_id:node_1',
-    'override_title' => 0,
-    'override_title_text' => '',
-    'override_title_heading' => 'h2',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 3;
-  $pane->locks = array();
-  $pane->uuid = 'b4c58a13-6a77-4758-a4e7-522b788832e0';
-  $display->content['new-b4c58a13-6a77-4758-a4e7-522b788832e0'] = $pane;
-  $display->panels['right_'][3] = 'new-b4c58a13-6a77-4758-a4e7-522b788832e0';
-  $pane = new stdClass();
-  $pane->pid = 'new-55e46dc6-cbe6-47b9-9228-2dbb98c6c582';
-  $pane->panel = 'right_';
-  $pane->type = 'entity_field';
-  $pane->subtype = 'node:field_general_phone';
-  $pane->shown = TRUE;
-  $pane->access = array(
-    'plugins' => array(
-      0 => array(
-        'name' => 'hwc_partner_detail_only',
-        'settings' => NULL,
-        'not' => FALSE,
-      ),
-    ),
-  );
-  $pane->configuration = array(
-    'label' => 'inline',
-    'formatter' => 'title_linked',
-    'delta_limit' => 0,
-    'delta_offset' => '0',
-    'delta_reversed' => FALSE,
-    'formatter_settings' => array(
-      'title_style' => '_none',
-      'title_link' => '',
-      'title_class' => '',
-    ),
-    'context' => 'argument_entity_id:node_1',
-    'override_title' => 0,
-    'override_title_text' => '',
-    'override_title_heading' => 'h2',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 4;
-  $pane->locks = array();
-  $pane->uuid = '55e46dc6-cbe6-47b9-9228-2dbb98c6c582';
-  $display->content['new-55e46dc6-cbe6-47b9-9228-2dbb98c6c582'] = $pane;
-  $display->panels['right_'][4] = 'new-55e46dc6-cbe6-47b9-9228-2dbb98c6c582';
-  $pane = new stdClass();
   $pane->pid = 'new-ac9c93c6-d4fe-44bb-9888-a4551b9c5af2';
   $pane->panel = 'right_';
   $pane->type = 'entity_field';
@@ -4135,11 +3970,12 @@ campaign-partners/national-focal-points
       'title_style' => '_none',
       'title_link' => '',
       'title_class' => '',
+      'field_formatter_class' => '',
     ),
     'context' => 'argument_entity_id:node_1',
-    'override_title' => 0,
-    'override_title_text' => '',
-    'override_title_heading' => 'h2',
+    'override_title' => 1,
+    'override_title_text' => 'Main Contact',
+    'override_title_heading' => 'div',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -4147,11 +3983,11 @@ campaign-partners/national-focal-points
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 5;
+  $pane->position = 1;
   $pane->locks = array();
   $pane->uuid = 'ac9c93c6-d4fe-44bb-9888-a4551b9c5af2';
   $display->content['new-ac9c93c6-d4fe-44bb-9888-a4551b9c5af2'] = $pane;
-  $display->panels['right_'][5] = 'new-ac9c93c6-d4fe-44bb-9888-a4551b9c5af2';
+  $display->panels['right_'][1] = 'new-ac9c93c6-d4fe-44bb-9888-a4551b9c5af2';
   $pane = new stdClass();
   $pane->pid = 'new-d05c7360-62ae-4b57-a2fa-af756b871d17';
   $pane->panel = 'right_';
@@ -4189,11 +4025,11 @@ campaign-partners/national-focal-points
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 6;
+  $pane->position = 2;
   $pane->locks = array();
   $pane->uuid = 'd05c7360-62ae-4b57-a2fa-af756b871d17';
   $display->content['new-d05c7360-62ae-4b57-a2fa-af756b871d17'] = $pane;
-  $display->panels['right_'][6] = 'new-d05c7360-62ae-4b57-a2fa-af756b871d17';
+  $display->panels['right_'][2] = 'new-d05c7360-62ae-4b57-a2fa-af756b871d17';
   $pane = new stdClass();
   $pane->pid = 'new-e36dcb73-9189-40e8-acaa-bdd2574c9377';
   $pane->panel = 'right_';
@@ -4231,11 +4067,11 @@ campaign-partners/national-focal-points
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 7;
+  $pane->position = 3;
   $pane->locks = array();
   $pane->uuid = 'e36dcb73-9189-40e8-acaa-bdd2574c9377';
   $display->content['new-e36dcb73-9189-40e8-acaa-bdd2574c9377'] = $pane;
-  $display->panels['right_'][7] = 'new-e36dcb73-9189-40e8-acaa-bdd2574c9377';
+  $display->panels['right_'][3] = 'new-e36dcb73-9189-40e8-acaa-bdd2574c9377';
   $pane = new stdClass();
   $pane->pid = 'new-ae9e35d5-93e7-411a-9339-ba89a541254a';
   $pane->panel = 'right_';
@@ -4269,11 +4105,11 @@ campaign-partners/national-focal-points
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 8;
+  $pane->position = 4;
   $pane->locks = array();
   $pane->uuid = 'ae9e35d5-93e7-411a-9339-ba89a541254a';
   $display->content['new-ae9e35d5-93e7-411a-9339-ba89a541254a'] = $pane;
-  $display->panels['right_'][8] = 'new-ae9e35d5-93e7-411a-9339-ba89a541254a';
+  $display->panels['right_'][4] = 'new-ae9e35d5-93e7-411a-9339-ba89a541254a';
   $pane = new stdClass();
   $pane->pid = 'new-14135f69-01f9-4197-8453-a08df3cde4e3';
   $pane->panel = 'right_';
@@ -4307,11 +4143,11 @@ campaign-partners/national-focal-points
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 9;
+  $pane->position = 5;
   $pane->locks = array();
   $pane->uuid = '14135f69-01f9-4197-8453-a08df3cde4e3';
   $display->content['new-14135f69-01f9-4197-8453-a08df3cde4e3'] = $pane;
-  $display->panels['right_'][9] = 'new-14135f69-01f9-4197-8453-a08df3cde4e3';
+  $display->panels['right_'][5] = 'new-14135f69-01f9-4197-8453-a08df3cde4e3';
   $pane = new stdClass();
   $pane->pid = 'new-eb585847-4795-4b6d-9822-25da45177327';
   $pane->panel = 'right_';
@@ -4345,11 +4181,135 @@ campaign-partners/national-focal-points
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 10;
+  $pane->position = 6;
   $pane->locks = array();
   $pane->uuid = 'eb585847-4795-4b6d-9822-25da45177327';
   $display->content['new-eb585847-4795-4b6d-9822-25da45177327'] = $pane;
-  $display->panels['right_'][10] = 'new-eb585847-4795-4b6d-9822-25da45177327';
+  $display->panels['right_'][6] = 'new-eb585847-4795-4b6d-9822-25da45177327';
+  $pane = new stdClass();
+  $pane->pid = 'new-249112dd-020c-473e-87b5-653d3edd5346';
+  $pane->panel = 'right_';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_main_contact';
+  $pane->shown = TRUE;
+  $pane->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'hwc_partner_detail_only',
+        'settings' => NULL,
+        'not' => FALSE,
+      ),
+    ),
+  );
+  $pane->configuration = array(
+    'label' => 'hidden',
+    'formatter' => 'title_linked',
+    'delta_limit' => 0,
+    'delta_offset' => '0',
+    'delta_reversed' => FALSE,
+    'formatter_settings' => array(
+      'title_style' => '_none',
+      'title_link' => '',
+      'title_class' => '',
+      'field_formatter_class' => '',
+    ),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 7;
+  $pane->locks = array();
+  $pane->uuid = '249112dd-020c-473e-87b5-653d3edd5346';
+  $display->content['new-249112dd-020c-473e-87b5-653d3edd5346'] = $pane;
+  $display->panels['right_'][7] = 'new-249112dd-020c-473e-87b5-653d3edd5346';
+  $pane = new stdClass();
+  $pane->pid = 'new-b4c58a13-6a77-4758-a4e7-522b788832e0';
+  $pane->panel = 'right_';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_general_email';
+  $pane->shown = TRUE;
+  $pane->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'hwc_partner_detail_only',
+        'settings' => NULL,
+        'not' => FALSE,
+      ),
+    ),
+  );
+  $pane->configuration = array(
+    'label' => 'hidden',
+    'formatter' => 'email_plain',
+    'delta_limit' => 0,
+    'delta_offset' => '0',
+    'delta_reversed' => FALSE,
+    'formatter_settings' => array(),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 8;
+  $pane->locks = array();
+  $pane->uuid = 'b4c58a13-6a77-4758-a4e7-522b788832e0';
+  $display->content['new-b4c58a13-6a77-4758-a4e7-522b788832e0'] = $pane;
+  $display->panels['right_'][8] = 'new-b4c58a13-6a77-4758-a4e7-522b788832e0';
+  $pane = new stdClass();
+  $pane->pid = 'new-55e46dc6-cbe6-47b9-9228-2dbb98c6c582';
+  $pane->panel = 'right_';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_general_phone';
+  $pane->shown = TRUE;
+  $pane->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'hwc_partner_detail_only',
+        'settings' => NULL,
+        'not' => FALSE,
+      ),
+    ),
+  );
+  $pane->configuration = array(
+    'label' => 'hidden',
+    'formatter' => 'title_linked',
+    'delta_limit' => 0,
+    'delta_offset' => '0',
+    'delta_reversed' => FALSE,
+    'formatter_settings' => array(
+      'title_style' => '_none',
+      'title_link' => '',
+      'title_class' => '',
+      'field_formatter_class' => '',
+    ),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 1,
+    'override_title_text' => 'General phone',
+    'override_title_heading' => 'div',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 9;
+  $pane->locks = array();
+  $pane->uuid = '55e46dc6-cbe6-47b9-9228-2dbb98c6c582';
+  $display->content['new-55e46dc6-cbe6-47b9-9228-2dbb98c6c582'] = $pane;
+  $display->panels['right_'][9] = 'new-55e46dc6-cbe6-47b9-9228-2dbb98c6c582';
   $pane = new stdClass();
   $pane->pid = 'new-63f4624d-dc9c-4071-8a5e-784a6a4c42f3';
   $pane->panel = 'right_';
@@ -4389,11 +4349,11 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 11;
+  $pane->position = 10;
   $pane->locks = array();
   $pane->uuid = '63f4624d-dc9c-4071-8a5e-784a6a4c42f3';
   $display->content['new-63f4624d-dc9c-4071-8a5e-784a6a4c42f3'] = $pane;
-  $display->panels['right_'][11] = 'new-63f4624d-dc9c-4071-8a5e-784a6a4c42f3';
+  $display->panels['right_'][10] = 'new-63f4624d-dc9c-4071-8a5e-784a6a4c42f3';
   $pane = new stdClass();
   $pane->pid = 'new-4aa2b7f8-2742-4819-8198-1451447d6d17';
   $pane->panel = 'right_';
@@ -4427,11 +4387,11 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 12;
+  $pane->position = 11;
   $pane->locks = array();
   $pane->uuid = '4aa2b7f8-2742-4819-8198-1451447d6d17';
   $display->content['new-4aa2b7f8-2742-4819-8198-1451447d6d17'] = $pane;
-  $display->panels['right_'][12] = 'new-4aa2b7f8-2742-4819-8198-1451447d6d17';
+  $display->panels['right_'][11] = 'new-4aa2b7f8-2742-4819-8198-1451447d6d17';
   $pane = new stdClass();
   $pane->pid = 'new-ec16d60a-9d23-4140-ab63-d2be45264ae1';
   $pane->panel = 'right_';
@@ -4465,11 +4425,11 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 13;
+  $pane->position = 12;
   $pane->locks = array();
   $pane->uuid = 'ec16d60a-9d23-4140-ab63-d2be45264ae1';
   $display->content['new-ec16d60a-9d23-4140-ab63-d2be45264ae1'] = $pane;
-  $display->panels['right_'][13] = 'new-ec16d60a-9d23-4140-ab63-d2be45264ae1';
+  $display->panels['right_'][12] = 'new-ec16d60a-9d23-4140-ab63-d2be45264ae1';
   $pane = new stdClass();
   $pane->pid = 'new-e2ca4501-827a-4e8d-8607-5c15b92cc80a';
   $pane->panel = 'right_';
@@ -4503,11 +4463,11 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 14;
+  $pane->position = 13;
   $pane->locks = array();
   $pane->uuid = 'e2ca4501-827a-4e8d-8607-5c15b92cc80a';
   $display->content['new-e2ca4501-827a-4e8d-8607-5c15b92cc80a'] = $pane;
-  $display->panels['right_'][14] = 'new-e2ca4501-827a-4e8d-8607-5c15b92cc80a';
+  $display->panels['right_'][13] = 'new-e2ca4501-827a-4e8d-8607-5c15b92cc80a';
   $pane = new stdClass();
   $pane->pid = 'new-ded8085b-914b-4ea5-9480-b2180cbe3902';
   $pane->panel = 'right_';
@@ -4541,11 +4501,11 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 15;
+  $pane->position = 14;
   $pane->locks = array();
   $pane->uuid = 'ded8085b-914b-4ea5-9480-b2180cbe3902';
   $display->content['new-ded8085b-914b-4ea5-9480-b2180cbe3902'] = $pane;
-  $display->panels['right_'][15] = 'new-ded8085b-914b-4ea5-9480-b2180cbe3902';
+  $display->panels['right_'][14] = 'new-ded8085b-914b-4ea5-9480-b2180cbe3902';
   $pane = new stdClass();
   $pane->pid = 'new-7515db16-a606-4317-8f88-f4d324a87e4c';
   $pane->panel = 'right_';
@@ -4579,11 +4539,11 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 16;
+  $pane->position = 15;
   $pane->locks = array();
   $pane->uuid = '7515db16-a606-4317-8f88-f4d324a87e4c';
   $display->content['new-7515db16-a606-4317-8f88-f4d324a87e4c'] = $pane;
-  $display->panels['right_'][16] = 'new-7515db16-a606-4317-8f88-f4d324a87e4c';
+  $display->panels['right_'][15] = 'new-7515db16-a606-4317-8f88-f4d324a87e4c';
   $pane = new stdClass();
   $pane->pid = 'new-54c3bd59-33be-45ad-a4ae-83c6726aea74';
   $pane->panel = 'right_';
@@ -4617,11 +4577,11 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 17;
+  $pane->position = 16;
   $pane->locks = array();
   $pane->uuid = '54c3bd59-33be-45ad-a4ae-83c6726aea74';
   $display->content['new-54c3bd59-33be-45ad-a4ae-83c6726aea74'] = $pane;
-  $display->panels['right_'][17] = 'new-54c3bd59-33be-45ad-a4ae-83c6726aea74';
+  $display->panels['right_'][16] = 'new-54c3bd59-33be-45ad-a4ae-83c6726aea74';
   $pane = new stdClass();
   $pane->pid = 'new-f2b8dcc5-13ec-44a6-85dc-6185f0fbeeee';
   $pane->panel = 'right_';
@@ -4655,11 +4615,11 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 18;
+  $pane->position = 17;
   $pane->locks = array();
   $pane->uuid = 'f2b8dcc5-13ec-44a6-85dc-6185f0fbeeee';
   $display->content['new-f2b8dcc5-13ec-44a6-85dc-6185f0fbeeee'] = $pane;
-  $display->panels['right_'][18] = 'new-f2b8dcc5-13ec-44a6-85dc-6185f0fbeeee';
+  $display->panels['right_'][17] = 'new-f2b8dcc5-13ec-44a6-85dc-6185f0fbeeee';
   $pane = new stdClass();
   $pane->pid = 'new-6388e855-6315-4dcc-bb67-ef17ae401030';
   $pane->panel = 'right__';
