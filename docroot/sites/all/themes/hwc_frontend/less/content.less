@@ -3895,27 +3895,12 @@ p.no-results{
 				}
 				.views-field-title-field{
 					a{
-						font-weight: bold;
 						display: block;
-						font-size:@size2; 
+						font-size: 1.7em;
 						margin-bottom: 10px;
-						&:before{
-							content: "> ";
-						}
 					}
 				}
-				.views-field-field-website-of-event,  .views-field-view-node{
-					float: left;
-					a{
-						font-weight: bold;
-						font-style: italic;
-						display: block;
-						margin-bottom: 20px;
-						&:before{
-							content: "> ";
-						}
-					}
-				}
+				
 				.views-field-view-node{
 					position: absolute;
 					margin-left: 230px;
@@ -3925,20 +3910,19 @@ p.no-results{
 				}
 
 				.views-field-field-start-date-1{
-					font-size: @size3;
+					font-size: 1em;
 					margin-bottom: 0.5em;
 					font-weight: bold;
+					color: #57575a;
 				}
 				.views-field-field-country-code, .views-field-field-city{
 					font-weight: bold;
 					display: inline-block;
+					color: #57575a;
 				}
-				.views-field-field-city{
-					&:before{
-						content:" (";
-					}
-					&:after{
-						content:") ";
+				.views-field-field-country-code{
+					span:after{
+						content:",";
 					}
 				}
 				.views-field-body{
