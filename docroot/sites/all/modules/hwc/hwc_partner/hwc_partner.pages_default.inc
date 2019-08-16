@@ -568,14 +568,14 @@ campaign-partners/enterprise-europe-network
     'delta_offset' => '0',
     'delta_reversed' => FALSE,
     'formatter_settings' => array(
-      'title_style' => 'h1',
+      'title_style' => 'h2',
       'title_link' => '',
       'title_class' => '',
       'field_formatter_class' => '',
     ),
     'context' => 'argument_entity_id:node_1',
-    'override_title' => 0,
-    'override_title_text' => '',
+    'override_title' => 1,
+    'override_title_text' => '%title',
     'override_title_heading' => 'h2',
   );
   $pane->cache = array();
@@ -2246,14 +2246,14 @@ campaign-partners/campaign-media-partners
     'delta_offset' => '0',
     'delta_reversed' => FALSE,
     'formatter_settings' => array(
-      'title_style' => 'h1',
+      'title_style' => 'h2',
       'title_link' => '',
       'title_class' => '',
       'field_formatter_class' => '',
     ),
     'context' => 'argument_entity_id:node_1',
-    'override_title' => 0,
-    'override_title_text' => '',
+    'override_title' => 1,
+    'override_title_text' => '%title',
     'override_title_heading' => 'h2',
   );
   $pane->cache = array();
@@ -5255,14 +5255,14 @@ campaign-partners/official-campaign-partners
     'delta_offset' => '0',
     'delta_reversed' => FALSE,
     'formatter_settings' => array(
-      'title_style' => 'h1',
+      'title_style' => 'h2',
       'title_link' => '',
       'title_class' => '',
       'field_formatter_class' => '',
     ),
     'context' => 'argument_entity_id:node_1',
-    'override_title' => 0,
-    'override_title_text' => '',
+    'override_title' => 1,
+    'override_title_text' => '%title',
     'override_title_heading' => 'h2',
   );
   $pane->cache = array();

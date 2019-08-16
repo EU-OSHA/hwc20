@@ -463,7 +463,8 @@ function hwc_partner_views_default_views() {
   $handler->display->display_options['fields']['field_country_code']['id'] = 'field_country_code';
   $handler->display->display_options['fields']['field_country_code']['table'] = 'field_data_field_country_code';
   $handler->display->display_options['fields']['field_country_code']['field'] = 'field_country_code';
-  $handler->display->display_options['fields']['field_country_code']['label'] = 'LOCATION';
+  $handler->display->display_options['fields']['field_country_code']['label'] = '';
+  $handler->display->display_options['fields']['field_country_code']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_country_code']['settings'] = array(
     'field_formatter_class' => '',
   );
