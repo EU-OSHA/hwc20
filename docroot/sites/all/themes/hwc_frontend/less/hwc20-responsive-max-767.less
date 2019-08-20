@@ -1,5 +1,10 @@
 @media (max-width: 768px){
 
+	.start-browsing .start-browsing-box{
+		width: 309px;
+		height: auto;
+		margin-right: 1em;
+	}
 
 	.before-the-campaign .content-box-before .two-box-column{
 		flex-direction: row;
@@ -40,7 +45,8 @@
 	}
 
 	.view-id-partners_list .col-md-2.col-sm-3.col-xs-6{
-		min-height: 350px;
+		min-height: auto;
+    	width: 100%;
 	}
 
 }
@@ -99,14 +105,15 @@
 				padding-top: 0.5em;
 			}
 			p{
-				max-width: 320px;
+				max-width: 290px;
 				padding-bottom: 1em;
 
 			}
 			.btn-background-transparent{
-				max-width: 320px;
+				max-width: 290px;
 				width: 94%;
     			margin-bottom: 1em;
+    			margin: 1em auto;
 			}
 		}
 	}
@@ -166,8 +173,17 @@
 
 	.xs-menu .navbar-toggle, button.navbar-toggle.active{
 		float: left;
-		margin-left: 0.5em;
+		margin-left: 1.5em;
 		left: 0em;
+	}
+
+	.navbar-toggle .icon-bar{
+		width: 27px;
+		height: 3px;
+	}
+
+	.navbar-toggle.active .icon-bar:nth-of-type(2){
+		top: 8px;
 	}
 
 	header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language select{
@@ -257,12 +273,6 @@
 	    margin-left: 0;
 	    margin-right: 0;
 	    width: 100%;
-	}
-
-	.start-browsing .start-browsing-box{
-		width: 310px;
-		height: auto;
-		margin-right: 1em;
 	}
 
 	ul.time-and-counters li .counter-value{
@@ -438,6 +448,15 @@
 
 
 	/* Panels - National Focal Points, etc. */
+
+	.page-campaign-partners{
+		.hwc-share-widget{
+			ul .share-this-article{
+				padding-top: 0 !important;
+			}
+		}
+	}
+
 	.profile-2-cols-container-3 .view-partner-content{
 		width: 100%;
     	margin: 0;
@@ -488,5 +507,9 @@
 			margin-right: 0;
 		}
 
+	}
+
+	.start-browsing .start-browsing-box {
+	    margin-right: 0;
 	}
 }

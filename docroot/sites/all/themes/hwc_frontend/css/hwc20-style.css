@@ -2821,10 +2821,10 @@ div.workbench-info-block {
 .view-id-partners_list .col-md-2.col-sm-3.col-xs-6 .views-field-field-logo span.title-box-content {
   display: flex;
   justify-content: center;
-  padding: 10px 5px;
+  padding: 10px 5px 0 5px;
 }
 .page-campaign-partners-national-focal-points .col-md-2.col-sm-3.col-xs-6 {
-  min-height: auto;
+  min-height: auto !important;
   display: flex;
   justify-content: center;
 }
@@ -2835,6 +2835,17 @@ div.workbench-info-block {
   display: flex;
   flex-wrap: wrap;
 }
+.page-campaign-partners-official-campaign-partners .quicktabs-tabpage {
+  display: flex;
+  flex-wrap: wrap;
+}
+.page-campaign-partners-official-campaign-partners .view-id-partners_list .col-md-2.col-sm-3.col-xs-6 {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1em;
+  min-height: auto;
+  width: 250px;
+}
 .page-campaign-partners-campaign-media-partners .view-id-partners_list .view-header,
 .page-campaign-partners-enterprise-europe-network .view-id-partners_list .view-header {
   width: 100%;
@@ -2844,9 +2855,17 @@ div.workbench-info-block {
   display: flex;
   flex-wrap: wrap;
 }
+.page-campaign-partners-campaign-media-partners .view-partners-list .view-header,
+.page-campaign-partners-enterprise-europe-network .view-partners-list .view-header {
+  font-weight: bold;
+}
+.page-campaign-partners-campaign-media-partners .hwc-alphabet-container a,
+.page-campaign-partners-enterprise-europe-network .hwc-alphabet-container a {
+  font-style: italic;
+}
 .page-campaign-partners-campaign-media-partners .col-md-2.col-sm-3.col-xs-6,
 .page-campaign-partners-enterprise-europe-network .col-md-2.col-sm-3.col-xs-6 {
-  min-height: auto;
+  min-height: auto !important;
   display: block;
   justify-content: center;
   display: flex;
@@ -2873,6 +2892,13 @@ div.workbench-info-block {
 /* National Focal Points detail  */
 .not-logged-in .profile-edit-links-container .panels-flexible-region-inside-first {
   display: none;
+}
+.page-campaign-partners .hwc-share-widget {
+  float: right;
+  padding-right: 1em;
+}
+.page-campaign-partners .field-name-body {
+  clear: both;
 }
 .profile-title-type-container {
   margin-bottom: 0em !important;
@@ -2918,6 +2944,10 @@ div.workbench-info-block {
   font-size: 1.7em;
   float: left;
   padding-right: 1em;
+}
+.panels-flexible-row .field-name-field-country img {
+  border: 2px solid #bcd75b;
+  border-radius: 7px;
 }
 .panels-flexible-column-inside-first {
   /* panels-flexible-column-inside-first Header panel*/
@@ -2979,7 +3009,7 @@ div.workbench-info-block {
 }
 .panels-flexible-region .hwc-share-widget ul .share-this-article {
   float: left;
-  padding-top: 3px;
+  padding-top: 0;
 }
 .profile-2-cols-container-3 {
   padding-bottom: 2em;
@@ -3025,7 +3055,7 @@ div.workbench-info-block {
 }
 .profile-2-cols-container-3 .panels-flexible-region a {
   font-style: normal;
-  padding-top: 8px;
+  padding-top: 0;
   display: block;
 }
 .profile-2-cols-container-3 .field-type-link-field a {
@@ -3052,87 +3082,93 @@ div.workbench-info-block {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+.panels-flexible-column-last .field-type-link-field a {
+  white-space: nowrap;
+  width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .node-type-partner [class*="field-type-link"] {
   font-weight: bold;
   text-align: left;
 }
 .node-type-partner [class*="field-type-link"][class*="facebook"] {
   background: url("../images/content/facebook.png") no-repeat left center;
-  padding-left: 50px;
+  padding-left: 30px;
   margin-bottom: 1em;
   white-space: nowrap;
 }
-.node-type-partner [class*="field-type-link"][class*="facebook"] .field-item {
+.node-type-partner [class*="field-type-link"][class*="facebook"] .field-item a {
+  white-space: nowrap;
   width: 280px;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .node-type-partner [class*="field-type-link"][class*="twitter"] {
   background: url("../images/content/twitter.png") no-repeat left center;
-  padding-left: 50px;
+  padding-left: 30px;
   margin-bottom: 1em;
 }
-.node-type-partner [class*="field-type-link"][class*="twitter"] .field-item {
+.node-type-partner [class*="field-type-link"][class*="twitter"] .field-item a {
+  white-space: nowrap;
   width: 280px;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .node-type-partner [class*="field-type-link"][class*="slideshare"] {
   background: url("../images/content/slideshare.png") no-repeat left center;
-  padding-left: 50px;
+  padding-left: 30px;
   margin-bottom: 1em;
 }
-.node-type-partner [class*="field-type-link"][class*="slideshare"] .field-item {
+.node-type-partner [class*="field-type-link"][class*="slideshare"] .field-item a {
+  white-space: nowrap;
   width: 280px;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .node-type-partner [class*="field-type-link"][class*="youtube"] {
   background: url("../images/content/youtube.png") no-repeat left center;
-  padding-left: 50px;
+  padding-left: 30px;
   margin-bottom: 1em;
 }
-.node-type-partner [class*="field-type-link"][class*="youtube"] .field-item {
+.node-type-partner [class*="field-type-link"][class*="youtube"] .field-item a {
+  white-space: nowrap;
   width: 280px;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .node-type-partner [class*="field-type-link"][class*="linkedin"] {
   background: url("../images/content/linkedin.png") no-repeat left center;
-  padding-left: 50px;
+  padding-left: 30px;
   margin-bottom: 1em;
 }
-.node-type-partner [class*="field-type-link"][class*="linkedin"] .field-item {
+.node-type-partner [class*="field-type-link"][class*="linkedin"] .field-item a {
+  white-space: nowrap;
   width: 280px;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .node-type-partner [class*="field-type-link"][class*="google-plus"] {
   background: url("../images/content/googleplus.png") no-repeat left center;
-  padding-left: 50px;
+  padding-left: 30px;
   margin-bottom: 1em;
 }
-.node-type-partner [class*="field-type-link"][class*="google-plus"] .field-item {
+.node-type-partner [class*="field-type-link"][class*="google-plus"] .field-item a {
+  white-space: nowrap;
   width: 280px;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .node-type-partner [class*="field-type-link"][class*="pinterest"] {
   background: url("../images/content/pinterest.png") no-repeat left center;
-  padding-left: 50px;
+  padding-left: 30px;
   margin-bottom: 1em;
 }
-.node-type-partner [class*="field-type-link"][class*="pinterest"] .field-item {
+.node-type-partner [class*="field-type-link"][class*="pinterest"] .field-item a {
+  white-space: nowrap;
   width: 280px;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .node-type-partner [class*="field-type-link"] a:before {
   content: "";
@@ -3227,7 +3263,7 @@ div.workbench-info-block {
   .page_title h1 {
     font-size: 2.6em;
     width: 480px;
-    padding-bottom: 0;
+    padding-bottom: 0.5em;
   }
   #block-text-resize-0,
   #block-hwc-hwc-print-friendly {
@@ -3509,8 +3545,103 @@ div.workbench-info-block {
   }
 }
 @media (max-width: 1024px) {
-  .footer {
-    padding-left: 0;
+  .profile-2-cols-container-3 .panels-flexible-column-last .field-type-link-field a {
+    white-space: nowrap;
+    width: 188px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .page-enterprise-europe-network #block-system-main .node-article .field-type-text-with-summary,
+  .page-national-focal-points #block-system-main .node-article .field-type-text-with-summary,
+  .page-campaign-media-partners #block-system-main .node-article .field-type-text-with-summary,
+  .page-campaign-partners-official-campaign-partners #block-system-main .node-article .field-type-text-with-summary {
+    width: 100%;
+  }
+  .node-type-partner [class*="field-type-link"] {
+    font-weight: bold;
+    text-align: left;
+  }
+  .node-type-partner [class*="field-type-link"][class*="facebook"] {
+    background: url("../images/content/facebook.png") no-repeat left center;
+    padding-left: 30px;
+    margin-bottom: 1em;
+    white-space: nowrap;
+  }
+  .node-type-partner [class*="field-type-link"][class*="facebook"] .field-item a {
+    white-space: nowrap;
+    width: 188px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .node-type-partner [class*="field-type-link"][class*="twitter"] {
+    background: url("../images/content/twitter.png") no-repeat left center;
+    padding-left: 30px;
+    margin-bottom: 1em;
+  }
+  .node-type-partner [class*="field-type-link"][class*="twitter"] .field-item a {
+    white-space: nowrap;
+    width: 188px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .node-type-partner [class*="field-type-link"][class*="slideshare"] {
+    background: url("../images/content/slideshare.png") no-repeat left center;
+    padding-left: 30px;
+    margin-bottom: 1em;
+  }
+  .node-type-partner [class*="field-type-link"][class*="slideshare"] .field-item a {
+    white-space: nowrap;
+    width: 188px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .node-type-partner [class*="field-type-link"][class*="youtube"] {
+    background: url("../images/content/youtube.png") no-repeat left center;
+    padding-left: 30px;
+    margin-bottom: 1em;
+  }
+  .node-type-partner [class*="field-type-link"][class*="youtube"] .field-item a {
+    white-space: nowrap;
+    width: 188px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .node-type-partner [class*="field-type-link"][class*="linkedin"] {
+    background: url("../images/content/linkedin.png") no-repeat left center;
+    padding-left: 30px;
+    margin-bottom: 1em;
+  }
+  .node-type-partner [class*="field-type-link"][class*="linkedin"] .field-item a {
+    white-space: nowrap;
+    width: 188px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .node-type-partner [class*="field-type-link"][class*="google-plus"] {
+    background: url("../images/content/googleplus.png") no-repeat left center;
+    padding-left: 30px;
+    margin-bottom: 1em;
+  }
+  .node-type-partner [class*="field-type-link"][class*="google-plus"] .field-item a {
+    white-space: nowrap;
+    width: 188px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .node-type-partner [class*="field-type-link"][class*="pinterest"] {
+    background: url("../images/content/pinterest.png") no-repeat left center;
+    padding-left: 30px;
+    margin-bottom: 1em;
+  }
+  .node-type-partner [class*="field-type-link"][class*="pinterest"] .field-item a {
+    white-space: nowrap;
+    width: 188px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .node-type-partner [class*="field-type-link"] a:before {
+    content: "";
+    padding-right: 0;
   }
   .footer div.container {
     padding-left: 0;
@@ -3548,6 +3679,11 @@ div.workbench-info-block {
   }
 }
 @media (max-width: 768px) {
+  .start-browsing .start-browsing-box {
+    width: 309px;
+    height: auto;
+    margin-right: 1em;
+  }
   .before-the-campaign .content-box-before .two-box-column {
     flex-direction: row;
     margin-bottom: 1em;
@@ -3581,7 +3717,8 @@ div.workbench-info-block {
     width: 742px;
   }
   .view-id-partners_list .col-md-2.col-sm-3.col-xs-6 {
-    min-height: 350px;
+    min-height: auto;
+    width: 100%;
   }
 }
 @media (max-width: 767px) {
@@ -3629,13 +3766,14 @@ div.workbench-info-block {
     padding-top: 0.5em;
   }
   .intro-splash-20 .views-row-first p {
-    max-width: 320px;
+    max-width: 290px;
     padding-bottom: 1em;
   }
   .intro-splash-20 .views-row-first .btn-background-transparent {
-    max-width: 320px;
+    max-width: 290px;
     width: 94%;
     margin-bottom: 1em;
+    margin: 1em auto;
   }
   .before-the-campaign .content-box-before .two-box-column {
     flex-direction: row;
@@ -3684,8 +3822,15 @@ div.workbench-info-block {
   .xs-menu .navbar-toggle,
   button.navbar-toggle.active {
     float: left;
-    margin-left: 0.5em;
+    margin-left: 1.5em;
     left: 0em;
+  }
+  .navbar-toggle .icon-bar {
+    width: 27px;
+    height: 3px;
+  }
+  .navbar-toggle.active .icon-bar:nth-of-type(2) {
+    top: 8px;
   }
   header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language select {
     color: #FFF;
@@ -3763,11 +3908,6 @@ div.workbench-info-block {
     margin-left: 0;
     margin-right: 0;
     width: 100%;
-  }
-  .start-browsing .start-browsing-box {
-    width: 310px;
-    height: auto;
-    margin-right: 1em;
   }
   ul.time-and-counters li .counter-value {
     min-width: 85px;
@@ -3903,6 +4043,9 @@ div.workbench-info-block {
     margin: 0 auto 1em;
   }
   /* Panels - National Focal Points, etc. */
+  .page-campaign-partners .hwc-share-widget ul .share-this-article {
+    padding-top: 0 !important;
+  }
   .profile-2-cols-container-3 .view-partner-content {
     width: 100%;
     margin: 0;
@@ -3940,6 +4083,9 @@ div.workbench-info-block {
   }
   .before-the-campaign .content-box-before .two-box-column .box-before.events {
     width: 100%;
+    margin-right: 0;
+  }
+  .start-browsing .start-browsing-box {
     margin-right: 0;
   }
 }

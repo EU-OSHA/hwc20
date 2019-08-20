@@ -494,13 +494,13 @@ jQuery(document).ready(function() {
 		//Calculate the header height and add the padding-top to the body. All resolotuions and responsive
 		var calculate_height = jQuery(".campaigns-header").height();
 		jQuery("body").css('padding-top', calculate_height);
-		jQuery("body.splash-page").css('padding-top', calculate_height + 10);
+		jQuery("body.splash-page").css('padding-top', calculate_height);
 
 
 		jQuery(window).resize(function() {
         	var calculate_height_resize = jQuery(".campaigns-header").height();
 			jQuery("body").css('padding-top', calculate_height_resize);
-			jQuery("body.splash-page").css('padding-top', calculate_height_resize + 10);
+			jQuery("body.splash-page").css('padding-top', calculate_height_resize);
     	});
 
     	/* Cookies declined */

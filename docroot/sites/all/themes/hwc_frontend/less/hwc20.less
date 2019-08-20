@@ -3177,7 +3177,7 @@ div.workbench-info-block{
 			span.title-box-content{
 				display: flex;
 				justify-content: center;
-				padding: 10px 5px;
+				padding: 10px 5px 0 5px;
 			}
 		}
 	}	
@@ -3185,7 +3185,7 @@ div.workbench-info-block{
 
 .page-campaign-partners-national-focal-points{
 	.col-md-2.col-sm-3.col-xs-6{
-		min-height: auto;
+		min-height: auto !important;
 		display: flex;
     	justify-content: center;
 	}
@@ -3201,6 +3201,21 @@ div.workbench-info-block{
 	}
 }
 
+.page-campaign-partners-official-campaign-partners{
+	.quicktabs-tabpage {
+		display: flex;
+			flex-wrap: wrap;
+	}
+
+	.view-id-partners_list .col-md-2.col-sm-3.col-xs-6 {
+	    display: flex;
+	    flex-wrap: wrap;
+	    padding: 1em;
+	    min-height: auto;
+	    width: 250px;
+	}
+}
+
 .page-campaign-partners-campaign-media-partners, .page-campaign-partners-enterprise-europe-network{
 
 	.view-id-partners_list .view-header{
@@ -3210,12 +3225,22 @@ div.workbench-info-block{
 	.view-partners-list{
 		display: flex;
 		flex-wrap: wrap;
+		.view-header{
+			font-weight: bold;
+		}
 	}
+
+	.hwc-alphabet-container{
+		a{
+			font-style: italic;
+		}
+	}
+
 	.col-md-2.col-sm-3.col-xs-6{
-		min-height: auto;
+		min-height: auto !important;
 		display: block;
     	justify-content: center;
-    	display: flex; 
+    	display: flex;
 	}
 
 	.hwc-alpha-pager-view-title-field{
@@ -3241,6 +3266,16 @@ div.workbench-info-block{
 
 .not-logged-in .profile-edit-links-container .panels-flexible-region-inside-first{
 	display: none;
+}
+
+.page-campaign-partners{
+	.hwc-share-widget{
+		float: right;
+		padding-right: 1em;
+	}
+	.field-name-body{
+		clear: both;
+	}
 }
 
 .profile-title-type-container{
@@ -3293,6 +3328,10 @@ div.workbench-info-block{
 		font-size: 1.7em;
 		float: left;
     	padding-right: 1em;
+    	img{
+			border: 2px solid #bcd75b;
+			border-radius: 7px;
+    	}
 	}
 }
 
@@ -3368,7 +3407,7 @@ div.workbench-info-block{
 
 	.hwc-share-widget ul .share-this-article{
 		float: left;
-    	padding-top: 3px;
+    	padding-top: 0;
 	}
 }
 
@@ -3422,7 +3461,7 @@ div.workbench-info-block{
 
 	.panels-flexible-region a{
 		font-style: normal;
-		padding-top: 8px;
+		padding-top: 0;
     	display: block;
 	}
 
@@ -3455,6 +3494,13 @@ div.workbench-info-block{
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
+
+	.field-type-link-field a{
+		white-space: nowrap; 
+		width: 280px; 
+		overflow: hidden;
+		text-overflow: ellipsis; 
+	}
 }
 
 
@@ -3464,80 +3510,94 @@ div.workbench-info-block{
 			text-align: left;
 			&[class*="facebook"]{
 				background: url("../images/content/facebook.png") no-repeat left center;
-				padding-left: 50px;
+				padding-left: 30px;
 				margin-bottom: 1em;
 				white-space: nowrap;
 				.field-item{ 
-				    width: 280px; 
-				    overflow: hidden;
-				    text-overflow: ellipsis;
-				    white-space: nowrap;
+				  a{
+					white-space: nowrap; 
+					width: 280px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
 				}
 			}
 			&[class*="twitter"]{
 				background: url("../images/content/twitter.png") no-repeat left center;
-				padding-left: 50px;
+				padding-left: 30px;
 				margin-bottom: 1em;
 				.field-item{ 
-				    width: 280px; 
-				    overflow: hidden;
-				    text-overflow: ellipsis;
-				    white-space: nowrap;
+				  a{
+					white-space: nowrap; 
+					width: 280px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
 				}
 			}
 			&[class*="slideshare"]{
 				background: url("../images/content/slideshare.png") no-repeat left center;
-				padding-left: 50px;
+				padding-left: 30px;
 				margin-bottom: 1em;
 				.field-item{ 
-				    width: 280px; 
-				    overflow: hidden;
-				    text-overflow: ellipsis;
-				    white-space: nowrap;
+				  a{
+					white-space: nowrap; 
+					width: 280px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
 				}
 			}
 			&[class*="youtube"]{
 				background: url("../images/content/youtube.png") no-repeat left center;
-				padding-left: 50px;
+				padding-left: 30px;
 				margin-bottom: 1em;
 				.field-item{ 
-				    width: 280px; 
-				    overflow: hidden;
-				    text-overflow: ellipsis;
-				    white-space: nowrap;
+				  a{
+					white-space: nowrap; 
+					width: 280px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
 				}
 			}
 			&[class*="linkedin"]{
 				background: url("../images/content/linkedin.png") no-repeat left center;
-				padding-left: 50px;
+				padding-left: 30px;
 				margin-bottom: 1em;
 				.field-item{ 
-				    width: 280px; 
-				    overflow: hidden;
-				    text-overflow: ellipsis;
-				    white-space: nowrap; 
+				  a{
+					white-space: nowrap; 
+					width: 280px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
 				}
 			}
 			&[class*="google-plus"]{
 				background: url("../images/content/googleplus.png") no-repeat left center;
-				padding-left: 50px;
+				padding-left: 30px;
 				margin-bottom: 1em;
 				.field-item{ 
-				    width: 280px; 
-				    overflow: hidden;
-				    text-overflow: ellipsis;
-				    white-space: nowrap; 
+				  a{
+					white-space: nowrap; 
+					width: 280px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
 				}
 			}
 			&[class*="pinterest"]{
 				background: url("../images/content/pinterest.png") no-repeat left center;
-				padding-left: 50px;
+				padding-left: 30px;
 				margin-bottom: 1em;
 				.field-item{ 
-				    width: 280px; 
-				    overflow: hidden;
-				    text-overflow: ellipsis;
-				    white-space: nowrap; 
+				  a{
+					white-space: nowrap; 
+					width: 280px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
 				}
 			}
 			a{
