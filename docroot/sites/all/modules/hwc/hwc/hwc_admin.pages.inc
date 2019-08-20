@@ -62,16 +62,121 @@ function hwc_admin_config_form() {
     '#default_value' => variable_get('hwc_current_campaign_tags', array()),
   );
 
+  $form['campaign_partner'] = array(
+    '#type' => 'fieldset',
+    '#title' => 'Campaign Partner',
+    '#collapsible' => TRUE,
+  );
+
+  $form['campaign_partner']['become_campaign_partner_download_title'] = array(
+    '#title' => 'Download the Campaign Partnership offer title',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_campaign_partner_download_title', 'Download the Campaign Partnership offer'),
+  );
+
+  $form['campaign_partner']['become_campaign_partner_download_body'] = array(
+    '#type' => 'textarea',
+    '#default_value' => variable_get('become_campaign_partner_download_body', 'Get to know more about the status and make sure you meet the requirements.'),
+    '#title' => 'Download the Campaign Partnership offer body',
+  );
+
+  $form['campaign_partner']['become_campaign_partner_download_link'] = array(
+    '#title' => 'Download the Campaign Partnership offer link',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_campaign_partner_download_link', '#'),
+  );
+
+  $form['campaign_partner']['become_campaign_partner_application_form_title'] = array(
+    '#title' => 'Fill up the online application form title',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_campaign_partner_application_form_title', 'Fill up the online application form'),
+  );
+
+  $form['campaign_partner']['become_campaign_partner_application_form_body'] = array(
+    '#title' => 'Fill up the online application form body',
+    '#type' => 'textarea',
+    '#default_value' => variable_get('become_campaign_partner_application_form_body', 'The form will be available from the 6th of december 2020'),
+  );
+
+  $form['campaign_partner']['become_campaign_partner_see_results_title'] = array(
+    '#title' => 'Get the result title',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_campaign_partner_see_results_title', 'Get the result'),
+  );
+
+  $form['campaign_partner']['become_campaign_partner_see_results_body'] = array(
+    '#type' => 'textarea',
+    '#default_value' => variable_get('become_campaign_partner_see_results_body', 'The internal selection process will take place at the end of May 2020, and candidate organisations will be informed soon after that.'),
+    '#title' => 'Get the result body',
+  );
+
+  $form['media_partner'] = array(
+    '#type' => 'fieldset',
+    '#title' => 'Media Partner',
+    '#collapsible' => TRUE,
+  );
+
+  $form['media_partner']['become_media_partner_download_title'] = array(
+    '#title' => 'Download the Media Partnership offer title',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_media_partner_download_title', 'Download the Media Partnership offer'),
+  );
+
+  $form['media_partner']['become_media_partner_download_body'] = array(
+    '#type' => 'textarea',
+    '#default_value' => variable_get('become_media_partner_download_body', 'Get to know more about the status and make sure you meet the requirements.'),
+    '#title' => 'Download the Media Partnership offer body',
+  );
+
+  $form['media_partner']['become_media_partner_download_link'] = array(
+    '#title' => 'Download the Media Partnership offer link',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_media_partner_download_link', '#'),
+  );
+
+  $form['media_partner']['become_media_partner_application_form_title'] = array(
+    '#title' => 'Fill up the online application form title',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_media_partner_application_form_title', 'Fill up the online application form'),
+  );
+
+  $form['media_partner']['become_media_partner_application_form_body'] = array(
+    '#title' => 'Fill up the online application form body',
+    '#type' => 'textarea',
+    '#default_value' => variable_get('become_media_partner_application_form_body', 'The form will be available from the 6th of december 2020'),
+  );
+
+  $form['media_partner']['become_media_partner_see_results_title'] = array(
+    '#title' => 'Get the result title',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_media_partner_see_results_title', 'Get the result'),
+  );
+
+  $form['media_partner']['become_media_partner_see_results_body'] = array(
+    '#type' => 'textarea',
+    '#default_value' => variable_get('become_media_partner_see_results_body', 'The internal selection process will take place at the end of May 2020, and candidate organisations will be informed soon after that.'),
+    '#title' => 'Get the result body',
+  );
+
   // Deadline to Download information.
   $form['hwc_partner_download_deadline'] = array(
-    '#title' => 'Campaign partners download deadline',
+    '#title' => 'Deadline to Download information',
     '#description' => 'Starting from 12:00 AM of the date selected here, the download is no longer visible',
     '#type' => 'date',
     '#default_value' => variable_get('hwc_partner_download_deadline', ''),
   );
+
   // Deadline for partner registration.
   $form['hwc_partner_registration_deadline'] = array(
-    '#title' => 'Campaign partners registration deadline',
+    '#title' => 'Deadline for partner registration',
     '#description' => 'Starting from 12:00 AM of the date selected here, the registration is no longer visible',
     '#type' => 'date',
     '#default_value' => variable_get('hwc_partner_registration_deadline', ''),
@@ -235,11 +340,11 @@ function hwc_admin_config_form() {
 function hwc_admin_config_form_validate($form, &$form_state) {
   $values = $form_state['values'];
   if (empty($values['hwc_partner_download_deadline'])) {
-    form_set_error('hwc_partner_download_deadline', t('Please enter download deadline date.'));
+    form_set_error('hwc_partner_download_deadline', t('Please enter Deadline to Download information date.'));
     return;
   }
   if (empty($values['hwc_partner_registration_deadline'])) {
-    form_set_error('hwc_partner_registration_deadline', t('Please enter registration deadline date.'));
+    form_set_error('hwc_partner_registration_deadline', t('Please enter Deadline for partner registration date.'));
     return;
   }
   $day = $values['hwc_partner_download_deadline']['day'];
@@ -252,7 +357,7 @@ function hwc_admin_config_form_validate($form, &$form_state) {
   $year = $values['hwc_partner_registration_deadline']['year'];
   $registration_deadline = mktime(0, 0, 0, $month, $day, $year);
   if ($download_deadline >= $registration_deadline) {
-    form_set_error('hwc_partner_download_deadline', t('Download deadline date should be less registration deadline date.'));
+    form_set_error('hwc_partner_download_deadline', t('Deadline to Download information date should be less Deadline for partner registration date.'));
   }
 }
 
