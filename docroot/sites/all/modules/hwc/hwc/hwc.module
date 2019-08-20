@@ -658,6 +658,24 @@ function hwc_theme() {
     'hwc_file_format' => array(
       'variables' => array('file' => NULL, 'delta' => NULL),
     ),
+    'become_partner' => array(
+      'variables' => array(
+        'download_title' => '',
+        'download_body' => '',
+        'download_link' => '',
+        'application_form_title' => '',
+        'application_form_body' => '',
+        'application_form_link' => '',
+
+        'see_results_title' => '',
+        'see_results_body' => '',
+
+        'download_class' => '',
+        'application_form_class' => '',
+        'see_results_class' => '',
+      ),
+      'template' => 'templates/become_partner',
+    ),
     'news_share_widget' => array(
       'variables' => array(
         'url' => '',
@@ -1154,21 +1172,45 @@ function hwc_node_view($node, $view_mode, $langcode) {
   // /become-campaign-partner page. See HCW-600.
   if ($node->nid == 165 & !empty($node->content['body'][0]['#markup'])) {
     $show_registration = hwc_partner_registration_allowed();
+    $download_allowed = hwc_partner_download_allowed();
     $body =& $node->content['body'][0]['#markup'];
-    if ($show_registration) {
-      $body = str_replace(
-        '[-PLACEHOLDER-REGISTER-DO-NOT-REMOVE-]',
-        '<a class="btn-become-a-campaign-partner" href="/partner/register">' . t('Become a campaign partner') . '</a>',
-        $body
-      );
+    $download_class = 'inactive';
+    $application_form_class = 'inactive';
+    $see_results_class = 'inactive';
+    if ($download_allowed) {
+      $download_class = 'active';
     }
     else {
-      $body = str_replace(
-        '[-PLACEHOLDER-REGISTER-DO-NOT-REMOVE-]',
-        '<div class="alert registration-over">' . t(variable_get('hwc_partner_registration_deadline_message')) . '</div>',
-        $body
-      );
+    if ($show_registration) {
+        $application_form_class = 'active';
     }
+    else {
+        $see_results_class = 'active';
+      }
+    }
+
+    $registration_block = theme('become_partner',
+      array(
+        'download_title' => variable_get('become_partner_download_title', 'Download the Campaign Partnership offer'),
+        'download_body' => variable_get('become_partner_download_body', 'Get to know more about the status and make sure you meet the requirements.'),
+        'download_link' => '<a class="btn-become-a-campaign-partner" href="#">' . t('Download') . '</a>',
+
+        'application_form_title' => variable_get('become_partner_application_form_title', 'Fill up the online application form'),
+        'application_form_body' => variable_get('become_partner_application_form_body', 'The form will be available from the 6th of december 2020'),
+        'application_form_link' => '<a class="btn-become-a-campaign-partner" href="/partner/register">' . t('Become a campaign partner') . '</a>',
+
+        'see_results_title' => variable_get('become_partner_see_results_title', 'Get the result'),
+        'see_results_body' => variable_get('become_partner_see_results_body', 'The internal selection process will take place at the end of May 2020, and candidate organisations will be informed soon after that.'),
+
+        'download_class' => $download_class,
+        'application_form_class' => $application_form_class,
+        'see_results_class' => $see_results_class,
+
+        'download_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_download_deadline', ''),
+        'registration_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_registration_deadline', ''),
+      )
+    );
+    $body = str_replace('[-PLACEHOLDER-REGISTER-DO-NOT-REMOVE-]', $registration_block, $body);
   }
 
   // /partner/register .
@@ -1534,6 +1576,26 @@ function hwc_get_forms_parameters() {
   return $ret;
 }
 
+function hwc_partner_download_allowed() {
+  $ret = TRUE;
+  $deadline = variable_get('hwc_partner_download_deadline', NULL);
+  if (!empty($deadline)) {
+    $day = $deadline['day'];
+    $month = $deadline['month'];
+    $year = $deadline['year'];
+    $time = mktime(0, 0, 0, $month, $day, $year);
+    $ret = time() <= $time;
+  }
+  return $ret;
+}
+
+function hwc_get_partner_deadline_mktime($name) {
+  $deadline = variable_get($name, NULL);
+  $day = $deadline['day'];
+  $month = $deadline['month'];
+  $year = $deadline['year'];
+  return  mktime(0, 0, 0, $month, $day, $year);
+}
 /**
  * Check whether the partner registration should be still opened.
  *
@@ -1544,7 +1606,9 @@ function hwc_partner_registration_allowed() {
   $ret = TRUE;
   $deadline = variable_get('hwc_partner_registration_deadline', NULL);
   if (!empty($deadline)) {
-    $day = $deadline['day']; $month = $deadline['month']; $year = $deadline['year'];
+    $day = $deadline['day'];
+    $month = $deadline['month'];
+    $year = $deadline['year'];
     $time = mktime(0, 0, 0, $month, $day, $year);
     $ret = time() <= $time;
   }

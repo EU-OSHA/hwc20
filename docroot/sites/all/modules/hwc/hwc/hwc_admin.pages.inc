@@ -61,28 +61,39 @@ function hwc_admin_config_form() {
     '#options' => $options,
     '#default_value' => variable_get('hwc_current_campaign_tags', array()),
   );
+
+  // Deadline to Download information.
+  $form['hwc_partner_download_deadline'] = array(
+    '#title' => 'Campaign partners dowmilestone',
+    '#description' => 'Starting from 12:00 AM of the date selected here, the download is no longer visible',
+    '#type' => 'date',
+    '#default_value' => variable_get('hwc_partner_download_deadline', ''),
+  );
+  // Deadline for partner registration.
   $form['hwc_partner_registration_deadline'] = array(
     '#title' => 'Campaign partners registration deadline',
     '#description' => 'Starting from 12:00 AM of the date selected here, the registration is no longer visible',
     '#type' => 'date',
     '#default_value' => variable_get('hwc_partner_registration_deadline', ''),
   );
-  $deadline_message = variable_get('hwc_partner_registration_deadline_message', '');
-  $form['hwc_partner_registration_deadline_message'] = array(
-    '#title' => 'Message to show after the registration deadline is over',
-    '#description' => '',
-    '#type' => 'textfield',
-    '#default_value' => $deadline_message,
-  );
-  $lid = db_select('locales_source', 'l')
-    ->fields('l', ['lid'])
-    ->condition('l.source', $deadline_message)
-    ->orderBy('l.lid', 'DESC')
-    ->execute()
-    ->fetchField();
-  if (!empty($lid)) {
-    $form['hwc_partner_registration_deadline_message']['#description'] = t('!clickhere to translate this string.', ['!clickhere' => l(t('Click here'), '/admin/config/regional/translate/edit/' . $lid)]);
-  }
+
+//  $deadline_message = variable_get('hwc_partner_registration_deadline_message', '');
+//  $form['hwc_partner_registration_deadline_message'] = array(
+//    '#title' => 'Message to show after the registration deadline is over',
+//    '#description' => '',
+//    '#type' => 'textfield',
+//    '#default_value' => $deadline_message,
+//  );
+//
+//  $lid = db_select('locales_source', 'l')
+//    ->fields('l', ['lid'])
+//    ->condition('l.source', $deadline_message)
+//    ->orderBy('l.lid', 'DESC')
+//    ->execute()
+//    ->fetchField();
+//  if (!empty($lid)) {
+//    $form['hwc_partner_registration_deadline_message']['#description'] = t('!clickhere to translate this string.', ['!clickhere' => l(t('Click here'), '/admin/config/regional/translate/edit/' . $lid)]);
+//  }
 
   $form['site_hwc_mostra_mailbox'] = array(
     '#title' => 'Mostra mailbox',
@@ -91,7 +102,7 @@ function hwc_admin_config_form() {
     '#default_value' => variable_get('site_hwc_mostra_mailbox', ''),
   );
 
-  // NCW migration
+  // NCW migration.
   if (module_exists('migrate')) {
     $form['migration'] = array(
       '#type' => 'fieldset',
@@ -109,10 +120,10 @@ function hwc_admin_config_form() {
       '#weight' => -1,
     );
 
-    foreach(migrate_migrations() as $machine_name => $meta) {
+    foreach (migrate_migrations() as $machine_name => $meta) {
       $migration = MigrationBase::getInstance($machine_name);
       if ($group = $migration->getGroup()) {
-        // Filter all migrations from NCW group
+        // Filter all migrations from NCW group.
         if ('ncw' == $group->getName()) {
           $form['migration']["hwc_migration_${machine_name}_url"] = array(
             '#type' => 'textfield',
@@ -214,7 +225,35 @@ function hwc_admin_config_form() {
   // Prepend this hook to the beginning of array because we need the unchanged
   // variables.
   array_unshift($form['#submit'], 'hwc_admin_config_form_submit');
+  array_unshift($form['#validate'], 'hwc_admin_config_form_validate');
   return $form;
+}
+
+/**
+ * Validate callback for replace submit.
+ */
+function hwc_admin_config_form_validate($form, &$form_state) {
+  $values = $form_state['values'];
+  if (empty($values['hwc_partner_download_deadline'])) {
+    form_set_error('hwc_partner_download_deadline', t('Please enter download deadline date.'));
+    return;
+  }
+  if (empty($values['hwc_partner_registration_deadline'])) {
+    form_set_error('hwc_partner_registration_deadline', t('Please enter registration deadline date.'));
+    return;
+  }
+  $day = $values['hwc_partner_download_deadline']['day'];
+  $month = $values['hwc_partner_download_deadline']['month'];
+  $year = $values['hwc_partner_download_deadline']['year'];
+  $download_deadline = mktime(0, 0, 0, $month, $day, $year);
+
+  $day = $values['hwc_partner_registration_deadline']['day'];
+  $month = $values['hwc_partner_registration_deadline']['month'];
+  $year = $values['hwc_partner_registration_deadline']['year'];
+  $registration_deadline = mktime(0, 0, 0, $month, $day, $year);
+  if ($download_deadline >= $registration_deadline) {
+    form_set_error('hwc_partner_download_deadline', t('Download deadline date should be less registration deadline date.'));
+  }
 }
 
 /**

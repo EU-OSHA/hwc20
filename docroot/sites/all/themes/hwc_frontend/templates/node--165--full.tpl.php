@@ -26,6 +26,8 @@
   <?php
     print render($content['field_image']);
     print render($content['title_field']);
+
+    print render($content['share_widget']);
     print render($content['field_summary']);
     print render($content['body']);
   ?>
@@ -33,17 +35,17 @@
   <div class="container">
     <?php
     print render($content['share_widget']);
-    // Additional resources
-    if (!empty($content['field_recommended_resources']) || !empty($content['field_recommended_articles'])) {
-      print '<div class="dot-separator green"></div><div class="icon recommended-resources"></div>' . '<h2>' . t('Recommended resources for you') . '</h2>';
-      print render($content['field_recommended_resources']);
-      print render($content['field_recommended_articles']);
-    }
-    // Additional resources
-    if (!empty($content['field_aditional_resources'])) {
-      print '<div class="dot-separator green"></div><div class="icon additional-resources"></div>' . '<h2>' . t('Additional resources') . '</h2>';
-      print render($content['field_aditional_resources']);
-    }
+    // Additional resources.
+//    if (!empty($content['field_recommended_resources']) || !empty($content['field_recommended_articles'])) {
+//      print '<div class="dot-separator green"></div><div class="icon recommended-resources"></div>' . '<h2>' . t('Recommended resources for you') . '</h2>';
+//      print render($content['field_recommended_resources']);
+//      print render($content['field_recommended_articles']);
+//    }
+//    // Additional resources
+//    if (!empty($content['field_aditional_resources'])) {
+//      print '<div class="dot-separator green"></div><div class="icon additional-resources"></div>' . '<h2>' . t('Additional resources') . '</h2>';
+//      print render($content['field_aditional_resources']);
+//    }
 
     // We hide the comments and links now so that we can render them later.
     hide($content['comments']);
