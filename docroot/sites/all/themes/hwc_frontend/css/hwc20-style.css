@@ -38,6 +38,39 @@ select {
 .region-content .views-row .date-display-single {
   float: none;
 }
+body .more-link {
+  background-color: transparent;
+  padding-left: 0;
+}
+body .more-link a {
+  background: url(../images/ico-plus-20.png) no-repeat 98.5% 2px #0030a0;
+  text-transform: uppercase;
+  color: #FFF;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 3px 3.5em 4px 0.7em;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  float: left;
+  margin-top: 1em;
+}
+body .more-link a:hover {
+  color: #FFF;
+  background: url(../images/ico-plus-20-hover.png) no-repeat 98.5% 2px #8fc900;
+  text-decoration: none;
+}
+body .more-link:before {
+  content: '';
+  display: none;
+}
+.more-link.flex {
+  display: flex;
+  justify-content: center;
+}
 .btn-background-transparent {
   background: transparent;
   width: 208px;
@@ -385,31 +418,6 @@ ul.time-and-counters li .counter-label {
   float: left;
   margin-right: 2em;
   margin-top: 0.8em;
-}
-.before-the-campaign .content-box-before .two-box-column .more-link {
-  background-color: transparent;
-  padding-left: 0;
-}
-.before-the-campaign .content-box-before .two-box-column .more-link a {
-  background: url(../images/ico-plus-20.png) no-repeat 98.5% 2px #0030a0;
-  text-transform: uppercase;
-  color: #FFF;
-  border-top-left-radius: 7px;
-  border-bottom-left-radius: 7px;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  padding: 3px 3.5em 4px 0.7em;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-  float: left;
-  margin-top: 1em;
-}
-.before-the-campaign .content-box-before .two-box-column .more-link a:hover {
-  color: #FFF;
-  background: url(../images/ico-plus-20-hover.png) no-repeat 98.5% 2px #8fc900;
-  text-decoration: none;
 }
 .before-the-campaign .content-box-before .box-before.news {
   height: 100%;
@@ -3173,6 +3181,26 @@ div.workbench-info-block {
 .node-type-partner [class*="field-type-link"] a:before {
   content: "";
   padding-right: 0;
+}
+/* Become a campaign partner */
+.become-partner-text {
+  width: 56%;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 1em;
+}
+.node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col h2 {
+  color: #0030a0;
+}
+.node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col h2.present-yourself:before {
+  background-image: url(../images/content/gain-visibility.png);
+}
+.node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col h2.promote:before {
+  background-image: url(../images/content/promote-your-news.png);
+}
+.node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col h2.networking:before {
+  background-image: url(../images/content/extend-your-network.png);
 }
 @media (max-width: 1200px) {
   .start-browsing {
