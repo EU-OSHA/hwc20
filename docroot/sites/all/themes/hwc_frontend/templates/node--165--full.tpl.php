@@ -34,27 +34,11 @@
 
   <div class="container">
     <?php
-    print render($content['share_widget']);
-    hide($content['share_widget']);
-    // Additional resources.
-//    if (!empty($content['field_recommended_resources']) || !empty($content['field_recommended_articles'])) {
-//      print '<div class="dot-separator green"></div><div class="icon recommended-resources"></div>' . '<h2>' . t('Recommended resources for you') . '</h2>';
-//      print render($content['field_recommended_resources']);
-//      print render($content['field_recommended_articles']);
-//    }
-//    // Additional resources
-//    if (!empty($content['field_aditional_resources'])) {
-//      print '<div class="dot-separator green"></div><div class="icon additional-resources"></div>' . '<h2>' . t('Additional resources') . '</h2>';
-//      print render($content['field_aditional_resources']);
-//    }
-
     // We hide the comments and links now so that we can render them later.
     hide($content['comments']);
     hide($content['links']);
-    //  print render($content['links']['#links']['addtoany']['title']);
-    //  unset($content['links']['#links']['addtoany']);
-    print render($content);
 
+    print render($content);
     print render($content['links']);
     print render($content['comments']);
     ?>
