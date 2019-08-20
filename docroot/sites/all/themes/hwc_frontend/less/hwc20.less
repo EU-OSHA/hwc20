@@ -52,6 +52,41 @@ select{
 	float: none;
 }
 
+body .more-link{
+	background-color: transparent;
+	padding-left: 0;
+	a{
+		background: url(../images/ico-plus-20.png) no-repeat 98.5% 2px #0030a0;
+	    text-transform: uppercase;
+	    color: #FFF;
+	    border-top-left-radius: 7px;
+	    border-bottom-left-radius: 7px;
+	    border-top-right-radius: 15px;
+	    border-bottom-right-radius: 15px;
+	    padding: 3px 3.5em 4px 0.7em;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		-o-transition: all 0.3s;
+		transition: all 0.3s;
+		float: left;
+		margin-top: 1em;
+	    &:hover{
+	    	color: #FFF;
+	    	background: url(../images/ico-plus-20-hover.png) no-repeat 98.5% 2px #8fc900;
+	    	text-decoration: none;
+	    }
+	}
+	&:before{
+		content: '';
+		display: none;
+	}
+}
+
+.more-link.flex{
+	display: flex;
+    justify-content: center;
+}
+
 .btn-background-transparent{
 	background: transparent;
 	width: 208px;
@@ -438,32 +473,6 @@ ul.time-and-counters{
 					float: left;
 					margin-right: 2em;
 					margin-top: 0.8em;
-				}
-			}
-
-			.more-link{
-				background-color: transparent;
-				padding-left: 0;
-				a{
-					background: url(../images/ico-plus-20.png) no-repeat 98.5% 2px #0030a0;
-				    text-transform: uppercase;
-				    color: #FFF;
-				    border-top-left-radius: 7px;
-				    border-bottom-left-radius: 7px;
-				    border-top-right-radius: 15px;
-				    border-bottom-right-radius: 15px;
-				    padding: 3px 3.5em 4px 0.7em;
-					-webkit-transition: all 0.3s;
-					-moz-transition: all 0.3s;
-					-o-transition: all 0.3s;
-					transition: all 0.3s;
-					float: left;
-					margin-top: 1em;
-				    &:hover{
-				    	color: #FFF;
-				    	background: url(../images/ico-plus-20-hover.png) no-repeat 98.5% 2px #8fc900;
-				    	text-decoration: none;
-				    }
 				}
 			}
 		}
@@ -3608,3 +3617,35 @@ div.workbench-info-block{
 			}
 		}
 }
+
+
+/* Become a campaign partner */
+
+.become-partner-text{
+	width: 56%;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+.node-type-article article .field-name-body.field-type-text-with-summary{
+	.become-partner{
+		.coments .col{
+			h2{
+				color: #0030a0;
+			}
+			h2.present-yourself:before {
+			    background-image: url(../images/content/gain-visibility.png);
+			}
+			h2.promote:before {
+			    background-image: url(../images/content/promote-your-news.png);
+			}
+			h2.networking:before {
+			    background-image: url(../images/content/extend-your-network.png);
+			}
+		}
+	}
+
+}
+

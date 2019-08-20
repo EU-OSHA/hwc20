@@ -12453,13 +12453,10 @@ article .hwc-share-widget ul {
 .become-partner .coments .col h2:before {
   content: " ";
   background: url("../images/content/icono-become-big.png") no-repeat center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display: block;
-  background-size: cover;
-  min-width: 166px;
-  min-height: 165px;
-  max-height: 210px;
-  max-width: 150px;
+  min-width: 130px;
+  min-height: 118px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -12477,10 +12474,6 @@ article .hwc-share-widget ul {
 }
 .become-partner .coments .col h2.visibility:before {
   background-image: url("../images/content/icono-visibility-big.jpg");
-}
-.become-partner .coments .col-2 {
-  border-left: 1px dotted #749b00;
-  border-right: 1px dotted #749b00;
 }
 .become-partner .partners {
   overflow: auto;
