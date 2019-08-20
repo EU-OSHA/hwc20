@@ -16077,9 +16077,10 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .view-id-partners_list .hwc-alphabet-container {
   border-bottom: 1px dotted #749b00;
   padding-bottom: 1em;
+  width: 100%;
 }
 .view-id-partners_list .hwc-char-link {
-  padding: 0px 13px;
+  padding: 0px 13px 0 0;
 }
 .view-id-partners_list .hwc-char-link.disabled {
   cursor: text;
@@ -16114,7 +16115,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .view-id-partners_list .views-row .views-field-field-logo {
   min-height: 146px;
   max-width: 150px;
-  padding: 1em;
   margin: 0 auto;
 }
 .view-id-partners_list .quicktabs-views-group .views-field-title-field,
@@ -19086,41 +19086,50 @@ input#edit-field-image-und-0-upload::before {
 /*enterprise europe network*/
 .page-enterprise-europe-network .main-container.container-fluid,
 .page-national-focal-points .main-container.container-fluid,
-.page-campaign-media-partners .main-container.container-fluid {
+.page-campaign-media-partners .main-container.container-fluid,
+.page-campaign-partners-official-campaign-partners .main-container.container-fluid {
   padding-left: 0px;
   padding-right: 0px;
 }
 .page-enterprise-europe-network #block-system-main h2.pane-title,
 .page-national-focal-points #block-system-main h2.pane-title,
-.page-campaign-media-partners #block-system-main h2.pane-title {
+.page-campaign-media-partners #block-system-main h2.pane-title,
+.page-campaign-partners-official-campaign-partners #block-system-main h2.pane-title {
   display: none;
 }
 .page-enterprise-europe-network #block-system-main .node-article,
 .page-national-focal-points #block-system-main .node-article,
-.page-campaign-media-partners #block-system-main .node-article {
+.page-campaign-media-partners #block-system-main .node-article,
+.page-campaign-partners-official-campaign-partners #block-system-main .node-article {
   margin-right: 0px;
   margin-left: 0px;
 }
 .page-enterprise-europe-network #block-system-main .node-article .field-name-title-field,
 .page-national-focal-points #block-system-main .node-article .field-name-title-field,
-.page-campaign-media-partners #block-system-main .node-article .field-name-title-field {
+.page-campaign-media-partners #block-system-main .node-article .field-name-title-field,
+.page-campaign-partners-official-campaign-partners #block-system-main .node-article .field-name-title-field {
   left: 0px;
 }
 .page-enterprise-europe-network #block-system-main .node-article .field-type-text-with-summary,
 .page-national-focal-points #block-system-main .node-article .field-type-text-with-summary,
-.page-campaign-media-partners #block-system-main .node-article .field-type-text-with-summary {
+.page-campaign-media-partners #block-system-main .node-article .field-type-text-with-summary,
+.page-campaign-partners-official-campaign-partners #block-system-main .node-article .field-type-text-with-summary {
   padding-right: 15px;
   padding-left: 15px;
+  width: 67%;
+  margin: 0 auto;
 }
 .page-enterprise-europe-network #block-system-main .node-article .field-type-text-with-summary p,
 .page-national-focal-points #block-system-main .node-article .field-type-text-with-summary p,
-.page-campaign-media-partners #block-system-main .node-article .field-type-text-with-summary p {
+.page-campaign-media-partners #block-system-main .node-article .field-type-text-with-summary p,
+.page-campaign-partners-official-campaign-partners #block-system-main .node-article .field-type-text-with-summary p {
   text-align: center;
   font-size: 1.2em;
 }
 .page-enterprise-europe-network #block-system-main .node-article .field-type-text-with-summary p:last-child,
 .page-national-focal-points #block-system-main .node-article .field-type-text-with-summary p:last-child,
-.page-campaign-media-partners #block-system-main .node-article .field-type-text-with-summary p:last-child {
+.page-campaign-media-partners #block-system-main .node-article .field-type-text-with-summary p:last-child,
+.page-campaign-partners-official-campaign-partners #block-system-main .node-article .field-type-text-with-summary p:last-child {
   margin-bottom: 10px;
 }
 /*end page enterprise europe network*/
@@ -21132,6 +21141,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
     width: 100%;
     height: 30px;
     margin-bottom: 1em;
+    padding-left: 10px;
   }
   .page-national-focal-points .container,
   .page-official-campaign-partners .container,

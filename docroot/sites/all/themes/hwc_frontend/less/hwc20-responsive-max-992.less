@@ -26,7 +26,7 @@
 	.page_title h1{
 		font-size: 2.6em;
 	    width: 480px;
-	    padding-bottom: 0;
+	    padding-bottom: 0.5em;
 	}
 
 	#block-text-resize-0, #block-hwc-hwc-print-friendly{
@@ -387,8 +387,123 @@
 
 @media (max-width: 1024px){
 
+	.profile-2-cols-container-3 .panels-flexible-column-last .field-type-link-field a{
+		white-space: nowrap; 
+		width: 188px; 
+		overflow: hidden;
+		text-overflow: ellipsis; 
+	}
+
+	.page-enterprise-europe-network #block-system-main .node-article .field-type-text-with-summary, .page-national-focal-points #block-system-main .node-article .field-type-text-with-summary, .page-campaign-media-partners #block-system-main .node-article .field-type-text-with-summary, .page-campaign-partners-official-campaign-partners #block-system-main .node-article .field-type-text-with-summary {
+	    width: 100%;
+	}
+
+	.node-type-partner{
+	[class*="field-type-link"]{
+			font-weight: bold;
+			text-align: left;
+			&[class*="facebook"]{
+				background: url("../images/content/facebook.png") no-repeat left center;
+				padding-left: 30px;
+				margin-bottom: 1em;
+				white-space: nowrap;
+				.field-item{ 
+				  a{
+					white-space: nowrap; 
+					width: 188px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
+				}
+			}
+			&[class*="twitter"]{
+				background: url("../images/content/twitter.png") no-repeat left center;
+				padding-left: 30px;
+				margin-bottom: 1em;
+				.field-item{ 
+				  a{
+					white-space: nowrap; 
+					width: 188px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
+				}
+			}
+			&[class*="slideshare"]{
+				background: url("../images/content/slideshare.png") no-repeat left center;
+				padding-left: 30px;
+				margin-bottom: 1em;
+				.field-item{ 
+				  a{
+					white-space: nowrap; 
+					width: 188px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
+				}
+			}
+			&[class*="youtube"]{
+				background: url("../images/content/youtube.png") no-repeat left center;
+				padding-left: 30px;
+				margin-bottom: 1em;
+				.field-item{ 
+				  a{
+					white-space: nowrap; 
+					width: 188px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
+				}
+			}
+			&[class*="linkedin"]{
+				background: url("../images/content/linkedin.png") no-repeat left center;
+				padding-left: 30px;
+				margin-bottom: 1em;
+				.field-item{ 
+				  a{
+					white-space: nowrap; 
+					width: 188px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
+				}
+			}
+			&[class*="google-plus"]{
+				background: url("../images/content/googleplus.png") no-repeat left center;
+				padding-left: 30px;
+				margin-bottom: 1em;
+				.field-item{ 
+				  a{
+					white-space: nowrap; 
+					width: 188px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
+				}
+			}
+			&[class*="pinterest"]{
+				background: url("../images/content/pinterest.png") no-repeat left center;
+				padding-left: 30px;
+				margin-bottom: 1em;
+				.field-item{ 
+				  a{
+					white-space: nowrap; 
+					width: 188px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
+				}
+			}
+			a{
+				&:before{
+					content: "";
+					padding-right: 0;
+				}
+			}
+		}
+}
+
 	.footer{
-		padding-left: 0;
 		div.container{
 			padding-left: 0;
 			padding-right: 0;

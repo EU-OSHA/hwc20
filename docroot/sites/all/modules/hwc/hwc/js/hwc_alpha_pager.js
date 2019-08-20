@@ -73,13 +73,13 @@
             if (aa_type) {
                 $.each(alphabet, function(idx2, char2) {
                     if ($.inArray(char+''+char2, chars) !== -1) {
-                        output += '<a class="hwc-char-link" href="#hwc-char-' + prefix + '-' + char+''+char2 + '">' + char+''+char2 + '</span>';
+                        output += '<a class="hwc-char-link" href="#hwc-char-' + prefix + '-' + char+''+char2 + '">' + char+''+char2 + '</a> ';
                     }
                 });
             }
             else {
                 if ($.inArray(char, chars) != -1) {
-                    output += '<a class="hwc-char-link" href="#hwc-char-' + prefix + '-' + char + '">' + char + '</span>';
+                    output += '<a class="hwc-char-link" href="#hwc-char-' + prefix + '-' + char + '"> ' + char + '</a> ';
                 }
                 else {
                     //HCW-950: Only the letters with content must be shown.
