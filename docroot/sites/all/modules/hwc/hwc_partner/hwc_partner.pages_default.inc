@@ -3538,7 +3538,10 @@ campaign-partners/national-focal-points
   $pane->style = array(
     'settings' => NULL,
   );
-  $pane->css = array();
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'country-left-column',
+  );
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
@@ -5203,7 +5206,10 @@ campaign-partners/official-campaign-partners
   $pane->style = array(
     'settings' => NULL,
   );
-  $pane->css = array();
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'footer-panel-hwc20',
+  );
   $pane->extras = array();
   $pane->position = 2;
   $pane->locks = array();
@@ -5226,7 +5232,10 @@ campaign-partners/official-campaign-partners
   $pane->style = array(
     'settings' => NULL,
   );
-  $pane->css = array();
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'header-panel-hwc20',
+  );
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
