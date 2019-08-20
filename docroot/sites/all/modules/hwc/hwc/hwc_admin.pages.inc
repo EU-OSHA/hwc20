@@ -64,7 +64,7 @@ function hwc_admin_config_form() {
 
   // Deadline to Download information.
   $form['hwc_partner_download_deadline'] = array(
-    '#title' => 'Campaign partners dowmilestone',
+    '#title' => 'Campaign partners download deadline',
     '#description' => 'Starting from 12:00 AM of the date selected here, the download is no longer visible',
     '#type' => 'date',
     '#default_value' => variable_get('hwc_partner_download_deadline', ''),
