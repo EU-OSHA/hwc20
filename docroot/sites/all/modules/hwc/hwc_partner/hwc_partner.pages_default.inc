@@ -5816,6 +5816,44 @@ campaign-partners/official-campaign-partners
   $display->content['new-0b4279c4-f4de-431f-9738-30d53b5790f0'] = $pane;
   $display->panels['right_'][0] = 'new-0b4279c4-f4de-431f-9738-30d53b5790f0';
   $pane = new stdClass();
+  $pane->pid = 'new-eb585847-4795-4b6d-9822-25da45177327';
+  $pane->panel = 'right_';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_website';
+  $pane->shown = TRUE;
+  $pane->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'hwc_partner_detail_only',
+        'settings' => NULL,
+        'not' => FALSE,
+      ),
+    ),
+  );
+  $pane->configuration = array(
+    'label' => 'hidden',
+    'formatter' => 'link_default',
+    'delta_limit' => 0,
+    'delta_offset' => '0',
+    'delta_reversed' => FALSE,
+    'formatter_settings' => array(),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = 'eb585847-4795-4b6d-9822-25da45177327';
+  $display->content['new-eb585847-4795-4b6d-9822-25da45177327'] = $pane;
+  $display->panels['right_'][1] = 'new-eb585847-4795-4b6d-9822-25da45177327';
+  $pane = new stdClass();
   $pane->pid = 'new-ac9c93c6-d4fe-44bb-9888-a4551b9c5af2';
   $pane->panel = 'right_';
   $pane->type = 'entity_field';
@@ -5853,11 +5891,11 @@ campaign-partners/official-campaign-partners
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 1;
+  $pane->position = 2;
   $pane->locks = array();
   $pane->uuid = 'ac9c93c6-d4fe-44bb-9888-a4551b9c5af2';
   $display->content['new-ac9c93c6-d4fe-44bb-9888-a4551b9c5af2'] = $pane;
-  $display->panels['right_'][1] = 'new-ac9c93c6-d4fe-44bb-9888-a4551b9c5af2';
+  $display->panels['right_'][2] = 'new-ac9c93c6-d4fe-44bb-9888-a4551b9c5af2';
   $pane = new stdClass();
   $pane->pid = 'new-d05c7360-62ae-4b57-a2fa-af756b871d17';
   $pane->panel = 'right_';
@@ -5895,11 +5933,11 @@ campaign-partners/official-campaign-partners
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 2;
+  $pane->position = 3;
   $pane->locks = array();
   $pane->uuid = 'd05c7360-62ae-4b57-a2fa-af756b871d17';
   $display->content['new-d05c7360-62ae-4b57-a2fa-af756b871d17'] = $pane;
-  $display->panels['right_'][2] = 'new-d05c7360-62ae-4b57-a2fa-af756b871d17';
+  $display->panels['right_'][3] = 'new-d05c7360-62ae-4b57-a2fa-af756b871d17';
   $pane = new stdClass();
   $pane->pid = 'new-e36dcb73-9189-40e8-acaa-bdd2574c9377';
   $pane->panel = 'right_';
@@ -5937,11 +5975,11 @@ campaign-partners/official-campaign-partners
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 3;
+  $pane->position = 4;
   $pane->locks = array();
   $pane->uuid = 'e36dcb73-9189-40e8-acaa-bdd2574c9377';
   $display->content['new-e36dcb73-9189-40e8-acaa-bdd2574c9377'] = $pane;
-  $display->panels['right_'][3] = 'new-e36dcb73-9189-40e8-acaa-bdd2574c9377';
+  $display->panels['right_'][4] = 'new-e36dcb73-9189-40e8-acaa-bdd2574c9377';
   $pane = new stdClass();
   $pane->pid = 'new-f6e8ddd1-fd7c-49ef-ab9f-f75e3ed8adbf';
   $pane->panel = 'right_';
@@ -5967,11 +6005,11 @@ campaign-partners/official-campaign-partners
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 4;
+  $pane->position = 5;
   $pane->locks = array();
   $pane->uuid = 'f6e8ddd1-fd7c-49ef-ab9f-f75e3ed8adbf';
   $display->content['new-f6e8ddd1-fd7c-49ef-ab9f-f75e3ed8adbf'] = $pane;
-  $display->panels['right_'][4] = 'new-f6e8ddd1-fd7c-49ef-ab9f-f75e3ed8adbf';
+  $display->panels['right_'][5] = 'new-f6e8ddd1-fd7c-49ef-ab9f-f75e3ed8adbf';
   $pane = new stdClass();
   $pane->pid = 'new-ad3a6d34-f4fa-4fe0-bfc8-5fa8c9c397ec';
   $pane->panel = 'right_';
@@ -6005,49 +6043,11 @@ campaign-partners/official-campaign-partners
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 5;
+  $pane->position = 6;
   $pane->locks = array();
   $pane->uuid = 'ad3a6d34-f4fa-4fe0-bfc8-5fa8c9c397ec';
   $display->content['new-ad3a6d34-f4fa-4fe0-bfc8-5fa8c9c397ec'] = $pane;
-  $display->panels['right_'][5] = 'new-ad3a6d34-f4fa-4fe0-bfc8-5fa8c9c397ec';
-  $pane = new stdClass();
-  $pane->pid = 'new-eb585847-4795-4b6d-9822-25da45177327';
-  $pane->panel = 'right_';
-  $pane->type = 'entity_field';
-  $pane->subtype = 'node:field_website';
-  $pane->shown = TRUE;
-  $pane->access = array(
-    'plugins' => array(
-      0 => array(
-        'name' => 'hwc_partner_detail_only',
-        'settings' => NULL,
-        'not' => FALSE,
-      ),
-    ),
-  );
-  $pane->configuration = array(
-    'label' => 'hidden',
-    'formatter' => 'link_default',
-    'delta_limit' => 0,
-    'delta_offset' => '0',
-    'delta_reversed' => FALSE,
-    'formatter_settings' => array(),
-    'context' => 'argument_entity_id:node_1',
-    'override_title' => 0,
-    'override_title_text' => '',
-    'override_title_heading' => 'h2',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 6;
-  $pane->locks = array();
-  $pane->uuid = 'eb585847-4795-4b6d-9822-25da45177327';
-  $display->content['new-eb585847-4795-4b6d-9822-25da45177327'] = $pane;
-  $display->panels['right_'][6] = 'new-eb585847-4795-4b6d-9822-25da45177327';
+  $display->panels['right_'][6] = 'new-ad3a6d34-f4fa-4fe0-bfc8-5fa8c9c397ec';
   $pane = new stdClass();
   $pane->pid = 'new-249112dd-020c-473e-87b5-653d3edd5346';
   $pane->panel = 'right_';
