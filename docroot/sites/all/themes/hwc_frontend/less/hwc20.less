@@ -164,6 +164,7 @@ body .more-link{
 .panels-flexible-row{
 	h2{
 		font-style: normal;
+		font-weight: 500;
 		clear: both;
 		padding-bottom: 15px;
 	}
@@ -3320,6 +3321,100 @@ div.workbench-info-block{
 	}
 }
 
+/*OCP mission statement*/
+body.ocp .box-type-partner{
+	width: 100%;
+	background: url('../images/background-fop.png') no-repeat;
+	background-size: cover;
+	border-radius: 15px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding-bottom: 10px;
+	
+	.pane-title{
+		color: #FFF;
+	    font-size: 1.4em;
+	    padding-left: 15px;
+	    padding-top: 10px;
+	    font-style: normal;
+	}
+
+	.pane-content{
+		padding: 1em;
+		padding-left: 1em;
+		padding-right: 1em;
+		font-style: italic;
+		color: #FFF;
+	}
+
+	.field-name-field-ceo-photo{
+		width: 100px;
+	    height: 100px;
+	    float: left;
+	    margin-top: 10px;
+	    margin-left: 10px;
+	    background: #FFF;
+	    border-radius: 8px;	
+	    img{
+	    	border: 2px solid #d9e996;
+			border-radius: 7px;	
+	    }
+	}
+
+	.pane-node-field-ceo{
+		font-size: 1.5em;
+		font-weight: bold;
+		padding-left: 145px;
+		.pane-content{
+			padding: 0;
+			font-style: normal;
+		}
+	}
+
+	.pane-node-field-position-identifier{
+		padding-left: 145px;
+		padding-top: 5px;
+		.pane-content{
+			padding: 0;
+			font-style: normal;
+		}
+	}
+
+	.pane-node-field-quote{
+		clear: both;
+	    padding-left: 10px;
+	}
+}
+
+body.ocp .panels-flexible-column-first .pane-node-field-mission-statement , body.ocp .panels-flexible-column-first .pane-node-field-pledge{
+	background: transparent;
+	background-size: initial;
+	margin-top: 1em;
+	border-radius: 15px;
+	margin-bottom: 1em;
+	.pane-title{
+		float: none;
+		color: #003399;
+		font-weight: 500;
+		font-size: 1.5em;
+		padding: 0 0 10px 0;
+	}
+
+	.pane-content{
+		padding: 1em;
+		padding-left: 1em;
+		padding-right: 1em;
+		font-style: normal;
+		color: #000;
+		padding: 0;
+	}
+}
+
+body.ocp .panels-flexible-row-partner_detail-16-inside .panels-flexible-region-first {
+	float: right;
+	padding-right: 0;
+}
+
 .panels-flexible-row{
 	.hwc-share-widget{
 		float: right;
@@ -3369,14 +3464,53 @@ div.workbench-info-block{
 
 .panels-flexible-region{
 
-	.view-partner-content{
-		.views-row{
-			padding: 0;
+	.pane-node-field-main-contact{
+		clear: both;
+	}
+
+	.pane-node-field-orgtype{
+		.pane-title{
+			float: left;
+			text-transform: uppercase;
+			border: 2px solid #d9e996;
+			border-radius: 5px;
+			padding: 3px 8px;
+			color: #003399;
+			font-weight: 600;
+			margin-right: 10px;
+		}
+		.pane-content{
+			float: left;
+			color: #333;
+			.field-name-field-orgtype{
+				padding-top: 4px;
+				font-weight: normal;
+			}
 		}
 	}
 
-	.pane-node-field-website{
-		clear: both;
+	.pane-node-field-bussines-sector{
+		float: right;
+		padding-top: 0 !important;
+		margin-right: 2em;
+		.pane-title{
+			float: left;
+			text-transform: uppercase;
+			border: 2px solid #d9e996;
+			border-radius: 5px;
+			padding: 3px 8px;
+			color: #003399;
+			font-weight: 600;
+			margin-right: 10px;
+		}
+		.pane-content{
+			float: left;
+			color: #333;
+			.field-type-taxonomy-term-reference{
+				padding-top: 4px;
+				font-weight: normal;
+			}
+		}
 	}
 
 	.field-name-field-abbreviation-name, .field-name-field-orgtype, .pane-node-field-bussines-sector{
@@ -3399,7 +3533,7 @@ div.workbench-info-block{
 		padding-top: 1em;
 	}
 
-	.pane-node-field-general-phone{
+	.pane-node-field-general-phone, .pane-node-field-organisation-rep{
 		padding-top: 10px;
 		.pane-title{
 			color: #333;
@@ -3477,12 +3611,11 @@ div.workbench-info-block{
 
 .panels-flexible-column-last{
 	 padding-left: 2em !important;
-
 	.pane-title{
 		float: none;
 		color: #003399;
 		font-weight: bold;
-		font-size: 1.5em;
+		font-size: 1.2em;
 		padding-bottom: 10px;
 	}
 
@@ -3507,111 +3640,109 @@ div.workbench-info-block{
 	}
 }
 
-
-
 .node-type-partner{
 	[class*="field-type-link"]{
-			font-weight: bold;
-			text-align: left;
-			&[class*="facebook"]{
-				background: url("../images/content/facebook.png") no-repeat left center;
-				padding-left: 30px;
-				margin-bottom: 1em;
-				white-space: nowrap;
-				.field-item{ 
-				  a{
-					white-space: nowrap; 
-					width: 280px; 
-					overflow: hidden;
-					text-overflow: ellipsis; 
-					}
-				}
-			}
-			&[class*="twitter"]{
-				background: url("../images/content/twitter.png") no-repeat left center;
-				padding-left: 30px;
-				margin-bottom: 1em;
-				.field-item{ 
-				  a{
-					white-space: nowrap; 
-					width: 280px; 
-					overflow: hidden;
-					text-overflow: ellipsis; 
-					}
-				}
-			}
-			&[class*="slideshare"]{
-				background: url("../images/content/slideshare.png") no-repeat left center;
-				padding-left: 30px;
-				margin-bottom: 1em;
-				.field-item{ 
-				  a{
-					white-space: nowrap; 
-					width: 280px; 
-					overflow: hidden;
-					text-overflow: ellipsis; 
-					}
-				}
-			}
-			&[class*="youtube"]{
-				background: url("../images/content/youtube.png") no-repeat left center;
-				padding-left: 30px;
-				margin-bottom: 1em;
-				.field-item{ 
-				  a{
-					white-space: nowrap; 
-					width: 280px; 
-					overflow: hidden;
-					text-overflow: ellipsis; 
-					}
-				}
-			}
-			&[class*="linkedin"]{
-				background: url("../images/content/linkedin.png") no-repeat left center;
-				padding-left: 30px;
-				margin-bottom: 1em;
-				.field-item{ 
-				  a{
-					white-space: nowrap; 
-					width: 280px; 
-					overflow: hidden;
-					text-overflow: ellipsis; 
-					}
-				}
-			}
-			&[class*="google-plus"]{
-				background: url("../images/content/googleplus.png") no-repeat left center;
-				padding-left: 30px;
-				margin-bottom: 1em;
-				.field-item{ 
-				  a{
-					white-space: nowrap; 
-					width: 280px; 
-					overflow: hidden;
-					text-overflow: ellipsis; 
-					}
-				}
-			}
-			&[class*="pinterest"]{
-				background: url("../images/content/pinterest.png") no-repeat left center;
-				padding-left: 30px;
-				margin-bottom: 1em;
-				.field-item{ 
-				  a{
-					white-space: nowrap; 
-					width: 280px; 
-					overflow: hidden;
-					text-overflow: ellipsis; 
-					}
-				}
-			}
-			a{
-				&:before{
-					content: "";
-					padding-right: 0;
+		font-weight: bold;
+		text-align: left;
+		&[class*="facebook"]{
+			background: url("../images/header/header-ico-facebook.png") no-repeat left center;
+			padding-left: 30px;
+			margin-bottom: 1em;
+			white-space: nowrap;
+			.field-item{ 
+			  a{
+				white-space: nowrap; 
+				width: 280px; 
+				overflow: hidden;
+				text-overflow: ellipsis; 
 				}
 			}
 		}
+		&[class*="twitter"]{
+			background: url("../images/header/header-ico-twetter.png") no-repeat left center;
+			padding-left: 30px;
+			margin-bottom: 1em;
+			.field-item{ 
+			  a{
+				white-space: nowrap; 
+				width: 280px; 
+				overflow: hidden;
+				text-overflow: ellipsis; 
+				}
+			}
+		}
+		&[class*="slideshare"]{
+			background: url("../images/header/header-ico-slideshare.png") no-repeat left center;
+			padding-left: 30px;
+			margin-bottom: 1em;
+			.field-item{ 
+			  a{
+				white-space: nowrap; 
+				width: 280px; 
+				overflow: hidden;
+				text-overflow: ellipsis; 
+				}
+			}
+		}
+		&[class*="youtube"]{
+			background: url("../images/header/header-ico-youtube.png") no-repeat left center;
+			padding-left: 30px;
+			margin-bottom: 1em;
+			.field-item{ 
+			  a{
+				white-space: nowrap; 
+				width: 280px; 
+				overflow: hidden;
+				text-overflow: ellipsis; 
+				}
+			}
+		}
+		&[class*="linkedin"]{
+			background: url("../images/header/header-ico-linkedin.png") no-repeat left 2px;
+			padding-left: 30px;
+			margin-bottom: 1em;
+			.field-item{ 
+			  a{
+				white-space: nowrap; 
+				width: 280px; 
+				overflow: hidden;
+				text-overflow: ellipsis; 
+				}
+			}
+		}
+		&[class*="google-plus"]{
+			background: url("../images/content/googleplus.png") no-repeat left center;
+			padding-left: 30px;
+			margin-bottom: 1em;
+			.field-item{ 
+			  a{
+				white-space: nowrap; 
+				width: 280px; 
+				overflow: hidden;
+				text-overflow: ellipsis; 
+				}
+			}
+		}
+		&[class*="pinterest"]{
+			background: url("../images/content/pinterest.png") no-repeat left center;
+			padding-left: 30px;
+			margin-bottom: 1em;
+			.field-item{ 
+			  a{
+				white-space: nowrap; 
+				width: 280px; 
+				overflow: hidden;
+				text-overflow: ellipsis; 
+				}
+			}
+		}
+		a{
+			&:before{
+				content: "";
+				padding-right: 0;
+			}
+		}
+	}
 }
 
 
