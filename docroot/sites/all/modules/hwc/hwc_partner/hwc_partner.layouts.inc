@@ -140,6 +140,7 @@ function hwc_partner_default_panels_layout() {
           2 => 14,
           3 => 10,
           4 => 13,
+          5 => 16,
         ),
         'class' => 'col-sm-8',
         'hide_empty' => 0,
@@ -233,6 +234,16 @@ function hwc_partner_default_panels_layout() {
         'class' => 'top',
         'hide_empty' => 0,
       ),
+      16 => array(
+        'type' => 'row',
+        'contains' => 'region',
+        'children' => array(
+          0 => 'left_bottom_2',
+        ),
+        'parent' => '7',
+        'class' => 'top',
+        'hide_empty' => 0,
+      ),
       'left_init' => array(
         'type' => 'region',
         'title' => 'Left Init',
@@ -258,6 +269,15 @@ function hwc_partner_default_panels_layout() {
         'width_type' => '%',
         'parent' => '13',
         'class' => '',
+        'hide_empty' => 0,
+      ),
+      'left_bottom_2' => array(
+        'type' => 'region',
+        'title' => 'Left Bottom 2',
+        'width' => 100,
+        'width_type' => '%',
+        'parent' => '16',
+        'class' => 'box-type-partner',
         'hide_empty' => 0,
       ),
       'left_top_left' => array(

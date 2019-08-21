@@ -5074,6 +5074,7 @@ campaign-partners/official-campaign-partners
       'left_top_left' => NULL,
       'right_top_left' => NULL,
       'left_init' => NULL,
+      'left_bottom_2' => NULL,
     ),
   );
   $display->cache = array();
@@ -5278,7 +5279,7 @@ campaign-partners/official-campaign-partners
   $display->panels['left_bottom'][3] = 'new-9dca80f0-8993-49f6-aa29-a8c69d918778';
   $pane = new stdClass();
   $pane->pid = 'new-34b5f1b0-91b6-4753-b7b1-117ed0171c94';
-  $pane->panel = 'left_bottom';
+  $pane->panel = 'left_bottom_2';
   $pane->type = 'block';
   $pane->subtype = 'hwc-page_share_widget';
   $pane->shown = TRUE;
@@ -5297,11 +5298,11 @@ campaign-partners/official-campaign-partners
     'css_class' => 'footer-panel-hwc20',
   );
   $pane->extras = array();
-  $pane->position = 4;
+  $pane->position = 0;
   $pane->locks = array();
   $pane->uuid = '34b5f1b0-91b6-4753-b7b1-117ed0171c94';
   $display->content['new-34b5f1b0-91b6-4753-b7b1-117ed0171c94'] = $pane;
-  $display->panels['left_bottom'][4] = 'new-34b5f1b0-91b6-4753-b7b1-117ed0171c94';
+  $display->panels['left_bottom_2'][0] = 'new-34b5f1b0-91b6-4753-b7b1-117ed0171c94';
   $pane = new stdClass();
   $pane->pid = 'new-b7960cca-1144-47c8-94be-125ffa91d375';
   $pane->panel = 'left_init';
