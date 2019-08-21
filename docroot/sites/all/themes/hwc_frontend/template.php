@@ -117,6 +117,17 @@ function hwc_frontend_preprocess_html(&$vars) {
   $n = menu_get_object('node');
   if ($n) {
     switch ($n->type) {
+      case "partner":
+        $tid = $n->field_partner_type[LANGUAGE_NONE][0]['tid'];
+        $map = [
+          185 => 'ocp',
+          186 => 'mp',
+          1804 => 'een',
+          187 => 'fop',
+        ];
+        $vars['classes_array'][] = $map[$tid];
+        break;
+
       case "tk_section":
       case "tk_article":
       case "tk_tool":
