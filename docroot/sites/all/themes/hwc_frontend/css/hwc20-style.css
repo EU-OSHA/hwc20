@@ -3180,9 +3180,6 @@ div.workbench-info-block {
 }
 /* Become a campaign partner */
 .become-partner-text {
-  width: 56%;
-  display: block;
-  margin: 0 auto;
   text-align: center;
   padding-bottom: 1em;
 }
@@ -3217,6 +3214,8 @@ div.workbench-info-block {
 }
 .node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col .more-link a {
   font-size: 0.9em;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 .how-to-apply {
   background: url('../images/background-timeline.png') no-repeat;
@@ -3253,6 +3252,7 @@ div.workbench-info-block {
   padding-left: 5px;
   padding-right: 35px;
   border-radius: 3px;
+  text-decoration: none;
 }
 .how-to-apply .boxes .box.inactive {
   background: #efeff0;
@@ -3286,12 +3286,12 @@ div.workbench-info-block {
 }
 .how-to-apply > div.boxes > div:nth-child(2) {
   position: absolute;
-  left: 43%;
+  left: 42%;
   top: 73px;
 }
 .how-to-apply > div.boxes > div:nth-child(3) {
   position: absolute;
-  right: 4%;
+  right: 5%;
   top: 73px;
 }
 .timeline {
@@ -3324,7 +3324,7 @@ div.workbench-info-block {
 }
 .timeline > div:nth-child(2) {
   position: absolute;
-  left: 30%;
+  left: 29%;
   top: 9px;
   font-weight: bold;
 }
@@ -3347,7 +3347,7 @@ div.workbench-info-block {
 }
 .timeline > div:nth-child(4) {
   position: absolute;
-  right: 30%;
+  right: 27%;
   top: 9px;
   font-weight: bold;
 }
@@ -4279,10 +4279,6 @@ div.workbench-info-block {
   .panels-flexible-column-last {
     padding-left: 0 !important;
   }
-  /* Become a campaign partnet */
-  .become-partner-text {
-    width: 100%;
-  }
   .node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col-sm-12.col-md-12.col-xs-12 {
     display: block;
   }
@@ -4311,16 +4307,16 @@ div.workbench-info-block {
   }
   .timeline {
     width: 100%;
+    height: 654px;
     text-align: center;
     float: left;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background: url(../images/timeline-dots-vertical.png) repeat-y 11% 0;
+    background: url(../images/timeline-dots-vertical.png) repeat-y 39px 0;
     padding-top: 70px;
     padding-bottom: 1em;
     position: relative;
-    height: 100%;
   }
   .timeline > div {
     float: left;
@@ -4353,11 +4349,13 @@ div.workbench-info-block {
     top: 318px;
   }
   .timeline > div:nth-child(4) {
-    left: 68px;
-    top: 425px;
+    position: absolute;
+    left: 101px;
+    top: 429px;
+    right: auto;
   }
   .timeline > div:nth-child(4):after {
-    left: -35px;
+    left: -67px;
     top: 3px;
   }
   .timeline > div:nth-child(5) {
