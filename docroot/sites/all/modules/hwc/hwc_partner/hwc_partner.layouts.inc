@@ -268,7 +268,7 @@ function hwc_partner_default_panels_layout() {
         'width' => 100,
         'width_type' => '%',
         'parent' => '13',
-        'class' => '',
+        'class' => 'box-type-partner',
         'hide_empty' => 0,
       ),
       'left_bottom_2' => array(
@@ -277,7 +277,7 @@ function hwc_partner_default_panels_layout() {
         'width' => 100,
         'width_type' => '%',
         'parent' => '16',
-        'class' => 'box-type-partner',
+        'class' => '',
         'hide_empty' => 0,
       ),
       'left_top_left' => array(
