@@ -279,6 +279,11 @@ body > div.main-container > div > aside > div > div:nth-child(2){
     padding-right: 0;
 }
 
+.page-search .block-osha-search{
+    margin-top: 6px;
+    padding-left: 0;
+}
+
 .page-search .region-sidebar-first .views-exposed-widgets .views-submit-button button{
     right: 6px;
     top: 13px;
@@ -293,7 +298,8 @@ body > div.main-container > div > aside > div > div:nth-child(2){
 .page-search .region-sidebar-first .block.block-facetapi{
     clear: both;
     width: 100%;
-    border-bottom: 1px solid #003399;
+    border: 1px solid #003399;
+    background: #FFF;
 }
 
 .page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]{

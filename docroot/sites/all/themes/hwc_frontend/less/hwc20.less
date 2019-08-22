@@ -1761,7 +1761,16 @@ aside.col-md-3{
     margin-bottom: 1em;
 }
 
-.region-sidebar-first .contextual-links-region, .sidebars_first .content-filters{
+.region-sidebar-first .contextual-links-region{
+    float: left;
+    padding: 0em 0.5em 0 1em;
+    border: 0;
+    border-radius: 5px;
+    margin-top: 26px;
+    width: 93%;
+}
+
+.sidebars_first .content-filters{
     float: left;
     padding: 0em 0.5em 0 1em;
     border: 1px solid #003399;
@@ -2797,12 +2806,12 @@ span.pages{
 						    }
 						}
 					}
-					.views-field-field-article-type{
+					.views-field-field-article-type, .views-field-field-publication-type, .views-field-field-country, .views-field-field-file{
 						color: #003399;
-					}
-
-					.views-field-field-country{
-						padding-top: 5px;
+						padding-top: 10px;
+						.views-label{
+							font-weight: bold;
+						}
 					}
 				}
 			}
@@ -3263,11 +3272,13 @@ div.workbench-info-block{
 	}
 }
 
+
+/* PANELS - National Focal Points, Official Campaign Partners, Media Partner, Enterprise Europe Network (EEN OSH Ambassadors) */
+
 .view-id-partners_list .hwc-char-link, .view-id-partners_list .quicktabs-tabs li, .view-id-partners_list div[id*="hwc-char-"]{
 	font-weight: bold;
+	font-size: 1.2em;
 }
-
-/* National Focal Points detail  */
 
 .not-logged-in .profile-edit-links-container .panels-flexible-region-inside-first{
 	display: none;
@@ -3307,112 +3318,16 @@ div.workbench-info-block{
 	.pane-title{
 		color: #FFF;
 	    font-size: 1.4em;
-	    padding-left: 15px;
-	    padding-top: 10px;
+	    padding-left: 20px;
+	    padding-top: 15px;
 	    font-style: normal;
 	}
 
 	.pane-content{
-		padding: 1em;
-		padding-left: 1em;
-		padding-right: 1em;
-		font-style: italic;
-		color: #FFF;
+	 	padding: 10px 20px 20px 20px;
+	    font-style: italic;
+	    color: #FFF;
 	}
-}
-
-/*OCP mission statement*/
-body.ocp .box-type-partner{
-	width: 100%;
-	background: url('../images/background-fop.png') no-repeat;
-	background-size: cover;
-	border-radius: 15px;
-	margin-top: 1em;
-	margin-bottom: 1em;
-	padding-bottom: 10px;
-	
-	.pane-title{
-		color: #FFF;
-	    font-size: 1.4em;
-	    padding-left: 15px;
-	    padding-top: 10px;
-	    font-style: normal;
-	}
-
-	.pane-content{
-		padding: 1em;
-		padding-left: 1em;
-		padding-right: 1em;
-		font-style: italic;
-		color: #FFF;
-	}
-
-	.field-name-field-ceo-photo{
-		width: 100px;
-	    height: 100px;
-	    float: left;
-	    margin-top: 10px;
-	    margin-left: 10px;
-	    background: #FFF;
-	    border-radius: 8px;	
-	    img{
-	    	border: 2px solid #d9e996;
-			border-radius: 7px;	
-	    }
-	}
-
-	.pane-node-field-ceo{
-		font-size: 1.5em;
-		font-weight: bold;
-		padding-left: 145px;
-		.pane-content{
-			padding: 0;
-			font-style: normal;
-		}
-	}
-
-	.pane-node-field-position-identifier{
-		padding-left: 145px;
-		padding-top: 5px;
-		.pane-content{
-			padding: 0;
-			font-style: normal;
-		}
-	}
-
-	.pane-node-field-quote{
-		clear: both;
-	    padding-left: 10px;
-	}
-}
-
-body.ocp .panels-flexible-column-first .pane-node-field-mission-statement , body.ocp .panels-flexible-column-first .pane-node-field-pledge{
-	background: transparent;
-	background-size: initial;
-	margin-top: 1em;
-	border-radius: 15px;
-	margin-bottom: 1em;
-	.pane-title{
-		float: none;
-		color: #003399;
-		font-weight: 500;
-		font-size: 1.5em;
-		padding: 0 0 10px 0;
-	}
-
-	.pane-content{
-		padding: 1em;
-		padding-left: 1em;
-		padding-right: 1em;
-		font-style: normal;
-		color: #000;
-		padding: 0;
-	}
-}
-
-body.ocp .panels-flexible-row-partner_detail-16-inside .panels-flexible-region-first {
-	float: right;
-	padding-right: 0;
 }
 
 .panels-flexible-row{
@@ -3468,53 +3383,9 @@ body.ocp .panels-flexible-row-partner_detail-16-inside .panels-flexible-region-f
 		clear: both;
 	}
 
-	.pane-node-field-orgtype{
-		.pane-title{
-			float: left;
-			text-transform: uppercase;
-			border: 2px solid #d9e996;
-			border-radius: 5px;
-			padding: 3px 8px;
-			color: #003399;
-			font-weight: 600;
-			margin-right: 10px;
-		}
-		.pane-content{
-			float: left;
-			color: #333;
-			.field-name-field-orgtype{
-				padding-top: 4px;
-				font-weight: normal;
-			}
-		}
-	}
-
-	.pane-node-field-bussines-sector{
-		float: right;
-		padding-top: 0 !important;
-		margin-right: 2em;
-		.pane-title{
-			float: left;
-			text-transform: uppercase;
-			border: 2px solid #d9e996;
-			border-radius: 5px;
-			padding: 3px 8px;
-			color: #003399;
-			font-weight: 600;
-			margin-right: 10px;
-		}
-		.pane-content{
-			float: left;
-			color: #333;
-			.field-type-taxonomy-term-reference{
-				padding-top: 4px;
-				font-weight: normal;
-			}
-		}
-	}
-
 	.field-name-field-abbreviation-name, .field-name-field-orgtype, .pane-node-field-bussines-sector{
 		font-weight: bold;
+		clear: both;
 	}
 
 	.field-name-field-orgtype, .pane-node-field-bussines-sector{
@@ -3606,6 +3477,7 @@ body.ocp .panels-flexible-row-partner_detail-16-inside .panels-flexible-region-f
 	.field-type-link-field a{
 		font-style: italic;
 		font-weight: 600;
+		padding-bottom: 5px;
 	}
 }
 
@@ -3741,6 +3613,183 @@ body.ocp .panels-flexible-row-partner_detail-16-inside .panels-flexible-region-f
 				content: "";
 				padding-right: 0;
 			}
+		}
+	}
+}
+
+/* Types partnet special styles */
+
+/*OCP mission statement*/
+body.ocp .box-type-partner{
+	width: 100%;
+	background: url('../images/background-fop.png') no-repeat;
+	background-size: cover;
+	border-radius: 15px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding-bottom: 10px;
+	
+	.pane-title{
+		color: #FFF;
+	    font-size: 1.4em;
+	    padding-left: 15px;
+	    padding-top: 10px;
+	    font-style: normal;
+	}
+
+	.pane-content{
+		padding: 1em;
+		padding-left: 1em;
+		padding-right: 1em;
+		font-style: italic;
+		color: #FFF;
+	}
+
+	.field-name-field-ceo-photo{
+		width: 100px;
+	    height: 100px;
+	    float: left;
+	    margin-top: 10px;
+	    margin-left: 10px;
+	    background: #FFF;
+	    border-radius: 8px;	
+	    img{
+	    	border: 2px solid #d9e996;
+			border-radius: 7px;	
+	    }
+	}
+
+	.pane-node-field-ceo{
+		font-size: 1.5em;
+		font-weight: bold;
+		padding-left: 145px;
+		.pane-content{
+			padding: 0;
+			font-style: normal;
+		}
+	}
+
+	.pane-node-field-position-identifier{
+		padding-left: 145px;
+		padding-top: 5px;
+		.pane-content{
+			padding: 0;
+			font-style: normal;
+		}
+	}
+
+	.pane-node-field-quote{
+		clear: both;
+	    padding-left: 10px;
+	}
+}
+
+
+body.ocp, body.mp{
+	.panels-flexible-column-first{
+		.pane-node-field-mission-statement, .pane-node-field-pledge{
+			background: transparent;
+			background-size: initial;
+			margin-top: 1em;
+			border-radius: 15px;
+			margin-bottom: 1em;
+			.pane-title{
+				float: none;
+				color: #003399;
+				font-weight: 500;
+				font-size: 1.5em;
+				padding: 0 0 10px 0;
+			}
+
+			.pane-content{
+				padding: 1em;
+				padding-left: 1em;
+				padding-right: 1em;
+				font-style: normal;
+				color: #000;
+				padding: 0;
+			}
+		}
+	}
+
+	.panels-flexible-row-partner_detail-16-inside .panels-flexible-region-first {
+		float: right;
+		padding-right: 0;
+	}
+
+	.pane-node-field-orgtype{
+		.pane-title{
+			float: left;
+			text-transform: uppercase;
+			border: 2px solid #d9e996;
+			border-radius: 5px;
+			padding: 3px 8px;
+			color: #003399;
+			font-weight: 600;
+			margin-right: 10px;
+		}
+		.pane-content{
+			float: left;
+			color: #333;
+			.field-name-field-orgtype{
+				padding-top: 4px;
+				font-weight: normal;
+			}
+		}
+	}
+
+	.pane-node-field-bussines-sector{
+		float: right;
+		padding-top: 0 !important;
+		margin-right: 2em;
+		clear: none;
+		.pane-title{
+			float: left;
+			text-transform: uppercase;
+			border: 2px solid #d9e996;
+			border-radius: 5px;
+			padding: 3px 8px;
+			color: #003399;
+			font-weight: 600;
+			margin-right: 10px;
+		}
+		.pane-content{
+			float: left;
+			color: #333;
+			.field-type-taxonomy-term-reference{
+				padding-top: 4px;
+				font-weight: normal;
+			}
+		}
+	}
+}
+
+body.fop{ 
+	.panels-flexible-region .pane-node-field-bussines-sector, .panels-flexible-region .pane-node-field-orgtype{
+		float: none;
+		clear: both;
+		.pane-content{
+			.field-type-taxonomy-term-reference, .field-type-link-field, .field-name-field-orgtype, .field-name-field-orgtype{
+				clear: both;
+				float: none;
+				font-weight:bold;
+			}
+		} 
+	}
+
+	.panels-flexible-region-partner_detail-left_left{
+		.field-name-field-abbreviation-name, .field-type-taxonomy-term-reference, .field-type-link-field, .field-name-field-orgtype, .field-name-field-orgtype {
+			font-weight: bold;
+    		clear: both;
+		}
+	}
+}
+
+body.een{
+	.panels-flexible-region-partner_detail-left_right-inside{
+		.field-type-link-field, .field-name-field-abbreviation-name, .field-name-field-orgtype, .pane-node-field-bussines-sector, .field-type-taxonomy-term-reference{
+			font-weight: bold;
+    		clear: both;
 		}
 	}
 }
