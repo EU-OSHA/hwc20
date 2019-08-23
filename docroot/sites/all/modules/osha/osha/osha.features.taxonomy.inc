@@ -13,7 +13,7 @@ function osha_taxonomy_default_vocabularies() {
       'name' => 'Tags',
       'machine_name' => 'tags',
       'description' => 'Use tags to group articles on similar topics into categories.',
-      'hierarchy' => 0,
+      'hierarchy' => 1,
       'module' => 'taxonomy',
       'weight' => 0,
       'language' => 'und',

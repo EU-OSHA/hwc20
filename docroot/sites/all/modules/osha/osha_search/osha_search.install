@@ -180,3 +180,10 @@ function osha_search_update_7020() {
 function osha_search_update_7021() {
   features_revert(array('osha_search' => ['views_view']));
 }
+
+/**
+ * MDR-2764 and MDR-2765.
+ */
+function osha_search_update_7022() {
+  features_revert_module('osha_search');
+}

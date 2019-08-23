@@ -29,17 +29,7 @@ function hwc_previous_campaigns_image_default_styles() {
   // Exported image style: relres.
   $styles['relres'] = array(
     'label' => 'relres',
-    'effects' => array(
-      9 => array(
-        'name' => 'image_scale',
-        'data' => array(
-          'width' => 40,
-          'height' => 40,
-          'upscale' => 1,
-        ),
-        'weight' => 2,
-      ),
-    ),
+    'effects' => array(),
   );
 
   return $styles;

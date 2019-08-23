@@ -415,3 +415,10 @@ function osha_update_7033() {
 function osha_update_7034() {
   module_enable(array('pagerer'));
 }
+
+/**
+ * MDR-2764 and MDR-2765.
+ */
+function osha_update_7035() {
+  features_revert_module('osha_search');
+}

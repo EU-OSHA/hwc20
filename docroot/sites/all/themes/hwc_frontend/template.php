@@ -855,7 +855,57 @@ function hwc_frontend_on_the_web_image($variables) {
   return theme('image', $variables);
 }
 
+function hwc_frontend_implode_comma_and_join($names) {
+  $last = array_pop($names);
+  if ($names) {
+    return implode(', ', $names) . ' ' . t('and') . ' ' . $last;
+  }
+  return $last;
+}
+
 function hwc_frontend_checkboxes($variables) {
+  if ($variables['element']['#name'] == 'main_tags') {
+    $map = osha_publication_get_main_tags_map();
+    foreach ($variables['element']['#options'] as $tid => $title) {
+      $sub_tids = [];
+      foreach ($map as $sub_tid => $main_tid) {
+        if ($tid == $main_tid) {
+          $sub_tids[$sub_tid] = $sub_tid;
+        }
+      }
+      if (count($sub_tids) > 1) {
+        foreach ($sub_tids as $sub_tid) {
+          $term = taxonomy_term_load($sub_tid);
+          $sub_tids[$sub_tid] = $term->name;
+        }
+        $search = 'for="edit-main-tags-' . $tid . '"';
+        $attr = drupal_attributes(['title' => $title . ' ' . t('include') . ' ' . hwc_frontend_implode_comma_and_join($sub_tids)]);
+        $variables['element']['#children'] = str_replace($search, $search . ' ' . $attr, $variables['element']['#children']);
+      }
+    }
+  }
+
+  if ($variables['element']['#name'] == 'field_publication_type') {
+    $map = osha_publication_get_main_publication_types_map();
+    foreach ($variables['element']['#options'] as $tid => $title) {
+      $sub_tids = [];
+      foreach ($map as $sub_tid => $main_tid) {
+        if ($tid == $main_tid) {
+          $sub_tids[$sub_tid] = $sub_tid;
+        }
+      }
+      if (count($sub_tids) > 1) {
+        foreach ($sub_tids as $sub_tid) {
+          $term = taxonomy_term_load($sub_tid);
+          $sub_tids[$sub_tid] = $term->name;
+        }
+        $search = 'for="edit-field-publication-type-' . $tid . '"';
+        $attr = drupal_attributes(['title' => $title . ' ' . t('include') . ' ' . hwc_frontend_implode_comma_and_join($sub_tids)]);
+        $variables['element']['#children'] = str_replace($search, $search . ' ' . $attr, $variables['element']['#children']);;
+      }
+    }
+  }
+
   $element = $variables['element'];
   $attributes = array();
   if (isset($element['#id'])) {

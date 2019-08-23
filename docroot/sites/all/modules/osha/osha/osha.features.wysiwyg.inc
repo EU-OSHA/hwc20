@@ -64,9 +64,6 @@ function osha_wysiwyg_default_profiles() {
         ),
         'drupal' => array(
           'media' => 1,
-          'accordion' => 1,
-          'accordion_header' => 1,
-          'accordion_panel' => 1,
         ),
       ),
       'toolbar_loc' => 'top',
@@ -82,7 +79,7 @@ function osha_wysiwyg_default_profiles() {
       'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6,div',
       'css_setting' => 'theme',
       'css_path' => '',
-      'css_classes' => '',
+      'css_classes' => 'external-link',
     ),
     'rdf_mapping' => array(),
   );

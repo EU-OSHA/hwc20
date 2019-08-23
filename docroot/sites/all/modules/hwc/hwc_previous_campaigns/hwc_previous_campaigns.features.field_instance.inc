@@ -663,7 +663,7 @@ function hwc_previous_campaigns_field_default_field_instances() {
     'bundle' => 'campaign_18',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'You can add an external link ico with the class \'link\'',
     'display' => array(
       'body' => array(
         'label' => 'above',
@@ -748,22 +748,35 @@ function hwc_previous_campaigns_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'body',
     'label' => 'Body',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
-      'display_summary' => TRUE,
+      'display_summary' => 1,
       'entity_translation_sync' => FALSE,
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
+        'maxlength_js' => '',
+        'maxlength_js_enforce' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_label_summary' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_summary' => '',
+        'maxlength_js_truncate_html' => 0,
         'rows' => 20,
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
       'weight' => 5,
     ),
+    'workbench_access_field' => 0,
   );
 
   // Exported field_instance: 'node-campaign_18-field_article_type'.
@@ -1522,6 +1535,7 @@ function hwc_previous_campaigns_field_default_field_instances() {
   t('Section icon');
   t('Section type');
   t('Title');
+  t('You can add an external link ico with the class \'link\'');
 
   return $field_instances;
 }

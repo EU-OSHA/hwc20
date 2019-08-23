@@ -871,7 +871,7 @@ el.remove();
       'display' => array(
         'share_widget' => array(
           'default' => array(
-            'weight' => '0',
+            'weight' => '4',
             'visible' => TRUE,
           ),
           'body' => array(

@@ -206,6 +206,10 @@ function osha_publication_strongarm() {
       ),
       'display' => array(
         'share_widget' => array(
+          'default' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
           'pub_teaser' => array(
             'weight' => '0',
             'visible' => TRUE,
