@@ -175,22 +175,22 @@ function hwc_previous_campaigns_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '10',
+          'weight' => '11',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '9',
+          'weight' => '10',
         ),
         'redirect' => array(
-          'weight' => '7',
-        ),
-        'xmlsitemap' => array(
           'weight' => '8',
         ),
+        'xmlsitemap' => array(
+          'weight' => '9',
+        ),
         'language' => array(
-          'weight' => '6',
+          'weight' => '7',
         ),
       ),
       'display' => array(
@@ -272,22 +272,22 @@ function hwc_previous_campaigns_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '10',
+          'weight' => '11',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '7',
-        ),
-        'redirect' => array(
-          'weight' => '9',
-        ),
-        'xmlsitemap' => array(
           'weight' => '8',
         ),
+        'redirect' => array(
+          'weight' => '10',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '9',
+        ),
         'language' => array(
-          'weight' => '6',
+          'weight' => '7',
         ),
       ),
       'display' => array(
