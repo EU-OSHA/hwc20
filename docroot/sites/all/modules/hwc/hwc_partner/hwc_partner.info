@@ -1,7 +1,7 @@
 name = HWC Partner
 core = 7.x
 package = HWC
-version = 7.x-1.12
+version = 7.x-1.13
 project = hwc_partner
 dependencies[] = context
 dependencies[] = ctools
@@ -39,6 +39,8 @@ features[fe_block_settings][] = hwc_partner-hwc_partner_login_text
 features[fe_block_settings][] = hwc_partner-hwc_partner_private_link_0
 features[fe_block_settings][] = hwc_partner-hwc_partner_private_link_1
 features[fe_block_settings][] = hwc_partner-hwc_partner_private_link_2
+features[fe_block_settings][] = views-partners-block_2
+features[fe_block_settings][] = views-partners-block_3
 features[fe_block_settings][] = views-partners_list-block
 features[features_api][] = api:2
 features[field_base][] = field_abbreviation_name

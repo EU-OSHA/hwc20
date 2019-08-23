@@ -295,3 +295,10 @@ function hwc_partner_update_7036() {
 function hwc_partner_update_7037() {
   features_revert_module('hwc_partner');
 }
+
+/**
+ * HW20-40 HWC20 Development - Become a Media Partner.
+ */
+function hwc_partner_update_7038() {
+  features_revert_module('hwc_partner');
+}
