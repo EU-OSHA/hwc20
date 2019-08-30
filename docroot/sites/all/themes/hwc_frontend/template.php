@@ -267,14 +267,6 @@ function hwc_frontend_preprocess_page(&$vars) {
   }
   $vars['back_to_pz'] = hwc_partner_back_to_private_zone();
   $vars['page']['content']['#post_render'] = ['hwc_content_post_render'];
-  // Change Events page title.
-//  if (!empty($vars['theme_hook_suggestions']['1']) && in_array($vars['theme_hook_suggestions']['1'],
-//      array('page__media_centre__events', 'page__media_centre__past_events'))) {
-//    $title = '<span id="block-osha-events-events-links">';
-//    $title .= l(t('Upcoming events'), 'media-centre/events') . ' / ' . l(t('Past events'), 'media-centre/past-events');
-//    $title .= '</span>';
-//    drupal_set_title($title, PASS_THROUGH);
-//  }
   if (drupal_is_front_page()) {
     unset($vars['page']['content']['system_main']['default_message']);
     drupal_set_title('');
