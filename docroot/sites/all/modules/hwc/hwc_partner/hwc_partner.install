@@ -309,3 +309,12 @@ function hwc_partner_update_7038() {
 function hwc_partner_update_7039() {
   features_revert_module('hwc_partner');
 }
+
+/**
+ * HW20-167 Change title in Parter detail page.
+ */
+function hwc_partner_update_7040() {
+  $term = taxonomy_term_load(1804);
+  $term->name = 'EEN OSH Ambassador';
+  taxonomy_term_save($term);
+}
