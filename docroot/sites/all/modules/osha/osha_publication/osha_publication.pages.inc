@@ -124,9 +124,11 @@ function osha_publication_menu_publications_faceted_form($variables) {
       $values_list = call_user_func($facet_def['options_callback'], $facet_def['options_callback_args']);
       $options = array();
 
+      $default = array();
       if ($field_name == 'language') {
         $type = 'select';
         $class = 'new-select-style';
+        $default = array($language->language);
       }
       else {
         $type = 'checkboxes';
@@ -143,7 +145,7 @@ function osha_publication_menu_publications_faceted_form($variables) {
           $form['left-column'][$field_name][$field_name] = array(
             '#type' => $type,
             '#options' => $options,
-            '#default_value' => hwc_req_param($form_state, $field_name, array()),
+            '#default_value' => hwc_req_param($form_state, $field_name, $default),
             '#title' => $facet_def['label'],
             '#attributes' => array('class' => array($class)),
           );
@@ -154,7 +156,7 @@ function osha_publication_menu_publications_faceted_form($variables) {
           $form['left-column'][$field_name][$field_name] = array(
             '#type' => $type,
             '#options' => $options,
-            '#default_value' => hwc_req_param($form_state, $field_name, array()),
+            '#default_value' => hwc_req_param($form_state, $field_name, $default),
             '#title' => $facet_def['label'],
             '#attributes' => array('class' => array($class)),
           );
