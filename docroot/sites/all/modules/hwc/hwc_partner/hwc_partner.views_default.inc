@@ -1148,7 +1148,7 @@ function hwc_partner_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'een');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'EEN list';
+  $handler->display->display_options['title'] = 'Enterprise Europe Network';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'hwc-alpha-pager-view aa';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
@@ -1312,7 +1312,7 @@ function hwc_partner_views_default_views() {
     t('FOP list'),
     t('MOP list'),
     t('<div class="field-content" data-iso="[field_iso2]">[name_field]</div>'),
-    t('EEN list'),
+    t('Enterprise Europe Network'),
     t('<p> Find the OSH ambassador in your country </p>'),
     t('Type (field_partner_type)'),
   );

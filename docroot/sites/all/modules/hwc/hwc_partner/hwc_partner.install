@@ -325,3 +325,10 @@ function hwc_partner_update_7040() {
 function hwc_partner_update_7041() {
   features_revert(array('hwc_partner' => array('path_breadcrumbs')));
 }
+
+/**
+ * HW20-168 Check Breadcrumbs.
+ */
+function hwc_partner_update_7042() {
+  features_revert(array('hwc_partner' => array('views_view')));
+}
