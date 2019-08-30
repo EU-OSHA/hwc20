@@ -292,7 +292,7 @@ function osha_events_strongarm() {
       'display' => array(
         'share_widget' => array(
           'default' => array(
-            'weight' => '0',
+            'weight' => '1',
             'visible' => TRUE,
           ),
           'osha_resources' => array(
