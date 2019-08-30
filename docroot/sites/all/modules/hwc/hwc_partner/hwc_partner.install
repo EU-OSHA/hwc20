@@ -302,3 +302,10 @@ function hwc_partner_update_7037() {
 function hwc_partner_update_7038() {
   features_revert_module('hwc_partner');
 }
+
+/**
+ * HW20-169 The title is not displayed.
+ */
+function hwc_partner_update_7039() {
+  features_revert_module('hwc_partner');
+}

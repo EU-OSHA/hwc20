@@ -6781,7 +6781,7 @@ function hwc_partner_default_page_manager_pages() {
   $pane->uuid = 'df383729-ba45-4f6d-9529-dfa2b8a5258f';
   $display->content['new-df383729-ba45-4f6d-9529-dfa2b8a5258f'] = $pane;
   $display->panels['center'][2] = 'new-df383729-ba45-4f6d-9529-dfa2b8a5258f';
-  $display->hide_title = PANELS_TITLE_NONE;
+  $display->hide_title = PANELS_TITLE_PANE;
   $display->title_pane = 'new-2ecabcc4-332a-4277-83d8-0f3f586cb901';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
@@ -6946,7 +6946,7 @@ function hwc_partner_default_page_manager_pages() {
   $pane->uuid = '9a79a03d-1572-4ef5-82a1-aea455e0972c';
   $display->content['new-9a79a03d-1572-4ef5-82a1-aea455e0972c'] = $pane;
   $display->panels['center'][2] = 'new-9a79a03d-1572-4ef5-82a1-aea455e0972c';
-  $display->hide_title = PANELS_TITLE_NONE;
+  $display->hide_title = PANELS_TITLE_PANE;
   $display->title_pane = 'new-0c8d58fe-68d1-436a-b7f7-b75c6552e08a';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
@@ -7111,7 +7111,7 @@ function hwc_partner_default_page_manager_pages() {
   $pane->uuid = '701d310f-6b59-436e-a493-cd634012523e';
   $display->content['new-701d310f-6b59-436e-a493-cd634012523e'] = $pane;
   $display->panels['center'][2] = 'new-701d310f-6b59-436e-a493-cd634012523e';
-  $display->hide_title = PANELS_TITLE_NONE;
+  $display->hide_title = PANELS_TITLE_PANE;
   $display->title_pane = 'new-298c132d-2b95-4097-9630-de0ec0f29a56';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
@@ -7605,7 +7605,7 @@ function hwc_partner_default_page_manager_pages() {
   $pane->uuid = 'ba8c52bc-97cd-4947-9e85-ef22a7b6ad2a';
   $display->content['new-ba8c52bc-97cd-4947-9e85-ef22a7b6ad2a'] = $pane;
   $display->panels['center'][2] = 'new-ba8c52bc-97cd-4947-9e85-ef22a7b6ad2a';
-  $display->hide_title = PANELS_TITLE_NONE;
+  $display->hide_title = PANELS_TITLE_PANE;
   $display->title_pane = 'new-de95302f-4ecf-4b9a-a105-e3a74864b930';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
