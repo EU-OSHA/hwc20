@@ -318,3 +318,10 @@ function hwc_partner_update_7040() {
   $term->name = 'EEN OSH Ambassador';
   taxonomy_term_save($term);
 }
+
+/**
+ * HW20-165 Check Breadcrumbs.
+ */
+function hwc_partner_update_7041() {
+  features_revert(array('hwc_partner' => array('path_breadcrumbs')));
+}
