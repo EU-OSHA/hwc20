@@ -3241,17 +3241,13 @@ div.workbench-info-block{
 }
 
 .page-campaign-partners-official-campaign-partners{
-	.quicktabs-tabpage {
-		display: flex;
-			flex-wrap: wrap;
-	}
-
 	.view-id-partners_list .col-md-2.col-sm-3.col-xs-6 {
 	    display: flex;
 	    flex-wrap: wrap;
 	    padding: 1em;
 	    min-height: auto;
 	    width: 250px;
+	    height: 220px;
 	}
 }
 
@@ -3820,11 +3816,15 @@ body.een{
 }
 
 
+
+
+
 /* Become a campaign partner */
 
 .become-partner-text{
     text-align: center;
     padding-bottom: 1em;
+    width: 66%;
 }
 
 .node-type-article article .field-name-body.field-type-text-with-summary{
@@ -4041,7 +4041,30 @@ body.een{
     	top: 29px;
     }
 } 
-	
+
+
+#block-views-partners-block-3{
+	h2{
+		color: #003399;
+		font-weight: 400;
+	}
+
+	.view-partners .views-row .views-field-field-logo img {
+	    border: 0;
+	    width: 120px !important;
+	    height: auto !important;
+	    margin: 0 auto;
+	}
+
+	.view-partners .views-row{
+	    width: 20%;
+	}
+
+	.view-partners .views-row-1 .views-field {
+	    border-left: 1px solid #B0B1B2;
+	}
+}
+
 
 /* Events */
 .page-events{
@@ -4051,7 +4074,7 @@ body.een{
 		border-radius: 7px;
 		padding: 1em;
 		float: right;
-
+		margin-top: 0.6em;
 		input{
 			height: 100%;
 		    border: 1px solid #003399 !important;
@@ -4405,6 +4428,9 @@ body.een{
 
 	.group-footer{
 		padding-bottom: 2em;
+		a{
+			font-style: normal;
+		}
 	}
 }
 
