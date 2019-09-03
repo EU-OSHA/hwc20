@@ -15,6 +15,9 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
   border-radius: 5px;
   padding-left: 0.5em;
 }
+html[lang=fr] header.navbar-default .campaigns-header #block-menu-menu-header-login a {
+  width: 138px;
+}
 body.logged-in .navbar-header .col-xs-12.col-sm-9 {
   padding-top: 57px;
 }
@@ -858,7 +861,8 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 .news-item .news-item-content .summary-news {
   margin-bottom: 1em;
 }
-.news-see-more-button {
+.news-see-more-button,
+.view-events-search .views-field-view-node .field-content a {
   border: 1px solid #b0b1b3;
   border-radius: 3px;
   color: #b0b1b3;
@@ -868,7 +872,8 @@ header.navbar-default .navbar-collapse nav ul.menu li {
   transition: 300ms;
   background-position: 110%;
 }
-.news-see-more-button:hover {
+.news-see-more-button:hover,
+.view-events-search .views-field-view-node .field-content a:hover {
   text-decoration: none;
   color: #58595b;
   border: 1px solid #58595b;
@@ -1896,7 +1901,7 @@ div.publications-detail-right-column > a.download {
 }
 /*Events list*/
 .view-events-search .views-field-title-field {
-  padding-top: 1em;
+  padding-top: 0;
 }
 #block-osha-events-events-links a.active {
   color: #FFF;
@@ -2103,24 +2108,44 @@ label.option {
   margin: 0;
   color: #58595f;
 }
-.search-new-design {
+.search-new-design,
+#edit-search-api-views-fulltext {
   height: 34px;
   border: 1px solid #003399;
   border-radius: 5px !important;
   background: url(../images/green-search.png) no-repeat 96% 55% #ffffff;
-  width: 100%!important;
+  width: 100% !important;
   float: left;
   margin-top: 25px;
   padding-left: 10px;
   color: #003399;
 }
-.new-select-style {
+#edit-search-api-views-fulltext {
+  width: 210px !important;
+}
+html[lang=pt] #edit-search-api-views-fulltext {
+  width: 168px!important;
+}
+.new-select-style,
+#edit_field_country_code_chosen,
+#edit-years {
   height: 100%;
   border: 1px solid #003399 !important;
   border-radius: 5px !important;
   background: url(../images/green-select.png) no-repeat scroll 94% center #ffffff !important;
   padding-left: 10px;
   width: 100%!important;
+  color: #003399;
+  cursor: pointer;
+}
+.views-widget-filter-field_start_date_value input,
+.views-widget-filter-field_start_date_value2 input {
+  height: 100%;
+  border: 1px solid #003399 !important;
+  border-radius: 5px !important;
+  background: url(../images/green-calendar.png) no-repeat scroll 94% center #ffffff !important;
+  padding-left: 10px;
+  width: 122px!important;
   color: #003399;
   cursor: pointer;
 }
@@ -3371,8 +3396,7 @@ body.fop .panels-flexible-region-partner_detail-left_left .field-name-field-orgt
 body.een .panels-flexible-region-partner_detail-left_right-inside .field-type-link-field,
 body.een .panels-flexible-region-partner_detail-left_right-inside .field-name-field-abbreviation-name,
 body.een .panels-flexible-region-partner_detail-left_right-inside .field-name-field-orgtype,
-body.een .panels-flexible-region-partner_detail-left_right-inside .pane-node-field-bussines-sector,
-body.een .panels-flexible-region-partner_detail-left_right-inside .field-type-taxonomy-term-reference {
+body.een .panels-flexible-region-partner_detail-left_right-inside .pane-node-field-bussines-sector {
   font-weight: bold;
   clear: both;
 }
@@ -3566,6 +3590,326 @@ body.een .panels-flexible-region-partner_detail-left_right-inside .field-type-ta
   right: 15%;
   top: 29px;
 }
+/* Events */
+.page-events #osha-events-dates-form {
+  border: 2px solid #B0B1B2;
+  border-radius: 7px;
+  padding: 1em;
+  float: right;
+}
+.page-events #osha-events-dates-form input {
+  height: 100%;
+  border: 1px solid #003399 !important;
+  border-radius: 5px !important;
+  background: url(../images/green-calendar.png) no-repeat scroll 94% center #ffffff !important;
+  padding-left: 10px;
+  width: 122px!important;
+  color: #003399;
+  cursor: pointer;
+}
+.page-events #osha-events-dates-form .container-inline-date {
+  clear: none;
+  float: left;
+}
+.page-events #osha-events-dates-form .container-inline-date .date-padding {
+  float: none;
+  padding: 0;
+}
+.page-events #osha-events-dates-form label {
+  color: #003399 !important;
+  font-family: "Open Sans" !important;
+  font-size: 1.2em !important;
+  font-weight: normal !important;
+}
+.page-events .region-content #block-system-main .views-exposed-widgets label {
+  padding-bottom: 0;
+  margin-bottom: 2px;
+}
+.page-events .region-content #block-system-main .views-exposed-widgets input {
+  height: 33px;
+}
+.page-events .region-content #block-system-main .views-exposed-widgets .views-widget-filter-field_start_date_value {
+  margin-left: 0.5em;
+}
+.page-events .region-content #block-system-main .views-exposed-widgets .form-item-years {
+  margin-left: 0.5em;
+  float: left;
+}
+.page-events .region-content #block-system-main .views-exposed-widgets #edit_field_country_code_chosen {
+  width: 150px!important;
+  height: 33px;
+  margin-top: 2px;
+}
+.page-events .region-content #block-system-main .views-exposed-widgets select {
+  width: 150px!important;
+  height: 33px;
+  margin-top: 2px;
+  border-radius: 5px;
+  background: url(../images/green-select.png) no-repeat scroll 94% center #ffffff !important;
+}
+.page-events .region-content #block-system-main .views-exposed-widgets a.chosen-single {
+  line-height: 17px;
+}
+.page-events .region-content #block-system-main .views-exposed-widgets #edit-years {
+  width: 95px !important;
+  height: 33px;
+  margin-top: 2px;
+  padding-top: 4px;
+}
+.page-events .region-content #block-system-main .views-exposed-widget {
+  position: relative;
+}
+.page-events .region-content #block-system-main .views-exposed-widget #edit-submit-events-search {
+  position: relative;
+  color: #FFF;
+  width: auto;
+  right: -8px;
+  background: #003399;
+  top: 24px;
+  border-radius: 5px;
+  float: right;
+}
+.page-events .region-content #block-system-main .view-events-search .view-content {
+  padding-bottom: 1em;
+}
+.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row {
+  border-bottom: 1px solid #749b00;
+  width: 805px;
+  float: left;
+}
+.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node {
+  position: relative;
+  margin-left: 230px;
+  float: left;
+  clear: both;
+  margin-top: -2em;
+}
+.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row-last {
+  border-bottom: 0;
+}
+.views-field-field-start-date-1 {
+  padding-top: 0.5em;
+}
+.add-to-calendar {
+  float: right;
+  padding-left: 1.5em;
+  border-bottom: 0;
+  text-decoration: underline;
+  background: url(../images/green-calendar.png) no-repeat 0 1px;
+  cursor: default;
+  width: 200px;
+  text-align: left;
+  padding-top: 0px;
+  margin-top: -2em;
+}
+.add-to-my-calendar label {
+  color: #003399;
+  cursor: pointer;
+}
+.add-to-calendar:hover {
+  text-decoration: none;
+}
+.add-to-calendar > label {
+  cursor: pointer;
+}
+.add-to-calendar > label:hover {
+  text-decoration: underline;
+}
+.add-to-my-calendar:hover {
+  text-decoration: none;
+}
+.add-to-calendar-checkbox ~ a {
+  display: none;
+}
+.add-to-calendar-checkbox:checked ~ a {
+  display: block;
+  margin-left: 0;
+  border-bottom: 0 !important;
+}
+.add-to-calendar-checkbox ~ a:before {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAAAQCAYAAACIoli7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo0MzJCRDU2NUE1MDIxMUUyOTY1Q0EwNTkxNEJDOUIwNCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo0MzJCRDU2NkE1MDIxMUUyOTY1Q0EwNTkxNEJDOUIwNCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjQzMkJENTYzQTUwMjExRTI5NjVDQTA1OTE0QkM5QjA0IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjQzMkJENTY0QTUwMjExRTI5NjVDQTA1OTE0QkM5QjA0Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+1Gcb3QAACh1JREFUeNrEWAtw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);
+  margin-right: .5em;
+  content: ' ';
+}
+.icon-ical:before {
+  background-position: -68px 0;
+}
+.icon-outlook:before {
+  /*this is the default icon*/
+}
+.icon-yahoo:before {
+  background-position: -36px 4px;
+}
+.icon-google:before {
+  background-position: -52px 0;
+}
+/* Event Detail */
+.node-type-events .group-left {
+  float: left;
+}
+.node-type-events .group-right {
+  float: right;
+}
+.node-type-events h2 {
+  clear: both;
+  font-style: normal;
+  font-weight: 500;
+}
+.node-type-events .back-to-events span {
+  margin-left: 0.5em;
+  font-weight: bold;
+}
+.node-type-events .group-left2,
+.node-type-events .group-footer {
+  float: left;
+  margin-right: 1em;
+  width: 70%;
+}
+.node-type-events .group-left2 .field-name-field-speaker .content,
+.node-type-events .group-footer .field-name-field-speaker .content {
+  margin-top: 0;
+}
+.node-type-events .group-left2 .field-name-field-speaker .field-name-title-field .field-item,
+.node-type-events .group-footer .field-name-field-speaker .field-name-title-field .field-item {
+  color: #59595A;
+  display: list-item;
+  margin-left: 2em;
+}
+.node-type-events .group-left2 .field-name-field-speaker .field-type-image,
+.node-type-events .group-footer .field-name-field-speaker .field-type-image {
+  display: none;
+}
+.node-type-events .group-left2 .field-name-field-organizer .field-item,
+.node-type-events .group-footer .field-name-field-organizer .field-item {
+  color: #59595A;
+  font-weight: bold;
+}
+.node-type-events .group-left2 .field-name-field-schedule .field-label,
+.node-type-events .group-footer .field-name-field-schedule .field-label,
+.node-type-events .group-left2 .field-name-field-speaker .field-label,
+.node-type-events .group-footer .field-name-field-speaker .field-label,
+.node-type-events .group-left2 .field-name-field-organizer .field-label,
+.node-type-events .group-footer .field-name-field-organizer .field-label {
+  border-top: 0;
+  color: #003399;
+  font-size: 2rem;
+  font-weight: 400;
+  padding-top: 1em;
+  padding-bottom: 0.2em;
+  float: none;
+}
+.node-type-events .group-left2 .field-name-field-schedule .views-row,
+.node-type-events .group-footer .field-name-field-schedule .views-row,
+.node-type-events .group-left2 .field-name-field-speaker .views-row,
+.node-type-events .group-footer .field-name-field-speaker .views-row,
+.node-type-events .group-left2 .field-name-field-organizer .views-row,
+.node-type-events .group-footer .field-name-field-organizer .views-row {
+  padding: 0;
+}
+.node-type-events .group-left2 .field-name-field-schedule .talking-details,
+.node-type-events .group-footer .field-name-field-schedule .talking-details,
+.node-type-events .group-left2 .field-name-field-speaker .talking-details,
+.node-type-events .group-footer .field-name-field-speaker .talking-details,
+.node-type-events .group-left2 .field-name-field-organizer .talking-details,
+.node-type-events .group-footer .field-name-field-organizer .talking-details {
+  width: 100%;
+  padding-top: 1em;
+}
+.node-type-events .group-left2 .field-label,
+.node-type-events .group-footer .field-label {
+  color: #59595A;
+}
+.node-type-events .group-left2 .further-info-label,
+.node-type-events .group-footer .further-info-label {
+  border-top: 0;
+  color: #003399;
+  font-size: 2rem;
+  font-weight: 400;
+  padding-top: 1em;
+  padding-bottom: 0.2em;
+}
+.node-type-events .group-right2 {
+  float: right;
+  width: 22%;
+}
+.node-type-events .group-right2 .event_day_month {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3em;
+}
+.node-type-events .group-right2 .event_day_month .event_country {
+  width: 180px;
+  height: 180px;
+  margin-right: 0;
+}
+.node-type-events .group-right2 .field-name-field-start-date {
+  width: 100%;
+  border-top: 3px solid #B0B1B2;
+  padding-top: 8em;
+  padding-bottom: 5em;
+  background: url(../images/content/calendar-event-detail.png) no-repeat center 3em;
+}
+.node-type-events .group-right2 .field-name-field-start-date .date-display-single {
+  color: #003399;
+  font-size: 1.8rem!important;
+  display: block;
+  width: 100%;
+}
+.node-type-events .group-right2 .event-location-container {
+  width: 100%;
+  border-top: 3px solid #B0B1B2;
+  padding-top: 5em;
+  background: url(../images/content/location-event-detail.png) no-repeat center 35px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.node-type-events .group-right2 .event-location-container span.event-location-location {
+  padding: 0;
+  font-weight: 400;
+  float: left;
+  color: #003399;
+  font-size: 1.8rem!important;
+  padding: 1em 0 0 0;
+  display: flex;
+  justify-content: center;
+}
+.node-type-events .group-right2 .event-location-container span.event-location-city {
+  float: left;
+  display: block;
+  color: #003399;
+  font-size: 1.8rem!important;
+  padding: 1em 0 0 5px;
+  display: flex;
+  justify-content: center;
+}
+.node-type-events .group-right2 .event-location-container span.event-location-country {
+  display: block;
+  clear: both;
+  color: #59595A;
+  font-size: 1.8rem!important;
+  position: absolute;
+  bottom: -30px;
+}
+.node-type-events .group-right2 .event-location-container span.event-location-country:before,
+.node-type-events .group-right2 .event-location-container span.event-location-country:after {
+  content: none;
+}
+.node-type-events .group-footer {
+  padding-bottom: 2em;
+}
+.node-events .field-name-field-related-documents,
+.node-events .field-name-field-contact-name,
+.node-events .field-name-field-contact-email,
+.node-events .field-name-field-organizer,
+.node-events .field-name-field-location,
+.node-events .field-name-field-contact-phone,
+.node-events .field-name-field-website-of-event {
+  padding-bottom: 0;
+}
 @media (max-width: 1200px) {
   .start-browsing {
     background: url(../images/background-start-browsing.png) repeat-y;
@@ -3631,6 +3975,24 @@ body.een .panels-flexible-region-partner_detail-left_right-inside .field-type-ta
   }
   .before-the-campaign .content-box-before div:nth-child(1) > div.box-before-title:nth-child(2) {
     padding-top: 0.5em;
+  }
+}
+@media (max-width: 1280px) {
+  /* Events */
+  .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row {
+    min-height: auto;
+    width: 100%;
+  }
+  .views-widget-filter-field_country_code {
+    float: none;
+    clear: both !important;
+    padding-top: 10px !important;
+  }
+  .page-events .region-content #block-system-main .views-exposed-widgets .form-item-years {
+    padding-top: 10px;
+  }
+  .page-events .region-content #block-system-main .views-exposed-widget #edit-submit-events-search {
+    top: 34px;
   }
 }
 @media (max-width: 992px) {
@@ -3902,6 +4264,93 @@ body.een .panels-flexible-region-partner_detail-left_right-inside .field-type-ta
     padding-top: 10px !important;
     clear: both;
   }
+  /* Events */
+  .page-events .region-sidebar-first .contextual-links-region {
+    margin-top: 0;
+  }
+  .page-events .view-events-search .view-content {
+    clear: both;
+    padding-top: 3em;
+  }
+  .page-events .view-events-search .view-content .view-content:nth-child(2) .views-row {
+    padding: 1em 0;
+  }
+  .page-events .region.region-content {
+    clear: both;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets {
+    margin-left: 0;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets #edit-search-api-views-fulltext-wrapper {
+    margin-left: 0;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets .views-widget-filter-field_start_date_value {
+    margin-left: 0;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets .form-item-years {
+    margin-left: 0;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets #edit-search-api-views-fulltext {
+    max-width: 299px;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets input {
+    width: 299px!important;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets .form-control {
+    width: 299px!important;
+    border-radius: 5px;
+    background: url(../images/green-select.png) no-repeat scroll 94% center #ffffff !important;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets #edit-years {
+    width: 299px!important;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets #edit-submit-events-search {
+    left: 0px;
+    top: 73px;
+    position: absolute;
+  }
+  .page-events #osha-events-dates-form {
+    float: left;
+  }
+  .page-events .views-exposed-widgets {
+    padding-top: 0;
+  }
+  .page-events #edit-search-api-views-fulltext {
+    margin-top: 0;
+  }
+  #block-system-main .view-events-search,
+  .view-events-search {
+    margin: 0;
+  }
+  .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node {
+    position: relative;
+    margin-left: 230px;
+    float: left;
+    clear: both;
+    margin-top: -2em;
+  }
+  .page-events .region-content #block-system-main .views-row > div {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row {
+    min-height: auto;
+    width: 100%;
+  }
+  .views-widget-filter-field_country_code {
+    padding-top: 0px !important;
+  }
+  .page-events .region-content #block-system-main .views-exposed-widgets .form-item-years {
+    padding-top: 0px;
+  }
+  .views-widget-filter-field_country_code {
+    float: none;
+    clear: both !important;
+  }
+  .add-to-calendar {
+    margin-left: 330px;
+    margin-top: -2em;
+  }
   /*Footer*/
   .footer-section {
     display: none;
@@ -4041,6 +4490,15 @@ body.een .panels-flexible-region-partner_detail-left_right-inside .field-type-ta
     content: "";
     padding-right: 0;
   }
+  /* Events */
+  .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row {
+    min-height: auto;
+    width: 100%;
+  }
+  .views-widget-filter-field_country_code {
+    float: none;
+    clear: both !important;
+  }
   .footer div.container {
     padding-left: 0;
     padding-right: 0;
@@ -4091,6 +4549,53 @@ body.een .panels-flexible-region-partner_detail-left_right-inside .field-type-ta
   }
   .how-to-apply > div.boxes > div:nth-child(3) {
     right: 0%;
+  }
+  /* Events */
+  .page-events .region.region-content #block-system-main .views-exposed-widgets {
+    margin-left: 0;
+  }
+  #block-system-main .view-events-search,
+  .view-events-search {
+    margin: 0;
+  }
+  .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row {
+    min-height: auto;
+    width: 100%;
+    margin-top: 2em;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets .form-control {
+    width: 152px!important;
+  }
+  .views-widget-filter-field_country_code {
+    float: none;
+    clear: both !important;
+  }
+  .page-events #edit-search-api-views-fulltext {
+    margin-top: 25px;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets #edit-years {
+    width: 153px!important;
+  }
+  .page-publications .views-exposed-widget,
+  .page-events .views-exposed-widget {
+    width: auto !important;
+    margin-top: 1em;
+    margin-right: 0.5em;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets #edit-submit-events-search {
+    left: auto;
+    top: 24px;
+  }
+  .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node {
+    position: relative;
+    margin-left: auto;
+    float: none;
+    clear: none;
+    margin-top: 52px;
+    width: 100%;
+  }
+  .page-events .view-events-search .view-content {
+    padding-top: 0em;
   }
 }
 @media (max-width: 768px) {
@@ -4569,6 +5074,77 @@ body.een .panels-flexible-region-partner_detail-left_right-inside .field-type-ta
     position: absolute;
     left: 28px;
     top: 535px;
+  }
+  .page-events .region-sidebar-first .contextual-links-region {
+    margin-top: 0;
+  }
+  .page-events .view-events-search .view-content {
+    clear: both;
+    padding-top: 1em;
+  }
+  .page-events .view-events-search .view-content .view-content:nth-child(2) .views-row {
+    padding: 1em 0;
+  }
+  .page-events .region.region-content {
+    clear: both;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets {
+    margin-left: 15px;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets #edit-search-api-views-fulltext-wrapper {
+    margin-left: 0;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets .views-widget-filter-field_start_date_value {
+    margin-left: 0;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets .form-item-years {
+    margin-left: 0;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets #edit-search-api-views-fulltext {
+    max-width: 299px;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets input {
+    width: 299px!important;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets .form-control {
+    width: 299px!important;
+    border-radius: 5px;
+    background: url(../images/green-select.png) no-repeat scroll 94% center #ffffff !important;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets #edit-years {
+    width: 299px!important;
+  }
+  .page-events .region.region-content #block-system-main .views-exposed-widgets #edit-submit-events-search {
+    left: 0px;
+    top: 73px;
+  }
+  .page-events #osha-events-dates-form {
+    float: left;
+  }
+  .page-events .views-exposed-widgets {
+    padding-top: 0;
+  }
+  .page-events #edit-search-api-views-fulltext {
+    margin-top: 0;
+  }
+  .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node {
+    position: relative;
+    margin-left: 0;
+    float: none;
+    clear: both;
+    margin-top: 20px;
+    width: 100%;
+  }
+  .page-events .region-content #block-system-main .views-row > div {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row {
+    min-height: auto;
+  }
+  .add-to-calendar {
+    margin-left: 108px;
+    margin-top: -21px;
   }
 }
 @media (max-width: 600px) {
