@@ -29,18 +29,20 @@
 
 <<?php print $left2_wrapper ?> class="group-left2<?php print $left2_classes; ?>">
 <?php print $left2; ?>
+<?php if (!empty($footer)): ?>
+    <<?php print $footer_wrapper ?> class="group-footer<?php print $footer_classes; ?>">
+    <div class="field-label further-info-label"><?php print t('Further information'); ?></div>
+    <?php print $footer; ?>
+    </<?php print $footer_wrapper ?>>
+  <?php endif; ?>
 </<?php print $left2_wrapper ?>>
+
 
 <<?php print $right2_wrapper ?> class="group-right2<?php print $right2_classes; ?>">
 <?php print $right2; ?>
 </<?php print $right2_wrapper ?>>
 
-  <?php if (!empty($footer)): ?>
-    <div class="field-label further-info-label"><?php print t('Further information'); ?></div>
-    <<?php print $footer_wrapper ?> class="group-footer<?php print $footer_classes; ?>">
-    <?php print $footer; ?>
-    </<?php print $footer_wrapper ?>>
-  <?php endif; ?>
+  
 <?php } ?>
 
 </<?php print $layout_wrapper ?>>

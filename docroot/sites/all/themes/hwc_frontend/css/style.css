@@ -11829,11 +11829,6 @@ article .hwc-share-widget ul {
   margin-top: 0.15em;
   margin-bottom: 0.15em;
 }
-#block-system-main .view-events-search .view-filters,
-.view-events-search .view-filters {
-  border-top: 1px dotted #749b00;
-  border-bottom: 1px dotted #749b00;
-}
 #block-system-main .view-events-search .view-footer,
 .view-events-search .view-footer {
   display: none;
@@ -11969,7 +11964,6 @@ article .hwc-share-widget ul {
 }
 .node-events .event-location-container span.event-location-location {
   padding: 3em 0em 3em 3em;
-  background: url("../images/content/location.png") no-repeat left center;
 }
 .node-events .event-location-container span.event-location-location:after {
   content: ",";
@@ -11996,15 +11990,6 @@ article .hwc-share-widget ul {
   text-align: center;
   font-size: 0.9em;
 }
-.node-events .field-name-field-speaker {
-  border-top: 1px dotted #749b00;
-  margin-top: 0em;
-  padding-top: 2em;
-}
-.node-events .field-name-field-speaker > .field-label {
-  color: #749b00;
-  margin-bottom: 2em;
-}
 .node-events .field-name-field-speaker > .field-items > .field-item {
   width: 20%;
   float: left;
@@ -12019,18 +12004,8 @@ article .hwc-share-widget ul {
 }
 .node-events .field-name-field-schedule {
   clear: both;
-  border-top: 1px dotted #749b00;
   padding-top: 2em;
   padding-bottom: 1em;
-}
-.node-events .field-name-field-schedule .field-label {
-  color: #749b00;
-  margin-bottom: 2em;
-}
-.node-events .field-name-field-schedule .views-row {
-  background-color: #e2e2e3;
-  margin-bottom: 1em;
-  padding: 1em;
 }
 .node-events .field-name-field-schedule .views-row .field-name-field-talking-title {
   font-weight: bold;
@@ -12047,16 +12022,12 @@ article .hwc-share-widget ul {
   margin-bottom: 0em;
   font-weight: bold;
 }
-.node-events .further-info-label:after {
-  content: ":";
-}
 .node-events .field-collection-container {
   clear: both;
   margin-bottom: 2em;
   padding-bottom: 2em;
 }
 .node-events .field-collection-container .field-name-field-schedule {
-  border-top: 1px dotted #749b00;
   margin-top: 2em;
   padding-top: 2em;
 }
