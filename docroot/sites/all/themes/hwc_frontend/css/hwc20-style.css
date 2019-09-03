@@ -2885,16 +2885,13 @@ div.workbench-info-block {
   display: flex;
   flex-wrap: wrap;
 }
-.page-campaign-partners-official-campaign-partners .quicktabs-tabpage {
-  display: flex;
-  flex-wrap: wrap;
-}
 .page-campaign-partners-official-campaign-partners .view-id-partners_list .col-md-2.col-sm-3.col-xs-6 {
   display: flex;
   flex-wrap: wrap;
   padding: 1em;
   min-height: auto;
   width: 250px;
+  height: 220px;
 }
 .page-campaign-partners-campaign-media-partners .view-id-partners_list .view-header,
 .page-campaign-partners-enterprise-europe-network .view-id-partners_list .view-header {
@@ -3404,6 +3401,7 @@ body.een .panels-flexible-region-partner_detail-left_right-inside .pane-node-fie
 .become-partner-text {
   text-align: center;
   padding-bottom: 1em;
+  width: 66%;
 }
 .node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col-sm-12.col-md-12.col-xs-12 {
   display: flex;
@@ -3590,12 +3588,29 @@ body.een .panels-flexible-region-partner_detail-left_right-inside .pane-node-fie
   right: 15%;
   top: 29px;
 }
+#block-views-partners-block-3 h2 {
+  color: #003399;
+  font-weight: 400;
+}
+#block-views-partners-block-3 .view-partners .views-row .views-field-field-logo img {
+  border: 0;
+  width: 120px !important;
+  height: auto !important;
+  margin: 0 auto;
+}
+#block-views-partners-block-3 .view-partners .views-row {
+  width: 20%;
+}
+#block-views-partners-block-3 .view-partners .views-row-1 .views-field {
+  border-left: 1px solid #B0B1B2;
+}
 /* Events */
 .page-events #osha-events-dates-form {
   border: 2px solid #B0B1B2;
   border-radius: 7px;
   padding: 1em;
   float: right;
+  margin-top: 0.6em;
 }
 .page-events #osha-events-dates-form input {
   height: 100%;
@@ -3900,6 +3915,9 @@ body.een .panels-flexible-region-partner_detail-left_right-inside .pane-node-fie
 }
 .node-type-events .group-footer {
   padding-bottom: 2em;
+}
+.node-type-events .group-footer a {
+  font-style: normal;
 }
 .node-events .field-name-field-related-documents,
 .node-events .field-name-field-contact-name,
@@ -5075,6 +5093,23 @@ body.een .panels-flexible-region-partner_detail-left_right-inside .pane-node-fie
     left: 28px;
     top: 535px;
   }
+  #block-views-partners-block-3 {
+    padding-left: 4em;
+  }
+  #block-views-partners-block-3 h2 {
+    padding-left: 0;
+    margin-left: 0;
+  }
+  #block-views-partners-block-3 .views-row.hidden-xs {
+    display: block !important;
+    float: left;
+    width: 35%;
+  }
+  #block-views-partners-block-3 .view-partners div .views-field {
+    border-top: none !important;
+    border-left: 1px solid #CCC !important;
+    border-right: 1px solid #CCC !important;
+  }
   .page-events .region-sidebar-first .contextual-links-region {
     margin-top: 0;
   }
@@ -5221,5 +5256,8 @@ body.een .panels-flexible-region-partner_detail-left_right-inside .pane-node-fie
   }
   #block-menu-block-3 {
     padding: 0;
+  }
+  #block-views-partners-block-3 .views-row.hidden-xs {
+    width: 47%;
   }
 }

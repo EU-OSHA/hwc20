@@ -12009,6 +12009,7 @@ article .hwc-share-widget ul {
 }
 .node-events .field-name-field-schedule .views-row .field-name-field-talking-title {
   font-weight: bold;
+  color: #57575a;
 }
 .node-events .field-name-field-schedule .views-row .field-type-datetime {
   margin-top: 0em;
@@ -16127,7 +16128,10 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .view-partners .more-link,
 #block-system-main .view-partners .more-link {
   color: #ffffff;
-  background-color: #003399;
+  clear: both;
+  display: block;
+  width: 100%;
+  margin-top: 2em;
 }
 /* End view-partners */
 /*pag Newsletter*/
