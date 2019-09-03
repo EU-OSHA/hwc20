@@ -71,7 +71,16 @@ function hwc_frontend_menu_link(array $variables) {
       $element['#attributes']['class'] = [];
     }
     if (in_array($element['#href'], $include)) {
-      $element['#attributes']['class'] = ['expanded', 'active-trail', 'active'];
+      if (!empty($element['#localized_options']['attributes'])) {
+        $element['#attributes']['class'] = [];
+      }
+      else {
+        $element['#attributes']['class'] = [
+          'expanded',
+          'active-trail',
+          'active'
+        ];
+      }
     }
   }
 
