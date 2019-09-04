@@ -1762,6 +1762,12 @@ aside.col-md-3{
 
 /* Publications List */
 
+#edit-main-tags > div > label{
+	font-size: 1.3em;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 .node-article .content{
 	margin-top: 1em;
     margin-bottom: 1em;
@@ -4088,6 +4094,10 @@ body.een{
 /* Events */
 .page-events{
 
+	.region-sidebar-first .contextual-links-region{
+		margin-top: 0;
+	}
+
 	#osha-events-dates-form{
 		border: 2px solid #B0B1B2;
 		border-radius: 7px;
@@ -4569,7 +4579,7 @@ ul[data-sa-theme="basic-green"].ui-menu{
 
     	.form-submit{
     		position: absolute;
-		    top: 21px;
+		    top: 0;
 		    right: 0;
 		    border-top-right-radius: 5px;
 		    border-bottom-right-radius: 5px;
@@ -4585,6 +4595,9 @@ ul[data-sa-theme="basic-green"].ui-menu{
 
 	a{
 		text-decoration: underline;
+		&:hover{
+			text-decoration: none;
+		}
 	}
 
 	a, label{

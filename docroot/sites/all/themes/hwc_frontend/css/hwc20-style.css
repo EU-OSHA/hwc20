@@ -1582,6 +1582,11 @@ aside.col-md-3 .region.region-sidebar-first.well {
   margin-right: 0;
 }
 /* Publications List */
+#edit-main-tags > div > label {
+  font-size: 1.3em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 .node-article .content {
   margin-top: 1em;
   margin-bottom: 1em;
@@ -3624,6 +3629,9 @@ body.een .panels-flexible-row-partner_detail-13 {
   border-left: 1px solid #B0B1B2;
 }
 /* Events */
+.page-events .region-sidebar-first .contextual-links-region {
+  margin-top: 0;
+}
 .page-events #osha-events-dates-form {
   border: 2px solid #B0B1B2;
   border-radius: 7px;
@@ -4045,7 +4053,7 @@ ul[data-sa-theme="basic-green"].ui-menu {
 }
 #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit {
   position: absolute;
-  top: 21px;
+  top: 0;
   right: 0;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -4058,6 +4066,9 @@ ul[data-sa-theme="basic-green"].ui-menu {
 }
 #block-osha-newsletter-osha-newsletter-events-subscribe a {
   text-decoration: underline;
+}
+#block-osha-newsletter-osha-newsletter-events-subscribe a:hover {
+  text-decoration: none;
 }
 #block-osha-newsletter-osha-newsletter-events-subscribe a,
 #block-osha-newsletter-osha-newsletter-events-subscribe label {
@@ -4749,9 +4760,8 @@ ul[data-sa-theme="basic-green"].ui-menu {
   .page-events .region.region-content #block-system-main .views-exposed-widgets .form-control {
     width: 152px!important;
   }
-  .views-widget-filter-field_country_code {
-    float: none;
-    clear: both !important;
+  #block-osha-events-osha-events-dates {
+    margin-left: 15px;
   }
   .page-events #edit-search-api-views-fulltext {
     margin-top: 25px;
@@ -5369,6 +5379,9 @@ ul[data-sa-theme="basic-green"].ui-menu {
     float: none;
     margin: 0 auto;
     padding-bottom: 2em;
+  }
+  #block-osha-events-osha-events-dates {
+    margin-left: 15px;
   }
 }
 @media (max-width: 600px) {
