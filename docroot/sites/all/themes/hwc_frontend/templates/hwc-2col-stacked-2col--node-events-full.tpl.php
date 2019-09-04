@@ -21,6 +21,7 @@
 <?php print $right; ?>
 </<?php print $right_wrapper ?>>
 
+<div class="content-left-column">
 <<?php print $center_wrapper ?> class="group-center<?php print $center_classes; ?>">
 <?php print $center; ?>
 </<?php print $center_wrapper ?>>
@@ -36,7 +37,7 @@
     </<?php print $footer_wrapper ?>>
   <?php endif; ?>
 </<?php print $left2_wrapper ?>>
-
+</div>
 
 <<?php print $right2_wrapper ?> class="group-right2<?php print $right2_classes; ?>">
 <?php print $right2; ?>

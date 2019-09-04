@@ -3828,11 +3828,15 @@ body.een .panels-flexible-row-partner_detail-13 {
   margin-left: 0.5em;
   font-weight: bold;
 }
+.node-type-events .content-left-column {
+  width: 70%;
+  float: left;
+  padding-top: 2em;
+}
 .node-type-events .group-left2,
 .node-type-events .group-footer {
   float: left;
   margin-right: 1em;
-  width: 70%;
 }
 .node-type-events .group-left2 .field-name-field-speaker .content,
 .node-type-events .group-footer .field-name-field-speaker .content {
@@ -3911,6 +3915,7 @@ body.een .panels-flexible-row-partner_detail-13 {
 .node-type-events .group-right2 {
   float: right;
   width: 22%;
+  padding-top: 2em;
 }
 .node-type-events .group-right2 .event_day_month {
   display: flex;
@@ -4545,6 +4550,14 @@ ul[data-sa-theme="basic-green"].ui-menu {
   .add-to-calendar {
     margin-left: 330px;
     margin-top: -2em;
+  }
+  .node-type-events .main-container h2 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .node-type-events .group-footer {
+    padding-left: 0!important;
+    padding-right: 0!important;
   }
   /*Footer*/
   .footer-section {
@@ -5371,6 +5384,14 @@ ul[data-sa-theme="basic-green"].ui-menu {
   }
   .page-events .col-md-9 {
     clear: both;
+  }
+  .node-type-events .content-left-column {
+    width: 100%;
+    clear: both;
+  }
+  .node-type-events .field-name-body {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   .node-type-events .group-right2 {
     width: 100%;
