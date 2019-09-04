@@ -398,8 +398,17 @@
 			} 
 		}
 
+		.col-md-9{
+			clear: both;
+		}
+
+		#osha-events-dates-form {
+		    width: 301px!important;
+		}
+
 		#osha-events-dates-form{
 			float: left;
+			margin-left: 0;
 		}
 
 		.views-exposed-widgets{
@@ -440,11 +449,6 @@
 
 	.page-events .region-content #block-system-main .views-exposed-widgets .form-item-years{
 		padding-top: 0px;
-	}
-
-	.views-widget-filter-field_country_code{
-		float: none;
-		clear: both !important;
 	}
 
 	.add-to-calendar {
@@ -629,11 +633,6 @@
 		width: 100%;
 	}
 
-	.views-widget-filter-field_country_code{
-		float: none;
-		clear: both !important;
-	}
-
 	.footer{
 		div.container{
 			padding-left: 0;
@@ -682,6 +681,15 @@
 	    top: 73px;
 	}
 
+	.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node,
+	.add-to-calendar{
+		margin-top: auto;
+	}
+
+	.page-events #osha-events-dates-form {
+    	width: 157px;
+	}
+
 }
 
 
@@ -720,9 +728,8 @@
     	width: 152px!important;
 	}
 
-	.views-widget-filter-field_country_code{
-		float: none;
-		clear: both !important;
+	#block-osha-events-osha-events-dates{
+		margin-left: 15px;
 	}
 
 	.page-events #edit-search-api-views-fulltext {
@@ -740,20 +747,29 @@
 	}
 
 	.page-events .region.region-content #block-system-main .views-exposed-widgets #edit-submit-events-search {
-	    left: auto;
+	    left: 169px;
 	    top: 24px;
 	}
 
 	.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node {
 		position: relative;
-		margin-left: auto;
-		float: none;
-		clear: none;
-		margin-top: 52px;
-		width: 100%;
+		float: left;
+		clear: both;
+		margin-top: -24px;
+		width: auto;
+		margin-left: 230px;
+	}
+
+	.add-to-calendar{
+		margin-top: -25px;
+	}
+
+	.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-title-field a{
+		font-size: 1.3em;
 	}
 
 	.page-events .view-events-search .view-content {
 	    padding-top: 0em;
 	}
+
 }

@@ -16139,18 +16139,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.page-node-129 h1 {
-  background: url("../images/content/mail-newsletter-big.jpg") no-repeat center top;
-  background-size: 61px;
-  padding-top: 80px;
-  padding-bottom: 20px;
-  color: #749b00 !important;
-  font-weight: bold !important;
-  font-style: normal !important;
-  margin-top: 5px;
-  border-bottom: 1px dotted #749b00 !important;
-  margin-bottom: 1.5em;
-}
 .page-node-129 button {
   text-align: left;
   padding-left: 1em;
@@ -16170,21 +16158,16 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   margin-bottom: 30px;
   font-style: normal;
 }
-.page-node-129 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra {
-  font-weight: bold;
-}
 .page-node-129 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra div form > div {
   padding-bottom: 0em;
   overflow: hidden;
 }
 .page-node-129 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra input {
   font-weight: normal;
-  width: 247px;
   margin-right: 0px;
 }
 .page-node-129 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra label,
 .page-node-129 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra span {
-  font-weight: bold;
   margin-right: 10px;
 }
 .page-node-129 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra span.captcha {
@@ -16235,14 +16218,12 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-node-129 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra .privacy-policy-oshmail {
   margin-top: 0px;
   display: block;
-  text-align: center;
+  text-align: left;
 }
 .page-node-129 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra hr {
   display: none;
 }
 .page-node-129 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details {
-  margin: 0 auto;
-  max-width: 390px;
   margin-bottom: 20px;
   position: relative;
 }
@@ -16260,7 +16241,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   vertical-align: inherit;
   position: absolute;
   top: 14px;
-  right: 12%;
 }
 .page-node-129 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-unsubscribe-details {
   text-align: center;

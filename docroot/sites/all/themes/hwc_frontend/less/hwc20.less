@@ -1562,6 +1562,7 @@ aside.col-md-3{
 	border-top: 0 ;
 	border-bottom: 0;
 	margin-top: 4px;
+	float: right;
 	ul{
 		padding-top: 0px;
 	}
@@ -1761,6 +1762,12 @@ aside.col-md-3{
 
 /* Publications List */
 
+#edit-main-tags > div > label{
+	font-size: 1.3em;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 .node-article .content{
 	margin-top: 1em;
     margin-bottom: 1em;
@@ -1768,11 +1775,11 @@ aside.col-md-3{
 
 .region-sidebar-first .contextual-links-region{
     float: left;
-    padding: 0em 0.5em 0 1em;
+    padding: 0 0 0 1em;
     border: 0;
     border-radius: 5px;
     margin-top: 26px;
-    width: 93%;
+    width: 100%;
 }
 
 .sidebars_first .content-filters{
@@ -4087,12 +4094,26 @@ body.een{
 /* Events */
 .page-events{
 
+	.region-sidebar-first .contextual-links-region{
+		margin-top: 0;
+	}
+
 	#osha-events-dates-form{
 		border: 2px solid #B0B1B2;
 		border-radius: 7px;
-		padding: 1em;
+		padding: 1em 0 1em 1em;
 		float: right;
-		margin-top: 0.6em;
+		margin-top: 33px;
+		width: 288px;
+		margin-bottom: 3em;
+		> div > span{
+			display: block;
+			width: 100%;
+			color: #003399;
+			font-size: 2rem;
+    		padding-bottom: 0.7em;
+		}
+
 		input{
 			height: 100%;
 		    border: 1px solid #003399 !important;
@@ -4117,7 +4138,7 @@ body.een{
 		label{
 			color: #003399 !important;
 			font-family: "Open Sans" !important;
-			font-size: 1.2em !important;
+			font-size: 1em !important;
 			font-weight: normal !important;
 		}
 	}
@@ -4186,6 +4207,18 @@ body.een{
 
 			.view-events-search{
 
+				.views-exposed-widgets{
+
+					#edit-search-api-views-fulltext-wrapper{
+						margin-right: 0.5em;
+					}
+
+					#edit-field-start-date-value-wrapper, #edit-field-start-date-value2-wrapper{
+						display: none;
+						/* TO DO - Probably we need to display again */
+					}
+				}
+
 				.view-content{
 					padding-bottom: 1em;
 				}
@@ -4194,6 +4227,7 @@ body.een{
 					.views-row{
 						 border-bottom: 1px solid #749b00;
 						 float: left;
+						 width: 100%!important;
 
 						.views-field-title-field a{
 							font-size: 1.6em;
@@ -4362,10 +4396,15 @@ body.een{
 	 		}
 	 		.talking-details{
 	 			width: 100%;
-	 			padding-top: 1em;
-	 			.field-item{
-	 			
-	 			}
+	 		}
+	 	}
+
+	 	.view-event-schedule{
+	 		.views-row{
+	 			padding-bottom: 1em;
+	 		}
+	 		.views-row-last{
+	 			padding-bottom: 0;
 	 		}
 	 	}
 
@@ -4381,6 +4420,10 @@ body.een{
 	    	padding-top: 1em;
 	    	padding-bottom: 0.2em;
 		}
+
+		img.file-icon{
+			display: none;
+		}
 	}
 
 	.group-right2{
@@ -4395,6 +4438,10 @@ body.een{
 				height: 180px;
 				margin-right: 0;
 	 		}
+	 	}
+
+	 	.add-to-calendar{
+	 		padding-bottom: 2em;
 	 	}
 
 	 	.field-name-field-start-date{
@@ -4464,4 +4511,134 @@ body.een{
 
 .node-events .field-name-field-related-documents, .node-events .field-name-field-contact-name, .node-events .field-name-field-contact-email, .node-events .field-name-field-organizer, .node-events .field-name-field-location, .node-events .field-name-field-contact-phone, .node-events .field-name-field-website-of-event{	
 	padding-bottom: 0;
+}
+
+
+/* Search automplete */
+ul[data-sa-theme="basic-green"].ui-menu{
+	left: -105px !important;
+}
+
+.view-footer{
+	.pager-total{
+		position: absolute;
+		right: 0;
+		top: 25px;
+		color: #003399;
+		font-weight: bold;
+	}
+}
+
+/* Get your certificate */
+.page-get-involved-get-your-certificate{
+	.pane-node-field-image{
+		clear: both;
+	}
+	.pane-node-field-image{
+		width: auto;
+		max-width: none;
+	}
+	.pane-node-body{
+		width: 72%;
+		padding-left: 1em;
+	}
+	.control-label{
+		color: #003399;
+	}
+
+	input[type="text"], body textarea, textarea.form-control, select, .form-control, form.webform-client-form button{
+		border-radius: 5px;
+	}
+
+	form.webform-client-form .form-select{
+		border-radius: 5px;
+		padding-left: 0.5em;
+		padding-left: 12px;
+	}
+}
+
+/* Newsletter suscribe */
+
+#block-osha-newsletter-osha-newsletter-events-subscribe{
+	background: url(../images/background-newsletter-event.png) no-repeat;
+    border-radius: 15px;
+    color: #FFFF;
+    padding: 1.7em;
+    width: 288px;
+    float: right;
+    height: 100%;
+
+    #edit-subscribe-details{
+    	text-align: left !important;
+    	padding-top: 1.5em;
+    	position: relative;
+    	div{
+    		position: relative;
+    		float: left;
+    	}
+
+    	.form-submit{
+    		position: absolute;
+		    top: 0;
+		    right: 0;
+		    border-top-right-radius: 5px;
+		    border-bottom-right-radius: 5px;
+    	}
+    }
+
+	h2{
+		background: url(../images/ico-newsletter.png) no-repeat 1px 5px;
+    	color: #FFF;
+    	font-weight: 400;
+    	padding-left: 1.3em;
+	}
+
+	a{
+		text-decoration: underline;
+		&:hover{
+			text-decoration: none;
+		}
+	}
+
+	a, label{
+		color: #FFFF;
+		font-weight: normal;
+		font-size: 0.9em;
+	}
+
+	label:before{
+		color: #003399;
+		background: #FFFF;
+		border: 0 !important;
+	}
+
+	input[type="text"]{
+		border-radius: 5px;
+		border: 0;
+		width: 166px;
+    	padding-right: 1em;
+	}
+
+	.radio, .checkbox{
+		margin-top: 5px;
+	}
+
+	.btn-default:before, .more-link:before{
+		content: none;
+	}
+
+	#edit-submit{
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+		width: 160px;
+    	right: 0 !important;
+    	text-align: center;
+		padding-left: 0;
+	}
+}
+
+.node-article{
+	.field-name-body{
+		clear: both;
+	}
 }
