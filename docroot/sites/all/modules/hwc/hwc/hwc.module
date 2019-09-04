@@ -367,11 +367,15 @@ function hwc_block_view($delta = '') {
         $icon = $wrapper->language($language->language)->field_icon->value()['uri'];
         $image = theme('image_style', ['style_name' => 'relres', 'path' => $icon]);
         $name = $wrapper->label();
-        $link = $wrapper->language($language->language)->field_resource_link->value()['url'];
+        $resource_link = $wrapper->language($language->language)->field_resource_link->value();
+        $link = $resource_link['url'];
         $options = [
           'html' => TRUE,
           'attributes' => ['class' => ['recommended-tool max-width']]
         ];
+        if (!empty($resource_link['attributes']['target'])) {
+          $options['attributes']['target'] = $resource_link['attributes']['target'];
+        }
         $resources[] = '<div>' . l($image . '<span>' . $name . '</span>', $link, $options) . '</div>';
       }
       $block['content'] = '
@@ -393,11 +397,15 @@ function hwc_block_view($delta = '') {
         $icon = $wrapper->language($language->language)->field_icon->value()['uri'];
         $image = theme('image_style', ['style_name' => 'relres', 'path' => $icon]);
         $name = $wrapper->label();
-        $link = $wrapper->language($language->language)->field_resource_link->value()['url'];
+        $resource_link = $wrapper->language($language->language)->field_resource_link->value();
+        $link = $resource_link['url'];
         $options = [
           'html' => TRUE,
           'attributes' => ['class' => ['recommended-tool max-width']]
         ];
+        if (!empty($resource_link['attributes']['target'])) {
+          $options['attributes']['target'] = $resource_link['attributes']['target'];
+        }
         $resources[] = '<div>' . l($image . '<span>' . $name . '</span>', $link, $options) . '</div>';
       }
       $block['content'] = '
