@@ -240,11 +240,29 @@ function hwc_partner_views_default_views() {
   $handler->display->display_options['fields']['field_start_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_start_date']['settings'] = array(
     'format_type' => 'osha_day_only',
-    'fromto' => 'value',
+    'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
     'osha_date_theme' => '',
+    'field_formatter_class' => '',
+  );
+  /* Field: Content: Country */
+  $handler->display->display_options['fields']['field_country_code']['id'] = 'field_country_code';
+  $handler->display->display_options['fields']['field_country_code']['table'] = 'field_data_field_country_code';
+  $handler->display->display_options['fields']['field_country_code']['field'] = 'field_country_code';
+  $handler->display->display_options['fields']['field_country_code']['label'] = 'LOCATION';
+  $handler->display->display_options['fields']['field_country_code']['settings'] = array(
+    'field_formatter_class' => '',
+  );
+  /* Field: Content: City */
+  $handler->display->display_options['fields']['field_city']['id'] = 'field_city';
+  $handler->display->display_options['fields']['field_city']['table'] = 'field_data_field_city';
+  $handler->display->display_options['fields']['field_city']['field'] = 'field_city';
+  $handler->display->display_options['fields']['field_city']['label'] = '';
+  $handler->display->display_options['fields']['field_city']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_city']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['field_city']['settings'] = array(
     'field_formatter_class' => '',
   );
   /* Field: Content: Title */
@@ -396,10 +414,10 @@ function hwc_partner_views_default_views() {
   $handler->display->display_options['filters']['field_start_date_value']['default_date'] = 'now';
   $handler->display->display_options['block_description'] = 'Past Events';
 
-  /* Display: Events */
-  $handler = $view->new_display('block', 'Events', 'block_1');
+  /* Display: Partner Events */
+  $handler = $view->new_display('block', 'Partner Events', 'block_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Events';
+  $handler->display->display_options['title'] = 'Partner Events';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '4';
@@ -434,11 +452,30 @@ function hwc_partner_views_default_views() {
   $handler->display->display_options['fields']['field_start_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_start_date']['settings'] = array(
     'format_type' => 'osha_day_only',
-    'fromto' => 'value',
+    'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
     'osha_date_theme' => '',
+    'field_formatter_class' => '',
+  );
+  /* Field: Content: Country */
+  $handler->display->display_options['fields']['field_country_code']['id'] = 'field_country_code';
+  $handler->display->display_options['fields']['field_country_code']['table'] = 'field_data_field_country_code';
+  $handler->display->display_options['fields']['field_country_code']['field'] = 'field_country_code';
+  $handler->display->display_options['fields']['field_country_code']['label'] = '';
+  $handler->display->display_options['fields']['field_country_code']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_country_code']['settings'] = array(
+    'field_formatter_class' => '',
+  );
+  /* Field: Content: City */
+  $handler->display->display_options['fields']['field_city']['id'] = 'field_city';
+  $handler->display->display_options['fields']['field_city']['table'] = 'field_data_field_city';
+  $handler->display->display_options['fields']['field_city']['field'] = 'field_city';
+  $handler->display->display_options['fields']['field_city']['label'] = '';
+  $handler->display->display_options['fields']['field_city']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_city']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['field_city']['settings'] = array(
     'field_formatter_class' => '',
   );
   /* Field: Content: Title */
@@ -503,10 +540,12 @@ function hwc_partner_views_default_views() {
     t('News'),
     t('Latest partner events'),
     t('Upcoming Events'),
+    t('LOCATION'),
     t('Events'),
     t('Past Events'),
     t('Past events'),
     t('more'),
+    t('Partner Events'),
   );
   $export['partner_content'] = $view;
 
@@ -775,7 +814,8 @@ function hwc_partner_views_default_views() {
   $handler->display->display_options['fields']['field_logo']['table'] = 'field_data_field_logo';
   $handler->display->display_options['fields']['field_logo']['field'] = 'field_logo';
   $handler->display->display_options['fields']['field_logo']['label'] = '';
-  $handler->display->display_options['fields']['field_logo']['alter']['text'] = '<img src="[field_logo-fid]" title="[title_field]" alt="[title_field]" />';
+  $handler->display->display_options['fields']['field_logo']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_logo']['alter']['text'] = '[field_logo]<span>[title_field]</span>';
   $handler->display->display_options['fields']['field_logo']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_logo']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['field_logo']['alter']['alt'] = '[title_field]';
@@ -784,6 +824,7 @@ function hwc_partner_views_default_views() {
   $handler->display->display_options['fields']['field_logo']['settings'] = array(
     'image_style' => 'medium',
     'image_link' => '',
+    'field_formatter_class' => '',
   );
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
@@ -824,6 +865,53 @@ function hwc_partner_views_default_views() {
   $handler->display->display_options['relationships']['field_orgtype_tid']['id'] = 'field_orgtype_tid';
   $handler->display->display_options['relationships']['field_orgtype_tid']['table'] = 'field_data_field_orgtype';
   $handler->display->display_options['relationships']['field_orgtype_tid']['field'] = 'field_orgtype_tid';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Organisation Type */
+  $handler->display->display_options['fields']['field_orgtype']['id'] = 'field_orgtype';
+  $handler->display->display_options['fields']['field_orgtype']['table'] = 'field_data_field_orgtype';
+  $handler->display->display_options['fields']['field_orgtype']['field'] = 'field_orgtype';
+  $handler->display->display_options['fields']['field_orgtype']['label'] = '';
+  $handler->display->display_options['fields']['field_orgtype']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_orgtype']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_orgtype']['type'] = 'i18n_taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_orgtype']['settings'] = array(
+    'field_formatter_class' => '',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
+  $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['label'] = '';
+  $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title_field']['element_wrapper_class'] = 'hwc-alpha-pager-view-title-field';
+  $handler->display->display_options['fields']['title_field']['settings'] = array(
+    'field_formatter_class' => '',
+  );
+  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 0;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Logo */
+  $handler->display->display_options['fields']['field_logo']['id'] = 'field_logo';
+  $handler->display->display_options['fields']['field_logo']['table'] = 'field_data_field_logo';
+  $handler->display->display_options['fields']['field_logo']['field'] = 'field_logo';
+  $handler->display->display_options['fields']['field_logo']['label'] = '';
+  $handler->display->display_options['fields']['field_logo']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_logo']['alter']['text'] = '<span class="logo-content">[field_logo]</span><span class="title-box-content">[title_field]</span>';
+  $handler->display->display_options['fields']['field_logo']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_logo']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_logo']['alter']['alt'] = '[title_field]';
+  $handler->display->display_options['fields']['field_logo']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_logo']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_logo']['settings'] = array(
+    'image_style' => 'partner_logo_view',
+    'image_link' => '',
+    'field_formatter_class' => '',
+  );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Taxonomy term: Weight */
   $handler->display->display_options['sorts']['weight']['id'] = 'weight';
@@ -1010,12 +1098,17 @@ function hwc_partner_views_default_views() {
   $handler->display->display_options['fields']['field_logo']['table'] = 'field_data_field_logo';
   $handler->display->display_options['fields']['field_logo']['field'] = 'field_logo';
   $handler->display->display_options['fields']['field_logo']['label'] = '';
+  $handler->display->display_options['fields']['field_logo']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_logo']['alter']['text'] = '<span class="logo-content">[field_logo]</span><span class="title-box-content">[title_field]</span>';
+  $handler->display->display_options['fields']['field_logo']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_logo']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_logo']['alter']['alt'] = '[title_field]';
   $handler->display->display_options['fields']['field_logo']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_logo']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_logo']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_logo']['settings'] = array(
     'image_style' => 'medium',
-    'image_link' => 'content',
+    'image_link' => '',
     'field_formatter_class' => '',
   );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
@@ -1055,7 +1148,7 @@ function hwc_partner_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'een');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'EEN list';
+  $handler->display->display_options['title'] = 'EEN OSH Ambassadors';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'hwc-alpha-pager-view aa';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
@@ -1136,12 +1229,17 @@ function hwc_partner_views_default_views() {
   $handler->display->display_options['fields']['field_logo']['table'] = 'field_data_field_logo';
   $handler->display->display_options['fields']['field_logo']['field'] = 'field_logo';
   $handler->display->display_options['fields']['field_logo']['label'] = '';
+  $handler->display->display_options['fields']['field_logo']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_logo']['alter']['text'] = '<span class="logo-content">[field_logo]</span><span class="title-box-content">[title_field]</span>';
+  $handler->display->display_options['fields']['field_logo']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_logo']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_logo']['alter']['alt'] = '[title_field]';
   $handler->display->display_options['fields']['field_logo']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_logo']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_logo']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_logo']['settings'] = array(
     'image_style' => 'medium',
-    'image_link' => 'content',
+    'image_link' => '',
     'field_formatter_class' => '',
   );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
@@ -1206,14 +1304,15 @@ function hwc_partner_views_default_views() {
     t('Desc'),
     t('<p>Find the media partner in your country</p>'),
     t('term from field_country'),
-    t('<img src="[field_logo-fid]" title="[title_field]" alt="[title_field]" />'),
+    t('[field_logo]<span>[title_field]</span>'),
     t('[title_field]'),
     t('Block'),
     t('term from field_orgtype'),
+    t('<span class="logo-content">[field_logo]</span><span class="title-box-content">[title_field]</span>'),
     t('FOP list'),
     t('MOP list'),
     t('<div class="field-content" data-iso="[field_iso2]">[name_field]</div>'),
-    t('EEN list'),
+    t('EEN OSH Ambassadors'),
     t('<p> Find the OSH ambassador in your country </p>'),
     t('Type (field_partner_type)'),
   );

@@ -177,9 +177,12 @@ function osha_events_strongarm() {
     'diff_standard' => 0,
     'title_body' => 0,
     'body' => 0,
+    'priority_areas' => 0,
+    'hwc_teaser' => 0,
     'osha_slideshow' => 0,
     'highlights_item' => 0,
     'newsletter_item' => 0,
+    'highlights_item_alternative' => 0,
     'pub_teaser' => 0,
     'print' => 0,
     'token' => 0,
@@ -256,6 +259,9 @@ function osha_events_strongarm() {
         'custom_settings' => FALSE,
       ),
       'priority_areas' => array(
+        'custom_settings' => TRUE,
+      ),
+      'hwc_teaser' => array(
         'custom_settings' => TRUE,
       ),
     ),

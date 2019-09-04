@@ -3,50 +3,6 @@
 	
 	body{
 	/* General */
-		padding-top: 210px;
-		&.toolbar-drawer,
-		&.toolbar,
-		&.logged-in{
-			padding-top: 245px !important;
-		}
-		@media only screen and (min-width : 1131px) and (max-width : 1200px){
-			&.toolbar-drawer,
-			&.toolbar,
-			&.logged-in{
-				padding-top: 280px !important;
-			}
-		}
-		@media only screen and (min-width : 829px) and (max-width : 1130px){
-			padding-top: 230px;
-			&.toolbar-drawer,
-			&.toolbar,
-			&.logged-in{
-				padding-top: 280px !important;
-			}
-		}
-		@media only screen and (min-width : 768px) and (max-width : 828px){
-			padding-top: 230px;
-			&.toolbar-drawer,
-			&.toolbar,
-			&.logged-in{
-				padding-top: 300px !important;
-			}
-		}
-		@media only screen and (max-width : 767px){
-			&.toolbar-drawer,
-			&.toolbar,
-			&.logged-in{
-				padding-top: 200px !important;
-			}
-		}
-		@media only screen and (max-width : 480px){
-			padding-top: 170px;
-			&.toolbar-drawer,
-			&.toolbar,
-			&.logged-in{
-				padding-top: 170px !important;
-			}
-		}
 		&.tk-pages{
 			padding-top: 0px !important;	
 		}
@@ -457,7 +413,7 @@ ul.tabs--primary.nav.nav-tabs{
 		border-right: 1px dotted @border-default-color;
 		border-left: 1px dotted @border-default-color;
 	}
-	.tools-and-resources-block, .panels-flexible-column-new-main, .panels-flexible-column-first, #block-views-news-oshnews-latest, .panels-flexible-column-new-1{
+	.tools-and-resources-block, .panels-flexible-column-new-main, #block-views-news-oshnews-latest, .panels-flexible-column-new-1{
 		float: left;
 		text-align: center;
 		padding-right: 1em;
@@ -538,7 +494,7 @@ ul.tabs--primary.nav.nav-tabs{
 			}
 		}
 	}
-	.tools-and-resources-block, .panels-flexible-column-new-main, .panels-flexible-column-first{
+	.tools-and-resources-block, .panels-flexible-column-new-main{
 		h2, div.pane-title{
 			padding-top: 70px;
 			background: url("../images/content/tools-and-resources.png") no-repeat center top;
@@ -1330,7 +1286,7 @@ ul.tabs--primary.nav.nav-tabs{
 		}
 	}
 	/* home news */
-	#block-views-news-oshnews-latest, .panels-flexible-column-new-1, .panels-flexible-column-first{
+	#block-views-news-oshnews-latest, .panels-flexible-column-new-1{
 		h2{
 			margin: 20px 0;
 			padding-top: 70px;
@@ -1496,7 +1452,7 @@ ul.tabs--primary.nav.nav-tabs{
 			display:block;
 		}
 
-	#block-views-frontpage-events-block, .panels-flexible-column-new-2, .panels-flexible-column-last{
+	#block-views-frontpage-events-block{
 	    float: left;
 		text-align: center;
 		margin-bottom: 0em;
@@ -2460,22 +2416,20 @@ ul.tabs--primary.nav.nav-tabs{
 		padding-right: @margin1;
 	
 	}
+	/*
 	.pane-node-field-free, .pane-node-field-country, .pane-node-field-tool-type{
-		background-color: @color8;
 		color: @text-color-2;
 		font-style: italic;
 		font-weight: bold;
 		float: left;
 		margin-top: 1em;
 		margin-right: 1em;
-		.field-item{
-			padding: 0.5em 1.5em;
-		}
 		.field-item:empty{
 			padding: 0;
 		}
 	}
-	.pane-node-field-provider, /*.pane-node-body,*/ .pane-node-field-implementation-steps, .pane-node-field-dissemination-used, .pane-node-field-access-tool-link,
+	*/
+	.pane-node-field-provider, .pane-node-field-implementation-steps, .pane-node-field-dissemination-used, .pane-node-field-access-tool-link,
 		.pane-hwc-practical-tool-hwc-practical-tool-language-list, .pane-node-field-external-urls, .pane-node-field-additional-information, .pane-node-field-access-tool-link-fc, .access-tool-languages{
 		clear: both;
 		width: 100%;
@@ -3338,7 +3292,7 @@ article{
 	margin-bottom: 0em;
 }
 .field.field-name-field-image{
-	margin-bottom: 1em;
+	margin-bottom: 0;
 }
 
 .container .field.field-name-body{
@@ -3941,27 +3895,12 @@ p.no-results{
 				}
 				.views-field-title-field{
 					a{
-						font-weight: bold;
 						display: block;
-						font-size:@size2; 
+						font-size: 1.7em;
 						margin-bottom: 10px;
-						&:before{
-							content: "> ";
-						}
 					}
 				}
-				.views-field-field-website-of-event,  .views-field-view-node{
-					float: left;
-					a{
-						font-weight: bold;
-						font-style: italic;
-						display: block;
-						margin-bottom: 20px;
-						&:before{
-							content: "> ";
-						}
-					}
-				}
+				
 				.views-field-view-node{
 					position: absolute;
 					margin-left: 230px;
@@ -3971,20 +3910,19 @@ p.no-results{
 				}
 
 				.views-field-field-start-date-1{
-					font-size: @size3;
+					font-size: 1em;
 					margin-bottom: 0.5em;
 					font-weight: bold;
+					color: #57575a;
 				}
 				.views-field-field-country-code, .views-field-field-city{
 					font-weight: bold;
 					display: inline-block;
+					color: #57575a;
 				}
-				.views-field-field-city{
-					&:before{
-						content:" (";
-					}
-					&:after{
-						content:") ";
+				.views-field-field-country-code{
+					span:after{
+						content:",";
 					}
 				}
 				.views-field-body{
@@ -4029,10 +3967,6 @@ p.no-results{
 	    margin-bottom: 0.15em;
 		.form-control{
 		}
-	}
-	.view-filters{	
-		border-top: 1px dotted @border-default-color;
-		border-bottom: 1px dotted @border-default-color;
 	}
 	.view-footer{
 		display: none;
@@ -4163,7 +4097,6 @@ p.no-results{
 		padding-top: .5em;
 		span.event-location-location{
 			padding: 3em 0em 3em 3em;
-			background: url("../images/content/location.png") no-repeat left center;
 			&:after{
 				content: ",";
 			}
@@ -4194,13 +4127,6 @@ p.no-results{
 		font-size: 0.9em;
 	}
 	.field-name-field-speaker{
-		border-top: 1px dotted @border-default-color;
-		margin-top: 0em;
-		padding-top: 2em;
-		> .field-label{
-			color: @text-color-3;
-			margin-bottom: 2em;
-		}
 		> .field-items > .field-item{
 			width: 20%;
 			float: left;
@@ -4216,19 +4142,12 @@ p.no-results{
 	}
 	.field-name-field-schedule{
 		clear: both;
-		border-top: 1px dotted @border-default-color;
 		padding-top: 2em;
 		padding-bottom: 1em;
-		.field-label{
-			color: @text-color-3;;
-			margin-bottom: 2em;
-		}
 		.views-row{
-			background-color: @bg-color-3;
-			margin-bottom: 1em;
-			padding: 1em;
 			.field-name-field-talking-title{
 				font-weight: bold;
+				color: #57575a;
 			}
 			.field-type-datetime{
 				margin-top: 0em;
@@ -4244,9 +4163,6 @@ p.no-results{
 		color: @text-color-3;
 		margin-bottom: 0em;
 		font-weight: bold;
-		&:after{
-			content:":";
-		}
 	}
 
 	.field-collection-container{
@@ -4254,7 +4170,6 @@ p.no-results{
 		margin-bottom: 2em;
 		padding-bottom: 2em;
 		.field-name-field-schedule{
-			border-top: 1px dotted @border-default-color;
 			margin-top: 2em;
 			padding-top: 2em;
 			> .field-label{
@@ -4629,13 +4544,10 @@ p.no-results{
 				&:before{
 					content: " ";
 				    background: url("../images/content/icono-become-big.png") no-repeat center;
-				    margin-bottom: 20px;
+				    margin-bottom: 10px;
 				    display: block;
-				    background-size: cover;
-				    min-width: 166px;
-				    min-height: 165px;
-				    max-height: 210px;
-				    max-width: 150px;
+				    min-width: 130px;
+				    min-height: 118px;
 				    margin-left: auto;
 				    margin-right: auto;
 				}
@@ -4655,10 +4567,6 @@ p.no-results{
 			h2.visibility:before{
 				background-image: url("../images/content/icono-visibility-big.jpg");
 			}
-		}
-		.col-2{
-			border-left: 1px dotted @color3;
-			border-right: 1px dotted @color3;
 		}
 	}
 	.partners{
@@ -5491,12 +5399,8 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 	}
 }
 
+/*
 .profile-2-cols-container-1{
-	border-bottom: 1px dotted @color3;
-	padding-bottom: 0.5em !important;
-	margin-bottom: 15px !important;
-	border-top: 1px dotted @color3;
-	padding-top: 0em;
 	.field-label{
 		color: @color3;
 		font-size: 1.4em;
@@ -5560,18 +5464,9 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 			text-align: center;
 		}
 	}
-	h2{
-		color: @color3;
-		font-weight: bold;
-		font-style: normal;
-		margin-bottom: 1em;
-		background: url("../images/content/news.png") center top no-repeat;
-		padding-top:70px;
-		text-align: center;
-	}
+
 	.views-row{
 		margin-bottom: 1em;
-		text-align: center!important;
 		a{
 			display: block;
 			font-weight: bold;
@@ -5596,23 +5491,17 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 	}
 }
 
-.profile-2-cols-container-3{
-	.panels-flexible-region-last h2{
-		background: url("../images/content/events.png") center top no-repeat;
-		padding-top:70px;
+#block-system-main .profile-2-cols-container-3{
+	.view-display-id-latest_partner_news, .view-display-id-latest_partner_events{
+		.more-link{
+			color: @btn-default-color;
+			background-color: @bg-color-2;
+			font-style: normal;
+			font-weight: normal;
+		}
 	}
 }
 
-	#block-system-main .profile-2-cols-container-3{
-		.view-display-id-latest_partner_news, .view-display-id-latest_partner_events{
-			.more-link{
-				color: @btn-default-color;
-				background-color: @bg-color-2;
-				font-style: normal;
-				font-weight: normal;
-			}
-		}
-	}
 .node-type-partner{
 
 	.view-id-partner_content .date-display-single{ 
@@ -5659,9 +5548,6 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 	}
 
 	.profile-4-cols-container-2{
-		border-bottom: 1px dotted @color3;
-		padding-bottom: 0em !important;
-		margin-bottom: 15px;
 		.profile-col-left-2, .profile-col-left-middle-2{
 			img{
 				margin-left: 0px;
@@ -5799,7 +5685,7 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 			padding-left: 0px;
 		}
 
-		.panels-flexible-column-new-8, .panels-flexible-column-first {
+		.panels-flexible-column-new-8 {
 			width: 45%;
 			float: left;
 			margin-top: 0em;
@@ -5914,6 +5800,7 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 		margin-bottom: 0em;
 	}
 }
+*/
 /*End partners public profile*/
 
 
@@ -7451,10 +7338,10 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 	.hwc-alphabet-container{
 		border-bottom: 1px dotted @color3;
 		padding-bottom: 1em;
+		width: 100%;
 	}
-	//.quicktabs-tabpage{
 	.hwc-char-link{
-		padding: 0px 13px;
+		padding: 0px 13px 0 0;
 		&.disabled {
 			cursor: text;
 			&:hover{
@@ -7485,9 +7372,7 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 		min-height: 196px;
 		.views-field-field-logo{
 			    min-height: 146px;
-			    //border: 1px solid #ccc;
 			    max-width: 150px;
-			    padding: 1em;
 			    margin: 0 auto;
 		}
 		.views-field-title-field, .views-field-name-field{
@@ -7540,7 +7425,10 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 	}
 	.more-link{
 		color: @btn-default-color;
-		background-color: @btn-default-bg;
+		clear: both;
+		display: block;
+		width: 100%;
+		margin-top: 2em;
 	}
 }
 /* End view-partners */
@@ -7553,18 +7441,6 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
     	margin-bottom: 10px;
 	}
 
-	h1{
-		background: url("../images/content/mail-newsletter-big.jpg") no-repeat center top;
-		background-size: 61px;
-		padding-top: 80px;
-		padding-bottom: 20px;
-		color: @color3 !important;
-		font-weight: bold !important;
-		font-style: normal !important;
-		margin-top: 5px;
-		border-bottom: 1px dotted @color3 !important;
-		margin-bottom: 1.5em;
-	}
 	button {
 		text-align: left;
 		padding-left: 1em;
@@ -7585,18 +7461,15 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 			font-style: normal;
 		}
 		#subscribe-extra{
-			font-weight: bold;
 			div form > div{
 				padding-bottom: 0em;
 				overflow: hidden;
 			}
 			input{
 				font-weight: normal;
-				width: 247px;
 				margin-right: 0px;
 			}
 			label, span{
-				font-weight: bold;
 				margin-right: 10px;
 			}
 			span.captcha{
@@ -7647,14 +7520,12 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 			.privacy-policy-oshmail{
 				margin-top: 0px;
 				display: block;
-				text-align: center;
+				text-align: left;
 			}
 			hr{
 				display: none;
 			}
 			#edit-subscribe-details{
-				margin: 0 auto;
-				max-width: 390px;
 				margin-bottom: 20px;
 				position: relative;
 				span{
@@ -7671,7 +7542,6 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 					vertical-align: inherit;
 					position: absolute;
 					top: 14px;
-					right: 12%;
 				}
 			}
 			#edit-unsubscribe-details{
@@ -8675,7 +8545,7 @@ span.date-display-single{
 	}
 }
 
-#block-panels-mini-news-and-events .panels-flexible-column-first {
+#block-panels-mini-news-and-events {
 	border-right: 1px dotted @color3;
 	margin-top:1em;
 }
@@ -10009,7 +9879,8 @@ input#edit-field-image-und-0-upload::before {
 /*enterprise europe network*/
 .page-enterprise-europe-network,
 .page-national-focal-points,
-.page-campaign-media-partners{
+.page-campaign-media-partners,
+.page-campaign-partners-official-campaign-partners{
 	.main-container.container-fluid{
 		padding-left: 0px;
 		padding-right: 0px;
@@ -10030,6 +9901,8 @@ input#edit-field-image-und-0-upload::before {
 			.field-type-text-with-summary{
 				padding-right: 15px;
 				padding-left: 15px;
+				width: 67%;
+				margin: 0 auto;
 				p{
 					text-align: center;
     				font-size: 1.2em;

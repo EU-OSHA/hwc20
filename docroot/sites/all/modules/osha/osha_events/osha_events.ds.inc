@@ -17,8 +17,18 @@ function osha_events_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'events';
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
+    'back_to_list' => array(
+      'weight' => '0',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
+    'event_country_flag' => array(
+      'weight' => '8',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
     'event_location' => array(
-      'weight' => '2',
+      'weight' => '10',
       'label' => 'hidden',
       'format' => 'default',
     ),
@@ -33,6 +43,30 @@ function osha_events_ds_field_settings_info() {
  */
 function osha_events_ds_custom_fields_info() {
   $export = array();
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'back_to_list';
+  $ds_field->label = 'back to list';
+  $ds_field->field_type = 3;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = 'events|*';
+  $ds_field->properties = array();
+  $export['back_to_list'] = $ds_field;
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'event_country_flag';
+  $ds_field->label = 'event_country_flag';
+  $ds_field->field_type = 3;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = 'events|*';
+  $ds_field->properties = array();
+  $export['event_country_flag'] = $ds_field;
 
   $ds_field = new stdClass();
   $ds_field->api_version = 1;
@@ -64,39 +98,51 @@ function osha_events_ds_layout_settings_info() {
   $ds_layout->layout = 'hwc_2col_stacked_2col';
   $ds_layout->settings = array(
     'regions' => array(
-      'header' => array(
-        0 => 'title_field',
+      'left' => array(
+        0 => 'back_to_list',
+      ),
+      'right' => array(
         1 => 'share_widget',
-        2 => 'event_location',
-        3 => 'field_start_date',
-        4 => 'body',
+      ),
+      'center' => array(
+        2 => 'title_field',
+      ),
+      'left2' => array(
+        3 => 'body',
+        4 => 'field_speaker',
         5 => 'field_organizer',
-        6 => 'field_website_of_event',
-        7 => 'field_gallery',
-        8 => 'field_speaker',
-        9 => 'field_schedule',
+        6 => 'field_gallery',
+        7 => 'field_schedule',
+      ),
+      'right2' => array(
+        8 => 'event_country_flag',
+        9 => 'field_start_date',
+        10 => 'event_location',
       ),
       'footer' => array(
-        10 => 'field_contact_name',
-        11 => 'field_contact_email',
+        11 => 'field_contact_name',
         12 => 'field_contact_phone',
-        13 => 'field_related_documents',
+        13 => 'field_contact_email',
+        14 => 'field_website_of_event',
+        15 => 'field_related_documents',
       ),
     ),
     'fields' => array(
-      'title_field' => 'header',
-      'share_widget' => 'header',
-      'event_location' => 'header',
-      'field_start_date' => 'header',
-      'body' => 'header',
-      'field_organizer' => 'header',
-      'field_website_of_event' => 'header',
-      'field_gallery' => 'header',
-      'field_speaker' => 'header',
-      'field_schedule' => 'header',
+      'back_to_list' => 'left',
+      'share_widget' => 'right',
+      'title_field' => 'center',
+      'body' => 'left2',
+      'field_speaker' => 'left2',
+      'field_organizer' => 'left2',
+      'field_gallery' => 'left2',
+      'field_schedule' => 'left2',
+      'event_country_flag' => 'right2',
+      'field_start_date' => 'right2',
+      'event_location' => 'right2',
       'field_contact_name' => 'footer',
-      'field_contact_email' => 'footer',
       'field_contact_phone' => 'footer',
+      'field_contact_email' => 'footer',
+      'field_website_of_event' => 'footer',
       'field_related_documents' => 'footer',
     ),
     'classes' => array(
@@ -118,6 +164,7 @@ function osha_events_ds_layout_settings_info() {
     'layout_attributes_merge' => 1,
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
+    'layout_disable_css' => FALSE,
   );
   $export['node|events|default'] = $ds_layout;
 
@@ -169,39 +216,31 @@ function osha_events_ds_layout_settings_info() {
         25 => 'field_adonis',
         26 => 'field_unit_ref',
         27 => 'field_agency_role',
-        28 => 'field_fast',
-        29 => 'field_agenda',
-        30 => 'field_agency_rep_confirmed',
-        31 => 'field_publications_exhibition_su',
-        32 => 'field_media_promotion',
-        33 => 'field_agency_contact_reply',
-        34 => 'field_color',
-        35 => 'field_modified_on',
-        36 => 'group_notification_management',
+        28 => 'field_agenda',
+        29 => 'field_agency_rep_confirmed',
+        30 => 'field_publications_exhibition_su',
+        31 => 'field_media_promotion',
+        32 => 'field_agency_contact_reply',
+        33 => 'field_color',
+        34 => 'field_modified_on',
+        35 => 'group_notification_management',
+        36 => 'field_notification_comment',
         37 => 'field_show_in_ncw',
         38 => 'field_show_eu_flag',
-        42 => 'field_approved_subject',
-        45 => 'field_approved_body',
-        47 => 'field_rejection_subject',
-        49 => 'field_rejection_body',
-        51 => 'field_supervisor_subject',
-        53 => 'field_supervisor_body',
-        54 => 'field_reviewer_subject',
-        57 => 'field_reviewer_body',
       ),
       'hidden' => array(
         39 => 'field_agency_initial_contact',
         40 => 'field_satisfaction_rate',
         41 => 'field_event_in_amp',
-        43 => 'field_number_of_attendees',
-        44 => 'field_modified_by',
-        46 => 'field_wf_notification',
-        48 => 'group_contact',
-        50 => 'field_migration_source',
-        52 => 'xmlsitemap',
-        55 => 'field_first_publication_date',
-        56 => 'field_migration_path_alias',
-        58 => '_add_existing_field',
+        42 => 'field_number_of_attendees',
+        43 => 'field_modified_by',
+        44 => 'field_wf_notification',
+        45 => 'group_contact',
+        46 => 'field_migration_source',
+        47 => 'xmlsitemap',
+        48 => 'field_first_publication_date',
+        49 => 'field_migration_path_alias',
+        50 => '_add_existing_field',
       ),
     ),
     'fields' => array(
@@ -233,7 +272,6 @@ function osha_events_ds_layout_settings_info() {
       'field_adonis' => 'footer',
       'field_unit_ref' => 'footer',
       'field_agency_role' => 'footer',
-      'field_fast' => 'footer',
       'field_agenda' => 'footer',
       'field_agency_rep_confirmed' => 'footer',
       'field_publications_exhibition_su' => 'footer',
@@ -242,27 +280,20 @@ function osha_events_ds_layout_settings_info() {
       'field_color' => 'footer',
       'field_modified_on' => 'footer',
       'group_notification_management' => 'footer',
+      'field_notification_comment' => 'footer',
       'field_show_in_ncw' => 'footer',
       'field_show_eu_flag' => 'footer',
       'field_agency_initial_contact' => 'hidden',
       'field_satisfaction_rate' => 'hidden',
       'field_event_in_amp' => 'hidden',
-      'field_approved_subject' => 'footer',
       'field_number_of_attendees' => 'hidden',
       'field_modified_by' => 'hidden',
-      'field_approved_body' => 'footer',
       'field_wf_notification' => 'hidden',
-      'field_rejection_subject' => 'footer',
       'group_contact' => 'hidden',
-      'field_rejection_body' => 'footer',
       'field_migration_source' => 'hidden',
-      'field_supervisor_subject' => 'footer',
       'xmlsitemap' => 'hidden',
-      'field_supervisor_body' => 'footer',
-      'field_reviewer_subject' => 'footer',
       'field_first_publication_date' => 'hidden',
       'field_migration_path_alias' => 'hidden',
-      'field_reviewer_body' => 'footer',
       '_add_existing_field' => 'hidden',
     ),
     'classes' => array(

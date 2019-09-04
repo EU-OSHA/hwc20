@@ -133,3 +133,10 @@ function osha_publication_update_7015() {
     variable_set('campaign_materials_tid', $term->tid);
   }
 }
+
+/**
+ * MDR-2764 HWC18 - create main publication type taxonomy.
+ */
+function osha_publication_update_7016() {
+  features_revert_module('osha_publication');
+}

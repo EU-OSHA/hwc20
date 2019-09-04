@@ -108,7 +108,7 @@ function osha_publication_field_default_field_instances() {
           'more_link' => 0,
           'more_text' => 'See more',
           'summary_handler' => 'full',
-          'trim_length' => 220,
+          'trim_length' => 280,
           'trim_link' => 0,
           'trim_options' => array(
             'text' => 'text',
@@ -2350,14 +2350,11 @@ function osha_publication_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'title',
+        'module' => 'text',
         'settings' => array(
           'field_formatter_class' => '',
-          'title_class' => '',
-          'title_link' => '',
-          'title_style' => 'h1',
         ),
-        'type' => 'title_linked',
+        'type' => 'text_default',
         'weight' => 1,
       ),
       'highlights_item' => array(
@@ -2404,16 +2401,22 @@ function osha_publication_field_default_field_instances() {
       ),
       'osha_slideshow' => array(
         'label' => 'hidden',
-        'module' => 'osha_publication',
+        'module' => 'smart_trim',
         'settings' => array(
           'field_formatter_class' => '',
-          'title_class' => 'publication-teaser-title',
-          'title_link' => 'content',
-          'title_style' => 'h2',
-          'trim_length' => '',
-          'trim_suffix' => '',
+          'more_link' => 0,
+          'more_text' => 'Read more',
+          'summary_handler' => 'full',
+          'trim_length' => 60,
+          'trim_link' => 1,
+          'trim_options' => array(
+            'text' => 'text',
         ),
-        'type' => 'publication_title_linked',
+          'trim_preserve_tags' => '',
+          'trim_suffix' => '...',
+          'trim_type' => 'chars',
+        ),
+        'type' => 'smart_trim_format',
         'weight' => 3,
       ),
       'osha_wiki' => array(
@@ -2439,16 +2442,22 @@ function osha_publication_field_default_field_instances() {
       ),
       'pub_teaser' => array(
         'label' => 'hidden',
-        'module' => 'osha_publication',
+        'module' => 'smart_trim',
         'settings' => array(
           'field_formatter_class' => '',
-          'title_class' => 'publication-teaser-title',
-          'title_link' => 'content',
-          'title_style' => 'h2',
-          'trim_length' => '',
-          'trim_suffix' => '',
+          'more_link' => 0,
+          'more_text' => 'Read more',
+          'summary_handler' => 'full',
+          'trim_length' => 125,
+          'trim_link' => 1,
+          'trim_options' => array(
+            'text' => 0,
+          ),
+          'trim_preserve_tags' => '',
+          'trim_suffix' => '...',
+          'trim_type' => 'chars',
         ),
-        'type' => 'publication_title_linked',
+        'type' => 'smart_trim_format',
         'weight' => 2,
       ),
       'scs' => array(
@@ -2493,6 +2502,45 @@ function osha_publication_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'taxonomy_term-publication_types-field_main_category'.
+  $field_instances['taxonomy_term-publication_types-field_main_category'] = array(
+    'bundle' => 'publication_types',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_main_category',
+    'label' => 'Main category',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 2,
+    ),
+    'workbench_access_field' => 0,
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Additional Resources');
@@ -2507,6 +2555,7 @@ function osha_publication_field_default_field_instances() {
   t('Expiration date');
   t('File');
   t('First publication date');
+  t('Main category');
   t('Migration Path Alias');
   t('Number of pages');
   t('Page count');

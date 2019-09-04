@@ -47,7 +47,7 @@ function osha_events_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Description',
-    'weight' => '34',
+    'weight' => '38',
     'children' => array(),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -75,7 +75,7 @@ function osha_events_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Event details',
-    'weight' => '33',
+    'weight' => '36',
     'children' => array(),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -103,7 +103,7 @@ function osha_events_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Links',
-    'weight' => '35',
+    'weight' => '39',
     'children' => array(),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -136,7 +136,7 @@ function osha_events_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Related documents',
-    'weight' => '31',
+    'weight' => '33',
     'children' => array(),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -158,83 +158,12 @@ function osha_events_field_group_info() {
   );
   $field_groups['group_events_related_documents|node|events|default'] = $field_group;
 
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
-  $field_group->identifier = 'group_notification_management|node|events|form';
-  $field_group->group_name = 'group_notification_management';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'events';
-  $field_group->mode = 'form';
-  $field_group->parent_name = '';
-  $field_group->data = array(
-    'label' => 'Notification Management',
-    'weight' => '36',
-    'children' => array(
-      0 => 'field_approved_subject',
-      1 => 'field_rejection_subject',
-      2 => 'field_approved_body',
-      3 => 'field_rejection_body',
-      4 => 'field_supervisor_subject',
-      5 => 'field_supervisor_body',
-      6 => 'field_reviewer_subject',
-      7 => 'field_reviewer_body',
-    ),
-    'format_type' => 'fieldset',
-    'format_settings' => array(
-      'formatter' => 'collapsible',
-      'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-notification-management field-group-fieldset',
-        'required_fields' => 1,
-        'id' => '',
-      ),
-    ),
-  );
-  $field_groups['group_notification_management|node|events|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
-  $field_group->identifier = 'group_notification_management|node|news|form';
-  $field_group->group_name = 'group_notification_management';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'news';
-  $field_group->mode = 'form';
-  $field_group->parent_name = '';
-  $field_group->data = array(
-    'label' => 'Notification Management',
-    'weight' => '18',
-    'children' => array(
-      0 => 'field_approved_body',
-      1 => 'field_approved_subject',
-      2 => 'field_rejection_subject',
-      3 => 'field_rejection_body',
-      4 => 'field_supervisor_subject',
-      5 => 'field_supervisor_body',
-      6 => 'field_reviewer_subject',
-      7 => 'field_reviewer_body',
-    ),
-    'format_type' => 'fieldset',
-    'format_settings' => array(
-      'formatter' => 'collapsible',
-      'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-notification-management field-group-fieldset',
-        'required_fields' => 1,
-        'id' => '',
-      ),
-    ),
-  );
-  $field_groups['group_notification_management|node|news|form'] = $field_group;
-
   // Translatables
   // Included for use with string extractors like potx.
   t('Contact');
   t('Description');
   t('Event details');
   t('Links');
-  t('Notification Management');
   t('Related documents');
 
   return $field_groups;

@@ -124,3 +124,28 @@ function hwc_homepage_update_7016() {
 function hwc_homepage_update_7017() {
   features_revert(array('hwc_homepage' => 'views_view'));
 }
+
+/**
+ * HW20-45 HWC20 Development - Previous Campaign, DS Campaign, All ages Campaign.
+ */
+function hwc_homepage_update_7018() {
+  features_revert_module('hwc_homepage');
+  variable_set('pathauto_node_previous_campaign_pattern', 'previous-campaigns/[node:field-previous-campaign]/[node:title]');
+}
+
+/**
+ * HW20-45 HWC20 Development - Previous Campaign, DS Campaign, All ages Campaign.
+ */
+function hwc_homepage_update_7019() {
+  features_revert_module('hwc_homepage');
+  module_enable(['hwc_previous_campaigns']);
+  variable_set('pathauto_node_campaign_16_pattern', 'previous-campaigns/hwc16/[node:title]');
+  variable_set('pathauto_node_campaign_18_pattern', 'previous-campaigns/hwc18/[node:title]');
+}
+
+/**
+ * HW20-40 HWC20 Development - Become a Media Partner.
+ */
+function hwc_homepage_update_7020() {
+  features_revert_module('hwc_homepage');
+}

@@ -284,3 +284,10 @@ function osha_events_update_7023() {
     }
   }
 }
+
+/**
+ * HW20-46 HWC20 Development -Events list, detail, backend.
+ */
+function osha_events_update_7024() {
+  features_revert_module('osha_events');
+}

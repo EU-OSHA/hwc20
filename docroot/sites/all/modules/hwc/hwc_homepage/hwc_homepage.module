@@ -73,6 +73,13 @@ function hwc_homepage_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['previous_campaign_nav'] = array(
+    'info' => t('Previous campaigns navigation'),
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   $blocks['article_nav'] = array(
     'info' => t('Article navigation'),
     'status' => 1,
@@ -180,6 +187,61 @@ function hwc_homepage_block_view($delta = '') {
     $block['content'] = theme('hwc_footer_section', ['data' => $data]);
   }
 
+  if ($delta == 'previous_campaign_nav') {
+    $all_data = menu_tree_all_data('main-menu');
+    $active_trail = menu_get_active_trail();
+    $last = end($active_trail);
+    if ($last['menu_name'] != 'main-menu') {
+      $last = menu_get_item();
+      $last['p1'] = '';
+      $last['p2'] = '';
+      $last['link_path'] = $last['path'];
+    }
+    $prev = [];
+    $next = [];
+    $found = FALSE;
+    foreach ($all_data as $menu2) {
+      foreach ($menu2['below'] as $menu) {
+        if ($last['p2'] && $menu['link']['mlid'] != $last['p2']) {
+          continue;
+        }
+        foreach ($menu['below'] as $sub_menu) {
+          if ($sub_menu['link']['hidden']) {
+            continue;
+          }
+          if (
+            !empty($sub_menu['link']['localized_options']['attributes']['target']) &&
+            $sub_menu['link']['localized_options']['attributes']['target'] == '_blank'
+          ) {
+            continue;
+          }
+          if ($sub_menu['link']['mlid'] == $last['p3']) {
+            $found = TRUE;
+            continue;
+          }
+          if ($sub_menu['link']['link_path'] == $last['link_path']) {
+            $found = TRUE;
+            continue;
+          }
+          if (!$found) {
+            $prev = $sub_menu['link'];
+          }
+          if ($found && !$next) {
+            $next = $sub_menu['link'];
+            break;
+          }
+        }
+        if ($found) {
+          break;
+        }
+      }
+    }
+    $markup = theme('article_navigation', ['prev' => $prev, 'next' => $next]);
+    $block['content'] = array(
+      '#type' => 'markup',
+      '#markup' => $markup,
+    );
+  }
   if ($delta == 'article_nav') {
     $all_data = menu_tree_all_data('main-menu');
     $active_trail = menu_get_active_trail();
@@ -227,6 +289,7 @@ function hwc_homepage_block_view($delta = '') {
       '#markup' => $markup,
     );
   }
+
   if ($delta == 'splash_title_banner_countdown') {
     drupal_add_js(drupal_get_path('module', 'hwc_homepage') . '/js/moment.min.js');
     drupal_add_js(drupal_get_path('module', 'hwc_homepage') . '/js/splash-page.js');

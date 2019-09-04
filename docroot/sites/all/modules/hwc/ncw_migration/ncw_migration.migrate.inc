@@ -193,14 +193,10 @@ function ncw_migration_migrate_api() {
         'dependencies' => array(),
         'class_name' => 'NCWTaxonomyNewsletterSectionsMigration',
       ),
-      // Don't migrate some types.
-      // Magazine, Annual reports and other corporate publications, Promotional Material.
-      // Evaluation reports, Corporate strategies and annual management plans.
       'tax_publication_types' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),
         'class_name' => 'NCWTaxonomyPublicationTypeMigration',
-        'skip_ids' => array(4, 2, 3, 1, 3022),
       ),
       'tax_segment' => array(
         'group_name' => 'ncw',

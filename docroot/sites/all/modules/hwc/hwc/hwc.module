@@ -313,6 +313,12 @@ function hwc_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'region' => 'sidebar_second',
   );
+  $blocks['campaign_resources'] = array(
+    'info' => t('Campaign resources'),
+    'status' => 1,
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'region' => 'sidebar_second',
+  );
 
   return $blocks;
 }
@@ -334,6 +340,7 @@ function hwc_block_info() {
  *     is empty the block will not be shown.
  */
 function hwc_block_view($delta = '') {
+  global $language;
   $block = array();
   if ($delta == 'page_share_widget') {
     $block['title'] = '<none>';
@@ -348,24 +355,65 @@ function hwc_block_view($delta = '') {
     $block['subject'] = "<none>";
     $block['content'] = NULL;
   }
+
   if ($delta == 'article_related_resources') {
     $block['title'] = '<none>';
     $block['subject'] = "<none>";
-    $block['content'] = '
-<div class="col-md-3 related-resources">
+    $node = menu_get_object();
+    if ($node->field_resources) {
+      $resources = [];
+      foreach($node->field_resources[LANGUAGE_NONE] as $term) {
+        $wrapper = entity_metadata_wrapper('taxonomy_term', $term['tid']);
+        $icon = $wrapper->language($language->language)->field_icon->value()['uri'];
+        $image = theme('image_style', ['style_name' => 'relres', 'path' => $icon]);
+        $name = $wrapper->label();
+        $resource_link = $wrapper->language($language->language)->field_resource_link->value();
+        $link = $resource_link['url'];
+        $options = [
+          'html' => TRUE,
+          'attributes' => ['class' => ['recommended-tool max-width']]
+        ];
+        if (!empty($resource_link['attributes']['target'])) {
+          $options['attributes']['target'] = $resource_link['attributes']['target'];
+        }
+        $resources[] = '<div>' . l($image . '<span>' . $name . '</span>', $link, $options) . '</div>';
+      }
+      $block['content'] = '
+<div class="related-resources">
    <span class="related-resources-title">' . t('Related resources') . '</span>
-   <div class="related-resources-boxes container-recommended-tools direction-column">
-      <div>
-         <a class="recommended-tool max-width priority-areas" href="#"><span>' . t('Priority Areas') . '</span></a>
-      </div>
-      <div>
-         <a class="recommended-tool max-width osh-wiki" href="#"><span>' . t('OSH Wiki') . '</span></a>
-      </div>
-      <div>
-         <a class="recommended-tool max-width osh-newsletter" href="#"><span>' . t('OSH Newsletter') . '</span></a>
-      </div>
-   </div>
+   <div class="related-resources-boxes container-recommended-tools direction-column">' . implode('', $resources) . '</div>
 </div>';
+    }
+  }
+
+  if ($delta == 'campaign_resources') {
+    $block['title'] = '<none>';
+    $block['subject'] = "<none>";
+    $node = menu_get_object();
+    if ($node->field_campaign_resources) {
+      $resources = [];
+      foreach($node->field_campaign_resources[LANGUAGE_NONE] as $term) {
+        $wrapper = entity_metadata_wrapper('taxonomy_term', $term['tid']);
+        $icon = $wrapper->language($language->language)->field_icon->value()['uri'];
+        $image = theme('image_style', ['style_name' => 'relres', 'path' => $icon]);
+        $name = $wrapper->label();
+        $resource_link = $wrapper->language($language->language)->field_resource_link->value();
+        $link = $resource_link['url'];
+        $options = [
+          'html' => TRUE,
+          'attributes' => ['class' => ['recommended-tool max-width']]
+        ];
+        if (!empty($resource_link['attributes']['target'])) {
+          $options['attributes']['target'] = $resource_link['attributes']['target'];
+        }
+        $resources[] = '<div>' . l($image . '<span>' . $name . '</span>', $link, $options) . '</div>';
+      }
+      $block['content'] = '
+<div class="campaign-resources">
+   <span class="campaign-resources-title"><span>' . t('Campaign Resources') . '</span></span>
+   <div class="campaign-resources-boxes">' . implode('', $resources) . '</div>
+</div>';
+    }
   }
 
   return $block;
@@ -476,6 +524,8 @@ function hwc_field_extra_fields() {
   $extra['node']['publication'] = $share_widget;
   $extra['node']['events'] = $share_widget;
   $extra['node']['article'] = $share_widget;
+  $extra['node']['campaign_16'] = $share_widget;
+  $extra['node']['campaign_18'] = $share_widget;
   $extra['node']['hwc_gallery'] = $share_widget;
   $extra['node']['flickr_gallery'] = $share_widget;
   $extra['node']['press_release'] = $share_widget;
@@ -615,6 +665,24 @@ function hwc_theme() {
   return array(
     'hwc_file_format' => array(
       'variables' => array('file' => NULL, 'delta' => NULL),
+    ),
+    'become_partner' => array(
+      'variables' => array(
+        'download_title' => '',
+        'download_body' => '',
+        'download_link' => '',
+        'application_form_title' => '',
+        'application_form_body' => '',
+        'application_form_link' => '',
+
+        'see_results_title' => '',
+        'see_results_body' => '',
+
+        'download_class' => '',
+        'application_form_class' => '',
+        'see_results_class' => '',
+      ),
+      'template' => 'templates/become_partner',
     ),
     'news_share_widget' => array(
       'variables' => array(
@@ -1108,25 +1176,70 @@ function hwc_field_widget_form_alter(&$element, &$form_state, $context) {
  * Implements hook_node_view().
  */
 function hwc_node_view($node, $view_mode, $langcode) {
-
-  // /become-campaign-partner page. See HCW-600.
-  if ($node->nid == 165 & !empty($node->content['body'][0]['#markup'])) {
+  if (($node->nid == 165 || $node->nid == 184) & !empty($node->content['body'][0]['#markup'])) {
     $show_registration = hwc_partner_registration_allowed();
+    $download_allowed = hwc_partner_download_allowed();
     $body =& $node->content['body'][0]['#markup'];
+    $download_class = 'inactive';
+    $application_form_class = 'inactive';
+    $see_results_class = 'inactive';
+    if ($download_allowed) {
+      $download_class = 'active';
+    }
+    else {
     if ($show_registration) {
-      $body = str_replace(
-        '[-PLACEHOLDER-REGISTER-DO-NOT-REMOVE-]',
-        '<a class="btn-become-a-campaign-partner" href="/partner/register">' . t('Become a campaign partner') . '</a>',
-        $body
+        $application_form_class = 'active';
+    }
+    else {
+        $see_results_class = 'active';
+      }
+    }
+    if ($node->nid == 165) {
+      $download_link = variable_get('become_campaign_partner_download_link', '#');
+      $variables = array(
+        'download_title' => variable_get('become_campaign_partner_download_title', 'Download the Campaign Partnership offer'),
+        'download_body' => variable_get('become_campaign_partner_download_body', 'Get to know more about the status and make sure you meet the requirements.'),
+        'download_link' => '<a class="btn-become-partner-download" href="' . $download_link . '">' . t('Download') . '</a>',
+
+        'application_form_title' => variable_get('become_campaign_partner_application_form_title', 'Fill up the online application form'),
+        'application_form_body' => variable_get('become_campaign_partner_application_form_body', 'The form will be available from the 6th of december 2020'),
+        'application_form_link' => '<a class="btn-become-partner-register" href="/partner/register">' . t('Become a campaign partner') . '</a>',
+
+        'see_results_title' => variable_get('become_campaign_partner_see_results_title', 'Get the result'),
+        'see_results_body' => variable_get('become_campaign_partner_see_results_body', 'The internal selection process will take place at the end of May 2020, and candidate organisations will be informed soon after that.'),
+
+        'download_class' => $download_class,
+        'application_form_class' => $application_form_class,
+        'see_results_class' => $see_results_class,
+
+        'download_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_download_deadline', ''),
+        'registration_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_registration_deadline', ''),
       );
     }
     else {
-      $body = str_replace(
-        '[-PLACEHOLDER-REGISTER-DO-NOT-REMOVE-]',
-        '<div class="alert registration-over">' . t(variable_get('hwc_partner_registration_deadline_message')) . '</div>',
-        $body
+      $download_link = variable_get('become_media_partner_download_link', '#');
+      $variables = array(
+        'download_title' => variable_get('become_media_partner_download_title', 'Download the Campaign Partnership offer'),
+        'download_body' => variable_get('become_media_partner_download_body', 'Get to know more about the status and make sure you meet the requirements.'),
+        'download_link' => '<a class="btn-become-partner-download" href="' . $download_link . '">' . t('Download') . '</a>',
+
+        'application_form_title' => variable_get('become_media_partner_application_form_title', 'Fill up the online application form'),
+        'application_form_body' => variable_get('become_media_partner_application_form_body', 'The form will be available from the 6th of december 2020'),
+        'application_form_link' => '<a class="btn-become-partner-register" href="/partner/register">' . t('Become a campaign partner') . '</a>',
+
+        'see_results_title' => variable_get('become_media_partner_see_results_title', 'Get the result'),
+        'see_results_body' => variable_get('become_media_partner_see_results_body', 'The internal selection process will take place at the end of May 2020, and candidate organisations will be informed soon after that.'),
+
+        'download_class' => $download_class,
+        'application_form_class' => $application_form_class,
+        'see_results_class' => $see_results_class,
+
+        'download_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_download_deadline', ''),
+        'registration_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_registration_deadline', ''),
       );
     }
+    $registration_block = theme('become_partner', $variables);
+    $body = str_replace('[-PLACEHOLDER-REGISTER-DO-NOT-REMOVE-]', $registration_block, $body);
   }
 
   // /partner/register .
@@ -1257,9 +1370,14 @@ function hwc_news_share_widget($node, $options = array()) {
   // Merge default vars with ones from options.
   $vars = $options + $vars;
   switch ($vars['type']) {
+    case 'previous_campaign':
+      $widget = theme('article_share_widget', $vars);
+      break;
+
     case 'article':
       $widget = theme('article_share_widget', $vars);
       break;
+
     case 'publication':
       $widget = theme('article_share_widget', $vars);
       break;
@@ -1487,6 +1605,26 @@ function hwc_get_forms_parameters() {
   return $ret;
 }
 
+function hwc_partner_download_allowed() {
+  $ret = TRUE;
+  $deadline = variable_get('hwc_partner_download_deadline', NULL);
+  if (!empty($deadline)) {
+    $day = $deadline['day'];
+    $month = $deadline['month'];
+    $year = $deadline['year'];
+    $time = mktime(0, 0, 0, $month, $day, $year);
+    $ret = time() <= $time;
+  }
+  return $ret;
+}
+
+function hwc_get_partner_deadline_mktime($name) {
+  $deadline = variable_get($name, NULL);
+  $day = $deadline['day'];
+  $month = $deadline['month'];
+  $year = $deadline['year'];
+  return  mktime(0, 0, 0, $month, $day, $year);
+}
 /**
  * Check whether the partner registration should be still opened.
  *
@@ -1497,7 +1635,9 @@ function hwc_partner_registration_allowed() {
   $ret = TRUE;
   $deadline = variable_get('hwc_partner_registration_deadline', NULL);
   if (!empty($deadline)) {
-    $day = $deadline['day']; $month = $deadline['month']; $year = $deadline['year'];
+    $day = $deadline['day'];
+    $month = $deadline['month'];
+    $year = $deadline['year'];
     $time = mktime(0, 0, 0, $month, $day, $year);
     $ret = time() <= $time;
   }

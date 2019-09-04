@@ -156,6 +156,8 @@ function osha_search_default_search_api_index() {
         "field_worker_groups_type" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_zip_code" : { "type" : "text" },
         "language" : { "type" : "string" },
+        "main_publication_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
+        "main_tags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "nid" : { "type" : "integer" },
         "partner_category_type" : { "type" : "integer" },
         "partner_organisation" : { "type" : "integer" },

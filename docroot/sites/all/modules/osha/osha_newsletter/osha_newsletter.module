@@ -8,6 +8,8 @@ include_once 'osha_newsletter.features.inc';
 require_once 'includes/osha_newsletter.utils.inc';
 include_once 'includes/campaigns_newsletter_subscribe_form.php';
 include_once 'includes/osha_newsletter_subscribe_extra_form.php';
+include_once 'includes/osha_newsletter_events_subscribe.php';
+
 include_once 'includes/osha_newsletter_block_subscribe_form.php';
 
 define('OSHA_NEWSLETTER_PAGE_URL', 'oshmail-newsletter');
@@ -179,6 +181,14 @@ function osha_newsletter_block_info() {
     'pages' => 'node/129',
     'cache' => DRUPAL_NO_CACHE,
   );
+  $blocks['osha_newsletter_events_subscribe'] = array(
+    'info' => t('Newsletter'),
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => 'node/129',
+    'cache' => DRUPAL_NO_CACHE,
+  );
   $blocks['osha_newsletter_latest'] = array(
     'info' => t('Display the latest newsletters'),
     'status' => 1,
@@ -287,6 +297,31 @@ function osha_newsletter_block_configure($delta = '') {
       );
       break;
 
+    case 'osha_newsletter_events_subscribe':
+      $form['events_subscribe_block_intro_text'] = array(
+        '#type' => 'textarea',
+        '#title' => 'Block intro text',
+        '#size' => 60,
+        '#description' => 'This text will appear in the Subscription block before the e-mail field.',
+        '#default_value' => variable_get('events_subscribe_block_intro_text', 'To get the latest news from the Healthy Workplaces Campaign 2016–17 direct to your inbox, sign up for our bimonthly newsletter. We’ll cover all the big events and key issues to keep you up to date.'),
+      );
+      $form['events_subscribe_block_details_link_label'] = array(
+        '#type' => 'textfield',
+        '#title' => 'Link label',
+        '#size' => 60,
+        '#description' => 'This text will appear as link label in the Subscription block after the e-mail field.',
+        '#default_value' => variable_get('events_subscribe_block_details_link_label', ''),
+      );
+      $form['events_subscribe_block_details_link_url'] = array(
+        '#type' => 'textfield',
+        '#title' => 'Link URL',
+        '#size' => 60,
+        '#description' => 'This text will appear as link url in the Subscription block after the e-mail field.',
+        '#default_value' => variable_get('events_subscribe_block_details_link_url', OSHA_PRIVACY_PAGE_URL),
+      );
+
+      break;
+
     case 'osha_newsletter_subscribe_extra':
       $form['subscribe_extra_block_intro_text'] = array(
         '#type' => 'textarea',
@@ -370,6 +405,12 @@ function osha_newsletter_block_save($delta = '', $edit = array()) {
       variable_set('osha_newsletter_image_block_details_link_url', $edit['osha_newsletter_image_block_details_link_url']);
       break;
 
+    case 'osha_newsletter_events_subscribe':
+      variable_set('events_subscribe_block_intro_text', $edit['events_subscribe_block_intro_text']);
+      variable_set('events_subscribe_block_details_link_label', $edit['subscribe_extra_block_details_link_label']);
+      variable_set('events_subscribe_block_details_link_url', $edit['events_subscribe_block_details_link_url']);
+      break;
+
     case 'osha_newsletter_subscribe_extra':
       variable_set('subscribe_extra_block_intro_text', $edit['subscribe_extra_block_intro_text']);
       variable_set('subscribe_extra_block_details_link_label', $edit['subscribe_extra_block_details_link_label']);
@@ -446,6 +487,17 @@ function osha_newsletter_block_view($delta = '') {
         if (drupal_is_front_page()) {
           $block['content'] = '<h2 class="block-title">' . l(t('Newsletter'), 'healthy-workplaces-newsletter') . '</h2>' . $block['content'];
         }
+        return $block;
+      }
+      break;
+
+    case 'osha_newsletter_events_subscribe':
+      if (user_access('access content')) {
+        $block['subject'] = t('Newsletter');
+        $subscribe_form = drupal_get_form('osha_newsletter_events_subscribe_form');
+        $block['content'] = theme('events_subscribe_block', array(
+          'subscribe_form' => drupal_render($subscribe_form),
+        ));
         return $block;
       }
       break;
@@ -694,6 +746,9 @@ function osha_newsletter_form_alter(&$form, &$form_state, $form_id) {
       if (isset($form['#style']) && $form['#style']->entity_collection->bundle == 'newsletter_content_collection') {
         OSHNewsletter::alterContentForm($form, $form_state);
       }
+      break;
+
+    case  'osha_newsletter_events_subscribe_form':
       break;
 
     case  'osha_newsletter_subscribe_extra_form':
@@ -1228,6 +1283,14 @@ function osha_newsletter_theme() {
     ),
     'path' => $path . '/templates',
   );
+  $theme['events_subscribe_block'] = array(
+    'template' => 'events_subscribe_block',
+    'variables' => array(
+      'subscribe_form' => NULL,
+    ),
+    'path' => $path . '/templates',
+  );
+
   $theme['osha_newsletter_image'] = array(
     'template' => 'osha_newsletter_image_block',
     'variables' => array(

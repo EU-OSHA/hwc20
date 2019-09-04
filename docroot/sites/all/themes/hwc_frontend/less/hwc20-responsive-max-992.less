@@ -1,7 +1,21 @@
 @media (max-width: 992px) {
 
-	body {
-		padding-top: 217px;
+	#navbar > div > div:nth-child(1) > div > div > div.col-xs-12.col-sm-9{
+		padding-top: 1em;
+    	padding-left: 1em!important;
+	}
+
+	header.navbar-default .campaigns-header .navbar-header a img.pull-left{
+		margin-top: 31px;
+	}
+
+	header.navbar-default .campaigns-header .navbar-header img:nth-child(3){
+		padding-top: 39px;
+    	margin-top: -2px;
+	}
+
+	#navbar > div > div:nth-child(1) > div > div > div.col-xs-12.col-sm-3.xs-menu{
+		padding-right: 10px;
 	}
 
 	.container{
@@ -12,7 +26,7 @@
 	.page_title h1{
 		font-size: 2.6em;
 	    width: 480px;
-	    padding-bottom: 0;
+	    padding-bottom: 0.5em;
 	}
 
 	#block-text-resize-0, #block-hwc-hwc-print-friendly{
@@ -53,6 +67,15 @@
 		display: none;
 	}
 
+	.view .views-row h2{
+		margin-left: 0;
+	}
+
+	.view .views-row .field.field-name-field-summary{
+		margin-left: 0;
+		margin-right: 0;
+	}
+
 	/*Splash page*/
 	.intro-splash-20 .views-row-first{
 		padding-bottom: 1em;
@@ -80,8 +103,9 @@
  
 	/*Introductory page article*/
 	.related-resources{
-		margin-top: 2em;
+		margin-top: 0;
 		padding-bottom: 1em;
+		width: 100%;
 	}
 
 	.left-menu ul{
@@ -94,24 +118,26 @@
 
 	.related-resources-boxes{
 		flex-direction: row;
-		margin-top: 1em;
+		padding-bottom: 1em;
 		div{
-			width: 30%;
+			width: 29%;
+			margin-right: 1em;
+			display: flex;
 		}
 	}
 
+	.container-recommended-tools{
+		justify-content: flex-start;
+	}
+
 	.recommended-tool{
-		width: 30%;
+		width: 100%;
 	    margin: 0;
 	    min-width: auto;
-	    padding-top: 4em;
 	    padding-left: 0;
 	    padding-right: 0;
 	    justify-content: center;
 	    text-align: center;
-	    background-position-x: 50% !important;
-   		background-position-y: 10% !important;
-   		min-height: 121px;
 	}
 
 	.recommended-tool a {
@@ -136,6 +162,7 @@
 
 	.box-latest-publications{
 		width: 100%;
+		min-height: auto !important;
 	}
 
 	.sidebars_first{
@@ -164,6 +191,11 @@
 	.page-publications .views-exposed-widget, .page-events .views-exposed-widget {
 		width: 100% !important;
 		margin-top: 1em;
+		margin-right: 0;
+	}
+
+	#edit-text{
+		max-width: 100% !important;
 	}
 
 	.sidebars_first{
@@ -291,6 +323,156 @@
 		top: -6px;
 	}
 
+
+	/* Panels - National Focal Points, etc. */
+	.panels-flexible-column-inside-first .profile-col-left-middle-2{
+		width: 100%;
+	}
+
+	.main-container .panels-flexible-row h2{
+		margin-left: 0
+	}
+
+	body.ocp .panels-flexible-region .pane-node-field-bussines-sector{
+	    float: none;
+	    padding-right: 0;
+	    padding-top: 10px !important;
+	    clear: both;
+	}
+
+	/* Events */
+	.page-events{
+
+		.region-sidebar-first{
+			.contextual-links-region{
+				margin-top: 0; 
+			}
+		}
+
+		.view-events-search{
+			.view-content{
+				clear: both;
+				padding-top: 3em;
+				.view-content:nth-child(2){
+					.views-row{
+						padding: 1em 0;
+					}
+				}
+			}
+		}
+
+		.region.region-content{
+			clear: both;
+			#block-system-main{
+				.views-exposed-widgets {
+					margin-left: 0;
+					#edit-search-api-views-fulltext-wrapper{
+						margin-left: 0;
+					}
+					.views-widget-filter-field_start_date_value{
+						margin-left: 0;
+					}
+					.form-item-years{
+						margin-left: 0;
+					}
+					#edit-search-api-views-fulltext{
+						max-width: 299px;
+					}
+					input{
+						width: 299px!important;
+					}
+					.form-control{
+						width: 299px!important;
+						border-radius: 5px;
+						background: url(../images/green-select.png) no-repeat scroll 94% center #ffffff !important;
+					}
+					#edit-years{
+						width: 299px!important;
+					}
+					#edit-submit-events-search {
+					    left: 0px;
+					    top: 73px;
+					    position: absolute;
+					}
+				}
+			} 
+		}
+
+		.col-md-9{
+			clear: both;
+		}
+
+		#osha-events-dates-form {
+		    width: 301px!important;
+		}
+
+		#osha-events-dates-form{
+			float: left;
+			margin-left: 0;
+			margin-bottom: 0;
+		}
+
+		.region-sidebar-first .contextual-links-region{
+			padding-left: 0;
+		}
+
+		.views-exposed-widgets{
+			padding-top: 0;
+		}
+
+		#edit-search-api-views-fulltext{
+			margin-top: 0;
+		}
+
+	}
+
+	#block-system-main .view-events-search, .view-events-search{
+		margin: 0;	
+	}
+
+	.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node{
+		position: relative;
+		margin-left: 230px;
+		float: left;
+		clear: both;
+		margin-top: -2em;  
+    }
+
+	.page-events .region-content #block-system-main .views-row > div{
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row{
+		min-height: auto;
+		width: 100%;
+	}
+
+	.views-widget-filter-field_country_code{
+		padding-top: 0px !important;
+	}
+
+	.page-events .region-content #block-system-main .views-exposed-widgets .form-item-years{
+		padding-top: 0px;
+	}
+
+	.page-events .add-to-calendar {
+	    margin-left: 330px;
+	    margin-top: -2em;
+	}
+
+	.node-type-events{
+		
+		.main-container h2{
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		.group-footer{
+			padding-left: 0!important;
+			padding-right: 0!important;
+		}
+	}
 	/*Footer*/
 	.footer-section{
 		display: none;
@@ -322,12 +504,10 @@
 }
 
 
-
 @media (max-width: 1200px) and (min-width: 990px) {
 	.page-tools-and-publications{
 		#edit-left-column{
 			width: 100%;
-	    	display: flex;
 	    	.content-filters{
 	    		width: 48%;
 	    		margin-right: 1em;
@@ -342,4 +522,279 @@
 	.page-publications #content, .page-events #content {
 	    width: 96.1%!important;
 	}
+}
+
+
+@media (max-width: 1024px){
+
+	.profile-2-cols-container-3 .panels-flexible-column-last .field-type-link-field a{
+		white-space: nowrap; 
+		width: 188px; 
+		overflow: hidden;
+		text-overflow: ellipsis; 
+	}
+
+	.page-enterprise-europe-network #block-system-main .node-article .field-type-text-with-summary, .page-national-focal-points #block-system-main .node-article .field-type-text-with-summary, .page-campaign-media-partners #block-system-main .node-article .field-type-text-with-summary, .page-campaign-partners-official-campaign-partners #block-system-main .node-article .field-type-text-with-summary {
+	    width: 100%;
+	}
+
+	.node-type-partner{
+	[class*="field-type-link"]{
+			font-weight: bold;
+			text-align: left;
+			&[class*="facebook"]{
+				background: url("../images/content/facebook.png") no-repeat left center;
+				padding-left: 30px;
+				margin-bottom: 1em;
+				white-space: nowrap;
+				.field-item{ 
+				  a{
+					white-space: nowrap; 
+					width: 188px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
+				}
+			}
+			&[class*="twitter"]{
+				background: url("../images/content/twitter.png") no-repeat left center;
+				padding-left: 30px;
+				margin-bottom: 1em;
+				.field-item{ 
+				  a{
+					white-space: nowrap; 
+					width: 188px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
+				}
+			}
+			&[class*="slideshare"]{
+				background: url("../images/content/slideshare.png") no-repeat left center;
+				padding-left: 30px;
+				margin-bottom: 1em;
+				.field-item{ 
+				  a{
+					white-space: nowrap; 
+					width: 188px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
+				}
+			}
+			&[class*="youtube"]{
+				background: url("../images/content/youtube.png") no-repeat left center;
+				padding-left: 30px;
+				margin-bottom: 1em;
+				.field-item{ 
+				  a{
+					white-space: nowrap; 
+					width: 188px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
+				}
+			}
+			&[class*="linkedin"]{
+				background: url("../images/content/linkedin.png") no-repeat left center;
+				padding-left: 30px;
+				margin-bottom: 1em;
+				.field-item{ 
+				  a{
+					white-space: nowrap; 
+					width: 188px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
+				}
+			}
+			&[class*="google-plus"]{
+				background: url("../images/content/googleplus.png") no-repeat left center;
+				padding-left: 30px;
+				margin-bottom: 1em;
+				.field-item{ 
+				  a{
+					white-space: nowrap; 
+					width: 188px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
+				}
+			}
+			&[class*="pinterest"]{
+				background: url("../images/content/pinterest.png") no-repeat left center;
+				padding-left: 30px;
+				margin-bottom: 1em;
+				.field-item{ 
+				  a{
+					white-space: nowrap; 
+					width: 188px; 
+					overflow: hidden;
+					text-overflow: ellipsis; 
+					}
+				}
+			}
+			a{
+				&:before{
+					content: "";
+					padding-right: 0;
+				}
+			}
+		}
+	}
+
+	/* Events */
+
+	.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row{
+		min-height: auto;
+		width: 100%;
+	}
+
+	.footer{
+		div.container{
+			padding-left: 0;
+			padding-right: 0;
+		}
+		div.on-the-web{
+			margin-right: 0;
+		}
+		div.on-the-web a{
+			margin-left: 3px;
+		}
+	}
+}
+
+
+@media (max-width: 1200px){
+
+	.box-latest-publications{
+		min-height: 170px;
+
+		.left-column{
+			display: none !important;
+		}
+
+		.right-column {
+		    float: left;
+		    width: 100%;
+		    padding: 1em;
+		    h2{
+				padding-bottom: 0;
+				padding-top: 0;
+				 a{
+					padding-top: 1em;
+				}
+			}
+		}
+	}
+
+	.page-publications #content, .page-events #content{
+		margin-top: 0;
+	}
+
+	.how-to-apply > div.boxes > div:nth-child(2) {
+	    position: absolute;
+	    left: 41%;
+	    top: 73px;
+	}
+
+	.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node,
+	.add-to-calendar{
+		margin-top: auto;
+	}
+
+	.page-events #osha-events-dates-form {
+    	width: 157px;
+	}
+
+}
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) { 
+	/* iPad */
+
+	.how-to-apply > div.boxes > div:nth-child(1) {
+    	left: 4%;
+    }
+
+	.how-to-apply > div.boxes > div:nth-child(2) {
+	    left: 36.5%;
+	}
+
+	.how-to-apply > div.boxes > div:nth-child(3) {
+	    right: 0%;
+	}
+
+	.before-the-campaign .content-box-before .box-before{
+		margin-bottom: 0;
+	}
+
+	/* Events */
+
+	.page-events .region.region-content #block-system-main .views-exposed-widgets{
+		margin-left: 0;
+	}
+
+	#block-system-main .view-events-search, .view-events-search{
+		margin: 0;
+	}
+
+	.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row{
+		min-height: auto;
+		width: 100%;
+		margin-top: 2em;
+	}
+
+	.page-events .region.region-content #block-system-main .views-exposed-widgets .form-control {
+    	width: 152px!important;
+	}
+
+	#block-osha-events-osha-events-dates{
+		margin-left: 15px;
+	}
+
+	.page-events #edit-search-api-views-fulltext {
+	    margin-top: 25px;
+	}
+
+	.page-events .region.region-content #block-system-main .views-exposed-widgets #edit-years {
+	    width: 153px!important;
+	}
+
+	.page-publications .views-exposed-widget, .page-events .views-exposed-widget {
+	    width: auto !important;
+	    margin-top: 1em;
+	    margin-right: 0.5em;
+	}
+
+	.page-events .region.region-content #block-system-main .views-exposed-widgets #edit-submit-events-search {
+	    left: 169px;
+	    top: 24px;
+	}
+
+	.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node {
+		position: relative;
+		float: left;
+		clear: both;
+		margin-top: -24px;
+		width: auto;
+		margin-left: 230px;
+	}
+
+	.add-to-calendar{
+		margin-top: -25px;
+	}
+
+	.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-title-field a{
+		font-size: 1.3em;
+	}
+
+	.page-events .view-events-search .view-content {
+	    padding-top: 0em;
+	}
+
+	.node-type-events .group-right2 .add-to-calendar {
+    	float: none;
+	}
+
 }

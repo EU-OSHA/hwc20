@@ -66,9 +66,9 @@ function osha_news_image_default_styles() {
 
   // Exported image style: medium_newsletter_crop.
   $styles['medium_newsletter_crop'] = array(
-    'label' => 'Medium Newsletter Crop (220 x 145)',
+    'label' => 'medium_newsletter_crop',
     'effects' => array(
-      4 => array(
+      3 => array(
         'name' => 'manualcrop_reuse',
         'data' => array(
           'reuse_crop_style' => 'manual_crop',
@@ -76,7 +76,7 @@ function osha_news_image_default_styles() {
         ),
         'weight' => 0,
       ),
-      5 => array(
+      4 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 220,

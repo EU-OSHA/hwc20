@@ -27,6 +27,12 @@ function hwc_frontend_html_head_alter(&$head_elements) {
  */
 function hwc_frontend_menu_link__menu_block($variables) {
   $element = &$variables['element'];
+  if (!empty($element['#localized_options']['attributes']['class']) && $class = $element['#localized_options']['attributes']['class']) {
+    if (($class[0] == 'previous-campaigns') && ($element['#bid']['delta'] == 5)) {
+      $element['#href'] = '<nolink>';
+    }
+  }
+
   $delta = $element['#bid']['delta'];
   // Render or not the Menu Image.
   // Get the variable provided by osha_menu module.
@@ -52,11 +58,32 @@ function hwc_frontend_menu_link__menu_block($variables) {
   $element['#attributes']['class'][] = 'content-box-sub';
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output_link . '</li>';
 }
+
 /**
  * Overrides theme_menu_link().
  */
 function hwc_frontend_menu_link(array $variables) {
   $element = $variables['element'];
+  if (arg(1) == 'campaign-materials') {
+    $exclude = variable_get('campaign_materials_exclude', []);
+    $include = variable_get('campaign_materials_include', []);
+    if (in_array($element['#href'], $exclude)) {
+      $element['#attributes']['class'] = [];
+    }
+    if (in_array($element['#href'], $include)) {
+      if (!empty($element['#localized_options']['attributes'])) {
+        $element['#attributes']['class'] = [];
+      }
+      else {
+        $element['#attributes']['class'] = [
+          'expanded',
+          'active-trail',
+          'active'
+        ];
+      }
+    }
+  }
+
   $sub_menu = '';
   if ($element['#below']) {
     // Prevent dropdown functions from being added to management menu so it
@@ -72,13 +99,6 @@ function hwc_frontend_menu_link(array $variables) {
       $element['#title'] .= ' <span class="caret"></span>';
       $element['#attributes']['class'][] = 'dropdown';
       $element['#localized_options']['html'] = TRUE;
-      // Set dropdown trigger element to # to prevent inadvertant page loading
-      // when a submenu link is clicked.
-//      $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
-//      $element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
-//      $element['#localized_options']['attributes']['role'] = 'button';
-//      $element['#localized_options']['attributes']['aria-haspopup'] = 'true';
-//      $element['#localized_options']['attributes']['aria-expanded'] = 'false';
     }
   }
   // On primary navigation menu, class 'active' is not set on active menu item.
@@ -106,6 +126,17 @@ function hwc_frontend_preprocess_html(&$vars) {
   $n = menu_get_object('node');
   if ($n) {
     switch ($n->type) {
+      case "partner":
+        $tid = $n->field_partner_type[LANGUAGE_NONE][0]['tid'];
+        $map = [
+          185 => 'ocp',
+          186 => 'mp',
+          1804 => 'een',
+          187 => 'fop',
+        ];
+        $vars['classes_array'][] = $map[$tid];
+        break;
+
       case "tk_section":
       case "tk_article":
       case "tk_tool":
@@ -200,8 +231,24 @@ function hwc_frontend_preprocess_page(&$vars) {
   $n = menu_get_object('node');
   if ($n) {
     switch ($n->type) {
+      case "partner":
+        $tid = $n->field_partner_type[LANGUAGE_NONE][0]['tid'];
+        $term = taxonomy_term_load($tid);
+        $wrapper = entity_metadata_wrapper('taxonomy_term', $term);
+        $vars['partner_type'] = $wrapper->name->value();
+        $vars['theme_hook_suggestions'][] = 'page__node__partner';
+        break;
+
       case "article":
         $vars['theme_hook_suggestions'][] = 'page__node__article';
+        break;
+
+      case "campaign_16":
+        $vars['theme_hook_suggestions'][] = 'page__node__campaign_16';
+        break;
+
+      case "campaign_18":
+        $vars['theme_hook_suggestions'][] = 'page__node__campaign_18';
         break;
 
       case "publication":
@@ -229,14 +276,6 @@ function hwc_frontend_preprocess_page(&$vars) {
   }
   $vars['back_to_pz'] = hwc_partner_back_to_private_zone();
   $vars['page']['content']['#post_render'] = ['hwc_content_post_render'];
-  // Change Events page title.
-  if (!empty($vars['theme_hook_suggestions']['1']) && in_array($vars['theme_hook_suggestions']['1'],
-      array('page__media_centre__events', 'page__media_centre__past_events'))) {
-    $title = '<span id="block-osha-events-events-links">';
-    $title .= l(t('Upcoming events'), 'media-centre/events') . ' / ' . l(t('Past events'), 'media-centre/past-events');
-    $title .= '</span>';
-    drupal_set_title($title, PASS_THROUGH);
-  }
   if (drupal_is_front_page()) {
     unset($vars['page']['content']['system_main']['default_message']);
     drupal_set_title('');
@@ -358,29 +397,12 @@ function hwc_frontend_preprocess_page(&$vars) {
         $breadcrumb = array();
         $breadcrumb[] = l(t('Home'), '<front>');
         $breadcrumb[] = t('Media centre');
-
-        if ($date < $now) {
-          $breadcrumb[] = l(t('Past events'), 'media-centre/past-events');
-
-          $link_title = t('Back to past events list');
-          $link_href = 'media-centre/past-events';
-          $tag_vars['element']['#value'] = t('Past events');
-          $vars['page']['above_title']['events-page-title'] = array(
-            '#type' => 'item',
-            '#markup' => theme('html_tag', $tag_vars),
-          );
-        }
-        else {
-          $breadcrumb[] = l(t('Upcoming events'), 'media-centre/events');
-
-          $link_title = t('Back to events list');
-          $link_href = 'media-centre/events';
-          $tag_vars['element']['#value'] = t('Upcoming events');
-          $vars['page']['above_title']['practical-tool-page-title'] = array(
-            '#type' => 'item',
-            '#markup' => theme('html_tag', $tag_vars),
-          );
-        }
+        $breadcrumb[] = l(t('Events'), 'media-centre/events');
+        $tag_vars['element']['#value'] = t('Events');
+        $vars['page']['above_title']['events-page-title'] = array(
+          '#type' => 'item',
+          '#markup' => theme('html_tag', $tag_vars),
+        );
         $breadcrumb[] = $node->title;
         drupal_set_breadcrumb($breadcrumb);
 
@@ -669,6 +691,10 @@ function hwc_frontend_preprocess_node(&$vars) {
 
 }
 
+function hwc_frontend_pagerer_standard($variables) {
+  return osha_pagerer_theme_handler('pagerer_standard', $variables);
+}
+
 function hwc_frontend_file_upload_help($variables) {
   return theme_file_upload_help($variables);
 }
@@ -813,7 +839,57 @@ function hwc_frontend_on_the_web_image($variables) {
   return theme('image', $variables);
 }
 
+function hwc_frontend_implode_comma_and_join($names) {
+  $last = array_pop($names);
+  if ($names) {
+    return implode(', ', $names) . ' ' . t('and') . ' ' . $last;
+  }
+  return $last;
+}
+
 function hwc_frontend_checkboxes($variables) {
+  if ($variables['element']['#name'] == 'main_tags') {
+    $map = osha_publication_get_main_tags_map();
+    foreach ($variables['element']['#options'] as $tid => $title) {
+      $sub_tids = [];
+      foreach ($map as $sub_tid => $main_tid) {
+        if ($tid == $main_tid) {
+          $sub_tids[$sub_tid] = $sub_tid;
+        }
+      }
+      if (count($sub_tids) > 1) {
+        foreach ($sub_tids as $sub_tid) {
+          $term = taxonomy_term_load($sub_tid);
+          $sub_tids[$sub_tid] = $term->name;
+        }
+        $search = 'for="edit-main-tags-' . $tid . '"';
+        $attr = drupal_attributes(['title' => $title . ' ' . t('include') . ' ' . hwc_frontend_implode_comma_and_join($sub_tids)]);
+        $variables['element']['#children'] = str_replace($search, $search . ' ' . $attr, $variables['element']['#children']);
+      }
+    }
+  }
+
+  if ($variables['element']['#name'] == 'field_publication_type') {
+    $map = osha_publication_get_main_publication_types_map();
+    foreach ($variables['element']['#options'] as $tid => $title) {
+      $sub_tids = [];
+      foreach ($map as $sub_tid => $main_tid) {
+        if ($tid == $main_tid) {
+          $sub_tids[$sub_tid] = $sub_tid;
+        }
+      }
+      if (count($sub_tids) > 1) {
+        foreach ($sub_tids as $sub_tid) {
+          $term = taxonomy_term_load($sub_tid);
+          $sub_tids[$sub_tid] = $term->name;
+        }
+        $search = 'for="edit-field-publication-type-' . $tid . '"';
+        $attr = drupal_attributes(['title' => $title . ' ' . t('include') . ' ' . hwc_frontend_implode_comma_and_join($sub_tids)]);
+        $variables['element']['#children'] = str_replace($search, $search . ' ' . $attr, $variables['element']['#children']);;
+      }
+    }
+  }
+
   $element = $variables['element'];
   $attributes = array();
   if (isset($element['#id'])) {

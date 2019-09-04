@@ -32,27 +32,5 @@ function osha_events_path_breadcrumbs_settings_info() {
   $path_breadcrumb->weight = 0;
   $export['events'] = $path_breadcrumb;
 
-  $path_breadcrumb = new stdClass();
-  $path_breadcrumb->api_version = 1;
-  $path_breadcrumb->machine_name = 'past_events';
-  $path_breadcrumb->name = 'Past events';
-  $path_breadcrumb->path = 'media-centre/past-events';
-  $path_breadcrumb->data = array(
-    'titles' => array(
-      0 => 'Media centre',
-      1 => '!page_title',
-    ),
-    'paths' => array(
-      0 => '<none>',
-      1 => '<none>',
-    ),
-    'home' => 1,
-    'translatable' => 1,
-    'arguments' => array(),
-    'access' => array(),
-  );
-  $path_breadcrumb->weight = 0;
-  $export['past_events'] = $path_breadcrumb;
-
   return $export;
 }
