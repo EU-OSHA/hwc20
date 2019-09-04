@@ -4506,6 +4506,10 @@ ul[data-sa-theme="basic-green"].ui-menu {
   .page-events #osha-events-dates-form {
     float: left;
     margin-left: 0;
+    margin-bottom: 0;
+  }
+  .page-events .region-sidebar-first .contextual-links-region {
+    padding-left: 0;
   }
   .page-events .views-exposed-widgets {
     padding-top: 0;
@@ -4743,6 +4747,9 @@ ul[data-sa-theme="basic-green"].ui-menu {
   }
   .how-to-apply > div.boxes > div:nth-child(3) {
     right: 0%;
+  }
+  .before-the-campaign .content-box-before .box-before {
+    margin-bottom: 0;
   }
   /* Events */
   .page-events .region.region-content #block-system-main .views-exposed-widgets {
@@ -5382,6 +5389,9 @@ ul[data-sa-theme="basic-green"].ui-menu {
   }
   #block-osha-events-osha-events-dates {
     margin-left: 15px;
+  }
+  .page-events #osha-events-dates-form {
+    margin-bottom: 0;
   }
 }
 @media (max-width: 600px) {
