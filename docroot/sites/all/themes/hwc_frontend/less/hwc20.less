@@ -4095,6 +4095,15 @@ body.een{
 		float: right;
 		margin-top: 33px;
 		width: 288px;
+		margin-bottom: 3em;
+		> div > span{
+			display: block;
+			width: 100%;
+			color: #003399;
+			font-size: 2rem;
+    		padding-bottom: 0.7em;
+		}
+
 		input{
 			height: 100%;
 		    border: 1px solid #003399 !important;
@@ -4119,7 +4128,7 @@ body.een{
 		label{
 			color: #003399 !important;
 			font-family: "Open Sans" !important;
-			font-size: 1.2em !important;
+			font-size: 1em !important;
 			font-weight: normal !important;
 		}
 	}
@@ -4187,6 +4196,18 @@ body.een{
 			}
 
 			.view-events-search{
+
+				.views-exposed-widgets{
+
+					#edit-search-api-views-fulltext-wrapper{
+						margin-right: 0.5em;
+					}
+
+					#edit-field-start-date-value-wrapper, #edit-field-start-date-value2-wrapper{
+						display: none;
+						/* TO DO - Probably we need to display again */
+					}
+				}
 
 				.view-content{
 					padding-bottom: 1em;
@@ -4409,6 +4430,10 @@ body.een{
 	 		}
 	 	}
 
+	 	.add-to-calendar{
+	 		padding-bottom: 2em;
+	 	}
+
 	 	.field-name-field-start-date{
 			width: 100%;
 			border-top: 3px solid #B0B1B2;
@@ -4519,5 +4544,88 @@ ul[data-sa-theme="basic-green"].ui-menu{
 		border-radius: 5px;
 		padding-left: 0.5em;
 		padding-left: 12px;
+	}
+}
+
+/* Newsletter suscribe */
+
+#block-osha-newsletter-osha-newsletter-events-subscribe{
+	background: url(../images/background-newsletter-event.png) no-repeat;
+    border-radius: 15px;
+    color: #FFFF;
+    padding: 1.7em;
+    width: 288px;
+    float: right;
+    height: 100%;
+
+    #edit-subscribe-details{
+    	text-align: left !important;
+    	padding-top: 1.5em;
+    	position: relative;
+    	div{
+    		position: relative;
+    		float: left;
+    	}
+
+    	.form-submit{
+    		position: absolute;
+		    top: 21px;
+		    right: 0;
+		    border-top-right-radius: 5px;
+		    border-bottom-right-radius: 5px;
+    	}
+    }
+
+	h2{
+		background: url(../images/ico-newsletter.png) no-repeat 1px 5px;
+    	color: #FFF;
+    	font-weight: 400;
+    	padding-left: 1.3em;
+	}
+
+	a{
+		text-decoration: underline;
+	}
+
+	a, label{
+		color: #FFFF;
+		font-weight: normal;
+		font-size: 0.9em;
+	}
+
+	label:before{
+		color: #003399;
+		background: #FFFF;
+		border: 0 !important;
+	}
+
+	input[type="text"]{
+		border-radius: 5px;
+		border: 0;
+		width: 166px;
+    	padding-right: 1em;
+	}
+
+	.radio, .checkbox{
+		margin-top: 5px;
+	}
+
+	.btn-default:before, .more-link:before{
+		content: none;
+	}
+
+	#edit-submit{
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+		width: 160px;
+    	right: 0 !important;
+    	text-align: center;
+		padding-left: 0;
+	}
+}
+
+.node-article{
+	.field-name-body{
+		clear: both;
 	}
 }
