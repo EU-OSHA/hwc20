@@ -6632,7 +6632,7 @@ function hwc_partner_default_page_manager_pages() {
   $page->api_version = 1;
   $page->name = 'enterprise_europe_network';
   $page->task = 'page';
-  $page->admin_title = 'Enterprise Europe Network';
+  $page->admin_title = 'EEN OSH Ambassadors';
   $page->admin_description = '';
   $page->path = 'campaign-partners/enterprise-europe-network';
   $page->access = array();
