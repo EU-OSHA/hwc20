@@ -40,6 +40,7 @@ function osha_events_dates_form($form, $form_state) {
   $form['#suffix'] = '</div>';
   $date_format = 'd/m/Y';
   $form['from_date'] = array(
+    '#prefix' => '<span>' . t('Date Range') . '</span>',
     '#type' => 'date_popup',
     '#date_format'=> $date_format,
     '#date_year_range' => '-3:+3',
