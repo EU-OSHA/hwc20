@@ -4447,38 +4447,27 @@ body.een{
 	 	}
 
 	 	.add-to-calendar{
-	 		display: flex;
-    		justify-content: center;
-	 		padding-bottom: 2em;
-		    width: auto;
-		    text-align: left;
-		    padding-left: 0;
-		    margin: 0em auto;
-		    float: none;
-			background: none;
-			text-decoration: none;
-			&:before{
-				content:' ';
-				background: url(../images/green-calendar.png) no-repeat 13px 2px;
-				display: block;
-				float: left;
-				width: 40px;
-				height: 30px;
-			}
+			margin-top: 10px;
+    		clear: both;
+    		margin-bottom: 30px;
 	 	}
 
 	 	.field-name-field-start-date{
 			width: 100%;
 			border-top: 3px solid #B0B1B2;
 			padding-top: 8em;
-			padding-bottom: 5em;
+			padding-bottom: 20px;
 			background: url(../images/content/calendar-event-detail.png) no-repeat center 3em;
-    		.date-display-single{
+    		.date-display-single, .date-display-start, .date-display-end{
     			color: #003399;
     			font-size: 1.8rem!important;
     			display: block;
     			width: 100%;
     		}
+	 	}
+
+	 	.field-name-field-start-date{
+				color: #003399;
 	 	}
 
 	 	.event-location-container{
@@ -4489,6 +4478,7 @@ body.een{
 			display: flex;
 			justify-content: center;
 			position: relative;
+			padding-bottom: 0;
 	 		span.event-location-location{
 				padding: 0;
 				font-weight: 400;
