@@ -1562,6 +1562,7 @@ aside.col-md-3{
 	border-top: 0 ;
 	border-bottom: 0;
 	margin-top: 4px;
+	float: right;
 	ul{
 		padding-top: 0px;
 	}
@@ -1768,11 +1769,11 @@ aside.col-md-3{
 
 .region-sidebar-first .contextual-links-region{
     float: left;
-    padding: 0em 0.5em 0 1em;
+    padding: 0 0 0 1em;
     border: 0;
     border-radius: 5px;
     margin-top: 26px;
-    width: 93%;
+    width: 100%;
 }
 
 .sidebars_first .content-filters{
@@ -4090,9 +4091,10 @@ body.een{
 	#osha-events-dates-form{
 		border: 2px solid #B0B1B2;
 		border-radius: 7px;
-		padding: 1em;
+		padding: 1em 0 1em 1em;
 		float: right;
-		margin-top: 0.6em;
+		margin-top: 33px;
+		width: 288px;
 		input{
 			height: 100%;
 		    border: 1px solid #003399 !important;
@@ -4194,6 +4196,7 @@ body.een{
 					.views-row{
 						 border-bottom: 1px solid #749b00;
 						 float: left;
+						 width: 100%!important;
 
 						.views-field-title-field a{
 							font-size: 1.6em;
@@ -4362,10 +4365,15 @@ body.een{
 	 		}
 	 		.talking-details{
 	 			width: 100%;
-	 			padding-top: 1em;
-	 			.field-item{
-	 			
-	 			}
+	 		}
+	 	}
+
+	 	.view-event-schedule{
+	 		.views-row{
+	 			padding-bottom: 1em;
+	 		}
+	 		.views-row-last{
+	 			padding-bottom: 0;
 	 		}
 	 	}
 
@@ -4380,6 +4388,10 @@ body.een{
 	    	font-weight: 400;
 	    	padding-top: 1em;
 	    	padding-bottom: 0.2em;
+		}
+
+		img.file-icon{
+			display: none;
 		}
 	}
 
@@ -4464,4 +4476,48 @@ body.een{
 
 .node-events .field-name-field-related-documents, .node-events .field-name-field-contact-name, .node-events .field-name-field-contact-email, .node-events .field-name-field-organizer, .node-events .field-name-field-location, .node-events .field-name-field-contact-phone, .node-events .field-name-field-website-of-event{	
 	padding-bottom: 0;
+}
+
+
+/* Search automplete */
+ul[data-sa-theme="basic-green"].ui-menu{
+	left: -105px !important;
+}
+
+.view-footer{
+	.pager-total{
+		position: absolute;
+		right: 0;
+		top: 25px;
+		color: #003399;
+		font-weight: bold;
+	}
+}
+
+/* Get your certificate */
+.page-get-involved-get-your-certificate{
+	.pane-node-field-image{
+		clear: both;
+	}
+	.pane-node-field-image{
+		width: auto;
+		max-width: none;
+	}
+	.pane-node-body{
+		width: 72%;
+		padding-left: 1em;
+	}
+	.control-label{
+		color: #003399;
+	}
+
+	input[type="text"], body textarea, textarea.form-control, select, .form-control, form.webform-client-form button{
+		border-radius: 5px;
+	}
+
+	form.webform-client-form .form-select{
+		border-radius: 5px;
+		padding-left: 0.5em;
+		padding-left: 12px;
+	}
 }
