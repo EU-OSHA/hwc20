@@ -397,6 +397,20 @@ function hwc_previous_campaigns_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_campaign_16_pattern';
+  $strongarm->value = 'previous-campaigns/all-ages-2016-17/[node:title]';
+  $export['pathauto_node_campaign_16_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_campaign_18_pattern';
+  $strongarm->value = 'previous-campaigns/dangerous-substances-2018-19/[node:title]';
+  $export['pathauto_node_campaign_18_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'xmlsitemap_settings_node_campaign_16';
   $strongarm->value = array(
     'status' => '0',
