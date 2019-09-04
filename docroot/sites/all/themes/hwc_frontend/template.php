@@ -27,7 +27,7 @@ function hwc_frontend_html_head_alter(&$head_elements) {
  */
 function hwc_frontend_menu_link__menu_block($variables) {
   $element = &$variables['element'];
-  if ($class = $element['#localized_options']['attributes']['class']) {
+  if (!empty($element['#localized_options']['attributes']['class']) && $class = $element['#localized_options']['attributes']['class']) {
     if (($class[0] == 'previous-campaigns') && ($element['#bid']['delta'] == 5)) {
       $element['#href'] = '<nolink>';
     }

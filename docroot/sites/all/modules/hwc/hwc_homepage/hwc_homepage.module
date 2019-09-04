@@ -209,6 +209,12 @@ function hwc_homepage_block_view($delta = '') {
           if ($sub_menu['link']['hidden']) {
             continue;
           }
+          if (
+            !empty($sub_menu['link']['localized_options']['attributes']['target']) &&
+            $sub_menu['link']['localized_options']['attributes']['target'] == '_blank'
+          ) {
+            continue;
+          }
           if ($sub_menu['link']['mlid'] == $last['p3']) {
             $found = TRUE;
             continue;
