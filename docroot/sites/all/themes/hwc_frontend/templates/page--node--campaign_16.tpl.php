@@ -80,7 +80,8 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
 <?php if (!empty($page['above_header'])): ?>
 <?php endif; ?>
 <?php
-include(drupal_get_path('theme', 'hwc_frontend').'/templates/header.tpl.php');
+include(drupal_get_path('theme', 'hwc_frontend') . '/templates/header.tpl.php');
+$title = variable_get('campaign_18_title', '2016-2017 Healthy Workplaces for All Ages');
 ?>
 
 <div class="main-container container-fluid">
@@ -104,7 +105,7 @@ include(drupal_get_path('theme', 'hwc_frontend').'/templates/header.tpl.php');
           print $back_to_pz;
         } ?>
         <?php if (!empty($title)) { ?>
-            <h1 class="page-header"><?php print $title; ?></h1>
+            <h1 class="page-header"><?php print t($title); ?></h1>
         <?php } ?>
       </div>
     <?php

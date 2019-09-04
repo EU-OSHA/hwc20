@@ -494,6 +494,17 @@ function osha_publication_views_default_views() {
   $handler->display->display_options['filters']['field_publication_date_value']['granularity'] = 'minute';
   $handler->display->display_options['filters']['field_publication_date_value']['form_type'] = 'date_text';
   $handler->display->display_options['filters']['field_publication_date_value']['default_date'] = 'now';
+  /* Filter criterion: Content: Publication Type (field_publication_type) */
+  $handler->display->display_options['filters']['field_publication_type_tid']['id'] = 'field_publication_type_tid';
+  $handler->display->display_options['filters']['field_publication_type_tid']['table'] = 'field_data_field_publication_type';
+  $handler->display->display_options['filters']['field_publication_type_tid']['field'] = 'field_publication_type_tid';
+  $handler->display->display_options['filters']['field_publication_type_tid']['operator'] = 'not';
+  $handler->display->display_options['filters']['field_publication_type_tid']['value'] = array(
+    521 => '521',
+    3296 => '3296',
+  );
+  $handler->display->display_options['filters']['field_publication_type_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_publication_type_tid']['vocabulary'] = 'publication_types';
   $handler->display->display_options['block_description'] = 'Publications Slideshow';
   $translatables['publications_slideshow'] = array(
     t('Master'),

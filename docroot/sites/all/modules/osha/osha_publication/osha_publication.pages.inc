@@ -140,6 +140,9 @@ function osha_publication_menu_publications_faceted_form($variables) {
           if ($facet_value['filter'] == CASE_STUDY_TID) {
             continue;
           }
+          if ($facet_value['filter'] == CAMPAIGN_MATERIALS_TID) {
+            continue;
+          }
 
           $options[$facet_value['filter']] = $values_list[$facet_value['filter']];
           $form['left-column'][$field_name][$field_name] = array(
