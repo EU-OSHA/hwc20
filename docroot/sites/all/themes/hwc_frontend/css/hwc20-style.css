@@ -829,6 +829,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 }
 .container-recommended-tools div a:hover img {
   filter: brightness(0) invert(1);
+  -webkit-filter: brightness(0) invert(1);
 }
 .container-recommended-tools .recommended-tool {
   width: 95%;
@@ -2543,6 +2544,7 @@ span.pages {
 .page-search .main-container #block-system-main .view .views-row .views-field-field-file {
   color: #003399;
   padding-top: 10px;
+  padding-bottom: 1em;
 }
 .page-media-centre-news .main-container #block-system-main .view .views-row .views-field-field-article-type .views-label,
 .page-search .main-container #block-system-main .view .views-row .views-field-field-article-type .views-label,
@@ -2562,6 +2564,12 @@ span.pages {
 }
 .page-search .region-sidebar-first .block.block-facetapi h2:after {
   color: #c1e000;
+}
+.page-search .main-container #block-system-main .view .views-row .field-name-body {
+  padding-bottom: 1em;
+}
+.page-search .main-container #block-system-main .view .views-row .more-link {
+  bottom: 15px;
 }
 .page-search .views-exposed-widgets {
   margin-bottom: 2em;
@@ -2835,6 +2843,7 @@ div.workbench-info-block {
 }
 #block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a:hover img {
   filter: brightness(0) invert(1);
+  -webkit-filter: brightness(0) invert(1);
 }
 .page-official-campaign-partners article {
   margin-left: 0;
@@ -3105,7 +3114,6 @@ div.workbench-info-block {
   display: block;
 }
 .profile-2-cols-container-3 .field-type-link-field a {
-  font-style: italic;
   font-weight: 600;
   padding-bottom: 5px;
 }
@@ -3397,6 +3405,9 @@ body.een .panels-flexible-region-partner_detail-left_right-inside .pane-node-fie
   font-weight: bold;
   clear: both;
 }
+body.een .panels-flexible-row-partner_detail-13 {
+  float: right;
+}
 /* Become a campaign partner */
 .become-partner-text {
   text-align: center;
@@ -3423,6 +3434,9 @@ body.een .panels-flexible-region-partner_detail-left_right-inside .pane-node-fie
 }
 .node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col h2.networking:before {
   background-image: url(../images/content/extend-your-network.png);
+}
+.node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col h2.visibility:before {
+  background-image: url(../images/content/visibility.png);
 }
 .node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col p {
   margin-bottom: 0;
@@ -3588,19 +3602,23 @@ body.een .panels-flexible-region-partner_detail-left_right-inside .pane-node-fie
   right: 15%;
   top: 29px;
 }
+#block-views-partners-block-2 h2,
 #block-views-partners-block-3 h2 {
   color: #003399;
   font-weight: 400;
 }
+#block-views-partners-block-2 .view-partners .views-row .views-field-field-logo img,
 #block-views-partners-block-3 .view-partners .views-row .views-field-field-logo img {
   border: 0;
   width: 120px !important;
   height: auto !important;
   margin: 0 auto;
 }
+#block-views-partners-block-2 .view-partners .views-row,
 #block-views-partners-block-3 .view-partners .views-row {
   width: 20%;
 }
+#block-views-partners-block-2 .view-partners .views-row-1 .views-field,
 #block-views-partners-block-3 .view-partners .views-row-1 .views-field {
   border-left: 1px solid #B0B1B2;
 }
@@ -3689,8 +3707,11 @@ body.een .panels-flexible-region-partner_detail-left_right-inside .pane-node-fie
 }
 .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row {
   border-bottom: 1px solid #749b00;
-  width: 805px;
   float: left;
+}
+.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-title-field a {
+  font-size: 1.6em;
+  line-height: 24px;
 }
 .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node {
   position: relative;
@@ -3701,6 +3722,9 @@ body.een .panels-flexible-region-partner_detail-left_right-inside .pane-node-fie
 }
 .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row-last {
   border-bottom: 0;
+}
+.page-events ul.pager {
+  clear: both;
 }
 .views-field-field-start-date-1 {
   padding-top: 0.5em;

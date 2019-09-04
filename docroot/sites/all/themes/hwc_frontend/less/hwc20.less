@@ -915,6 +915,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
    		border: 2px solid #00309d;
    		img{
    			filter: brightness(0) invert(1);
+   			-webkit-filter: brightness(0) invert(1);
    		}
 	  }
   	}	
@@ -2834,6 +2835,7 @@ span.pages{
 					.views-field-field-article-type, .views-field-field-publication-type, .views-field-field-country, .views-field-field-file{
 						color: #003399;
 						padding-top: 10px;
+						padding-bottom: 1em;
 						.views-label{
 							font-weight: bold;
 						}
@@ -2861,6 +2863,14 @@ span.pages{
 				}
 			}
 		} 
+	}
+
+	.main-container #block-system-main .view .views-row .field-name-body{
+		padding-bottom: 1em;
+	}
+
+	.main-container #block-system-main .view .views-row .more-link{
+		bottom: 15px;
 	}
 
 	.views-exposed-widgets{
@@ -3173,6 +3183,7 @@ div.workbench-info-block{
 					border: 2px solid #00309d;
 					img{
 			   			filter: brightness(0) invert(1);
+			   			-webkit-filter: brightness(0) invert(1);
 			   		}
 				}
 			}
@@ -3496,7 +3507,6 @@ div.workbench-info-block{
 	}
 
 	.field-type-link-field a{
-		font-style: italic;
 		font-weight: 600;
 		padding-bottom: 5px;
 	}
@@ -3813,6 +3823,10 @@ body.een{
     		clear: both;
 		}
 	}
+
+	.panels-flexible-row-partner_detail-13{
+		float: right;
+	}
 }
 
 
@@ -3856,6 +3870,10 @@ body.een{
 			
 			h2.networking:before {
 			    background-image: url(../images/content/extend-your-network.png);
+			}
+
+			h2.visibility:before {
+			    background-image: url(../images/content/visibility.png);
 			}
 
 			p{
@@ -4043,7 +4061,7 @@ body.een{
 } 
 
 
-#block-views-partners-block-3{
+#block-views-partners-block-2, #block-views-partners-block-3{
 	h2{
 		color: #003399;
 		font-weight: 400;
@@ -4175,8 +4193,13 @@ body.een{
 				.view-content:nth-child(2){
 					.views-row{
 						 border-bottom: 1px solid #749b00;
-						 width: 805px;
 						 float: left;
+
+						.views-field-title-field a{
+							font-size: 1.6em;
+							line-height: 24px;
+						}
+
 						.views-field-view-node{
 							position: relative;
 							margin-left: 230px;
@@ -4192,6 +4215,10 @@ body.een{
 				}
 			}
 		}
+	}
+
+	ul.pager{
+		clear: both;
 	}
 }
 
