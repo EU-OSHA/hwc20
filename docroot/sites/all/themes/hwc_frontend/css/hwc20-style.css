@@ -3928,7 +3928,24 @@ body.een .panels-flexible-row-partner_detail-13 {
   margin-right: 0;
 }
 .node-type-events .group-right2 .add-to-calendar {
+  display: flex;
+  justify-content: center;
   padding-bottom: 2em;
+  width: auto;
+  text-align: left;
+  padding-left: 0;
+  margin: 0em auto;
+  float: none;
+  background: none;
+  text-decoration: none;
+}
+.node-type-events .group-right2 .add-to-calendar:before {
+  content: ' ';
+  background: url(../images/green-calendar.png) no-repeat 13px 2px;
+  display: block;
+  float: left;
+  width: 40px;
+  height: 30px;
 }
 .node-type-events .group-right2 .field-name-field-start-date {
   width: 100%;
@@ -4547,7 +4564,7 @@ ul[data-sa-theme="basic-green"].ui-menu {
   .page-events .region-content #block-system-main .views-exposed-widgets .form-item-years {
     padding-top: 0px;
   }
-  .add-to-calendar {
+  .page-events .add-to-calendar {
     margin-left: 330px;
     margin-top: -2em;
   }
