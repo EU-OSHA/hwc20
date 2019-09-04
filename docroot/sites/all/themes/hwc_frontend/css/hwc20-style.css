@@ -4824,6 +4824,9 @@ ul[data-sa-theme="basic-green"].ui-menu {
   .page-events .view-events-search .view-content {
     padding-top: 0em;
   }
+  .node-type-events .group-right2 .add-to-calendar {
+    float: none;
+  }
 }
 @media (max-width: 768px) {
   .start-browsing .start-browsing-box {
