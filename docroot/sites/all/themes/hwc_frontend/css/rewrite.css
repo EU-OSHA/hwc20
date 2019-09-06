@@ -300,6 +300,10 @@ body > div.main-container > div > aside > div > div:nth-child(2){
     width: 100%;
     border: 1px solid #003399;
     background: #FFF;
+    float: left;
+    padding: 0.8em;
+    border-radius: 5px;
+    margin-top: 31px;
 }
 
 .page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]{
