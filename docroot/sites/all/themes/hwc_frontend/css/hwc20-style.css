@@ -1596,7 +1596,7 @@ aside.col-md-3 .region.region-sidebar-first.well {
   padding: 0 0 0 1em;
   border: 0;
   border-radius: 5px;
-  margin-top: 26px;
+  margin-top: 16px !important;
   width: 100%;
 }
 .sidebars_first .content-filters {
