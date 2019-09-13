@@ -277,6 +277,9 @@ class PartnerMigrateListXml extends AbstractCrmMigrateListXml {
 
         // Try to assign a valid partner type term.
         $partner_type = (string) $attributes['Textbox28'];
+        if (trim($partner_type) == 'OSH Ambassador') {
+          $partner_type = 'EEN OSH Ambassador';
+        }
         $term = taxonomy_get_term_by_name($partner_type, 'partner_types');
         if (!empty($term)) {
           $data->field_partner_type = (string) $attributes['Textbox28'];
