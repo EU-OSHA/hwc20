@@ -3294,37 +3294,6 @@ body.ocp .box-type-partner .pane-node-field-quote {
   clear: both;
   padding-left: 10px;
 }
-body.ocp .panels-flexible-column-first .pane-node-field-mission-statement,
-body.mp .panels-flexible-column-first .pane-node-field-mission-statement,
-body.ocp .panels-flexible-column-first .pane-node-field-pledge,
-body.mp .panels-flexible-column-first .pane-node-field-pledge {
-  background: transparent;
-  background-size: initial;
-  margin-top: 1em;
-  border-radius: 15px;
-  margin-bottom: 1em;
-}
-body.ocp .panels-flexible-column-first .pane-node-field-mission-statement .pane-title,
-body.mp .panels-flexible-column-first .pane-node-field-mission-statement .pane-title,
-body.ocp .panels-flexible-column-first .pane-node-field-pledge .pane-title,
-body.mp .panels-flexible-column-first .pane-node-field-pledge .pane-title {
-  float: none;
-  color: #003399;
-  font-weight: 500;
-  font-size: 1.5em;
-  padding: 0 0 10px 0;
-}
-body.ocp .panels-flexible-column-first .pane-node-field-mission-statement .pane-content,
-body.mp .panels-flexible-column-first .pane-node-field-mission-statement .pane-content,
-body.ocp .panels-flexible-column-first .pane-node-field-pledge .pane-content,
-body.mp .panels-flexible-column-first .pane-node-field-pledge .pane-content {
-  padding: 1em;
-  padding-left: 1em;
-  padding-right: 1em;
-  font-style: normal;
-  color: #000;
-  padding: 0;
-}
 body.ocp .panels-flexible-row-partner_detail-16-inside .panels-flexible-region-first,
 body.mp .panels-flexible-row-partner_detail-16-inside .panels-flexible-region-first {
   float: right;
@@ -3379,6 +3348,74 @@ body.mp .pane-node-field-bussines-sector .pane-content .field-type-taxonomy-term
   padding-top: 4px;
   font-weight: normal;
 }
+body.ocp .panels-flexible-column-first .field-name-field-country img,
+body.mp .panels-flexible-column-first .field-name-field-country img {
+  border: 0;
+  outline: 1px solid #eaeaea;
+}
+body.ocp .panels-flexible-column-first .pane-node-field-mission-statement,
+body.mp .panels-flexible-column-first .pane-node-field-mission-statement,
+body.ocp .panels-flexible-column-first .pane-node-field-pledge,
+body.mp .panels-flexible-column-first .pane-node-field-pledge {
+  background: transparent;
+  background-size: initial;
+  margin-top: 1em;
+  border-radius: 15px;
+  margin-bottom: 1em;
+}
+body.ocp .panels-flexible-column-first .pane-node-field-mission-statement .pane-title,
+body.mp .panels-flexible-column-first .pane-node-field-mission-statement .pane-title,
+body.ocp .panels-flexible-column-first .pane-node-field-pledge .pane-title,
+body.mp .panels-flexible-column-first .pane-node-field-pledge .pane-title {
+  float: none;
+  color: #003399;
+  font-weight: 500;
+  font-size: 1.5em;
+  padding: 0 0 10px 0;
+}
+body.ocp .panels-flexible-column-first .pane-node-field-mission-statement .pane-content,
+body.mp .panels-flexible-column-first .pane-node-field-mission-statement .pane-content,
+body.ocp .panels-flexible-column-first .pane-node-field-pledge .pane-content,
+body.mp .panels-flexible-column-first .pane-node-field-pledge .pane-content {
+  padding: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-style: normal;
+  color: #000;
+  padding: 0;
+}
+body.ocp .panels-flexible-column-first .pane-node-field-mission-statement,
+body.mp .panels-flexible-column-first .pane-node-field-mission-statement {
+  margin: 2rem 0 2rem;
+}
+body.ocp .panels-flexible-column-last .pane-node-field-country,
+body.mp .panels-flexible-column-last .pane-node-field-country {
+  padding: 1rem 0;
+  display: flex;
+}
+body.ocp .panels-flexible-column-last .pane-node-field-website .field-type-link-field,
+body.mp .panels-flexible-column-last .pane-node-field-website .field-type-link-field {
+  padding: 0 0 1rem 0;
+}
+body.ocp .panels-flexible-column-last .pane-node-field-website .field-type-link-field a,
+body.mp .panels-flexible-column-last .pane-node-field-website .field-type-link-field a {
+  font-style: normal;
+  width: auto;
+}
+body.ocp .panels-flexible-column-last .pane-node-field-website .field-type-link-field a[target="_blank"]:after,
+body.mp .panels-flexible-column-last .pane-node-field-website .field-type-link-field a[target="_blank"]:after {
+  background-image: url(../images/target-blank.png);
+  background-size: 1rem 1rem;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  content: "";
+  left: 0.5rem;
+}
+body.ocp .panels-flexible-column-last .field-type-link-field,
+body.mp .panels-flexible-column-last .field-type-link-field {
+  margin-bottom: 0.5rem;
+}
 body.fop .panels-flexible-region .pane-node-field-bussines-sector,
 body.fop .panels-flexible-region .pane-node-field-orgtype {
   float: none;
@@ -3403,6 +3440,76 @@ body.fop .panels-flexible-region-partner_detail-left_left .field-name-field-orgt
 body.fop .panels-flexible-region-partner_detail-left_left .field-name-field-orgtype {
   font-weight: bold;
   clear: both;
+}
+body.fop .panels-flexible-column-first .field-name-field-country img {
+  border: 0;
+}
+body.fop .panels-flexible-column-first .pane-node-field-country {
+  margin: 0rem 0 1rem 0;
+  display: flex;
+}
+body.fop .panels-flexible-column-first .pane-node-field-website {
+  clear: both;
+}
+body.fop .panels-flexible-column-first .pane-node-field-website a {
+  font-style: italic;
+}
+body.fop .panels-flexible-column-first .pane-node-field-orgtype {
+  padding-top: 0.5rem;
+}
+body.fop .panels-flexible-column-first .pane-node-field-orgtype * {
+  padding: 0;
+}
+body.fop .panels-flexible-column-first .pane-node-field-bussines-sector {
+  padding-top: 0.8rem;
+}
+body.fop .panels-flexible-column-first .pane-node-field-mission-statement {
+  margin: 5rem 0 2rem;
+}
+body.fop .panels-flexible-column-last .pane-node-field-country {
+  padding: 1rem 0;
+  display: flex;
+}
+body.fop .panels-flexible-column-last .pane-node-field-website .field-type-link-field {
+  padding: 0 0 1rem 0;
+}
+body.fop .panels-flexible-column-last .pane-node-field-website .field-type-link-field a {
+  font-style: italic;
+}
+body.een .panels-flexible-column-first .field-name-field-country img {
+  border: 0;
+}
+body.een .panels-flexible-column-first .pane-node-field-country {
+  margin: 0rem 0 1rem 0;
+  display: flex;
+}
+body.een .panels-flexible-column-first .pane-node-field-website {
+  clear: both;
+}
+body.een .panels-flexible-column-first .pane-node-field-website a {
+  font-style: italic;
+}
+body.een .panels-flexible-column-first .pane-node-field-orgtype {
+  padding-top: 0.5rem;
+}
+body.een .panels-flexible-column-first .pane-node-field-orgtype * {
+  padding: 0;
+}
+body.een .panels-flexible-column-first .pane-node-field-bussines-sector {
+  padding-top: 0.8rem;
+}
+body.een .panels-flexible-column-first .pane-node-field-mission-statement {
+  margin: 5rem 0 2rem;
+}
+body.een .panels-flexible-column-last .pane-node-field-country {
+  padding: 1rem 0;
+  display: flex;
+}
+body.een .panels-flexible-column-last .pane-node-field-website .field-type-link-field {
+  padding: 0 0 1rem 0;
+}
+body.een .panels-flexible-column-last .pane-node-field-website .field-type-link-field a {
+  font-style: italic;
 }
 body.een .panels-flexible-region-partner_detail-left_right-inside .field-type-link-field,
 body.een .panels-flexible-region-partner_detail-left_right-inside .field-name-field-abbreviation-name,
