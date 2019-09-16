@@ -5839,6 +5839,87 @@ campaign-partners/official-campaign-partners
   $display->content['new-249112dd-020c-473e-87b5-653d3edd5346'] = $pane;
   $display->panels['right_'][2] = 'new-249112dd-020c-473e-87b5-653d3edd5346';
   $pane = new stdClass();
+  $pane->pid = 'new-5e358fee-9379-47e5-9dc7-898a5572db4c';
+  $pane->panel = 'right_';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_organisation_rep';
+  $pane->shown = FALSE;
+  $pane->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'hwc_partner_detail_only',
+        'settings' => NULL,
+        'not' => FALSE,
+      ),
+    ),
+  );
+  $pane->configuration = array(
+    'label' => 'hidden',
+    'formatter' => 'text_plain',
+    'delta_limit' => 0,
+    'delta_offset' => '0',
+    'delta_reversed' => FALSE,
+    'formatter_settings' => array(),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 3;
+  $pane->locks = array();
+  $pane->uuid = '5e358fee-9379-47e5-9dc7-898a5572db4c';
+  $display->content['new-5e358fee-9379-47e5-9dc7-898a5572db4c'] = $pane;
+  $display->panels['right_'][3] = 'new-5e358fee-9379-47e5-9dc7-898a5572db4c';
+  $pane = new stdClass();
+  $pane->pid = 'new-55e46dc6-cbe6-47b9-9228-2dbb98c6c582';
+  $pane->panel = 'right_';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_general_phone';
+  $pane->shown = TRUE;
+  $pane->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'hwc_partner_detail_only',
+        'settings' => NULL,
+        'not' => FALSE,
+      ),
+    ),
+  );
+  $pane->configuration = array(
+    'label' => 'hidden',
+    'formatter' => 'title_linked',
+    'delta_limit' => 0,
+    'delta_offset' => '0',
+    'delta_reversed' => FALSE,
+    'formatter_settings' => array(
+      'title_style' => '_none',
+      'title_link' => '',
+      'title_class' => '',
+      'field_formatter_class' => '',
+    ),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 1,
+    'override_title_text' => 'Health and safety representative',
+    'override_title_heading' => 'div',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 4;
+  $pane->locks = array();
+  $pane->uuid = '55e46dc6-cbe6-47b9-9228-2dbb98c6c582';
+  $display->content['new-55e46dc6-cbe6-47b9-9228-2dbb98c6c582'] = $pane;
+  $display->panels['right_'][4] = 'new-55e46dc6-cbe6-47b9-9228-2dbb98c6c582';
+  $pane = new stdClass();
   $pane->pid = 'new-b4c58a13-6a77-4758-a4e7-522b788832e0';
   $pane->panel = 'right_';
   $pane->type = 'entity_field';
@@ -5871,92 +5952,11 @@ campaign-partners/official-campaign-partners
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 3;
+  $pane->position = 5;
   $pane->locks = array();
   $pane->uuid = 'b4c58a13-6a77-4758-a4e7-522b788832e0';
   $display->content['new-b4c58a13-6a77-4758-a4e7-522b788832e0'] = $pane;
-  $display->panels['right_'][3] = 'new-b4c58a13-6a77-4758-a4e7-522b788832e0';
-  $pane = new stdClass();
-  $pane->pid = 'new-5e358fee-9379-47e5-9dc7-898a5572db4c';
-  $pane->panel = 'right_';
-  $pane->type = 'entity_field';
-  $pane->subtype = 'node:field_organisation_rep';
-  $pane->shown = TRUE;
-  $pane->access = array(
-    'plugins' => array(
-      0 => array(
-        'name' => 'hwc_partner_detail_only',
-        'settings' => NULL,
-        'not' => FALSE,
-      ),
-    ),
-  );
-  $pane->configuration = array(
-    'label' => 'above',
-    'formatter' => 'text_plain',
-    'delta_limit' => 0,
-    'delta_offset' => '0',
-    'delta_reversed' => FALSE,
-    'formatter_settings' => array(),
-    'context' => 'argument_entity_id:node_1',
-    'override_title' => 0,
-    'override_title_text' => '',
-    'override_title_heading' => 'h2',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 4;
-  $pane->locks = array();
-  $pane->uuid = '5e358fee-9379-47e5-9dc7-898a5572db4c';
-  $display->content['new-5e358fee-9379-47e5-9dc7-898a5572db4c'] = $pane;
-  $display->panels['right_'][4] = 'new-5e358fee-9379-47e5-9dc7-898a5572db4c';
-  $pane = new stdClass();
-  $pane->pid = 'new-55e46dc6-cbe6-47b9-9228-2dbb98c6c582';
-  $pane->panel = 'right_';
-  $pane->type = 'entity_field';
-  $pane->subtype = 'node:field_general_phone';
-  $pane->shown = TRUE;
-  $pane->access = array(
-    'plugins' => array(
-      0 => array(
-        'name' => 'hwc_partner_detail_only',
-        'settings' => NULL,
-        'not' => FALSE,
-      ),
-    ),
-  );
-  $pane->configuration = array(
-    'label' => 'hidden',
-    'formatter' => 'title_linked',
-    'delta_limit' => 0,
-    'delta_offset' => '0',
-    'delta_reversed' => FALSE,
-    'formatter_settings' => array(
-      'title_style' => '_none',
-      'title_link' => '',
-      'title_class' => '',
-      'field_formatter_class' => '',
-    ),
-    'context' => 'argument_entity_id:node_1',
-    'override_title' => 1,
-    'override_title_text' => 'General phone',
-    'override_title_heading' => 'div',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 5;
-  $pane->locks = array();
-  $pane->uuid = '55e46dc6-cbe6-47b9-9228-2dbb98c6c582';
-  $display->content['new-55e46dc6-cbe6-47b9-9228-2dbb98c6c582'] = $pane;
-  $display->panels['right_'][5] = 'new-55e46dc6-cbe6-47b9-9228-2dbb98c6c582';
+  $display->panels['right_'][5] = 'new-b4c58a13-6a77-4758-a4e7-522b788832e0';
   $pane = new stdClass();
   $pane->pid = 'new-63f4624d-dc9c-4071-8a5e-784a6a4c42f3';
   $pane->panel = 'right_';
