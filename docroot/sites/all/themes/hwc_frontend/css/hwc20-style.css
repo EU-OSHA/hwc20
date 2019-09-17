@@ -3152,7 +3152,7 @@ div.workbench-info-block {
 .node-type-partner [class*="field-type-link"] {
   font-weight: bold;
   text-align: left;
-  margin: 0 !important;
+  margin: 0.1rem 0 !important;
 }
 .node-type-partner [class*="field-type-link"][class*="facebook"] {
   background: url("../images/header/header-ico-facebook.png") no-repeat left center;
@@ -3347,6 +3347,7 @@ body.mp .panels-flexible-column-first .pane-node-field-country {
 body.mp .panels-flexible-column-first .pane-node-field-country.profile-inline-field {
   float: left;
   min-height: 11rem;
+  padding-top: 2.2rem;
 }
 body.mp .panels-flexible-column-first .pane-node-field-country.profile-inline-field .field-name-field-country img {
   border: 0;
@@ -3354,6 +3355,7 @@ body.mp .panels-flexible-column-first .pane-node-field-country.profile-inline-fi
 }
 body.mp .panels-flexible-column-first .pane-node-field-country .field-item {
   font-size: 2rem;
+  font-weight: 600;
 }
 body.mp .panels-flexible-column-first .pane-node-field-website {
   float: left;
@@ -3376,6 +3378,12 @@ body.mp .panels-flexible-column-first .pane-node-field-website a[target="_blank"
 body.mp .panels-flexible-column-first .pane-node-field-ceo {
   float: left;
   width: 70%;
+  display: flex;
+  justify-content: flex-start;
+}
+body.mp .panels-flexible-column-first .pane-node-field-ceo .pane-title {
+  padding-right: 1.5rem;
+  font-weight: bold;
 }
 body.mp .panels-flexible-column-first .pane-node-field-mission-statement,
 body.mp .panels-flexible-column-first .pane-node-field-pledge {
@@ -3408,6 +3416,7 @@ body.mp .panels-flexible-column-first .pane-node-field-mission-statement {
 body.mp .panels-flexible-column-last .pane-node-field-country {
   padding: 1rem 0;
   display: flex;
+  font-weight: 600;
 }
 body.mp .panels-flexible-column-last .pane-node-field-general-phone {
   padding: 0.5rem 0;
@@ -3535,6 +3544,9 @@ body.ocp .panels-flexible-column-last .pane-node-field-general-phone .pane-conte
   float: none;
   padding: 0;
 }
+body.ocp .panels-flexible-column-last .field-name-title-field {
+  font-weight: normal;
+}
 body.fop .panels-flexible-region .pane-node-field-bussines-sector,
 body.fop .panels-flexible-region .pane-node-field-orgtype {
   float: none;
@@ -3560,14 +3572,17 @@ body.fop .panels-flexible-region-partner_detail-left_left .field-name-field-orgt
   font-weight: bold;
   clear: both;
 }
-body.fop .panels-flexible-column-first .field-name-field-country img {
+body.fop .panels-flexible-column-first .pane-node-field-country .field-name-field-country img {
   border: 0;
+  border: 1px solid #eaeaea;
+  margin-top: 3rem;
 }
-body.fop .panels-flexible-column-first .field-name-field-country .field-item {
+body.fop .panels-flexible-column-first .pane-node-field-country .field-item {
   font-size: 2rem;
+  font-weight: 600;
 }
 body.fop .panels-flexible-column-first .pane-node-field-country {
-  margin: 0rem 0 1rem 0;
+  margin: 0rem ;
   display: flex;
 }
 body.fop .panels-flexible-column-first .pane-node-field-website {
@@ -3605,6 +3620,7 @@ body.fop .panels-flexible-column-last .pane-node-field-country {
 }
 body.fop .panels-flexible-column-last .pane-node-field-country .field-item {
   font-size: 2rem;
+  font-weight: 600;
 }
 body.fop .panels-flexible-column-last .pane-node-field-website .field-type-link-field {
   padding: 0 0 1rem 0;
@@ -3702,6 +3718,24 @@ body.een .panels-flexible-region-partner_detail-left_right-inside .pane-node-fie
 }
 body.een .panels-flexible-row-partner_detail-13 {
   float: right;
+}
+body.ocp .panels-flexible-row h2,
+body.mp .panels-flexible-row h2,
+body.fop .panels-flexible-row h2,
+body.een .panels-flexible-row h2 {
+  font-weight: 600;
+}
+body.ocp .panels-flexible-column-first .pane-node-field-mission-statement .pane-title,
+body.mp .panels-flexible-column-first .pane-node-field-mission-statement .pane-title,
+body.fop .panels-flexible-column-first .pane-node-field-mission-statement .pane-title,
+body.een .panels-flexible-column-first .pane-node-field-mission-statement .pane-title {
+  font-weight: 600;
+}
+body.ocp .panels-flexible-column-first .pane-node-field-pledge .pane-title,
+body.mp .panels-flexible-column-first .pane-node-field-pledge .pane-title,
+body.fop .panels-flexible-column-first .pane-node-field-pledge .pane-title,
+body.een .panels-flexible-column-first .pane-node-field-pledge .pane-title {
+  font-weight: 600;
 }
 /* Become a campaign partner */
 .become-partner-text {
