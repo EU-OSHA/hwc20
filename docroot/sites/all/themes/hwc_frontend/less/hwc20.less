@@ -3554,6 +3554,7 @@ div.workbench-info-block{
 	[class*="field-type-link"]{
 		font-weight: bold;
 		text-align: left;
+		margin: 0 !important;
 		&[class*="facebook"]{
 			background: url("../images/header/header-ico-facebook.png") no-repeat left center;
 			padding-left: 30px;
@@ -3777,21 +3778,43 @@ body.mp{
 	.panels-flexible-column-first{
 		.pane-node-field-country{
 			float: left;
-			min-height: 11rem;
-			.field-name-field-country{
-				
-				img{
-					border: 0;
-					border: 1px solid #eaeaea;
-				}
+			&.profile-inline-field{
+				float: left;
+				min-height: 11rem;
+				.field-name-field-country{					
+					img{
+						border: 0;
+						border: 1px solid #eaeaea;
+					}
+				}				
 			}
+			.field-item{
+			    font-size: 2rem;
+			}
+
 		}
 		.pane-node-field-website{
 			float: left;
+    		width: 70%;
 			a{
-				font-style: italic;
+			    font-style: normal;
+			    width: auto;
+			    &[target="_blank"]:after{
+			    	background-image: url(../images/target-blank.png);
+				    background-size: 1rem 1rem;
+				    display: inline-block;
+				    width: 1rem; 
+				    height: 1rem;
+				    content:"";
+				    left: 0.5rem;
+				    position: relative;
+			    }
 			}
 		}
+		.pane-node-field-ceo{
+			float: left;
+    		width: 70%;
+		 }
 		.pane-node-field-mission-statement, .pane-node-field-pledge{
 			background: transparent;
 			background-size: initial;
@@ -3943,6 +3966,7 @@ body.ocp{
 					    height: 1rem;
 					    content:"";
 					    left: 0.5rem;
+					    position: relative;
 				    }
 				}
 			}
@@ -3991,6 +4015,9 @@ body.fop{
 			img{
 				border:0;
 			}
+			.field-item{
+			    font-size: 2rem;
+			}
 		}
 		.pane-node-field-country{
 			margin: 0rem 0 1rem 0;
@@ -3999,17 +4026,28 @@ body.fop{
 		.pane-node-field-website{
 			clear: both;
 			a{
-				font-style: italic;
+			    font-style: normal;
+			    width: auto;
+			    &[target="_blank"]:after{
+			    	background-image: url(../images/target-blank.png);
+				    background-size: 1rem 1rem;
+				    display: inline-block;
+				    width: 1rem; 
+				    height: 1rem;
+				    content:"";
+				    left: 0.5rem;
+				    position: relative;
+			    }
 			}			
 		}
 		.pane-node-field-orgtype{
-			padding-top: 0.5rem;
+			padding-top: 0rem;
 			*{
 				padding: 0;
 			}
 		}
 		.pane-node-field-bussines-sector{
-			padding-top: 0.8rem;
+			padding-top: 0.3rem;
 		}
 		.pane-node-field-mission-statement{
 			margin: 5rem 0 2rem;
@@ -4017,14 +4055,28 @@ body.fop{
 	}
 	.panels-flexible-column-last{
 		.pane-node-field-country{
-			padding: 1rem 0;
+			padding: 1rem 0 0;
 			display: flex;
+			.field-item{
+			    font-size: 2rem;
+			}
 		}
 		.pane-node-field-website{
 			.field-type-link-field{
 				padding: 0 0 1rem 0;
 				a{
-				    font-style: italic;
+				    font-style: normal;
+				    width: auto;
+				    &[target="_blank"]:after{
+				    	background-image: url(../images/target-blank.png);
+					    background-size: 1rem 1rem;
+					    display: inline-block;
+					    width: 1rem; 
+					    height: 1rem;
+					    content:"";
+					    left: 0.5rem;
+					    position: relative;
+				    }
 				}
 			}
 		}
@@ -4037,16 +4089,30 @@ body.een{
 		.field-name-field-country{
 			img{
 				border:0;
-			}
+			}			
 		}
 		.pane-node-field-country{
 			margin: 0rem 0 1rem 0;
 		    display: flex;
+			.field-item{
+			    font-size: 2rem;
+			}
 		}
 		.pane-node-field-website{
 			clear: both;
 			a{
-				font-style: italic;
+			    font-style: normal;
+			    width: auto;
+			    &[target="_blank"]:after{
+			    	background-image: url(../images/target-blank.png);
+				    background-size: 1rem 1rem;
+				    display: inline-block;
+				    width: 1rem; 
+				    height: 1rem;
+				    content:"";
+				    left: 0.5rem;
+				    position: relative;
+			    }
 			}			
 		}
 		.pane-node-field-orgtype{
@@ -4064,9 +4130,12 @@ body.een{
 	}
 	.panels-flexible-column-last{
 		.pane-node-field-country{
-			padding: 1rem 0;
+			padding: 1rem 0 0;
 			display: flex;
 			width: 100%;
+			.field-item{
+			    font-size: 2rem;
+			}
 		}
 		.pane-node-field-general-phone{
 			padding: 0;
@@ -4075,7 +4144,18 @@ body.een{
 			.field-type-link-field{
 				padding: 0;
 				a{
-				    font-style: italic;
+				    font-style: normal;
+				    width: auto;
+				    &[target="_blank"]:after{
+				    	background-image: url(../images/target-blank.png);
+					    background-size: 1rem 1rem;
+					    display: inline-block;
+					    width: 1rem; 
+					    height: 1rem;
+					    content:"";
+					    left: 0.5rem;
+					    position: relative;
+				    }
 				}
 			}
 		}
