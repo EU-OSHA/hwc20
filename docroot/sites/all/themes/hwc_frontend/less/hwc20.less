@@ -3554,7 +3554,7 @@ div.workbench-info-block{
 	[class*="field-type-link"]{
 		font-weight: bold;
 		text-align: left;
-		margin: 0 !important;
+		margin: 0.1rem 0 !important;
 		&[class*="facebook"]{
 			background: url("../images/header/header-ico-facebook.png") no-repeat left center;
 			padding-left: 30px;
@@ -3781,6 +3781,7 @@ body.mp{
 			&.profile-inline-field{
 				float: left;
 				min-height: 11rem;
+				padding-top: 2.2rem;
 				.field-name-field-country{					
 					img{
 						border: 0;
@@ -3790,6 +3791,7 @@ body.mp{
 			}
 			.field-item{
 			    font-size: 2rem;
+			    font-weight: 600;
 			}
 
 		}
@@ -3814,8 +3816,15 @@ body.mp{
 		.pane-node-field-ceo{
 			float: left;
     		width: 70%;
+    		display: flex;
+    		justify-content: flex-start;
+    		.pane-title{
+				padding-right: 1.5rem;
+				font-weight: bold;
+    		}
 		 }
-		.pane-node-field-mission-statement, .pane-node-field-pledge{
+		.pane-node-field-mission-statement, 
+		.pane-node-field-pledge{
 			background: transparent;
 			background-size: initial;
 			margin-top: 1em;
@@ -3846,6 +3855,7 @@ body.mp{
 		.pane-node-field-country{
 			padding: 1rem 0;
 			display: flex;
+			font-weight: 600;
 		}
 		.pane-node-field-general-phone{
 			padding: 0.5rem 0;
@@ -3989,7 +3999,9 @@ body.ocp{
 				padding: 0;
 			}
 		}
-
+		.field-name-title-field {
+		    font-weight: normal;
+		}
 	}	
 }
 
@@ -4014,16 +4026,22 @@ body.fop{
 	}
 
 	.panels-flexible-column-first{
-		.field-name-field-country{
-			img{
-				border:0;
-			}
+		.pane-node-field-country{			
+			.field-name-field-country{					
+				img{
+					border: 0;
+					border: 1px solid #eaeaea;
+					margin-top:3rem;
+				}
+			}				
 			.field-item{
 			    font-size: 2rem;
+			    font-weight: 600;
 			}
+
 		}
 		.pane-node-field-country{
-			margin: 0rem 0 1rem 0;
+			margin: 0rem ;
 		    display: flex;
 		}
 		.pane-node-field-website{
@@ -4062,6 +4080,7 @@ body.fop{
 			display: flex;
 			.field-item{
 			    font-size: 2rem;
+			    font-weight: 600;
 			}
 		}
 		.pane-node-field-website{
@@ -4180,7 +4199,25 @@ body.een{
 	}
 }
 
-
+body{
+	&.ocp, &.mp, &.fop, &.een{
+		.panels-flexible-row h2{
+		    font-weight: 600;
+		}
+		.panels-flexible-column-first{
+			.pane-node-field-mission-statement{
+				.pane-title{
+					font-weight: 600;
+				}
+			}
+			.pane-node-field-pledge{
+				.pane-title{
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}
 
 
 
