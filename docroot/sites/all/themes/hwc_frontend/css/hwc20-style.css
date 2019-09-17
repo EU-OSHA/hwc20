@@ -3520,6 +3520,9 @@ body.ocp .panels-flexible-column-last .pane-node-field-website .field-type-link-
 body.ocp .panels-flexible-column-last .field-type-link-field {
   margin-bottom: 0.5rem;
 }
+body.ocp .panels-flexible-column-last .pane-node-title-field {
+  margin-top: 1.8rem;
+}
 body.ocp .panels-flexible-column-last .pane-node-field-general-phone {
   padding: 0;
 }
