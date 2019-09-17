@@ -661,11 +661,14 @@ campaign-partners/enterprise-europe-network
   );
   $pane->configuration = array(
     'label' => 'hidden',
-    'formatter' => 'link_default',
+    'formatter' => 'hwc_custom_title_link',
     'delta_limit' => 0,
     'delta_offset' => '0',
     'delta_reversed' => FALSE,
-    'formatter_settings' => array(),
+    'formatter_settings' => array(
+      'field_formatter_class' => '',
+      'custom_title' => 'Visit website',
+    ),
     'context' => 'argument_entity_id:node_1',
     'override_title' => 0,
     'override_title_text' => '',
@@ -1264,15 +1267,18 @@ campaign-partners/enterprise-europe-network
   );
   $pane->configuration = array(
     'label' => 'hidden',
-    'formatter' => 'link_default',
+    'formatter' => 'hwc_custom_title_link',
     'delta_limit' => 0,
     'delta_offset' => '0',
     'delta_reversed' => FALSE,
-    'formatter_settings' => array(),
+    'formatter_settings' => array(
+      'field_formatter_class' => '',
+      'custom_title' => 'Visit website',
+    ),
     'context' => 'argument_entity_id:node_1',
     'override_title' => 0,
     'override_title_text' => '',
-    'override_title_heading' => 'h2',
+    'override_title_heading' => 'div',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -1479,9 +1485,10 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   $pane->configuration = array(
     'admin_title' => 'Social media profiles title',
     'title' => '',
-    'body' => '<p>Social media profiles</p>',
+    'body' => '<p>Social Media</p>',
     'format' => 'full_html',
     'substitute' => 1,
+    'title_heading' => 'h2',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -2213,6 +2220,36 @@ campaign-partners/campaign-media-partners
   $display->content['new-f447a5b4-3387-4b4c-bd0b-aa6861bf904f'] = $pane;
   $display->panels['left_left'][0] = 'new-f447a5b4-3387-4b4c-bd0b-aa6861bf904f';
   $pane = new stdClass();
+  $pane->pid = 'new-2ce42298-5299-4b54-a535-afca0c796d6b';
+  $pane->panel = 'left_left';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_country';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'label' => 'hidden',
+    'formatter' => 'taxonomy_term_reference_plain',
+    'delta_limit' => 0,
+    'delta_offset' => '0',
+    'delta_reversed' => FALSE,
+    'formatter_settings' => array(),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = '2ce42298-5299-4b54-a535-afca0c796d6b';
+  $display->content['new-2ce42298-5299-4b54-a535-afca0c796d6b'] = $pane;
+  $display->panels['left_left'][1] = 'new-2ce42298-5299-4b54-a535-afca0c796d6b';
+  $pane = new stdClass();
   $pane->pid = 'new-2c5384eb-8241-4cbf-a6b5-aeb3a1a40523';
   $pane->panel = 'left_left';
   $pane->type = 'entity_field';
@@ -2248,11 +2285,11 @@ campaign-partners/campaign-media-partners
     'css_class' => 'profile-inline-field',
   );
   $pane->extras = array();
-  $pane->position = 1;
+  $pane->position = 2;
   $pane->locks = array();
   $pane->uuid = '2c5384eb-8241-4cbf-a6b5-aeb3a1a40523';
   $display->content['new-2c5384eb-8241-4cbf-a6b5-aeb3a1a40523'] = $pane;
-  $display->panels['left_left'][1] = 'new-2c5384eb-8241-4cbf-a6b5-aeb3a1a40523';
+  $display->panels['left_left'][2] = 'new-2c5384eb-8241-4cbf-a6b5-aeb3a1a40523';
   $pane = new stdClass();
   $pane->pid = 'new-5e29b793-d024-46c0-abfd-72f6e021e824';
   $pane->panel = 'left_left';
@@ -2289,11 +2326,11 @@ campaign-partners/campaign-media-partners
     'css_class' => '',
   );
   $pane->extras = array();
-  $pane->position = 2;
+  $pane->position = 3;
   $pane->locks = array();
   $pane->uuid = '5e29b793-d024-46c0-abfd-72f6e021e824';
   $display->content['new-5e29b793-d024-46c0-abfd-72f6e021e824'] = $pane;
-  $display->panels['left_left'][2] = 'new-5e29b793-d024-46c0-abfd-72f6e021e824';
+  $display->panels['left_left'][3] = 'new-5e29b793-d024-46c0-abfd-72f6e021e824';
   $pane = new stdClass();
   $pane->pid = 'new-8cb4e5a9-5733-446d-8627-310629fafda0';
   $pane->panel = 'left_top';
@@ -2794,9 +2831,10 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   $pane->configuration = array(
     'admin_title' => 'Social media profiles title',
     'title' => '',
-    'body' => '<p>Social media profiles</p>',
+    'body' => '<p>Social media</p>',
     'format' => 'full_html',
     'substitute' => 1,
+    'title_heading' => 'h2',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -3470,11 +3508,14 @@ campaign-partners/national-focal-points
   );
   $pane->configuration = array(
     'label' => 'hidden',
-    'formatter' => 'link_default',
+    'formatter' => 'hwc_custom_title_link',
     'delta_limit' => 0,
     'delta_offset' => '0',
     'delta_reversed' => FALSE,
-    'formatter_settings' => array(),
+    'formatter_settings' => array(
+      'field_formatter_class' => '',
+      'custom_title' => 'Visit website',
+    ),
     'context' => 'argument_entity_id:node_1',
     'override_title' => 0,
     'override_title_text' => '',
@@ -4153,11 +4194,14 @@ campaign-partners/national-focal-points
   );
   $pane->configuration = array(
     'label' => 'hidden',
-    'formatter' => 'link_default',
+    'formatter' => 'hwc_custom_title_link',
     'delta_limit' => 0,
     'delta_offset' => '0',
     'delta_reversed' => FALSE,
-    'formatter_settings' => array(),
+    'formatter_settings' => array(
+      'field_formatter_class' => '',
+      'custom_title' => 'Visit website',
+    ),
     'context' => 'argument_entity_id:node_1',
     'override_title' => 0,
     'override_title_text' => '',
@@ -5905,7 +5949,7 @@ campaign-partners/official-campaign-partners
     ),
     'context' => 'argument_entity_id:node_1',
     'override_title' => 1,
-    'override_title_text' => 'Health and safety representative',
+    'override_title_text' => 'Head of Safety',
     'override_title_heading' => 'div',
   );
   $pane->cache = array();
@@ -5987,9 +6031,10 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   $pane->configuration = array(
     'admin_title' => 'Social media profiles title',
     'title' => '',
-    'body' => '<p>Social media profiles</p>',
+    'body' => '<p>Social media</p>',
     'format' => 'full_html',
     'substitute' => 1,
+    'title_heading' => 'h2',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -6272,6 +6317,41 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   $display->content['new-f3313101-db0d-4f66-97fe-0b81beefbd61'] = $pane;
   $display->panels['right_'][13] = 'new-f3313101-db0d-4f66-97fe-0b81beefbd61';
   $pane = new stdClass();
+  $pane->pid = 'new-7b47be0e-de1b-4ad0-9dbb-74351a6e3044';
+  $pane->panel = 'right_';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:title_field';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'label' => 'hidden',
+    'formatter' => 'text_plain',
+    'delta_limit' => 0,
+    'delta_offset' => '0',
+    'delta_reversed' => FALSE,
+    'formatter_settings' => array(
+      'title_style' => '_none',
+      'title_link' => '',
+      'title_class' => '',
+      'field_formatter_class' => '',
+    ),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 1,
+    'override_title_text' => 'Address',
+    'override_title_heading' => 'div',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 14;
+  $pane->locks = array();
+  $pane->uuid = '7b47be0e-de1b-4ad0-9dbb-74351a6e3044';
+  $display->content['new-7b47be0e-de1b-4ad0-9dbb-74351a6e3044'] = $pane;
+  $display->panels['right_'][14] = 'new-7b47be0e-de1b-4ad0-9dbb-74351a6e3044';
+  $pane = new stdClass();
   $pane->pid = 'new-d05c7360-62ae-4b57-a2fa-af756b871d17';
   $pane->panel = 'right_';
   $pane->type = 'entity_field';
@@ -6299,7 +6379,7 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
       'field_formatter_class' => '',
     ),
     'context' => 'argument_entity_id:node_1',
-    'override_title' => 1,
+    'override_title' => 0,
     'override_title_text' => 'Address',
     'override_title_heading' => 'div',
   );
@@ -6309,11 +6389,11 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 14;
+  $pane->position = 15;
   $pane->locks = array();
   $pane->uuid = 'd05c7360-62ae-4b57-a2fa-af756b871d17';
   $display->content['new-d05c7360-62ae-4b57-a2fa-af756b871d17'] = $pane;
-  $display->panels['right_'][14] = 'new-d05c7360-62ae-4b57-a2fa-af756b871d17';
+  $display->panels['right_'][15] = 'new-d05c7360-62ae-4b57-a2fa-af756b871d17';
   $pane = new stdClass();
   $pane->pid = 'new-e36dcb73-9189-40e8-acaa-bdd2574c9377';
   $pane->panel = 'right_';
@@ -6351,11 +6431,11 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 15;
+  $pane->position = 16;
   $pane->locks = array();
   $pane->uuid = 'e36dcb73-9189-40e8-acaa-bdd2574c9377';
   $display->content['new-e36dcb73-9189-40e8-acaa-bdd2574c9377'] = $pane;
-  $display->panels['right_'][15] = 'new-e36dcb73-9189-40e8-acaa-bdd2574c9377';
+  $display->panels['right_'][16] = 'new-e36dcb73-9189-40e8-acaa-bdd2574c9377';
   $pane = new stdClass();
   $pane->pid = 'new-f6e8ddd1-fd7c-49ef-ab9f-f75e3ed8adbf';
   $pane->panel = 'right_';
@@ -6381,11 +6461,11 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 16;
+  $pane->position = 17;
   $pane->locks = array();
   $pane->uuid = 'f6e8ddd1-fd7c-49ef-ab9f-f75e3ed8adbf';
   $display->content['new-f6e8ddd1-fd7c-49ef-ab9f-f75e3ed8adbf'] = $pane;
-  $display->panels['right_'][16] = 'new-f6e8ddd1-fd7c-49ef-ab9f-f75e3ed8adbf';
+  $display->panels['right_'][17] = 'new-f6e8ddd1-fd7c-49ef-ab9f-f75e3ed8adbf';
   $pane = new stdClass();
   $pane->pid = 'new-91027b2b-a9f8-4c30-84cf-608524bd44cd';
   $pane->panel = 'right_top_left';

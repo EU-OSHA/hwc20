@@ -332,3 +332,10 @@ function hwc_partner_update_7041() {
 function hwc_partner_update_7042() {
   features_revert(array('hwc_partner' => array('views_view')));
 }
+
+/**
+ * HW20-48, HW20-49, HW20-50, HW20-51.
+ */
+function hwc_partner_update_7043() {
+  features_revert_module('hwc_partner');
+}
