@@ -2266,11 +2266,14 @@ campaign-partners/campaign-media-partners
   );
   $pane->configuration = array(
     'label' => 'hidden',
-    'formatter' => 'link_default',
+    'formatter' => 'hwc_custom_title_link',
     'delta_limit' => 0,
     'delta_offset' => '0',
     'delta_reversed' => FALSE,
-    'formatter_settings' => array(),
+    'formatter_settings' => array(
+      'field_formatter_class' => '',
+      'custom_title' => 'Visit website',
+    ),
     'context' => 'argument_entity_id:node_1',
     'override_title' => 0,
     'override_title_text' => '',
