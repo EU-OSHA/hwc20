@@ -37,43 +37,43 @@ function osha_authentication_extract_user_roles($proposed_roles) {
 function osha_authentication_get_role_from_dn($group_dn, $user) {
   $role = NULL;
   $language = NULL;
-  if ($group_dn == 'cn=ADMIN,ou=HWC_18-19,ou=Sites,dc=osha,dc=europa,dc=eu') {
+  if ($group_dn == 'cn=ADMIN,ou=HWC_20-22,ou=Sites,dc=osha,dc=europa,dc=eu') {
     $role = HWC_ROLE_ADMIN;
   }
-  elseif ($group_dn == 'cn=LAYVAL,ou=HWC_18-19,ou=Sites,dc=osha,dc=europa,dc=eu') {
+  elseif ($group_dn == 'cn=LAYVAL,ou=HWC_20-22,ou=Sites,dc=osha,dc=europa,dc=eu') {
     $role = OSHA_WORKFLOW_ROLE_LAYOUT_VALIDATOR;
   }
-  elseif ($group_dn == 'cn=NEWS_EVEN_EDT,ou=HWC_18-19,ou=Sites,dc=osha,dc=europa,dc=eu') {
+  elseif ($group_dn == 'cn=NEWS_EVEN_EDT,ou=HWC_20-22,ou=Sites,dc=osha,dc=europa,dc=eu') {
     // HWC Staff - reviewers.
     $role = HWC_ROLE_HWC_STAFF_REVIEWERS;
   }
-  elseif ($group_dn == 'cn=NEWS_EVEN_SUP,ou=HWC_18-19,ou=Sites,dc=osha,dc=europa,dc=eu') {
+  elseif ($group_dn == 'cn=NEWS_EVEN_SUP,ou=HWC_20-22,ou=Sites,dc=osha,dc=europa,dc=eu') {
     // Mostra users.
     $role = HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR;
   }
   elseif (
     in_array($group_dn,
       array(
-        'cn=OCP,ou=HWC_18-19,ou=Sites,dc=osha,dc=europa,dc=eu',
-        'cn=FOP,ou=HWC_18-19,ou=Sites,dc=osha,dc=europa,dc=eu',
-        'cn=OMP,ou=HWC_18-19,ou=Sites,dc=osha,dc=europa,dc=eu',
-        'cn=OSHAMB,ou=HWC_18-19,ou=Sites,dc=osha,dc=europa,dc=eu',
+        'cn=OCP,ou=HWC_20-22,ou=Sites,dc=osha,dc=europa,dc=eu',
+        'cn=FOP,ou=HWC_20-22,ou=Sites,dc=osha,dc=europa,dc=eu',
+        'cn=OMP,ou=HWC_20-22,ou=Sites,dc=osha,dc=europa,dc=eu',
+        'cn=OSHAMB,ou=HWC_20-22,ou=Sites,dc=osha,dc=europa,dc=eu',
       )
     )) {
     $role = HWC_ROLE_CAMPAIGN_PARTNER;
   }
-  elseif ($group_dn == 'cn=RVMN,ou=HWC_18-19,ou=Sites,dc=osha,dc=europa,dc=eu') {
+  elseif ($group_dn == 'cn=RVMN,ou=HWC_20-22,ou=Sites,dc=osha,dc=europa,dc=eu') {
     // Website Managers - Editorial Team.
     $role = HWC_ROLE_WEBSITE_MANAGERS;
   }
-  elseif ($group_dn == 'cn=OSHAMB_RVM,ou=HWC_18-19,ou=Sites,dc=osha,dc=europa,dc=eu') {
+  elseif ($group_dn == 'cn=OSHAMB_RVM,ou=HWC_20-22,ou=Sites,dc=osha,dc=europa,dc=eu') {
     // EU-OSHA EEN Reviewers.
     $role = HWC_ROLE_EEN_REVIEW_MANAGER;
   }
-  elseif ($group_dn == 'cn=TRLIAS,ou=HWC_18-19,ou=Sites,dc=osha,dc=europa,dc=eu') {
+  elseif ($group_dn == 'cn=TRLIAS,ou=HWC_20-22,ou=Sites,dc=osha,dc=europa,dc=eu') {
     $role = OSHA_WORKFLOW_ROLE_TRANSLATION_LIAISON;
   }
-  elseif ($group_dn == 'cn=TRLMN,ou=HWC_18-19,ou=Sites,dc=osha,dc=europa,dc=eu') {
+  elseif ($group_dn == 'cn=TRLMN,ou=HWC_20-22,ou=Sites,dc=osha,dc=europa,dc=eu') {
     $role = OSHA_WORKFLOW_ROLE_TRANSLATION_MANAGER;
   }
   // Handle content validators (CV) & unknown values.
@@ -86,7 +86,7 @@ function osha_authentication_get_role_from_dn($group_dn, $user) {
       $language = str_replace('cn=', '', $language);
       $role = OSHA_WORKFLOW_ROLE_CONTENT_VALIDATOR;
     }
-    elseif ($group_dn == 'cn=READ,ou=HWC_18-19,ou=Sites,dc=osha,dc=europa,dc=eu') {
+    elseif ($group_dn == 'cn=READ,ou=HWC_20-22,ou=Sites,dc=osha,dc=europa,dc=eu') {
       // Do nothing ...
     }
     else {
@@ -99,7 +99,7 @@ function osha_authentication_get_role_from_dn($group_dn, $user) {
 function osha_authentication_ldap_fetch_user_groups($username, $ldap_server) {
   $ret = array();
   /** @var LDAPServer $ldap_server */
-  $ldap_groups = $ldap_server->search('ou=HWC_18-19,ou=Sites,dc=osha,dc=europa,dc=eu', 'memberUid=' . $username);
+  $ldap_groups = $ldap_server->search('ou=HWC_20-22,ou=Sites,dc=osha,dc=europa,dc=eu', 'memberUid=' . $username);
   if (!$ldap_groups) {
     return $ret;
   }
@@ -171,7 +171,7 @@ function osha_authentication_block_disabled_ldap_accounts($ldap_server, $ldap_ac
 function osha_authentication_ldap_get_site_users($ldap_server) {
   $ret = array();
   /** @var LDAPServer $ldap_server */
-  $ldap_groups = $ldap_server->search('ou=HWC_18-19,ou=Sites,dc=osha,dc=europa,dc=eu', 'cn=*', array('dn', 'memberUid', 'cn'));
+  $ldap_groups = $ldap_server->search('ou=HWC_20-22,ou=Sites,dc=osha,dc=europa,dc=eu', 'cn=*', array('dn', 'memberUid', 'cn'));
   if (!$ldap_groups) {
     return $ret;
   }
