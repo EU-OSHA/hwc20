@@ -3547,6 +3547,9 @@ body.ocp .panels-flexible-column-last .pane-node-field-general-phone .pane-conte
 body.ocp .panels-flexible-column-last .field-name-title-field {
   font-weight: normal;
 }
+body.ocp .panels-flexible-column-last .pane-node-field-ph-address {
+  padding-top: 0;
+}
 body.fop .panels-flexible-region .pane-node-field-bussines-sector,
 body.fop .panels-flexible-region .pane-node-field-orgtype {
   float: none;
