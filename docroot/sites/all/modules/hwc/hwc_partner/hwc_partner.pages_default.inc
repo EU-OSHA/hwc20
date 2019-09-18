@@ -6470,6 +6470,36 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   $display->content['new-f6e8ddd1-fd7c-49ef-ab9f-f75e3ed8adbf'] = $pane;
   $display->panels['right_'][17] = 'new-f6e8ddd1-fd7c-49ef-ab9f-f75e3ed8adbf';
   $pane = new stdClass();
+  $pane->pid = 'new-8f90400b-8652-4db6-8026-898ae881abb9';
+  $pane->panel = 'right_';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_country';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'label' => 'hidden',
+    'formatter' => 'taxonomy_term_reference_plain',
+    'delta_limit' => 0,
+    'delta_offset' => '0',
+    'delta_reversed' => FALSE,
+    'formatter_settings' => array(),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 18;
+  $pane->locks = array();
+  $pane->uuid = '8f90400b-8652-4db6-8026-898ae881abb9';
+  $display->content['new-8f90400b-8652-4db6-8026-898ae881abb9'] = $pane;
+  $display->panels['right_'][18] = 'new-8f90400b-8652-4db6-8026-898ae881abb9';
+  $pane = new stdClass();
   $pane->pid = 'new-91027b2b-a9f8-4c30-84cf-608524bd44cd';
   $pane->panel = 'right_top_left';
   $pane->type = 'entity_field';
