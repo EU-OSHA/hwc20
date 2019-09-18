@@ -3550,6 +3550,14 @@ body.ocp .panels-flexible-column-last .field-name-title-field {
 body.ocp .panels-flexible-column-last .pane-node-field-ph-address {
   padding-top: 0;
 }
+body.ocp .panels-flexible-column-last .pane-node-field-country {
+  padding: 0;
+}
+body.ocp .panels-flexible-column-last .pane-node-field-country .field-name-field-country {
+  padding: 0;
+  font-size: 1.4rem;
+  color: #000;
+}
 body.fop .panels-flexible-region .pane-node-field-bussines-sector,
 body.fop .panels-flexible-region .pane-node-field-orgtype {
   float: none;
