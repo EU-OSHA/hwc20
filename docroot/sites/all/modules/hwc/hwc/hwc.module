@@ -1219,16 +1219,16 @@ function hwc_node_view($node, $view_mode, $langcode) {
     else {
       $download_link = variable_get('become_media_partner_download_link', '#');
       $variables = array(
-        'download_title' => variable_get('become_media_partner_download_title', 'Download the Campaign Partnership offer'),
-        'download_body' => variable_get('become_media_partner_download_body', 'Get to know more about the status and make sure you meet the requirements.'),
+        'download_title' => t(variable_get('become_media_partner_download_title', 'Download the Campaign Partnership offer')),
+        'download_body' => t(variable_get('become_media_partner_download_body', 'Get to know more about the status and make sure you meet the requirements.')),
         'download_link' => '<a class="btn-become-partner-download" href="' . $download_link . '">' . t('Download') . '</a>',
 
-        'application_form_title' => variable_get('become_media_partner_application_form_title', 'Fill up the online application form'),
-        'application_form_body' => variable_get('become_media_partner_application_form_body', 'The form will be available from the 6th of december 2020'),
+        'application_form_title' => t(variable_get('become_media_partner_application_form_title', 'Fill up the online application form')),
+        'application_form_body' => t(variable_get('become_media_partner_application_form_body', 'The form will be available from the 6th of december 2020')),
         'application_form_link' => '<a class="btn-become-partner-register" href="/partner/register">' . t('Become a campaign partner') . '</a>',
 
-        'see_results_title' => variable_get('become_media_partner_see_results_title', 'Get the result'),
-        'see_results_body' => variable_get('become_media_partner_see_results_body', 'The internal selection process will take place at the end of May 2020, and candidate organisations will be informed soon after that.'),
+        'see_results_title' => t(variable_get('become_media_partner_see_results_title', 'Get the result')),
+        'see_results_body' => t(variable_get('become_media_partner_see_results_body', 'The internal selection process will take place at the end of May 2020, and candidate organisations will be informed soon after that.')),
 
         'download_class' => $download_class,
         'application_form_class' => $application_form_class,
