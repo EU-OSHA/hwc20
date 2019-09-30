@@ -2195,7 +2195,7 @@ span.pages {
   font-weight: bold;
 }
 .publications-right-column h2 a {
-  font-style: italic;
+  font-style: normal;
   font-size: 0.7em;
 }
 .publications-right-column .news-see-more-button {
@@ -4455,6 +4455,21 @@ ul[data-sa-theme="basic-green"].ui-menu {
 }
 .node-article .field-name-body {
   clear: both;
+}
+/* Campaigns Materials */
+.page-tools-and-publications-campaign-materials .panels-flexible-row-last {
+  background: #efefef;
+  padding-bottom: 3em;
+}
+.page-tools-and-publications-campaign-materials .panel {
+  background: transparent;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+.page-tools-and-publications-campaign-materials .publications-right-column h2 {
+  margin-top: 0;
+  line-height: 23px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 @media (max-width: 1200px) {
   .start-browsing {
