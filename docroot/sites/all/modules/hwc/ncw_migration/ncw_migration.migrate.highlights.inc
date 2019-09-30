@@ -103,6 +103,7 @@ class NCWHighlightSource extends AbstractNCWNodeSource {
       'field_page_count',
       'field_aditional_resources',
       'field_migration_path_alias',
+      'field_show_on',
     );
     return array_combine($fields, $fields);
   }

@@ -75,6 +75,29 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'count' => 0,
   );
 
+  // Exported nodequeues: press_room_events
+  $nodequeues['press_room_events'] = array(
+    'name' => 'press_room_events',
+    'title' => 'Press room events',
+    'subqueue_title' => '',
+    'size' => 0,
+    'link' => '',
+    'link_remove' => '',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 0,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'events',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
   // Exported nodequeues: splash_banners
   $nodequeues['splash_banners'] = array(
     'name' => 'splash_banners',

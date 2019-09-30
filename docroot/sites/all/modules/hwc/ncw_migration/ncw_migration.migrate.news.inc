@@ -96,6 +96,7 @@ class NCWNewsSource extends AbstractNCWNodeSource {
       'field_aditional_resources',
       'field_migration_source',
       'field_migration_path_alias',
+      'field_show_on',
     );
     return array_combine($fields, $fields);
   }
