@@ -3866,6 +3866,91 @@ Grey - Only web or not attendance',
     'workbench_access_field' => 0,
   );
 
+  // Exported field_instance: 'node-events-field_show_on'.
+  $field_instances['node-events-field_show_on'] = array(
+    'bundle' => 'events',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'body' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'list_default',
+        'weight' => 60,
+      ),
+      'highlights_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'hwc_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'newsletter_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'osha_resources' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'priority_areas' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'title_body' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_show_on',
+    'label' => 'Show on',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 51,
+    ),
+    'workbench_access_field' => 0,
+  );
+
   // Exported field_instance: 'node-events-field_speaker'.
   $field_instances['node-events-field_speaker'] = array(
     'bundle' => 'events',
@@ -4861,6 +4946,7 @@ Grey - Only web or not attendance');
   t('Select the date from the calendar.');
   t('Show EU flag');
   t('Show in NCW');
+  t('Show on');
   t('Speaker');
   t('Speech date');
   t('Speech title');

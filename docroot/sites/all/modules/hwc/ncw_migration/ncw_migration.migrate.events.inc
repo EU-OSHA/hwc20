@@ -112,6 +112,7 @@ class NCWEventsSource extends AbstractNCWNodeSource {
       'field_related_documents_language',
       'field_migration_source',
       'field_migration_path_alias',
+      'field_show_on',
     );
     return array_combine($fields, $fields);
   }

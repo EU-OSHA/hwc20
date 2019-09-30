@@ -26,7 +26,7 @@ function osha_news_views_default_views() {
   $handler->display->display_options['css_class'] = 'container';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['link_display'] = 'custom_url';
+  $handler->display->display_options['link_display'] = 'oshnews_list';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -387,6 +387,119 @@ function osha_news_views_default_views() {
   $handler->display->display_options['fields']['title_field']['link_to_entity'] = 0;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['block_description'] = 'Latest news';
+
+  /* Display: Press room */
+  $handler = $view->new_display('block', 'Press room', 'press_room');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'News';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['use_more'] = TRUE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_always'] = TRUE;
+  $handler->display->display_options['defaults']['use_more_text'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'See all news';
+  $handler->display->display_options['link_url'] = 'news';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'views_bootstrap_media_plugin_style';
+  $handler->display->display_options['style_options']['image_field'] = 'field_image';
+  $handler->display->display_options['style_options']['heading_field'] = 'field_publication_date';
+  $handler->display->display_options['style_options']['body_field'] = 'title_field';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Field: Image */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => 'newsletter_thumb',
+    'image_link' => 'content',
+    'field_formatter_class' => '',
+  );
+  /* Field: Field: Publication date */
+  $handler->display->display_options['fields']['field_publication_date']['id'] = 'field_publication_date';
+  $handler->display->display_options['fields']['field_publication_date']['table'] = 'field_data_field_publication_date';
+  $handler->display->display_options['fields']['field_publication_date']['field'] = 'field_publication_date';
+  $handler->display->display_options['fields']['field_publication_date']['label'] = '';
+  $handler->display->display_options['fields']['field_publication_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_publication_date']['settings'] = array(
+    'format_type' => 'osha_day_only',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
+  $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['label'] = '';
+  $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title_field']['type'] = 'title_linked';
+  $handler->display->display_options['fields']['title_field']['settings'] = array(
+    'title_style' => '_none',
+    'title_link' => 'content',
+    'title_class' => '',
+  );
+  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 0;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'news' => 'news',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Field: Publication date (field_publication_date) */
+  $handler->display->display_options['filters']['field_publication_date_value']['id'] = 'field_publication_date_value';
+  $handler->display->display_options['filters']['field_publication_date_value']['table'] = 'field_data_field_publication_date';
+  $handler->display->display_options['filters']['field_publication_date_value']['field'] = 'field_publication_date_value';
+  $handler->display->display_options['filters']['field_publication_date_value']['operator'] = '<=';
+  $handler->display->display_options['filters']['field_publication_date_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_publication_date_value']['granularity'] = 'second';
+  $handler->display->display_options['filters']['field_publication_date_value']['default_date'] = 'now';
+  /* Filter criterion: Content: Show on (field_show_on) */
+  $handler->display->display_options['filters']['field_show_on_value']['id'] = 'field_show_on_value';
+  $handler->display->display_options['filters']['field_show_on_value']['table'] = 'field_data_field_show_on';
+  $handler->display->display_options['filters']['field_show_on_value']['field'] = 'field_show_on_value';
+  $handler->display->display_options['filters']['field_show_on_value']['value'] = array(
+    'Press Room' => 'Press Room',
+  );
+  $handler->display->display_options['filters']['field_show_on_value']['group'] = 2;
+  /* Filter criterion: Content: Migrate Source (field_migration_source) */
+  $handler->display->display_options['filters']['field_migration_source_value']['id'] = 'field_migration_source_value';
+  $handler->display->display_options['filters']['field_migration_source_value']['table'] = 'field_data_field_migration_source';
+  $handler->display->display_options['filters']['field_migration_source_value']['field'] = 'field_migration_source_value';
+  $handler->display->display_options['filters']['field_migration_source_value']['operator'] = 'empty';
+  $handler->display->display_options['filters']['field_migration_source_value']['group'] = 2;
+  $handler->display->display_options['block_description'] = 'Press room news';
   $translatables['news'] = array(
     t('Master'),
     t('News'),
@@ -415,6 +528,8 @@ function osha_news_views_default_views() {
     t('Splash News'),
     t('<none>'),
     t('See all news'),
+    t('Press room'),
+    t('Press room news'),
   );
   $export['news'] = $view;
 

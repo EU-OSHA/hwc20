@@ -289,6 +289,11 @@ function hwc_homepage_views_default_views() {
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="titlte-news-events">[title_field]</div></div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Sort criterion: Nodequeue: Position */
+  $handler->display->display_options['sorts']['position']['id'] = 'position';
+  $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['position']['field'] = 'position';
+  $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
   /* Sort criterion: Content: Starting date -  start date (field_start_date) */
   $handler->display->display_options['sorts']['field_start_date_value']['id'] = 'field_start_date_value';
   $handler->display->display_options['sorts']['field_start_date_value']['table'] = 'field_data_field_start_date';
@@ -509,6 +514,83 @@ function hwc_homepage_views_default_views() {
   $handler->display->display_options['filters']['field_start_date_value2']['field'] = 'field_start_date_value2';
   $handler->display->display_options['filters']['field_start_date_value2']['operator'] = '>=';
   $handler->display->display_options['filters']['field_start_date_value2']['default_date'] = 'today';
+
+  /* Display: Press room Block */
+  $handler = $view->new_display('block', 'Press room Block', 'press_room');
+  $handler->display->display_options['link_url'] = 'events';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Nodequeue: Queue */
+  $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
+  $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
+  $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
+  $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
+    'press_room_events' => 'press_room_events',
+    'publication_queue' => 0,
+    'featured_press_release' => 0,
+    'press_contacts_queue' => 0,
+    'featured_partner_frontpage' => 0,
+    'featured_gallery' => 0,
+    'good_practice_exchange' => 0,
+    'good_practice_exchange_intro' => 0,
+    'homepage_about_the_topic' => 0,
+    'most_popular_tools_and_examples' => 0,
+    'tools_and_examples' => 0,
+    'splash_campaign_material' => 0,
+    'splash_banners' => 0,
+    'splash_news' => 0,
+    'splash_events' => 0,
+    'press_room_news' => 0,
+  );
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'events' => 'events',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Starting date -  start date (field_start_date) */
+  $handler->display->display_options['filters']['field_start_date_value']['id'] = 'field_start_date_value';
+  $handler->display->display_options['filters']['field_start_date_value']['table'] = 'field_data_field_start_date';
+  $handler->display->display_options['filters']['field_start_date_value']['field'] = 'field_start_date_value';
+  $handler->display->display_options['filters']['field_start_date_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_start_date_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_start_date_value']['granularity'] = 'second';
+  $handler->display->display_options['filters']['field_start_date_value']['default_date'] = 'today';
+  $handler->display->display_options['filters']['field_start_date_value']['year_range'] = '-10:+10';
+  /* Filter criterion: Content: Migrate Source (field_migration_source) */
+  $handler->display->display_options['filters']['field_migration_source_value']['id'] = 'field_migration_source_value';
+  $handler->display->display_options['filters']['field_migration_source_value']['table'] = 'field_data_field_migration_source';
+  $handler->display->display_options['filters']['field_migration_source_value']['field'] = 'field_migration_source_value';
+  $handler->display->display_options['filters']['field_migration_source_value']['operator'] = 'empty';
+  $handler->display->display_options['filters']['field_migration_source_value']['group'] = 2;
+  /* Filter criterion: Content: Show on (field_show_on) */
+  $handler->display->display_options['filters']['field_show_on_value']['id'] = 'field_show_on_value';
+  $handler->display->display_options['filters']['field_show_on_value']['table'] = 'field_data_field_show_on';
+  $handler->display->display_options['filters']['field_show_on_value']['field'] = 'field_show_on_value';
+  $handler->display->display_options['filters']['field_show_on_value']['value'] = array(
+    'Press Room' => 'Press Room',
+  );
+  $handler->display->display_options['filters']['field_show_on_value']['group'] = 2;
+  $handler->display->display_options['block_description'] = 'Press room events';
   $translatables['frontpage_events'] = array(
     t('Master'),
     t('Events'),
@@ -526,6 +608,8 @@ function hwc_homepage_views_default_views() {
     t('more'),
     t('Splash Events'),
     t('<none>'),
+    t('Press room Block'),
+    t('Press room events'),
   );
   $export['frontpage_events'] = $view;
 

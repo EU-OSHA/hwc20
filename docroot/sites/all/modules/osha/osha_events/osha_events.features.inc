@@ -33,6 +33,38 @@ function osha_events_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_fe_nodequeue_export_fields().
+ */
+function osha_events_fe_nodequeue_export_fields() {
+  $nodequeues = array();
+
+  // Exported nodequeues: press_room_news
+  $nodequeues['press_room_news'] = array(
+    'name' => 'press_room_news',
+    'title' => 'Press room news',
+    'subqueue_title' => '',
+    'size' => 0,
+    'link' => '',
+    'link_remove' => '',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 0,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'news',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
+  return $nodequeues;
+}
+
+/**
  * Implements hook_node_info().
  */
 function osha_events_node_info() {

@@ -979,3 +979,13 @@ function hwc_update_7062() {
     'tools-and-publications/campaign-materials'
   ]);
 }
+
+/*
+ * HW20-42 HWC20 Development - Press room.
+ */
+function hwc_update_7063() {
+  features_revert_module('osha_events');
+  features_revert_module('hwc_homepage');
+  features_revert(array('osha_news' => 'views_view'));
+  features_revert(array('hwc' => 'fe_block_settings'));
+}
