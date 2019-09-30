@@ -245,7 +245,12 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case "article":
-        $vars['theme_hook_suggestions'][] = 'page__node__article';
+        if ($n->nid == 179) {
+          $vars['theme_hook_suggestions'][] = 'page__press__room';
+        }
+        else {
+          $vars['theme_hook_suggestions'][] = 'page__node__article';
+        }
         break;
 
       case "campaign_16":

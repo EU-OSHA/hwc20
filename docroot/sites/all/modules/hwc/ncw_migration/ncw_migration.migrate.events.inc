@@ -110,6 +110,7 @@ class NCWEventsSource extends AbstractNCWNodeSource {
       'field_website_of_event_attributes',
       'field_related_documents',
       'field_related_documents_language',
+      'field_show_eu_flag',
       'field_migration_source',
       'field_migration_path_alias',
       'field_show_on',
