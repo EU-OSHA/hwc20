@@ -7957,7 +7957,7 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
   color: #575757;
   font-size: 30px;
   font-weight: 100;
-  font-style: italic;
+  font-style: normal;
   margin-top: 0px;
 }
 .main-container h2 a:empty {
@@ -11525,11 +11525,6 @@ article .hwc-share-widget ul {
   .node-type-practical-tool .panel-col .field-label {
     min-width: 100%;
   }
-}
-.page-press-room .section-introduction .field-type-text-with-summary,
-.page-campaign-materials .section-introduction .field-type-text-with-summary {
-  padding-bottom: 1em;
-  border-bottom: 1px dotted #749b00;
 }
 .view-press-releases .views-row {
   border-bottom: 1px dotted #749b00;
@@ -19000,8 +18995,6 @@ input#edit-field-image-und-0-upload::before {
 }
 #edit-sort-fieldset {
   border: none;
-  border-top: 1px dotted #749b00;
-  border-bottom: 1px dotted #749b00;
   border-radius: 0px;
 }
 #edit-sort-fieldset .panel-body {
