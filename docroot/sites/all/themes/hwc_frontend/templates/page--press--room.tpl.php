@@ -135,12 +135,12 @@ include(drupal_get_path('theme', 'hwc_frontend').'/templates/header.tpl.php');
         <ul class="action-links"><?php print render($action_links); ?></ul>
       <?php endif; ?>
 
-      <aside class="col-md-7 col-xs-12">
+      <aside class="col-md-8 col-xs-12">
         <div id="skip-to-content" style="visibility: hidden; height: 0px"><a href="#skip-to-content" rel="nofollow" accesskey="S" style="visibility: hidden;"><?php print t('Skip to content'); ?></a></div>
         <?php print render($page['content']); ?>
       </aside>
       <?php if (!empty($page['sidebar_second'])): ?>
-        <aside class="col-md-5 col-xs-12" role="complementary">
+        <aside class="col-md-4 col-xs-12" role="complementary">
           <?php print render($page['sidebar_second']); ?>
         </aside>  <!-- /#sidebar-second -->
       <?php endif; ?>
