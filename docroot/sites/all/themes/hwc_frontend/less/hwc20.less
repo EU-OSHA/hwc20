@@ -5086,19 +5086,19 @@ body.press-room{
 	#block-views-news-press-room{
 		float: left;
 		background: url(../images/background-press-room.png) no-repeat;
-		padding: 1em;
+		padding: 2em;
 		margin-top: 1em;
 		margin-bottom: 1em;
     	border-radius: 7px;
 	}
 
 	h2.block-title{
-		background: url(../images/news-h3-ico.png) 10px bottom no-repeat #ffffff;
+		background: url(../images/news-h3-ico.png) 27px bottom no-repeat #ffffff;
 	    color: #00309d;
 	    margin-top: 0;
 	    font-weight: 400;
 	    padding-top: 0.5em;
-	    padding-left: 2em;
+	    padding-left: 80px;
 	    border-top-left-radius: 7px;
 	    border-top-right-radius: 7px;
 	    padding-bottom: 0;
@@ -5109,7 +5109,7 @@ body.press-room{
 		background: #FFF;
 		border-bottom-left-radius: 7px;
 	    border-bottom-right-radius: 7px;
-	    padding: 10px;
+	    padding: 2em;
 	    .pull-left{
 	    	img{
 	    		border-radius: 10px;
@@ -5132,6 +5132,35 @@ body.press-room{
 	    .media-left, .media > .pull-left{
 	    	padding-right: 15px;
 	    }
+
+	    ul.media-list{
+	    	li.media{
+	    		border-bottom:1px solid #ACC700;
+	    		padding-bottom: 2em;
+    			padding-top: 1em;
+	    	}
+
+	    	> li:nth-child(1){
+	    		padding-top: 0;
+	    	}
+
+	    	> li:nth-child(2){
+	    		.pull-left{
+	    			float: right !important;
+	    			padding-right: 0;
+	    			padding-left: 15px;
+	    		}
+	    	}
+
+	    	> li:nth-child(4){
+	    		border-bottom:0 solid #ACC700;
+	    		.pull-left{
+	    			float: right !important;
+	    			padding-right: 0;
+	    			padding-left: 15px;
+	    		}
+	    	}
+	    }
 	}
 
 	.region-sidebar-second{
@@ -5143,13 +5172,19 @@ body.press-room{
 			h2.block-title{
 				background: url(../images/events-h3-ico.png) 5px -3px no-repeat #ffffff;
 				padding-top: 0;
+				padding-left: 56px;
 			}
 			
 			.date-display-single{
 				float: none;
 				width: 100%;
 				display: block;
+				font-size: 1.3rem !important;
 			}
+		}
+
+		.related-resources{
+			width: auto;
 		}
 
 		.view-frontpage-events{
@@ -5161,6 +5196,11 @@ body.press-room{
 				&:after{
 				    content: ', ';
 					padding-left: 5px;
+				}
+			}
+			.titlte-news-events{
+				a{
+					font-size: 1.1em;	
 				}
 			}
 		}
