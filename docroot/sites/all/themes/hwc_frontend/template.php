@@ -142,6 +142,9 @@ function hwc_frontend_preprocess_html(&$vars) {
       case "tk_tool":
       case "tk_example":
       case "tk_topic":
+        if ($n->nid == 179) {
+          $vars['classes_array'][] = 'press-room';
+        }
         $about_nid = variable_get('hwc_toolkit_about_nid', 6746);
         if ($n->nid == $about_nid) {
           $vars['classes_array'][] = 'tk-about';
