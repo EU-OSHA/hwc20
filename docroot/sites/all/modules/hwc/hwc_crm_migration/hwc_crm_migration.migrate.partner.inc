@@ -188,7 +188,7 @@ class PartnerMigration extends HwcCrmMigration {
 class PartnerMigrateListXml extends AbstractCrmMigrateListXml {
 
   public function __construct() {
-    $file = variable_get('hwc_crm_data_dir', '') . '/PublicProfile.xml';
+    $file = variable_get('hwc_crm_data_dir', '') . '/' . variable_get('hwc_crm_data_xml', 'PublicProfile_20.xml');
     parent::__construct($file);
   }
 
