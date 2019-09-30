@@ -7957,7 +7957,7 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
   color: #575757;
   font-size: 30px;
   font-weight: 100;
-  font-style: italic;
+  font-style: normal;
   margin-top: 0px;
 }
 .main-container h2 a:empty {
