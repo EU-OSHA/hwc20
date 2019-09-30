@@ -126,3 +126,10 @@ function osha_news_update_7017() {
 function osha_news_update_7018() {
   features_revert(array('osha_news' => array('views_view')));
 }
+
+/**
+ * HW20-42 HWC20 Development - Press room.
+ */
+function osha_news_update_7019() {
+  features_revert(array('osha_news' => array('views_view')));
+}
