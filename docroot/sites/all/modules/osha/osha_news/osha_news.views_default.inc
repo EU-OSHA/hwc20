@@ -453,7 +453,7 @@ function osha_news_views_default_views() {
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'image_style' => 'newsletter_thumb',
+    'image_style' => 'press_room_news',
     'image_link' => 'content',
     'field_formatter_class' => '',
   );
@@ -501,7 +501,7 @@ function osha_news_views_default_views() {
     'trim_length' => '140',
     'trim_type' => 'chars',
     'trim_suffix' => '...',
-    'more_link' => '0',
+    'more_link' => '1',
     'more_text' => 'Read more',
     'trim_options' => array(
       'text' => 0,
@@ -522,7 +522,7 @@ function osha_news_views_default_views() {
     'trim_length' => '140',
     'trim_type' => 'chars',
     'trim_suffix' => '...',
-    'more_link' => '0',
+    'more_link' => '1',
     'more_text' => 'Read more',
     'summary_handler' => 'full',
     'trim_options' => array(
