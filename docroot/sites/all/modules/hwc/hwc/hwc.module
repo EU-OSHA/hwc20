@@ -352,11 +352,11 @@ function hwc_block_view($delta = '') {
   if ($delta == 'european_week_news_events') {
     $data = [];
 
-    $news = block_load('views', 'news-splash');
+    $news = block_load('views', 'news-european_week');
     $array = _block_get_renderable_array(_block_render_blocks([$news]));
     $news = render($array);
 
-    $events = block_load('views', 'frontpage_events-splash');
+    $events = block_load('views', 'frontpage_events-european_week');
     $array = _block_get_renderable_array(_block_render_blocks([$events]));
     $events = render($array);
     $block['content'] = theme('european_week_news_events', ['events' => $events, 'news' => $news]);
