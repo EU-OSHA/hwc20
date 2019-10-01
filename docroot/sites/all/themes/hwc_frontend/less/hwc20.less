@@ -5081,7 +5081,7 @@ ul[data-sa-theme="basic-green"].ui-menu{
 
 /* Press room */
 
-body.press-room, body.page-node-164{
+body.press-room, body.european-week{
 
 	.field-name-body{
 		img{
@@ -5110,15 +5110,25 @@ body.press-room, body.page-node-164{
 	#block-views-news-press-room{
 		margin-bottom: 2em;
 		padding-bottom: 2em;
-		width: 700px;
 		h3{
 			position: relative;
 			color:#00309d;
 	   		margin-top: 0;
 	   		font-weight: 400;
-	   		background: url(../images/grey-h3-line.png) repeat-x 50% 75% #FFF;
+	   		background: url(../images/grey-h3-line.png) repeat-x 50% 82% #FFF;
 	   		margin: 0;
 	   		padding: 25px 6px 0 11px;
+	   		&:after{
+				width: 30px;
+				height: 15px;
+				content: ' ';
+				display: block;
+				position: absolute;
+				right: 0;
+				top: 32px;
+				background: #FFFF;
+	   		}
+			
 			&:before{
 				content: ' ';
 				background: url(../images/news-h3-ico.png) no-repeat #ffffff;
@@ -5131,7 +5141,39 @@ body.press-room, body.page-node-164{
 			    float: left;
 			}
 			span{
-				padding-left: 72px;
+				padding-left: 82px;
+				background: #FFF;
+				padding-right: 15px;
+				margin-left: -11px;
+				
+			}
+		}
+	}
+
+	#block-views-frontpage-events-press-room{
+		margin-bottom: 2em;
+		padding-bottom: 2em;
+		h3{
+			position: relative;
+			color:#00309d;
+	   		margin-top: 0;
+	   		font-weight: 400;
+	   		background: url(../images/grey-h3-line.png) repeat-x 50% 82% #FFF;
+	   		margin: 0;
+	   		padding: 23px 6px 0 11px;
+			&:before{
+				content: ' ';
+				background: url(../images/events-h3-ico.png) no-repeat #ffffff;
+				position: absolute;
+				top: 11px;
+				left: -8px;
+				width: 41px;
+				display: block;
+				height: 45px;
+				float: left;
+			}
+			span{
+				padding-left: 30px;
 				background: #FFF;
 				padding-right: 10px;
 			}
@@ -5209,7 +5251,7 @@ body.press-room, body.page-node-164{
 		background: #FFF;
 		border-bottom-left-radius: 7px;
 	    border-bottom-right-radius: 7px;
-	    padding: 2em 2em 3em 2em;
+	    padding: 2em 2em 4em 2em;
 	    .pull-left{
 	    	img{
 	    		border-radius: 10px;
@@ -5365,5 +5407,37 @@ body.press-room, body.page-node-164{
 	    	display: none;
 	    	}
 		}
+	}
+
+	.more-link{
+		display: block;
+		clear: both;
+	}
+}
+
+body.european-week{
+	.view-frontpage-events{
+		.views-row{
+			height: 128px;
+			padding-bottom: 5px;
+    		padding-top: 5px;   
+		}
+
+		.content-event{
+			padding-top: 0;
+		}
+	}
+
+	.view-news{
+	    padding: 0.5em 0 0 0;
+	}
+
+	.box-before.news{
+		padding-bottom: 20px;
+	}
+
+	#block-views-news-european-week ul > li:nth-child(2){
+		border-bottom: 0;
+		padding-bottom: 0;
 	}
 }
