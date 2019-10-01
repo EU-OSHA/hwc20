@@ -231,6 +231,16 @@ function hwc_frontend_css_alter(&$css) {
   }
 }
 
+/**
+ * Override block template.
+ */
+function hwc_frontend_preprocess_block(&$vars) {
+  $block = $vars['block'];
+  if (($block->delta == 'news-press_room') || ($block->delta == 'frontpage_events-press_room')) {
+    $vars['theme_hook_suggestions'][] = 'block__press_room';
+  }
+}
+
 function hwc_frontend_preprocess_page(&$vars) {
   $vars['head_text'] = t('Healthy Workplaces LIGHTEN THE LOAD 2020-22');
   $n = menu_get_object('node');
