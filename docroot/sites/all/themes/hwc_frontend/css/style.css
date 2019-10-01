@@ -8879,12 +8879,6 @@ table tr.error.form-type-select:after {
   margin-bottom: 1em;
   font-size: 2em;
 }
-.node-type-article article .field-name-body.field-type-text-with-summary h2 {
-  color: #333333;
-  font-weight: normal;
-  font-size: 1.8em;
-  margin-bottom: 15px;
-}
 .node-type-article article .icon.recommended-resources ~ h2 {
   text-align: center;
 }
