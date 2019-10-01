@@ -182,12 +182,12 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
               <?php print render($page['sidebar_second']); ?>
             </aside>  <!-- /#sidebar-second -->
           <?php endif; ?>
+          <?php if (!empty($page['below_content'])): ?>
+            <aside class="col-md-12 col-xs-12" role="below_content">
+              <?php print render($page['below_content']); ?>
+            </aside>  <!-- /#below_content -->
+          <?php endif; ?>
         </div>
-      <?php if (!empty($page['below_content'])): ?>
-        <aside class="col-md-12 col-xs-12" role="below_content">
-          <?php print render($page['below_content']); ?>
-        </aside>  <!-- /#below_content -->
-      <?php endif; ?>
     </div>
 </div>
 <footer class="footer">
