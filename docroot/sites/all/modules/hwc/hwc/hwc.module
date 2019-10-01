@@ -288,6 +288,13 @@ function hwc_menu() {
  */
 function hwc_block_info() {
   $blocks = array();
+  $blocks['european_week_news_events'] = array(
+    'info' => t('European week news events'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   $blocks['page_share_widget'] = array(
     'info' => t('Page share widget'),
     'status' => 1,
@@ -342,6 +349,18 @@ function hwc_block_info() {
 function hwc_block_view($delta = '') {
   global $language;
   $block = array();
+  if ($delta == 'european_week_news_events') {
+    $data = [];
+
+    $news = block_load('views', 'news-european_week');
+    $array = _block_get_renderable_array(_block_render_blocks([$news]));
+    $news = render($array);
+
+    $events = block_load('views', 'frontpage_events-european_week');
+    $array = _block_get_renderable_array(_block_render_blocks([$events]));
+    $events = render($array);
+    $block['content'] = theme('european_week_news_events', ['events' => $events, 'news' => $news]);
+  }
   if ($delta == 'page_share_widget') {
     $block['title'] = '<none>';
     $block['content'] = hwc_page_share_widget();
@@ -665,6 +684,13 @@ function hwc_theme() {
   return array(
     'hwc_file_format' => array(
       'variables' => array('file' => NULL, 'delta' => NULL),
+    ),
+    'european_week_news_events' => array(
+      'variables' => array(
+        'news' => '',
+        'events' => '',
+      ),
+      'template' => 'templates/european_week_news_events',
     ),
     'become_partner' => array(
       'variables' => array(
