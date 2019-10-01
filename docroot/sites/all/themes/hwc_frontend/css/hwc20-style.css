@@ -4817,6 +4817,16 @@ body.european-week .more-link {
   display: block;
   clear: both;
 }
+body.european-week .page_title {
+  height: 233px;
+}
+body.european-week #european_week_date {
+  color: #FFF;
+  font-size: 3.4rem;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
 body.european-week .view-frontpage-events .views-row {
   height: 128px;
   padding-bottom: 5px;
