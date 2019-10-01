@@ -25,7 +25,7 @@ function hwc_default_fe_block_settings() {
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
-        'region' => 'content',
+        'region' => 'below_content',
         'status' => 1,
         'theme' => 'hwc_frontend',
         'weight' => 26,
