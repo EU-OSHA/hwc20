@@ -140,6 +140,9 @@ function hwc_frontend_preprocess_html(&$vars) {
         if ($n->nid == 179) {
           $vars['classes_array'][] = 'press-room';
         }
+        if ($n->nid == 164) {
+          $vars['classes_array'][] = 'european-week';
+        }
         break;
 
       case "tk_section":
@@ -258,11 +261,12 @@ function hwc_frontend_preprocess_page(&$vars) {
         if ($n->nid == 179) {
           $vars['theme_hook_suggestions'][] = 'page__press__room';
         }
+        elseif ($n->nid == 164) {
+          $vars['theme_hook_suggestions'][] = 'page__european__week';
+          $vars['title_suffix'] = '<div id="european_week_date">' . variable_get('european_week_date', '12<sup>th</sup>-14<sup>th</sup> of Oktober 2020') . '</div>';
+        }
         else {
           $vars['theme_hook_suggestions'][] = 'page__node__article';
-        }
-        if ($n->nid == 164) {
-          $vars['title_suffix'] = '<div id="european_week_date">' . variable_get('european_week_date', '12<sup>th</sup>-14<sup>th</sup> of Oktober 2020') . '</div>';
         }
         break;
 
