@@ -4413,6 +4413,7 @@ ul[data-sa-theme="basic-green"].ui-menu {
 #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details div {
   position: relative;
   float: left;
+  width: 100%;
 }
 #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit {
   position: absolute;
