@@ -4177,6 +4177,10 @@ body.een .panels-flexible-column-first .pane-node-field-pledge .pane-title {
   float: left;
   margin-right: 1em;
 }
+.node-type-events .group-left2 .field-type-text-with-summary,
+.node-type-events .group-footer .field-type-text-with-summary {
+  margin-top: 1.4em;
+}
 .node-type-events .group-left2 .field-name-field-speaker .content,
 .node-type-events .group-footer .field-name-field-speaker .content {
   margin-top: 0;
@@ -4267,16 +4271,19 @@ body.een .panels-flexible-column-first .pane-node-field-pledge .pane-title {
   margin-right: 0;
 }
 .node-type-events .group-right2 .add-to-calendar {
-  margin-top: 10px;
+  margin-top: -10px;
   clear: both;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+.node-type-events .group-right2 .field-name-field-start-date {
+  color: #003399;
+  padding-bottom: 25px;
 }
 .node-type-events .group-right2 .field-name-field-start-date {
   width: 100%;
   border-top: 3px solid #B0B1B2;
-  padding-top: 8em;
-  padding-bottom: 20px;
-  background: url(../images/content/calendar-event-detail.png) no-repeat center 3em;
+  padding-top: 6.5em;
+  background: url(../images/content/calendar-event-detail.png) no-repeat center 2em;
 }
 .node-type-events .group-right2 .field-name-field-start-date .date-display-single,
 .node-type-events .group-right2 .field-name-field-start-date .date-display-start,
@@ -4286,45 +4293,48 @@ body.een .panels-flexible-column-first .pane-node-field-pledge .pane-title {
   display: block;
   width: 100%;
 }
-.node-type-events .group-right2 .field-name-field-start-date {
-  color: #003399;
+.node-type-events .group-right2 .field-name-field-start-date .date-display-single {
+  padding-bottom: 25px;
 }
 .node-type-events .group-right2 .event-location-container {
-  width: 100%;
-  border-top: 3px solid #B0B1B2;
-  padding-top: 5em;
-  background: url(../images/content/location-event-detail.png) no-repeat center 35px;
-  display: flex;
-  justify-content: center;
+  display: block;
   position: relative;
-  padding-bottom: 0;
+  float: none;
+  clear: both;
+  width: 100%;
+  padding-top: 4em;
+  padding-bottom: 2em;
+  background: url(../images/content/location-event-detail.png) no-repeat center 25px;
+  border-top: 3px solid #B0B1B2;
 }
 .node-type-events .group-right2 .event-location-container span.event-location-location {
+  display: block;
+  width: 100%;
   padding: 0;
   font-weight: 400;
-  float: left;
+  float: none;
   color: #003399;
   font-size: 1.8rem!important;
   padding: 1em 0 0 0;
-  display: flex;
-  justify-content: center;
+  text-align: center;
+}
+.node-type-events .group-right2 .event-location-container span.event-location-location:after {
+  content: none;
 }
 .node-type-events .group-right2 .event-location-container span.event-location-city {
-  float: left;
   display: block;
+  width: 100%;
+  float: none;
   color: #003399;
   font-size: 1.8rem!important;
   padding: 1em 0 0 5px;
-  display: flex;
-  justify-content: center;
 }
 .node-type-events .group-right2 .event-location-container span.event-location-country {
   display: block;
   clear: both;
+  width: 100%;
   color: #59595A;
   font-size: 1.8rem!important;
-  position: absolute;
-  bottom: -30px;
 }
 .node-type-events .group-right2 .event-location-container span.event-location-country:before,
 .node-type-events .group-right2 .event-location-container span.event-location-country:after {
@@ -4388,7 +4398,7 @@ ul[data-sa-theme="basic-green"].ui-menu {
 #block-osha-newsletter-osha-newsletter-events-subscribe {
   background: url(../images/background-newsletter-event.png) no-repeat;
   border-radius: 15px;
-  color: #FFFF;
+  color: #FFF;
   padding: 1.7em;
   width: 288px;
   float: right;
@@ -4403,6 +4413,7 @@ ul[data-sa-theme="basic-green"].ui-menu {
 #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details div {
   position: relative;
   float: left;
+  width: 100%;
 }
 #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit {
   position: absolute;
@@ -4425,13 +4436,13 @@ ul[data-sa-theme="basic-green"].ui-menu {
 }
 #block-osha-newsletter-osha-newsletter-events-subscribe a,
 #block-osha-newsletter-osha-newsletter-events-subscribe label {
-  color: #FFFF;
+  color: #FFF;
   font-weight: normal;
   font-size: 0.9em;
 }
 #block-osha-newsletter-osha-newsletter-events-subscribe label:before {
   color: #003399;
-  background: #FFFF;
+  background: #FFF;
   border: 0 !important;
 }
 #block-osha-newsletter-osha-newsletter-events-subscribe input[type="text"] {
@@ -4447,6 +4458,16 @@ ul[data-sa-theme="basic-green"].ui-menu {
 #block-osha-newsletter-osha-newsletter-events-subscribe .btn-default:before,
 #block-osha-newsletter-osha-newsletter-events-subscribe .more-link:before {
   content: none;
+}
+#block-osha-newsletter-osha-newsletter-events-subscribe .captchaContainer {
+  padding-bottom: 1em;
+}
+#block-osha-newsletter-osha-newsletter-events-subscribe .captchaContainer #captcha_0_readaudio {
+  float: left;
+}
+#block-osha-newsletter-osha-newsletter-events-subscribe .captchaContainer #captcha_0_refresh img {
+  height: 38px;
+  width: 38px;
 }
 #block-osha-newsletter-osha-newsletter-events-subscribe #edit-submit {
   border-top-right-radius: 5px;
@@ -4536,7 +4557,7 @@ body.european-week #block-views-news-press-room h3:after {
   position: absolute;
   right: 0;
   top: 32px;
-  background: #FFFF;
+  background: #FFF;
 }
 body.press-room #block-views-news-press-room h3:before,
 body.european-week #block-views-news-press-room h3:before {
