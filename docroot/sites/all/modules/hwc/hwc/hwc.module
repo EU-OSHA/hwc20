@@ -330,6 +330,14 @@ function hwc_block_info() {
   return $blocks;
 }
 
+function hwc_european_week_events($num = 0) {
+  static $events = 0;
+  if ($num) {
+    $events = $num;
+  }
+  return $events;
+}
+
 /**
  * Implements hook_block_view().
  *
@@ -350,15 +358,19 @@ function hwc_block_view($delta = '') {
   global $language;
   $block = array();
   if ($delta == 'european_week_news_events') {
-    $data = [];
-
     $news = block_load('views', 'news-european_week');
     $array = _block_get_renderable_array(_block_render_blocks([$news]));
     $news = render($array);
 
     $events = block_load('views', 'frontpage_events-european_week');
     $array = _block_get_renderable_array(_block_render_blocks([$events]));
-    $events = render($array);
+    if (hwc_european_week_events()) {
+      $events = render($array);
+    }
+    else {
+      $events = [];
+    }
+
     $block['content'] = theme('european_week_news_events', ['events' => $events, 'news' => $news]);
   }
   if ($delta == 'page_share_widget') {
