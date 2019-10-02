@@ -1004,6 +1004,35 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 #block-subscribe-form span {
   font-family: 'Open Sans';
 }
+.checkbox label:before,
+.checkbox input[type=checkbox]:checked:before,
+.checkbox input[type="checkbox"]:checked {
+  display: none;
+}
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"] + label .my-checkbox {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  background: #FFF;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 7px;
+}
+input[type="checkbox"]:checked + label .my-checkbox:after {
+  content: "\2713";
+  color: #003399;
+  padding-left: 5px;
+  padding-top: 2px;
+  display: block;
+}
+.my-checkbox {
+  float: left;
+}
 .row-newsletter-social {
   background: url(../images/background-newsletter-300-v2.png);
 }
@@ -2062,37 +2091,6 @@ input[type=checkbox] {
 input[type=checkbox] + label {
   display: block;
   cursor: pointer;
-}
-input[type=checkbox] + label:before {
-  content: "\2714";
-  float: left;
-  border-radius: 0.2em;
-  display: inline-block;
-  width: 1.2em;
-  height: 1.2em;
-  padding-left: 0.4em;
-  padding-bottom: 0.3em;
-  margin-right: 0.2em;
-  vertical-align: bottom;
-  color: transparent;
-  transition: .2s;
-  clear: both;
-  background: #FFF;
-  margin-right: 10px;
-  border: 1px solid #003399;
-  -webkit-box-sizing: unset;
-  -moz-box-sizing: unset;
-  box-sizing: unset;
-}
-.sidebars_first input[type=checkbox] + label:before {
-  float: left;
-  border: 1px solid #003399;
-  width: 9px;
-  height: 4px;
-  padding-left: 5px;
-  padding-top: 0;
-  padding-right: 5px;
-  padding-bottom: 14px;
 }
 .sidebars_first #edit-tags input[type=checkbox] + label:before {
   border: 1px solid #55575d;

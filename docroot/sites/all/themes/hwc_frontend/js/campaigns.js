@@ -541,8 +541,17 @@ jQuery(document).ready(function($) {
    	$("#edit-field-priority-area .form-checkboxes").css('display' , 'none');
    }
 
+   	//Add two-column class when European Week has Events
 	if (jQuery("#block-hwc-european-week-news-events .box-before.events")[0]){
 		 $("#block-hwc-european-week-news-events .box-before.news").addClass('two-column');   
 	}
+
+	//Add span to Subscribe Checkbox to make custom Checkbox
+	if ($("#edit-subscribe-details")[0]){
+		 $("#edit-subscribe-details .form-type-checkbox label").append('<span class="my-checkbox"></span>');
+		 $("#edit-subscribe-details .form-type-checkbox input").appendTo("#edit-subscribe-details .form-type-checkbox");
+		 $("#edit-subscribe-details .form-type-checkbox label").appendTo("#edit-subscribe-details .form-type-checkbox");
+	}
+	
 
 });

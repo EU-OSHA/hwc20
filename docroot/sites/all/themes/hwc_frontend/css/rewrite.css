@@ -203,19 +203,6 @@ article .hwc-share-widget ul{
     padding-left: 0;
 }
 
-.checkbox label:before{
-    border-radius: 0.2em;
-    display: inline-block;
-    float: left;
-    border: 1px solid #003399;
-    width: 21px;
-    height: 21px;
-    padding-left: 5px;
-    padding-top: 0;
-    padding-right: 5px;
-    padding-bottom: 14px;
-}
-
 .checkbox input[type=checkbox]:checked:before{
     padding: 0;
 }
