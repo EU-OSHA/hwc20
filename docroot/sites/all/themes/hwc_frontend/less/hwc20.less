@@ -4762,6 +4762,10 @@ body{
 		float: left;
 		margin-right: 1em;
 
+		.field-type-text-with-summary{
+			margin-top: 1.4em;
+		}
+
 		.field-name-field-speaker{
 			.content{
 				margin-top: 0;
@@ -4846,65 +4850,71 @@ body{
 	 	}
 
 	 	.add-to-calendar{
-			margin-top: 10px;
+			margin-top: -10px;
     		clear: both;
-    		margin-bottom: 30px;
+    		margin-bottom: 20px;
+	 	}
+
+	 	.field-name-field-start-date{
+				color: #003399;
+				padding-bottom: 25px;
 	 	}
 
 	 	.field-name-field-start-date{
 			width: 100%;
 			border-top: 3px solid #B0B1B2;
-			padding-top: 8em;
-			padding-bottom: 20px;
-			background: url(../images/content/calendar-event-detail.png) no-repeat center 3em;
+			padding-top: 6.5em;
+			background: url(../images/content/calendar-event-detail.png) no-repeat center 2em;
     		.date-display-single, .date-display-start, .date-display-end{
     			color: #003399;
     			font-size: 1.8rem!important;
     			display: block;
     			width: 100%;
     		}
-	 	}
 
-	 	.field-name-field-start-date{
-				color: #003399;
+    		.date-display-single{
+    			padding-bottom: 25px;
+    		}
 	 	}
 
 	 	.event-location-container{
-			width: 100%;
-			border-top: 3px solid #B0B1B2;
-			padding-top: 5em;
-			background: url(../images/content/location-event-detail.png) no-repeat center 35px;
-			display: flex;
-			justify-content: center;
+			display: block;
 			position: relative;
-			padding-bottom: 0;
-	 		span.event-location-location{
+			float: none;
+			clear: both;
+	 		width: 100%;
+			padding-top: 4em;
+			padding-bottom: 2em;
+			background: url(../images/content/location-event-detail.png) no-repeat center 25px;
+			border-top: 3px solid #B0B1B2;
+			span.event-location-location{
+				display: block;
+				width: 100%;
 				padding: 0;
 				font-weight: 400;
-				float: left;
+				float: none;
 				color: #003399;
 				font-size: 1.8rem!important;
 				padding: 1em 0 0 0;
-				display: flex;
-    			justify-content: center;
-
+				text-align: center;
+				&:after{
+					content: none;
+				}
 	 		}
 	 		span.event-location-city{
-	 			float: left;
 	 			display: block;
+				width: 100%;
+	 			float: none;
 	 			color: #003399;
 	 			font-size: 1.8rem!important;
 	 		    padding: 1em 0 0 5px;
-	 		    display: flex;
-    			justify-content: center;
 	 		}
 	 		span.event-location-country{
 	 			display: block;
 	 			clear: both;
+	 			width: 100%;
 	 			color: #59595A;
 	 			font-size: 1.8rem!important;
-	 			position: absolute;
-    			bottom: -30px;
 	 			&:before, &:after{
 					content: none;
 				}
