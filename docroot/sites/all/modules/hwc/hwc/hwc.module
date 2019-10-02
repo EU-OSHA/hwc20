@@ -302,6 +302,20 @@ function hwc_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['page_share_widget_top'] = array(
+    'info' => t('Page share widget'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['page_share_widget_bottom'] = array(
+    'info' => t('Page share widget'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   $blocks['hwc_print_friendly'] = array(
     'info' => t('HWC Print friendly'),
     'status' => 1,
@@ -374,6 +388,14 @@ function hwc_block_view($delta = '') {
     $block['content'] = theme('european_week_news_events', ['events' => $events, 'news' => $news]);
   }
   if ($delta == 'page_share_widget') {
+    $block['title'] = '<none>';
+    $block['content'] = hwc_page_share_widget();
+  }
+  if ($delta == 'page_share_widget_top') {
+    $block['title'] = '<none>';
+    $block['content'] = hwc_page_share_widget();
+  }
+  if ($delta == 'page_share_widget_bottom') {
     $block['title'] = '<none>';
     $block['content'] = hwc_page_share_widget();
   }
