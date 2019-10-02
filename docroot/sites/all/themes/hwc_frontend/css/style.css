@@ -15927,7 +15927,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   margin-top: 40px;
 }
 .view-id-partners_list {
-  margin: 25px;
+  margin: 0 25px 25px 25px;
   color: #003399;
   font-size: 1.15em;
   font-weight: bold;

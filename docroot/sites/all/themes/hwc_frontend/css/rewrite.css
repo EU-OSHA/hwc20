@@ -194,6 +194,10 @@ article .hwc-share-widget ul{
     padding-bottom: 2em;
 }
 
+.page-campaign-partners-campaign-media-partners .section-introduction .field-type-text-with-summary{
+    padding-bottom: 0;
+}
+
 .form-item-relevant-for, .form-item-field-publication-type, .form-item-language, .form-item-field-priority-area, .form-item-languages{
     padding-top: 5px;
     border-bottom: 0;
