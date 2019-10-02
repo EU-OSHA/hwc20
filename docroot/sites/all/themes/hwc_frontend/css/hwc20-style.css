@@ -4438,6 +4438,9 @@ ul[data-sa-theme="basic-green"].ui-menu {
   font-weight: normal;
   font-size: 0.9em;
 }
+#block-osha-newsletter-osha-newsletter-events-subscribe label {
+  padding-left: 0;
+}
 #block-osha-newsletter-osha-newsletter-events-subscribe label:before {
   color: #003399;
   background: #FFF;
