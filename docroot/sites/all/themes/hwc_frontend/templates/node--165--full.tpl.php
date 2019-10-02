@@ -24,10 +24,11 @@
     </header>
   <?php endif; ?>
   <?php
+    print render($content['share_widget']);
     print render($content['field_image']);
     print render($content['title_field']);
 
-    print render($content['share_widget']);
+    
     print render($content['field_summary']);
     print render($content['body']);
   ?>

@@ -24,6 +24,7 @@
     </header>
   <?php endif; ?>
   <?php
+    print render($content['share_widget']);
     print render($content['field_image']);
     print render($content['title_field']);
     print render($content['field_summary']);
@@ -32,7 +33,6 @@
 
   <div class="container">
     <?php
-    print render($content['share_widget']);
     // Additional resources
     if (!empty($content['field_recommended_resources']) || !empty($content['field_recommended_articles'])) {
       print '<div class="dot-separator green"></div><div class="icon recommended-resources"></div>' . '<h2>' . t('Recommended resources for you') . '</h2>';
