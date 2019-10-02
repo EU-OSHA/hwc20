@@ -541,4 +541,8 @@ jQuery(document).ready(function($) {
    	$("#edit-field-priority-area .form-checkboxes").css('display' , 'none');
    }
 
+	if (jQuery("#block-hwc-european-week-news-events .box-before.events")[0]){
+		 $("#block-hwc-european-week-news-events .box-before.news").addClass('two-column');   
+	}
+
 });
