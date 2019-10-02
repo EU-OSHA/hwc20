@@ -4458,6 +4458,16 @@ ul[data-sa-theme="basic-green"].ui-menu {
 #block-osha-newsletter-osha-newsletter-events-subscribe .more-link:before {
   content: none;
 }
+#block-osha-newsletter-osha-newsletter-events-subscribe .captchaContainer {
+  padding-bottom: 1em;
+}
+#block-osha-newsletter-osha-newsletter-events-subscribe .captchaContainer #captcha_0_readaudio {
+  float: left;
+}
+#block-osha-newsletter-osha-newsletter-events-subscribe .captchaContainer #captcha_0_refresh img {
+  height: 38px;
+  width: 38px;
+}
 #block-osha-newsletter-osha-newsletter-events-subscribe #edit-submit {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
