@@ -4398,7 +4398,7 @@ ul[data-sa-theme="basic-green"].ui-menu {
 #block-osha-newsletter-osha-newsletter-events-subscribe {
   background: url(../images/background-newsletter-event.png) no-repeat;
   border-radius: 15px;
-  color: #FFFF;
+  color: #FFF;
   padding: 1.7em;
   width: 288px;
   float: right;
@@ -4436,13 +4436,13 @@ ul[data-sa-theme="basic-green"].ui-menu {
 }
 #block-osha-newsletter-osha-newsletter-events-subscribe a,
 #block-osha-newsletter-osha-newsletter-events-subscribe label {
-  color: #FFFF;
+  color: #FFF;
   font-weight: normal;
   font-size: 0.9em;
 }
 #block-osha-newsletter-osha-newsletter-events-subscribe label:before {
   color: #003399;
-  background: #FFFF;
+  background: #FFF;
   border: 0 !important;
 }
 #block-osha-newsletter-osha-newsletter-events-subscribe input[type="text"] {
@@ -4557,7 +4557,7 @@ body.european-week #block-views-news-press-room h3:after {
   position: absolute;
   right: 0;
   top: 32px;
-  background: #FFFF;
+  background: #FFF;
 }
 body.press-room #block-views-news-press-room h3:before,
 body.european-week #block-views-news-press-room h3:before {
