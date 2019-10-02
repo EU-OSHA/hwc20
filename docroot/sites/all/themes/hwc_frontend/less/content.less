@@ -238,78 +238,7 @@ ul.tabs--primary.nav.nav-tabs{
 			}
 		}
 	}
-	.checkbox{
-		input[type="checkbox"]{
-			display: none;
-		}
-		label{
-			color: @text-color-2;
-			padding-left: 0;
-			font-family: @font-family-base;
-		}
-		label:before {
-			border: 2px solid @border-color-2;
-			content: " ";
-			padding: 0px 7px 0px 7px;
-			margin-right: 10px;
-			color: @color1;
-			font-weight: normal;
-			font-family: @font-family-monospace;
-		}
-		input[type=checkbox]:checked + label:before {
-			content: "\2713";
-			color: @text-color-2;
-			padding: 0px 2px 0px 2px;
-			margin-right: 6px;
-			font-weight: normal;
-			font-family: @font-family-monospace;
-		}
-		input[type=checkbox]:checked {
-			display: inline-block;
-			margin-left: -25px;
-			margin-top: 2px;
-			cursor: pointer;
-			width: 0px !important;
-			
-			&:before {
-				content: "\2713";
-				color: @text-color-2;
-				padding: 0px 2px 0px 2px;
-				margin-right: 6px;
-				font-weight: normal;
-				font-family: @font-family-monospace;
-				margin-top: 0px;
-				display: block;
-				background-color: white;
-				height: 15px;
-				width: 13px;
-    			line-height: 19px;
-			}
-		}
-		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-		 	input[type=checkbox]:checked {
-				display: inline-block;
-				margin-left: -16px;
-				margin-top: 5px;
-				cursor: pointer;
-				
-				&:before {
-					content: "\2713";
-					color: @text-color-2;
-					padding: 0px 2px 0px 2px;
-					margin-right: 6px;
-					font-weight: normal;
-					font-family: @font-family-monospace;
-					margin-top: 0px;
-					display: block;
-					background-color: white;
-					height: 15px;
-					width: 13px;
-	    			line-height: 19px;
-				}
-			}
-		}
-	}
+	
 	.radio{
 		margin-bottom: 0.5em;
 		input[type="radio"]{
