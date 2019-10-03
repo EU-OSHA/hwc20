@@ -7,7 +7,13 @@
 }
 
 header.navbar-default .campaigns-header .navbar-header .header-text {
-	max-width: 310px;
+	max-width: 300px;
+    padding-left: 1em;
+}
+
+header.navbar-default.sticky-menu .campaigns-header .navbar-header .header-text{
+    border-left: 0;
+    height: auto;
 }
 
 header.navbar-default .campaigns-header #block-menu-menu-header-login a {

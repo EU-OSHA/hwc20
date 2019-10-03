@@ -24,6 +24,9 @@ body.logged-in .navbar-header .col-xs-12.col-sm-9 {
 body {
   color: #59595A;
 }
+#block-hwc-homepage-splash-title-banner-countdown {
+  margin-top: 1em;
+}
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -4928,6 +4931,9 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 @media (min-width: 1480px) {
   .start-browsing .content-boxes {
     width: 72%;
+  }
+  header.navbar-default .campaigns-header .row:first-of-type {
+    padding: 10px 20px 5px 35px;
   }
 }
 @media (max-width: 1465px) {
