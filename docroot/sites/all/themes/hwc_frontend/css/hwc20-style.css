@@ -6328,3 +6328,10 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
     width: 100%;
   }
 }
+@media (max-width: 348px) {
+  .how-to-apply > div.boxes > div:nth-child(1),
+  .how-to-apply > div.boxes > div:nth-child(2),
+  .how-to-apply > div.boxes > div:nth-child(3) {
+    left: 62px;
+  }
+}
