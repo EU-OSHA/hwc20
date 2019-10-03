@@ -8006,37 +8006,6 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
   text-align: center;
   font-size: 1.2em;
 }
-.facetapi-facetapi-checkbox-links {
-  margin-top: 10px;
-}
-.facetapi-facetapi-checkbox-links li {
-  color: #003399;
-  margin-bottom: 10px;
-}
-.facetapi-facetapi-checkbox-links li input[type="checkbox"] {
-  margin-right: 0.5em;
-  margin-right: 15px;
-}
-.facetapi-facetapi-checkbox-links li input[type="checkbox"]:before {
-  border: 2px solid #003399;
-  content: "\2716";
-  padding: 0px 1px 0px 3px;
-  margin-right: 10px;
-  color: #ffffff;
-  width: 20px;
-  height: 20px;
-  background-color: white;
-}
-.facetapi-facetapi-checkbox-links li input[type="checkbox"]:checked:before {
-  content: "\2713";
-  color: #003399;
-}
-.facetapi-facetapi-checkbox-links li #facetapi-link--all--checkbox {
-  margin-right: 15px;
-}
-.facetapi-facetapi-checkbox-links li a {
-  font-family: 'Open Sans';
-}
 .radio {
   margin-bottom: 0.5em;
 }
@@ -9716,37 +9685,6 @@ div[class*='view-'] .field-name-field-summary {
   font-family: "Glyphicons Halflings";
   margin-left: 10px;
   float: right;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links {
-  margin-top: 10px;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li {
-  color: #003399;
-  margin-bottom: 10px;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"] {
-  margin-right: 0.5em;
-  margin-right: 15px;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:before {
-  border: 2px solid #003399;
-  content: "\2716";
-  padding: 0px 1px 0px 3px;
-  margin-right: 10px;
-  color: #ffffff;
-  width: 20px;
-  height: 20px;
-  background-color: white;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:checked:before {
-  content: "\2713";
-  color: #003399;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li #facetapi-link--all--checkbox {
-  margin-right: 11px;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li a {
-  font-family: 'Open Sans';
 }
 .page-search .region.region-content {
   float: right;
@@ -11747,7 +11685,7 @@ article .hwc-share-widget ul {
 #block-system-main .view-events-search,
 .view-events-search {
   clear: both;
-  margin: 0 25px;
+  margin: 0 10px;
 }
 #block-system-main .view-events-search .form-type-textfield,
 .view-events-search .form-type-textfield {
@@ -13688,44 +13626,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   font-family: "Glyphicons Halflings";
   margin-left: 10px;
   float: right;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links,
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links {
-  margin-top: 10px;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li,
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li {
-  color: #003399;
-  margin-bottom: 10px;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"],
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"] {
-  margin-right: 0.5em;
-  margin-right: 15px;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:before,
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:before {
-  border: 2px solid #003399;
-  content: "\2716";
-  padding: 0px 1px 0px 3px;
-  margin-right: 10px;
-  color: #ffffff;
-  width: 20px;
-  height: 20px;
-  background-color: white;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:checked:before,
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:checked:before {
-  content: "\2713";
-  color: #003399;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li #facetapi-link--all--checkbox,
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li #facetapi-link--all--checkbox {
-  margin-right: 11px;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li a,
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li a {
-  font-family: 'Open Sans';
 }
 .page-partners-documents .region.region-content,
 .page-communications .region.region-content {
@@ -22943,43 +22843,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   /*Good practices, publications, case studies*/
   #edit-left-column {
     position: relative;
-  }
-  #edit-left-column .form-item-relevant-for,
-  #edit-left-column .form-item-field-publication-type,
-  #edit-left-column .form-item-language,
-  #edit-left-column .form-item-field-priority-area,
-  #edit-left-column .form-item-languages {
-    margin-top: 0;
-    padding-top: 10px;
-    border-bottom: none;
-    margin-bottom: 0px;
-    padding-bottom: 0px;
-    clear: both;
-    overflow: hidden;
-  }
-  #edit-left-column .form-item-relevant-for .checkbox:last-child,
-  #edit-left-column .form-item-field-publication-type .checkbox:last-child,
-  #edit-left-column .form-item-language .checkbox:last-child,
-  #edit-left-column .form-item-field-priority-area .checkbox:last-child,
-  #edit-left-column .form-item-languages .checkbox:last-child {
-    margin-bottom: 10px;
-  }
-  #edit-left-column .form-item-field-publication-type > label,
-  #edit-left-column .form-item-language > label,
-  #edit-left-column .form-item-field-priority-area > label,
-  #edit-left-column .form-item-relevant-for > label,
-  #edit-left-column .form-item-languages > label,
-  #edit-left-column .form-item-publication-type > label {
-    font-size: 20px;
-    font-weight: bold;
-    width: 100%;
-    display: block;
-    clear: both;
-    cursor: pointer;
-    background-color: #e2e2e3;
-    padding: 5px 15px;
-    font-size: 1.2em;
-    margin-bottom: 0px;
   }
   #edit-left-column #search {
     position: relative;

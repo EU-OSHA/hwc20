@@ -1623,6 +1623,10 @@ aside.col-md-3 .region.region-sidebar-first.well {
   margin-right: 0;
 }
 /* Publications List */
+#edit-main-tags {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 #edit-main-tags > div > label {
   font-size: 1.3em;
 }
@@ -1644,7 +1648,7 @@ aside.col-md-3 .region.region-sidebar-first.well {
   border: 1px solid #003399;
   border-radius: 5px;
   margin-top: 26px;
-  width: 93%;
+  width: 100%;
   background: #FFF;
 }
 .filters-header {
@@ -1671,7 +1675,7 @@ aside.col-md-3 .region.region-sidebar-first.well {
 .page-tools-and-publications .page-events .views-exposed-widget {
   float: left;
   padding-top: 0!important;
-  width: 32.3%!important;
+  width: 32.2%!important;
   margin-right: 1em;
 }
 .page-publications #edit-exposed-widgets,
@@ -2015,10 +2019,10 @@ div.publications-detail-right-column > a.download {
 }
 .page-publications #content,
 .page-events #content {
-  width: 80.1%!important;
+  width: 79.1%!important;
   border-top: 0px solid #003399;
   margin-top: 2em;
-  margin-left: 10px!important;
+  margin-left: 20px!important;
 }
 .content-fluid {
   position: relative;
@@ -2090,6 +2094,10 @@ div.publications-detail-right-column > a.download {
 #edit-main-tags > div > label {
   font-size: 1.8rem;
   color: #003399 !important;
+}
+#edit-field-publication-type .form-checkboxes,
+#edit-main-tags .form-checkboxes {
+  padding-top: 10px;
 }
 input[type=checkbox] {
   display: none;
@@ -5137,7 +5145,7 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   }
   .page-publications #content {
     margin-top: 1em;
-    width: 95.1% !important;
+    width: 93.3% !important;
   }
   .search-new-design {
     margin-top: 0;

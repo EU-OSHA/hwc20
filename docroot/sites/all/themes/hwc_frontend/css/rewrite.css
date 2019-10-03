@@ -226,7 +226,6 @@ article .hwc-share-widget ul{
 }
 
 .control-label.active{
-    padding-bottom: 1em;
     font-size: 1.8rem;
 }
 
@@ -311,35 +310,32 @@ body > div.main-container > div > aside > div > div:nth-child(2){
     margin-top: 31px;
 }
 
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]{
-    display: block;
-    float: left;
-    margin-top: -1px;
+
+.facetapi-facetapi-checkbox-links.facetapi-facet-field-priority-area.facetapi-processed.no-margin-bottom, 
+#facetapi-facet-search-apidefault-multilingual-node-index-block-type,
+#facetapi-facet-search-apidefault-multilingual-node-index-block-language{
+    padding-top: 10px;
 }
 
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links{
-    padding-left: 4px;
+.facetapi-facetapi-checkbox-links{
+    padding-left: 0;
 }
 
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:before{
-    border: 1px solid #003399;
-    border-radius: 0.2em;
-    width: 21px;
-    height: 21px;
-    float: left;
-    content:' ';
-    margin-top: -2px; /* Tablet need it */
-    margin-left: -3px; /* Tablet need it */
+.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li{
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li #facetapi-link--all--checkbox{
     margin-right: 15px;
 }
 
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:checked:before{
+.page-search  input[type=checkbox]{
+    display: block;
     float: left;
-    margin-top: 0px;
+    margin-right: 10px;
 }
+
 
 /* News detail */
 
