@@ -327,13 +327,17 @@ body > div.main-container > div > aside > div > div:nth-child(2){
 }
 
 .page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li #facetapi-link--all--checkbox{
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
 .page-search  input[type=checkbox]{
     display: block;
     float: left;
     margin-right: 10px;
+}
+
+.facetapi-facetapi-checkbox-links a{
+   color: #59595A!important; 
 }
 
 
