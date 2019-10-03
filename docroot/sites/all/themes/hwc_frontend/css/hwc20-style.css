@@ -4872,7 +4872,7 @@ body.european-week .page_title {
 }
 body.european-week #european_week_date {
   color: #FFF;
-  font-size: 3.4rem;
+  font-size: 2.2em;
   width: 100%;
   text-align: center;
   font-weight: bold;
@@ -4930,6 +4930,12 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   }
   .page-events #block-osha-newsletter-osha-newsletter-events-subscribe {
     display: none;
+  }
+  body.press-room .box-before.news.two-column,
+  body.european-week .box-before.news.two-column,
+  body.press-room .box-before.events,
+  body.european-week .box-before.events {
+    width: 100%;
   }
 }
 @media (min-width: 1480px) {
@@ -6242,6 +6248,10 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   body.european-week .pull-left {
     display: none;
   }
+  body.press-room #block-hwc-european-week-news-events,
+  body.european-week #block-hwc-european-week-news-events {
+    margin-left: -15px;
+  }
 }
 @media (max-width: 600px) {
   .before-the-campaign .content-box-before .two-box-column {
@@ -6326,6 +6336,9 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   }
   .related-resources .related-resources-boxes div {
     width: 100%;
+  }
+  body.european-week #european_week_date {
+    font-size: 1.6em;
   }
 }
 @media (max-width: 348px) {
