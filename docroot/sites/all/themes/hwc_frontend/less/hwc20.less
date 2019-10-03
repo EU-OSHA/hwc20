@@ -212,7 +212,7 @@ body .more-link{
 			padding-top: 2em;
 		    border-bottom: 0;
 		    font-size: 2.2em;
-		    font-style: italic;
+		    font-style: normal;
 		    font-weight: 400;
 		    color:#FFF;
 		}
@@ -1151,6 +1151,10 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 
 .my-checkbox{
 	float: left;
+	border:1px solid #003399;
+	width: 19px;
+    height: 19px;
+    border-radius: 5px;
 }
 
 .row-newsletter-social{
@@ -1807,8 +1811,6 @@ aside.col-md-3{
 
 #edit-main-tags > div > label{
 	font-size: 1.3em;
-	padding-top: 10px;
-	padding-bottom: 10px;
 }
 
 .node-article .content{
@@ -2335,9 +2337,11 @@ div.publications-detail-right-column > a.download{
   }
 }
 
-#edit-field-publication-type > div > label{
-	font-size: 1.8rem;
-  	color: #003399 !important;
+#edit-field-publication-type, #edit-main-tags {
+	> div > label{
+		font-size: 1.8rem;
+  		color: #003399 !important;
+	}
 }
 
 input[type=checkbox] {
