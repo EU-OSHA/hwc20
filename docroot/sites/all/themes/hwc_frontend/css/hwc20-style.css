@@ -1291,7 +1291,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 /* Introductory Page > Article */
 .breadcrumb {
   background: transparent;
-  padding: 15px 10px 5px 100px;
+  padding: 15px 10px 5px 67px;
   list-style: none;
 }
 .breadcrumb li {
@@ -4502,6 +4502,10 @@ ul[data-sa-theme="basic-green"].ui-menu {
 /* Press room */
 body.press-room aside.col-md-8.col-xs-12 .hwc-share-widget {
   padding-bottom: 2em;
+}
+body.press-room .field-name-body {
+  width: 73%;
+  padding-left: 2.2em;
 }
 body.press-room .field-name-body h2,
 body.european-week .field-name-body h2 {
