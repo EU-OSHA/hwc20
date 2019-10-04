@@ -1644,7 +1644,7 @@ aside.col-md-3 .region.region-sidebar-first.well {
 }
 .sidebars_first .content-filters {
   float: left;
-  padding: 0em 0.5em 0 1em;
+  padding: 0em 1em 0 1em;
   border: 1px solid #003399;
   border-radius: 5px;
   margin-top: 26px;
@@ -5970,6 +5970,9 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   .page-publications .pages {
     display: block;
     width: 100%;
+  }
+  .page-tools-and-publications #edit-left-column .content-filters {
+    margin-top: 1em;
   }
   /* Articles */
   .node-type-article article {
