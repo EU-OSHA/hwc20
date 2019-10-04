@@ -1144,8 +1144,8 @@ input[type="checkbox"] + label .my-checkbox{
 input[type="checkbox"]:checked + label .my-checkbox:after {
     content: "\2713";
     color: #003399;
-    padding-left: 5px;
-    padding-top: 2px;
+    padding-left: 4px;
+    padding-top: 0;
     display: block;
 }
 
@@ -1834,7 +1834,7 @@ aside.col-md-3{
 .sidebars_first .content-filters{
     float: left;
     padding: 0em 1em 0 1em;
-    border: 1px solid #003399;
+    border: 1px solid #B0B2B3;
     border-radius: 5px;
     margin-top: 26px;
     width: 100%;
@@ -2393,7 +2393,7 @@ label.option {
 
 .search-new-design, #edit-search-api-views-fulltext{
     height: 34px;
-    border: 1px solid #003399;
+    border: 1px solid #B0B2B3;
     border-radius: 5px !important;
     background: url(../images/green-search.png) no-repeat 96% 55% #FFF;
     width: 100% !important;
@@ -2413,7 +2413,6 @@ html[lang=pt] #edit-search-api-views-fulltext{
 
 .new-select-style, #edit_field_country_code_chosen, #edit-years{
     height: 100%;
-    border: 1px solid #003399 !important;
     border-radius: 5px !important;
     background: url(../images/green-select.png) no-repeat scroll 94% center #FFF !important;
     padding-left: 10px;
@@ -2425,7 +2424,6 @@ html[lang=pt] #edit-search-api-views-fulltext{
 .views-widget-filter-field_start_date_value, .views-widget-filter-field_start_date_value2{
 	input{
 		height: 100%;
-	    border: 1px solid #003399 !important;
 	    border-radius: 5px !important;
 	    background: url(../images/green-calendar.png) no-repeat scroll 94% center #FFF !important;
 	    padding-left: 10px;
@@ -4505,6 +4503,16 @@ body{
 
 
 /* Events */
+
+.logged-in{
+	.page-events{
+		#osha-events-dates-form{
+			margin-top: 18px;
+		}
+	}
+}
+
+
 .page-events{
 
 	.region-sidebar-first .contextual-links-region{
@@ -4512,11 +4520,11 @@ body{
 	}
 
 	#osha-events-dates-form{
-		border: 2px solid #B0B1B2;
+		border: 1px solid #B0B1B2;
 		border-radius: 7px;
 		padding: 1em 0 1em 1em;
 		float: right;
-		margin-top: 33px;
+		margin-top: 34px;
 		width: 288px;
 		margin-bottom: 3em;
 		> div > span{
@@ -4529,7 +4537,6 @@ body{
 
 		input{
 			height: 100%;
-		    border: 1px solid #003399 !important;
 		    border-radius: 5px !important;
 		    background: url(../images/green-calendar.png) no-repeat scroll 94% center #FFF !important;
 		    padding-left: 10px;
