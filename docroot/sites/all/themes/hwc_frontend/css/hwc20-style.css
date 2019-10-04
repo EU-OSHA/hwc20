@@ -415,9 +415,6 @@ ul.time-and-counters li .counter-label {
   content: ',';
   padding-right: 1px;
 }
-.before-the-campaign .content-box-before .two-box-column .content-date-country .country {
-  font-style: italic;
-}
 .before-the-campaign .content-box-before .two-box-column .content-event {
   clear: both;
   padding-top: 0.5em;
@@ -2597,7 +2594,6 @@ span.pages {
 }
 .page-search .views-exposed-widgets input {
   height: 35px;
-  border: 1px solid #003399;
   border-radius: 5px !important;
   background: url(../images/green-search.png) no-repeat 96% 55% #ffffff;
   width: 100%!important;
@@ -2614,7 +2610,6 @@ span.pages {
   appearance: none;
   -webkit-appearance: button;
   background: url(../images/green-select.png) no-repeat 94% 55% #ffffff;
-  border: 1px solid #003399;
   border-radius: 5px !important;
   width: 100%!important;
   float: left;
