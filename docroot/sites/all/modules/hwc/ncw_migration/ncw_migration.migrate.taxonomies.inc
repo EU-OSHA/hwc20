@@ -30,6 +30,7 @@ class NCWTaxonomyNewsletterSectionsMigration extends AbstractNCWTaxonomyTermMigr
     parent::__construct($arguments, 'SimpleNCWTaxonomyTermSource', 'newsletter_sections');
     $this->description = 'Import taxonomy "newsletter_sections" from NCW';
   }
+
 }
 
 class NCWTaxonomyPublicationTypeMigration extends AbstractNCWTaxonomyTermMigration {
@@ -38,6 +39,22 @@ class NCWTaxonomyPublicationTypeMigration extends AbstractNCWTaxonomyTermMigrati
     parent::__construct($arguments, 'PublicationTypeNCWTaxonomyTermSource', 'publication_types');
     $this->description = 'Import taxonomy "publication_types" from NCW';
   }
+
+  function addFieldMappings() {
+    parent::addFieldMappings();
+    $this->addSimpleMappings(array('parent'));
+  }
+
+  function prepareRow($row) {
+    parent::prepareRow($row);
+    $map = $this->getMap();
+    if ($destid1 = $map->lookupDestinationID(array($row->tid))) {
+      if ($destid1) {
+        $row->parent = array_keys(taxonomy_get_parents($destid1['destid1']));
+      }
+    }
+  }
+
 }
 
 class NCWTaxonomySegmentationMigration extends AbstractNCWTaxonomyTermMigration {
@@ -54,6 +71,22 @@ class NCWTaxonomyTagsMigration extends AbstractNCWTaxonomyTermMigration {
     parent::__construct($arguments, 'TagsNCWTaxonomyTermSource', 'tags');
     $this->description = 'Import taxonomy "tags" from NCW';
   }
+
+  function addFieldMappings() {
+    parent::addFieldMappings();
+    $this->addSimpleMappings(array('parent'));
+  }
+
+  function prepareRow($row) {
+    parent::prepareRow($row);
+    $map = $this->getMap();
+    if ($destid1 = $map->lookupDestinationID(array($row->tid))) {
+      if ($destid1) {
+        $row->parent = array_keys(taxonomy_get_parents($destid1['destid1']));
+      }
+    }
+  }
+
 }
 
 class NCWTaxonomyPriorityAreaMigration extends AbstractNCWTaxonomyTermMigration {
