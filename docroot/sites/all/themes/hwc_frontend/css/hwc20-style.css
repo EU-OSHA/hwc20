@@ -415,6 +415,9 @@ ul.time-and-counters li .counter-label {
   content: ',';
   padding-right: 1px;
 }
+.before-the-campaign .content-box-before .two-box-column .content-date-country .country {
+  font-style: italic;
+}
 .before-the-campaign .content-box-before .two-box-column .content-event {
   clear: both;
   padding-top: 0.5em;
@@ -719,7 +722,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
   padding-top: 2em;
   border-bottom: 0;
   font-size: 1.7em;
-  font-style: normal;
+  font-style: italic;
   font-weight: 400;
   color: #dee999;
 }
@@ -861,7 +864,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 }
 .news-item .news-item-content .title-news {
   font-size: 1.2em;
-  font-style: normal;
+  font-style: italic;
   color: #003399;
 }
 .news-item .news-item-content .summary-news {
@@ -1519,7 +1522,7 @@ aside.col-md-3 .region.region-sidebar-first.well {
 .previous span:nth-child(1) {
   color: #003399;
   font-size: 18px;
-  font-style: normal;
+  font-style: italic;
 }
 .previous span:nth-child(2) {
   font-size: 12px;
@@ -1538,7 +1541,7 @@ aside.col-md-3 .region.region-sidebar-first.well {
 .next span:nth-child(1) {
   color: #003399;
   font-size: 18px;
-  font-style: normal;
+  font-style: italic;
 }
 .next span:nth-child(2) {
   font-size: 12px;
@@ -1604,7 +1607,7 @@ aside.col-md-3 .region.region-sidebar-first.well {
   font-weight: bold;
   line-height: 18px;
   text-decoration: none;
-  font-style: normal;
+  font-style: italic;
 }
 .box-latest-publications h2 a:hover {
   text-decoration: underline;
@@ -2319,7 +2322,7 @@ span.pages {
 }
 .publication-detail h2 {
   color: #003399;
-  font-style: normal;
+  font-style: italic;
   font-weight: 400;
   padding-top: 1em;
 }
@@ -2493,7 +2496,7 @@ span.pages {
 }
 .page-media-centre-news .main-container #block-system-main .view .views-row h2 a,
 .page-search .main-container #block-system-main .view .views-row h2 a {
-  font-style: normal;
+  font-style: italic;
   font-size: 2.1rem;
   font-weight: normal;
   padding-top: 0;
@@ -2516,7 +2519,7 @@ span.pages {
 }
 .page-media-centre-news .main-container #block-system-main .view .views-row .views-field-title-field span a,
 .page-search .main-container #block-system-main .view .views-row .views-field-title-field span a {
-  font-style: normal;
+  font-style: italic;
   font-size: 2.1rem;
   font-weight: normal;
   padding-top: 0.6em;
@@ -2933,7 +2936,7 @@ div.workbench-info-block {
 }
 .page-campaign-partners-campaign-media-partners .hwc-alphabet-container a,
 .page-campaign-partners-enterprise-europe-network .hwc-alphabet-container a {
-  font-style: normal;
+  font-style: italic;
 }
 .page-campaign-partners-campaign-media-partners .col-md-2.col-sm-3.col-xs-6,
 .page-campaign-partners-enterprise-europe-network .col-md-2.col-sm-3.col-xs-6 {
@@ -3001,7 +3004,7 @@ div.workbench-info-block {
 }
 .panels-flexible-column-first .pane-node-field-mission-statement .pane-content {
   padding: 10px 20px 20px 20px;
-  font-style: normal;
+  font-style: italic;
   color: #FFF;
 }
 .panels-flexible-row .hwc-share-widget {
@@ -3268,7 +3271,7 @@ body.ocp .box-type-partner .pane-content {
   padding: 1em;
   padding-left: 1em;
   padding-right: 1em;
-  font-style: normal;
+  font-style: italic;
   color: #FFF;
 }
 body.ocp .box-type-partner .field-name-field-ceo-photo {
