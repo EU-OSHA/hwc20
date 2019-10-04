@@ -424,7 +424,6 @@ function osha_publication_menu_publications_search_related($form_state, $native_
     $pager_params['text'] = $text;
   }
   $pager = theme('pager', array(
-    'tags' => array('<', '<', '', '>', '>'),
     'quantity' => 9,
     'parameters' => $pager_params,
     'element' => 1,
