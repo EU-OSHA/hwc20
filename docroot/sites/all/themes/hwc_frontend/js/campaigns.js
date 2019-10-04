@@ -319,6 +319,9 @@ jQuery(document).ready(function() {
 	
 
 	/*filters of list dropdown*/
+	jQuery(".form-item-main-tags > label").click(function() {
+				jQuery(this).toggleClass("active");
+	});
 	jQuery(".form-item-field-publication-type > label").click(function() {
 				jQuery(this).toggleClass("active");
 	});
@@ -339,6 +342,9 @@ jQuery(document).ready(function() {
 	});
 
 	/*filters of list dropdown*/
+	if(jQuery(".form-item-main-tags div").is(':visible')){
+		jQuery(".form-item-main-tags > label").addClass("active");
+	};
 	if(jQuery(".form-item-field-publication-type div").is(':visible')){
 		jQuery(".form-item-field-publication-type > label").addClass("active");
 	};
@@ -519,6 +525,13 @@ jQuery(document).ready(function() {
 /* Publications filter accorddions */
 
 jQuery(document).ready(function($) {
+  $("#edit-main-tags > div > label").on("click", function() {
+    if ($(this).hasClass("active")) {
+      $("#edit-main-tags .form-checkboxes").slideDown(200);
+    }else{
+      $("#edit-main-tags .form-checkboxes").slideUp(200);
+    }
+  });
   $("#edit-field-publication-type > div > label").on("click", function() {
     if ($(this).hasClass("active")) {
       $("#edit-field-publication-type .form-checkboxes").slideDown(200);
@@ -535,8 +548,11 @@ jQuery(document).ready(function($) {
   });
 
    if (jQuery(window).width() < 1200) {
+   	$("#edit-main-tags > div > label").removeClass('active');
    	$("#edit-field-publication-type > div > label").removeClass('active');
    	$("#edit-field-priority-area > div > label").removeClass('active');
+
+   	$("#edit-main-tags .form-checkboxes").css('display' , 'none');
    	$("#edit-field-publication-type .form-checkboxes").css('display' , 'none');
    	$("#edit-field-priority-area .form-checkboxes").css('display' , 'none');
    }
@@ -553,5 +569,4 @@ jQuery(document).ready(function($) {
 		 $("#edit-subscribe-details .form-type-checkbox label").appendTo("#edit-subscribe-details .form-type-checkbox");
 	}
 	
-
 });

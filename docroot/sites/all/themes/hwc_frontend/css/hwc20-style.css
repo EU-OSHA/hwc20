@@ -24,6 +24,9 @@ body.logged-in .navbar-header .col-xs-12.col-sm-9 {
 body {
   color: #59595A;
 }
+#block-hwc-homepage-splash-title-banner-countdown {
+  margin-top: 1em;
+}
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -76,8 +79,8 @@ body .more-link:before {
 .btn-background-transparent {
   background: transparent;
   width: 208px;
-  color: #e5f1ac;
-  border: 3px solid #bcd75b;
+  color: #FFF;
+  border: 3px solid #FFF;
   padding: 0.6em 2.5em 0.6em 1.5em;
   border-radius: 7px;
   font-weight: 600;
@@ -175,10 +178,10 @@ body .more-link:before {
   padding-bottom: 0;
 }
 .intro-splash-20 .views-row-first h1 {
-  padding-top: 2em;
+  padding-top: 1.5em;
   border-bottom: 0;
-  font-size: 2.2em;
-  font-style: italic;
+  font-size: 2.5em;
+  font-style: normal;
   font-weight: 400;
   color: #FFF;
 }
@@ -1026,12 +1029,16 @@ input[type="checkbox"] + label .my-checkbox {
 input[type="checkbox"]:checked + label .my-checkbox:after {
   content: "\2713";
   color: #003399;
-  padding-left: 5px;
-  padding-top: 2px;
+  padding-left: 4px;
+  padding-top: 0;
   display: block;
 }
 .my-checkbox {
   float: left;
+  border: 1px solid #003399;
+  width: 19px;
+  height: 19px;
+  border-radius: 5px;
 }
 .row-newsletter-social {
   background: url(../images/background-newsletter-300-v2.png);
@@ -1288,7 +1295,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 /* Introductory Page > Article */
 .breadcrumb {
   background: transparent;
-  padding: 15px 10px 5px 100px;
+  padding: 15px 10px 5px 67px;
   list-style: none;
 }
 .breadcrumb li {
@@ -1616,10 +1623,12 @@ aside.col-md-3 .region.region-sidebar-first.well {
   margin-right: 0;
 }
 /* Publications List */
+#edit-main-tags {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 #edit-main-tags > div > label {
   font-size: 1.3em;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 .node-article .content {
   margin-top: 1em;
@@ -1635,11 +1644,11 @@ aside.col-md-3 .region.region-sidebar-first.well {
 }
 .sidebars_first .content-filters {
   float: left;
-  padding: 0em 0.5em 0 1em;
-  border: 1px solid #003399;
+  padding: 0em 1em 0 1em;
+  border: 1px solid #B0B2B3;
   border-radius: 5px;
   margin-top: 26px;
-  width: 93%;
+  width: 100%;
   background: #FFF;
 }
 .filters-header {
@@ -1666,7 +1675,7 @@ aside.col-md-3 .region.region-sidebar-first.well {
 .page-tools-and-publications .page-events .views-exposed-widget {
   float: left;
   padding-top: 0!important;
-  width: 32.3%!important;
+  width: 32.2%!important;
   margin-right: 1em;
 }
 .page-publications #edit-exposed-widgets,
@@ -2010,10 +2019,10 @@ div.publications-detail-right-column > a.download {
 }
 .page-publications #content,
 .page-events #content {
-  width: 80.1%!important;
+  width: 79.1%!important;
   border-top: 0px solid #003399;
   margin-top: 2em;
-  margin-left: 10px!important;
+  margin-left: 20px!important;
 }
 .content-fluid {
   position: relative;
@@ -2081,9 +2090,14 @@ div.publications-detail-right-column > a.download {
   color: #55575d !important;
   font-size: 0.9em !important;
 }
-#edit-field-publication-type > div > label {
+#edit-field-publication-type > div > label,
+#edit-main-tags > div > label {
   font-size: 1.8rem;
   color: #003399 !important;
+}
+#edit-field-publication-type .form-checkboxes,
+#edit-main-tags .form-checkboxes {
+  padding-top: 10px;
 }
 input[type=checkbox] {
   display: none;
@@ -2121,7 +2135,7 @@ label.option {
 .search-new-design,
 #edit-search-api-views-fulltext {
   height: 34px;
-  border: 1px solid #003399;
+  border: 1px solid #B0B2B3;
   border-radius: 5px !important;
   background: url(../images/green-search.png) no-repeat 96% 55% #ffffff;
   width: 100% !important;
@@ -2140,7 +2154,6 @@ html[lang=pt] #edit-search-api-views-fulltext {
 #edit_field_country_code_chosen,
 #edit-years {
   height: 100%;
-  border: 1px solid #003399 !important;
   border-radius: 5px !important;
   background: url(../images/green-select.png) no-repeat scroll 94% center #ffffff !important;
   padding-left: 10px;
@@ -2151,7 +2164,6 @@ html[lang=pt] #edit-search-api-views-fulltext {
 .views-widget-filter-field_start_date_value input,
 .views-widget-filter-field_start_date_value2 input {
   height: 100%;
-  border: 1px solid #003399 !important;
   border-radius: 5px !important;
   background: url(../images/green-calendar.png) no-repeat scroll 94% center #ffffff !important;
   padding-left: 10px;
@@ -2223,8 +2235,8 @@ span.pages {
   color: #003399;
 }
 .page-publications .content-fluid h2 {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-top: 1em;
+  padding-bottom: 0.3em;
 }
 /* Introductory page */
 .views-row {
@@ -2585,7 +2597,6 @@ span.pages {
 }
 .page-search .views-exposed-widgets input {
   height: 35px;
-  border: 1px solid #003399;
   border-radius: 5px !important;
   background: url(../images/green-search.png) no-repeat 96% 55% #ffffff;
   width: 100%!important;
@@ -2602,7 +2613,6 @@ span.pages {
   appearance: none;
   -webkit-appearance: button;
   background: url(../images/green-select.png) no-repeat 94% 55% #ffffff;
-  border: 1px solid #003399;
   border-radius: 5px !important;
   width: 100%!important;
   float: left;
@@ -3966,15 +3976,18 @@ body.een .panels-flexible-column-first .pane-node-field-pledge .pane-title {
   border-left: 1px solid #B0B1B2;
 }
 /* Events */
+.logged-in .page-events #osha-events-dates-form {
+  margin-top: 18px;
+}
 .page-events .region-sidebar-first .contextual-links-region {
   margin-top: 0;
 }
 .page-events #osha-events-dates-form {
-  border: 2px solid #B0B1B2;
+  border: 1px solid #B0B1B2;
   border-radius: 7px;
   padding: 1em 0 1em 1em;
   float: right;
-  margin-top: 33px;
+  margin-top: 34px;
   width: 288px;
   margin-bottom: 3em;
 }
@@ -3987,7 +4000,6 @@ body.een .panels-flexible-column-first .pane-node-field-pledge .pane-title {
 }
 .page-events #osha-events-dates-form input {
   height: 100%;
-  border: 1px solid #003399 !important;
   border-radius: 5px !important;
   background: url(../images/green-calendar.png) no-repeat scroll 94% center #ffffff !important;
   padding-left: 10px;
@@ -4436,7 +4448,10 @@ ul[data-sa-theme="basic-green"].ui-menu {
 #block-osha-newsletter-osha-newsletter-events-subscribe label {
   color: #FFF;
   font-weight: normal;
-  font-size: 0.9em;
+  font-size: 1.2rem;
+}
+#block-osha-newsletter-osha-newsletter-events-subscribe label {
+  padding-left: 0;
 }
 #block-osha-newsletter-osha-newsletter-events-subscribe label:before {
   color: #003399;
@@ -4496,6 +4511,10 @@ ul[data-sa-theme="basic-green"].ui-menu {
 /* Press room */
 body.press-room aside.col-md-8.col-xs-12 .hwc-share-widget {
   padding-bottom: 2em;
+}
+body.press-room .field-name-body {
+  width: 73%;
+  padding-left: 2.2em;
 }
 body.press-room .field-name-body h2,
 body.european-week .field-name-body h2 {
@@ -4862,7 +4881,7 @@ body.european-week .page_title {
 }
 body.european-week #european_week_date {
   color: #FFF;
-  font-size: 3.4rem;
+  font-size: 2.2em;
   width: 100%;
   text-align: center;
   font-weight: bold;
@@ -4921,10 +4940,22 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   .page-events #block-osha-newsletter-osha-newsletter-events-subscribe {
     display: none;
   }
+  body.press-room .box-before.news.two-column,
+  body.european-week .box-before.news.two-column,
+  body.press-room .box-before.events,
+  body.european-week .box-before.events {
+    width: 100%;
+  }
+  .page-tools-and-publications #edit-left-column .content-filters {
+    margin-top: 0;
+  }
 }
 @media (min-width: 1480px) {
   .start-browsing .content-boxes {
     width: 72%;
+  }
+  header.navbar-default .campaigns-header .row:first-of-type {
+    padding: 10px 20px 5px 35px;
   }
 }
 @media (max-width: 1465px) {
@@ -5116,6 +5147,7 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   .page-publications #content {
     margin-top: 1em;
     width: 95.1% !important;
+    margin-left: 9px !important;
   }
   .search-new-design {
     margin-top: 0;
@@ -5937,6 +5969,9 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
     display: block;
     width: 100%;
   }
+  .page-tools-and-publications #edit-left-column .content-filters {
+    margin-top: 1em;
+  }
   /* Articles */
   .node-type-article article {
     padding-bottom: 1em;
@@ -6229,6 +6264,15 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   body.european-week .pull-left {
     display: none;
   }
+  body.press-room #block-hwc-european-week-news-events,
+  body.european-week #block-hwc-european-week-news-events {
+    margin-left: -15px;
+  }
+  body.press-room .field-name-body,
+  body.european-week .field-name-body {
+    width: 100%;
+    padding-left: 5px;
+  }
 }
 @media (max-width: 600px) {
   .before-the-campaign .content-box-before .two-box-column {
@@ -6313,5 +6357,15 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   }
   .related-resources .related-resources-boxes div {
     width: 100%;
+  }
+  body.european-week #european_week_date {
+    font-size: 1.6em;
+  }
+}
+@media (max-width: 348px) {
+  .how-to-apply > div.boxes > div:nth-child(1),
+  .how-to-apply > div.boxes > div:nth-child(2),
+  .how-to-apply > div.boxes > div:nth-child(3) {
+    left: 62px;
   }
 }

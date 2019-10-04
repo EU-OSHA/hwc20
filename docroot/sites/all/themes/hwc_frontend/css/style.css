@@ -6615,7 +6615,6 @@ body a:focus {
 }
 body .form-control {
   border-radius: 0;
-  border-color: #003399;
   color: #575757;
   width: auto;
   box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0);
@@ -7282,7 +7281,7 @@ header.navbar-default .campaigns-header .navbar-header {
 header.navbar-default .campaigns-header .navbar-header a.pull-left {
   border-right: 1px solid #003399;
   padding-right: 2em;
-  margin-right: 2em;
+  margin-right: 1em;
 }
 header.navbar-default .campaigns-header .navbar-header img:nth-child(1) {
   margin-top: 5px;
@@ -7299,11 +7298,11 @@ header.navbar-default .campaigns-header .navbar-header a img.pull-left {
 header.navbar-default .campaigns-header .navbar-header img:nth-child(3) {
   padding-top: 69px;
   padding-bottom: 32px;
-  padding-right: 15px;
-  border-right: 1px solid #003399;
-  width: 80px;
+  padding-right: 24px;
+  width: 89px;
   height: auto;
-  margin-left: 10px;
+  margin-left: 23px;
+  border-right: 1px solid #003399;
 }
 header.navbar-default .campaigns-header .navbar-header .header-text {
   color: #003399;
@@ -7410,7 +7409,7 @@ header.navbar-default .campaigns-header .navbar-header #block-search-form #edit-
   margin-bottom: 0px;
 }
 header.navbar-default .campaigns-header .row:first-of-type {
-  padding: 5px 20px 0px 15px;
+  padding: 10px 20px 5px 0;
 }
 header.navbar-default .campaigns-header #block-menu-menu-header-login {
   float: right;
@@ -7836,7 +7835,7 @@ body textarea,
 body textarea.form-control,
 body select {
   color: #003399;
-  border-color: #003399;
+  border-color: #B0B2B3;
   border-radius: 0;
 }
 body iframe {
@@ -8005,37 +8004,6 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
 .section-introduction p {
   text-align: center;
   font-size: 1.2em;
-}
-.facetapi-facetapi-checkbox-links {
-  margin-top: 10px;
-}
-.facetapi-facetapi-checkbox-links li {
-  color: #003399;
-  margin-bottom: 10px;
-}
-.facetapi-facetapi-checkbox-links li input[type="checkbox"] {
-  margin-right: 0.5em;
-  margin-right: 15px;
-}
-.facetapi-facetapi-checkbox-links li input[type="checkbox"]:before {
-  border: 2px solid #003399;
-  content: "\2716";
-  padding: 0px 1px 0px 3px;
-  margin-right: 10px;
-  color: #ffffff;
-  width: 20px;
-  height: 20px;
-  background-color: white;
-}
-.facetapi-facetapi-checkbox-links li input[type="checkbox"]:checked:before {
-  content: "\2713";
-  color: #003399;
-}
-.facetapi-facetapi-checkbox-links li #facetapi-link--all--checkbox {
-  margin-right: 15px;
-}
-.facetapi-facetapi-checkbox-links li a {
-  font-family: 'Open Sans';
 }
 .radio {
   margin-bottom: 0.5em;
@@ -8954,6 +8922,7 @@ div[class*='view-'] .field-name-field-summary {
 .field-name-field-country-code:after {
   content: "";
 }
+.form-item-main-tags,
 .form-item-relevant-for,
 .form-item-field-publication-type,
 .form-item-language,
@@ -8961,12 +8930,12 @@ div[class*='view-'] .field-name-field-summary {
 .form-item-languages {
   margin-top: 0;
   padding-top: 10px;
-  border-bottom: 1px dotted #749b00;
   margin-bottom: 0px;
   padding-bottom: 5px;
   clear: both;
   overflow: hidden;
 }
+.form-item-main-tags .checkbox:last-child,
 .form-item-relevant-for .checkbox:last-child,
 .form-item-field-publication-type .checkbox:last-child,
 .form-item-language .checkbox:last-child,
@@ -8974,6 +8943,7 @@ div[class*='view-'] .field-name-field-summary {
 .form-item-languages .checkbox:last-child {
   margin-bottom: 10px;
 }
+.form-item-main-tags > label,
 .form-item-field-publication-type > label,
 .form-item-language > label,
 .form-item-field-priority-area > label,
@@ -8987,6 +8957,7 @@ div[class*='view-'] .field-name-field-summary {
   clear: both;
   cursor: pointer;
 }
+.form-item-main-tags > label:after,
 .form-item-field-publication-type > label:after,
 .form-item-language > label:after,
 .form-item-field-priority-area > label:after,
@@ -8998,6 +8969,7 @@ div[class*='view-'] .field-name-field-summary {
   margin-left: 10px;
   float: right;
 }
+.form-item-main-tags > label.active:after,
 .form-item-field-publication-type > label.active:after,
 .form-item-language > label.active:after,
 .form-item-field-priority-area > label.active:after,
@@ -9712,37 +9684,6 @@ div[class*='view-'] .field-name-field-summary {
   font-family: "Glyphicons Halflings";
   margin-left: 10px;
   float: right;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links {
-  margin-top: 10px;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li {
-  color: #003399;
-  margin-bottom: 10px;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"] {
-  margin-right: 0.5em;
-  margin-right: 15px;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:before {
-  border: 2px solid #003399;
-  content: "\2716";
-  padding: 0px 1px 0px 3px;
-  margin-right: 10px;
-  color: #ffffff;
-  width: 20px;
-  height: 20px;
-  background-color: white;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:checked:before {
-  content: "\2713";
-  color: #003399;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li #facetapi-link--all--checkbox {
-  margin-right: 11px;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li a {
-  font-family: 'Open Sans';
 }
 .page-search .region.region-content {
   float: right;
@@ -11743,7 +11684,7 @@ article .hwc-share-widget ul {
 #block-system-main .view-events-search,
 .view-events-search {
   clear: both;
-  margin: 0 25px;
+  margin: 0 10px;
 }
 #block-system-main .view-events-search .form-type-textfield,
 .view-events-search .form-type-textfield {
@@ -13684,44 +13625,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   font-family: "Glyphicons Halflings";
   margin-left: 10px;
   float: right;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links,
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links {
-  margin-top: 10px;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li,
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li {
-  color: #003399;
-  margin-bottom: 10px;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"],
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"] {
-  margin-right: 0.5em;
-  margin-right: 15px;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:before,
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:before {
-  border: 2px solid #003399;
-  content: "\2716";
-  padding: 0px 1px 0px 3px;
-  margin-right: 10px;
-  color: #ffffff;
-  width: 20px;
-  height: 20px;
-  background-color: white;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:checked:before,
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:checked:before {
-  content: "\2713";
-  color: #003399;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li #facetapi-link--all--checkbox,
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li #facetapi-link--all--checkbox {
-  margin-right: 11px;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li a,
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li a {
-  font-family: 'Open Sans';
 }
 .page-partners-documents .region.region-content,
 .page-communications .region.region-content {
@@ -15927,7 +15830,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   margin-top: 40px;
 }
 .view-id-partners_list {
-  margin: 25px;
+  margin: 0 25px 25px 25px;
   color: #003399;
   font-size: 1.15em;
   font-weight: bold;
@@ -22939,43 +22842,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   /*Good practices, publications, case studies*/
   #edit-left-column {
     position: relative;
-  }
-  #edit-left-column .form-item-relevant-for,
-  #edit-left-column .form-item-field-publication-type,
-  #edit-left-column .form-item-language,
-  #edit-left-column .form-item-field-priority-area,
-  #edit-left-column .form-item-languages {
-    margin-top: 0;
-    padding-top: 10px;
-    border-bottom: none;
-    margin-bottom: 0px;
-    padding-bottom: 0px;
-    clear: both;
-    overflow: hidden;
-  }
-  #edit-left-column .form-item-relevant-for .checkbox:last-child,
-  #edit-left-column .form-item-field-publication-type .checkbox:last-child,
-  #edit-left-column .form-item-language .checkbox:last-child,
-  #edit-left-column .form-item-field-priority-area .checkbox:last-child,
-  #edit-left-column .form-item-languages .checkbox:last-child {
-    margin-bottom: 10px;
-  }
-  #edit-left-column .form-item-field-publication-type > label,
-  #edit-left-column .form-item-language > label,
-  #edit-left-column .form-item-field-priority-area > label,
-  #edit-left-column .form-item-relevant-for > label,
-  #edit-left-column .form-item-languages > label,
-  #edit-left-column .form-item-publication-type > label {
-    font-size: 20px;
-    font-weight: bold;
-    width: 100%;
-    display: block;
-    clear: both;
-    cursor: pointer;
-    background-color: #e2e2e3;
-    padding: 5px 15px;
-    font-size: 1.2em;
-    margin-bottom: 0px;
   }
   #edit-left-column #search {
     position: relative;

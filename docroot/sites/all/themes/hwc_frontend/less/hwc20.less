@@ -36,6 +36,10 @@ body{
 	color:#59595A;
 }
 
+#block-hwc-homepage-splash-title-banner-countdown{
+	margin-top: 1em;
+}
+
 select{
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -94,8 +98,8 @@ body .more-link{
 .btn-background-transparent{
 	background: transparent;
 	width: 208px;
-    color: #e5f1ac;
-    border: 3px solid #bcd75b;
+    color: #FFF;
+    border: 3px solid #FFF;
     padding: 0.6em 2.5em 0.6em 1.5em;
     border-radius: 7px;
     font-weight: 600;
@@ -205,10 +209,10 @@ body .more-link{
 		text-align: center;
 		padding-bottom: 0;
 		h1{
-			padding-top: 2em;
+			padding-top: 1.5em;
 		    border-bottom: 0;
-		    font-size: 2.2em;
-		    font-style: italic;
+		    font-size: 2.5em;
+		    font-style: normal;
 		    font-weight: 400;
 		    color:#FFF;
 		}
@@ -1140,13 +1144,17 @@ input[type="checkbox"] + label .my-checkbox{
 input[type="checkbox"]:checked + label .my-checkbox:after {
     content: "\2713";
     color: #003399;
-    padding-left: 5px;
-    padding-top: 2px;
+    padding-left: 4px;
+    padding-top: 0;
     display: block;
 }
 
 .my-checkbox{
 	float: left;
+	border:1px solid #003399;
+	width: 19px;
+    height: 19px;
+    border-radius: 5px;
 }
 
 .row-newsletter-social{
@@ -1431,7 +1439,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 
 .breadcrumb{
 	background: transparent;
-	padding: 15px 10px 5px 100px;
+	padding: 15px 10px 5px 67px;
 	list-style: none;
 	li {
 		display: inline;
@@ -1801,10 +1809,12 @@ aside.col-md-3{
 
 /* Publications List */
 
-#edit-main-tags > div > label{
-	font-size: 1.3em;
-	padding-top: 10px;
-	padding-bottom: 10px;
+#edit-main-tags{
+	margin-top: 0;
+	margin-bottom: 0;
+	> div > label{
+		font-size: 1.3em;
+	}
 }
 
 .node-article .content{
@@ -1823,11 +1833,11 @@ aside.col-md-3{
 
 .sidebars_first .content-filters{
     float: left;
-    padding: 0em 0.5em 0 1em;
-    border: 1px solid #003399;
+    padding: 0em 1em 0 1em;
+    border: 1px solid #B0B2B3;
     border-radius: 5px;
     margin-top: 26px;
-    width: 93%;
+    width: 100%;
     background: #FFF;
 }
 
@@ -1856,7 +1866,7 @@ aside.col-md-3{
 	.views-exposed-widget, .page-events .views-exposed-widget{
 	    float: left;
 	    padding-top: 0!important;
-	    width: 32.3%!important;
+	    width: 32.2%!important;
 	    margin-right: 1em;
 	}
 
@@ -2248,10 +2258,10 @@ div.publications-detail-right-column > a.download{
 }
 
 .page-publications #content, .page-events #content {
-    width: 80.1%!important;
+    width: 79.1%!important;
     border-top: 0px solid #003399;
     margin-top: 2em;
-    margin-left: 10px!important;
+    margin-left: 20px!important;
 }
 
 .content-fluid {
@@ -2331,9 +2341,14 @@ div.publications-detail-right-column > a.download{
   }
 }
 
-#edit-field-publication-type > div > label{
-	font-size: 1.8rem;
-  	color: #003399 !important;
+#edit-field-publication-type, #edit-main-tags {
+	> div > label{
+		font-size: 1.8rem;
+  		color: #003399 !important;
+	}
+	.form-checkboxes{
+		padding-top: 10px;
+	}
 }
 
 input[type=checkbox] {
@@ -2378,7 +2393,7 @@ label.option {
 
 .search-new-design, #edit-search-api-views-fulltext{
     height: 34px;
-    border: 1px solid #003399;
+    border: 1px solid #B0B2B3;
     border-radius: 5px !important;
     background: url(../images/green-search.png) no-repeat 96% 55% #FFF;
     width: 100% !important;
@@ -2398,7 +2413,6 @@ html[lang=pt] #edit-search-api-views-fulltext{
 
 .new-select-style, #edit_field_country_code_chosen, #edit-years{
     height: 100%;
-    border: 1px solid #003399 !important;
     border-radius: 5px !important;
     background: url(../images/green-select.png) no-repeat scroll 94% center #FFF !important;
     padding-left: 10px;
@@ -2410,7 +2424,6 @@ html[lang=pt] #edit-search-api-views-fulltext{
 .views-widget-filter-field_start_date_value, .views-widget-filter-field_start_date_value2{
 	input{
 		height: 100%;
-	    border: 1px solid #003399 !important;
 	    border-radius: 5px !important;
 	    background: url(../images/green-calendar.png) no-repeat scroll 94% center #FFF !important;
 	    padding-left: 10px;
@@ -2501,8 +2514,8 @@ span.pages{
 .page-publications{
 	.content-fluid{
 		h2{
-			padding-top: 0.5em;
-    		padding-bottom: 0.5em;
+			padding-top: 1em;
+    		padding-bottom: 0.3em;
 		}
 	}
 }
@@ -2890,7 +2903,6 @@ span.pages{
 		margin-bottom: 2em;
 		input{
 			height: 35px;
-			border: 1px solid #003399;
 			border-radius: 5px !important;
 			background: url(../images/green-search.png) no-repeat 96% 55% #ffffff;
 			width: 100%!important;
@@ -2907,7 +2919,6 @@ span.pages{
 			appearance: none;
 			-webkit-appearance: button;
 			background: url(../images/green-select.png) no-repeat 94% 55% #ffffff;
-			border: 1px solid #003399;
 			border-radius: 5px !important;
 			width: 100%!important;
 			float: left;
@@ -4490,6 +4501,16 @@ body{
 
 
 /* Events */
+
+.logged-in{
+	.page-events{
+		#osha-events-dates-form{
+			margin-top: 18px;
+		}
+	}
+}
+
+
 .page-events{
 
 	.region-sidebar-first .contextual-links-region{
@@ -4497,11 +4518,11 @@ body{
 	}
 
 	#osha-events-dates-form{
-		border: 2px solid #B0B1B2;
+		border: 1px solid #B0B1B2;
 		border-radius: 7px;
 		padding: 1em 0 1em 1em;
 		float: right;
-		margin-top: 33px;
+		margin-top: 34px;
 		width: 288px;
 		margin-bottom: 3em;
 		> div > span{
@@ -4514,7 +4535,6 @@ body{
 
 		input{
 			height: 100%;
-		    border: 1px solid #003399 !important;
 		    border-radius: 5px !important;
 		    background: url(../images/green-calendar.png) no-repeat scroll 94% center #FFF !important;
 		    padding-left: 10px;
@@ -5026,7 +5046,11 @@ ul[data-sa-theme="basic-green"].ui-menu{
 	a, label{
 		color: #FFF;
 		font-weight: normal;
-		font-size: 0.9em;
+		font-size: 1.2rem;
+	}
+
+	label{
+		padding-left: 0;
 	}
 
 	label:before{
@@ -5107,6 +5131,11 @@ body.press-room{
 		.hwc-share-widget{
 			padding-bottom: 2em;
 		}
+	}
+
+	.field-name-body{
+		width: 73%;
+    	padding-left: 2.2em;
 	}
 }
 
@@ -5469,7 +5498,7 @@ body.european-week{
 
 	#european_week_date{
 		color: #FFF;
-		font-size: 3.4rem;
+		font-size: 2.2em;
 	    width: 100%;
 	    text-align:center;
 	    font-weight: bold;
