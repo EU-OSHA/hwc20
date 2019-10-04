@@ -742,18 +742,6 @@ function hwc_frontend_preprocess_image_style(&$variables) {
  *   HTML for a social media icon.
  */
 
-/**
-+ * Implements theme_pager().
-+ */
-function hwc_frontend_pager($variables) {
-  // Overwrite pager links.
-  $variables['tags'][0] = '«';
-  $variables['tags'][1] = '‹';
-  $variables['tags'][3] = '›';
-  $variables['tags'][4] = '»';
-  return theme_pager($variables);
-}
-
 function hwc_frontend_pager_link($variables) {
   $text = $variables['text'];
   $page_new = $variables['page_new'];
