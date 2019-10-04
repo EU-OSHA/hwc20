@@ -551,6 +551,8 @@ jQuery(document).ready(function($) {
    	$("#edit-main-tags > div > label").removeClass('active');
    	$("#edit-field-publication-type > div > label").removeClass('active');
    	$("#edit-field-priority-area > div > label").removeClass('active');
+
+   	$("#edit-main-tags .form-checkboxes").css('display' , 'none');
    	$("#edit-field-publication-type .form-checkboxes").css('display' , 'none');
    	$("#edit-field-priority-area .form-checkboxes").css('display' , 'none');
    }

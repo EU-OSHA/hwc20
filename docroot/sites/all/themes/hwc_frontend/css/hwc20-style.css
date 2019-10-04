@@ -2237,8 +2237,8 @@ span.pages {
   color: #003399;
 }
 .page-publications .content-fluid h2 {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-top: 1em;
+  padding-bottom: 0.3em;
 }
 /* Introductory page */
 .views-row {
@@ -4948,6 +4948,9 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   body.european-week .box-before.events {
     width: 100%;
   }
+  .page-tools-and-publications #edit-left-column .content-filters {
+    margin-top: 0;
+  }
 }
 @media (min-width: 1480px) {
   .start-browsing .content-boxes {
@@ -5145,7 +5148,8 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   }
   .page-publications #content {
     margin-top: 1em;
-    width: 93.3% !important;
+    width: 95.1% !important;
+    margin-left: 9px !important;
   }
   .search-new-design {
     margin-top: 0;
