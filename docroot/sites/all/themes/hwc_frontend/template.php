@@ -747,10 +747,10 @@ function hwc_frontend_preprocess_image_style(&$variables) {
 + */
 function hwc_frontend_pager($variables) {
   // Overwrite pager links.
-  $variables['tags'][0] = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-first.png">';
-  $variables['tags'][1] = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png">';
-  $variables['tags'][3] = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-next.png">';
-  $variables['tags'][4] = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-end.png">';
+  $variables['tags'][0] = '«';
+  $variables['tags'][1] = '‹';
+  $variables['tags'][3] = '›';
+  $variables['tags'][4] = '»';
   return theme_pager($variables);
 }
 
