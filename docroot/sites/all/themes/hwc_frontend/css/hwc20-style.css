@@ -1007,14 +1007,6 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 #block-subscribe-form span {
   font-family: 'Open Sans';
 }
-.checkbox label:before,
-.checkbox input[type=checkbox]:checked:before,
-.checkbox input[type="checkbox"]:checked {
-  display: none;
-}
-input[type="checkbox"] {
-  display: none;
-}
 input[type="checkbox"] + label .my-checkbox {
   display: inline-block;
   width: 19px;
@@ -2098,9 +2090,6 @@ div.publications-detail-right-column > a.download {
 #edit-field-publication-type .form-checkboxes,
 #edit-main-tags .form-checkboxes {
   padding-top: 10px;
-}
-input[type=checkbox] {
-  display: none;
 }
 input[type=checkbox] + label {
   display: block;
@@ -4432,6 +4421,9 @@ ul[data-sa-theme="basic-green"].ui-menu {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+#block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details input[type=checkbox] {
+  display: none;
+}
 #block-osha-newsletter-osha-newsletter-events-subscribe h2 {
   background: url(../images/ico-newsletter.png) no-repeat 1px 5px;
   color: #FFF;
@@ -4916,6 +4908,9 @@ body.european-week #block-views-news-european-week {
 body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   border-bottom: 0;
   padding-bottom: 0;
+}
+.page-node-linguatools #block-system-main {
+  padding: 3em;
 }
 @media (max-width: 1200px) {
   .start-browsing {
