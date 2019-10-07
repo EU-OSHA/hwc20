@@ -71,6 +71,7 @@ function osha_newsletter_default_page_manager_handlers() {
         'children' => array(
           0 => 1,
           1 => 'main-row',
+          2 => 2,
         ),
         'parent' => 'canvas',
       ),
@@ -120,6 +121,25 @@ function osha_newsletter_default_page_manager_handlers() {
         'class' => 'col-md-12',
         'hide_empty' => 1,
       ),
+      2 => array(
+        'type' => 'row',
+        'contains' => 'region',
+        'children' => array(
+          0 => 'bottom',
+        ),
+        'parent' => 'main',
+        'class' => '',
+        'hide_empty' => 0,
+      ),
+      'bottom' => array(
+        'type' => 'region',
+        'title' => 'Bottom',
+        'width' => 100,
+        'width_type' => '%',
+        'parent' => '2',
+        'class' => 'share-bottom',
+        'hide_empty' => 0,
+      ),
     ),
   );
   $display->panel_settings = array(
@@ -128,6 +148,7 @@ function osha_newsletter_default_page_manager_handlers() {
       'center' => NULL,
       'left' => NULL,
       'title' => NULL,
+      'bottom' => NULL,
     ),
   );
   $display->cache = array();
@@ -138,6 +159,31 @@ function osha_newsletter_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
   $pane = new stdClass();
+  $pane->pid = 'new-13da2bb0-64c7-4864-bfa1-3e0097a1a771';
+  $pane->panel = 'bottom';
+  $pane->type = 'entity_field_extra';
+  $pane->subtype = 'node:share_widget';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'view_mode' => 'full',
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '13da2bb0-64c7-4864-bfa1-3e0097a1a771';
+  $display->content['new-13da2bb0-64c7-4864-bfa1-3e0097a1a771'] = $pane;
+  $display->panels['bottom'][0] = 'new-13da2bb0-64c7-4864-bfa1-3e0097a1a771';
+  $pane = new stdClass();
   $pane->pid = 'new-6d2d9e1e-9d24-49fb-a150-f65f9a820d65';
   $pane->panel = 'center';
   $pane->type = 'block';
@@ -146,7 +192,7 @@ function osha_newsletter_default_page_manager_handlers() {
   $pane->access = array();
   $pane->configuration = array(
     'override_title' => 1,
-    'override_title_text' => 'Subscribe',
+    'override_title_text' => '<none>',
     'override_title_heading' => 'h2',
   );
   $pane->cache = array();
@@ -183,41 +229,6 @@ function osha_newsletter_default_page_manager_handlers() {
   $pane->uuid = '2222cba6-cbc9-482c-b9aa-11c6e7aaee39';
   $display->content['new-2222cba6-cbc9-482c-b9aa-11c6e7aaee39'] = $pane;
   $display->panels['left'][0] = 'new-2222cba6-cbc9-482c-b9aa-11c6e7aaee39';
-  $pane = new stdClass();
-  $pane->pid = 'new-3f7319cc-a101-49fb-92e0-e71fa38ab8b3';
-  $pane->panel = 'title';
-  $pane->type = 'entity_field';
-  $pane->subtype = 'node:title_field';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'label' => 'hidden',
-    'formatter' => 'title_linked',
-    'delta_limit' => 0,
-    'delta_offset' => '0',
-    'delta_reversed' => FALSE,
-    'formatter_settings' => array(
-      'title_style' => 'h1',
-      'title_link' => '',
-      'title_class' => '',
-      'field_formatter_class' => '',
-    ),
-    'context' => 'argument_entity_id:node_1',
-    'override_title' => 0,
-    'override_title_text' => '',
-    'override_title_heading' => 'h2',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 0;
-  $pane->locks = array();
-  $pane->uuid = '3f7319cc-a101-49fb-92e0-e71fa38ab8b3';
-  $display->content['new-3f7319cc-a101-49fb-92e0-e71fa38ab8b3'] = $pane;
-  $display->panels['title'][0] = 'new-3f7319cc-a101-49fb-92e0-e71fa38ab8b3';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

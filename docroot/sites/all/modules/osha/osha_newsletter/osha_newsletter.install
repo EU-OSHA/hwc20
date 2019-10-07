@@ -256,3 +256,10 @@ function osha_newsletter_update_7012() {
     entity_save('entity_collection', $source);
   }
 }
+
+/**
+ * HW20-213HWC20 Development of the complete HWC20 Newsletter.
+ */
+function osha_newsletter_update_7013() {
+  features_revert_module('osha_newsletter');
+}
