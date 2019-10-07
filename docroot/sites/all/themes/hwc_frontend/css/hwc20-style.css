@@ -814,6 +814,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
   float: right;
   width: 100%;
   padding-left: 1em;
+  padding-right: 10px;
   word-break: break-word;
 }
 .container-recommended-tools {
@@ -5379,6 +5380,10 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
+  body.press-room .related-resources-boxes div {
+    width: 25%;
+    margin-right: 0em;
+  }
   /*Footer*/
   .footer-section {
     display: none;
@@ -6267,6 +6272,9 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   body.european-week .field-name-body {
     width: 100%;
     padding-left: 5px;
+  }
+  body.press-room .related-resources .related-resources-boxes div {
+    width: 100%;
   }
 }
 @media (max-width: 600px) {
