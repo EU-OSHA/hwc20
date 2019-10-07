@@ -5652,6 +5652,16 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
     float: none;
   }
 }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  #block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes div {
+    display: flex;
+    width: 67%;
+    margin-bottom: 1em;
+  }
+  #block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a span {
+    width: 168px;
+  }
+}
 @media (max-width: 768px) {
   .start-browsing .start-browsing-box {
     width: 309px;
