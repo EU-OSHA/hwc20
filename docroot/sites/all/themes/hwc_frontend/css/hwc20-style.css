@@ -3847,6 +3847,8 @@ body.een .panels-flexible-column-first .pane-node-field-pledge .pane-title {
   text-align: left;
   padding-left: 10px;
   color: #0030a0;
+  /*HW20-175 Become a Campaign Partner - The title of the text in boxes should be bold*/
+  font-weight: bold;
 }
 .how-to-apply .boxes p {
   color: #333;
