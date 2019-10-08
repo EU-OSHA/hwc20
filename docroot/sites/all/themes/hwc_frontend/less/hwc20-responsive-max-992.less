@@ -481,6 +481,11 @@
 			margin-left: 0 !important;
 			margin-right: 0 !important;
 		}
+
+		.related-resources-boxes div{
+			width: 25%;
+			margin-right: 0em;
+		}
 	}	
 
 	/*Footer*/
@@ -817,6 +822,20 @@
 
 	.node-type-events .group-right2 .add-to-calendar {
     	float: none;
+	}
+
+}
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { 
+	#block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes div {
+	    display: flex;
+	    width: 67%;
+	    margin-bottom: 1em;
+	}
+
+	#block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a span {
+    	width: 168px;
 	}
 
 }

@@ -902,6 +902,7 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 	   	float: right;
 	   	width: 100%;
 		padding-left: 1em;
+		padding-right: 10px;
 		word-break: break-word;
 	}
 }
@@ -1121,13 +1122,6 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 	}
 }
 
-.checkbox label:before, .checkbox input[type=checkbox]:checked:before, .checkbox input[type="checkbox"]:checked{
-	display: none;
-}
-
-input[type="checkbox"] {
-  display:none;
-}
  
 input[type="checkbox"] + label .my-checkbox{
     display: inline-block;
@@ -2351,9 +2345,6 @@ div.publications-detail-right-column > a.download{
 	}
 }
 
-input[type=checkbox] {
-    display: none;
-}
 
 input[type=checkbox] + label {
     display: block;
@@ -3000,7 +2991,6 @@ div.workbench-info-block{
 				padding: 0;
 				margin-bottom: 0.5em;
 				.nolink{
-					border: 2px solid;
 					padding: 10px 15px;
 					display: block;
 					margin-bottom: 15px;
@@ -5027,6 +5017,10 @@ ul[data-sa-theme="basic-green"].ui-menu{
 		    border-top-right-radius: 5px;
 		    border-bottom-right-radius: 5px;
     	}
+
+    	input[type=checkbox] {
+    		display: none;
+    	}
     }
 
 	h2{
@@ -5542,5 +5536,12 @@ body.european-week{
 			border-bottom: 0;
 			padding-bottom: 0;
 		}
+	}
+}
+
+
+.page-node-linguatools{
+	#block-system-main{
+		padding: 3em;
 	}
 }
