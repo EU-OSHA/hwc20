@@ -6167,6 +6167,24 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
     border-left: 1px solid #CCC !important;
     border-right: 1px solid #CCC !important;
   }
+  /*HW20-201 Mobile Become media partner - Media partners are not displayed*/
+  #block-views-partners-block-2 {
+    padding-left: 4em;
+  }
+  #block-views-partners-block-2 h2 {
+    padding-left: 0;
+    margin-left: 0;
+  }
+  #block-views-partners-block-2 .views-row.hidden-xs {
+    display: block !important;
+    float: left;
+    width: 35%;
+  }
+  #block-views-partners-block-2 .view-partners div .views-field {
+    border-top: none !important;
+    border-left: 1px solid #CCC !important;
+    border-right: 1px solid #CCC !important;
+  }
   .page-events .region-sidebar-first .contextual-links-region {
     margin-top: 0;
   }
@@ -6369,6 +6387,10 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
     padding: 0;
   }
   #block-views-partners-block-3 .views-row.hidden-xs {
+    width: 47%;
+  }
+  /*HW20-201 Mobile Become media partner - Media partners are not displayed*/
+  #block-views-partners-block-2 .views-row.hidden-xs {
     width: 47%;
   }
   body.press-room h2.block-title {
