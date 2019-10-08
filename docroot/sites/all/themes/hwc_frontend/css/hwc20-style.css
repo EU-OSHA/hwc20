@@ -4912,6 +4912,11 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 .page-node-linguatools #block-system-main {
   padding: 3em;
 }
+/* HW20-211 HWC20 Development of the complete HWC20 Social Media Social media centre*/
+.page-social-media-centre .view-id-social_dashboard .view-footer .more-link {
+  background: none !important;
+  max-width: 245px !important;
+}
 @media (max-width: 1200px) {
   .start-browsing {
     background: url(../images/background-start-browsing.png) repeat-y;
