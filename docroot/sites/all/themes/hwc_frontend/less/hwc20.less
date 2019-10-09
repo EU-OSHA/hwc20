@@ -5560,3 +5560,77 @@ body.european-week{
 		}
 	}
 }
+
+
+/* Responsive pagination */
+
+.pager{
+	margin-top: 13px;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd){
+	background: transparent;
+}
+
+.pagerer-center{
+	display: none;
+}
+
+.pager li, .pagination .active > a, .pager .active > a, .pagination .active > span, .pager .active > span, .pagination .active > a:hover, .pager .active > a:hover, .pagination .active > span:hover, .pager .active > span:hover, .pagination .active > a:focus, .pager .active > a:focus, .pagination .active > span:focus, .pager .active > span:focus{
+	color: #99a7c1;
+	font-size: 1.1em;
+}
+
+.pagination li.pager-current, .pager li.pager-current{
+	color: #003399;
+	font-size: 1.1em;
+}
+
+.pager-first.active, .pager-previous.active, .pager-next.active, .pager-last.active{
+	a{
+		color: #003399;
+		font-size: 1.1em;
+		text-indent:-9999px;
+		padding-top: 0;
+	}
+}
+
+.pager-first a:before{
+	content:'';
+	display: block;
+	background: url(../images/pagination-first.png) 0px 7px no-repeat;
+	width: 13px;
+	height: 30px;
+	float: left;
+	text-indent: -99999px;
+}
+
+.pager-previous a:before{
+	content:'';
+	display: block;
+	background: url(../images/pagination-previous.png) 0px 7px no-repeat;
+	width: 7px;
+	height: 30px;
+	float: left;
+	text-indent: -99999px;
+}
+
+.pager-next a:before{
+	content:'';
+	display: block;
+	background: url(../images/pagination-next.png) 0px 7px no-repeat;
+	width: 7px;
+	height: 30px;
+	float: left;
+	text-indent: -99999px;
+}
+
+.pager-last a:before{
+	content:'';
+	display: block;
+	background: url(../images/pagination-last.png) 0px 7px no-repeat;
+	width: 13px;
+	height: 30px;
+	float: left;
+	text-indent: -99999px;
+}
