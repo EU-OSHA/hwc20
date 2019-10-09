@@ -2307,23 +2307,6 @@ div.publications-detail-right-column > a.download{
     }
 }
 
-.publications-row.first{
-	margin-top: 1em;
-}
-
-.page-publications{
-	#content{
-			> div:nth-child(7){
-		    	margin-bottom: 0;
-		    &:after{
-		    	background: none;
-		    	margin-bottom: 0;
-		    }
-		} 
-	}
-}
-
-
 .sidebars_first{
   label{
     color: #003399 !important;
@@ -5569,6 +5552,10 @@ body.european-week{
 
 /* Responsive pagination */
 
+.table-responsive{
+	clear: both;
+}
+
 .pager{
 	margin-top: 13px;
 	margin-bottom: 0;
@@ -5585,11 +5572,13 @@ body.european-week{
 .pager li, .pagination .active > a, .pager .active > a, .pagination .active > span, .pager .active > span, .pagination .active > a:hover, .pager .active > a:hover, .pagination .active > span:hover, .pager .active > span:hover, .pagination .active > a:focus, .pager .active > a:focus, .pagination .active > span:focus, .pager .active > span:focus{
 	color: #99a7c1;
 	font-size: 1.1em;
+	background-color: transparent;
 }
 
 .pagination li.pager-current, .pager li.pager-current{
 	color: #003399;
 	font-size: 1.1em;
+	background-color: transparent;
 }
 
 .pager-first.active, .pager-previous.active, .pager-next.active, .pager-last.active{

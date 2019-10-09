@@ -2062,16 +2062,6 @@ div.publications-detail-right-column > a.download {
   bottom: -36px;
   left: 5%;
 }
-.publications-row.first {
-  margin-top: 1em;
-}
-.page-publications #content > div:nth-child(7) {
-  margin-bottom: 0;
-}
-.page-publications #content > div:nth-child(7):after {
-  background: none;
-  margin-bottom: 0;
-}
 .sidebars_first label {
   color: #003399 !important;
   font-family: "Open Sans" !important;
@@ -4920,6 +4910,9 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   max-width: 245px !important;
 }
 /* Responsive pagination */
+.table-responsive {
+  clear: both;
+}
 .pager {
   margin-top: 13px;
   margin-bottom: 0;
@@ -4945,11 +4938,13 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 .pager .active > span:focus {
   color: #99a7c1;
   font-size: 1.1em;
+  background-color: transparent;
 }
 .pagination li.pager-current,
 .pager li.pager-current {
   color: #003399;
   font-size: 1.1em;
+  background-color: transparent;
 }
 .pager-first.active a,
 .pager-previous.active a,
