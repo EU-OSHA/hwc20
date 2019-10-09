@@ -325,7 +325,7 @@
 		}
 	}
 
-	.box-news div.news-item:nth-child(2) .news-item-content {
+	.box-news div.news-item:nth-child(2) .news-item-content{
 	    margin-left: 0em;
 	    margin-right: 0;
 	    margin-top: 1em;
@@ -606,6 +606,27 @@
 	    	border-right: 1px solid #CCC !important;
 		}
 	}
+
+	/*HW20-201 Mobile Become media partner - Media partners are not displayed*/
+	#block-views-partners-block-2{
+		padding-left: 4em;
+		h2{
+			padding-left: 0;
+    		margin-left: 0;
+		}
+
+		.views-row.hidden-xs{
+			display: block !important;
+		    float: left;
+		    width: 35%; 
+		}
+
+		.view-partners div .views-field {
+	    	border-top: none !important;
+	    	border-left: 1px solid #CCC !important;
+	    	border-right: 1px solid #CCC !important;
+		}
+	}
 	
 
 	.page-events{
@@ -774,7 +795,17 @@
 			}
 		}
 	}
-	
+
+	.table-responsive{
+		border: 0;
+		.pagerer-left{
+			display: none;
+		}
+
+		.pagerer-center{
+			display: block;
+		}
+	}
 
 }
 
