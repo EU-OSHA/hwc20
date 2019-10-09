@@ -369,12 +369,11 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'news':
-        $link_title = t('Back to news');
         $link_href = 'media-centre/news';
-        $tag_vars['element']['#value'] = t('News');
+        $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to news') . '</span>';
         $vars['page']['above_title']['title-alternative'] = array(
           '#type' => 'item',
-          '#markup' => theme('html_tag', $tag_vars),
+          '#markup' => '<div class="back-to-news">'.l($back_text, $link_href, ['html' => TRUE]).'</div>',
         );
         break;
 
