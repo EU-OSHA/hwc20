@@ -418,6 +418,22 @@ function osha_events_popup_date_process($element, &$form_state, $form) {
  * Implements hook_node_view().
  */
 function osha_events_node_view($node, $view_mode, $langcode) {
+  if ($node->type == 'news') {
+    if (!empty($node->preprocess_fields)) {
+      foreach ($node->preprocess_fields as $field_name) {
+        switch ($field_name) {
+          case 'back_to_list':
+            $link_href = 'media-centre/news';
+            $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to news') . '</span>';
+            $node->content[$field_name] = array(
+              '#markup' => '<div class="back-to-events back-to-news">'.l($back_text, $link_href, ['html' => TRUE]).'</div>',
+            );
+            break;
+        }
+      }
+    }
+  }
+
   if ($node->type == 'events') {
     drupal_add_js(array('osha_events' => array('add_to_calendar' => t('Add to my calendar'))), 'setting');
     drupal_add_js(drupal_get_path('module', 'osha_events') . '/js/ouical.min.js');

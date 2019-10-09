@@ -368,15 +368,6 @@ function hwc_frontend_preprocess_page(&$vars) {
         );
         break;
 
-      case 'news':
-        $link_href = 'media-centre/news';
-        $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to news') . '</span>';
-        $vars['page']['above_title']['title-alternative'] = array(
-          '#type' => 'item',
-          '#markup' => '<div class="back-to-news">'.l($back_text, $link_href, ['html' => TRUE]).'</div>',
-        );
-        break;
-
       case 'infographic':
         $link_title = t('Back to infographics list');
         $link_href = 'infographics';
