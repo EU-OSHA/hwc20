@@ -2062,6 +2062,12 @@ div.publications-detail-right-column > a.download {
   bottom: -36px;
   left: 5%;
 }
+.publications-row.last {
+  margin-bottom: 0em;
+}
+.publications-row.last:after {
+  background: none;
+}
 .sidebars_first label {
   color: #003399 !important;
   font-family: "Open Sans" !important;
