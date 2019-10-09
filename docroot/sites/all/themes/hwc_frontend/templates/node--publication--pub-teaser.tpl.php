@@ -16,7 +16,7 @@ if ($pages_count) {
   $pages_count .= ' ' . t('pages');
 }
 ?>
-<div class="publications-row">
+<div class="publications-row <?php echo $row_class; ?>">
     <div class="publications-left-column visible-md visible-lg">
       <?php print render($content['field_cover_image']); ?>
     </div>

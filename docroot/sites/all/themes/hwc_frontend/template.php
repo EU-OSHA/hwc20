@@ -650,6 +650,11 @@ function hwc_frontend_preprocess_field(&$variables) {
 }
 
 function hwc_frontend_preprocess_node(&$vars) {
+  $map = osha_publications_classes();
+  $vars['row_class'] = '';
+  if (@$map[$vars['nid']]) {
+    $vars['row_class'] = $map[$vars['nid']];
+  }
   // Remove napo film image.
   if ($vars['view_mode'] == 'full' && $vars['nid'] == 160) {
     unset($vars['content']['field_image']);

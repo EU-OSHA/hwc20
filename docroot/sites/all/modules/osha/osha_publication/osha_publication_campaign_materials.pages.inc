@@ -92,6 +92,10 @@ function osha_publication_menu_campaign_materials_faceted_form($variables) {
     if (!empty($text)) {
       $pager_params['text'] = $text;
     }
+    if ($nodes) {
+      $data = [end(array_keys($nodes)) => 'last', reset(array_keys($nodes)) => 'first'];
+      osha_publications_classes($data);
+    }
     $form['content']['results-native'] = array(
       '#nids' => $nids,
       'results-native' => node_view_multiple($nodes, 'pub_teaser', 0, $language->language),
