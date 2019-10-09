@@ -2065,12 +2065,12 @@ div.publications-detail-right-column > a.download {
 .publications-row.first {
   margin-top: 1em;
 }
-.publications-row.last {
-  border: none;
+.page-publications #content > div:nth-child(7) {
   margin-bottom: 0;
 }
-.publications-row.last:after {
+.page-publications #content > div:nth-child(7):after {
   background: none;
+  margin-bottom: 0;
 }
 .sidebars_first label {
   color: #003399 !important;
@@ -2225,7 +2225,7 @@ span.pages {
   color: #003399;
 }
 .page-publications .content-fluid h2 {
-  padding-top: 1em;
+  padding-top: 0.5em;
   padding-bottom: 0.3em;
 }
 /* Introductory page */
@@ -4922,6 +4922,7 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 /* Responsive pagination */
 .pager {
   margin-top: 13px;
+  margin-bottom: 0;
 }
 .table-striped > tbody > tr:nth-of-type(odd) {
   background: transparent;

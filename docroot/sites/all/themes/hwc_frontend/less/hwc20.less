@@ -2311,13 +2311,18 @@ div.publications-detail-right-column > a.download{
 	margin-top: 1em;
 }
 
-.publications-row.last {
-    border:none;
-    margin-bottom: 0;
-    &:after{
-		background: none;
-    }
+.page-publications{
+	#content{
+			> div:nth-child(7){
+		    	margin-bottom: 0;
+		    &:after{
+		    	background: none;
+		    	margin-bottom: 0;
+		    }
+		} 
+	}
 }
+
 
 .sidebars_first{
   label{
@@ -2505,7 +2510,7 @@ span.pages{
 .page-publications{
 	.content-fluid{
 		h2{
-			padding-top: 1em;
+			padding-top: 0.5em;
     		padding-bottom: 0.3em;
 		}
 	}
@@ -5566,6 +5571,7 @@ body.european-week{
 
 .pager{
 	margin-top: 13px;
+	margin-bottom: 0;
 }
 
 .table-striped > tbody > tr:nth-of-type(odd){
