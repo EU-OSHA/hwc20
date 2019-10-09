@@ -4115,6 +4115,9 @@ body.een .panels-flexible-column-first .pane-node-field-pledge .pane-title {
   padding-top: 0px;
   margin-top: -2em;
 }
+.add-to-calendar input[type=checkbox] {
+  display: none;
+}
 .add-to-my-calendar label {
   color: #003399;
   cursor: pointer;
