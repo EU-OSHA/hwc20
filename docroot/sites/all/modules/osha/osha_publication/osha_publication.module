@@ -19,6 +19,14 @@ if (!defined('PCLZIP_TEMPORARY_DIR')) {
 }
 define('THEME_IMAGES_PATH', drupal_get_path('theme', 'hwc_frontend') . '/images');
 
+function osha_publications_classes($data = null) {
+  static $map = [];
+  if ($data) {
+    $map = $data;
+  }
+  return $map;
+}
+
 function osha_publication_download_pdf($node) {
   $files = array();
   $nid = $node->nid;

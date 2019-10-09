@@ -302,6 +302,20 @@ function hwc_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['page_share_widget_top'] = array(
+    'info' => t('Page share widget'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['page_share_widget_bottom'] = array(
+    'info' => t('Page share widget'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   $blocks['hwc_print_friendly'] = array(
     'info' => t('HWC Print friendly'),
     'status' => 1,
@@ -330,6 +344,14 @@ function hwc_block_info() {
   return $blocks;
 }
 
+function hwc_european_week_events($num = 0) {
+  static $events = 0;
+  if ($num) {
+    $events = $num;
+  }
+  return $events;
+}
+
 /**
  * Implements hook_block_view().
  *
@@ -350,18 +372,30 @@ function hwc_block_view($delta = '') {
   global $language;
   $block = array();
   if ($delta == 'european_week_news_events') {
-    $data = [];
-
     $news = block_load('views', 'news-european_week');
     $array = _block_get_renderable_array(_block_render_blocks([$news]));
     $news = render($array);
 
     $events = block_load('views', 'frontpage_events-european_week');
     $array = _block_get_renderable_array(_block_render_blocks([$events]));
-    $events = render($array);
+    if (hwc_european_week_events()) {
+      $events = render($array);
+    }
+    else {
+      $events = [];
+    }
+
     $block['content'] = theme('european_week_news_events', ['events' => $events, 'news' => $news]);
   }
   if ($delta == 'page_share_widget') {
+    $block['title'] = '<none>';
+    $block['content'] = hwc_page_share_widget();
+  }
+  if ($delta == 'page_share_widget_top') {
+    $block['title'] = '<none>';
+    $block['content'] = hwc_page_share_widget();
+  }
+  if ($delta == 'page_share_widget_bottom') {
     $block['title'] = '<none>';
     $block['content'] = hwc_page_share_widget();
   }

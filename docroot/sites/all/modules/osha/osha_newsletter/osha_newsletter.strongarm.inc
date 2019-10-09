@@ -87,6 +87,27 @@ function osha_newsletter_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'newsletters_no';
+  $strongarm->value = '1';
+  $export['newsletters_no'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'newsletter_items_date_enable';
+  $strongarm->value = 0;
+  $export['newsletter_items_date_enable'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'newsletter_items_no';
+  $strongarm->value = '0';
+  $export['newsletter_items_no'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'osha_newsletter_after_max_nodes';
   $strongarm->value = '19';
   $export['osha_newsletter_after_max_nodes'] = $strongarm;

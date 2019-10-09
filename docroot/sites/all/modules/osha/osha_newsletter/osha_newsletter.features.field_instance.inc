@@ -178,6 +178,7 @@ function osha_newsletter_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'field_formatter_class' => '',
           'link' => FALSE,
         ),

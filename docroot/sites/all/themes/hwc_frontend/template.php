@@ -650,6 +650,11 @@ function hwc_frontend_preprocess_field(&$variables) {
 }
 
 function hwc_frontend_preprocess_node(&$vars) {
+  $map = osha_publications_classes();
+  $vars['row_class'] = '';
+  if (@$map[$vars['nid']]) {
+    $vars['row_class'] = $map[$vars['nid']];
+  }
   // Remove napo film image.
   if ($vars['view_mode'] == 'full' && $vars['nid'] == 160) {
     unset($vars['content']['field_image']);
@@ -741,18 +746,6 @@ function hwc_frontend_preprocess_image_style(&$variables) {
  * @return
  *   HTML for a social media icon.
  */
-
-/**
-+ * Implements theme_pager().
-+ */
-function hwc_frontend_pager($variables) {
-  // Overwrite pager links.
-  $variables['tags'][0] = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-first.png">';
-  $variables['tags'][1] = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png">';
-  $variables['tags'][3] = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-next.png">';
-  $variables['tags'][4] = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-end.png">';
-  return theme_pager($variables);
-}
 
 function hwc_frontend_pager_link($variables) {
   $text = $variables['text'];

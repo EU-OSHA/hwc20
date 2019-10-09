@@ -1,8 +1,8 @@
 {
   "cdb": {
     "host": "https://jira.osha.europa.eu",
-    "port": ":8081",
-    "resource": "/OshaService/ServiceApp.svc/",
+    "port": ":8083",
+    "resource": "/OshaService/OSHAService.svc/",
     "debug": "false",
     "debug_folder": "mvc/model/cdb/",
     "dropdown_methods": {

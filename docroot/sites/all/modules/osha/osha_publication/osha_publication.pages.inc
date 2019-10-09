@@ -346,6 +346,10 @@ function osha_publication_menu_publications_native_results($form_state, $results
     'quantity' => 9,
     'parameters' => $pager_params,
   ]);
+  if ($nodes) {
+    $data = [end(array_keys($nodes)) => 'last', reset(array_keys($nodes)) => 'first'];
+    osha_publications_classes($data);
+  }
   $ret = array(
     '#nids' => $nids,
     '#shown' => count($nodes),
@@ -424,7 +428,6 @@ function osha_publication_menu_publications_search_related($form_state, $native_
     $pager_params['text'] = $text;
   }
   $pager = theme('pager', array(
-    'tags' => array('<', '<', '', '>', '>'),
     'quantity' => 9,
     'parameters' => $pager_params,
     'element' => 1,

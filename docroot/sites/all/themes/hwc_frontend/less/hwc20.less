@@ -2307,18 +2307,6 @@ div.publications-detail-right-column > a.download{
     }
 }
 
-.publications-row.first{
-	margin-top: 1em;
-}
-
-.publications-row.last {
-    border:none;
-    margin-bottom: 0;
-    &:after{
-		background: none;
-    }
-}
-
 .sidebars_first{
   label{
     color: #003399 !important;
@@ -2505,7 +2493,7 @@ span.pages{
 .page-publications{
 	.content-fluid{
 		h2{
-			padding-top: 1em;
+			padding-top: 0.5em;
     		padding-bottom: 0.3em;
 		}
 	}
@@ -4357,6 +4345,8 @@ body{
 		    text-align: left;
 		    padding-left: 10px;
 		    color: #0030a0;
+		    /*HW20-175 Become a Campaign Partner - The title of the text in boxes should be bold*/
+			font-weight: bold;
 		}
 
 		p{
@@ -5544,4 +5534,98 @@ body.european-week{
 	#block-system-main{
 		padding: 3em;
 	}
+}
+
+
+/* HW20-211 HWC20 Development of the complete HWC20 Social Media Social media centre*/
+.page-social-media-centre { 
+	.view-id-social_dashboard {
+		.view-footer {
+			.more-link{
+				background: none !important;
+				max-width: 245px !important;
+			}
+		}
+	}
+}
+
+
+/* Responsive pagination */
+
+.table-responsive{
+	clear: both;
+}
+
+.pager{
+	margin-top: 13px;
+	margin-bottom: 0;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd){
+	background: transparent;
+}
+
+.pagerer-center{
+	display: none;
+}
+
+.pager li, .pagination .active > a, .pager .active > a, .pagination .active > span, .pager .active > span, .pagination .active > a:hover, .pager .active > a:hover, .pagination .active > span:hover, .pager .active > span:hover, .pagination .active > a:focus, .pager .active > a:focus, .pagination .active > span:focus, .pager .active > span:focus{
+	color: #99a7c1;
+	font-size: 1.1em;
+	background-color: transparent;
+}
+
+.pagination li.pager-current, .pager li.pager-current{
+	color: #003399;
+	font-size: 1.1em;
+	background-color: transparent;
+}
+
+.pager-first.active, .pager-previous.active, .pager-next.active, .pager-last.active{
+	a{
+		color: #003399;
+		font-size: 1.1em;
+		text-indent:-9999px;
+		padding-top: 0;
+	}
+}
+
+.pager-first a:before{
+	content:'';
+	display: block;
+	background: url(../images/pagination-first.png) 0px 7px no-repeat;
+	width: 13px;
+	height: 30px;
+	float: left;
+	text-indent: -99999px;
+}
+
+.pager-previous a:before{
+	content:'';
+	display: block;
+	background: url(../images/pagination-previous.png) 0px 7px no-repeat;
+	width: 7px;
+	height: 30px;
+	float: left;
+	text-indent: -99999px;
+}
+
+.pager-next a:before{
+	content:'';
+	display: block;
+	background: url(../images/pagination-next.png) 0px 7px no-repeat;
+	width: 7px;
+	height: 30px;
+	float: left;
+	text-indent: -99999px;
+}
+
+.pager-last a:before{
+	content:'';
+	display: block;
+	background: url(../images/pagination-last.png) 0px 7px no-repeat;
+	width: 13px;
+	height: 30px;
+	float: left;
+	text-indent: -99999px;
 }

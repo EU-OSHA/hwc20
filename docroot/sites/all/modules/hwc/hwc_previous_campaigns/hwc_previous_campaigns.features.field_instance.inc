@@ -1597,7 +1597,7 @@ function hwc_previous_campaigns_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 1,
+      'weight' => 3,
     ),
     'workbench_access_field' => 0,
   );
@@ -1658,7 +1658,7 @@ function hwc_previous_campaigns_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 2,
+      'weight' => 4,
     ),
     'workbench_access_field' => 0,
   );
@@ -1698,7 +1698,7 @@ function hwc_previous_campaigns_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 3,
+      'weight' => 5,
     ),
     'workbench_access_field' => 0,
   );
