@@ -1418,9 +1418,11 @@ aside.col-md-3 .region.region-sidebar-first.well {
   width: 100%;
 }
 .share-this {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 1em;
+  /*
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 1em;
+  	*/
 }
 .share-this .share-this-text {
   padding: 0;
@@ -2311,6 +2313,7 @@ span.pages {
   font-style: italic;
   font-weight: 400;
   padding-top: 1em;
+  clear: both;
 }
 .publication-detail .publications-row {
   border-bottom: 0;
@@ -2562,6 +2565,14 @@ span.pages {
 .page-media-centre-news .main-container #block-system-main .view .views-row .views-field-field-file .views-label,
 .page-search .main-container #block-system-main .view .views-row .views-field-field-file .views-label {
   font-weight: bold;
+}
+.page-media-centre-news .main-container #block-system-main .view .views-row-last,
+.page-search .main-container #block-system-main .view .views-row-last {
+  margin-bottom: 1em;
+}
+.page-media-centre-news .main-container #block-system-main .view .views-row-last:after,
+.page-search .main-container #block-system-main .view .views-row-last:after {
+  background: none;
 }
 .page-search .views-row img {
   border: 0;

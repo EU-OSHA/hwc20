@@ -1585,9 +1585,11 @@ aside.col-md-3{
 }
 
 .share-this{
+	/*
 	display: flex;
 	justify-content: flex-end;
 	margin-bottom: 1em;
+  	*/
   	.share-this-text{
   		padding: 0;
   	span{
@@ -2603,6 +2605,7 @@ span.pages{
 		font-style: italic;
 		font-weight: 400;
 		padding-top: 1em;
+		clear: both;
 	}
 	.publications-row{
 		border-bottom:0;
@@ -2852,6 +2855,13 @@ span.pages{
 							font-weight: bold;
 						}
 					}
+				}
+
+				.views-row-last{
+					margin-bottom: 1em;
+					&:after{
+						background: none;
+					}	
 				}
 			}
 		}
