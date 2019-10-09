@@ -1407,6 +1407,9 @@ aside.col-md-3 .region.region-sidebar-first.well {
   right: 0;
   top: 10%;
 }
+#block-menu-block-5 ul a:before {
+  content: none;
+}
 .main-container div.contextual-links-wrapper {
   left: 5px;
   right: auto;
