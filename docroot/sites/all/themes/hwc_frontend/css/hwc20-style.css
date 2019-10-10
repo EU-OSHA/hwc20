@@ -142,6 +142,11 @@ body .more-link:before {
   background: url(../images/ico-plus-20-hover.png) no-repeat 99% 2px #8fc900;
   text-decoration: none;
 }
+.back-to-events span,
+.back-links span {
+  margin-left: 0.5em;
+  font-weight: bold;
+}
 .main-container h2 {
   color: #003399;
 }
@@ -4176,10 +4181,6 @@ body.een .panels-flexible-column-first .pane-node-field-pledge .pane-title {
   clear: both;
   font-style: normal;
   font-weight: 500;
-}
-.node-type-events .back-to-events span {
-  margin-left: 0.5em;
-  font-weight: bold;
 }
 .node-type-events .content-left-column {
   width: 70%;
