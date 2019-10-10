@@ -329,7 +329,6 @@ function hwc_frontend_preprocess_page(&$vars) {
       case "tk_tool":
       case "tk_example":
       case "tk_topic":
-        $vars['show_title'] = FALSE;
         $vars['page']['content']['#post_render'][] = 'hwc_content_post_render_add_classes';
         break;
 
