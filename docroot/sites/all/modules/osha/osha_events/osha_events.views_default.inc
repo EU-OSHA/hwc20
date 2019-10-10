@@ -3694,6 +3694,7 @@ function osha_events_views_default_views() {
   $handler->display->display_options['filters']['field_country_code']['expose']['label'] = 'Country';
   $handler->display->display_options['filters']['field_country_code']['expose']['operator'] = 'field_country_code_op';
   $handler->display->display_options['filters']['field_country_code']['expose']['identifier'] = 'field_country_code';
+  $handler->display->display_options['filters']['field_country_code']['expose']['multiple'] = TRUE;
   $handler->display->display_options['filters']['field_country_code']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,

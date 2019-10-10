@@ -418,6 +418,23 @@ function osha_events_popup_date_process($element, &$form_state, $form) {
  * Implements hook_node_view().
  */
 function osha_events_node_view($node, $view_mode, $langcode) {
+  if ($node->type == 'news') {
+    if (!empty($node->preprocess_fields)) {
+      foreach ($node->preprocess_fields as $field_name) {
+        switch ($field_name) {
+          case 'back_to_list':
+          case 'bottom_back_to_list':
+            $link_href = 'media-centre/news';
+            $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to news') . '</span>';
+            $node->content[$field_name] = array(
+              '#markup' => '<div class="back-links">' . l($back_text, $link_href, ['html' => TRUE]) . '</div>',
+            );
+            break;
+        }
+      }
+    }
+  }
+
   if ($node->type == 'events') {
     drupal_add_js(array('osha_events' => array('add_to_calendar' => t('Add to my calendar'))), 'setting');
     drupal_add_js(drupal_get_path('module', 'osha_events') . '/js/ouical.min.js');
@@ -436,10 +453,10 @@ function osha_events_node_view($node, $view_mode, $langcode) {
             if ($date) {
               $date_object = new DateObject($date['value'], new DateTimeZone($date['timezone_db']));
               $date_object->setTimezone(new DateTimeZone($date['timezone']));
-              $start_date = date_format_date($date_object, 'custom', 'm/d/Y H:i:s');
+              $start_date = date_format_date($date_object, 'custom', 'm/d/Y') . ' ' . variable_get('add_calendar_start_date', '08:00:00');
               $date_object = new DateObject($date['value2'], new DateTimeZone($date['timezone_db']));
               $date_object->setTimezone(new DateTimeZone($date['timezone']));
-              $end_date = date_format_date($date_object, 'custom', 'm/d/Y H:i:s');
+              $end_date = date_format_date($date_object, 'custom', 'm/d/Y') . ' ' . variable_get('add_calendar_end_date', '18:00:00');
               if ($end_date && $date['value'] > date('Y-m-d H:i:s')) {
                 $description = str_replace("'", "", strip_tags(substr($body, 0, 255)));
                 $add_to_calendar = theme('event_add_to_calendar', array(
@@ -456,6 +473,7 @@ function osha_events_node_view($node, $view_mode, $langcode) {
             );
             break;
           case 'back_to_list':
+          case 'bottom_back_to_list':
             $link_href = 'media-centre/events';
             $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to events list') . '</span>';
             $node->content[$field_name] = array(
