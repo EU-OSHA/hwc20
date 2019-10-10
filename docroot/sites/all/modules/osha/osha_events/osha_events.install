@@ -291,3 +291,10 @@ function osha_events_update_7023() {
 function osha_events_update_7024() {
   features_revert_module('osha_events');
 }
+
+/**
+ * HW20-181 Events detail - Share this on is not displayed at the button of the screen.
+ */
+function osha_events_update_7025() {
+  features_revert_module('osha_events');
+}
