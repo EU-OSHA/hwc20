@@ -1334,7 +1334,6 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 }
 .page_title {
   background: url(../images/banner-background-article.png);
-  height: 185px;
   padding-top: 0;
   margin-bottom: 2em;
 }
@@ -1352,9 +1351,6 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   align-items: flex-end;
   justify-content: center;
   padding-bottom: 25px;
-}
-.title-section {
-  min-height: 185px;
 }
 .content {
   margin-top: 3em;
