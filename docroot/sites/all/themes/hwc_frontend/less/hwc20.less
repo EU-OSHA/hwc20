@@ -1357,14 +1357,8 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 	padding: 1em 0;
 	margin: 0;
 	list-style: none;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-  -webkit-flex-flow: row wrap;
-	justify-content: space-around;
-
+	display: block;
+	width: 100%;
 	div{
 		flex-grow: 1;
 		.views-field{
@@ -1395,7 +1389,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 }
 
 .footer{
-  margin-top: 0;
+  margin-top: 3em;
   height: auto;
   padding-bottom: 15px;
   a{
@@ -1405,6 +1399,25 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   		color:#FFF;
   	}
   }
+}
+
+.footer.fix-margin{
+	margin-top: 0;
+}
+
+.node-type-campaign-16, .node-type-campaign-18{
+	.footer.fix-margin{
+		margin-top: 3em;
+	}
+}
+
+.page-tools-and-publications, .page-tools-and-publications-campaign-materials, .page-media-centre-news{
+	.grey-background{
+		padding-bottom: 1em;
+	}
+	.footer{
+		margin-top: 0;
+	}
 }
 
 .footer-section{
@@ -1679,7 +1692,7 @@ aside.col-md-3{
   	border-top: 1px solid black;
   	margin-top: 2em;
   	padding-top: 1.3em;
-  	padding-bottom: 1em;
+  	padding-bottom: 0;
 	a{
 		align-self: center;
 	}
@@ -1697,7 +1710,7 @@ aside.col-md-3{
   	border-top: 1px solid black;
   	margin-top: 2em;
   	padding-top: 1.3em;
-  	padding-bottom: 1em;
+  	padding-bottom: 0;
 	a{
 		align-self: center;
 	}
@@ -2286,7 +2299,6 @@ div.publications-detail-right-column > a.download{
     position: relative;
     width: 100%;
     float: left;
-    padding-bottom: 3em;
 }
 
 .content-fluid.green-background{
@@ -2329,6 +2341,12 @@ div.publications-detail-right-column > a.download{
 		left: 5%;
     
     }
+}
+
+.node-type-publication{
+	.publications-row{
+		margin-bottom: 0;
+	}
 }
 
 .publications-row.last{
@@ -2632,6 +2650,7 @@ span.pages{
 	.publications-row{
 		border-bottom:0;
 		margin-top: 2em;
+    	padding: 0;
 		.download{
 			margin-top: 2em;
 			float: left;
@@ -2803,6 +2822,7 @@ span.pages{
 					.field-name-field-summary{
 						font-weight: normal;
 						margin-top: 0;
+						padding-bottom: 2em;
 					}
 					.field-name-body{
 						padding-bottom: 2em;
@@ -3240,7 +3260,6 @@ div.workbench-info-block{
 
 .view-id-partners_list{
 	float: left;
-	padding-bottom: 2em;
 	font-size: 1em;
 	font-style: normal;
 	font-weight: normal;
@@ -3494,7 +3513,6 @@ div.workbench-info-block{
 }
 
 .profile-2-cols-container-3{
-	padding-bottom: 2em;
 	.profile-col-left-3{
 		h2.pane-title{
 			background: url(../images/mpp-create-news.png) 50% 4% no-repeat;
@@ -5024,8 +5042,6 @@ ul[data-sa-theme="basic-green"].ui-menu{
     width: 288px;
     float: right;
     height: 100%;
-    margin-bottom: 2em;
-
     #edit-subscribe-details{
     	text-align: left !important;
     	padding-top: 1.5em;
@@ -5147,12 +5163,6 @@ ul[data-sa-theme="basic-green"].ui-menu{
 
 /* Press room */
 body.press-room{
-	aside.col-md-8.col-xs-12{
-		.hwc-share-widget{
-			padding-bottom: 2em;
-		}
-	}
-
 	.field-name-body{
 		width: 73%;
     	padding-left: 2.2em;
@@ -5668,7 +5678,7 @@ body.european-week{
 
 
 /* Pagination for right columns views, display responsive pagination */
-.panels-flexible-row{
+.view-partner-content{
 	.pagerer-center{
 		display: block;
 		ul.pager{
