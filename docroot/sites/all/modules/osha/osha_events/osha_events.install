@@ -298,3 +298,10 @@ function osha_events_update_7024() {
 function osha_events_update_7025() {
   features_revert_module('osha_events');
 }
+
+/**
+ * HW20-180 Event list- Country filter - Not possible to select more than one country.
+ */
+function osha_events_update_7026() {
+  features_revert(array('osha_events' => array('views_view')));
+}
