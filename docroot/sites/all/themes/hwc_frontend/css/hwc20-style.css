@@ -1463,6 +1463,8 @@ aside.col-md-3 .region.region-sidebar-first.well {
 .related-resources-title {
   color: #003399;
   font-size: 1.6em;
+  display: block;
+  clear: both;
 }
 .related-resources-boxes {
   padding: 0;
@@ -5017,6 +5019,20 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   height: 30px;
   float: left;
   text-indent: -99999px;
+}
+/* Pagination for right columns views, display responsive pagination */
+.panels-flexible-row .pagerer-center {
+  display: block;
+}
+.panels-flexible-row .pagerer-center ul.pager {
+  display: flex;
+  justify-content: center;
+}
+.panels-flexible-row .pagerer-center ul.pager li {
+  float: left;
+}
+.panels-flexible-row .pagerer-left {
+  display: none;
 }
 @media (max-width: 1200px) {
   .start-browsing {

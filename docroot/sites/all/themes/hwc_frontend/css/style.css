@@ -17730,6 +17730,7 @@ input#edit-field-image-und-0-upload::before {
 }
 .page-node-160 #block-views-napo-film-carousel-slidehow #napo_films .napo_films .num_slides > div {
   width: 100% !important;
+  padding: 0;
 }
 .page-node-160 #block-views-napo-film-carousel-slidehow #napo_films .napo_films .num_slides > div .napo-film-title {
   margin: 0 auto;
@@ -17776,6 +17777,7 @@ input#edit-field-image-und-0-upload::before {
   margin: 0 auto;
   width: 100%;
   background-color: #003399;
+  float: none;
 }
 .page-node-160 #block-views-napo-film-carousel-slidehow #napo_films .napo_films .num_slides > div .hwc-share-widget ul {
   text-align: right;
@@ -17903,7 +17905,6 @@ input#edit-field-image-und-0-upload::before {
   text-align: center;
 }
 .page-node-160 article .field-type-text-with-summary .more-link {
-  background-color: #003399 !important;
   padding: 8px 20px 8px 20px;
   margin-top: 15px;
   display: inline-block;
