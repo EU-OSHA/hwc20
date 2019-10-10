@@ -1258,6 +1258,13 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   height: auto;
   padding-bottom: 15px;
 }
+.footer a {
+  color: #FFF;
+}
+.footer a:hover {
+  text-decoration: underline;
+  color: #FFF;
+}
 .footer-section {
   font-size: 12.5px;
   min-height: 180px;
