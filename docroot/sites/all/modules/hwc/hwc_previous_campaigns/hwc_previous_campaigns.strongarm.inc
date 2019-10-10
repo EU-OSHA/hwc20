@@ -200,6 +200,12 @@ function hwc_previous_campaigns_strongarm() {
             'visible' => TRUE,
           ),
         ),
+        'bottom_share_widget' => array(
+          'default' => array(
+            'weight' => '3',
+            'visible' => FALSE,
+          ),
+        ),
       ),
     ),
   );
@@ -295,6 +301,12 @@ function hwc_previous_campaigns_strongarm() {
           'default' => array(
             'weight' => '0',
             'visible' => TRUE,
+          ),
+        ),
+        'bottom_share_widget' => array(
+          'default' => array(
+            'weight' => '3',
+            'visible' => FALSE,
           ),
         ),
       ),

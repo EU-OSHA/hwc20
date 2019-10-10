@@ -13,3 +13,10 @@ function hwc_previous_campaigns_update_7001() {
 function hwc_previous_campaigns_update_7002() {
   features_revert_module('hwc_previous_campaigns');
 }
+
+/**
+ * HW20-188 Previous Campaigns - Social media icons are missing.
+ */
+function hwc_previous_campaigns_update_7003() {
+  features_revert_module('hwc_previous_campaigns');
+}
