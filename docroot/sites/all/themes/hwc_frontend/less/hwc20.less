@@ -1643,6 +1643,8 @@ aside.col-md-3{
 .related-resources-title{
 	color: #003399;
  	font-size: 1.6em;
+ 	display: block;
+    clear: both;
 }
 
 .related-resources-boxes{
@@ -5662,4 +5664,23 @@ body.european-week{
 	height: 30px;
 	float: left;
 	text-indent: -99999px;
+}
+
+
+/* Pagination for right columns views, display responsive pagination */
+.panels-flexible-row{
+	.pagerer-center{
+		display: block;
+		ul.pager{
+			display: flex;
+			justify-content: center;
+			li{
+				float: left;
+			}
+		}
+	}
+
+	.pagerer-left{
+		display: none;
+	}
 }
