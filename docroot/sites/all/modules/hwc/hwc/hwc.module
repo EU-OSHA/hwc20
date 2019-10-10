@@ -571,6 +571,11 @@ function hwc_field_extra_fields() {
         'description' => t('The bar with links to social websites'),
         'weight' => 0,
       ),
+      'bottom_share_widget' => array(
+        'label' => t('Share widget'),
+        'description' => t('The bar with links to social websites'),
+        'weight' => 0,
+      ),
     ),
   );
   $extra['node']['news'] = $share_widget;
@@ -1314,6 +1319,8 @@ function hwc_node_view($node, $view_mode, $langcode) {
   }
 
   $share_widget_content_types = array(
+    'campaign_16',
+    'campaign_18',
     'news',
     'events',
     'publication',
@@ -1367,7 +1374,22 @@ function hwc_node_view($node, $view_mode, $langcode) {
         $options['rss_url'] = url('rss-feeds/latest/events.xml', array('absolute' => TRUE));
       }
 
-      $node->content['share_widget'] = array('#markup' => hwc_news_share_widget($node, $options));
+      if (!in_array($node->nid, variable_get('exclude_bottom_share_widget', [179]))) {
+        $node->content['share_widget'] = ['#markup' => hwc_news_share_widget($node, $options)];
+      }
+
+    }
+    if (!empty($extra_fields['bottom_share_widget']['display']['default']['visible'])) {
+      $options = array();
+      if (in_array($node->type, array('article', 'hwc_gallery', 'flickr_gallery', 'press_release'))) {
+        $options['rss_hide'] = 1;
+      }
+      if ($node->type == 'events') {
+        $options['rss_url'] = url('rss-feeds/latest/events.xml', array('absolute' => TRUE));
+      }
+      if (!in_array($node->nid, variable_get('exclude_bottom_share_widget', [179, 164]))) {
+        $node->content['bottom_share_widget'] = array('#markup' => hwc_news_share_widget($node, $options));
+      }
     }
   }
   if ($view_mode == 'full' && $node->nid == 160) {

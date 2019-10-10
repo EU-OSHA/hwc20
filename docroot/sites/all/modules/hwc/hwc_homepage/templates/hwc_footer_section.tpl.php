@@ -9,7 +9,7 @@ $exclude_url = explode("\n", $skip);
     }
     ?>
       <div class="col-md-2">
-          <?php print $menu['link']['title']; ?>
+          <?php print l($menu['link']['title'], $menu['link']['href']); ?>
           <ul>
             <?php foreach ($menu['below'] as $submenu) {
               if (in_array($submenu['link']['href'], $exclude_url)) {
