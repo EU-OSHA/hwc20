@@ -22124,38 +22124,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     padding-right: 30px;
   }
   /*fin private area*/
-  /*pag National focal points*/
-  /* .page-national-focal-points, .page-official-campaign-partners, .page-campaign-media-partners */
-  .page-national-focal-points .section-introduction .field-type-text-with-summary,
-  .page-official-campaign-partners .section-introduction .field-type-text-with-summary,
-  .page-campaign-media-partners .section-introduction .field-type-text-with-summary,
-  .page-campaign-materials .section-introduction .field-type-text-with-summary,
-  .page-national-focal-points .main-container .section-introduction .node.node-article .field-type-text-with-summary,
-  .page-official-campaign-partners .main-container .section-introduction .node.node-article .field-type-text-with-summary,
-  .page-campaign-media-partners .main-container .section-introduction .node.node-article .field-type-text-with-summary,
-  .page-campaign-materials .main-container .section-introduction .node.node-article .field-type-text-with-summary,
-  .page-national-focal-points .main-container .section-introduction .node.node-article .field-type-text-with-summary,
-  .page-official-campaign-partners .main-container .section-introduction .node.node-article .field-type-text-with-summary,
-  .page-campaign-media-partners .main-container .section-introduction .node.node-article .field-type-text-with-summary,
-  .page-campaign-materials .main-container .section-introduction .node.node-article .field-type-text-with-summary {
-    display: block;
-    padding-right: 30px;
-    padding-left: 30px;
-    margin: 0px;
-  }
-  .page-national-focal-points article,
-  .page-official-campaign-partners article,
-  .page-campaign-media-partners article,
-  .page-campaign-materials article {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .page-national-focal-points .view-id-partners_list .hwc-char-link,
-  .page-official-campaign-partners .view-id-partners_list .hwc-char-link,
-  .page-campaign-media-partners .view-id-partners_list .hwc-char-link,
-  .page-campaign-materials .view-id-partners_list .hwc-char-link {
-    padding: 0px 18px 0px 0px;
-  }
   #block-views-partners-list-block {
     margin-right: 30px;
     margin-left: 30px;
@@ -25646,15 +25614,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .page-node-add-document .node-document-form #edit-field-document-files table[id*="field-document-files-values"] button.btn-danger.form-submit {
     display: block;
     margin-top: 15px;
-  }
-  /*pag campaign-materials*/
-  .page-campaign-materials .field-name-field-image,
-  .node-type-campaign-materials .field-name-field-image,
-  .page-campaign-materials .section-introduction .field-type-text-with-summary,
-  .node-type-campaign-materials .section-introduction .field-type-text-with-summary,
-  .page-campaign-materials .main-container .section-introduction .node.node-article .field-type-text-with-summary,
-  .node-type-campaign-materials .main-container .section-introduction .node.node-article .field-type-text-with-summary {
-    display: none;
   }
   .node-type-campaign-materials .back-to-link {
     display: none;
