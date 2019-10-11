@@ -845,7 +845,7 @@ function hwc_toolkit_field_default_field_instances() {
           'field_formatter_class' => '',
           'title_class' => '',
           'title_link' => '',
-          'title_style' => 'h1',
+          'title_style' => 'h2',
         ),
         'type' => 'title_linked',
         'weight' => 0,

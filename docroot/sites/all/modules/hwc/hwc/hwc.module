@@ -1033,11 +1033,31 @@ function hwc_content_post_render_add_classes($content) {
   return $content;
 }
 
+function hwc_get_available_events_countries() {
+  $q = db_select('node', 'n');
+  $q->join('field_data_field_country_code', 'c', 'c.entity_id = n.nid');
+  $q->fields('c', ['field_country_code_value']);
+  $q->condition('c.bundle', 'events');
+  $q->condition('n.type', 'events');
+  $q->condition('n.status', 1);
+  return $q->execute()->fetchAllKeyed(0,0);
+}
+
 /**
  * Implements hook_form_alter().
  */
 function hwc_form_alter(&$form, &$form_state, $form_id) {
   global $user;
+  if ($form_id == 'views_exposed_form' && $form_state['view']->name == 'events_search'
+    && $form_state['view']->current_display == 'page') {
+    $countries = hwc_get_available_events_countries();
+    foreach ($form['field_country_code']['#options'] as $tid => $value) {
+      if (in_array($tid, $countries) || $tid == 'All') {
+        continue;
+      }
+      unset($form['field_country_code']['#options'][$tid]);
+    }
+  }
   if ($form_id == 'document_node_form') {
     $form['#attributes']['class'][] = 'container';
   }
