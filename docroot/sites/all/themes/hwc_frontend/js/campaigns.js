@@ -568,5 +568,18 @@ jQuery(document).ready(function($) {
 		 $("#edit-subscribe-details .form-type-checkbox input").appendTo("#edit-subscribe-details .form-type-checkbox");
 		 $("#edit-subscribe-details .form-type-checkbox label").appendTo("#edit-subscribe-details .form-type-checkbox");
 	}
+
+
+	//Add class to fix the margin footer when the last block has grey colour
+	if ($(".content-box-sub")[0]){
+		 $("footer.footer").addClass('fix-margin');   
+	}
+
+	if ($("#block-hwc-european-week-news-events")[0]){
+		 $("footer.footer").addClass('fix-margin');   
+	}
+
+	
+	
 	
 });

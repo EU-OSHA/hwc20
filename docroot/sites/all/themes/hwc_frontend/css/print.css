@@ -11,6 +11,12 @@
 @media print {
 
 /*Header*/
+
+body{
+	padding-top: 0 !important;
+}
+
+
 #navbar{
 	display:block!important;
 }
