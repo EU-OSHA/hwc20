@@ -330,6 +330,7 @@ function hwc_frontend_preprocess_page(&$vars) {
       case "tk_example":
       case "tk_topic":
         $vars['page']['content']['#post_render'][] = 'hwc_content_post_render_add_classes';
+        $vars['theme_hook_suggestions'][] = 'page__campaign__toolkit';
         break;
 
       case 'document':
