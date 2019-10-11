@@ -5045,6 +5045,24 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 .view-partner-content .pagerer-left {
   display: none;
 }
+/* Campaing toolkit */
+.toolkit-page .field-name-title-field h2 {
+  font-style: normal;
+  color: #749b00;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 2em;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.toolkit-page .field-name-title-field h2 a {
+  font-size: 2rem;
+}
+.toolkit-page .views-row img {
+  border: 0;
+  border-radius: 0;
+}
 @media (max-width: 1200px) {
   .start-browsing {
     background: url(../images/background-start-browsing.png) repeat-y;
