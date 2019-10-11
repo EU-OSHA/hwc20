@@ -579,6 +579,10 @@ jQuery(document).ready(function($) {
 		 $("footer.footer").addClass('fix-margin');   
 	}
 
+	if ($(".page-search")[0]){
+		 $("footer.footer").addClass('fix-margin');   
+	}
+
 	
 	
 	
