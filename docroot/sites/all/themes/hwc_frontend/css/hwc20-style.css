@@ -1709,6 +1709,7 @@ aside.col-md-3 .region.region-sidebar-first.well {
 .page-tools-and-publications #edit-exposed-widgets .form-group {
   margin-bottom: 0;
   padding-bottom: 0;
+  display: block;
 }
 .page-publications #edit-exposed-widgets .form-item-language,
 .page-tools-and-publications #edit-exposed-widgets .form-item-language {
@@ -5316,7 +5317,8 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
     padding-left: 0 !important;
   }
   .page-publications .views-exposed-widget,
-  .page-events .views-exposed-widget {
+  .page-events .views-exposed-widget,
+  .page-tools-and-publications-campaign-materials .views-exposed-widget {
     width: 100% !important;
     margin-top: 1em;
     margin-right: 0;
@@ -5343,32 +5345,38 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
     width: 50%;
     margin-right: 0;
   }
-  .page-publications .publications-right-column {
+  .content-publication-summary {
+    height: auto;
+  }
+  .page-publications .publications-right-column,
+  .page-tools-and-publications-campaign-materials .publications-right-column {
     width: 100%;
     float: right;
     padding-right: 0;
   }
-  .publications-right-column h2 a {
-    font-style: normal;
-    font-size: 0.6em;
-  }
-  .content-publication-summary {
-    height: auto;
-  }
-  .page-publications .publications-right-column h2 {
+  .page-publications .publications-right-column h2,
+  .page-tools-and-publications-campaign-materials .publications-right-column h2 {
     height: auto;
     line-height: 20px;
   }
-  .box-latest-publications .right-column {
+  .page-publications .publications-right-column h2 a,
+  .page-tools-and-publications-campaign-materials .publications-right-column h2 a {
+    font-style: normal;
+    font-size: 2.2rem;
+  }
+  .page-publications .box-latest-publications .right-column,
+  .page-tools-and-publications-campaign-materials .box-latest-publications .right-column {
     width: 100%;
   }
-  .publication-see-more-bottom-container {
+  .page-publications .publication-see-more-bottom-container,
+  .page-tools-and-publications-campaign-materials .publication-see-more-bottom-container {
     margin-top: 1em;
     margin-bottom: 0;
     bottom: auto;
     position: static;
   }
-  .page-publications .publications-right-column .news-see-more-button {
+  .page-publications .news-see-more-button,
+  .page-tools-and-publications-campaign-materials .news-see-more-button {
     position: relative;
     bottom: 0;
   }
@@ -5579,7 +5587,8 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
     margin-right: 1em;
   }
   .page-publications .views-exposed-widget,
-  .page-publications .page-events .views-exposed-widget {
+  .page-publications .page-events .views-exposed-widget,
+  .page-tools-and-publications-campaign-materials .views-exposed-widget {
     width: 32%!important;
   }
   .page-publications #content,
@@ -5786,7 +5795,8 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
     width: 153px!important;
   }
   .page-publications .views-exposed-widget,
-  .page-events .views-exposed-widget {
+  .page-events .views-exposed-widget,
+  .page-tools-and-publications-campaign-materials .views-exposed-widget {
     width: auto !important;
     margin-top: 1em;
     margin-right: 0.5em;
@@ -6123,22 +6133,27 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   .page-events .sidebars_first {
     margin-top: 1em;
   }
-  .page-publications .content {
+  .page-publications .content,
+  .page-tools-and-publications-campaign-materials .content {
     display: block;
   }
-  .page-publications .main-container {
+  .page-publications .main-container,
+  .page-tools-and-publications-campaign-materials .main-container {
     padding-right: 0 !important;
     padding-left: 0 !important;
   }
-  .page-publications .content-publication-info {
+  .page-publications .content-publication-info,
+  .page-tools-and-publications-campaign-materials .content-publication-info {
     display: block;
   }
-  .page-publications .date-display-single {
+  .page-publications .date-display-single,
+  .page-tools-and-publications-campaign-materials .date-display-single {
     float: none;
     display: block;
     width: 100%;
   }
-  .page-publications .pages {
+  .page-publications .pages,
+  .page-tools-and-publications-campaign-materials .pages {
     display: block;
     width: 100%;
   }

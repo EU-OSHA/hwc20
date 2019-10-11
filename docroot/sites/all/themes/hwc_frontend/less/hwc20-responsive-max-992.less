@@ -189,7 +189,7 @@
 	    padding-left: 0 !important;
 	}
 
-	.page-publications .views-exposed-widget, .page-events .views-exposed-widget {
+	.page-publications .views-exposed-widget, .page-events .views-exposed-widget, .page-tools-and-publications-campaign-materials .views-exposed-widget{
 		width: 100% !important;
 		margin-top: 1em;
 		margin-right: 0;
@@ -219,41 +219,40 @@
 		margin-right: 0;
 	}
 
-	.page-publications .publications-right-column{
-		width: 100%;
-		float: right;
-		padding-right:0;
-	}
-
-	.publications-right-column h2 a{
-		font-style: normal;
-		font-size: 0.6em;
-	}
-
 	.content-publication-summary{
 		height: auto;
 	}
 
-	.page-publications .publications-right-column h2{
-		height: auto;
-		line-height: 20px;
-	}
+	.page-publications, .page-tools-and-publications-campaign-materials{
+		.publications-right-column{
+			width: 100%;
+			float: right;
+			padding-right:0;
+			h2{
+				height: auto;
+				line-height: 20px;
+				a{
+					font-style: normal;
+					font-size: 2.2rem;
+				}
+			} 
+		}
 
-	.box-latest-publications .right-column{
-		width: 100%;
+		.box-latest-publications .right-column{
+			width: 100%;
+		}
 
-	}
+		.publication-see-more-bottom-container{
+			margin-top: 1em;
+			margin-bottom: 0;
+			bottom:auto;
+			position:static;
+		}
 
-	.publication-see-more-bottom-container{
-		margin-top: 1em;
-		margin-bottom: 0;
-		bottom:auto;
-		position:static;
-	}
-
-	.page-publications .publications-right-column .news-see-more-button{
-		position: relative;
-		bottom: 0;
+		.news-see-more-button{
+			position: relative;
+			bottom: 0;
+		}
 	}
 
 	.publication-detail{
@@ -530,7 +529,7 @@
 		}
 	}
 
-	.page-publications .views-exposed-widget, .page-publications .page-events .views-exposed-widget {
+	.page-publications .views-exposed-widget, .page-publications .page-events .views-exposed-widget, .page-tools-and-publications-campaign-materials .views-exposed-widget{
 	    width: 32%!important;
 	}
 
@@ -788,7 +787,7 @@
 	    width: 153px!important;
 	}
 
-	.page-publications .views-exposed-widget, .page-events .views-exposed-widget {
+	.page-publications .views-exposed-widget, .page-events .views-exposed-widget, .page-tools-and-publications-campaign-materials .views-exposed-widget{
 	    width: auto !important;
 	    margin-top: 1em;
 	    margin-right: 0.5em;
