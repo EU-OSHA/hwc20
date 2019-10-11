@@ -4534,8 +4534,11 @@ ul[data-sa-theme="basic-green"].ui-menu {
 }
 /* Press room */
 body.press-room .field-name-body {
-  width: 73%;
+  width: 76%;
   padding-left: 2.2em;
+}
+body.press-room .related-resources-title {
+  padding-top: 1em;
 }
 body.press-room .field-name-body h2,
 body.european-week .field-name-body h2 {
