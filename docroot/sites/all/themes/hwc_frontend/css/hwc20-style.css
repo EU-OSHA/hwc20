@@ -4523,6 +4523,10 @@ ul[data-sa-theme="basic-green"].ui-menu {
   background: #efefef;
   padding-bottom: 3em;
 }
+.page-tools-and-publications-campaign-materials .panels-flexible-row-last h2 {
+  padding-top: 0.5em;
+  padding-bottom: 0.3em;
+}
 .page-tools-and-publications-campaign-materials .panel {
   background: transparent;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
