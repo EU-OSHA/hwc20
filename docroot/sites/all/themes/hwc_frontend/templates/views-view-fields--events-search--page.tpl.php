@@ -34,10 +34,10 @@ if ($node) {
 if ($date) {
   $date_object = new DateObject($date['value'], new DateTimeZone($date['timezone_db']));
   $date_object->setTimezone(new DateTimeZone($date['timezone']));
-  $start_date = date_format_date($date_object, 'custom', 'm/d/Y H:i:s');
+  $start_date = date_format_date($date_object, 'custom', 'm/d/Y') . ' ' . variable_get('add_calendar_start_date', '08:00:00');
   $date_object = new DateObject($date['value2'], new DateTimeZone($date['timezone_db']));
   $date_object->setTimezone(new DateTimeZone($date['timezone']));
-  $end_date = date_format_date($date_object, 'custom', 'm/d/Y H:i:s');
+  $end_date = date_format_date($date_object, 'custom', 'm/d/Y') . ' ' . variable_get('add_calendar_end_date', '18:00:00');
 }
 foreach ($fields as $id => $field) {
   if ($id == 'field_start_date_value') {

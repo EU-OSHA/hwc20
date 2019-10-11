@@ -8501,6 +8501,7 @@ input#edit-field-image-und-0-upload::before {
 					height: 600px;
 					>div{
 						width: 100% !important;
+						padding: 0;
 						.napo-film-title{
 						    margin: 0 auto;
 						    width: 100%;
@@ -8538,6 +8539,7 @@ input#edit-field-image-und-0-upload::before {
 						    background-color: black;
 						    //background-color: inherit !important;
 						}
+
 						.hwc-share-widget{
 							border-top: none;
 							border-bottom: none;
@@ -8547,6 +8549,7 @@ input#edit-field-image-und-0-upload::before {
 						    margin: 0 auto;
 						    width: 100%;
 							background-color: @color2;
+							float: none;
 							ul{
 								text-align: right;
 								padding-right: 10px;
@@ -8676,8 +8679,7 @@ input#edit-field-image-und-0-upload::before {
 		.field-type-text-with-summary{
 			text-align: center;
 			
-			.more-link{
-				background-color: #003399 !important;
+			.more-link{			
 				padding: 8px 20px 8px 20px;
 				margin-top: 15px;
 				display: inline-block;
@@ -10285,11 +10287,6 @@ input#edit-field-image-und-0-upload::before {
 
 	//toolkit general content styles
 	.main-container{
-		.page_title{
-			h1.page-header{
-				display: none;
-			}
-		}
 		.field-type-text-with-summary .field-items:before{
 			content: " ";
 			display: table;
@@ -10297,14 +10294,7 @@ input#edit-field-image-und-0-upload::before {
 				margin-bottom: 25px;
 			}
 		}
-		h1{
-			font-style: normal;
-			color: @h2-default-color-2;
-			font-weight: 600;
-		    margin-bottom: 15px;
-			font-size: 2em;
-			text-align: left;
-		}
+
 		h2{
 			font-size: 1.3em;
 			font-weight: 600;
@@ -10342,8 +10332,6 @@ input#edit-field-image-und-0-upload::before {
 		}
 		//top image
 		.above_title{
-			margin-left: -15px;
-			margin-right: -15px;
 			max-height: 224px;
 			overflow: hidden;
 			position: relative;
@@ -11110,7 +11098,7 @@ input#edit-field-image-und-0-upload::before {
 		clear: both;
 		margin-top: 20px;
 		overflow: hidden;
-		margin-bottom: 50px;
+		margin-bottom: 0;
 		.key-next-prev-buttons{
 			overflow: hidden;
 			.prev-button,

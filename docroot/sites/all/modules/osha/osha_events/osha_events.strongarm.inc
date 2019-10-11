@@ -300,6 +300,12 @@ function osha_events_strongarm() {
             'visible' => TRUE,
           ),
         ),
+        'bottom_share_widget' => array(
+          'default' => array(
+            'weight' => '12',
+            'visible' => TRUE,
+          ),
+        ),
       ),
     ),
   );
