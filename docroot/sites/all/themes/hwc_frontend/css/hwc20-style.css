@@ -5075,6 +5075,19 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   border: 0;
   border-radius: 0;
 }
+/* Napo Films */
+.page-node-160 article h2 {
+  margin-top: 15px;
+  padding-top: 100px;
+  margin-bottom: 40px;
+  font-style: normal;
+  background: url(/sites/all/themes/hwc_frontend/images/content/icono-napo.png) no-repeat center 20px;
+  background-size: 61px;
+  text-align: center;
+}
+.page-node-160 article h2 a {
+  color: #749b00;
+}
 @media (max-width: 1200px) {
   .start-browsing {
     background: url(../images/background-start-browsing.png) repeat-y;
