@@ -350,3 +350,27 @@ body > div.main-container > div > aside > div > div:nth-child(2){
 .page-media-centre-news .main-container #block-system-main .view .views-row .field-name-field-summary{
     font-weight: bold;
 }
+
+/* Drupal7 Admin menu links */
+.contextual-links{
+    padding-top: 3px!important;
+}
+
+.contextual-links li a{
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    white-space: nowrap;
+    line-height: 100%;
+    list-style: none;
+    list-style-image: none;
+    box-sizing: border-box;
+    border-radius: 0px;
+    text-decoration: none;
+    background: transparent !important;
+    padding-left: 10px !important;
+    padding-top: 3px!important;
+    color: #333 !important;
+    display: block;
+    margin: 0.25em 0;
+    padding: 0.25em 1em 0.25em 0.5em;
+    border:0 !important;
+}
