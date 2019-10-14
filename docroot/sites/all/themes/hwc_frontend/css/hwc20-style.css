@@ -5088,6 +5088,11 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 .page-node-160 article h2 a {
   color: #749b00;
 }
+/* Styling Wysiwyg  */
+.float-img {
+  float: left;
+  padding-right: 2em;
+}
 @media (max-width: 1200px) {
   .start-browsing {
     background: url(../images/background-start-browsing.png) repeat-y;
