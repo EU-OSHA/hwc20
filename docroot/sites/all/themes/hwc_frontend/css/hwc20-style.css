@@ -85,11 +85,11 @@ body.logged-in .navbar-header .col-xs-12.col-sm-9 {
 body {
   color: #59595A;
 }
-.more-link {
+body .more-link {
   background-color: transparent;
   padding-left: 0;
 }
-.more-link a {
+body .more-link a {
   background: url(../images/ico-plus-20.png) no-repeat 98.5% 2px #0030a0;
   text-transform: uppercase;
   color: #FFF;
@@ -105,12 +105,12 @@ body {
   float: left;
   margin-top: 1em;
 }
-.more-link a:hover {
+body .more-link a:hover {
   color: #FFF;
   background: url(../images/ico-plus-20-hover.png) no-repeat 98.5% 2px #8fc900;
   text-decoration: none;
 }
-.more-link:before {
+body .more-link:before {
   content: '';
   display: none;
 }
@@ -819,7 +819,6 @@ ul.time-and-counters li .counter-label {
   float: right;
   width: 100%;
   padding-left: 1em;
-  padding-right: 10px;
   word-break: break-word;
 }
 .container-recommended-tools {
@@ -1280,6 +1279,10 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 .breadcrumb .delimiter {
   display: none;
 }
+.title-section {
+  float: left;
+  width: 100%;
+}
 .page_title {
   background: url(../images/banner-background-article.png);
   padding-top: 0;
@@ -1391,10 +1394,10 @@ aside.col-md-3 .region.region-sidebar-first.well {
   border-top: 0 ;
   border-bottom: 0;
   margin-top: 4px;
-  float: right;
 }
 .hwc-share-widget ul {
   padding-top: 0px;
+  text-align: right;
 }
 .publication-detail {
   background: none !important;
@@ -4876,6 +4879,7 @@ body.european-week .media-body a.more-link {
   margin-left: 0;
   transition: 300ms;
   background-position: 110%;
+  background-color: transparent;
 }
 body.press-room .media-body a.more-link:hover,
 body.european-week .media-body a.more-link:hover {
@@ -5107,6 +5111,12 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   .page-tools-and-publications .pager-total {
     top: -1em;
     right: 5em;
+  }
+  #block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes div {
+    width: 100%;
+  }
+  #block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a span {
+    width: auto;
   }
 }
 @media (min-width: 1480px) {
@@ -5554,6 +5564,26 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
     width: 25%;
     margin-right: 0em;
   }
+  /* Previous Campaigns */
+  #block-hwc-homepage-previous-campaign-nav {
+    padding-bottom: 2em;
+  }
+  .accordion-menu {
+    max-width: 100%;
+    margin-bottom: 0.5em;
+  }
+  .accordion-menu .menu-level-2 ul li {
+    max-width: 265px;
+    float: left;
+    margin-right: 1em;
+  }
+  #block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes div {
+    width: 49%;
+  }
+  #block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a span {
+    width: auto;
+    padding-right: 15px;
+  }
   /*Footer*/
   .footer-section {
     display: none;
@@ -5825,16 +5855,6 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
     float: none;
   }
 }
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  #block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes div {
-    display: flex;
-    width: 67%;
-    margin-bottom: 1em;
-  }
-  #block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a span {
-    width: 168px;
-  }
-}
 @media (max-width: 768px) {
   .start-browsing .start-browsing-box {
     width: 309px;
@@ -5968,6 +5988,9 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
     width: 100%;
     padding-top: 0;
     padding-bottom: 1em;
+  }
+  #block-hwc-homepage-splash-title-banner-countdown {
+    margin-top: 0;
   }
   #block-hwc-homepage-splash-download-news-campaign > section > div.content-box-before > div:nth-child(3) {
     width: 100%;
@@ -6168,12 +6191,16 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
     border-bottom: 0;
     padding-bottom: 0;
   }
-  /*Footer*/
-  .footer .on-the-web span:nth-child(1) {
-    width: auto;
+  /* Previous Campaigns */
+  #block-hwc-homepage-previous-campaign-nav {
+    padding-bottom: 0;
   }
+  /*Footer*/
   .footer {
     padding-left: 0;
+  }
+  .footer .on-the-web span:nth-child(1) {
+    width: auto;
   }
   .footer div.container {
     padding-left: 15px;
@@ -6196,7 +6223,7 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   /* Previous campaign */
   .related-resources {
     width: 100%;
-    padding: 2em;
+    padding: 0;
   }
   .container-recommended-tools .recommended-tool {
     width: 100%;
@@ -6208,12 +6235,21 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
     margin: 0 auto;
   }
   #block-hwc-campaign-resources .campaign-resources-title {
-    width: 310px;
-    margin: 2em auto;
+    width: auto;
+    margin: 2em auto 0em auto;
   }
   #block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes div {
     width: 310px;
-    margin: 0 auto 1em;
+    margin: 1em 0em;
+  }
+  #block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a img {
+    margin-left: 10px;
+  }
+  /* Share this on */
+  article .hwc-share-widget {
+    overflow: unset;
+    float: none;
+    width: 100%;
   }
   /* Panels - National Focal Points, etc. */
   .page-campaign-partners .hwc-share-widget ul .share-this-article {
@@ -6490,6 +6526,9 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   .table-responsive .pagerer-center {
     display: block;
   }
+  .pager-total {
+    display: none;
+  }
 }
 @media (max-width: 600px) {
   .before-the-campaign .content-box-before .two-box-column {
@@ -6581,6 +6620,14 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   }
   body.european-week #european_week_date {
     font-size: 1.6em;
+  }
+  /* Related resources - right column */
+  .related-resources {
+    padding: 0;
+  }
+  .related-resources .related-resources-boxes div {
+    margin-right: 0;
+    width: 310px;
   }
 }
 @media (max-width: 348px) {

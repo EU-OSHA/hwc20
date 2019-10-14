@@ -100,35 +100,34 @@ body.logged-in .navbar-header .col-xs-12.col-sm-9{
 
 body{
 	color:#59595A;
-}
-
-.more-link{
-	background-color: transparent;
-	padding-left: 0;
-	a{
-		background: url(../images/ico-plus-20.png) no-repeat 98.5% 2px #0030a0;
-	    text-transform: uppercase;
-	    color: #FFF;
-	    border-top-left-radius: 7px;
-	    border-bottom-left-radius: 7px;
-	    border-top-right-radius: 15px;
-	    border-bottom-right-radius: 15px;
-	    padding: 3px 3.5em 4px 0.7em;
-		-webkit-transition: all 0.3s;
-		-moz-transition: all 0.3s;
-		-o-transition: all 0.3s;
-		transition: all 0.3s;
-		float: left;
-		margin-top: 1em;
-	    &:hover{
-	    	color: #FFF;
-	    	background: url(../images/ico-plus-20-hover.png) no-repeat 98.5% 2px #8fc900;
-	    	text-decoration: none;
-	    }
-	}
-	&:before{
-		content: '';
-		display: none;
+	.more-link{
+		background-color: transparent;
+		padding-left: 0;
+		a{
+			background: url(../images/ico-plus-20.png) no-repeat 98.5% 2px #0030a0;
+		    text-transform: uppercase;
+		    color: #FFF;
+		    border-top-left-radius: 7px;
+		    border-bottom-left-radius: 7px;
+		    border-top-right-radius: 15px;
+		    border-bottom-right-radius: 15px;
+		    padding: 3px 3.5em 4px 0.7em;
+			-webkit-transition: all 0.3s;
+			-moz-transition: all 0.3s;
+			-o-transition: all 0.3s;
+			transition: all 0.3s;
+			float: left;
+			margin-top: 1em;
+		    &:hover{
+		    	color: #FFF;
+		    	background: url(../images/ico-plus-20-hover.png) no-repeat 98.5% 2px #8fc900;
+		    	text-decoration: none;
+		    }
+		}
+		&:before{
+			content: '';
+			display: none;
+		}
 	}
 }
 
@@ -924,7 +923,6 @@ ul.time-and-counters{
 	   	float: right;
 	   	width: 100%;
 		padding-left: 1em;
-		padding-right: 10px;
 		word-break: break-word;
 	}
 }
@@ -1452,6 +1450,11 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 	}
 }
 
+.title-section{
+	float: left;
+	width: 100%;
+}
+
 .page_title{
 	background: url(../images/banner-background-article.png);
 	padding-top: 0;
@@ -1596,9 +1599,9 @@ aside.col-md-3{
 	border-top: 0 ;
 	border-bottom: 0;
 	margin-top: 4px;
-	float: right;
 	ul{
 		padding-top: 0px;
+		text-align: right;
 	}
 }
 
@@ -5572,6 +5575,7 @@ body.press-room, body.european-week{
 		    margin-left: 0;
 		    transition: 300ms;
 		   	background-position: 110%;
+		   	background-color: transparent;
 		    &:hover{
 				text-decoration: none;
 				color: #58595b;
