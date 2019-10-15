@@ -5093,6 +5093,279 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   float: left;
   padding-right: 2em;
 }
+/* Styles for Release 2, This styles shouldn't be merge on release_1 branch */
+/* Private Zone */
+.profile-edit-links-container .panels-flexible-region-inside-first {
+  justify-content: center;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 1rem 0 3rem;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3,
+.profile-edit-links-container .pane-node-profile-update-link {
+  width: 20%;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .pane-content,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .pane-content,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2 .pane-content,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .pane-content,
+.profile-edit-links-container .pane-node-profile-update-link .pane-content {
+  min-height: 130px;
+  text-align: center;
+  padding: 20px 10px !important;
+  margin: 10px;
+  border: 0;
+  background: transparent !important;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .pane-content .hwc-partner-private-link-block-title,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .pane-content .hwc-partner-private-link-block-title,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2 .pane-content .hwc-partner-private-link-block-title,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .pane-content .hwc-partner-private-link-block-title,
+.profile-edit-links-container .pane-node-profile-update-link .pane-content .hwc-partner-private-link-block-title {
+  text-align: right;
+  background: transparent;
+  color: #00309d;
+  border: 2px solid #bcd75b;
+  padding: 1em 1em;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 15px;
+  font-weight: 600;
+  min-height: 78px;
+  min-width: 200px;
+  position: relative;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .pane-content .hwc-partner-private-link-block-title:hover,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .pane-content .hwc-partner-private-link-block-title:hover,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2 .pane-content .hwc-partner-private-link-block-title:hover,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .pane-content .hwc-partner-private-link-block-title:hover,
+.profile-edit-links-container .pane-node-profile-update-link .pane-content .hwc-partner-private-link-block-title:hover {
+  color: #FFF;
+  background: #00309d;
+  text-decoration: none;
+  border: 2px solid #00309d;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .pane-content .hwc-partner-private-link-block-title:hover > a,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .pane-content .hwc-partner-private-link-block-title:hover > a,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2 .pane-content .hwc-partner-private-link-block-title:hover > a,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .pane-content .hwc-partner-private-link-block-title:hover > a,
+.profile-edit-links-container .pane-node-profile-update-link .pane-content .hwc-partner-private-link-block-title:hover > a {
+  color: #FFF;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .pane-content .hwc-partner-private-link-block-title a,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .pane-content .hwc-partner-private-link-block-title a,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2 .pane-content .hwc-partner-private-link-block-title a,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .pane-content .hwc-partner-private-link-block-title a,
+.profile-edit-links-container .pane-node-profile-update-link .pane-content .hwc-partner-private-link-block-title a {
+  font-weight: bold;
+  color: #003399;
+  font-size: 1em;
+  padding: 0 0 0 87px !important;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .pane-content .hwc-partner-private-link-block-title a:before,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .pane-content .hwc-partner-private-link-block-title a:before,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2 .pane-content .hwc-partner-private-link-block-title a:before,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .pane-content .hwc-partner-private-link-block-title a:before,
+.profile-edit-links-container .pane-node-profile-update-link .pane-content .hwc-partner-private-link-block-title a:before {
+  content: none;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .pane-content .hwc-partner-private-link-block-title a:hover,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .pane-content .hwc-partner-private-link-block-title a:hover,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2 .pane-content .hwc-partner-private-link-block-title a:hover,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .pane-content .hwc-partner-private-link-block-title a:hover,
+.profile-edit-links-container .pane-node-profile-update-link .pane-content .hwc-partner-private-link-block-title a:hover {
+  text-decoration: none;
+  color: #FFF;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .pane-content .hwc-partner-private-link-block-description span,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .pane-content .hwc-partner-private-link-block-description span,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2 .pane-content .hwc-partner-private-link-block-description span,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .pane-content .hwc-partner-private-link-block-description span,
+.profile-edit-links-container .pane-node-profile-update-link .pane-content .hwc-partner-private-link-block-description span {
+  display: block;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .hwc-partner-private-link-block-title a {
+  background: url(../images/pz-events.png) no-repeat;
+  height: 66px;
+  width: 100%;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .hwc-partner-private-link-block-title:hover a {
+  background: url(../images/mpp-create-event-hover.png) no-repeat;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .hwc-partner-private-link-block-title a {
+  background: url(../images/pz-news.png) no-repeat;
+  height: 66px;
+  width: 100%;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .hwc-partner-private-link-block-title:hover a {
+  background: url(../images/mpp-create-news-hover.png) no-repeat;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2 .hwc-partner-private-link-block-title a {
+  background: url(../images/pz-good-practice.png) no-repeat;
+  height: 66px;
+  width: 100%;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2 .hwc-partner-private-link-block-title:hover a {
+  background: url(../images/mpp-good-practice-hover.png) no-repeat;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .hwc-partner-private-link-block-title a {
+  background: url(../images/pz-partner-resource.png) no-repeat;
+  height: 66px;
+  width: 100%;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .hwc-partner-private-link-block-title:hover a {
+  background: url(../images/mpp-partner-resources-hover.png) no-repeat;
+}
+.profile-edit-links-container .pane-node-profile-update-link .hwc-partner-private-link-block-title a {
+  background: url(../images/pz-update-profile.png) no-repeat;
+  height: 66px;
+}
+.profile-edit-links-container .pane-node-profile-update-link .hwc-partner-private-link-block-title:hover a {
+  background: url(../images/mpp-update-profile-hover.png) no-repeat;
+}
+.profile-edit-links-container .pane-node-profile-update-link .pane-content a.hwc-partner-private-link-block-title:first-child {
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+.profile-edit-links-container .pane-node-profile-update-link .pane-content a.hwc-partner-private-link-block-title:first-child:before {
+  content: none;
+}
+.profile-edit-links-container .hwc-partner-private-link-block-description {
+  margin-top: 2em;
+}
+.profile-edit-links-container p.draft {
+  margin-top: 1em;
+  text-align: left;
+  margin: 0 auto;
+  bottom: 30px;
+  width: 100%;
+  display: block;
+}
+.profile-edit-links-container p.draft a {
+  color: #003399;
+  background: #EEF4CC;
+  padding: 5px 20px;
+  border-radius: 7px;
+}
+/* Newsletter webpage */
+.page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 {
+  background: url(../images/background-newsletter-page.png) no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+}
+.page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra {
+  margin-right: 0;
+  margin-left: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #FFF;
+}
+.page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra a {
+  color: #FFF;
+  font-size: 0.8em;
+}
+.page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details .form-item-email {
+  width: 100%;
+  padding-top: 1em;
+}
+.page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details .form-item-email input {
+  width: 99%;
+  padding-right: 151px;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+.page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details #edit-submit {
+  right: 0;
+  padding-left: 3em;
+  padding-right: 3em;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  top: 28px;
+}
+.page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details #edit-submit:before {
+  content: none;
+}
+.page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details span.my-checkbox {
+  margin-top: 1px;
+}
+.page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details .checkbox label {
+  padding-left: 0;
+}
+.page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details .checkbox:last-child {
+  padding-top: 2em;
+}
+.page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra .col-md-6.col-sm-12 > .captcha {
+  text-align: left;
+  margin: 0;
+}
+.page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra .col-md-6.col-sm-12 > .captcha .form-item-security-code .help-block {
+  color: #FFF;
+}
+.page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 #captcha_0_readaudio img,
+.page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 #captcha_0_refresh img {
+  height: 27.5px;
+  width: 27px;
+}
+.page-node-129 .pane-osha-newsletter-osha-newsletter-latest h2.pane-title {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+  font-family: inherit;
+  line-height: 1.1;
+  margin-bottom: 10px;
+  font-size: 3rem;
+  border-radius: 0px;
+  color: #00309d;
+  margin-top: 0;
+  font-weight: 400;
+}
+.page-node-129 .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block h2 {
+  background: url(../images/h2-newsletter.png) no-repeat 1px 4px transparent;
+  padding-left: 25px;
+}
+.page-node-129 .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block h2 a {
+  color: #003399 !important;
+}
+.page-node-129 .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .newsletter-item {
+  border-bottom: 3px solid #DEE999;
+}
+.page-node-129 .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .more_newsletters {
+  background: url(../images/ico-plus-20.png) no-repeat 98.5% 2px #0030a0;
+  text-transform: uppercase;
+  color: #FFF;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 3px 3.5em 4px 0.7em;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  float: left;
+  margin-top: 1em;
+}
+.page-node-129 .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .more_newsletters:hover {
+  color: #FFF;
+  background: url(../images/ico-plus-20-hover.png) no-repeat 98.5% 2px #8fc900;
+  text-decoration: none;
+}
+.page-node-129 .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .more_newsletters:before {
+  content: '';
+  display: none;
+}
+.page-node-129 .newsletter-item table {
+  display: none;
+}
 @media (max-width: 1200px) {
   .start-browsing {
     background: url(../images/background-start-browsing.png) repeat-y;
