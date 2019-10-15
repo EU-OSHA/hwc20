@@ -5171,6 +5171,11 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
     flex-wrap: wrap;
     width: 100%;
   }
+  #block-views-splash-previous-campaigns-splash .view-content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
   #block-views-splash-previous-campaigns-splash > div > div > div {
     width: 49%;
     float: left;
@@ -5183,7 +5188,7 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   .before-the-campaign .content-box-before div:nth-child(1) > div.box-before-title:nth-child(2) {
     width: 90%;
   }
-  .before-the-campaign .content-box-before div:nth-child(1) > div.box-before-title:nth-child(2) {
+  .before-the-campaign .content-box-before div:nth-child(1) div.box-before-title:nth-child(2) {
     padding-top: 0.5em;
   }
 }
@@ -6646,6 +6651,10 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   .related-resources .related-resources-boxes div {
     margin-right: 0;
     width: 310px;
+  }
+  /* Napo Films */
+  .page-node-160 #block-views-napo-film-carousel-slidehow #napo_films .napo_films .jssorb03 {
+    bottom: -64px;
   }
 }
 @media (max-width: 348px) {
