@@ -7,7 +7,7 @@
 		justify-content: center;
 		display: flex;
 		flex-flow: row wrap;
-	  margin: 1rem 0 3rem;
+	  	margin: 1rem 0 3rem;
 	}
 	.pane-hwc-partner-hwc-partner-private-link-0,
 	.pane-hwc-partner-hwc-partner-private-link-1,
@@ -204,6 +204,10 @@
 		background: url(../images/background-newsletter-page.png) no-repeat;
 		background-size: cover;
 		border-radius: 10px;
+		margin-bottom: 2em;
+		padding-left: 15px;
+    	padding-right: 15px;
+
 		.pane-osha-newsletter-osha-newsletter-subscribe-extra{
 			margin-right: 0;
     		margin-left: 0;
@@ -242,6 +246,7 @@
     				}
     				.checkbox label{
     					padding-left: 0;
+    					text-align: left;
     				}
     				.checkbox:last-child{
     					padding-top: 2em;
@@ -258,6 +263,10 @@
     						}
     					}
     				}
+    			}
+    			
+    			input[type="checkbox"]{
+    				display: none;
     			}
     		}
 		}
@@ -282,6 +291,7 @@
 			color: #00309d;
 			margin-top: 0;
 			font-weight: 400;
+			text-align: left !important;
 		}
 		#latest-newsletters-block{
 			h2{
@@ -313,6 +323,7 @@
 				transition: all 0.3s;
 				float: left;
 				margin-top: 1em;
+				max-width: 100%;
 			}
 			.more_newsletters:hover {
 				color: #FFF;
@@ -346,9 +357,9 @@
 
 /* Responsive */
 
-/* Private Zone */
-
 @media (max-width: 1200px) {
+	
+	/* Private Zone */
 	.profile-edit-links-container{
 		.pane-hwc-partner-hwc-partner-private-link-0, 
 		.pane-hwc-partner-hwc-partner-private-link-1,
@@ -363,9 +374,12 @@
 	    	margin-bottom: 2em;
 		}
 	}
+
 }
 
 @media (max-width: 990px) {
+	
+	/* Private Zone */
 	.profile-edit-links-container{
 		.panels-flexible-region-inside-first{
 			justify-content: flex-start;
@@ -383,12 +397,46 @@
 		    margin-top: 0.8em;
 		}
 	}
+
 }
 
 @media (max-width: 669px) {
+	
+	/* Private Zone */
 	.profile-edit-links-container{
 		.panels-flexible-region-inside-first{
 			justify-content: center;
 		}
 	}
+
 }
+
+
+@media (max-width: 480px) {
+	
+	/* Newsletter page */
+	.page-node-129{
+		.panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6{
+			.pane-osha-newsletter-osha-newsletter-subscribe-extra{
+				#subscribe-extra{
+					#edit-subscribe-details{
+						.form-item-email{
+							input{
+								border-top-left-radius: 0;
+								border-bottom-left-radius: 0;
+							}
+						}
+						#edit-submit{
+							top: 5px;
+							border-top-right-radius: 0;
+							border-bottom-right-radius: 0;
+							padding-right: 1em;
+						}
+					}
+				}
+			}	
+		}
+	}
+
+	
+}	

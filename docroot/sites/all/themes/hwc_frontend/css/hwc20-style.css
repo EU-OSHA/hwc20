@@ -5271,6 +5271,9 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   background: url(../images/background-newsletter-page.png) no-repeat;
   background-size: cover;
   border-radius: 10px;
+  margin-bottom: 2em;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra {
   margin-right: 0;
@@ -5309,6 +5312,7 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 }
 .page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details .checkbox label {
   padding-left: 0;
+  text-align: left;
 }
 .page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details .checkbox:last-child {
   padding-top: 2em;
@@ -5319,6 +5323,9 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 }
 .page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra .col-md-6.col-sm-12 > .captcha .form-item-security-code .help-block {
   color: #FFF;
+}
+.page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra input[type="checkbox"] {
+  display: none;
 }
 .page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 #captcha_0_readaudio img,
 .page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 #captcha_0_refresh img {
@@ -5336,6 +5343,7 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   color: #00309d;
   margin-top: 0;
   font-weight: 400;
+  text-align: left !important;
 }
 .page-node-129 .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block h2 {
   background: url(../images/h2-newsletter.png) no-repeat 1px 4px transparent;
@@ -5365,6 +5373,7 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   transition: all 0.3s;
   float: left;
   margin-top: 1em;
+  max-width: 100%;
 }
 .page-node-129 .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .more_newsletters:hover {
   color: #FFF;
@@ -5379,8 +5388,8 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   display: none;
 }
 /* Responsive */
-/* Private Zone */
 @media (max-width: 1200px) {
+  /* Private Zone */
   .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0,
   .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1,
   .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2,
@@ -5394,6 +5403,7 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   }
 }
 @media (max-width: 990px) {
+  /* Private Zone */
   .profile-edit-links-container .panels-flexible-region-inside-first {
     justify-content: flex-start;
   }
@@ -5410,8 +5420,22 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   }
 }
 @media (max-width: 669px) {
+  /* Private Zone */
   .profile-edit-links-container .panels-flexible-region-inside-first {
     justify-content: center;
+  }
+}
+@media (max-width: 480px) {
+  /* Newsletter page */
+  .page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details .form-item-email input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details #edit-submit {
+    top: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-right: 1em;
   }
 }
 @media (max-width: 1200px) {
