@@ -308,7 +308,7 @@
 			.newsletter-item{
 				border-bottom: 3px solid #DEE999;
 			}
-			.more_newsletters{
+			.more_newsletters, .less_newsletters{
 				background: url(../images/ico-plus-20.png) no-repeat 98.5% 2px #0030a0;
 				text-transform: uppercase;
 				color: #FFF;
@@ -324,17 +324,16 @@
 				float: left;
 				margin-top: 1em;
 				max-width: 100%;
-			}
-			.more_newsletters:hover {
-				color: #FFF;
-				background: url(../images/ico-plus-20-hover.png) no-repeat 98.5% 2px #8fc900;
-				text-decoration: none;
-			}
-			
-			.more_newsletters:before {
-				content: '';
-				display: none;
-			}			
+				&:hover{
+					color: #FFF;
+					background: url(../images/ico-plus-20-hover.png) no-repeat 98.5% 2px #8fc900;
+					text-decoration: none;
+				}
+				&:before{
+					content: '';
+					display: none;
+				}
+			}	
 		}
 	}
 

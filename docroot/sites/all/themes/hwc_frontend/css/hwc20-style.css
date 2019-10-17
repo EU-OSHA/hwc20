@@ -5358,7 +5358,8 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 .page-node-129 .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .newsletter-item {
   border-bottom: 3px solid #DEE999;
 }
-.page-node-129 .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .more_newsletters {
+.page-node-129 .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .more_newsletters,
+.page-node-129 .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .less_newsletters {
   background: url(../images/ico-plus-20.png) no-repeat 98.5% 2px #0030a0;
   text-transform: uppercase;
   color: #FFF;
@@ -5375,12 +5376,14 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   margin-top: 1em;
   max-width: 100%;
 }
-.page-node-129 .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .more_newsletters:hover {
+.page-node-129 .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .more_newsletters:hover,
+.page-node-129 .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .less_newsletters:hover {
   color: #FFF;
   background: url(../images/ico-plus-20-hover.png) no-repeat 98.5% 2px #8fc900;
   text-decoration: none;
 }
-.page-node-129 .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .more_newsletters:before {
+.page-node-129 .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .more_newsletters:before,
+.page-node-129 .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .less_newsletters:before {
   content: '';
   display: none;
 }

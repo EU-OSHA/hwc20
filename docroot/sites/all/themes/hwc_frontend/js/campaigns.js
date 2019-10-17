@@ -300,6 +300,13 @@ jQuery(document).ready(function() {
 		jQuery(".more_newsletters").show();
 	});
 
+	$number_of_newsletter = jQuery( "div.newsletter-item" ).length;
+	
+	if($number_of_newsletter <= 4){
+		jQuery(".less_newsletters").hide();
+		jQuery(".more_newsletters").hide();
+	}
+
 	/*specific functions for tablet and/or mobile */
 	funcionesTabletMovil();
 
