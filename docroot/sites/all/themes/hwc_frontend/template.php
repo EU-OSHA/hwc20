@@ -239,6 +239,9 @@ function hwc_frontend_css_alter(&$css) {
  */
 function hwc_frontend_preprocess_block(&$vars) {
   $block = $vars['block'];
+  if (($block->delta == 'gpexamples-block')) {
+    $vars['theme_hook_suggestions'][] = 'block__gpexamples';
+  }
   if (($block->delta == 'news-press_room') || ($block->delta == 'frontpage_events-press_room')) {
     $vars['theme_hook_suggestions'][] = 'block__press_room';
   }
@@ -257,6 +260,10 @@ function hwc_frontend_preprocess_page(&$vars) {
         $vars['theme_hook_suggestions'][] = 'page__node__partner';
         break;
 
+      case "gpa":
+        $vars['theme_hook_suggestions'][] = 'page__gpa';
+        break;
+
       case "article":
         if ($n->nid == 179) {
           $vars['theme_hook_suggestions'][] = 'page__press__room';
@@ -264,6 +271,9 @@ function hwc_frontend_preprocess_page(&$vars) {
         elseif ($n->nid == 164) {
           $vars['theme_hook_suggestions'][] = 'page__european__week';
           $vars['title_suffix'] = '<div id="european_week_date">' . variable_get('european_week_date', '12<sup>th</sup>-14<sup>th</sup> of Oktober 2020') . '</div>';
+        }
+        elseif ($n->nid == 163) {
+          $vars['theme_hook_suggestions'][] = 'page__gpa';
         }
         else {
           $vars['theme_hook_suggestions'][] = 'page__node__article';

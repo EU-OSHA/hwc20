@@ -651,6 +651,11 @@ function hwc_mime_friendly_name($mime) {
  */
 function hwc_field_formatter_info() {
   $info = array(
+    'gpa_faq' => array(
+      'label' => t('GPA Faq'),
+      'field types' => array('field_collection'),
+      'settings' => array(),
+    ),
     'field_file' => array(
       'label' => 'Resource file formatter',
       'field types' => array('file'),
@@ -721,6 +726,13 @@ function hwc_field_formatter_settings_summary($field, $instance, $view_mode) {
  */
 function hwc_theme() {
   return array(
+    'gpa_faq' => array(
+      'variables' => array(
+        'items' => NULL,
+        'node' => NULL,
+      ),
+      'template' => 'templates/hwc_gpa_faq',
+    ),
     'hwc_file_format' => array(
       'variables' => array('file' => NULL, 'delta' => NULL),
     ),
@@ -840,6 +852,14 @@ function hwc_entity_info_alter(&$entity_info) {
 function hwc_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
   $element = array();
   switch ($display['type']) {
+    case 'gpa_faq':
+      $element = array(
+        '#theme' => 'gpa_faq',
+        '#items' => $items,
+        '#node' => entity_metadata_wrapper('node', $entity),
+      );
+      break;
+
     case 'field_file':
       foreach ($items as $delta => $item) {
         $element[$delta] = array(
