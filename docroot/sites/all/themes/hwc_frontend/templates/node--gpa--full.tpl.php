@@ -41,34 +41,15 @@
   else {
     unset($content['group_participate']['field_participate_upcoming_descr']);
   }
-  krumo($content);//$date
-
   foreach($content as $field => $row) {
     if ($field == 'field_faq') {
       print $gpa;
     }
     print render($row);
   }
-//    print render($content['field_image']);
-//    print render($content['title_field']);
-//How to participate section:
-//  Description
-//  How to participate date (when this date arrives the upcoming description will displayed automatically in the GPA page)
-//  participate Upcoming description
-
-//  How to participate related links, for each link the following fields are available:
-//label of the link
-//link
-//Link description
-
   ?>
   <div>
     <?php
-//    print render($content['field_summary']);
-//    print render($content['body']);
-    // Additional resources.
-    // We hide the comments and links now so that we can render them later.
-//    print render($content);
     print render($content['share_widget']);
     ?>
   </div>
