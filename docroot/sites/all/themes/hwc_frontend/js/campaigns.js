@@ -592,6 +592,8 @@ jQuery(document).ready(function($) {
 
 });
 
+
+
 /** CAROUSEL **/
 jQuery(document).ready(function () {
 
