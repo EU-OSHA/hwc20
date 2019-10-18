@@ -5483,7 +5483,7 @@ body.newsletter .hwc-share-widget {
 }
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block {
   overflow: hidden;
-  padding: 0 1.5rem;
+  padding: 0 3.5rem;
   width: 100%;
   margin: auto;
   position: relative;
@@ -5510,7 +5510,7 @@ body.newsletter .hwc-share-widget {
   pointer-events: none;
 }
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary {
-  background: #EDECED;
+  background: #EFEFF0;
   height: 100%;
 }
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst.over img {
@@ -5536,7 +5536,7 @@ body.newsletter .hwc-share-widget {
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .rightLst {
   position: absolute;
   top: -19px;
-  right: -11px;
+  right: 0;
 }
 .node-type-gpa .main-container .group-participate {
   background: url(../images/gpa-how-to-participate-background.png) no-repeat;
