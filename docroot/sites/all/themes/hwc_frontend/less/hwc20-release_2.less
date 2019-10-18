@@ -358,23 +358,62 @@ body.newsletter{
 
 /* Good Practice Awards - GPA */
 
-.page-node-7276{
+.node-type-gpa{
 	.main-container{
+
+		.hwc-share-widget{
+			float: right;
+		}
+
 		.field-name-field-introductory-text{
 			float: left;
 			width: 70%;
 			padding: 1em;
+			margin-top: 1em;
 		}
 		.field-name-body{
 			float: left;
 			width: 30%;
-			padding: 1em;
+			background: url(../images/gpa-body-background.png) no-repeat;
+			background-size: cover;
+			color: #FFF;
+			padding: 2em;
+			margin-top: 2em;
+			margin-bottom: 3em;
+			border-radius: 7px;
 		}
+
+		.click-here-to-see{
+			a{
+				display: block;
+				background: url(../images/gpa-link-body.png) no-repeat;
+				background-size: cover;
+				color: #FFF;
+				padding: 2em;
+				margin-top: 2em;
+				margin-bottom: 3em;
+				border-radius: 7px;
+				width: 463px;
+				height: 165px;
+				span{
+					color:#FFF;
+					display: block;
+					font-size: 1.1em;
+				}
+				span:nth-child(2){
+					font-weight: bold;
+				}
+			}
+			
+		}
+
 		.slider--video--section{
 			clear: both;
 			background: #EFEFF0;
 			padding: 2em;
 			height: 350px;
+			margin-top: 2em;
+			margin-bottom: 2em;
 			 
 			h2.block-title{
 				color: #003399;
@@ -395,33 +434,173 @@ body.newsletter{
 			}
 			
 		}
+
 		.slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary{
 		//TO DO LESS
 			background: #EFEFF0;
 		}
 
-		ol.multicarousel-indicators {
-		    position: absolute;
-		    display: block !important;
-		    z-index: 15;
-		    width: 92%;
-		    list-style: none;
+		ol.multicarousel-indicators li.active {
+    		background: #003399;
+  		}
+
+
+
+		  ol.multicarousel-indicators li {
+		    vertical-align: middle;
+		    border: 1px solid #003399;
+		    display: inline-block;
+		    width: 10px;
+		    height: 10px;
+		    margin: 0px 2px;
+		    text-indent: -999px;
+		    border-radius: 10px;
+		    cursor: pointer;
+		    background-color: #000 \9;
+		    background-color: rgba(0,0,0,0);
+		  }
+
+
+		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block {
+		    overflow: hidden;
+		    padding: 0 1.5rem;
+		    width: 100%;
+		    margin: auto;
+		    position: relative;
+		  }
+		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .multicarousel--block--inner {
+		    transition: 1s ease all;
+		    float: left;
+		  }
+		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .multicarousel--block--inner .item {
+		    float: left;
+		  }
+
+		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .multicarousel--block--inner .item > .slider-item {
 		    text-align: center;
-		    bottom: -14px;
+		    padding: 0 0 0 1rem;
+		    margin: 1rem;
+		    color: #666;
+		    overflow: hidden;
+		    position: relative;
+		  }
+
+		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst.over {
+		    pointer-events: none;
+		  }
+		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .rightLst.over {
+		    pointer-events: none;
+		  }
+
+		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary {
+		    background: #EDECED;
+		    height: 100%;
+		  }
+
+		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst.over img {
+		    opacity: 0.4;
+		  }
+		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .rightLst.over img {
+		    opacity: 0.4;
+		  }
+
+			ol.multicarousel-indicators {
+			    position: absolute;
+			    display: block !important;
+			    z-index: 15;
+			    width: 92%;
+			    list-style: none;
+			    text-align: center;
+			    bottom: -14px;
+			}
+
+			
+			.slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst {
+				position: absolute;
+				top: -19px;
+				left: -11px;
+			}
+
+			.slider--video--section .slider--video--block .slider--video--items .multicarousel--block .rightLst {
+				position: absolute;
+				top: -19px;
+				right: -11px;
+			}
+
+
+
+
+
+
+
+
+		.group-participate{
+			background: url(../images/gpa-how-to-participate-background.png) no-repeat;
+			background-size: cover;
+			padding: 2em;
+			color:#FFF;
+			float: left;
+			h3{
+				padding: 0;
+			}
+			a{
+				color:#FFF;
+				font-weight: bold;
+				padding-bottom: 5px;
+    			display: block;
+				&:hover{
+					text-decoration:underline;
+				}
+			}
+			.field-name-field-participate-description{
+				float: left;
+				width: 70%;
+			}
+			.field-collection-container{
+				float: right;
+				width: 30%;
+				.field-label{
+					padding-left: 1em;
+				}
+			}
+			.field-collection-view, .field-collection-container{
+				border-bottom: 0;
+			}
 		}
 
-		
-		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst {
-		    position: absolute;
-		    top: -19px;
-		    left: -11px;
-		  }
+	}
 
-		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .rightLst {
-		    position: absolute;
-		    top: -19px;
-		    right: -11px;
-		  }
+	#faq{
+		margin-top: 2em;
+		.panel-default{
+			border-left:0;
+			border-right:0;
+			border-top: 0;
+			border-bottom: 2px solid #DEE999;
+			> .panel-heading{
+				background: transparent;
+				h4{
+					a{
+						color: #003399;
+					}
+				}
+			}
+		}
+
+		.panel-default:nth-child(1){
+			border-top: 2px solid #DEE999;
+		}
+
+		.panel-heading{
+			+ .panel-collapse {
+				> .panel-body{
+					    border-top: 0;
+				}
+			}			
+		}
+
+
+
 	}
 }
 
