@@ -580,8 +580,22 @@ body.newsletter{
 			> .panel-heading{
 				background: transparent;
 				h4{
+
 					a{
 						color: #003399;
+					}
+
+					&:before{
+						content: "\e252";
+						font-family: "Glyphicons Halflings";
+						margin-left: 10px;
+						float: right;
+					}
+				}
+
+				h4.active{
+					&:before{
+						content: "\e253";
 					}
 				}
 			}

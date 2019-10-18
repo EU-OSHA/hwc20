@@ -5587,6 +5587,15 @@ body.newsletter .hwc-share-widget {
 .node-type-gpa #faq .panel-default > .panel-heading h4 a {
   color: #003399;
 }
+.node-type-gpa #faq .panel-default > .panel-heading h4:before {
+  content: "\e252";
+  font-family: "Glyphicons Halflings";
+  margin-left: 10px;
+  float: right;
+}
+.node-type-gpa #faq .panel-default > .panel-heading h4.active:before {
+  content: "\e253";
+}
 .node-type-gpa #faq .panel-default:nth-child(1) {
   border-top: 2px solid #DEE999;
 }
