@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the HWC GPA feature.
+ */
+
+include_once 'hwc_gpa.features.inc';
