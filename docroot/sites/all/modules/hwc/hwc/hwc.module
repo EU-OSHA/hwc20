@@ -582,6 +582,7 @@ function hwc_field_extra_fields() {
   $extra['node']['publication'] = $share_widget;
   $extra['node']['events'] = $share_widget;
   $extra['node']['article'] = $share_widget;
+  $extra['node']['gpa'] = $share_widget;
   $extra['node']['campaign_16'] = $share_widget;
   $extra['node']['campaign_18'] = $share_widget;
   $extra['node']['hwc_gallery'] = $share_widget;
@@ -1497,6 +1498,10 @@ function hwc_news_share_widget($node, $options = array()) {
       break;
 
     case 'article':
+      $widget = theme('article_share_widget', $vars);
+      break;
+
+    case 'gpa':
       $widget = theme('article_share_widget', $vars);
       break;
 
