@@ -5392,6 +5392,58 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 .page-node-129 .newsletter-item table {
   display: none;
 }
+/* Good Practice Awards - GPA */
+.page-node-7276 .main-container .field-name-field-introductory-text {
+  float: left;
+  width: 70%;
+  padding: 1em;
+}
+.page-node-7276 .main-container .field-name-body {
+  float: left;
+  width: 30%;
+  padding: 1em;
+}
+.page-node-7276 .main-container .slider--video--section {
+  clear: both;
+  background: #EFEFF0;
+  padding: 2em;
+  height: 350px;
+}
+.page-node-7276 .main-container .slider--video--section h2.block-title {
+  color: #003399;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+.page-node-7276 .main-container .slider--video--section .multicarousel--block {
+  height: 190px;
+}
+.page-node-7276 .main-container .slider--video--section .item p {
+  border: 2px solid #DEE999;
+  padding: 3em;
+  margin: 0 1em;
+}
+.page-node-7276 .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary {
+  background: #EFEFF0;
+}
+.page-node-7276 .main-container ol.multicarousel-indicators {
+  position: absolute;
+  display: block !important;
+  z-index: 15;
+  width: 92%;
+  list-style: none;
+  text-align: center;
+  bottom: -14px;
+}
+.page-node-7276 .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst {
+  position: absolute;
+  top: -19px;
+  left: -11px;
+}
+.page-node-7276 .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .rightLst {
+  position: absolute;
+  top: -19px;
+  right: -11px;
+}
 /* Responsive */
 @media (max-width: 1200px) {
   /* Private Zone */
