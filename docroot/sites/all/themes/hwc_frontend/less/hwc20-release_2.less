@@ -199,7 +199,7 @@
 
 /* Newsletter webpage */
 
-.page-node-129{
+body.newsletter{
 	.panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6{
 		background: url(../images/background-newsletter-page.png) no-repeat;
 		background-size: cover;
@@ -218,7 +218,10 @@
     		color: #FFF;
     		a{
     			color: #FFF;
-    			font-size: 0.8em;
+    			text-decoration: underline;
+    			&:hover{
+    				text-decoration: none;
+    			}
     		}
     		#subscribe-extra{
     			#edit-subscribe-details{
@@ -343,6 +346,12 @@
 		table{
 			display: none;
 		}
+	}
+
+	.hwc-share-widget{
+		position: absolute;
+    	right: 0;
+    	bottom: -40px;
 	}
 }
 
