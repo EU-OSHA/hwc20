@@ -1366,6 +1366,7 @@ function hwc_node_view($node, $view_mode, $langcode) {
     'events',
     'publication',
     'article',
+    'gpa',
     'hwc_gallery',
     'flickr_gallery',
     'press_release',

@@ -48,9 +48,4 @@
     print render($row);
   }
   ?>
-  <div>
-    <?php
-    print render($content['share_widget']);
-    ?>
-  </div>
 </article>

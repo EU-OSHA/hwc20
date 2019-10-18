@@ -144,7 +144,20 @@ function hwc_gpa_strongarm() {
           'weight' => '7',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'share_widget' => array(
+          'default' => array(
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
+        ),
+        'bottom_share_widget' => array(
+          'default' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__gpa'] = $strongarm;
@@ -161,8 +174,7 @@ function hwc_gpa_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_gpa';
   $strongarm->value = array(
-    0 => 'menu-footer-menu',
-    1 => 'main-menu',
+    0 => 'main-menu',
   );
   $export['menu_options_gpa'] = $strongarm;
 
