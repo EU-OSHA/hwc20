@@ -5407,7 +5407,7 @@ body.newsletter .hwc-share-widget {
 .node-type-gpa .main-container .field-name-field-introductory-text {
   float: left;
   width: 70%;
-  padding: 1em;
+  padding: 1em 1em 0 0;
   margin-top: 1em;
 }
 .node-type-gpa .main-container .field-name-body {
@@ -5564,13 +5564,17 @@ body.newsletter .hwc-share-widget {
 .node-type-gpa .main-container .group-participate .field-name-field-participate-description {
   float: left;
   width: 70%;
+  padding-top: 5px;
+  padding-right: 2em;
 }
 .node-type-gpa .main-container .group-participate .field-collection-container {
   float: right;
   width: 30%;
 }
 .node-type-gpa .main-container .group-participate .field-collection-container .field-label {
-  padding-left: 1em;
+  padding-left: 14px;
+  font-size: 1.3em;
+  font-weight: normal;
 }
 .node-type-gpa .main-container .group-participate .field-collection-view,
 .node-type-gpa .main-container .group-participate .field-collection-container {
@@ -5605,6 +5609,11 @@ body.newsletter .hwc-share-widget {
 }
 .node-type-gpa #faq .panel-heading + .panel-collapse > .panel-body {
   border-top: 0;
+}
+.download-link {
+  background: url(../images/download-ico-white.png) 100% 10% no-repeat;
+  display: inline-block !important;
+  padding-right: 2em;
 }
 /* Responsive */
 @media (max-width: 1200px) {
