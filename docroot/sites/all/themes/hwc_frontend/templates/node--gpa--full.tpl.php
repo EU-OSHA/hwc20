@@ -26,9 +26,6 @@
     </header>
   <?php endif; ?>
   <?php
-  $gpa = block_load('views', 'gpexamples-block');
-  $array = _block_get_renderable_array(_block_render_blocks([$gpa]));
-  $gpa = render($array);
 
   unset($content['comments']);
   unset($content['links']);
@@ -42,9 +39,6 @@
     unset($content['group_participate']['field_participate_upcoming_descr']);
   }
   foreach($content as $field => $row) {
-    if ($field == 'field_faq') {
-      print $gpa;
-    }
     print render($row);
   }
   ?>
