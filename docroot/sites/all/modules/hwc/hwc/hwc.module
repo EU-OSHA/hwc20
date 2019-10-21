@@ -1428,7 +1428,8 @@ function hwc_node_view($node, $view_mode, $langcode) {
     if (!empty($extra_fields['gpe']['display']['default']['visible'])) {
       $gpa = block_load('views', 'gpexamples-block');
       $array = _block_get_renderable_array(_block_render_blocks([$gpa]));
-      $node->content['gpe'] = render($array);
+      $gpe = render($array);
+      $node->content['gpe'] = array('#markup' => $gpe);
     }
 
     if (!empty($extra_fields['bottom_share_widget']['display']['default']['visible'])) {
