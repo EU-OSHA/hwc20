@@ -5410,6 +5410,13 @@ body.newsletter .hwc-share-widget {
   padding: 1em 1em 0 0;
   margin-top: 1em;
 }
+.node-type-gpa .main-container .field-name-field-introductory-text a {
+  font-weight: bold;
+}
+.node-type-gpa .main-container .field-name-field-introductory-text a[target=_blank] {
+  background: url(../images/target-blank-blue.png) 98% 4px no-repeat;
+  padding-right: 20px;
+}
 .node-type-gpa .main-container .field-name-body {
   float: left;
   width: 30%;
@@ -5564,6 +5571,11 @@ body.newsletter .hwc-share-widget {
 }
 .node-type-gpa .main-container .group-participate a:hover {
   text-decoration: underline;
+}
+.node-type-gpa .main-container .group-participate a[target=_blank] {
+  background: url(../images/target-blank-white.png) 98% 2px no-repeat;
+  padding-right: 30px;
+  display: inline-block;
 }
 .node-type-gpa .main-container .group-participate .field-name-field-participate-description {
   float: left;
