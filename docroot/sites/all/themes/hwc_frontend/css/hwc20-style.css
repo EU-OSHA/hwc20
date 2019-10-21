@@ -5458,35 +5458,39 @@ body.newsletter .hwc-share-widget {
 }
 .node-type-gpa .main-container .slider--video--section h2.block-title {
   color: #003399;
-  padding-top: 1em;
+  padding-top: 0.3em;
   padding-bottom: 1em;
+  padding-left: 0.4em;
 }
 .node-type-gpa .main-container .slider--video--section .multicarousel--block {
-  height: 190px;
+  height: 200px;
 }
 .node-type-gpa .main-container .slider--video--section .item p {
   border: 2px solid #DEE999;
-  padding: 3em;
+  padding: 1.5em;
   margin: 0 1em;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.2em;
+  min-height: 150px;
 }
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary {
   background: #EFEFF0;
 }
 .node-type-gpa .main-container ol.multicarousel-indicators li.active {
-  background: #003399;
+  background: #ACC700;
 }
 .node-type-gpa .main-container ol.multicarousel-indicators li {
   vertical-align: middle;
-  border: 1px solid #003399;
+  border: 2px solid #59595A;
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   margin: 0px 2px;
   text-indent: -999px;
   border-radius: 10px;
   cursor: pointer;
-  background-color: #000 \9;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #EFEFF0;
 }
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block {
   overflow: hidden;
@@ -5537,7 +5541,7 @@ body.newsletter .hwc-share-widget {
   width: 90%;
   list-style: none;
   text-align: center;
-  bottom: -14px;
+  bottom: -11px;
 }
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst {
   position: absolute;
@@ -5645,6 +5649,9 @@ body.newsletter .hwc-share-widget {
   .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 {
     margin-bottom: 2em;
   }
+  .node-type-gpa .main-container h2 {
+    margin-left: 0;
+  }
 }
 @media (max-width: 990px) {
   /* Private Zone */
@@ -5661,6 +5668,21 @@ body.newsletter .hwc-share-widget {
   }
   .profile-edit-links-container .hwc-partner-private-link-block-description {
     margin-top: 0.8em;
+  }
+}
+@media (max-width: 768px) {
+  /* Good Practice Awards - GPA */
+  .node-type-gpa .main-container .field-name-field-introductory-text {
+    width: 100%;
+  }
+  .node-type-gpa .main-container .field-name-body {
+    width: 100%;
+  }
+  .node-type-gpa .main-container .click-here-to-see a {
+    width: 100%;
+    height: auto;
+    max-width: 463px;
+    min-height: 165px;
   }
 }
 @media (max-width: 669px) {
