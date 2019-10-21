@@ -5649,6 +5649,9 @@ body.newsletter .hwc-share-widget {
   .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 {
     margin-bottom: 2em;
   }
+  .node-type-gpa .main-container h2 {
+    margin-left: 0;
+  }
 }
 @media (max-width: 990px) {
   /* Private Zone */
@@ -5679,6 +5682,7 @@ body.newsletter .hwc-share-widget {
     width: 100%;
     height: auto;
     max-width: 463px;
+    min-height: 165px;
   }
 }
 @media (max-width: 669px) {
