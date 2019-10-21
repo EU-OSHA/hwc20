@@ -611,23 +611,25 @@ body.newsletter{
 			border-bottom: 2px solid #DEE999;
 			> .panel-heading{
 				background: transparent;
+				padding: 13px 15px;
 				h4{
 
 					a{
 						color: #003399;
-					}
-
-					&:before{
-						content: "\e252";
-						font-family: "Glyphicons Halflings";
-						margin-left: 10px;
-						float: right;
+						&:before{
+							content: "\e253";
+							font-family: "Glyphicons Halflings";
+							margin-left: 10px;
+							float: right;
+							color:#ACC700;
+						}
 					}
 				}
 
-				h4.active{
+				h4 a.collapsed{
 					&:before{
-						content: "\e253";
+						content: "\e252";
+						color:#ACC700;
 					}
 				}
 			}
