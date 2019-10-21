@@ -5638,75 +5638,6 @@ body.newsletter .hwc-share-widget {
   display: inline-block !important;
   padding-right: 2em;
 }
-/* Responsive */
-@media (max-width: 1200px) {
-  /* Private Zone */
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0,
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1,
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2,
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3,
-  .profile-edit-links-container .pane-node-profile-update-link {
-    width: 30%;
-  }
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0,
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 {
-    margin-bottom: 2em;
-  }
-  .node-type-gpa .main-container h2 {
-    margin-left: 0;
-  }
-}
-@media (max-width: 990px) {
-  /* Private Zone */
-  .profile-edit-links-container .panels-flexible-region-inside-first {
-    justify-content: flex-start;
-  }
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0,
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1,
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2,
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3,
-  .profile-edit-links-container .pane-node-profile-update-link {
-    width: 87%;
-    max-width: 320px;
-  }
-  .profile-edit-links-container .hwc-partner-private-link-block-description {
-    margin-top: 0.8em;
-  }
-}
-@media (max-width: 768px) {
-  /* Good Practice Awards - GPA */
-  .node-type-gpa .main-container .field-name-field-introductory-text {
-    width: 100%;
-  }
-  .node-type-gpa .main-container .field-name-body {
-    width: 100%;
-  }
-  .node-type-gpa .main-container .click-here-to-see a {
-    width: 100%;
-    height: auto;
-    max-width: 463px;
-    min-height: 165px;
-  }
-}
-@media (max-width: 669px) {
-  /* Private Zone */
-  .profile-edit-links-container .panels-flexible-region-inside-first {
-    justify-content: center;
-  }
-}
-@media (max-width: 480px) {
-  /* Newsletter page */
-  .page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details .form-item-email input {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  .page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details #edit-submit {
-    top: 5px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    padding-right: 1em;
-  }
-}
 @media (max-width: 1200px) {
   .start-browsing {
     background: url(../images/background-start-browsing.png) repeat-y;
@@ -5749,6 +5680,21 @@ body.newsletter .hwc-share-widget {
   }
   #block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a span {
     width: auto;
+  }
+  /* Private Zone */
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3,
+  .profile-edit-links-container .pane-node-profile-update-link {
+    width: 30%;
+  }
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 {
+    margin-bottom: 2em;
+  }
+  .node-type-gpa .main-container h2 {
+    margin-left: 0;
   }
 }
 @media (min-width: 1480px) {
@@ -6492,6 +6438,23 @@ body.newsletter .hwc-share-widget {
     float: none;
   }
 }
+@media (max-width: 990px) {
+  /* Private Zone */
+  .profile-edit-links-container .panels-flexible-region-inside-first {
+    justify-content: flex-start;
+  }
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3,
+  .profile-edit-links-container .pane-node-profile-update-link {
+    width: 87%;
+    max-width: 320px;
+  }
+  .profile-edit-links-container .hwc-partner-private-link-block-description {
+    margin-top: 0.8em;
+  }
+}
 @media (max-width: 768px) {
   .start-browsing .start-browsing-box {
     width: 309px;
@@ -6541,6 +6504,19 @@ body.newsletter .hwc-share-widget {
     padding-top: 10px !important;
     margin-right: 0;
     clear: both;
+  }
+  /* Good Practice Awards - GPA */
+  .node-type-gpa .main-container .field-name-field-introductory-text {
+    width: 100%;
+  }
+  .node-type-gpa .main-container .field-name-body {
+    width: 100%;
+  }
+  .node-type-gpa .main-container .click-here-to-see a {
+    width: 100%;
+    height: auto;
+    max-width: 463px;
+    min-height: 165px;
   }
 }
 @media (max-width: 767px) {
@@ -7187,6 +7163,12 @@ body.newsletter .hwc-share-widget {
     margin-right: 0;
   }
 }
+@media (max-width: 669px) {
+  /* Private Zone */
+  .profile-edit-links-container .panels-flexible-region-inside-first {
+    justify-content: center;
+  }
+}
 @media (max-width: 480px) {
   .page_title h1 {
     font-size: 2em;
@@ -7269,6 +7251,17 @@ body.newsletter .hwc-share-widget {
   /* Napo Films */
   .page-node-160 #block-views-napo-film-carousel-slidehow #napo_films .napo_films .jssorb03 {
     bottom: -64px;
+  }
+  /* Newsletter page */
+  .page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details .form-item-email input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details #edit-submit {
+    top: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-right: 1em;
   }
 }
 @media (max-width: 348px) {
