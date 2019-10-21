@@ -5458,35 +5458,38 @@ body.newsletter .hwc-share-widget {
 }
 .node-type-gpa .main-container .slider--video--section h2.block-title {
   color: #003399;
-  padding-top: 1em;
+  padding-top: 0.3em;
   padding-bottom: 1em;
+  padding-left: 0.4em;
 }
 .node-type-gpa .main-container .slider--video--section .multicarousel--block {
-  height: 190px;
+  height: 200px;
 }
 .node-type-gpa .main-container .slider--video--section .item p {
   border: 2px solid #DEE999;
-  padding: 3em;
+  padding: 1.5em;
   margin: 0 1em;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.2em;
 }
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary {
   background: #EFEFF0;
 }
 .node-type-gpa .main-container ol.multicarousel-indicators li.active {
-  background: #003399;
+  background: #ACC700;
 }
 .node-type-gpa .main-container ol.multicarousel-indicators li {
   vertical-align: middle;
-  border: 1px solid #003399;
+  border: 2px solid #59595A;
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   margin: 0px 2px;
   text-indent: -999px;
   border-radius: 10px;
   cursor: pointer;
-  background-color: #000 \9;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #EFEFF0;
 }
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block {
   overflow: hidden;
@@ -5537,7 +5540,7 @@ body.newsletter .hwc-share-widget {
   width: 90%;
   list-style: none;
   text-align: center;
-  bottom: -14px;
+  bottom: -11px;
 }
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst {
   position: absolute;
