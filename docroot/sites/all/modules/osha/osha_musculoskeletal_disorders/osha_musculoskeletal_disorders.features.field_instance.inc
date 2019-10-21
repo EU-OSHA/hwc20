@@ -4330,6 +4330,44 @@ please take this into consideration when you are writing the first paragraph.',
     'workbench_access_field' => 0,
   );
 
+  // Exported field_instance: 'taxonomy_term-msd_priority_area-field_available'.
+  $field_instances['taxonomy_term-msd_priority_area-field_available'] = array(
+    'bundle' => 'msd_priority_area',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_available',
+    'label' => 'available',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 41,
+    ),
+    'workbench_access_field' => 0,
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Comments regarding suitability for pictogram guide');
@@ -4393,6 +4431,7 @@ please take this into consideration when you are writing the first paragraph.');
   t('URL');
   t('Worker groups covered (vulnerable groups etc.)');
   t('Worker groups covered other');
+  t('available');
 
   return $field_instances;
 }
