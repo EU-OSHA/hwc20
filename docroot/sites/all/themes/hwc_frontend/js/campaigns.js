@@ -775,14 +775,3 @@ jQuery(window).resize(function () {
     jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "79%");
   }
 });
-
-
-/* FAQ accorddions */
-
-jQuery(document).ready(function($) {
-	$('.panel-group .panel-default:nth-child(1) h4.panel-title').addClass('active');
-	$('h4.panel-title').click(function() { // when a .myDiv is clicked
-	    $('h4.panel-title').not(this).removeClass('active');
-	    $(this).toggleClass('active');
-	})
-});
