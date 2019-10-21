@@ -705,7 +705,7 @@ jQuery(document).ready(function () {
   ResCarouselSize();
 
   var cl='class="active"';
-  for (i = 0; i < Math.ceil(jQuery('.multicarousel--block--inner .item').length / incno)+1; i++) {
+  for (i = 0; i < Math.ceil(jQuery('.multicarousel--block--inner .item').length / incno); i++) {
     jQuery('.multicarousel-indicators').append('<li id="multicarousel-indicator-'+i+'" data-slide-to="' + i + '" '+cl+'></li>');
     cl='class=""';
   }
@@ -737,6 +737,19 @@ jQuery(document).ready(function () {
 });
 
 jQuery(document).ready(function(){
+  if (jQuery(window).width() >= 1200) {
+    jQuery(".multicarousel--block").attr("data-slide","4");
+  }
+});
+
+jQuery(window).resize(function () {
+  if (jQuery(window).width() >= 1200) {
+    jQuery(".multicarousel--block").attr("data-slide","4");
+  }
+});
+
+
+jQuery(document).ready(function(){
   if (jQuery(window).width() >= 992) {
     jQuery(".multicarousel--block").attr("data-slide","3");
   }
@@ -750,25 +763,29 @@ jQuery(window).resize(function () {
 
 jQuery(document).ready(function(){
   if (jQuery(window).width() <= 991) {
-    jQuery(".multicarousel--block").attr("data-slide","2");
+    jQuery(".multicarousel--block").attr("data-slide","3");
+    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "87%");
   }
 });
 
 jQuery(window).resize(function () {
   if (jQuery(window).width() <= 991) {
-    jQuery(".multicarousel--block").attr("data-slide","2");
+    jQuery(".multicarousel--block").attr("data-slide","3");
+    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "87%");
   }
 });
 
 jQuery(document).ready(function(){
   if (jQuery(window).width() <= 767) {
     jQuery(".multicarousel--block").attr("data-slide","1");
+    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "84%");
   }
 });
 
 jQuery(window).resize(function () {
   if (jQuery(window).width() <= 767) {
     jQuery(".multicarousel--block").attr("data-slide","1");
+    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "84%");
   }
 });
 

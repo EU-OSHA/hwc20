@@ -5512,6 +5512,10 @@ body.newsletter .hwc-share-widget {
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary {
   background: #EFEFF0;
   height: 100%;
+  cursor: pointer;
+}
+.node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary:hover {
+  opacity: 0.9;
 }
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst.over img {
   opacity: 0.4;
@@ -5523,7 +5527,7 @@ body.newsletter .hwc-share-widget {
   position: absolute;
   display: block !important;
   z-index: 15;
-  width: 92%;
+  width: 90%;
   list-style: none;
   text-align: center;
   bottom: -14px;
