@@ -988,3 +988,7 @@ div.add-or-remove-shortcuts {
   -webkit-border-radius: 8px;
   border-radius: 8px;
 }
+.float-img{
+  float: left;
+  padding-right: 2em;
+}

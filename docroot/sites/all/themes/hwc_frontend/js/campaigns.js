@@ -300,6 +300,13 @@ jQuery(document).ready(function() {
 		jQuery(".more_newsletters").show();
 	});
 
+	$number_of_newsletter = jQuery( "div.newsletter-item" ).length;
+	
+	if($number_of_newsletter <= 4){
+		jQuery(".less_newsletters").hide();
+		jQuery(".more_newsletters").hide();
+	}
+
 	/*specific functions for tablet and/or mobile */
 	funcionesTabletMovil();
 
@@ -579,10 +586,13 @@ jQuery(document).ready(function($) {
 		 $("footer.footer").addClass('fix-margin');
 	}
 
-
-
+	if ($(".page-search")[0]){
+		 $("footer.footer").addClass('fix-margin');   
+	}
 
 });
+
+
 
 /** CAROUSEL **/
 jQuery(document).ready(function () {
@@ -695,7 +705,7 @@ jQuery(document).ready(function () {
   ResCarouselSize();
 
   var cl='class="active"';
-  for (i = 0; i < Math.ceil(jQuery('.multicarousel--block--inner .item').length / incno)+1; i++) {
+  for (i = 0; i < Math.ceil(jQuery('.multicarousel--block--inner .item').length / incno); i++) {
     jQuery('.multicarousel-indicators').append('<li id="multicarousel-indicator-'+i+'" data-slide-to="' + i + '" '+cl+'></li>');
     cl='class=""';
   }
@@ -727,6 +737,19 @@ jQuery(document).ready(function () {
 });
 
 jQuery(document).ready(function(){
+  if (jQuery(window).width() >= 1200) {
+    jQuery(".multicarousel--block").attr("data-slide","4");
+  }
+});
+
+jQuery(window).resize(function () {
+  if (jQuery(window).width() >= 1200) {
+    jQuery(".multicarousel--block").attr("data-slide","4");
+  }
+});
+
+
+jQuery(document).ready(function(){
   if (jQuery(window).width() >= 992) {
     jQuery(".multicarousel--block").attr("data-slide","3");
   }
@@ -740,24 +763,39 @@ jQuery(window).resize(function () {
 
 jQuery(document).ready(function(){
   if (jQuery(window).width() <= 991) {
-    jQuery(".multicarousel--block").attr("data-slide","2");
+    jQuery(".multicarousel--block").attr("data-slide","3");
+    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "87%");
   }
 });
 
 jQuery(window).resize(function () {
   if (jQuery(window).width() <= 991) {
-    jQuery(".multicarousel--block").attr("data-slide","2");
+    jQuery(".multicarousel--block").attr("data-slide","3");
+    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "87%");
   }
 });
 
 jQuery(document).ready(function(){
   if (jQuery(window).width() <= 767) {
     jQuery(".multicarousel--block").attr("data-slide","1");
+    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "84%");
   }
 });
 
 jQuery(window).resize(function () {
   if (jQuery(window).width() <= 767) {
     jQuery(".multicarousel--block").attr("data-slide","1");
+    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "84%");
   }
+});
+
+
+/* FAQ accorddions */
+
+jQuery(document).ready(function($) {
+	$('.panel-group .panel-default:nth-child(1) h4.panel-title').addClass('active');
+	$('h4.panel-title').click(function() { // when a .myDiv is clicked
+	    $('h4.panel-title').not(this).removeClass('active');
+	    $(this).toggleClass('active');
+	})
 });
