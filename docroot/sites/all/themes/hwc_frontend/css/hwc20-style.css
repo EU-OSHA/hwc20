@@ -5472,6 +5472,7 @@ body.newsletter .hwc-share-widget {
   font-weight: 700;
   text-align: center;
   font-size: 1.2em;
+  min-height: 150px;
 }
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary {
   background: #EFEFF0;
@@ -5664,6 +5665,20 @@ body.newsletter .hwc-share-widget {
   }
   .profile-edit-links-container .hwc-partner-private-link-block-description {
     margin-top: 0.8em;
+  }
+}
+@media (max-width: 768px) {
+  /* Good Practice Awards - GPA */
+  .node-type-gpa .main-container .field-name-field-introductory-text {
+    width: 100%;
+  }
+  .node-type-gpa .main-container .field-name-body {
+    width: 100%;
+  }
+  .node-type-gpa .main-container .click-here-to-see a {
+    width: 100%;
+    height: auto;
+    max-width: 463px;
   }
 }
 @media (max-width: 669px) {
