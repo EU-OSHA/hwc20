@@ -54,6 +54,7 @@ features[fe_block_settings][] = osha_events-osha_events_dates
 features[fe_block_settings][] = views--exp-events_index-page
 features[fe_block_settings][] = views-events-block_3
 features[fe_block_settings][] = views-events_index-block_1
+features[fe_nodequeue][] = homepage_events
 features[fe_nodequeue][] = press_room_news
 features[features_api][] = api:2
 features[field_base][] = field_adonis
