@@ -173,6 +173,9 @@ function hwc_frontend_preprocess_html(&$vars) {
   if (drupal_is_front_page() && variable_get('splash_mode', FALSE)) {
     $vars['classes_array'][] = 'splash-page';
   }
+  else {
+    $vars['classes_array'][] = 'front-page';
+  }
   if (!empty($vars['is_front'])) {
     $vars['head_title'] = t('Healthy Workplaces LIGHTEN THE LOAD 2020-22');
   }
