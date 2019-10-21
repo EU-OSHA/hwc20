@@ -147,13 +147,19 @@ function hwc_gpa_strongarm() {
       'display' => array(
         'share_widget' => array(
           'default' => array(
-            'weight' => '6',
+            'weight' => '7',
             'visible' => FALSE,
           ),
         ),
         'bottom_share_widget' => array(
           'default' => array(
             'weight' => '0',
+            'visible' => TRUE,
+          ),
+        ),
+        'gpe' => array(
+          'default' => array(
+            'weight' => '4',
             'visible' => TRUE,
           ),
         ),

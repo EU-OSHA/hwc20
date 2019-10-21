@@ -22,6 +22,7 @@ features[field_base][] = field_participate_date
 features[field_base][] = field_participate_description
 features[field_base][] = field_participate_upcoming_descr
 features[field_base][] = field_question
+features[field_group][] = group_faq|node|gpa|default
 features[field_group][] = group_participate|node|gpa|default
 features[field_group][] = group_participate|node|gpa|form
 features[field_instance][] = field_collection_item-field_faq-field_answer
