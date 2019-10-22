@@ -5621,17 +5621,17 @@ body.newsletter .hwc-share-widget {
   background: transparent;
   padding: 13px 15px;
 }
-.node-type-gpa #faq .panel-default > .panel-heading h4 a {
+.node-type-gpa #faq .panel-default > .panel-heading h3 a {
   color: #003399;
 }
-.node-type-gpa #faq .panel-default > .panel-heading h4 a:before {
+.node-type-gpa #faq .panel-default > .panel-heading h3 a:before {
   content: "\e253";
   font-family: "Glyphicons Halflings";
   margin-left: 10px;
   float: right;
   color: #ACC700;
 }
-.node-type-gpa #faq .panel-default > .panel-heading h4 a.collapsed:before {
+.node-type-gpa #faq .panel-default > .panel-heading h3 a.collapsed:before {
   content: "\e252";
   color: #ACC700;
 }
