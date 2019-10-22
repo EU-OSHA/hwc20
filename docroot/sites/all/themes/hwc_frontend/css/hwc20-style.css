@@ -5403,6 +5403,7 @@ body.newsletter .hwc-share-widget {
 /* Good Practice Awards - GPA */
 .node-type-gpa .main-container h2 {
   padding-bottom: 0.5em;
+  font-weight: 500;
 }
 .node-type-gpa .main-container .hwc-share-widget {
   float: right;
@@ -5463,7 +5464,6 @@ body.newsletter .hwc-share-widget {
   padding-top: 0.3em;
   padding-bottom: 1em;
   padding-left: 0.4em;
-  font-weight: 600;
 }
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block {
   overflow: hidden;
@@ -5526,8 +5526,8 @@ body.newsletter .hwc-share-widget {
   height: 100%;
   cursor: pointer;
 }
-.node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary:hover {
-  opacity: 0.9;
+.node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary:hover img {
+  opacity: 0.8;
 }
 .node-type-gpa .main-container .slider--video--section .btn:active,
 .node-type-gpa .main-container .slider--video--section .btn.active {
@@ -5565,8 +5565,9 @@ body.newsletter .hwc-share-widget {
   color: #FFF;
   float: left;
 }
-.node-type-gpa .main-container .group-participate h3 {
-  padding: 0;
+.node-type-gpa .main-container .group-participate h2 {
+  color: #FFF;
+  padding: 0 0 0.3em 0;
 }
 .node-type-gpa .main-container .group-participate a {
   color: #FFF;
