@@ -6526,6 +6526,22 @@ body.newsletter .hwc-share-widget {
     max-width: 463px;
     min-height: 165px;
   }
+  .node-type-gpa .main-container .group-participate .field-name-field-participate-description {
+    width: 100%;
+    padding-right: 0;
+  }
+  .node-type-gpa .main-container .group-participate .field-collection-container {
+    width: 100%;
+    padding-left: 0;
+  }
+  .node-type-gpa .main-container .group-participate .field-collection-container .field-label {
+    padding-left: 0;
+    padding-top: 1em;
+  }
+  .node-type-gpa .main-container .group-participate .field-collection-container .field-collection-view {
+    padding-left: 0;
+    margin-left: 0;
+  }
 }
 @media (max-width: 767px) {
   header.navbar-default .campaigns-header .navbar-header .region-header #block-lang-dropdown-language,
