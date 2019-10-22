@@ -301,7 +301,7 @@ jQuery(document).ready(function() {
 	});
 
 	$number_of_newsletter = jQuery( "div.newsletter-item" ).length;
-	
+
 	if($number_of_newsletter <= 4){
 		jQuery(".less_newsletters").hide();
 		jQuery(".more_newsletters").hide();
@@ -587,7 +587,7 @@ jQuery(document).ready(function($) {
 	}
 
 	if ($(".page-search")[0]){
-		 $("footer.footer").addClass('fix-margin');   
+		 $("footer.footer").addClass('fix-margin');
 	}
 
 });
@@ -597,7 +597,6 @@ jQuery(document).ready(function($) {
 /** CAROUSEL **/
 jQuery(document).ready(function () {
 
-  console.log('CAROUSEL');
   var itemsMainDiv = ('.multicarousel--block');
   var itemsDiv = ('.multicarousel--block--inner');
   var itemWidth = "";
