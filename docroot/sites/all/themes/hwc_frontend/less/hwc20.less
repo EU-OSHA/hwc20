@@ -6202,6 +6202,10 @@ body.newsletter{
 .node-type-gpa{
 	.main-container{
 
+		h2{
+			padding-bottom: 0.5em;
+		}
+
 		.hwc-share-widget{
 			float: right;
 		}
@@ -6251,8 +6255,7 @@ body.newsletter{
 				span:nth-child(2){
 					font-weight: bold;
 				}
-			}
-			
+			}	
 		}
 
 		.slider--video--section{
@@ -6261,140 +6264,120 @@ body.newsletter{
 			padding: 2em;
 			height: 350px;
 			margin-top: 2em;
-			margin-bottom: 2em;
-			 
+
 			h2.block-title{
 				color: #003399;
 				padding-top: 0.3em;
     			padding-bottom: 1em;
     			padding-left: 0.4em;
+    			font-weight: 600;
 			}
 
-			.multicarousel--block{
-				height: 200px;
-			}
+			.slider--video--block{
+				.slider--video--items{
+					.multicarousel--block{
+						overflow: hidden;
+						padding: 0 3.5rem;
+						width: 100%;
+						height: 200px;
+						margin: auto;
+						position: relative;
 
-			.item{
-				p{
-					border: 2px solid #DEE999;
-					padding: 1.5em;
-					margin: 0 1em;
-					font-weight: 700;
-					text-align: center;
-					font-size: 1.2em;
-					min-height: 150px;
+						.multicarousel--block--inner{
+						    transition: 1s ease all;
+						    float: left;
+						    .item {
+							    float: left;
+							    > .slider-item{
+								    text-align: center;
+								    padding: 0 0 0 1rem;
+								    margin: 1rem;
+								    color: #666;
+								    overflow: hidden;
+								    position: relative;
+								}
+								p{
+									display: flex;
+									justify-content: center;
+									align-items: center;
+									border: 2px solid #DEE999;
+									padding: 1.5em;
+									margin: 0 1em;
+									font-weight: 700;
+									text-align: center;
+									font-size: 1.1em;
+									min-height: 150px;
+								}
+							}
+						}
+
+						.leftLst.over, .rightLst.over{
+						    pointer-events: none;
+						    img {
+							    opacity: 0.4;
+							}
+						}
+
+						.rightLst.over{
+		    				pointer-events: none;
+		  				}
+
+		  				.leftLst{
+							position: absolute;
+							top: -19px;
+							left: -4px;
+						}
+
+						.rightLst{
+							position: absolute;
+							top: -19px;
+							right: 0;
+						}
+
+						.btn-primary{
+							background: #EFEFF0;
+							height: 100%;
+		    				cursor: pointer;
+		    				&:hover{
+						    	opacity: 0.9;
+						    }
+						}
+					}
 				}
-			}
-			
-		}
-
-		.slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary{
-		//TO DO LESS
-			background: #EFEFF0;
-		}
-
-		ol.multicarousel-indicators li.active {
-    		background: #ACC700;
-  		}
-
-
-
-		  ol.multicarousel-indicators li {
-		    vertical-align: middle;
-		    border: 2px solid #59595A;
-		    display: inline-block;
-		    width: 15px;
-		    height: 15px;
-		    margin: 0px 2px;
-		    text-indent: -999px;
-		    border-radius: 10px;
-		    cursor: pointer;
-		    background-color: #EFEFF0;
-		  }
-
-
-		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block {
-		    overflow: hidden;
-		    padding: 0 3.5rem;
-		    width: 100%;
-		    margin: auto;
-		    position: relative;
-		  }
-		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .multicarousel--block--inner {
-		    transition: 1s ease all;
-		    float: left;
-		  }
-		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .multicarousel--block--inner .item {
-		    float: left;
-		  }
-
-		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .multicarousel--block--inner .item > .slider-item {
-		    text-align: center;
-		    padding: 0 0 0 1rem;
-		    margin: 1rem;
-		    color: #666;
-		    overflow: hidden;
-		    position: relative;
-		  }
-
-		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst.over {
-		    pointer-events: none;
-		  }
-		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .rightLst.over {
-		    pointer-events: none;
-		  }
-
-		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary {
-		    background: #EFEFF0;
-		    height: 100%;
-		    cursor: pointer;
-		    &:hover{
-		    	opacity: 0.9;
-		    }
-		  }
-
-		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst.over img {
-		    opacity: 0.4;
-		  }
-		  .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .rightLst.over img {
-		    opacity: 0.4;
-		  }
-
-			ol.multicarousel-indicators {
-			    position: absolute;
-			    display: block !important;
-			    z-index: 15;
-			    width: 90%;
-			    list-style: none;
-			    text-align: center;
-			    bottom: -11px;
-			}
-
-			
-			.slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst {
-				position: absolute;
-				top: -19px;
-				left: -4px;
-			}
-
-			.slider--video--section .slider--video--block .slider--video--items .multicarousel--block .rightLst {
-				position: absolute;
-				top: -19px;
-				right: 0;
 			}
 
 			.btn:active, .btn.active{
 				 box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.125);
 			}
+		}
 
-
-
-
-
-
-
+		ol.multicarousel-indicators{
+			position: absolute;
+		    display: block !important;
+		    z-index: 15;
+		    width: 90%;
+		    list-style: none;
+		    text-align: center;
+		    bottom: -11px;
+			li{
+			    vertical-align: middle;
+			    border: 2px solid #59595A;
+			    display: inline-block;
+			    width: 15px;
+			    height: 15px;
+			    margin: 0px 2px;
+			    text-indent: -999px;
+			    border-radius: 10px;
+			    cursor: pointer;
+			    background-color: #EFEFF0;
+		    }
+		    li.active{
+    			background: #ACC700;
+  			}
+		}
 
 		.group-participate{
+			width: 100%;
 			background: url(../images/gpa-how-to-participate-background.png) no-repeat;
 			background-size: cover;
 			padding: 2em;
@@ -6441,6 +6424,13 @@ body.newsletter{
 			}
 		}
 
+	}
+
+	.group-faq{
+		width: 100%;
+		clear: both;
+	    margin-top: 3em;
+	    float: left;
 	}
 
 	#faq{
