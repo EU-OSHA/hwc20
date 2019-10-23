@@ -5837,3 +5837,741 @@ body.european-week{
 	float: left;
 	padding-right: 2em;
 }
+
+
+
+/* Styles for Release 2, This styles shouldn't be merge on release_1 branch */
+
+/* Private Zone */
+.profile-edit-links-container{
+	.panels-flexible-region-inside-first{
+		justify-content: center;
+		display: flex;
+		flex-flow: row wrap;
+	  	margin: 1rem 0 3rem;
+	}
+	.pane-hwc-partner-hwc-partner-private-link-0,
+	.pane-hwc-partner-hwc-partner-private-link-1,
+	.pane-hwc-partner-hwc-partner-private-link-2,
+	.pane-hwc-partner-hwc-partner-private-link-3,
+	.pane-node-profile-update-link{
+	  width: 20%;
+		
+		.pane-content{
+		min-height: 130px;
+		text-align: center;
+		padding: 20px 10px !important;
+		margin: 10px;
+		border: 0;
+		background: transparent !important;
+		max-height: 100% !important;
+		display: flex;
+		height: 100%;
+
+			.hwc-partner-private-link-block-title{
+				text-align: right;
+				background: transparent;
+				color: #00309d;
+				border: 2px solid #bcd75b;
+				padding: 0 1em;
+				border-radius: 12px;
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+				font-size: 15px;
+				font-weight: 600;
+				min-height: 78px;
+				max-height: 100%;
+				min-width: 100%;
+				position: relative;
+				&:hover{
+				    color: #FFF;
+				    background: #00309d;
+				    text-decoration: none;
+				    border: 2px solid #00309d;
+				    > a{
+				    	color: #FFF;
+				    	font-style: normal;
+				    }
+				}
+				a{
+					height: 100%;
+					font-weight: bold;
+					color: #003399;
+					font-size: 1em;
+					padding: 0 0 0 87px !important;
+					display: flex;
+				    width: 100%;
+				    justify-content: flex-end;
+				    align-items: center;
+				    font-style: normal;
+					&:before{
+						content: none;
+					}
+					&:hover{
+						text-decoration: none;
+						color: #FFF;
+					}
+				}
+			}
+			.hwc-partner-private-link-block-description{
+				span{
+					display:block;
+				}
+			}
+		}
+	}
+
+	.pane-hwc-partner-hwc-partner-private-link-0{
+		.hwc-partner-private-link-block-title{
+			a{
+				background: url(../images/pz-events.png) 0 50% no-repeat;
+    			height: 66px;
+    			width: 100%;
+			}
+			&:hover{
+				a{
+					background: url(../images/mpp-create-event-hover.png) 0 50% no-repeat;
+					
+				}
+			}
+		}
+	}
+
+	.pane-hwc-partner-hwc-partner-private-link-1{
+		.hwc-partner-private-link-block-title{
+			a{
+				background: url(../images/pz-news.png) 0 50% no-repeat;
+    			height: 66px;
+    			width: 100%;
+			}
+			&:hover{
+				a{
+					background: url(../images/mpp-create-news-hover.png) 0 50% no-repeat;
+					
+				}
+			}
+		}
+	}
+	
+	.pane-hwc-partner-hwc-partner-private-link-2{
+		.hwc-partner-private-link-block-title{
+			a{
+				background: url(../images/pz-good-practice.png) 0 50% no-repeat;
+    			height: 66px;
+    			width: 100%;
+			}
+			&:hover{
+				a{
+					background: url(../images/mpp-good-practice-hover.png) 0 50% no-repeat;
+					
+				}
+			}
+		}
+	}
+
+	.pane-hwc-partner-hwc-partner-private-link-3{
+		.hwc-partner-private-link-block-title{
+			a{
+				background: url(../images/pz-partner-resource.png) 0 50% no-repeat;
+    			height: 66px;
+    			width: 100%;
+			}
+			&:hover{
+				a{
+					background: url(../images/mpp-partner-resources-hover.png) 0 50% no-repeat;
+					
+				}
+			}
+		}
+	}
+	
+	.pane-node-profile-update-link{
+		.hwc-partner-private-link-block-title{
+			a{
+				background: url(../images/pz-update-profile.png) 0 50% no-repeat;
+    			height: 66px;
+			}
+			&:hover{
+				a{
+					background: url(../images/mpp-update-profile-hover.png) 0 50% no-repeat;
+					
+				}
+			}
+		}
+	}
+
+	.pane-node-profile-update-link{
+		.pane-content{
+			a.hwc-partner-private-link-block-title:first-child{
+				
+				font-weight: bold;
+				font-style: italic;
+				margin-bottom: 15px;
+				
+				&:before{
+					content:none;
+				}
+			}
+		}
+	}
+
+	.hwc-partner-private-link-block-description{
+		margin-top: 2em;
+	}
+
+	p.draft{
+		margin-top: 1em;
+		text-align: left;
+		margin: 0 auto;
+		width: 100%;
+		display: block;
+		position: absolute;
+		left: 20px;
+		bottom: -25px;
+		a{		
+			color:#003399;
+			background: #EEF4CC;
+			padding: 5px 20px;
+			border-radius: 7px;
+		}
+	}
+}
+
+/* Newsletter webpage */
+
+body.newsletter{
+	.panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6{
+		background: url(../images/background-newsletter-page.png) no-repeat;
+		background-size: cover;
+		border-radius: 10px;
+		margin-bottom: 2em;
+		padding-left: 30px;
+   	 	padding-right: 30px;
+    	padding-top: 13px;
+    	padding-bottom: 5px;
+
+		.pane-osha-newsletter-osha-newsletter-subscribe-extra{
+			margin-right: 0;
+    		margin-left: 0;
+    		padding-top: 15px;
+    		padding-bottom: 0;
+    		color: #FFF;
+    		a{
+    			color: #FFF;
+    			text-decoration: underline;
+    			&:hover{
+    				text-decoration: none;
+    			}
+    		}
+    		#subscribe-extra{
+    			#edit-subscribe-details{
+    				.form-item-email{
+    					width: 100%;
+    					padding-top: 1em;
+    					input{
+    						width: 99%;
+    						padding-right: 151px;
+    						border-top-left-radius: 7px;
+    						border-bottom-left-radius: 7px;
+    					}
+    				}
+    				#edit-submit{
+    					right: 0;
+    					padding-left: 3em;
+    					padding-right: 3em;
+    					border-top-right-radius: 7px;
+    					border-bottom-right-radius: 7px;
+    					top: 28px;
+    					&:before{
+    						content: none;
+    					}
+    				}
+    				span.my-checkbox{
+    					margin-top: 1px;
+    				}
+    				.checkbox label{
+    					padding-left: 0;
+    					text-align: left;
+    				}
+    				.checkbox:last-child{
+    					padding-top: 2em;
+    				}
+
+    			}
+    			.col-md-6.col-sm-12{
+    				> .captcha{
+    					text-align: left;
+    					margin: 0;
+    					.form-item-security-code{
+    						.help-block{
+    							color:#FFF;
+    						}
+    					}
+    				}
+    			}
+    			
+    			input[type="checkbox"]{
+    				display: none;
+    			}
+    		}
+		}
+
+		#captcha_0_readaudio img, #captcha_0_refresh img{
+			height: 27.5px;
+    		width: 27px;
+		}
+	}
+
+
+
+	.pane-osha-newsletter-osha-newsletter-latest{
+		h2.pane-title{
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			box-sizing: border-box;
+			font-family: inherit;
+			line-height: 1.1;
+			margin-bottom: 10px;
+			font-size: 3rem;
+			border-radius: 0px;
+			color: #00309d;
+			margin-top: 0;
+			font-weight: 400;
+			text-align: left !important;
+		}
+		#latest-newsletters-block{
+			h2{
+				background: url(../images/h2-newsletter.png) no-repeat 1px 4px transparent;
+				padding-left: 25px;
+				a{
+					color: #003399 !important;
+					&:hover{
+						text-decoration: underline !important;
+					}
+				}
+			}
+
+			.newsletter-item{
+				border-bottom: 3px solid #DEE999;
+			}
+			.more_newsletters, .less_newsletters{
+				background: url(../images/ico-plus-20.png) no-repeat 98.5% 2px #0030a0;
+				text-transform: uppercase;
+				color: #FFF;
+				border-top-left-radius: 7px;
+				border-bottom-left-radius: 7px;
+				border-top-right-radius: 15px;
+				border-bottom-right-radius: 15px;
+				padding: 3px 3.5em 4px 0.7em;
+				-webkit-transition: all 0.3s;
+				-moz-transition: all 0.3s;
+				-o-transition: all 0.3s;
+				transition: all 0.3s;
+				float: left;
+				margin-top: 1em;
+				max-width: 100%;
+				&:hover{
+					color: #FFF;
+					background: url(../images/ico-plus-20-hover.png) no-repeat 98.5% 2px #8fc900;
+					text-decoration: none;
+				}
+				&:before{
+					content: '';
+					display: none;
+				}
+			}	
+		}
+	}
+
+	.newsletter-item{
+		table{
+			display: none;
+		}
+	}
+
+	.hwc-share-widget{
+		position: absolute;
+    	right: 0;
+    	bottom: -40px;
+	}
+}
+
+
+/* Good Practice Awards - GPA */
+
+.node-type-gpa{
+	.main-container{
+
+		h2{
+			padding-bottom: 0.5em;
+			font-weight: 500;
+		}
+
+		.hwc-share-widget{
+			float: right;
+		}
+
+		.field-name-field-introductory-text{
+			float: left;
+			width: 70%;
+			padding: 1em 1em 0 0;
+			margin-top: 1em;
+			a{
+				font-weight: bold;
+			}
+			a[target=_blank]{
+				background: url(../images/target-blank-blue.png) 98% 4px no-repeat;
+    			padding-right: 20px;
+			}
+		}
+		.field-name-body{
+			float: left;
+			width: 30%;
+			background: url(../images/gpa-body-background.png) no-repeat;
+			background-size: cover;
+			color: #FFF;
+			padding: 2em;
+			margin-top: 2em;
+			margin-bottom: 3em;
+			border-radius: 7px;
+		}
+
+		.click-here-to-see{
+			a{
+				display: block;
+				background: url(../images/gpa-link-body.png) no-repeat;
+				background-size: cover;
+				color: #FFF;
+				padding: 2em;
+				margin-top: 2em;
+				margin-bottom: 3em;
+				border-radius: 7px;
+				width: 463px;
+				height: 165px;
+				span{
+					color:#FFF;
+					display: block;
+					font-size: 1.1em;
+				}
+				span:nth-child(2){
+					font-weight: bold;
+				}
+			}	
+		}
+
+		.slider--video--section{
+			clear: both;
+			background: #EFEFF0;
+			padding: 2em;
+			height: 350px;
+			margin-top: 2em;
+
+			h2.block-title{
+				color: #003399;
+				padding-top: 0.3em;
+    			padding-bottom: 1em;
+    			padding-left: 0.4em;
+			}
+
+			.slider--video--block{
+				.slider--video--items{
+					.multicarousel--block{
+						overflow: hidden;
+						padding: 0 3.5rem;
+						width: 100%;
+						height: 200px;
+						margin: auto;
+						position: relative;
+
+						.multicarousel--block--inner{
+						    transition: 1s ease all;
+						    float: left;
+						    .item {
+							    float: left;
+							    > .slider-item{
+								    text-align: center;
+								    padding: 0 0 0 1rem;
+								    margin: 1rem;
+								    color: #666;
+								    overflow: hidden;
+								    position: relative;
+								}
+								p{
+									display: flex;
+									justify-content: center;
+									align-items: center;
+									border: 2px solid #DEE999;
+									padding: 1.5em;
+									margin: 0 1em;
+									font-weight: 700;
+									text-align: center;
+									font-size: 1.1em;
+									min-height: 150px;
+								}
+							}
+						}
+
+						.leftLst.over, .rightLst.over{
+						    pointer-events: none;
+						    img {
+							    opacity: 0.4;
+							}
+						}
+
+						.rightLst.over{
+		    				pointer-events: none;
+		  				}
+
+		  				.leftLst{
+							position: absolute;
+							top: -19px;
+							left: -4px;
+						}
+
+						.rightLst{
+							position: absolute;
+							top: -19px;
+							right: 0;
+						}
+
+						.btn-primary{
+							background: #EFEFF0;
+							height: 100%;
+		    				cursor: pointer;
+		    				&:hover{
+						    	img{
+						    		opacity: 0.8;
+						    	}
+						    }
+						}
+					}
+				}
+			}
+
+			.btn:active, .btn.active{
+				 box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.125);
+			}
+		}
+
+		ol.multicarousel-indicators{
+			position: absolute;
+		    display: block !important;
+		    z-index: 15;
+		    width: 90%;
+		    list-style: none;
+		    text-align: center;
+		    bottom: -11px;
+			li{
+			    vertical-align: middle;
+			    border: 2px solid #59595A;
+			    display: inline-block;
+			    width: 15px;
+			    height: 15px;
+			    margin: 0px 2px;
+			    text-indent: -999px;
+			    border-radius: 10px;
+			    cursor: pointer;
+			    background-color: #EFEFF0;
+		    }
+		    li.active{
+    			background: #ACC700;
+  			}
+		}
+
+		.group-participate{
+			width: 100%;
+			background: url(../images/gpa-how-to-participate-background.png) no-repeat;
+			background-size: cover;
+			padding: 2em;
+			color:#FFF;
+			float: left;
+
+			h2{
+				color: #FFF;
+				padding: 0 0 0.3em 0;
+			}
+
+			a{
+				color:#FFF;
+				font-weight: bold;
+				padding-bottom: 5px;
+    			display: block;
+				&:hover{
+					text-decoration:underline;
+				}
+			}
+
+			a[target=_blank]{
+				background: url(../images/target-blank-white.png) 98% 2px no-repeat;
+    			padding-right: 30px;
+    			display: inline-block;
+			}
+
+			.field-name-field-participate-description{
+				float: left;
+				width: 70%;
+    			padding-top: 5px;
+    			padding-right: 2em;
+			}
+			.field-collection-container{
+				float: right;
+				width: 30%;
+				.field-label{
+					padding-left: 14px;
+					font-size: 1.3em;
+					font-weight: normal;
+				}
+			}
+			.field-collection-view, .field-collection-container{
+				border-bottom: 0;
+			}
+		}
+
+	}
+
+	.group-faq{
+		width: 100%;
+		clear: both;
+	    margin-top: 3em;
+	    float: left;
+	}
+
+	#faq{
+		margin-top: 2em;
+		.panel-default{
+			border-left:0;
+			border-right:0;
+			border-top: 0;
+			border-bottom: 2px solid #DEE999;
+			> .panel-heading{
+				background: transparent;
+				padding: 13px 15px;
+				h3{
+
+					a{
+						color: #003399;
+						&:before{
+							content: "\e253";
+							font-family: "Glyphicons Halflings";
+							margin-left: 10px;
+							float: right;
+							color:#ACC700;
+						}
+					}
+				}
+
+				h3 a.collapsed{
+					&:before{
+						content: "\e252";
+						color:#ACC700;
+					}
+				}
+			}
+		}
+
+		.panel-default:nth-child(1){
+			border-top: 2px solid #DEE999;
+		}
+
+		.panel-heading{
+			+ .panel-collapse {
+				> .panel-body{
+					    border-top: 0;
+				}
+			}			
+		}
+	}
+}
+
+.download-link{
+	background: url(../images/download-ico-white.png) 100% 10% no-repeat;
+    display: inline-block !important;
+    padding-right: 2em;
+}
+
+
+/* Home page */
+
+body.front-page{
+	#block-views-homepage-banners-block{
+		.view-homepage-banners{
+			.view-content{
+				display: flex;
+    			flex-wrap: wrap;
+			}
+
+			.views-row-even, .views-row-odd{
+		
+				padding-left: 0;
+		    	padding-right: 0;
+		   
+		    		text-align: center;
+		    		/* IE10+ */ 
+					background-image: -ms-linear-gradient(top, #ededed 0%, #F6F6F6 47%, #ededed 100%);
+
+					/* Mozilla Firefox */ 
+					background-image: -moz-linear-gradient(top, #ededed 0%, #F6F6F6 47%, #ededed 100%);
+
+					/* Opera */ 
+					background-image: -o-linear-gradient(top, #ededed 0%, #F6F6F6 47%, #ededed 100%);
+
+					/* Webkit (Safari/Chrome 10) */ 
+					background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(47, #F6F6F6), color-stop(100, #ededed));
+
+					/* Webkit (Chrome 11+) */ 
+					background-image: -webkit-linear-gradient(top, #ededed 0%, #F6F6F6 47%, #ededed 100%);
+
+					/* W3C Markup */ 
+					background-image: linear-gradient(to bottom, #ededed 0%, #F6F6F6 47%, #ededed 100%);
+					.img-right-column{
+						height: 100%;
+    					display: flex;
+    					align-items: flex-end;
+    					img{
+		    				margin: 0 auto;
+		    			}
+					}
+		    		
+		    	}
+			}
+			.views-row-first, .views-row-last{
+				background: url(../images/background-splash-box1.png) #94c000 !important;
+				float: left;
+				text-align: center;
+				padding-bottom: 0;
+				h1{
+					padding-top: 1.5em;
+				    border-bottom: 0;
+				    font-size: 2em;
+				    font-style: normal;
+				    font-weight: 400;
+				    color:#FFF;
+				}
+
+				h2{
+					color:#FFF;
+					font-style: normal;
+					font-weight: 600;
+				}
+
+				p{
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: center;
+					color: #FFF;
+				    padding-top: 1em;
+				    padding-bottom: 2em;
+				    max-width: 430px;
+				    margin: 0 auto;
+				    font-size: 1.2em;
+				}
+
+				.btn-background-transparent{
+					display: flex;
+		    		justify-content: center;
+		    		align-items: center;
+				}
+			}
+		}
+	}
+}
