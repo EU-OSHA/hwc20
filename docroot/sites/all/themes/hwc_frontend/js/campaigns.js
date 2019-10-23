@@ -86,25 +86,25 @@ jQuery(document).ready(function() {
 
     // Detect objectFit support
 	//if('objectFit' in document.documentElement.style === false) {
-	  
+
 	  // assign HTMLCollection with parents of images with objectFit to variable
 	  var container = document.getElementsByClassName('flickr-img-wrap');
-	  
+
 	  // Loop through HTMLCollection
 	  for(var i = 0; i < container.length; i++) {
-	    
+
 	    // Asign image source to variable
 	    var imageSource = container[i].querySelector('img').src;
-	    
+
 	    // Hide image
 	    container[i].querySelector('img').style.display = 'none';
-	    
+
 	    // Add background-size: cover
 	    container[i].style.backgroundSize = 'cover';
-	    
+
 	    // Add background-image: and put image source here
 	    container[i].style.backgroundImage = 'url(' + imageSource + ')';
-	    
+
 	    // Add background-position: center center
 	    container[i].style.backgroundPosition = 'center center';
 	  }
@@ -130,12 +130,12 @@ jQuery(document).ready(function() {
 
    	var toolkitPages = jQuery('header').attr( "class").indexOf('no-sticky');
    	if(toolkitPages > 0){
-   		jQuery('body').addClass('tk-pages-resize');   	   	
+   		jQuery('body').addClass('tk-pages-resize');
    	   	var widthWin=jQuery(window).width();
 	   	if(widthWin <= 768 ){
 	   		jQuery('header').removeClass('no-sticky');
 	   		jQuery('body').removeClass('tk-pages');
-	   	} else {	   			
+	   	} else {
 			jQuery('body').css('padding-top','');
 			jQuery('body').addClass('tk-pages');
 	   	}
@@ -147,16 +147,16 @@ jQuery(document).ready(function() {
 		   	if(widthWin <= 768 ){
 		   		jQuery('header').removeClass('no-sticky');
 		   		jQuery('body').removeClass('tk-pages');
-		   	} else {	   		
+		   	} else {
 		   		jQuery('header').addClass('no-sticky');
 	   			jQuery('body').addClass('tk-pages');
 		   	}
 	   }
-	});	
+	});
 
 	setInterval(function() {
 	    if (didScroll) {
-	    	var toolkitPages = jQuery('header').attr( "class").indexOf('no-sticky');  
+	    	var toolkitPages = jQuery('header').attr( "class").indexOf('no-sticky');
 	    	if( toolkitPages < 0 ){
 		        hasScrolled();
 		        didScroll = false;
@@ -169,7 +169,7 @@ jQuery(document).ready(function() {
 		//If we are in toolit page, no sticky the main menu, and fixed toolkit menu
 	    if (jQuery("body.toolkit-page")[0]){
 		    // Do something if class exists
-		    
+
 		    jQuery(window).scroll(function (event) {
 			    var scroll = jQuery(window).scrollTop();
 			    if (scroll == 0){
@@ -184,24 +184,24 @@ jQuery(document).ready(function() {
 			    }
 			});
 
-		//If we are not in toolkit page    
+		//If we are not in toolkit page
 		} else {
 		    // Do something if class does not exist
 		    var st = jQuery(this).scrollTop();
-	    
+
 		    // Make sure they scroll more than delta
 		    if(Math.abs(lastScrollTop - st) <= delta)
 		        return;
-		    
+
 		    // If they scrolled down and are past the navbar, add class .nav-up.
 		    // This is necessary so you never see what is "behind" the navbar.
 		    if (st > lastScrollTop && st > navbarHeight){
 		        // Scroll Down
-		        jQuery('header').removeClass('nav-down').addClass('nav-up');		        
+		        jQuery('header').removeClass('nav-down').addClass('nav-up');
 		    } else {
 		        // Scroll Up
 		        if(st + jQuery(window).height() < jQuery(document).height()) {
-		            jQuery('header').removeClass('nav-up').addClass('nav-down');		            
+		            jQuery('header').removeClass('nav-up').addClass('nav-down');
 		        }
 		    }
 		}
@@ -266,7 +266,7 @@ jQuery(document).ready(function() {
 	    }
 	});
 	*/
-	
+
 	/*View newsletter captcha*/
 
 	jQuery( "#edit-email-osh" ).click(function() {
@@ -282,12 +282,12 @@ jQuery(document).ready(function() {
 
 	/*adding color to "sort by" labels when is checked*/
 	jQuery(".pane-hwc-practical-tool-hwc-practical-tool-listing #edit-content .form-type-radios.form-item-sort input:checked").parent('label').css({'color':'#749b00','font-weight':'bold'});
-	
+
 	/*show more and less newsletters*/
 	jQuery(".more_newsletters").click(function(){
 		jQuery("div.newsletter-item:gt(3)").slideDown();
 		jQuery(".more_newsletters").hide();
-		
+
 		if(windowWidth <= 992){
 			jQuery(".less_newsletters").show().css("display", "block");
 		}else{
@@ -300,23 +300,30 @@ jQuery(document).ready(function() {
 		jQuery(".more_newsletters").show();
 	});
 
+	$number_of_newsletter = jQuery( "div.newsletter-item" ).length;
+
+	if($number_of_newsletter <= 4){
+		jQuery(".less_newsletters").hide();
+		jQuery(".more_newsletters").hide();
+	}
+
 	/*specific functions for tablet and/or mobile */
 	funcionesTabletMovil();
 
 	funcionesMovil();
 
 	funcionesDesktop();
-	
-	
+
+
 	//Fixing responsive menu to iPhone
 	jQuery(document).ready(function() {
-		
+
 		//Hover for download episodes on iPad
 		document.addEventListener("touchstart", function() {},false);
 	});
 
-	
-	
+
+
 
 	/*filters of list dropdown*/
 	jQuery(".form-item-main-tags > label").click(function() {
@@ -363,7 +370,7 @@ jQuery(document).ready(function() {
 	if(jQuery(".form-item-publication-type div").is(':visible')){
 		jQuery(".form-item-publication-type > label").addClass("active");
 	};
-	
+
 	/*Private zone hover effect menu*/
 	jQuery(".profile-edit-links-container .hwc-partner-private-link-block-title a").hover(function(){
 		jQuery(".profile-edit-links-container .pane-content").css("background", "inherit");
@@ -377,8 +384,8 @@ jQuery(document).ready(function() {
 
 	/**
 	 * Clearable text inputs
-	
-	function tog(v){return v?'addClass':'removeClass';} 
+
+	function tog(v){return v?'addClass':'removeClass';}
 	jQuery(document).on('input', '.clearable', function(){
 	    jQuery(this)[tog(this.value)]('x');
 	}).on('mousemove', '.x', function( e ){
@@ -388,23 +395,23 @@ jQuery(document).ready(function() {
 	    jQuery(this).removeClass('x onX').val('').change();
 	});
 	 */
-	 
+
 	/************************** FUNCTIONS *******************************/
 
 	function funcionesDesktop () {
 		jQuery(window).resize(function() {
 	    	windowWidth= jQuery(window).width();//window size, when resizing
 		    if(windowWidth > 976){//<-----functions for desktop
-				
+
 		    	jQuery('#block-hwc-toolkit-toolkit-left-menu .key-menu-container > .menu').css("display", "block");
 
 			}
 		});
-		
+
 	}
 	function funcionesTabletMovil () {
 		if(windowWidth <= 992){//<-----functions for tablet and/or mobile
-			
+
 
 
 		}//<-----End: functions for tablet and/or mobile
@@ -420,31 +427,31 @@ jQuery(document).ready(function() {
 		    	jQuery(this).toggleClass("active");
 				jQuery("#block-menu-menu-header-login, #block-lang-dropdown-language").toggleClass("visibility");
 			});
-			
+
 			//Additional Resources Block
-			
+
 			jQuery(".field-name-field-aditional-resources h4.pane-title").click(function() {
 				jQuery(this).toggleClass("closeLabel");
 				jQuery(this).next("div").toggle();
 			});
-			
+
 			//Press Room
-			
+
 			jQuery(".pane-osha-press-release-osha-press-rel-become-partner h2.pane-title").click(function() {
 				jQuery(this).toggleClass("closeLabel");
 				jQuery(this).next("div").toggle();
 			});
-			
+
 			jQuery(".pane-press-contacts h2.pane-title").click(function() {
 				jQuery(this).toggleClass("closeLabel");
 				jQuery(this).next("div").toggle();
 			});
-			
+
 			jQuery(".pane-osha-press-release-osha-press-kit h2.pane-title").click(function() {
 				jQuery(this).toggleClass("closeLabel");
 				jQuery(this).next("div").toggle();
 			});
-			
+
 		}
 	}
 
@@ -457,10 +464,10 @@ jQuery(document).ready(function() {
 	// DELETE SEARCH TOOLKIT EXAMPLES EMPTY
 
 		jQuery('.tools-and-examples-items').each(function( index ) {
-			var examplesItemsContent = jQuery(this).html();	
+			var examplesItemsContent = jQuery(this).html();
 			var hasItemsContent = examplesItemsContent.trim().length;
 			if(hasItemsContent == 0){
-				jQuery(this).remove();				
+				jQuery(this).remove();
 			} else {
 				jQuery(this).fadeIn( "slow" );
 			}
@@ -486,7 +493,7 @@ jQuery(document).ready(function() {
 			    if (jQuery('#edit-search-block-form--2').css('opacity') == 0) {
 			       jQuery('#edit-search-block-form--2').css('display', 'block');
 			       jQuery('#edit-search-block-form--2').addClass('expand');
-			       jQuery('#block-search-form').addClass('expand'); 
+			       jQuery('#block-search-form').addClass('expand');
 			    }
 			    else {
 			        jQuery('#edit-search-block-form--2').css('display', 'none');
@@ -495,7 +502,7 @@ jQuery(document).ready(function() {
 			        //jQuery("#edit-submit--2").click() TO DO
 			    }
 			});
-		}  
+		}
 
 		//Calculate the header height and add the padding-top to the body. All resolotuions and responsive
 		var calculate_height = jQuery(".campaigns-header").height();
@@ -559,7 +566,7 @@ jQuery(document).ready(function($) {
 
    	//Add two-column class when European Week has Events
 	if (jQuery("#block-hwc-european-week-news-events .box-before.events")[0]){
-		 $("#block-hwc-european-week-news-events .box-before.news").addClass('two-column');   
+		 $("#block-hwc-european-week-news-events .box-before.news").addClass('two-column');
 	}
 
 	//Add span to Subscribe Checkbox to make custom Checkbox
@@ -572,15 +579,15 @@ jQuery(document).ready(function($) {
 
 	//Add class to fix the margin footer when the last block has grey colour
 	if ($(".content-box-sub")[0]){
-		 $("footer.footer").addClass('fix-margin');   
+		 $("footer.footer").addClass('fix-margin');
 	}
 
 	if ($("#block-hwc-european-week-news-events")[0]){
-		 $("footer.footer").addClass('fix-margin');   
+		 $("footer.footer").addClass('fix-margin');
 	}
 
 	if ($(".page-search")[0]){
-		 $("footer.footer").addClass('fix-margin');   
+		 $("footer.footer").addClass('fix-margin');
 	}
 
 });
@@ -739,14 +746,28 @@ jQuery(window).resize(function () {
     jQuery(".multicarousel--block").attr("data-slide","4");
   }
 });
-	
+
+jQuery(document).ready(function(){
+  if (jQuery(window).width() <= 1200) {
+    jQuery(".multicarousel--block").attr("data-slide","3");
+    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "87%");
+  }
+});
+
+jQuery(window).resize(function () {
+  if (jQuery(window).width() <= 1200) {
+    jQuery(".multicarousel--block").attr("data-slide","3");
+    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "87%");
+  }
+});
+
 jQuery(document).ready(function(){
   if (jQuery(window).width() <= 991) {
     jQuery(".multicarousel--block").attr("data-slide","2");
     jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "87%");
   }
 });
-	
+
 jQuery(window).resize(function () {
   if (jQuery(window).width() <= 991) {
     jQuery(".multicarousel--block").attr("data-slide","2");
@@ -760,7 +781,7 @@ jQuery(document).ready(function(){
     jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "79%");
   }
 });
-	
+
 jQuery(window).resize(function () {
   if (jQuery(window).width() <= 767) {
     jQuery(".multicarousel--block").attr("data-slide","1");
