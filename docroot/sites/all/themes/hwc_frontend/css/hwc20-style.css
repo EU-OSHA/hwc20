@@ -5401,6 +5401,10 @@ body.newsletter .hwc-share-widget {
   bottom: -40px;
 }
 /* Good Practice Awards - GPA */
+.node-type-gpa .main-container h2 {
+  padding-bottom: 0.5em;
+  font-weight: 500;
+}
 .node-type-gpa .main-container .hwc-share-widget {
   float: right;
 }
@@ -5454,7 +5458,6 @@ body.newsletter .hwc-share-widget {
   padding: 2em;
   height: 350px;
   margin-top: 2em;
-  margin-bottom: 2em;
 }
 .node-type-gpa .main-container .slider--video--section h2.block-title {
   color: #003399;
@@ -5462,40 +5465,11 @@ body.newsletter .hwc-share-widget {
   padding-bottom: 1em;
   padding-left: 0.4em;
 }
-.node-type-gpa .main-container .slider--video--section .multicarousel--block {
-  height: 200px;
-}
-.node-type-gpa .main-container .slider--video--section .item p {
-  border: 2px solid #DEE999;
-  padding: 1.5em;
-  margin: 0 1em;
-  font-weight: 700;
-  text-align: center;
-  font-size: 1.2em;
-  min-height: 150px;
-}
-.node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary {
-  background: #EFEFF0;
-}
-.node-type-gpa .main-container ol.multicarousel-indicators li.active {
-  background: #ACC700;
-}
-.node-type-gpa .main-container ol.multicarousel-indicators li {
-  vertical-align: middle;
-  border: 2px solid #59595A;
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  margin: 0px 2px;
-  text-indent: -999px;
-  border-radius: 10px;
-  cursor: pointer;
-  background-color: #EFEFF0;
-}
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block {
   overflow: hidden;
   padding: 0 3.5rem;
   width: 100%;
+  height: 200px;
   margin: auto;
   position: relative;
 }
@@ -5514,34 +5488,28 @@ body.newsletter .hwc-share-widget {
   overflow: hidden;
   position: relative;
 }
-.node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst.over {
-  pointer-events: none;
+.node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .multicarousel--block--inner .item p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #DEE999;
+  padding: 1.5em;
+  margin: 0 1em;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.1em;
+  min-height: 150px;
 }
+.node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst.over,
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .rightLst.over {
   pointer-events: none;
 }
-.node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary {
-  background: #EFEFF0;
-  height: 100%;
-  cursor: pointer;
-}
-.node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary:hover {
-  opacity: 0.9;
-}
-.node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst.over img {
-  opacity: 0.4;
-}
+.node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst.over img,
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .rightLst.over img {
   opacity: 0.4;
 }
-.node-type-gpa .main-container ol.multicarousel-indicators {
-  position: absolute;
-  display: block !important;
-  z-index: 15;
-  width: 90%;
-  list-style: none;
-  text-align: center;
-  bottom: -11px;
+.node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .rightLst.over {
+  pointer-events: none;
 }
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst {
   position: absolute;
@@ -5553,19 +5521,53 @@ body.newsletter .hwc-share-widget {
   top: -19px;
   right: 0;
 }
-.node-type-gpa .main-container .btn:active,
-.node-type-gpa .main-container .btn.active {
+.node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary {
+  background: #EFEFF0;
+  height: 100%;
+  cursor: pointer;
+}
+.node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary:hover img {
+  opacity: 0.8;
+}
+.node-type-gpa .main-container .slider--video--section .btn:active,
+.node-type-gpa .main-container .slider--video--section .btn.active {
   box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.125);
 }
+.node-type-gpa .main-container ol.multicarousel-indicators {
+  position: absolute;
+  display: block !important;
+  z-index: 15;
+  width: 90%;
+  list-style: none;
+  text-align: center;
+  bottom: -11px;
+}
+.node-type-gpa .main-container ol.multicarousel-indicators li {
+  vertical-align: middle;
+  border: 2px solid #59595A;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin: 0px 2px;
+  text-indent: -999px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #EFEFF0;
+}
+.node-type-gpa .main-container ol.multicarousel-indicators li.active {
+  background: #ACC700;
+}
 .node-type-gpa .main-container .group-participate {
+  width: 100%;
   background: url(../images/gpa-how-to-participate-background.png) no-repeat;
   background-size: cover;
   padding: 2em;
   color: #FFF;
   float: left;
 }
-.node-type-gpa .main-container .group-participate h3 {
-  padding: 0;
+.node-type-gpa .main-container .group-participate h2 {
+  color: #FFF;
+  padding: 0 0 0.3em 0;
 }
 .node-type-gpa .main-container .group-participate a {
   color: #FFF;
@@ -5600,6 +5602,12 @@ body.newsletter .hwc-share-widget {
 .node-type-gpa .main-container .group-participate .field-collection-container {
   border-bottom: 0;
 }
+.node-type-gpa .group-faq {
+  width: 100%;
+  clear: both;
+  margin-top: 3em;
+  float: left;
+}
 .node-type-gpa #faq {
   margin-top: 2em;
 }
@@ -5613,17 +5621,17 @@ body.newsletter .hwc-share-widget {
   background: transparent;
   padding: 13px 15px;
 }
-.node-type-gpa #faq .panel-default > .panel-heading h4 a {
+.node-type-gpa #faq .panel-default > .panel-heading h3 a {
   color: #003399;
 }
-.node-type-gpa #faq .panel-default > .panel-heading h4 a:before {
+.node-type-gpa #faq .panel-default > .panel-heading h3 a:before {
   content: "\e253";
   font-family: "Glyphicons Halflings";
   margin-left: 10px;
   float: right;
   color: #ACC700;
 }
-.node-type-gpa #faq .panel-default > .panel-heading h4 a.collapsed:before {
+.node-type-gpa #faq .panel-default > .panel-heading h3 a.collapsed:before {
   content: "\e252";
   color: #ACC700;
 }
@@ -5638,74 +5646,78 @@ body.newsletter .hwc-share-widget {
   display: inline-block !important;
   padding-right: 2em;
 }
-/* Responsive */
-@media (max-width: 1200px) {
-  /* Private Zone */
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0,
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1,
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2,
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3,
-  .profile-edit-links-container .pane-node-profile-update-link {
-    width: 30%;
-  }
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0,
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 {
-    margin-bottom: 2em;
-  }
-  .node-type-gpa .main-container h2 {
-    margin-left: 0;
-  }
+/* Home page */
+body.front-page #block-views-homepage-banners-block .view-homepage-banners .view-content {
+  display: flex;
+  flex-wrap: wrap;
 }
-@media (max-width: 990px) {
-  /* Private Zone */
-  .profile-edit-links-container .panels-flexible-region-inside-first {
-    justify-content: flex-start;
-  }
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0,
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1,
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2,
-  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3,
-  .profile-edit-links-container .pane-node-profile-update-link {
-    width: 87%;
-    max-width: 320px;
-  }
-  .profile-edit-links-container .hwc-partner-private-link-block-description {
-    margin-top: 0.8em;
-  }
+body.front-page #block-views-homepage-banners-block .view-homepage-banners .views-row-even,
+body.front-page #block-views-homepage-banners-block .view-homepage-banners .views-row-odd {
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  /* IE10+ */
+  background-image: -ms-linear-gradient(top, #ededed 0%, #f6f6f6 47%, #ededed 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-linear-gradient(top, #ededed 0%, #f6f6f6 47%, #ededed 100%);
+  /* Opera */
+  background-image: -o-linear-gradient(top, #ededed 0%, #f6f6f6 47%, #ededed 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(47, #f6f6f6), color-stop(100, #ededed));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-linear-gradient(top, #ededed 0%, #f6f6f6 47%, #ededed 100%);
+  /* W3C Markup */
+  background-image: linear-gradient(to bottom, #ededed 0%, #f6f6f6 47%, #ededed 100%);
 }
-@media (max-width: 768px) {
-  /* Good Practice Awards - GPA */
-  .node-type-gpa .main-container .field-name-field-introductory-text {
-    width: 100%;
-  }
-  .node-type-gpa .main-container .field-name-body {
-    width: 100%;
-  }
-  .node-type-gpa .main-container .click-here-to-see a {
-    width: 100%;
-    height: auto;
-    max-width: 463px;
-    min-height: 165px;
-  }
+body.front-page #block-views-homepage-banners-block .view-homepage-banners .views-row-even .img-right-column,
+body.front-page #block-views-homepage-banners-block .view-homepage-banners .views-row-odd .img-right-column {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
 }
-@media (max-width: 669px) {
-  /* Private Zone */
-  .profile-edit-links-container .panels-flexible-region-inside-first {
-    justify-content: center;
-  }
+body.front-page #block-views-homepage-banners-block .view-homepage-banners .views-row-even .img-right-column img,
+body.front-page #block-views-homepage-banners-block .view-homepage-banners .views-row-odd .img-right-column img {
+  margin: 0 auto;
 }
-@media (max-width: 480px) {
-  /* Newsletter page */
-  .page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details .form-item-email input {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  .page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details #edit-submit {
-    top: 5px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    padding-right: 1em;
-  }
+body.front-page #block-views-homepage-banners-block .views-row-first,
+body.front-page #block-views-homepage-banners-block .views-row-last {
+  background: url(../images/background-splash-box1.png) #94c000 !important;
+  float: left;
+  text-align: center;
+  padding-bottom: 0;
+}
+body.front-page #block-views-homepage-banners-block .views-row-first h1,
+body.front-page #block-views-homepage-banners-block .views-row-last h1 {
+  padding-top: 1.5em;
+  border-bottom: 0;
+  font-size: 2em;
+  font-style: normal;
+  font-weight: 400;
+  color: #FFF;
+}
+body.front-page #block-views-homepage-banners-block .views-row-first h2,
+body.front-page #block-views-homepage-banners-block .views-row-last h2 {
+  color: #FFF;
+  font-style: normal;
+  font-weight: 600;
+}
+body.front-page #block-views-homepage-banners-block .views-row-first p,
+body.front-page #block-views-homepage-banners-block .views-row-last p {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: #FFF;
+  padding-top: 1em;
+  padding-bottom: 2em;
+  max-width: 430px;
+  margin: 0 auto;
+  font-size: 1.2em;
+}
+body.front-page #block-views-homepage-banners-block .views-row-first .btn-background-transparent,
+body.front-page #block-views-homepage-banners-block .views-row-last .btn-background-transparent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media (max-width: 1200px) {
   .start-browsing {
@@ -5749,6 +5761,21 @@ body.newsletter .hwc-share-widget {
   }
   #block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes a span {
     width: auto;
+  }
+  /* Private Zone */
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3,
+  .profile-edit-links-container .pane-node-profile-update-link {
+    width: 30%;
+  }
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 {
+    margin-bottom: 2em;
+  }
+  .node-type-gpa .main-container h2 {
+    margin-left: 0;
   }
 }
 @media (min-width: 1480px) {
@@ -6492,6 +6519,23 @@ body.newsletter .hwc-share-widget {
     float: none;
   }
 }
+@media (max-width: 990px) {
+  /* Private Zone */
+  .profile-edit-links-container .panels-flexible-region-inside-first {
+    justify-content: flex-start;
+  }
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3,
+  .profile-edit-links-container .pane-node-profile-update-link {
+    width: 87%;
+    max-width: 320px;
+  }
+  .profile-edit-links-container .hwc-partner-private-link-block-description {
+    margin-top: 0.8em;
+  }
+}
 @media (max-width: 768px) {
   .start-browsing .start-browsing-box {
     width: 309px;
@@ -6541,6 +6585,35 @@ body.newsletter .hwc-share-widget {
     padding-top: 10px !important;
     margin-right: 0;
     clear: both;
+  }
+  /* Good Practice Awards - GPA */
+  .node-type-gpa .main-container .field-name-field-introductory-text {
+    width: 100%;
+  }
+  .node-type-gpa .main-container .field-name-body {
+    width: 100%;
+  }
+  .node-type-gpa .main-container .click-here-to-see a {
+    width: 100%;
+    height: auto;
+    max-width: 463px;
+    min-height: 165px;
+  }
+  .node-type-gpa .main-container .group-participate .field-name-field-participate-description {
+    width: 100%;
+    padding-right: 0;
+  }
+  .node-type-gpa .main-container .group-participate .field-collection-container {
+    width: 100%;
+    padding-left: 0;
+  }
+  .node-type-gpa .main-container .group-participate .field-collection-container .field-label {
+    padding-left: 0;
+    padding-top: 1em;
+  }
+  .node-type-gpa .main-container .group-participate .field-collection-container .field-collection-view {
+    padding-left: 0;
+    margin-left: 0;
   }
 }
 @media (max-width: 767px) {
@@ -7187,6 +7260,12 @@ body.newsletter .hwc-share-widget {
     margin-right: 0;
   }
 }
+@media (max-width: 669px) {
+  /* Private Zone */
+  .profile-edit-links-container .panels-flexible-region-inside-first {
+    justify-content: center;
+  }
+}
 @media (max-width: 480px) {
   .page_title h1 {
     font-size: 2em;
@@ -7269,6 +7348,17 @@ body.newsletter .hwc-share-widget {
   /* Napo Films */
   .page-node-160 #block-views-napo-film-carousel-slidehow #napo_films .napo_films .jssorb03 {
     bottom: -64px;
+  }
+  /* Newsletter page */
+  .page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details .form-item-email input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details #edit-submit {
+    top: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-right: 1em;
   }
 }
 @media (max-width: 348px) {
