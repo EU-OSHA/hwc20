@@ -5646,6 +5646,79 @@ body.newsletter .hwc-share-widget {
   display: inline-block !important;
   padding-right: 2em;
 }
+/* Home page */
+body.front-page #block-views-homepage-banners-block .view-homepage-banners .view-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+body.front-page #block-views-homepage-banners-block .view-homepage-banners .views-row-even,
+body.front-page #block-views-homepage-banners-block .view-homepage-banners .views-row-odd {
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  /* IE10+ */
+  background-image: -ms-linear-gradient(top, #ededed 0%, #f6f6f6 47%, #ededed 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-linear-gradient(top, #ededed 0%, #f6f6f6 47%, #ededed 100%);
+  /* Opera */
+  background-image: -o-linear-gradient(top, #ededed 0%, #f6f6f6 47%, #ededed 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(47, #f6f6f6), color-stop(100, #ededed));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-linear-gradient(top, #ededed 0%, #f6f6f6 47%, #ededed 100%);
+  /* W3C Markup */
+  background-image: linear-gradient(to bottom, #ededed 0%, #f6f6f6 47%, #ededed 100%);
+}
+body.front-page #block-views-homepage-banners-block .view-homepage-banners .views-row-even .img-right-column,
+body.front-page #block-views-homepage-banners-block .view-homepage-banners .views-row-odd .img-right-column {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+body.front-page #block-views-homepage-banners-block .view-homepage-banners .views-row-even .img-right-column img,
+body.front-page #block-views-homepage-banners-block .view-homepage-banners .views-row-odd .img-right-column img {
+  margin: 0 auto;
+}
+body.front-page #block-views-homepage-banners-block .views-row-first,
+body.front-page #block-views-homepage-banners-block .views-row-last {
+  background: url(../images/background-splash-box1.png) #94c000 !important;
+  float: left;
+  text-align: center;
+  padding-bottom: 0;
+}
+body.front-page #block-views-homepage-banners-block .views-row-first h1,
+body.front-page #block-views-homepage-banners-block .views-row-last h1 {
+  padding-top: 1.5em;
+  border-bottom: 0;
+  font-size: 2em;
+  font-style: normal;
+  font-weight: 400;
+  color: #FFF;
+}
+body.front-page #block-views-homepage-banners-block .views-row-first h2,
+body.front-page #block-views-homepage-banners-block .views-row-last h2 {
+  color: #FFF;
+  font-style: normal;
+  font-weight: 600;
+}
+body.front-page #block-views-homepage-banners-block .views-row-first p,
+body.front-page #block-views-homepage-banners-block .views-row-last p {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: #FFF;
+  padding-top: 1em;
+  padding-bottom: 2em;
+  max-width: 430px;
+  margin: 0 auto;
+  font-size: 1.2em;
+}
+body.front-page #block-views-homepage-banners-block .views-row-first .btn-background-transparent,
+body.front-page #block-views-homepage-banners-block .views-row-last .btn-background-transparent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media (max-width: 1200px) {
   .start-browsing {
     background: url(../images/background-start-browsing.png) repeat-y;
