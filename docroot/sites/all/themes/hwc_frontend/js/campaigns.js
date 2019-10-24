@@ -750,41 +750,41 @@ jQuery(window).resize(function () {
 jQuery(document).ready(function(){
   if (jQuery(window).width() <= 1200) {
     jQuery(".multicarousel--block").attr("data-slide","3");
-    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "87%");
+    jQuery("ol.multicarousel-indicators").css("width", "87%");
   }
 });
 
 jQuery(window).resize(function () {
   if (jQuery(window).width() <= 1200) {
     jQuery(".multicarousel--block").attr("data-slide","3");
-    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "87%");
+    jQuery("ol.multicarousel-indicators").css("width", "87%");
   }
 });
 
 jQuery(document).ready(function(){
   if (jQuery(window).width() <= 991) {
     jQuery(".multicarousel--block").attr("data-slide","2");
-    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "87%");
+    jQuery("ol.multicarousel-indicators").css("width", "87%");
   }
 });
 
 jQuery(window).resize(function () {
   if (jQuery(window).width() <= 991) {
     jQuery(".multicarousel--block").attr("data-slide","2");
-    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "87%");
+    jQuery("ol.multicarousel-indicators").css("width", "87%");
   }
 });
 
 jQuery(document).ready(function(){
   if (jQuery(window).width() <= 767) {
     jQuery(".multicarousel--block").attr("data-slide","1");
-    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "79%");
+    jQuery("ol.multicarousel-indicators").css("width", "79%");
   }
 });
 
 jQuery(window).resize(function () {
   if (jQuery(window).width() <= 767) {
     jQuery(".multicarousel--block").attr("data-slide","1");
-    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "79%");
+    jQuery("ol.multicarousel-indicators").css("width", "79%");
   }
 });
