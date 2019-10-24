@@ -770,6 +770,48 @@ final class CDB
         } else {
             throw new CDBException('resource_not_found', 404);
         }
+
+        // Start testing phone prefixes
+
+        //Is the call for getMantenainceProfileResult
+        //RLR load the data from the profiles
+        if (isset($response['getMantenainceProfileResult'])){
+            $sid= $_SESSION['session_id'];
+            
+            //General Contact Information
+            if(json_decode($response['getMantenainceProfileResult'], true)[0]['Fields']['address.osh_prefixphone1']['Value']['Id']){
+                $comboGP = $sid . "_company_osh_prefixgeneralphone";
+                $comboGPS = $comboGP . "_selected";
+                $_SESSION[ $comboGP] = json_decode($response['getMantenainceProfileResult'], true)[0]['Fields']['address.osh_prefixphone1']['Value']['Id'];          
+                $_SESSION[ $comboGPS] = json_decode($response['getMantenainceProfileResult'], true)[0]['Fields']['address.osh_prefixphone1']['Value']['Id'];          
+            }
+            
+            //Main contact person
+            if(json_decode($response['getMantenainceProfileResult'], true)[0]['Fields']['osh_prefixphone1']['Id']!=""){  
+                $comboGP = $sid . "_contact_osh_prefixmaincontactphone";
+                $comboGPS = $comboGP . "_selected";
+                $_SESSION[ $comboGP] = json_decode($response['getMantenainceProfileResult'], true)[0]['Fields']['osh_prefixphone1']['Id'];          
+                $_SESSION[ $comboGPS] = json_decode($response['getMantenainceProfileResult'], true)[0]['Fields']['osh_prefixphone1']['Id'];          
+
+                $comboGPC = $sid . "_contact_osh_prefixmaincontactphone";
+                $comboGPSC = $comboGPC . "_selected";
+                $_SESSION[ $comboGPC] = json_decode($response['getMantenainceProfileResult'], true)[0]['Fields']['osh_prefixphone1']['Id'];          
+                $_SESSION[ $comboGPSC] = json_decode($response['getMantenainceProfileResult'], true)[0]['Fields']['osh_prefixphone1']['Id'];          
+
+            }        
+
+            //About your Health and Safety Representative
+            if(json_decode($response['returnContacts'], true)['osh_representative']['Fields']['osh_prefixphone1']['Id']!=""){  
+
+                $comboHSR = $sid . "_company_osh_prefixrepresentativephone";
+                $comboHSRS = $comboHSR . "_selected";
+                $_SESSION[ $comboHSR] = json_decode($response['returnContacts'], true)['osh_representative']['Fields']['osh_prefixphone1']['Id'];
+                $_SESSION[ $comboHSRS] = json_decode($response['returnContacts'], true)['osh_representative']['Fields']['osh_prefixphone1']['Id'];
+            }
+
+        }
+
+        // End testing phone prefixes
        
         return $response;
     }
