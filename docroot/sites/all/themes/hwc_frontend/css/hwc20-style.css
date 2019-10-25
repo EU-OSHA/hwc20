@@ -5101,6 +5101,13 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 }
 /* Styles for Release 2, This styles shouldn't be merge on release_1 branch */
 /* Private Zone */
+.profile-edit-links-container #act-as-partner .modal-body {
+  padding: 0;
+}
+.profile-edit-links-container #act-as-partner .form-select {
+  width: 240px !important;
+  margin-top: 1em;
+}
 .profile-edit-links-container .panels-flexible-region-inside-first {
   justify-content: center;
   display: flex;
@@ -5112,7 +5119,7 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2,
 .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3,
 .profile-edit-links-container .pane-node-profile-update-link {
-  width: 20%;
+  width: 300px;
 }
 .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .pane-content,
 .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .pane-content,
@@ -5128,6 +5135,7 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   max-height: 100% !important;
   display: flex;
   height: 100%;
+  flex-wrap: wrap;
 }
 .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .pane-content .hwc-partner-private-link-block-title,
 .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .pane-content .hwc-partner-private-link-block-title,
@@ -5145,8 +5153,8 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   justify-content: flex-start;
   font-size: 15px;
   font-weight: 600;
-  min-height: 78px;
-  max-height: 100%;
+  min-height: 130px;
+  max-height: 130px;
   min-width: 100%;
   position: relative;
 }
