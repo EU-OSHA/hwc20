@@ -788,3 +788,11 @@ jQuery(window).resize(function () {
     jQuery("ol.multicarousel-indicators").css("width", "79%");
   }
 });
+
+
+//Add class h2 slider Publications
+jQuery(document).ready(function($) {
+	if ($(".page-tools-and-publications-publications")[0]){
+		 $(".page-tools-and-publications-publications .slider--video--section h2.block-title").addClass('container');
+	}
+});
