@@ -508,12 +508,13 @@ jQuery(document).ready(function() {
 		var calculate_height = jQuery(".campaigns-header").height();
 		jQuery("body").css('padding-top', calculate_height);
 		jQuery("body.splash-page").css('padding-top', calculate_height);
-
+		jQuery("body.front-page").css('padding-top', calculate_height - 28);
 
 		jQuery(window).resize(function() {
         	var calculate_height_resize = jQuery(".campaigns-header").height();
 			jQuery("body").css('padding-top', calculate_height_resize);
 			jQuery("body.splash-page").css('padding-top', calculate_height_resize);
+			jQuery("body.front-page").css('padding-top', calculate_height - 28);
     	});
 
     	/* Cookies declined */

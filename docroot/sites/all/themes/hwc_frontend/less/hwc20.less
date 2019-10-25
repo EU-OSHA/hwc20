@@ -254,10 +254,7 @@ select{
 	}
 	h2.block-title{
 		color: #003399;
-		a:before{
-			content: '';
-			padding-right: 0;
-		}
+		font-weight: 400;
 	}
 }
 
@@ -6515,6 +6512,7 @@ body.front-page{
 	.main-container{
 		/* Intro Boxes */
 		#block-views-homepage-banners-block{
+			padding-bottom: 2em;
 			.view-homepage-banners{
 				.view-content{
 					display: flex;
@@ -6595,6 +6593,28 @@ body.front-page{
 			}
 		}
 
+		#block-views-partners-block-1{
+			.view-display-id-block_1{
+				img{
+					width: auto;
+				}
+			}
+			.more-link{
+				a{
+					&:before{
+						content: none;
+					}
+				} 
+			}
+		}
+
+		/* Recommended tools and resources */
+		.view-recommended-tools-and-resources{
+			img{
+				border: 0;
+			}
+		}
+
 		/*Newsletter Home page section*/
 		.newsletter-social-media{
 			background: url(../images/background-newsletter-home-page.png) no-repeat #94c000 !important;
@@ -6630,6 +6650,14 @@ body.front-page{
 					    height: 32px;
 					    float: left;
 					    background: url(../images/ico-social-media.png) 1px 5px no-repeat;
+				}
+			}
+
+			a.see-more-button-20{
+				background: url(../images/ico-next-20.png) no-repeat 98.5% 3px #0030a0;
+				&:hover{
+					background: url(../images/ico-next-20-hover.png) no-repeat 98.5% 3px #FFFFFF;
+					color: #ACC700;
 				}
 			}
 

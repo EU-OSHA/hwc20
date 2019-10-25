@@ -217,10 +217,7 @@ select {
 }
 .main-container h2.block-title {
   color: #003399;
-}
-.main-container h2.block-title a:before {
-  content: '';
-  padding-right: 0;
+  font-weight: 400;
 }
 .panels-flexible-row h2 {
   font-style: normal;
@@ -5663,7 +5660,11 @@ body.newsletter .hwc-share-widget {
 /* Home page */
 body.front-page .main-container {
   /* Intro Boxes */
+  /* Recommended tools and resources */
   /*Newsletter Home page section*/
+}
+body.front-page .main-container #block-views-homepage-banners-block {
+  padding-bottom: 2em;
 }
 body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .view-content {
   display: flex;
@@ -5737,6 +5738,15 @@ body.front-page .main-container #block-views-homepage-banners-block .view-homepa
   justify-content: center;
   align-items: center;
 }
+body.front-page .main-container #block-views-partners-block-1 .view-display-id-block_1 img {
+  width: auto;
+}
+body.front-page .main-container #block-views-partners-block-1 .more-link a:before {
+  content: none;
+}
+body.front-page .main-container .view-recommended-tools-and-resources img {
+  border: 0;
+}
 body.front-page .main-container .newsletter-social-media {
   background: url(../images/background-newsletter-home-page.png) no-repeat #94c000 !important;
 }
@@ -5770,6 +5780,13 @@ body.front-page .main-container .box-before.social-media h2:before {
   height: 32px;
   float: left;
   background: url(../images/ico-social-media.png) 1px 5px no-repeat;
+}
+body.front-page .main-container .box-before.social-media a.see-more-button-20 {
+  background: url(../images/ico-next-20.png) no-repeat 98.5% 3px #0030a0;
+}
+body.front-page .main-container .box-before.social-media a.see-more-button-20:hover {
+  background: url(../images/ico-next-20-hover.png) no-repeat 98.5% 3px #ffffff;
+  color: #ACC700;
 }
 body.front-page .main-container .box-before.social-media .on-the-web a {
   float: left;
