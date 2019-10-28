@@ -5745,8 +5745,29 @@ body.front-page .main-container #block-views-partners-block-1 .view-display-id-b
 body.front-page .main-container #block-views-partners-block-1 .more-link a:before {
   content: none;
 }
-body.front-page .main-container .view-recommended-tools-and-resources img {
+body.front-page .main-container .view-recommended-tools-and-resources .views-row {
+  float: left;
+  width: 232px;
+  margin-top: 0.5em;
+  border: 2px solid #bcd75b;
+  height: 86px;
+  margin-bottom: 2em;
+  border-radius: 12px;
+  margin-right: 2em;
+}
+body.front-page .main-container .view-recommended-tools-and-resources .views-row .field-content img {
   border: 0;
+  float: left;
+}
+body.front-page .main-container .view-recommended-tools-and-resources .views-row .field-content span {
+  float: right;
+  font-size: 2.1rem;
+  display: block;
+  width: 130px;
+  text-align: right;
+  font-weight: 600;
+  line-height: 24px;
+  padding-top: 3px;
 }
 body.front-page .main-container .newsletter-social-media {
   background: url(../images/background-newsletter-home-page.png) no-repeat #94c000 !important;
