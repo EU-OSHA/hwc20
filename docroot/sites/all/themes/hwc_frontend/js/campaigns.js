@@ -508,12 +508,13 @@ jQuery(document).ready(function() {
 		var calculate_height = jQuery(".campaigns-header").height();
 		jQuery("body").css('padding-top', calculate_height);
 		jQuery("body.splash-page").css('padding-top', calculate_height);
-
+		jQuery("body.front-page").css('padding-top', calculate_height - 28);
 
 		jQuery(window).resize(function() {
         	var calculate_height_resize = jQuery(".campaigns-header").height();
 			jQuery("body").css('padding-top', calculate_height_resize);
 			jQuery("body.splash-page").css('padding-top', calculate_height_resize);
+			jQuery("body.front-page").css('padding-top', calculate_height - 28);
     	});
 
     	/* Cookies declined */
@@ -750,41 +751,49 @@ jQuery(window).resize(function () {
 jQuery(document).ready(function(){
   if (jQuery(window).width() <= 1200) {
     jQuery(".multicarousel--block").attr("data-slide","3");
-    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "87%");
+    jQuery("ol.multicarousel-indicators").css("width", "87%");
   }
 });
 
 jQuery(window).resize(function () {
   if (jQuery(window).width() <= 1200) {
     jQuery(".multicarousel--block").attr("data-slide","3");
-    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "87%");
+    jQuery("ol.multicarousel-indicators").css("width", "87%");
   }
 });
 
 jQuery(document).ready(function(){
   if (jQuery(window).width() <= 991) {
     jQuery(".multicarousel--block").attr("data-slide","2");
-    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "87%");
+    jQuery("ol.multicarousel-indicators").css("width", "87%");
   }
 });
 
 jQuery(window).resize(function () {
   if (jQuery(window).width() <= 991) {
     jQuery(".multicarousel--block").attr("data-slide","2");
-    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "87%");
+    jQuery("ol.multicarousel-indicators").css("width", "87%");
   }
 });
 
 jQuery(document).ready(function(){
   if (jQuery(window).width() <= 767) {
     jQuery(".multicarousel--block").attr("data-slide","1");
-    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "79%");
+    jQuery("ol.multicarousel-indicators").css("width", "79%");
   }
 });
 
 jQuery(window).resize(function () {
   if (jQuery(window).width() <= 767) {
     jQuery(".multicarousel--block").attr("data-slide","1");
-    jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "79%");
+    jQuery("ol.multicarousel-indicators").css("width", "79%");
   }
+});
+
+
+//Add class h2 slider Publications
+jQuery(document).ready(function($) {
+	if ($(".page-tools-and-publications-publications")[0]){
+		 $(".page-tools-and-publications-publications .slider--video--section h2.block-title").addClass('container');
+	}
 });

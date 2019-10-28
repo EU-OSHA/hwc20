@@ -7966,12 +7966,6 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
   content: ">";
   padding-right: 10px;
 }
-.main-container h2.block-title {
-  color: #749b00;
-  font-size: 30px;
-  font-weight: bold;
-  font-style: normal;
-}
 .main-container h4,
 .main-container .h4-title {
   color: #749b00;
@@ -9243,13 +9237,6 @@ div[class*='view-'] .field-name-field-summary {
   padding-right: 25px;
   padding-bottom: 40px;
 }
-#block-views-partners-block-1 h2 {
-  text-align: center;
-  background: url("../images/content/partners.png") no-repeat center top 20px;
-  padding-top: 100px;
-  padding-bottom: 0.5em;
-  margin-bottom: 0em;
-}
 #block-views-partners-block-1 .views-field-field-logo {
   padding-top: 1em;
 }
@@ -9278,14 +9265,6 @@ div[class*='view-'] .field-name-field-summary {
   float: left;
   text-align: center;
   background-color: transparent;
-}
-#block-views-partners-block-1 .more-link a {
-  background-color: #003399;
-  padding: 10px;
-}
-#block-views-partners-block-1 .more-link a:before {
-  content: ">";
-  padding-right: 0.30em;
 }
 #block-views-partners-block-1 .view-display-id-block_1 img {
   width: 100%;
@@ -12138,19 +12117,6 @@ article .hwc-share-widget ul {
 }
 #block-osha-events-events-links a.active {
   color: #749b00;
-}
-#block-views-events-block-2 h2.block-title,
-#block-views-events-block-1 h2.block-title {
-  float: left;
-  font-style: italic;
-  font-size: 0.85714em !important;
-  color: #575757;
-  margin-top: 1em;
-}
-#block-views-events-block-2 h2.block-title:after,
-#block-views-events-block-1 h2.block-title:after {
-  content: ":";
-  padding-right: 1em;
 }
 #block-views-events-block-2 .view-events,
 #block-views-events-block-1 .view-events {
