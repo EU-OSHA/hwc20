@@ -397,7 +397,7 @@ function osha_publication_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'slidehow');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'box-latest-publications';
+  $handler->display->display_options['style_options']['row_class'] = 'box-latest-publications item';
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
