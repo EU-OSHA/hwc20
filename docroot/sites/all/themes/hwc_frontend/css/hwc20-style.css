@@ -5665,6 +5665,7 @@ body.front-page .main-container {
 }
 body.front-page .main-container #block-views-homepage-banners-block {
   padding-bottom: 2em;
+  clear: both;
 }
 body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .view-content {
   display: flex;
