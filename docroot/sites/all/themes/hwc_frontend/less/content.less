@@ -167,12 +167,6 @@ ul.tabs--primary.nav.nav-tabs{
 				padding-right: 10px;
 			}
 		}
-			h2.block-title{
-				color: @h2-default-color-2;
-				font-size: @h2-default-size-2;
-				font-weight: bold;
-				font-style: normal;
-			}
 		h4, .h4-title{
 			color: @text-color-3;
 			clear: both;
@@ -1249,7 +1243,7 @@ ul.tabs--primary.nav.nav-tabs{
 		padding-bottom: 1em;
 	}
 
-	#block-osha-newsletter-osha-newsletter-subscribe, #block-osha-newsletter-osha-newsletter-image{
+	#block-osha-newsletter-osha-newsletter-subscribe{
 		clear: both;
 		background: url("../images/content/bg-newsletter.png") no-repeat left top;
 		background: url("../images/content/bg-campaign-partner.png") no-repeat left 0px;
@@ -1322,20 +1316,6 @@ ul.tabs--primary.nav.nav-tabs{
 			//margin-top: 0px !important;
 			height:1%;
 			overflow:hidden;
-		}
-	}
-	#block-osha-newsletter-osha-newsletter-image{
-		h2{
-			a{
-				color: white;
-
-				&:before{
-					content:"";
-				}
-				&:hover{
-					text-decoration: underline;
-				}
-			}
 		}
 	}
 	
@@ -1418,13 +1398,6 @@ ul.tabs--primary.nav.nav-tabs{
 		padding-left: @margin1;
 		padding-right: @margin1;
 		padding-bottom: 40px;
-		h2{
-			text-align: center;
-			background: url("../images/content/partners.png") no-repeat center top 20px;
-			padding-top: 100px;
-			padding-bottom: 0.5em;
-			margin-bottom: 0em;
-		}
 		.views-field-field-logo{
 			padding-top: 1em;
 		}
@@ -1453,14 +1426,6 @@ ul.tabs--primary.nav.nav-tabs{
 			float: left;
 			text-align: center;
 			background-color: @color0;
-			a{
-				background-color: @bg-color-2;
-				padding: 10px;
-				&:before{
-					content: ">";
-					padding-right: 0.30em;
-				}
-			}
 		}
 		//home partners list
 		.view-display-id-block_1{
@@ -2882,24 +2847,6 @@ ul.tabs--primary.nav.nav-tabs{
 			margin-top: 15px;
 		}
 	}
-	#campaigns-newsletter-subscribe-form, #campaigns-newsletter-subscribe-captcha-form{
-		.checkbox input[type=checkbox]:checked:before {
-		    content: "\2713";
-		    color: #003399;
-		    padding: 0px 2px 0px 2px;
-		    margin-right: 6px;
-		    font-weight: normal;
-		    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-		    margin-top: 0px;
-		    display: block;
-		    background-color: white;
-		    height: 17px;
-		    width: 14px;
-		    position: relative;
-		    left: -26px;
-		    top: 2px;
-		}
-	}
 }
 /*End Home*/
 
@@ -4307,18 +4254,6 @@ p.no-results{
 	}
 }
 #block-views-events-block-2, #block-views-events-block-1{
-	h2.block-title{
-		float: left;
-		font-style: italic;
-		font-size: @size3!important;
-		color: @text-default-color;
-		margin-top: 1em;
-		
-		&:after{
-			content: ":";
-			padding-right: 1em;
-		}
-	}
 	.view-events{
 		float: left;
 		.events-filter-by-date{
@@ -8239,13 +8174,6 @@ fieldset.captcha {
 #block-osha-newsletter-osha-newsletter-subscribe{
 	margin-right: -@margin2;
 	margin-left:  -@margin2;
-}
-#block-osha-newsletter-osha-newsletter-image{
-	margin-right: -@margin2;
-	margin-left:  -@margin2;
-	#campaigns-newsletter-subscribe-form > div{
-		display: inline-flex;
-	}
 }
 
 .alert.alert-block.alert-danger, .alert.alert-block.alert-success{

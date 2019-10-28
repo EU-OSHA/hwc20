@@ -300,6 +300,13 @@ jQuery(document).ready(function() {
 		jQuery(".more_newsletters").show();
 	});
 
+	$number_of_newsletter = jQuery( "div.newsletter-item" ).length;
+
+	if($number_of_newsletter <= 4){
+		jQuery(".less_newsletters").hide();
+		jQuery(".more_newsletters").hide();
+	}
+
 	/*specific functions for tablet and/or mobile */
 	funcionesTabletMovil();
 
@@ -501,12 +508,13 @@ jQuery(document).ready(function() {
 		var calculate_height = jQuery(".campaigns-header").height();
 		jQuery("body").css('padding-top', calculate_height);
 		jQuery("body.splash-page").css('padding-top', calculate_height);
-
+		jQuery("body.front-page").css('padding-top', calculate_height - 28);
 
 		jQuery(window).resize(function() {
         	var calculate_height_resize = jQuery(".campaigns-header").height();
 			jQuery("body").css('padding-top', calculate_height_resize);
 			jQuery("body.splash-page").css('padding-top', calculate_height_resize);
+			jQuery("body.front-page").css('padding-top', calculate_height - 28);
     	});
 
     	/* Cookies declined */
@@ -579,15 +587,16 @@ jQuery(document).ready(function($) {
 		 $("footer.footer").addClass('fix-margin');
 	}
 
-
-
+	if ($(".page-search")[0]){
+		 $("footer.footer").addClass('fix-margin');
+	}
 
 });
+
 
 /** CAROUSEL **/
 jQuery(document).ready(function () {
 
-  console.log('CAROUSEL');
   var itemsMainDiv = ('.multicarousel--block');
   var itemsDiv = ('.multicarousel--block--inner');
   var itemWidth = "";
@@ -695,7 +704,8 @@ jQuery(document).ready(function () {
   ResCarouselSize();
 
   var cl='class="active"';
-  for (i = 0; i < Math.ceil(jQuery('.multicarousel--block--inner .item').length / incno)+1; i++) {
+
+  for (i = 0; i < Math.ceil(jQuery('.multicarousel--block--inner .item').length / incno); i++) {
     jQuery('.multicarousel-indicators').append('<li id="multicarousel-indicator-'+i+'" data-slide-to="' + i + '" '+cl+'></li>');
     cl='class=""';
   }
@@ -727,37 +737,63 @@ jQuery(document).ready(function () {
 });
 
 jQuery(document).ready(function(){
-  if (jQuery(window).width() >= 992) {
-    jQuery(".multicarousel--block").attr("data-slide","3");
+  if (jQuery(window).width() >= 1200) {
+    jQuery(".multicarousel--block").attr("data-slide","4");
   }
 });
 
 jQuery(window).resize(function () {
-  if (jQuery(window).width() >= 992) {
+  if (jQuery(window).width() >= 1200) {
+    jQuery(".multicarousel--block").attr("data-slide","4");
+  }
+});
+
+jQuery(document).ready(function(){
+  if (jQuery(window).width() <= 1200) {
     jQuery(".multicarousel--block").attr("data-slide","3");
+    jQuery("ol.multicarousel-indicators").css("width", "87%");
+  }
+});
+
+jQuery(window).resize(function () {
+  if (jQuery(window).width() <= 1200) {
+    jQuery(".multicarousel--block").attr("data-slide","3");
+    jQuery("ol.multicarousel-indicators").css("width", "87%");
   }
 });
 
 jQuery(document).ready(function(){
   if (jQuery(window).width() <= 991) {
-    jQuery(".multicarousel--block").attr("data-slide","2");
+  	jQuery(".multicarousel--block").attr("data-slide","2");
+    jQuery("ol.multicarousel-indicators").css("width", "87%");
   }
 });
 
 jQuery(window).resize(function () {
   if (jQuery(window).width() <= 991) {
-    jQuery(".multicarousel--block").attr("data-slide","2");
+  	jQuery(".multicarousel--block").attr("data-slide","2");
+    jQuery("ol.multicarousel-indicators").css("width", "87%");
   }
 });
 
 jQuery(document).ready(function(){
   if (jQuery(window).width() <= 767) {
-    jQuery(".multicarousel--block").attr("data-slide","1");
+  	jQuery(".multicarousel--block").attr("data-slide","1");
+    jQuery("ol.multicarousel-indicators").css("width", "79%");
   }
 });
 
 jQuery(window).resize(function () {
   if (jQuery(window).width() <= 767) {
-    jQuery(".multicarousel--block").attr("data-slide","1");
+  	jQuery(".multicarousel--block").attr("data-slide","1");
+    jQuery("ol.multicarousel-indicators").css("width", "79%");
   }
+});
+
+
+//Add class h2 slider Publications
+jQuery(document).ready(function($) {
+	if ($(".page-tools-and-publications-publications")[0]){
+		 $(".page-tools-and-publications-publications .slider--video--section h2.block-title").addClass('container');
+	}
 });
