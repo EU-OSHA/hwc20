@@ -38,6 +38,29 @@ function osha_events_views_api($module = NULL, $api = NULL) {
 function osha_events_fe_nodequeue_export_fields() {
   $nodequeues = array();
 
+  // Exported nodequeues: homepage_events
+  $nodequeues['homepage_events'] = array(
+    'name' => 'homepage_events',
+    'title' => 'Homepage events',
+    'subqueue_title' => '',
+    'size' => 4,
+    'link' => '',
+    'link_remove' => '',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 0,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'events',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
   // Exported nodequeues: press_room_news
   $nodequeues['press_room_news'] = array(
     'name' => 'press_room_news',

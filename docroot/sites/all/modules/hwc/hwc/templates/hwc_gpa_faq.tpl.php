@@ -15,9 +15,9 @@ $in = 'in';
       ?>
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4 class="panel-title">
+          <h3 class="panel-title">
             <a data-toggle="collapse" data-parent="#faq" href="#collapse<?php echo $key ?>"><?php echo $question; ?></a>
-          </h4>
+          </h3>
         </div>
         <div id="collapse<?php echo $key ?>" class="panel-collapse collapse <?php echo $in; ?>">
           <div class="panel-body"><?php echo $answer; ?></div>
