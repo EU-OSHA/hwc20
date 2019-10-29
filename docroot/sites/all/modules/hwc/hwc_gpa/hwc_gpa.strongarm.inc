@@ -1,77 +1,86 @@
 <?php
 /**
  * @file
- * osha_musculoskeletal_disorders.strongarm.inc
+ * hwc_gpa.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function osha_musculoskeletal_disorders_strongarm() {
+function hwc_gpa_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_anonymous_musculoskeletal_disorders';
-  $strongarm->value = '-1';
-  $export['comment_anonymous_musculoskeletal_disorders'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_default_mode_musculoskeletal_disorders';
-  $strongarm->value = 0;
-  $export['comment_default_mode_musculoskeletal_disorders'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_default_per_page_musculoskeletal_disorders';
-  $strongarm->value = '50';
-  $export['comment_default_per_page_musculoskeletal_disorders'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_form_location_musculoskeletal_disorders';
-  $strongarm->value = 0;
-  $export['comment_form_location_musculoskeletal_disorders'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_musculoskeletal_disorders';
-  $strongarm->value = '1';
-  $export['comment_musculoskeletal_disorders'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_preview_musculoskeletal_disorders';
+  $strongarm->name = 'comment_anonymous_gpa';
   $strongarm->value = '0';
-  $export['comment_preview_musculoskeletal_disorders'] = $strongarm;
+  $export['comment_anonymous_gpa'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_subject_field_musculoskeletal_disorders';
-  $strongarm->value = 0;
-  $export['comment_subject_field_musculoskeletal_disorders'] = $strongarm;
+  $strongarm->name = 'comment_default_mode_gpa';
+  $strongarm->value = 1;
+  $export['comment_default_mode_gpa'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'field_bundle_settings_node__musculoskeletal_disorders';
+  $strongarm->name = 'comment_default_per_page_gpa';
+  $strongarm->value = '50';
+  $export['comment_default_per_page_gpa'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_form_location_gpa';
+  $strongarm->value = 1;
+  $export['comment_form_location_gpa'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_gpa';
+  $strongarm->value = '1';
+  $export['comment_gpa'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_preview_gpa';
+  $strongarm->value = '1';
+  $export['comment_preview_gpa'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_subject_field_gpa';
+  $strongarm->value = 1;
+  $export['comment_subject_field_gpa'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_node__gpa';
   $strongarm->value = array(
     'view_modes' => array(
       'teaser' => array(
         'custom_settings' => TRUE,
       ),
-      'osha_slideshow' => array(
+      'title_body' => array(
         'custom_settings' => TRUE,
       ),
-      'dangerous_substances' => array(
+      'body' => array(
+        'custom_settings' => TRUE,
+      ),
+      'priority_areas' => array(
+        'custom_settings' => TRUE,
+      ),
+      'hwc_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'osha_slideshow' => array(
         'custom_settings' => TRUE,
       ),
       'highlights_item' => array(
@@ -80,10 +89,13 @@ function osha_musculoskeletal_disorders_strongarm() {
       'newsletter_item' => array(
         'custom_settings' => TRUE,
       ),
-      'osha_resources' => array(
+      'highlights_item_alternative' => array(
         'custom_settings' => TRUE,
       ),
-      'osha_wiki' => array(
+      'pub_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'osha_resources' => array(
         'custom_settings' => TRUE,
       ),
       'full' => array(
@@ -101,31 +113,10 @@ function osha_musculoskeletal_disorders_strongarm() {
       'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
-      'osha_search_teaser' => array(
-        'custom_settings' => TRUE,
-      ),
       'print' => array(
         'custom_settings' => FALSE,
       ),
       'token' => array(
-        'custom_settings' => FALSE,
-      ),
-      'title_body' => array(
-        'custom_settings' => TRUE,
-      ),
-      'body' => array(
-        'custom_settings' => TRUE,
-      ),
-      'hwc_teaser' => array(
-        'custom_settings' => TRUE,
-      ),
-      'highlights_item_alternative' => array(
-        'custom_settings' => TRUE,
-      ),
-      'pub_teaser' => array(
-        'custom_settings' => TRUE,
-      ),
-      'priority_areas' => array(
         'custom_settings' => FALSE,
       ),
       'revision' => array(
@@ -135,84 +126,95 @@ function osha_musculoskeletal_disorders_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '38',
-        ),
-        'title' => array(
-          'weight' => '-5',
+          'weight' => '11',
         ),
         'path' => array(
-          'weight' => '36',
+          'weight' => '9',
         ),
         'redirect' => array(
-          'weight' => '37',
+          'weight' => '10',
         ),
         'workbench_access' => array(
-          'weight' => '0',
+          'weight' => '6',
         ),
         'xmlsitemap' => array(
-          'weight' => '39',
+          'weight' => '8',
+        ),
+        'language' => array(
+          'weight' => '7',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'share_widget' => array(
+          'default' => array(
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
+        ),
+        'bottom_share_widget' => array(
+          'default' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
-  $export['field_bundle_settings_node__musculoskeletal_disorders'] = $strongarm;
+  $export['field_bundle_settings_node__gpa'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'language_content_type_musculoskeletal_disorders';
-  $strongarm->value = '0';
-  $export['language_content_type_musculoskeletal_disorders'] = $strongarm;
+  $strongarm->name = 'language_content_type_gpa';
+  $strongarm->value = '4';
+  $export['language_content_type_gpa'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_options_musculoskeletal_disorders';
+  $strongarm->name = 'menu_options_gpa';
   $strongarm->value = array(
     0 => 'main-menu',
   );
-  $export['menu_options_musculoskeletal_disorders'] = $strongarm;
+  $export['menu_options_gpa'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_parent_musculoskeletal_disorders';
+  $strongarm->name = 'menu_parent_gpa';
   $strongarm->value = 'main-menu:0';
-  $export['menu_parent_musculoskeletal_disorders'] = $strongarm;
+  $export['menu_parent_gpa'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_options_musculoskeletal_disorders';
-  $strongarm->value = array(
-    0 => 'status',
-  );
-  $export['node_options_musculoskeletal_disorders'] = $strongarm;
+  $strongarm->name = 'node_options_gpa';
+  $strongarm->value = array();
+  $export['node_options_gpa'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_preview_musculoskeletal_disorders';
+  $strongarm->name = 'node_preview_gpa';
   $strongarm->value = '1';
-  $export['node_preview_musculoskeletal_disorders'] = $strongarm;
+  $export['node_preview_gpa'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_submitted_musculoskeletal_disorders';
+  $strongarm->name = 'node_submitted_gpa';
   $strongarm->value = 0;
-  $export['node_submitted_musculoskeletal_disorders'] = $strongarm;
+  $export['node_submitted_gpa'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'xmlsitemap_settings_node_musculoskeletal_disorders';
+  $strongarm->name = 'xmlsitemap_settings_node_gpa';
   $strongarm->value = array(
-    'status' => '0',
+    'status' => '1',
     'priority' => '0.5',
   );
-  $export['xmlsitemap_settings_node_musculoskeletal_disorders'] = $strongarm;
+  $export['xmlsitemap_settings_node_gpa'] = $strongarm;
 
   return $export;
 }

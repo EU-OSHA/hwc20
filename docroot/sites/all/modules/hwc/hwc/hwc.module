@@ -582,6 +582,7 @@ function hwc_field_extra_fields() {
   $extra['node']['publication'] = $share_widget;
   $extra['node']['events'] = $share_widget;
   $extra['node']['article'] = $share_widget;
+  $extra['node']['gpa'] = $share_widget;
   $extra['node']['campaign_16'] = $share_widget;
   $extra['node']['campaign_18'] = $share_widget;
   $extra['node']['hwc_gallery'] = $share_widget;
@@ -651,6 +652,11 @@ function hwc_mime_friendly_name($mime) {
  */
 function hwc_field_formatter_info() {
   $info = array(
+    'gpa_faq' => array(
+      'label' => t('GPA Faq'),
+      'field types' => array('field_collection'),
+      'settings' => array(),
+    ),
     'field_file' => array(
       'label' => 'Resource file formatter',
       'field types' => array('file'),
@@ -721,6 +727,13 @@ function hwc_field_formatter_settings_summary($field, $instance, $view_mode) {
  */
 function hwc_theme() {
   return array(
+    'gpa_faq' => array(
+      'variables' => array(
+        'items' => NULL,
+        'node' => NULL,
+      ),
+      'template' => 'templates/hwc_gpa_faq',
+    ),
     'hwc_file_format' => array(
       'variables' => array('file' => NULL, 'delta' => NULL),
     ),
@@ -840,6 +853,14 @@ function hwc_entity_info_alter(&$entity_info) {
 function hwc_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
   $element = array();
   switch ($display['type']) {
+    case 'gpa_faq':
+      $element = array(
+        '#theme' => 'gpa_faq',
+        '#items' => $items,
+        '#node' => entity_metadata_wrapper('node', $entity),
+      );
+      break;
+
     case 'field_file':
       foreach ($items as $delta => $item) {
         $element[$delta] = array(
@@ -1033,11 +1054,31 @@ function hwc_content_post_render_add_classes($content) {
   return $content;
 }
 
+function hwc_get_available_events_countries() {
+  $q = db_select('node', 'n');
+  $q->join('field_data_field_country_code', 'c', 'c.entity_id = n.nid');
+  $q->fields('c', ['field_country_code_value']);
+  $q->condition('c.bundle', 'events');
+  $q->condition('n.type', 'events');
+  $q->condition('n.status', 1);
+  return $q->execute()->fetchAllKeyed(0,0);
+}
+
 /**
  * Implements hook_form_alter().
  */
 function hwc_form_alter(&$form, &$form_state, $form_id) {
   global $user;
+  if ($form_id == 'views_exposed_form' && $form_state['view']->name == 'events_search'
+    && $form_state['view']->current_display == 'page') {
+    $countries = hwc_get_available_events_countries();
+    foreach ($form['field_country_code']['#options'] as $tid => $value) {
+      if (in_array($tid, $countries) || $tid == 'All') {
+        continue;
+      }
+      unset($form['field_country_code']['#options'][$tid]);
+    }
+  }
   if ($form_id == 'document_node_form') {
     $form['#attributes']['class'][] = 'container';
   }
@@ -1325,6 +1366,7 @@ function hwc_node_view($node, $view_mode, $langcode) {
     'events',
     'publication',
     'article',
+    'gpa',
     'hwc_gallery',
     'flickr_gallery',
     'press_release',
@@ -1457,6 +1499,10 @@ function hwc_news_share_widget($node, $options = array()) {
       break;
 
     case 'article':
+      $widget = theme('article_share_widget', $vars);
+      break;
+
+    case 'gpa':
       $widget = theme('article_share_widget', $vars);
       break;
 

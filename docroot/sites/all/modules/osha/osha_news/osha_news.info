@@ -18,6 +18,7 @@ features[ds_layout_settings][] = node|news|osha_resources
 features[ds_layout_settings][] = node|news|teaser
 features[fe_block_settings][] = views-news-oshnews_latest
 features[fe_nodequeue][] = good_practice_exchange
+features[fe_nodequeue][] = homepage_news
 features[features_api][] = api:2
 features[field_base][] = field_image_caption
 features[field_base][] = field_modified_by
