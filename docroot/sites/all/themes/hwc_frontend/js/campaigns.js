@@ -384,7 +384,6 @@ jQuery(document).ready(function() {
 
 	/**
 	 * Clearable text inputs
-
 	function tog(v){return v?'addClass':'removeClass';}
 	jQuery(document).on('input', '.clearable', function(){
 	    jQuery(this)[tog(this.value)]('x');
