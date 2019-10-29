@@ -7,11 +7,10 @@
 include_once 'osha_publication.features.inc';
 
 if (!defined('CAMPAIGN_MATERIALS_TID')) {
-  define('CAMPAIGN_MATERIALS_TID', variable_get('campaign_materials_tid', 3282));
+  //todo create campaign_materials term
+  define('CAMPAIGN_MATERIALS_TID', variable_get('campaign_materials_tid', 521));
 }
-if (!defined('CASE_STUDY_TID')) {
-  define('CASE_STUDY_TID', variable_get('case_study_tid', 521));
-}
+define('CASE_STUDY_TID', 521);
 define('OSHA_PUBLICATION_CONTENT_TYPE_PUBLICATION', 'publication');
 define('SOLR_SEARCH_INDEX', 'default_multilingual_node_index');
 define('OSHA_PDF_DOWN_PATH', 'public://pdf_download');

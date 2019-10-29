@@ -8,9 +8,6 @@ function ncw_migration_drush_command() {
     'hwc-migrate-av-related' => array(
       'description' => 'Import audio-video related taxonomies from the corporate website',
     ),
-    'hwc-migrate-msd-related' => array(
-      'description' => 'Import MSD related taxonomies from the corporate website',
-    ),
     'hwc-migrate-ds' => array(
       'description' => 'Import DS from the corporate website',
     ),
@@ -33,26 +30,6 @@ function ncw_migration_drush_command() {
 function drush_ncw_migration_hwc_migrate_ds() {
   $migrations = array(
     'dangerous_substances',
-  );
-  foreach ($migrations as $migration) {
-    ncw_migration_run_single($migration);
-  }
-}
-
-function drush_ncw_migration_hwc_migrate_msd_related() {
-  $migrations = array(
-    'tax_hazards',
-    'tax_health_effects',
-    'tax_msd_priority_area',
-
-    'tax_prevention_measures_msd',
-    'tax_purpose_of_material',
-
-    'tax_resource_type',
-    'tax_target_audience',
-    'tax_worker_groups_covered',
-
-    'msd',
   );
   foreach ($migrations as $migration) {
     ncw_migration_run_single($migration);
@@ -84,7 +61,6 @@ function drush_ncw_migration_hwc_migrate_av_related() {
 
 function drush_ncw_migration_hwc_migrate_all() {
   /* BE AWARE OF THE MIGRATIONS ORDERING! */
-
   $migrations = array(
     'tax_country_status',
     'tax_country',

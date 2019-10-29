@@ -998,12 +998,3 @@ function hwc_update_7064() {
   features_revert(array('hwc_homepage' => 'views_view'));
   features_revert(array('osha_news' => 'views_view'));
 }
-
-/*
- * HW20-209 HWC20 Development of the complete GPA.
- */
-function hwc_update_7065() {
-  module_enable(array('hwc_gpa'));
-  variable_set('exclude_bottom_share_widget', [179, 146]);
-}
-

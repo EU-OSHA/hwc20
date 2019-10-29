@@ -75,52 +75,6 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'count' => 0,
   );
 
-  // Exported nodequeues: homepage_banners
-  $nodequeues['homepage_banners'] = array(
-    'name' => 'homepage_banners',
-    'title' => 'Homepage banners',
-    'subqueue_title' => '',
-    'size' => 0,
-    'link' => '',
-    'link_remove' => '',
-    'owner' => 'nodequeue',
-    'show_in_ui' => 1,
-    'show_in_tab' => 1,
-    'show_in_links' => 0,
-    'reference' => 0,
-    'reverse' => 0,
-    'i18n' => 0,
-    'subqueues' => 1,
-    'types' => array(
-      0 => 'frontpage_slider',
-    ),
-    'roles' => array(),
-    'count' => 0,
-  );
-
-  // Exported nodequeues: homepage_recommended
-  $nodequeues['homepage_recommended'] = array(
-    'name' => 'homepage_recommended',
-    'title' => 'Homepage Recommended tools and resources',
-    'subqueue_title' => '',
-    'size' => 0,
-    'link' => '',
-    'link_remove' => '',
-    'owner' => 'nodequeue',
-    'show_in_ui' => 1,
-    'show_in_tab' => 1,
-    'show_in_links' => 0,
-    'reference' => 0,
-    'reverse' => 0,
-    'i18n' => 0,
-    'subqueues' => 1,
-    'types' => array(
-      0 => 'home_page_sections',
-    ),
-    'roles' => array(),
-    'count' => 0,
-  );
-
   // Exported nodequeues: press_room_events
   $nodequeues['press_room_events'] = array(
     'name' => 'press_room_events',
@@ -272,14 +226,6 @@ function hwc_homepage_node_info() {
       'name' => 'Frontpage Banner',
       'base' => 'node_content',
       'description' => 'Frontpage banner content',
-      'has_title' => '1',
-      'title_label' => 'Title',
-      'help' => '',
-    ),
-    'home_page_sections' => array(
-      'name' => 'Home page sections',
-      'base' => 'node_content',
-      'description' => '',
       'has_title' => '1',
       'title_label' => 'Title',
       'help' => '',

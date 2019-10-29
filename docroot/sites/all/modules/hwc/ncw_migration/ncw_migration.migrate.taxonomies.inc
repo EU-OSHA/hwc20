@@ -1,67 +1,4 @@
 <?php
-class NCWTaxonomyHazardsMigration extends AbstractNCWTaxonomyTermMigration {
-
-  public function __construct($arguments) {
-    parent::__construct($arguments, 'SimpleNCWTaxonomyTermSource', 'hazards');
-    $this->description = 'Import taxonomy "hazards" from NCW';
-  }
-}
-
-class NCWTaxonomyHealthEffectsMigration extends AbstractNCWTaxonomyTermMigration {
-
-  public function __construct($arguments) {
-    parent::__construct($arguments, 'SimpleNCWTaxonomyTermSource', 'health_effects');
-    $this->description = 'Import taxonomy "health_effects" from NCW';
-  }
-}
-
-class NCWTaxonomyMSDPrioritySreaMigration extends AbstractNCWTaxonomyTermMigration {
-
-  public function __construct($arguments) {
-    parent::__construct($arguments, 'SimpleNCWTaxonomyTermSource', 'msd_priority_area');
-    $this->description = 'Import taxonomy "msd_priority_area" from NCW';
-  }
-}
-
-class NCWTaxonomyPreventionMeasuresMSDMigration extends AbstractNCWTaxonomyTermMigration {
-
-  public function __construct($arguments) {
-    parent::__construct($arguments, 'SimpleNCWTaxonomyTermSource', 'prevention_measures_msd');
-    $this->description = 'Import taxonomy "prevention_measures_msd" from NCW';
-  }
-}
-
-class NCWTaxonomyPurposeOfMaterialMigration extends AbstractNCWTaxonomyTermMigration {
-
-  public function __construct($arguments) {
-    parent::__construct($arguments, 'SimpleNCWTaxonomyTermSource', 'purpose_of_material');
-    $this->description = 'Import taxonomy "purpose_of_material" from NCW';
-  }
-}
-
-class NCWTaxonomyResourceTypeMigration extends AbstractNCWTaxonomyTermMigration {
-
-  public function __construct($arguments) {
-    parent::__construct($arguments, 'SimpleNCWTaxonomyTermSource', 'resource_type');
-    $this->description = 'Import taxonomy "resource_type" from NCW';
-  }
-}
-
-class NCWTaxonomyTargetAudienceMigration extends AbstractNCWTaxonomyTermMigration {
-
-  public function __construct($arguments) {
-    parent::__construct($arguments, 'SimpleNCWTaxonomyTermSource', 'target_audience');
-    $this->description = 'Import taxonomy "target_audience" from NCW';
-  }
-}
-
-class NCWTaxonomyWorkerGroupsCoveredMigration extends AbstractNCWTaxonomyTermMigration {
-
-  public function __construct($arguments) {
-    parent::__construct($arguments, 'SimpleNCWTaxonomyTermSource', 'worker_groups_covered');
-    $this->description = 'Import taxonomy "worker_groups_covered" from NCW';
-  }
-}
 
 class NCWTaxonomyCountryMigration extends AbstractNCWTaxonomyTermMigration {
 
@@ -263,6 +200,7 @@ class NCWTaxonomyMaterialObjectiveMigration extends AbstractNCWTaxonomyTermMigra
     $this->description = 'Import taxonomy "material_objective" from NCW';
   }
 }
+
 
 class SimpleNCWTaxonomyTermSource extends AbstractNCWTaxonomyTermSource {
 

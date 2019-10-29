@@ -140,9 +140,6 @@ function hwc_frontend_preprocess_html(&$vars) {
         if ($n->nid == 179) {
           $vars['classes_array'][] = 'press-room';
         }
-        if ($n->nid == 129) {
-          $vars['classes_array'][] = 'newsletter';
-        }
         if ($n->nid == 164) {
           $vars['classes_array'][] = 'european-week';
         }
@@ -172,9 +169,6 @@ function hwc_frontend_preprocess_html(&$vars) {
 
   if (drupal_is_front_page() && variable_get('splash_mode', FALSE)) {
     $vars['classes_array'][] = 'splash-page';
-  }
-  else {
-    $vars['classes_array'][] = 'front-page';
   }
   if (!empty($vars['is_front'])) {
     $vars['head_title'] = t('Healthy Workplaces LIGHTEN THE LOAD 2020-22');
@@ -245,9 +239,6 @@ function hwc_frontend_css_alter(&$css) {
  */
 function hwc_frontend_preprocess_block(&$vars) {
   $block = $vars['block'];
-  if (($block->delta == 'gpexamples-block')) {
-    $vars['theme_hook_suggestions'][] = 'block__gpexamples';
-  }
   if (($block->delta == 'news-press_room') || ($block->delta == 'frontpage_events-press_room')) {
     $vars['theme_hook_suggestions'][] = 'block__press_room';
   }
@@ -266,10 +257,6 @@ function hwc_frontend_preprocess_page(&$vars) {
         $vars['theme_hook_suggestions'][] = 'page__node__partner';
         break;
 
-      case "gpa":
-        $vars['theme_hook_suggestions'][] = 'page__gpa';
-        break;
-
       case "article":
         if ($n->nid == 179) {
           $vars['theme_hook_suggestions'][] = 'page__press__room';
@@ -277,9 +264,6 @@ function hwc_frontend_preprocess_page(&$vars) {
         elseif ($n->nid == 164) {
           $vars['theme_hook_suggestions'][] = 'page__european__week';
           $vars['title_suffix'] = '<div id="european_week_date">' . variable_get('european_week_date', '12<sup>th</sup>-14<sup>th</sup> of Oktober 2020') . '</div>';
-        }
-        elseif ($n->nid == 163) {
-          $vars['theme_hook_suggestions'][] = 'page__gpa';
         }
         else {
           $vars['theme_hook_suggestions'][] = 'page__node__article';
@@ -346,7 +330,6 @@ function hwc_frontend_preprocess_page(&$vars) {
       case "tk_example":
       case "tk_topic":
         $vars['page']['content']['#post_render'][] = 'hwc_content_post_render_add_classes';
-        $vars['theme_hook_suggestions'][] = 'page__campaign__toolkit';
         break;
 
       case 'document':

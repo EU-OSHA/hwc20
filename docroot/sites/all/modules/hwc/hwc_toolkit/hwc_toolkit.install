@@ -166,10 +166,3 @@ function hwc_toolkit_update_7022() {
 function hwc_toolkit_update_7023() {
   features_revert(array('hwc_toolkit' => array('path_breadcrumbs')));
 }
-
-/**
- * HW20-208 HWC20 Development of the HWC20 CampaignToolkit.
- */
-function hwc_toolkit_update_7024() {
-  features_revert_module('hwc_toolkit');
-}

@@ -16,11 +16,6 @@ function ncw_migration_migrate_api() {
       ),
     ),
     'migrations' => array(
-      'msd' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWMSDMigration',
-      ),
       'dangerous_substances' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),
@@ -30,46 +25,6 @@ function ncw_migration_migrate_api() {
         'group_name' => 'ncw',
         'dependencies' => array(),
         'class_name' => 'NCWGalleryMigration',
-      ),
-      'tax_hazards' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyHazardsMigration',
-      ),
-      'tax_health_effects' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyHealthEffectsMigration',
-      ),
-      'tax_msd_priority_area' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyMSDPrioritySreaMigration',
-      ),
-      'tax_prevention_measures_msd' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyPreventionMeasuresMSDMigration',
-      ),
-      'tax_purpose_of_material' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyPurposeOfMaterialMigration',
-      ),
-      'tax_resource_type' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyResourceTypeMigration',
-      ),
-      'tax_target_audience' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyTargetAudienceMigration',
-      ),
-      'tax_worker_groups_covered' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyWorkerGroupsCoveredMigration',
       ),
       'tax_priority_area' => array(
         'group_name' => 'ncw',

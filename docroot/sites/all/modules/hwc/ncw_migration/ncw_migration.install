@@ -76,21 +76,3 @@ function ncw_migration_update_7006() {
     variable_set('ncw_migration_default_uid', $user->uid);
   }
 }
-
-/**
- * HW20-214 HWC20 Development of the HWC20 MSDs synchronisation process.
- */
-function ncw_migration_update_7007() {
-  variable_set('hwc_migration_tax_msd_url', '/export/msd');
-
-  variable_set('hwc_migration_tax_hazards_url', '/export/taxonomy/hazards');
-  variable_set('hwc_migration_tax_health_effects_url', '/export/taxonomy/health_effects');
-  variable_set('hwc_migration_tax_msd_priority_area_url', '/export/taxonomy/msd_priority_area');
-
-  variable_set('hwc_migration_tax_prevention_measures_msd_url', '/export/taxonomy/prevention_measures_msd');
-  variable_set('hwc_migration_tax_purpose_of_material_url', '/export/taxonomy/purpose_of_material');
-
-  variable_set('hwc_migration_tax_resource_type_url', '/export/taxonomy/resource_type');
-  variable_set('hwc_migration_tax_target_audience_url', '/export/taxonomy/target_audience');
-  variable_set('hwc_migration_tax_worker_groups_covered_url', '/export/taxonomy/worker_groups_covered');
-}

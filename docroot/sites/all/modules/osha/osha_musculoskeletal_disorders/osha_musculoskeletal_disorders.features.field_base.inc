@@ -10,32 +10,6 @@
 function osha_musculoskeletal_disorders_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_available'.
-  $field_bases['field_available'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_available',
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => 0,
-        1 => 1,
-      ),
-      'allowed_values_function' => '',
-      'entity_translation_sync' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'list_boolean',
-  );
-
   // Exported field_base: 'field_comments'.
   $field_bases['field_comments'] = array(
     'active' => 1,
@@ -152,34 +126,6 @@ function osha_musculoskeletal_disorders_field_default_field_bases() {
       'allowed_values' => array(
         0 => array(
           'vocabulary' => 'health_effects',
-          'parent' => 0,
-        ),
-      ),
-      'entity_translation_sync' => FALSE,
-      'options_list_callback' => 'i18n_taxonomy_allowed_values',
-    ),
-    'translatable' => 0,
-    'type' => 'taxonomy_term_reference',
-  );
-
-  // Exported field_base: 'field_material_country'.
-  $field_bases['field_material_country'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_material_country',
-    'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'taxonomy',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'country',
           'parent' => 0,
         ),
       ),
@@ -385,58 +331,6 @@ function osha_musculoskeletal_disorders_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
-  );
-
-  // Exported field_base: 'field_original_desc_lang_other'.
-  $field_bases['field_original_desc_lang_other'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_original_desc_lang_other',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'max_length' => 255,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
-  );
-
-  // Exported field_base: 'field_original_desc_language'.
-  $field_bases['field_original_desc_language'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_original_desc_language',
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'languagefield',
-    'settings' => array(
-      'enabled' => 3,
-      'entity_translation_sync' => FALSE,
-      'excluded_languages' => array(),
-      'format' => array(
-        'iso' => 0,
-        'name' => 0,
-        'name_native' => 'name_native',
-      ),
-      'groups' => '',
-      'languages' => array(),
-    ),
-    'translatable' => 0,
-    'type' => 'language_field',
   );
 
   // Exported field_base: 'field_prevention_measures'.

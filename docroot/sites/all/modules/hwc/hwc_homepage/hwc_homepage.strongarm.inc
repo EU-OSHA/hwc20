@@ -20,23 +20,9 @@ function hwc_homepage_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_anonymous_home_page_sections';
-  $strongarm->value = '0';
-  $export['comment_anonymous_home_page_sections'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_mode_frontpage_slider';
   $strongarm->value = 1;
   $export['comment_default_mode_frontpage_slider'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_default_mode_home_page_sections';
-  $strongarm->value = 1;
-  $export['comment_default_mode_home_page_sections'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -48,23 +34,9 @@ function hwc_homepage_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_default_per_page_home_page_sections';
-  $strongarm->value = '50';
-  $export['comment_default_per_page_home_page_sections'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_form_location_frontpage_slider';
   $strongarm->value = 1;
   $export['comment_form_location_frontpage_slider'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_form_location_home_page_sections';
-  $strongarm->value = 1;
-  $export['comment_form_location_home_page_sections'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -76,13 +48,6 @@ function hwc_homepage_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_home_page_sections';
-  $strongarm->value = '1';
-  $export['comment_home_page_sections'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_preview_frontpage_slider';
   $strongarm->value = '1';
   $export['comment_preview_frontpage_slider'] = $strongarm;
@@ -90,23 +55,9 @@ function hwc_homepage_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_preview_home_page_sections';
-  $strongarm->value = '1';
-  $export['comment_preview_home_page_sections'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_frontpage_slider';
   $strongarm->value = 1;
   $export['comment_subject_field_frontpage_slider'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_subject_field_home_page_sections';
-  $strongarm->value = 1;
-  $export['comment_subject_field_home_page_sections'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -183,106 +134,9 @@ function hwc_homepage_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'field_bundle_settings_node__home_page_sections';
-  $strongarm->value = array(
-    'view_modes' => array(
-      'teaser' => array(
-        'custom_settings' => TRUE,
-      ),
-      'title_body' => array(
-        'custom_settings' => TRUE,
-      ),
-      'body' => array(
-        'custom_settings' => TRUE,
-      ),
-      'priority_areas' => array(
-        'custom_settings' => TRUE,
-      ),
-      'hwc_teaser' => array(
-        'custom_settings' => TRUE,
-      ),
-      'osha_slideshow' => array(
-        'custom_settings' => TRUE,
-      ),
-      'highlights_item' => array(
-        'custom_settings' => TRUE,
-      ),
-      'newsletter_item' => array(
-        'custom_settings' => TRUE,
-      ),
-      'highlights_item_alternative' => array(
-        'custom_settings' => TRUE,
-      ),
-      'pub_teaser' => array(
-        'custom_settings' => TRUE,
-      ),
-      'osha_resources' => array(
-        'custom_settings' => TRUE,
-      ),
-      'full' => array(
-        'custom_settings' => FALSE,
-      ),
-      'rss' => array(
-        'custom_settings' => FALSE,
-      ),
-      'search_index' => array(
-        'custom_settings' => FALSE,
-      ),
-      'search_result' => array(
-        'custom_settings' => FALSE,
-      ),
-      'diff_standard' => array(
-        'custom_settings' => FALSE,
-      ),
-      'print' => array(
-        'custom_settings' => FALSE,
-      ),
-      'token' => array(
-        'custom_settings' => FALSE,
-      ),
-      'revision' => array(
-        'custom_settings' => FALSE,
-      ),
-    ),
-    'extra_fields' => array(
-      'form' => array(
-        'metatags' => array(
-          'weight' => '8',
-        ),
-        'title' => array(
-          'weight' => '0',
-        ),
-        'path' => array(
-          'weight' => '6',
-        ),
-        'redirect' => array(
-          'weight' => '4',
-        ),
-        'xmlsitemap' => array(
-          'weight' => '5',
-        ),
-        'language' => array(
-          'weight' => '3',
-        ),
-      ),
-      'display' => array(),
-    ),
-  );
-  $export['field_bundle_settings_node__home_page_sections'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_frontpage_slider';
   $strongarm->value = '4';
   $export['language_content_type_frontpage_slider'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'language_content_type_home_page_sections';
-  $strongarm->value = '4';
-  $export['language_content_type_home_page_sections'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -297,13 +151,6 @@ function hwc_homepage_strongarm() {
   $strongarm->name = 'menu_options_frontpage_slider';
   $strongarm->value = array();
   $export['menu_options_frontpage_slider'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'menu_options_home_page_sections';
-  $strongarm->value = array();
-  $export['menu_options_home_page_sections'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -324,13 +171,6 @@ function hwc_homepage_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_parent_home_page_sections';
-  $strongarm->value = 'main-menu:0';
-  $export['menu_parent_home_page_sections'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'menu_parent_previous_campaign';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_previous_campaign'] = $strongarm;
@@ -343,15 +183,6 @@ function hwc_homepage_strongarm() {
     0 => 'status',
   );
   $export['node_options_frontpage_slider'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'node_options_home_page_sections';
-  $strongarm->value = array(
-    0 => 'status',
-  );
-  $export['node_options_home_page_sections'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -372,13 +203,6 @@ function hwc_homepage_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_preview_home_page_sections';
-  $strongarm->value = '0';
-  $export['node_preview_home_page_sections'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_frontpage_slider';
   $strongarm->value = 0;
   $export['node_submitted_frontpage_slider'] = $strongarm;
@@ -386,26 +210,9 @@ function hwc_homepage_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_submitted_home_page_sections';
-  $strongarm->value = 0;
-  $export['node_submitted_home_page_sections'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_previous_campaign';
   $strongarm->value = 0;
   $export['node_submitted_previous_campaign'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'xmlsitemap_settings_node_home_page_sections';
-  $strongarm->value = array(
-    'status' => '0',
-    'priority' => '0.5',
-  );
-  $export['xmlsitemap_settings_node_home_page_sections'] = $strongarm;
 
   return $export;
 }

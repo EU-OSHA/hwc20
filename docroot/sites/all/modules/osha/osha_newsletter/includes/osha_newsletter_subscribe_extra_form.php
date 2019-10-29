@@ -31,12 +31,10 @@ function osha_newsletter_subscribe_extra_form() {
     );
   }
 
-  $link_url = variable_get('events_subscribe_block_details_link_url', OSHA_PRIVACY_PAGE_URL);
-
   $form['subscribe_details']['agree_processing_personal_data'] = array(
     '#suffix' => '</div>',
     '#type' => 'checkbox',
-    '#title' => t('I agree to the ') . '<a target="_blank" href="' . url($link_url) . '">' . t('privacy-policy') . '</a>',
+    '#title' => t('I agree to the processing of my personal data'),
     '#default_value' => 0,
   );
 
@@ -46,8 +44,14 @@ function osha_newsletter_subscribe_extra_form() {
     '#submit' => array('osha_newsletter_subscribe_extra_form_submit'),
   );
 
+  $link_label = t(variable_get('subscribe_extra_block_details_link_label', 'How will EU-OSHA use my details?'));
+  $link_url = variable_get('subscribe_extra_block_details_link_url', OSHA_PRIVACY_PAGE_URL);
   $form['unsubscribe_details'] = array(
     '#type' => 'container',
+  );
+
+  $form['details_link'] = array(
+    '#markup' => '<a class="privacy-policy-oshmail" title="Subscribe to newsletter" href=' . url($link_url) . '>' . $link_label . '</a><br/>',
   );
 
   $form['#validate'] = array('osha_newsletter_subscribe_extra_form_validate');

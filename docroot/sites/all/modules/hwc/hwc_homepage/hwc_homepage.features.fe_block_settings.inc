@@ -28,7 +28,7 @@ function hwc_homepage_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 24,
+        'weight' => 22,
       ),
       'seven' => array(
         'region' => '',
@@ -70,93 +70,6 @@ function hwc_homepage_default_fe_block_settings() {
     'visibility' => 0,
   );
 
-  $export['hwc_homepage-hwc_homepage_news_events'] = array(
-    'cache' => 8,
-    'css_class' => '',
-    'custom' => 0,
-    'delta' => 'hwc_homepage_news_events',
-    'i18n_block_language' => array(),
-    'i18n_mode' => 0,
-    'module' => 'hwc_homepage',
-    'node_types' => array(),
-    'pages' => '<front>',
-    'roles' => array(),
-    'themes' => array(
-      'hwc_frontend' => array(
-        'region' => 'content',
-        'status' => 1,
-        'theme' => 'hwc_frontend',
-        'weight' => 2,
-      ),
-      'seven' => array(
-        'region' => 'content',
-        'status' => 1,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
-    ),
-    'title' => '',
-    'visibility' => 1,
-  );
-
-  $export['hwc_homepage-hwc_homepage_newsletter_social'] = array(
-    'cache' => 8,
-    'css_class' => '',
-    'custom' => 0,
-    'delta' => 'hwc_homepage_newsletter_social',
-    'i18n_block_language' => array(),
-    'i18n_mode' => 0,
-    'module' => 'hwc_homepage',
-    'node_types' => array(),
-    'pages' => '<front>',
-    'roles' => array(),
-    'themes' => array(
-      'hwc_frontend' => array(
-        'region' => 'content',
-        'status' => 1,
-        'theme' => 'hwc_frontend',
-        'weight' => 4,
-      ),
-      'seven' => array(
-        'region' => 'content',
-        'status' => 1,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
-    ),
-    'title' => '',
-    'visibility' => 1,
-  );
-
-  $export['hwc_homepage-hwc_homepage_topics'] = array(
-    'cache' => 8,
-    'css_class' => '',
-    'custom' => 0,
-    'delta' => 'hwc_homepage_topics',
-    'i18n_block_language' => array(),
-    'i18n_mode' => 0,
-    'module' => 'hwc_homepage',
-    'node_types' => array(),
-    'pages' => '<front>',
-    'roles' => array(),
-    'themes' => array(
-      'hwc_frontend' => array(
-        'region' => 'content',
-        'status' => 1,
-        'theme' => 'hwc_frontend',
-        'weight' => 5,
-      ),
-      'seven' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
-    ),
-    'title' => '',
-    'visibility' => 1,
-  );
-
   $export['hwc_homepage-splash_browsing_content'] = array(
     'cache' => 8,
     'css_class' => '',
@@ -170,10 +83,10 @@ function hwc_homepage_default_fe_block_settings() {
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'content',
+        'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'seven' => array(
         'region' => '',
@@ -199,10 +112,10 @@ function hwc_homepage_default_fe_block_settings() {
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'content',
+        'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'seven' => array(
         'region' => '',
@@ -228,10 +141,10 @@ function hwc_homepage_default_fe_block_settings() {
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'content',
+        'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'seven' => array(
         'region' => '',
@@ -270,35 +183,6 @@ function hwc_homepage_default_fe_block_settings() {
       ),
     ),
     'title' => 'Before the Campaign starts, here is what you can do',
-    'visibility' => 1,
-  );
-
-  $export['views-be0c1defc438322b14f56f016c122817'] = array(
-    'cache' => -1,
-    'css_class' => '',
-    'custom' => 0,
-    'delta' => 'be0c1defc438322b14f56f016c122817',
-    'i18n_block_language' => array(),
-    'i18n_mode' => 0,
-    'module' => 'views',
-    'node_types' => array(),
-    'pages' => '<front>',
-    'roles' => array(),
-    'themes' => array(
-      'hwc_frontend' => array(
-        'region' => 'content',
-        'status' => 1,
-        'theme' => 'hwc_frontend',
-        'weight' => 0,
-      ),
-      'seven' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
-    ),
-    'title' => '',
     'visibility' => 1,
   );
 
@@ -418,35 +302,6 @@ function hwc_homepage_default_fe_block_settings() {
     'visibility' => 1,
   );
 
-  $export['views-homepage_banners-block'] = array(
-    'cache' => -1,
-    'css_class' => '',
-    'custom' => 0,
-    'delta' => 'homepage_banners-block',
-    'i18n_block_language' => array(),
-    'i18n_mode' => 0,
-    'module' => 'views',
-    'node_types' => array(),
-    'pages' => '<front>',
-    'roles' => array(),
-    'themes' => array(
-      'hwc_frontend' => array(
-        'region' => 'content',
-        'status' => 1,
-        'theme' => 'hwc_frontend',
-        'weight' => 0,
-      ),
-      'seven' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
-    ),
-    'title' => '',
-    'visibility' => 1,
-  );
-
   $export['views-news-splash'] = array(
     'cache' => -1,
     'css_class' => '',
@@ -489,10 +344,10 @@ function hwc_homepage_default_fe_block_settings() {
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
-        'region' => 'content',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'hwc_frontend',
-        'weight' => 6,
+        'weight' => 13,
       ),
       'seven' => array(
         'region' => '',
