@@ -203,7 +203,7 @@ function hwc_gpa_field_default_field_instances() {
         'configurable_class' => 0,
         'configurable_title' => 0,
         'rel' => '',
-        'target' => 'default',
+        'target' => 'user',
         'title' => '',
       ),
       'display' => array(
@@ -363,7 +363,7 @@ function hwc_gpa_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'gpa_faq',
-        'weight' => 4,
+        'weight' => 15,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -469,7 +469,7 @@ function hwc_gpa_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 8,
+        'weight' => 10,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -828,7 +828,7 @@ function hwc_gpa_field_default_field_instances() {
           'osha_date_theme' => '',
         ),
         'type' => 'date_default',
-        'weight' => 6,
+        'weight' => 8,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -940,7 +940,7 @@ function hwc_gpa_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 7,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1053,7 +1053,7 @@ function hwc_gpa_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 7,
+        'weight' => 9,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1163,7 +1163,7 @@ function hwc_gpa_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'highlights_item' => array(
         'label' => 'above',
