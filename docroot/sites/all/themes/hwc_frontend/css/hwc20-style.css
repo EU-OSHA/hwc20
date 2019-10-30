@@ -6139,12 +6139,18 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
 .view-flickr-albums {
   clear: both;
 }
+.view-flickr-albums .views-row {
+  padding: 0;
+}
 .view-flickr-albums .views-row .date-display-single {
   color: #FFF;
 }
 .view-flickr-albums .views-row img {
   border: 0;
   border-radius: 0;
+}
+.view-flickr-albums .view-content .gallery-row .views-field-field-flickr {
+  height: 240px;
 }
 @media (min-width: 1200px) {
   /*Slider Publications*/
