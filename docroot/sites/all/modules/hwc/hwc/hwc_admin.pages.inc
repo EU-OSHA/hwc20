@@ -5,6 +5,13 @@ function hwc_admin_config_form() {
     '#markup' => '<h1>HWC website configuration</h1>',
   );
 
+  $form['splash_coming_soon_datetime'] = array(
+    '#type' => 'textfield',
+    '#default_value' => variable_get('splash_coming_soon_datetime', ''),
+    '#title' => 'Splash page coming soon datetime',
+    '#description' => 'Example: 2019-10-31T14:30:00+01:00',
+  );
+
   $form['hwc_old_site_url'] = array(
     '#type' => 'textarea',
     '#default_value' => variable_get('hwc_old_site_url', ''),
