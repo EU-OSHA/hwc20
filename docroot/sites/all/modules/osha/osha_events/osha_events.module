@@ -112,7 +112,7 @@ function osha_events_field_formatter_view($entity_type, $entity, $field, $instan
       if (!empty($entity->{$field['field_name']})) {
         $element[0] = array(
           '#type' => 'markup',
-          '#markup' => views_embed_view('event_schedule'),
+          '#markup' => views_embed_view('event_schedule_rev'),
         );
       }
       break;
