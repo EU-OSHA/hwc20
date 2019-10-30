@@ -153,6 +153,24 @@ function hwc_homepage_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'title_body' => array(
+        'custom_settings' => TRUE,
+      ),
+      'body' => array(
+        'custom_settings' => TRUE,
+      ),
+      'priority_areas' => array(
+        'custom_settings' => TRUE,
+      ),
+      'hwc_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'highlights_item_alternative' => array(
+        'custom_settings' => TRUE,
+      ),
+      'revision' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -173,6 +191,9 @@ function hwc_homepage_strongarm() {
         ),
         'workbench_access' => array(
           'weight' => '0',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '30',
         ),
       ),
       'display' => array(),

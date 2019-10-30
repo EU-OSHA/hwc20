@@ -1281,6 +1281,29 @@ function hwc_homepage_views_default_views() {
     'image_link' => '',
     'field_formatter_class' => 'aaaa',
   );
+  /* Field: Content: Video */
+  $handler->display->display_options['fields']['field_banner_video']['id'] = 'field_banner_video';
+  $handler->display->display_options['fields']['field_banner_video']['table'] = 'field_data_field_banner_video';
+  $handler->display->display_options['fields']['field_banner_video']['field'] = 'field_banner_video';
+  $handler->display->display_options['fields']['field_banner_video']['label'] = '';
+  $handler->display->display_options['fields']['field_banner_video']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_banner_video']['type'] = 'entityreference_entity_view';
+  $handler->display->display_options['fields']['field_banner_video']['settings'] = array(
+    'view_mode' => 'default',
+    'links' => 0,
+    'use_content_language' => 0,
+    'field_formatter_class' => '',
+  );
+  /* Field: Content: Type of the banner */
+  $handler->display->display_options['fields']['field_type_of_the_banner']['id'] = 'field_type_of_the_banner';
+  $handler->display->display_options['fields']['field_type_of_the_banner']['table'] = 'field_data_field_type_of_the_banner';
+  $handler->display->display_options['fields']['field_type_of_the_banner']['field'] = 'field_type_of_the_banner';
+  $handler->display->display_options['fields']['field_type_of_the_banner']['label'] = '';
+  $handler->display->display_options['fields']['field_type_of_the_banner']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_type_of_the_banner']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_type_of_the_banner']['settings'] = array(
+    'field_formatter_class' => '',
+  );
   /* Sort criterion: Nodequeue: Position */
   $handler->display->display_options['sorts']['position']['id'] = 'position';
   $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
