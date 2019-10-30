@@ -705,10 +705,10 @@ jQuery(document).ready(function () {
   ResCarouselSize();
 
   var cl='class="active"';
-  for (i = 0; i < Math.ceil(jQuery('.multicarousel--block--inner .item').length / incno); i++) {
-    jQuery('.multicarousel-indicators').append('<li id="multicarousel-indicator-'+i+'" data-slide-to="' + i + '" '+cl+'></li>');
-    cl='class=""';
-  }
+	for (i = 0; i < Math.ceil(jQuery('.multicarousel--block--inner .item').length / incno); i++) {
+    	jQuery('.multicarousel-indicators').append('<li id="multicarousel-indicator-'+i+'" data-slide-to="' + i + '" '+cl+'></li>');
+    	cl='class=""';
+	}
 
   jQuery(window).resize(function () {
     ResCarouselSize();
