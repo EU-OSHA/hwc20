@@ -993,3 +993,38 @@ jQuery(window).resize(function () {
     jQuery(".node-type-gpa .main-container ol.multicarousel-indicators").css("width", "79%");
   }
 });
+
+
+
+jQuery(document).ready(function($){
+
+  var video1 = $(".hp-video-modal-1").attr("src");
+
+  // Get the modal.
+  var modal1 = document.getElementById('hp-modal1');
+
+  // Get the button that opens the modal.
+  var btn1 = document.getElementById("hp-btn1");
+
+  // Get the <span> element that closes the modal.
+  var span1 = document.getElementsByClassName("close1")[0];
+
+  // When the user clicks the button, open the modal.
+  $(btn1).click(function() {
+    modal1.style.display = "block";
+    $(".hp-video-modal-1").attr("src",video1);
+    $(".hp-video-modal-1").prop("allow",'autoplay');
+  });
+
+  // When the user clicks on <span> (x), close the modal.
+  $(span1).click(function() {
+    modal1.style.display = "none";
+    $(".hp-video-modal-1").attr("src","");
+
+  });
+
+  // Cookies declined.
+  $(".decline-button").click(function() {
+    $('#sliding-popup').remove();
+  });
+});
