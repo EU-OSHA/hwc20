@@ -4087,6 +4087,9 @@ body.een .panels-flexible-column-first .pane-node-field-pledge .pane-title {
 }
 .page-events .region-content #block-system-main .views-exposed-widgets #edit_field_country_code_chosen .chosen-choices li.search-choice {
   margin: -1px 5px 0 0;
+  box-shadow: 0 0 0 white inset, 0 0 0 rgba(0, 0, 0, 0.05);
+  background: transparent;
+  border: 0;
 }
 .page-events .region-content #block-system-main .views-exposed-widgets #edit_field_country_code_chosen .chosen-choices li.search-choice input {
   height: 20px !important;
