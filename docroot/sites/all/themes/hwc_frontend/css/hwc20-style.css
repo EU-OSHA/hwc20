@@ -5668,6 +5668,14 @@ body.front-page .main-container #block-views-homepage-banners-block {
   padding-bottom: 2em;
   clear: both;
 }
+body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-field-field-banner-video .field-content {
+  display: flex;
+  justify-content: center;
+}
+body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-field-field-banner-video .field-content .youtube-video img.icon-play {
+  top: 39%;
+  left: 45%;
+}
 body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .view-content {
   display: flex;
   flex-wrap: wrap;
@@ -5908,12 +5916,18 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .be
 }
 body.front-page .main-container .newsletter-social-media {
   background: url(../images/background-newsletter-home-page.png) no-repeat #94c000 !important;
+  min-height: auto;
+  float: left;
+  width: 100%;
+  padding-bottom: 2em;
+  padding-top: 2em;
 }
 body.front-page .main-container .newsletter-social-media #block-osha-newsletter-osha-newsletter-image {
   background: transparent;
   padding: 2em 2em 2em 2em;
   max-width: 800px;
   margin: 0 auto;
+  height: 100%;
 }
 body.front-page .main-container .newsletter-social-media #block-osha-newsletter-osha-newsletter-image h2.block-title a {
   background: url(../images/ico-newsletter.png) no-repeat 1px 5px;
@@ -5922,6 +5936,29 @@ body.front-page .main-container .newsletter-social-media #block-osha-newsletter-
   display: block;
   text-align: left;
   font-weight: 500;
+}
+body.front-page .main-container .newsletter-social-media #newsletter-subscription-frontpage-form-wrapper {
+  position: relative;
+}
+body.front-page .main-container .newsletter-social-media #newsletter-subscription-frontpage-form-wrapper .form-text {
+  width: 100%;
+  border-radius: 7px;
+}
+body.front-page .main-container .newsletter-social-media #newsletter-subscription-frontpage-form-wrapper .form-submit {
+  position: absolute;
+  width: 150px;
+  top: 1px;
+  right: 0;
+  height: 32px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+body.front-page .main-container .newsletter-social-media #newsletter-subscription-frontpage-form-wrapper .form-submit:before {
+  content: none;
+}
+body.front-page .main-container .newsletter-social-media #newsletter-subscription-frontpage-form-wrapper #security_code {
+  width: auto;
+  margin: 0 auto;
 }
 body.front-page .main-container .box-before.social-media {
   padding: 2em 2em 2em 2em;
@@ -5942,10 +5979,17 @@ body.front-page .main-container .box-before.social-media h2:before {
 }
 body.front-page .main-container .box-before.social-media a.see-more-button-20 {
   background: url(../images/ico-next-20.png) no-repeat 98.5% 3px #0030a0;
+  clear: both;
+  display: block;
+  margin-top: 3em;
+  float: left;
 }
 body.front-page .main-container .box-before.social-media a.see-more-button-20:hover {
   background: url(../images/ico-next-20-hover.png) no-repeat 98.5% 3px #ffffff;
   color: #ACC700;
+}
+body.front-page .main-container .box-before.social-media .newsletter-social-media p {
+  padding-bottom: 2em;
 }
 body.front-page .main-container .box-before.social-media .on-the-web a {
   float: left;
@@ -5959,6 +6003,9 @@ body.front-page .main-container .box-before.social-media .on-the-web a:before {
 }
 body.front-page .main-container .box-before.social-media .on-the-web a img {
   display: none;
+}
+body.front-page .main-container .box-before.social-media .on-the-web a:hover {
+  opacity: 0.8;
 }
 body.front-page .main-container .box-before.social-media .otw-twitter a:before {
   background: url(../images/newsletter-ico-twetter.png) no-repeat;
@@ -5990,13 +6037,17 @@ body.front-page .main-container .box-before.social-media .otw-slideshare a:befor
   width: 32px;
   height: 33px;
 }
-body.front-page .main-container .priority_area ul {
+body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics {
+  clear: both;
+  padding-top: 2em;
+}
+body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area ul {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
 }
-body.front-page .main-container .priority_area ul li {
+body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area ul li {
   display: flex;
   width: 25%;
   margin-right: 2em;
@@ -6006,7 +6057,7 @@ body.front-page .main-container .priority_area ul li {
   border: 2px solid #bcd75b;
   border-radius: 12px;
 }
-body.front-page .main-container .priority_area ul li a {
+body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area ul li a {
   font-size: 1.8rem;
   font-weight: 600;
   width: 100%;
@@ -6016,13 +6067,13 @@ body.front-page .main-container .priority_area ul li a {
   display: flex;
   border-radius: 12px;
 }
-body.front-page .main-container .priority_area ul li:hover {
+body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area ul li:hover {
   background: #00309d;
   text-decoration: none;
   border: 2px solid #00309d;
   border-radius: 12px;
 }
-body.front-page .main-container .priority_area ul li:hover a {
+body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area ul li:hover a {
   color: #FFF;
 }
 /* Publications Slider  */
