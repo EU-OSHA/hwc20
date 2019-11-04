@@ -1208,7 +1208,6 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   	}
 	.newsletter{
 		padding-left:0;
-		border-right: 1px dashed white;
 		margin-bottom: 1.5em;
 		padding-right: 1.5em;
 		h3{
@@ -2416,6 +2415,11 @@ label.option{
     color: #003399;
 }
 
+body .form-control{
+	border: 1px solid #B0B2B3;
+}
+
+
 #edit-search-api-views-fulltext{
 	width: 210px !important;
 }
@@ -2427,7 +2431,7 @@ html[lang=pt] #edit-search-api-views-fulltext{
 .new-select-style, #edit_field_country_code_chosen, #edit-years{
     height: 100%;
     border-radius: 5px !important;
-    background: url(../images/green-select.png) no-repeat scroll 94% center #FFF !important;
+    background: url(../images/green-select.png) no-repeat scroll 94% 13px #FFF !important;
     padding-left: 10px;
     width: 100%!important;
     color: #003399;
@@ -4711,9 +4715,33 @@ body{
 				}
 
 				#edit_field_country_code_chosen{
-					width: 150px!important;
-					height: 33px;
+					width: 225px!important;
+					height: auto;
+					min-height: 33px;
     				margin-top: 2px;
+    				cursor: inherit;
+    				.chosen-choices{
+    					padding: 0;
+    					li.search-choice{
+    						margin: -1px 5px 0 0;
+    						input{
+    							height:20px !important;
+    						}
+    					}
+    					li.search-field{
+    						width: 26px;
+						    float: right;
+						    margin-top: -2px;
+						    margin-right: -5px;
+						    position: absolute;
+						    right: 0;
+						    cursor: pointer;
+    						input{
+    							height:20px !important;
+    							cursor: pointer;
+    						}
+    					}
+    				}
 				}
 
 				select{
@@ -6717,7 +6745,7 @@ body.front-page{
 						padding: 0
 					}
 					.box-before:nth-child(1){
-						width: 60%;
+						width: 62%;
 						float: left;
 						.box-before.news{
 							width: 100%;
@@ -6754,6 +6782,8 @@ body.front-page{
 											> a{
 												display: block;
 												font-size: 2rem;
+												margin-top: 0.7em;
+    											margin-bottom: 0.7em;
 											}
 										}
 									}
@@ -6775,6 +6805,9 @@ body.front-page{
 					.box-before:nth-child(2){
 						width: 33%;
 						float: right;
+						background: url(../images/border-dashed-events.png) repeat-y;
+						padding-left: 2em;
+    					margin-bottom: 2em;
 						.box-before.events{
 							width: 100%;
 							h3{
@@ -6825,7 +6858,6 @@ body.front-page{
 							.view-frontpage-events{
 								float: left;
 							    width: 100%;
-							    padding-bottom: 2em;
 								.view-content{
 									> div{
 										clear: both;
@@ -6933,6 +6965,18 @@ body.front-page{
 					text-align: left;
 				}
 			}
+		}
+
+		.box-before:nth-child(1){
+			.newsletter{
+				float: right;
+			}
+		}
+
+		.box-before:nth-child(2){
+			background: url(../images/border-dashed-newsletter.png) repeat-y; 
+			padding: 0 1em;
+			min-height: 335px;
 		}
 
 		.box-before.social-media{

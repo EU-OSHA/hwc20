@@ -1065,7 +1065,6 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 }
 .newsletter-social-media .newsletter {
   padding-left: 0;
-  border-right: 1px dashed white;
   margin-bottom: 1.5em;
   padding-right: 1.5em;
 }
@@ -2110,6 +2109,9 @@ label.option {
   padding-left: 10px;
   color: #003399;
 }
+body .form-control {
+  border: 1px solid #B0B2B3;
+}
 #edit-search-api-views-fulltext {
   width: 210px !important;
 }
@@ -2121,7 +2123,7 @@ html[lang=pt] #edit-search-api-views-fulltext {
 #edit-years {
   height: 100%;
   border-radius: 5px !important;
-  background: url(../images/green-select.png) no-repeat scroll 94% center #ffffff !important;
+  background: url(../images/green-select.png) no-repeat scroll 94% 13px #ffffff !important;
   padding-left: 10px;
   width: 100%!important;
   color: #003399;
@@ -4074,9 +4076,33 @@ body.een .panels-flexible-column-first .pane-node-field-pledge .pane-title {
   float: left;
 }
 .page-events .region-content #block-system-main .views-exposed-widgets #edit_field_country_code_chosen {
-  width: 150px!important;
-  height: 33px;
+  width: 225px!important;
+  height: auto;
+  min-height: 33px;
   margin-top: 2px;
+  cursor: inherit;
+}
+.page-events .region-content #block-system-main .views-exposed-widgets #edit_field_country_code_chosen .chosen-choices {
+  padding: 0;
+}
+.page-events .region-content #block-system-main .views-exposed-widgets #edit_field_country_code_chosen .chosen-choices li.search-choice {
+  margin: -1px 5px 0 0;
+}
+.page-events .region-content #block-system-main .views-exposed-widgets #edit_field_country_code_chosen .chosen-choices li.search-choice input {
+  height: 20px !important;
+}
+.page-events .region-content #block-system-main .views-exposed-widgets #edit_field_country_code_chosen .chosen-choices li.search-field {
+  width: 26px;
+  float: right;
+  margin-top: -2px;
+  margin-right: -5px;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+.page-events .region-content #block-system-main .views-exposed-widgets #edit_field_country_code_chosen .chosen-choices li.search-field input {
+  height: 20px !important;
+  cursor: pointer;
 }
 .page-events .region-content #block-system-main .views-exposed-widgets select {
   width: 150px!important;
@@ -5838,7 +5864,7 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .be
   padding: 0;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) {
-  width: 60%;
+  width: 62%;
   float: left;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news {
@@ -5875,6 +5901,8 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .be
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news .view-news .view-content > div .media-body > a {
   display: block;
   font-size: 2rem;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news .view-news .view-content > div:nth-child(2) {
   border-bottom: 0;
@@ -5889,6 +5917,9 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .be
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) {
   width: 33%;
   float: right;
+  background: url(../images/border-dashed-events.png) repeat-y;
+  padding-left: 2em;
+  margin-bottom: 2em;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events {
   width: 100%;
@@ -5931,7 +5962,6 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .be
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events .view-frontpage-events {
   float: left;
   width: 100%;
-  padding-bottom: 2em;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events .view-frontpage-events .view-content > div {
   clear: both;
@@ -6020,6 +6050,14 @@ body.front-page .main-container .newsletter-social-media #newsletter-subscriptio
 }
 body.front-page .main-container .newsletter-social-media #newsletter-subscription-frontpage-form-wrapper .form-item-security-code {
   text-align: left;
+}
+body.front-page .main-container .box-before:nth-child(1) .newsletter {
+  float: right;
+}
+body.front-page .main-container .box-before:nth-child(2) {
+  background: url(../images/border-dashed-newsletter.png) repeat-y;
+  padding: 0 1em;
+  min-height: 335px;
 }
 body.front-page .main-container .box-before.social-media {
   padding: 2em 2em 2em 2em;
