@@ -6515,6 +6515,18 @@ body.front-page{
 			padding-bottom: 2em;
 			clear: both;
 			.view-homepage-banners{
+
+				.views-field-field-banner-video{
+					.field-content{
+						display: flex;
+    					justify-content: center;
+    					.youtube-video img.icon-play{
+    						top: 39%;
+    						left: 45%;
+    					}
+					}
+				}
+
 				.view-content{
 					display: flex;
 	    			flex-wrap: wrap;
@@ -6800,11 +6812,17 @@ body.front-page{
 		/*Newsletter Home page section*/
 		.newsletter-social-media{
 			background: url(../images/background-newsletter-home-page.png) no-repeat #94c000 !important;
+			min-height: auto;
+			float: left;
+			width: 100%;
+			padding-bottom: 2em;
+    		padding-top: 2em;
 			#block-osha-newsletter-osha-newsletter-image{
 				background: transparent;
 				padding: 2em 2em 2em 2em;
 				max-width: 800px;
 				margin: 0 auto;
+				height: 100%;
 				h2.block-title{
 					a{
 						background: url(../images/ico-newsletter.png) no-repeat 1px 5px;
@@ -6814,6 +6832,30 @@ body.front-page{
 						text-align: left;
 						font-weight: 500;
 					}
+				}
+			}
+			#newsletter-subscription-frontpage-form-wrapper{
+				position: relative;
+				.form-text{
+					width: 100%;
+					border-radius: 7px;
+				}
+				.form-submit{
+					position: absolute;
+					width: 150px;
+					top: 1px;
+					right: 0;
+					height: 32px;
+					border-top-right-radius: 7px;
+					border-bottom-right-radius: 7px;
+					&:before{
+						content: none;
+					}
+				}
+
+				#security_code{
+					width: auto;
+					margin: 0 auto;
 				}
 			}
 		}
@@ -6837,11 +6879,21 @@ body.front-page{
 
 			a.see-more-button-20{
 				background: url(../images/ico-next-20.png) no-repeat 98.5% 3px #0030a0;
+				clear: both;
+				display: block;
+				margin-top: 3em;
+				float: left;
 				&:hover{
 					background: url(../images/ico-next-20-hover.png) no-repeat 98.5% 3px #FFFFFF;
 					color: #ACC700;
 				}
 			}
+
+			.newsletter-social-media{
+				p{
+					padding-bottom: 2em;
+				}
+			} 
 
 			.on-the-web{
 				a{
@@ -6855,6 +6907,9 @@ body.front-page{
 					}
 					img{
 						display: none;
+					}
+					&:hover{
+						opacity: 0.8;
 					}
 				}
 			}
@@ -6906,42 +6961,46 @@ body.front-page{
 
 
 		/* Priority Area */
-		.priority_area{
-			ul{
-				display: flex;
-			    flex-wrap: wrap;
-			    width: 100%;
-			    justify-content: center;
-			    li{
-			    	display: flex;
-				    width: 25%;
-				    margin-right: 2em;
-				    margin-bottom: 1em;
-				    width: 257px;
-    				margin-top: 0.5em;
-    				border: 2px solid #bcd75b;
-    				border-radius: 12px;
-    				a{
-    					font-weight: 600;
-    					font-size: 1.8rem;
-					    font-weight: 600;
-					    width: 100%;
-					    text-align: center;
-					    justify-content: center;
-					    align-items: center;
-					    display: flex;
-					    border-radius: 12px;
-    				}
-    				&:hover{
-    					background: #00309d;
-				    	text-decoration: none;
-				    	border: 2px solid #00309d;
-				    	border-radius: 12px;
-				    	a{
-				    		color:#FFF;
-				    	}
-    				}
-			    }
+		#block-hwc-homepage-hwc-homepage-topics{
+			clear: both;
+			padding-top: 2em;
+			.priority_area{
+				ul{
+					display: flex;
+				    flex-wrap: wrap;
+				    width: 100%;
+				    justify-content: center;
+				    li{
+				    	display: flex;
+					    width: 25%;
+					    margin-right: 2em;
+					    margin-bottom: 1em;
+					    width: 257px;
+	    				margin-top: 0.5em;
+	    				border: 2px solid #bcd75b;
+	    				border-radius: 12px;
+	    				a{
+	    					font-weight: 600;
+	    					font-size: 1.8rem;
+						    font-weight: 600;
+						    width: 100%;
+						    text-align: center;
+						    justify-content: center;
+						    align-items: center;
+						    display: flex;
+						    border-radius: 12px;
+	    				}
+	    				&:hover{
+	    					background: #00309d;
+					    	text-decoration: none;
+					    	border: 2px solid #00309d;
+					    	border-radius: 12px;
+					    	a{
+					    		color:#FFF;
+					    	}
+	    				}
+				    }
+				}
 			}
 		}
 
@@ -7076,5 +7135,29 @@ body.page-tools-and-publications-publications{
 	    li.active{
 			background: #ACC700;
 			}
+	}
+}
+
+
+/* Photo Gallery */
+.view-flickr-albums{
+	clear: both;
+	.views-row{
+		padding: 0;
+		.date-display-single{
+			color: #FFF;
+		}
+		img{
+			border: 0;
+			border-radius: 0;
+		}
+	}
+
+	.view-content{
+		.gallery-row {
+			.views-field-field-flickr{
+				height: 240px;	
+			}
+		}
 	}
 }

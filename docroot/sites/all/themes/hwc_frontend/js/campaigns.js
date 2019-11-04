@@ -273,13 +273,6 @@ jQuery(document).ready(function() {
   		jQuery('#block-osha-newsletter-osha-newsletter-subscribe div.captcha').show();
 	});
 
-	/*changing capcha on click*/
-	jQuery("#edit-email").click(function(){
-		jQuery("#edit-submit").css({'margin-left':'auto', 'margin-right':'auto', 'display':'block'});
-		jQuery(this).css("margin-right", "22px");
-		jQuery(".form-item-email").css({"margin-right":"auto", "margin-left":"auto", "display":"table"});
-	});
-
 	/*adding color to "sort by" labels when is checked*/
 	jQuery(".pane-hwc-practical-tool-hwc-practical-tool-listing #edit-content .form-type-radios.form-item-sort input:checked").parent('label').css({'color':'#749b00','font-weight':'bold'});
 
@@ -705,10 +698,10 @@ jQuery(document).ready(function () {
   ResCarouselSize();
 
   var cl='class="active"';
-  for (i = 0; i < Math.ceil(jQuery('.multicarousel--block--inner .item').length / incno); i++) {
-    jQuery('.multicarousel-indicators').append('<li id="multicarousel-indicator-'+i+'" data-slide-to="' + i + '" '+cl+'></li>');
-    cl='class=""';
-  }
+	for (i = 0; i < Math.ceil(jQuery('.multicarousel--block--inner .item').length / incno); i++) {
+    	jQuery('.multicarousel-indicators').append('<li id="multicarousel-indicator-'+i+'" data-slide-to="' + i + '" '+cl+'></li>');
+    	cl='class=""';
+	}
 
   jQuery(window).resize(function () {
     ResCarouselSize();
