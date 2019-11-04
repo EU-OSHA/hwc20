@@ -26,11 +26,11 @@ function campaigns_newsletter_subscribe_form() {
   $form['#suffix'] = '</div>';
 
   $form['intro'] = array(
-    '#markup' => '<p class="intor-text">' . t(variable_get('subscribe_extra_block_intro_text', '')) . '</p>',
+    '#markup' => '<p class="intro-text">' . t(variable_get('subscribe_extra_block_intro_text', '')) . '</p>',
   );
 
   $form['email'] = array(
-    '#prefix' => '<div style="subscribe_block">',
+    '#prefix' => '<div class="subscribe_block">',
     '#type' => 'textfield',
     '#size' => 30,
     '#attributes' => array('placeholder' => t('E-mail address'), 'title' => t('E-mail address')),
