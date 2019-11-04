@@ -468,24 +468,17 @@ function osha_newsletter_block_view($delta = '') {
           $image_uri = $file->uri;
         }
 
-        $details_link = '';
-        $details_link_label = t(variable_get('osha_newsletter_image_block_details_link_label', 'Privacy policy'));
-        $details_link_url = variable_get('osha_newsletter_image_block_details_link_url', 'node/1015');
-
-        if (!empty($details_link_label) && !empty($details_link_url)) {
-          $details_link = '<a class="info-privacy-policy-campaigns" title="Privacy policy for newsletter" href=' . url($details_link_url) . '>' . $details_link_label . '</a><br/>';
-        }
-
+        $see_latest = '<a href="' . url('media-centre/newsletter') . '" class="see-more-button-20">' . t('See latest newsletters') . '</a>';
         $subscribe_form = drupal_get_form('campaigns_newsletter_subscribe_form');
 
         $block['content'] = theme('osha_newsletter_image', array(
           'background_image_url' => $image_uri,
           'start_text' => t(variable_get('osha_newsletter_image_block_intro_text', 'Would you like to stay informed about the latest developments regarding ageing workers?')),
           'subscribers_no' => drupal_render($subscribe_form),
-          'end_text' => $details_link,
+          'end_text' => $see_latest,
         ));
         if (drupal_is_front_page()) {
-          $block['content'] = '<h2 class="block-title">' . l(t('Newsletter'), 'healthy-workplaces-newsletter') . '</h2>' . $block['content'];
+          $block['content'] = '<h3><span>' . l(t('Newsletter'), 'media-centre/newsletter') . '</span></h3>' . $block['content'];
         }
         return $block;
       }
