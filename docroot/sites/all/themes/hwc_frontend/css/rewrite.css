@@ -91,6 +91,7 @@ header.navbar-default .navbar-collapse nav ul.menu > li.first a:before{
 
 .main-container h1, .main-container .title-alt{
     border-bottom: 0;
+    color: #FFF;
 }
 
 .dropdown-menu{

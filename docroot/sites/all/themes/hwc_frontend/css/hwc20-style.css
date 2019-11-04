@@ -82,6 +82,9 @@ html[lang=fr] header.navbar-default .campaigns-header #block-menu-menu-header-lo
 body.logged-in .navbar-header .col-xs-12.col-sm-9 {
   padding-top: 57px;
 }
+body.logged-in.ocp .navbar-header .col-xs-12.col-sm-9 {
+  padding-top: 0;
+}
 body {
   color: #59595A;
 }
@@ -207,6 +210,11 @@ select {
 .back-links span {
   margin-left: 0.5em;
   font-weight: bold;
+}
+.alert.alert-block.alert-danger,
+.alert.alert-block.alert-success {
+  float: left;
+  width: 70%;
 }
 .main-container h2 {
   color: #003399;
@@ -2058,6 +2066,7 @@ div.publications-detail-right-column > a.download {
 input[type=checkbox] + label {
   display: block;
   cursor: pointer;
+  text-align: left;
 }
 .sidebars_first #edit-tags input[type=checkbox] + label:before {
   border: 1px solid #55575d;
@@ -5091,6 +5100,9 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 .page-node-160 article h2 a {
   color: #749b00;
 }
+.page-node-160 .watch-other-link {
+  text-align: center;
+}
 /* Styling Wysiwyg  */
 .float-img {
   float: left;
@@ -5110,6 +5122,7 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   display: flex;
   flex-flow: row wrap;
   margin: 1rem 0 3rem;
+  clear: both;
 }
 .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0,
 .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1,
@@ -5259,7 +5272,7 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   content: none;
 }
 .profile-edit-links-container .hwc-partner-private-link-block-description {
-  margin-top: 2em;
+  /*margin-top: 2em;*/
 }
 .profile-edit-links-container p.draft {
   margin-top: 1em;
@@ -5958,7 +5971,16 @@ body.front-page .main-container .newsletter-social-media #newsletter-subscriptio
 }
 body.front-page .main-container .newsletter-social-media #newsletter-subscription-frontpage-form-wrapper #security_code {
   width: auto;
-  margin: 0 auto;
+}
+body.front-page .main-container .newsletter-social-media #newsletter-subscription-frontpage-form-wrapper .form-type-checkbox {
+  text-align: left;
+}
+body.front-page .main-container .newsletter-social-media #newsletter-subscription-frontpage-form-wrapper #captcha_0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+body.front-page .main-container .newsletter-social-media #newsletter-subscription-frontpage-form-wrapper .form-item-security-code {
+  text-align: left;
 }
 body.front-page .main-container .box-before.social-media {
   padding: 2em 2em 2em 2em;
