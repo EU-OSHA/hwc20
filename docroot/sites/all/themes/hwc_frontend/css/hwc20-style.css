@@ -3782,6 +3782,7 @@ body.een .panels-flexible-region-partner_detail-left_right-inside .pane-node-fie
 }
 body.een .panels-flexible-row-partner_detail-13 {
   float: right;
+  width: 100%;
 }
 body.ocp .panels-flexible-row h2,
 body.mp .panels-flexible-row h2,
@@ -3800,6 +3801,12 @@ body.mp .panels-flexible-column-first .pane-node-field-pledge .pane-title,
 body.fop .panels-flexible-column-first .pane-node-field-pledge .pane-title,
 body.een .panels-flexible-column-first .pane-node-field-pledge .pane-title {
   font-weight: 600;
+}
+body.ocp .box-type-partner,
+body.mp .box-type-partner,
+body.fop .box-type-partner,
+body.een .box-type-partner {
+  width: 100%;
 }
 /* Become a campaign partner */
 .become-partner-text {
