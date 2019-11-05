@@ -1007,3 +1007,18 @@ function hwc_update_7065() {
   variable_set('exclude_bottom_share_widget', [179, 146]);
 }
 
+/*
+ * Release 2 - Get your certificate.
+ */
+function hwc_update_7066() {
+  $node = node_load(365);
+  foreach($node->body as &$text) {
+    if ($text[0]['value']) {
+      $pos = strpos($text[0]['value'], '<div class="see-also">');
+      if ($pos) {
+        $text[0]['value'] = substr($text[0]['value'], 0, $pos);
+      }
+    }
+  }
+  node_save($node);
+}
