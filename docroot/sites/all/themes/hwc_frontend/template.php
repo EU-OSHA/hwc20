@@ -175,7 +175,6 @@ function hwc_frontend_preprocess_html(&$vars) {
       $vars['classes_array'][] = 'splash-page';
     }
     else {
-      $vars['classes_array'][] = 'front-page';
     }
   }
   if (!empty($vars['is_front'])) {
