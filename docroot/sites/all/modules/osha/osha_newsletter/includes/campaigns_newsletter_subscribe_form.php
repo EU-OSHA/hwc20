@@ -26,7 +26,7 @@ function campaigns_newsletter_subscribe_form() {
   $form['#suffix'] = '</div>';
 
   $form['intro'] = array(
-    '#markup' => '<p class="intro-text">' . t(variable_get('subscribe_extra_block_intro_text', '')) . '</p>',
+    '#markup' => '<p class="intro-text">' . t(variable_get('subscribe_homepage_block_intro_text', '')) . '</p>',
   );
 
   $form['email'] = array(
