@@ -151,6 +151,12 @@ select{
 	padding-bottom: 2em;
 }
 
+.alert a{
+	font-weight: normal;
+	color: #003399;
+}
+
+
 .date-display-single{
 	color: #57575a;
 	float: left;
@@ -247,12 +253,6 @@ select{
 	    margin-left: 0.5em;
 	    font-weight: bold;
 	}
-}
-
-
-.alert.alert-block.alert-danger, .alert.alert-block.alert-success{
-	float: left;
-    width: 70%;
 }
 
 .main-container{
@@ -1208,7 +1208,6 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   	}
 	.newsletter{
 		padding-left:0;
-		border-right: 1px dashed white;
 		margin-bottom: 1.5em;
 		padding-right: 1.5em;
 		h3{
@@ -1219,6 +1218,10 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 	    	span{
 				padding-right: 0.7em;
 				padding-left: 5px;
+				a{
+					color: #FFF;
+					font-size: 3.3rem;
+				}
 			}
     	}
 	}
@@ -1229,6 +1232,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 			margin-top: 0;
 			margin-bottom: 1em;
 			font-weight: 400;
+			font-size: 3.3rem;
 	      	span{
 				padding-right: 0.7em;
 				padding-left: 5px;
@@ -1246,11 +1250,11 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 	.newsletter{
 		h3:before{
 			content: ' ';
-			width: 35px;
-			display: block;
-			height: 25px;
-			float: left;
-			background: url(../images/ico-newsletter.png) no-repeat;
+		    width: 35px;
+		    display: block;
+		    height: 35px;
+		    float: left;
+		    background: url(../images/ico-newsletter.png) no-repeat 1px 6px;
 		}
 	}
 	.social-media{
@@ -1258,9 +1262,9 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 			content: ' ';
 			width: 30px;
 			display: block;
-			height: 28px;
+			height: 35px;
 			float: left;
-			background: url(../images/ico-social-media.png) no-repeat;
+			background: url(../images/ico-social-media.png) no-repeat 1px 6px;;
 		}
 	}
 }
@@ -2411,6 +2415,11 @@ label.option{
     color: #003399;
 }
 
+body .form-control{
+	border: 1px solid #B0B2B3;
+}
+
+
 #edit-search-api-views-fulltext{
 	width: 210px !important;
 }
@@ -2422,7 +2431,7 @@ html[lang=pt] #edit-search-api-views-fulltext{
 .new-select-style, #edit_field_country_code_chosen, #edit-years{
     height: 100%;
     border-radius: 5px !important;
-    background: url(../images/green-select.png) no-repeat scroll 94% center #FFF !important;
+    background: url(../images/green-select.png) no-repeat scroll 94% 13px #FFF !important;
     padding-left: 10px;
     width: 100%!important;
     color: #003399;
@@ -4706,9 +4715,36 @@ body{
 				}
 
 				#edit_field_country_code_chosen{
-					width: 150px!important;
-					height: 33px;
+					width: 225px!important;
+					height: auto;
+					min-height: 33px;
     				margin-top: 2px;
+    				cursor: inherit;
+    				.chosen-choices{
+    					padding: 0;
+    					li.search-choice{
+    						margin: -1px 5px 0 0;
+							box-shadow: 0 0 0 white inset, 0 0 0 rgba(0, 0, 0, 0.05);
+							background: transparent;
+							border: 0;
+    						input{
+    							height:20px !important;
+    						}
+    					}
+    					li.search-field{
+    						width: 26px;
+						    float: right;
+						    margin-top: -2px;
+						    margin-right: -5px;
+						    position: absolute;
+						    right: 0;
+						    cursor: pointer;
+    						input{
+    							height:20px !important;
+    							cursor: pointer;
+    						}
+    					}
+    				}
 				}
 
 				select{
@@ -5848,6 +5884,11 @@ body.european-week{
 	.watch-other-link{
 		text-align: center;
 	}
+
+	.hwc-share-widget ul .share-this-article{
+		color: #FFF;
+		top: -2px;
+	}
 }
 
 
@@ -5863,8 +5904,14 @@ body.european-week{
 /* Styles for Release 2, This styles shouldn't be merge on release_1 branch */
 
 /* Private Zone */
-.profile-edit-links-container{
+.logged-in.ocp .profile-edit-links-container{
+	border-bottom: 2px solid #bcd75b;
+	padding-bottom: 3em;
+}
 
+.profile-edit-links-container{
+	border-bottom: 0 solid #bcd75b;
+	padding-bottom: 0;
 	#act-as-partner{
 		.modal-body{
 			padding: 0;
@@ -6526,6 +6573,13 @@ body.newsletter{
 /* Home page */
 
 body.front-page{
+
+	.youtube-video{
+		.hp-modal-content{
+			padding-bottom: 3em;
+		}
+	}
+
 	.main-container{
 		/* Intro Boxes */
 		#block-views-homepage-banners-block{
@@ -6575,7 +6629,7 @@ body.front-page{
 					.img-right-column{
 						height: 100%;
     					display: flex;
-    					align-items: flex-end;
+    					align-items: center;
     					img{
 		    				margin: 0 auto;
 		    			}
@@ -6694,7 +6748,7 @@ body.front-page{
 						padding: 0
 					}
 					.box-before:nth-child(1){
-						width: 60%;
+						width: 62%;
 						float: left;
 						.box-before.news{
 							width: 100%;
@@ -6731,6 +6785,8 @@ body.front-page{
 											> a{
 												display: block;
 												font-size: 2rem;
+												margin-top: 0.7em;
+    											margin-bottom: 0.7em;
 											}
 										}
 									}
@@ -6752,6 +6808,9 @@ body.front-page{
 					.box-before:nth-child(2){
 						width: 33%;
 						float: right;
+						background: url(../images/border-dashed-events.png) repeat-y;
+						padding-left: 2em;
+    					margin-bottom: 2em;
 						.box-before.events{
 							width: 100%;
 							h3{
@@ -6802,7 +6861,6 @@ body.front-page{
 							.view-frontpage-events{
 								float: left;
 							    width: 100%;
-							    padding-bottom: 2em;
 								.view-content{
 									> div{
 										clear: both;
@@ -6832,14 +6890,22 @@ body.front-page{
 			min-height: auto;
 			float: left;
 			width: 100%;
-			padding-bottom: 2em;
     		padding-top: 2em;
+    		p{
+    			text-align: left;
+    			width: 81%;
+    			padding-bottom: 10px;
+    		}
+
 			#block-osha-newsletter-osha-newsletter-image{
 				background: transparent;
 				padding: 2em 2em 2em 2em;
 				max-width: 800px;
 				margin: 0 auto;
+				width: 100%;
 				height: 100%;
+				float: right;
+
 				h2.block-title{
 					a{
 						background: url(../images/ico-newsletter.png) no-repeat 1px 5px;
@@ -6849,6 +6915,12 @@ body.front-page{
 						text-align: left;
 						font-weight: 500;
 					}
+				}
+
+				.see-more-button-20{
+					clear: both;
+					float: left;
+					margin-top: 2em;
 				}
 			}
 			#newsletter-subscription-frontpage-form-wrapper{
@@ -6870,12 +6942,23 @@ body.front-page{
 					}
 				}
 
+				.subscribe_block{
+					position: relative;
+				}
+
 				#security_code{
 					width: auto;
 				}
 
 				.form-type-checkbox{
 					text-align: left;
+					a{
+						color: #FFF;
+						text-decoration: underline;
+						&:hover{
+							text-decoration: none;
+						}
+					}
 				}
 
 				#captcha_0{
@@ -6887,6 +6970,19 @@ body.front-page{
 					text-align: left;
 				}
 			}
+		}
+
+		.box-before:nth-child(1){
+			.newsletter{
+				float: right;
+				width: 100%;
+			}
+		}
+
+		.box-before:nth-child(2){
+			background: url(../images/border-dashed-newsletter.png) repeat-y; 
+			padding: 0 1em;
+			min-height: 335px;
 		}
 
 		.box-before.social-media{
@@ -7005,6 +7101,7 @@ body.front-page{
 					    margin-right: 2em;
 					    margin-bottom: 1em;
 					    width: 257px;
+					    min-height: 100px;
 	    				margin-top: 0.5em;
 	    				border: 2px solid #bcd75b;
 	    				border-radius: 12px;
