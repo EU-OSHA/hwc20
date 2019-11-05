@@ -6,6 +6,6 @@
 		));
 	}?>
 	<div id="block_newsletter_image_text">
-		<?php print $start_text . ' ' . $subscribers_no . ' ' . $end_text?>
+		<?php print $start_text . ' ' . $subscribers_no . ' ' . $end_text; ?>
 	</div>
 </div>

@@ -22,7 +22,7 @@
     if ($newsletters_no < count($items)) {
       $options['attributes']['class'] = 'more_newsletters';
       $options['attributes']['onclick'] = 'return see_more_newsletters()';
-      echo l(t('See more newsletters'), '', $options);
+      echo l(t('See all'), '', $options);
       $options['attributes']['class'] = 'less_newsletters';
       $options['attributes']['onclick'] = 'return see_less_newsletters()';
       echo l(t('See less newsletters'), '', $options);
