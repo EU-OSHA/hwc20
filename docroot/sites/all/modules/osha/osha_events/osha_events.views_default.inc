@@ -3802,7 +3802,7 @@ function osha_events_views_default_views() {
   $handler->display->display_options['filters']['field_start_date_value2']['id'] = 'field_start_date_value2';
   $handler->display->display_options['filters']['field_start_date_value2']['table'] = 'search_api_index_default_multilingual_node_index';
   $handler->display->display_options['filters']['field_start_date_value2']['field'] = 'field_start_date_value2';
-  $handler->display->display_options['filters']['field_start_date_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_start_date_value2']['operator'] = '<=';
   $handler->display->display_options['filters']['field_start_date_value2']['group'] = 1;
   $handler->display->display_options['filters']['field_start_date_value2']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_start_date_value2']['expose']['operator_id'] = 'field_start_date_value2_op';
