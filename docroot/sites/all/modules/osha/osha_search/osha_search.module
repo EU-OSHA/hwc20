@@ -126,10 +126,58 @@ function osha_search_block_view($delta = '') {
   );
 }
 
+function osha_search_get_exclude_search_articles() {
+  $nids = [];
+  $all_data = menu_tree_all_data('menu-footer-menu', NULL, 3);
+  foreach ($all_data as $row) {
+    $link = $row['link'];
+    if (!$link['hidden'] && ('node/%' == $link['router_path'])) {
+      list($node, $nid) = explode('/', $link['link_path']);
+      $nids[$nid] = $nid;
+    }
+  }
+  $all_data = menu_tree_all_data('main-menu', NULL, 3);
+  foreach ($all_data as $row) {
+    $link = $row['link'];
+    if (!$link['hidden'] && ('node/%' == $link['router_path'])) {
+      list($node, $nid) = explode('/', $link['link_path']);
+      $nids[$nid] = $nid;
+    }
+    foreach ($row['below'] as $submenu) {
+      $link = $submenu['link'];
+      if (!$link['hidden'] && ('node/%' == $link['router_path'])) {
+        list($node, $nid) = explode('/', $link['link_path']);
+        $nids[$nid] = $nid;
+      }
+      foreach ($submenu['below'] as $subsubmenu) {
+        $link = $subsubmenu['link'];
+        if (!$link['hidden'] && ('node/%' == $link['router_path'])) {
+          list($node, $nid) = explode('/', $link['link_path']);
+          $nids[$nid] = $nid;
+        }
+      }
+    }
+  }
+
+  $result = db_query('SELECT n.nid, n.title FROM {node} n WHERE n.type = :type AND n.nid NOT IN (:nids) AND n.status = 1 ORDER BY n.nid', array(':type'=>'article', ':nids' => $nids));
+  $article_nids = [];
+  foreach ($result as $row) {
+    $article_nids[$row->nid] = '(is_nid:"' . $row->nid . '")';
+  }
+
+  return $article_nids;
+}
+
 /**
  * Implements hook_search_api_solr_query_alter().
  */
 function osha_search_search_api_solr_query_alter(array &$call_args, SearchApiQueryInterface $query) {
+
+  if (variable_get('allow_exclude_search_articles', TRUE)) {
+    $nids = osha_search_get_exclude_search_articles();
+    $call_args['params']['fq'][] = '-( ' . implode(' OR ', $nids) . ' )';
+  }
+
   // Replace % with * to handle requested widlcard % (non-existing in solr).
   if (!empty($call_args['query'])) {
     $call_args['query'] = str_replace('%', '*', $call_args['query']);
