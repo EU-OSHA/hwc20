@@ -1,4 +1,4 @@
-<section class="newsletter-social-media">
+<section class="newsletter-social-media container">
   <div class="box-before col-md-7 col-sm-7 col-xs-12">
     <div class="box-before newsletter">
       <?php print $data['newsletter']; ?>
