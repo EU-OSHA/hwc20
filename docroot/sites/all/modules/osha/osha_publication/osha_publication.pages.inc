@@ -206,7 +206,6 @@ function osha_publication_menu_publications_search($form_state, $sort) {
 
   $query->condition('status', 1);
   $query->condition('type', 'publication');
-  $query->condition('field_file:file', 0, '>');
   $query->condition('field_publication_type', CASE_STUDY_TID, "<>");
   $query->condition('field_publication_type', CAMPAIGN_MATERIALS_TID, "<>");
   $query->condition('language', 'und', "<>");
@@ -379,7 +378,6 @@ function osha_publication_menu_publications_search_related($form_state, $native_
   $publication_type = hwc_req_param($form_state, 'publication_type', array());
   $is_search = !empty($text);
 
-  // Select all publications having field_file available in filtered languages.
   $q = db_select('node', 'a');
   $q->innerJoin('field_data_field_publication_type', 'b', 'a.nid = b.entity_id');
   $q->innerJoin('field_data_title_field', 'c', 'b.entity_id = c.entity_id AND b.revision_id = c.revision_id');
