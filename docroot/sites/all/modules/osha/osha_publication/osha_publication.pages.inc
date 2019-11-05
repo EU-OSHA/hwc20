@@ -286,12 +286,13 @@ function osha_publication_menu_publications_native_results($form_state, $results
       '#nids' => '',
     );
   }
+
   $restrict = array_unique($restrict);
   $languages = hwc_req_param($form_state, 'language', array($language->language));
 
   $nids = [];
   foreach ($restrict as $pnid) {
-    $q = db_select('field_data_field_file', 'b');
+    $q = db_select('field_data_title_field', 'b');
     $q->fields('b', array('entity_id'));
     $q->innerJoin('node', 'a', 'a.nid = b.entity_id AND a.vid = b.revision_id');
     $q->condition('b.bundle', 'publication');
@@ -307,15 +308,16 @@ function osha_publication_menu_publications_native_results($form_state, $results
     return array();
   }
 
-  // Order publications by publication_date.
   $q = db_select('field_data_field_publication_date', 'a');
   $q->innerJoin('field_data_title_field', 'b', 'a.entity_id = b.entity_id AND a.revision_id = b.revision_id');
+  $q->condition('b.language', $languages, 'IN');
   $q->fields('a', array('entity_id'));
   $q->condition('a.entity_id', $nids, 'IN');
   if ($sort == 'alphabetically') {
     $q->orderBy('title_field_value', 'ASC');
   }
   else {
+    // Order publications by publication_date.
     $q->orderBy('field_publication_date_value', 'DESC');
   }
   $nids = $q->execute()->fetchCol();
