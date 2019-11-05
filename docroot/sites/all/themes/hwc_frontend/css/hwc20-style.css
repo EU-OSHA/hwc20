@@ -359,6 +359,9 @@ ul.time-and-counters li .counter-label {
   padding-left: 2px;
 }
 /*Before the Campaign starts, here is what you can do*/
+.splash-page .content-box-before .box-before {
+  width: 320px;
+}
 .before-the-campaign {
   background: #efeff1;
   clear: both;
@@ -383,7 +386,6 @@ ul.time-and-counters li .counter-label {
   border-radius: 7px;
   padding: 1.5em;
   margin-right: 2em;
-  width: 320px;
   float: left;
   margin-bottom: 2em;
 }
@@ -1088,7 +1090,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 .newsletter-social-media .social-media h3 {
   color: white;
   margin-top: 0;
-  margin-bottom: 1em;
+  margin-bottom: 20px;
   font-weight: 400;
   font-size: 3.3rem;
 }
@@ -5865,13 +5867,11 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .be
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before {
   margin-bottom: 0;
   padding: 0;
-}
-body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) {
-  width: 62%;
-  float: left;
+  margin-right: 0;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news {
   width: 100%;
+  padding-right: 2em;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news h3 {
   background: url(../images/grey-h3-line.png) repeat-x 50% 75%;
@@ -5918,8 +5918,6 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .be
   padding-right: 1em;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) {
-  width: 33%;
-  float: right;
   background: url(../images/border-dashed-events.png) repeat-y;
   padding-left: 2em;
   margin-bottom: 2em;
@@ -5979,16 +5977,18 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .be
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events .view-frontpage-events .view-content > div:last-child {
   border-bottom: 0;
 }
-body.front-page .main-container .newsletter-social-media {
+body.front-page .main-container #block-hwc-homepage-hwc-homepage-newsletter-social {
   background: url(../images/background-newsletter-home-page.png) no-repeat #94c000 !important;
-  min-height: auto;
   float: left;
   width: 100%;
+}
+body.front-page .main-container .newsletter-social-media {
+  min-height: auto;
   padding-top: 2em;
 }
 body.front-page .main-container .newsletter-social-media p {
   text-align: left;
-  width: 81%;
+  width: 100%;
   padding-bottom: 10px;
 }
 body.front-page .main-container .newsletter-social-media #block-osha-newsletter-osha-newsletter-image {
@@ -6098,6 +6098,7 @@ body.front-page .main-container .box-before.social-media .newsletter-social-medi
 body.front-page .main-container .box-before.social-media .on-the-web a {
   float: left;
   width: 60px;
+  padding-top: 40px;
   display: flex;
   justify-content: center;
 }

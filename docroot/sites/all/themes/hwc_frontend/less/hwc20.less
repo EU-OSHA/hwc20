@@ -426,6 +426,15 @@ ul.time-and-counters{
 }
 
 /*Before the Campaign starts, here is what you can do*/
+
+.splash-page{
+	.content-box-before{
+		.box-before{
+			width: 320px;
+		}
+	}
+}
+
 .before-the-campaign{
 	background: #efeff1;
 	clear: both;
@@ -449,7 +458,6 @@ ul.time-and-counters{
 		    border-radius: 7px;
 		    padding: 1.5em;
 		    margin-right: 2em;
-		    width: 320px;
 		    float: left;
 		    margin-bottom: 2em;
 		    h3{
@@ -1230,7 +1238,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
       	h3{
 			color: white;
 			margin-top: 0;
-			margin-bottom: 1em;
+			margin-bottom: 20px;
 			font-weight: 400;
 			font-size: 3.3rem;
 	      	span{
@@ -6745,13 +6753,13 @@ body.front-page{
 					padding-bottom: 0;
 					.box-before{
 						margin-bottom: 0;
-						padding: 0
+						padding: 0;
+						margin-right: 0;
 					}
 					.box-before:nth-child(1){
-						width: 62%;
-						float: left;
 						.box-before.news{
 							width: 100%;
+							padding-right: 2em;
 							h3{
 								background: url(../images/grey-h3-line.png) repeat-x 50% 75%;
 								&:before{
@@ -6806,8 +6814,6 @@ body.front-page{
 						}
 					}
 					.box-before:nth-child(2){
-						width: 33%;
-						float: right;
 						background: url(../images/border-dashed-events.png) repeat-y;
 						padding-left: 2em;
     					margin-bottom: 2em;
@@ -6885,15 +6891,19 @@ body.front-page{
 		}
 
 		/*Newsletter Home page section*/
-		.newsletter-social-media{
+
+		#block-hwc-homepage-hwc-homepage-newsletter-social{
 			background: url(../images/background-newsletter-home-page.png) no-repeat #94c000 !important;
-			min-height: auto;
 			float: left;
-			width: 100%;
+    		width: 100%;
+		}
+
+		.newsletter-social-media{
+			min-height: auto;
     		padding-top: 2em;
     		p{
     			text-align: left;
-    			width: 81%;
+    			width: 100%;
     			padding-bottom: 10px;
     		}
 
@@ -7024,6 +7034,7 @@ body.front-page{
 				a{
 					float: left;
 					width: 60px;
+					padding-top: 40px;
    					display: flex;
    					justify-content: center;
 					&:before{
