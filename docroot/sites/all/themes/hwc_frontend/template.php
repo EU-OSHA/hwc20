@@ -64,6 +64,37 @@ function hwc_frontend_menu_link__menu_block($variables) {
  */
 function hwc_frontend_menu_link(array $variables) {
   $element = $variables['element'];
+
+  if (arg(0) == 'node') {
+    $urls = [
+      'tools-and-publications/publications',
+      'tools-and-publications/case-studies',
+      'tools-and-publications/campaign-materials',
+    ];
+    if (in_array($element['#href'], $urls) && $node = menu_get_object()) {
+      $type = @$node->field_publication_type[LANGUAGE_NONE][0]['tid'];
+      if ($type == CAMPAIGN_MATERIALS_TID || $type == CASE_STUDY_TID) {
+        if ('tools-and-publications/publications' == $element['#href']) {
+          $element['#attributes']['class'] = [];
+        }
+        if ($type == CASE_STUDY_TID && $element['#href'] == 'tools-and-publications/case-studies') {
+          $element['#attributes']['class'] = [
+            'expanded',
+            'active-trail',
+            'active',
+          ];
+        }
+        if ($type == CAMPAIGN_MATERIALS_TID && $element['#href'] == 'tools-and-publications/campaign-materials') {
+          $element['#attributes']['class'] = [
+            'expanded',
+            'active-trail',
+            'active',
+          ];
+        }
+      }
+    }
+  }
+
   if (arg(1) == 'campaign-materials') {
     $exclude = variable_get('campaign_materials_exclude', []);
     $include = variable_get('campaign_materials_include', []);
@@ -78,7 +109,7 @@ function hwc_frontend_menu_link(array $variables) {
         $element['#attributes']['class'] = [
           'expanded',
           'active-trail',
-          'active'
+          'active',
         ];
       }
     }
@@ -279,9 +310,6 @@ function hwc_frontend_preprocess_page(&$vars) {
         elseif ($n->nid == 164) {
           $vars['theme_hook_suggestions'][] = 'page__european__week';
           $vars['title_suffix'] = '<div id="european_week_date">' . variable_get('european_week_date', '12<sup>th</sup>-14<sup>th</sup> of October 2020') . '</div>';
-        }
-        elseif ($n->nid == 163) {
-          $vars['theme_hook_suggestions'][] = 'page__gpa';
         }
         else {
           $vars['theme_hook_suggestions'][] = 'page__node__article';
