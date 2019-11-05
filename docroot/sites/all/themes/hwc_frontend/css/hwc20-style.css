@@ -6450,6 +6450,16 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
     width: 100%;
   }
 }
+@media (min-width: 1230px) and (max-width: 1530px) {
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3,
+  .profile-edit-links-container .pane-node-profile-update-link {
+    width: 376px;
+    margin-bottom: 2em;
+  }
+}
 @media (max-width: 992px) {
   #navbar > div > div:nth-child(1) > div > div > div.col-xs-12.col-sm-9 {
     padding-top: 1em;
@@ -6837,6 +6847,9 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
   body.press-room .related-resources-boxes div {
     width: 25%;
     margin-right: 0em;
+  }
+  body.press-room #block-hwc-page-share-widget .hwc-share-widget {
+    display: none;
   }
   /* Previous Campaigns */
   #block-hwc-homepage-previous-campaign-nav {
