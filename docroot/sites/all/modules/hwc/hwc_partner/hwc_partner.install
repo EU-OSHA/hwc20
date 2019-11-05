@@ -344,5 +344,5 @@ function hwc_partner_update_7043() {
  * My public profile.
  */
 function hwc_partner_update_7044() {
-  features_revert(array('hwc_partner' => 'page_manager_pages'));
+  features_revert_module('hwc_partner');
 }
