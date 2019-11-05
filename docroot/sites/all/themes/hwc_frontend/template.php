@@ -140,6 +140,9 @@ function hwc_frontend_preprocess_html(&$vars) {
         if ($n->nid == 179) {
           $vars['classes_array'][] = 'press-room';
         }
+        if ($n->nid == 129) {
+          $vars['classes_array'][] = 'newsletter';
+        }
         if ($n->nid == 164) {
           $vars['classes_array'][] = 'european-week';
         }
