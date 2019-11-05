@@ -61,6 +61,7 @@ function drush_ncw_migration_hwc_migrate_av_related() {
 
 function drush_ncw_migration_hwc_migrate_all() {
   /* BE AWARE OF THE MIGRATIONS ORDERING! */
+
   $migrations = array(
     'tax_country_status',
     'tax_country',
