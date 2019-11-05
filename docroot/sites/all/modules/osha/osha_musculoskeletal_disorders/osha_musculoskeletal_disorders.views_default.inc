@@ -151,6 +151,7 @@ function osha_musculoskeletal_disorders_views_default_views() {
   $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Indexed Multilingual Content: Type of item */
   $handler->display->display_options['fields']['field_type_of_item']['id'] = 'field_type_of_item';
@@ -188,7 +189,7 @@ function osha_musculoskeletal_disorders_views_default_views() {
   $handler->display->display_options['fields']['field_languages_other']['id'] = 'field_languages_other';
   $handler->display->display_options['fields']['field_languages_other']['table'] = 'search_api_index_default_multilingual_node_index';
   $handler->display->display_options['fields']['field_languages_other']['field'] = 'field_languages_other';
-  /* Field: Broken/missing handler */
+  /* Field: Indexed Multilingual Content: Country */
   $handler->display->display_options['fields']['field_material_country']['id'] = 'field_material_country';
   $handler->display->display_options['fields']['field_material_country']['table'] = 'search_api_index_default_multilingual_node_index';
   $handler->display->display_options['fields']['field_material_country']['field'] = 'field_material_country';
@@ -336,7 +337,7 @@ function osha_musculoskeletal_disorders_views_default_views() {
     t('Priority area'),
     t('Languages'),
     t('Languages other'),
-    t('Broken handler search_api_index_default_multilingual_node_index.field_material_country'),
+    t('Country'),
     t('Country other'),
     t('External URL'),
     t('Provider'),

@@ -261,6 +261,14 @@ function osha_newsletter_update_7012() {
 /**
  * HW20-213HWC20 Development of the complete HWC20 Newsletter.
  */
-//function osha_newsletter_update_7013() {
+function osha_newsletter_update_7013() {
 //  features_revert_module('osha_newsletter');
-//}
+}
+
+
+/**
+ * HW20-213HWC20 Development of the complete HWC20 Newsletter.
+ */
+function osha_newsletter_update_7014() {
+  features_revert_module('osha_newsletter');
+}

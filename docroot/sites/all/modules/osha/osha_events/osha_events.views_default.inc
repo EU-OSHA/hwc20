@@ -2192,6 +2192,151 @@ function osha_events_views_default_views() {
   $export['event_schedule'] = $view;
 
   $view = new view();
+  $view->name = 'event_schedule_rev';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'field_collection_item_revision';
+  $view->human_name = 'Event schedule revision';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'row';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Field collection item (historical data): Speech date */
+  $handler->display->display_options['fields']['field_talking_date-revision_id']['id'] = 'field_talking_date-revision_id';
+  $handler->display->display_options['fields']['field_talking_date-revision_id']['table'] = 'field_revision_field_talking_date';
+  $handler->display->display_options['fields']['field_talking_date-revision_id']['field'] = 'field_talking_date-revision_id';
+  $handler->display->display_options['fields']['field_talking_date-revision_id']['label'] = '';
+  $handler->display->display_options['fields']['field_talking_date-revision_id']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_talking_date-revision_id']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_talking_date-revision_id']['settings'] = array(
+    'format_type' => 'day_month_year',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'osha_date_theme' => '',
+    'field_formatter_class' => '',
+  );
+  $handler->display->display_options['fields']['field_talking_date-revision_id']['field_api_classes'] = TRUE;
+  /* Field: Field collection item (historical data): Speech title */
+  $handler->display->display_options['fields']['field_talking_title-revision_id']['id'] = 'field_talking_title-revision_id';
+  $handler->display->display_options['fields']['field_talking_title-revision_id']['table'] = 'field_revision_field_talking_title';
+  $handler->display->display_options['fields']['field_talking_title-revision_id']['field'] = 'field_talking_title-revision_id';
+  $handler->display->display_options['fields']['field_talking_title-revision_id']['label'] = '';
+  $handler->display->display_options['fields']['field_talking_title-revision_id']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_talking_title-revision_id']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_talking_title-revision_id']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_talking_title-revision_id']['settings'] = array(
+    'field_formatter_class' => '',
+  );
+  $handler->display->display_options['fields']['field_talking_title-revision_id']['field_api_classes'] = TRUE;
+  /* Field: Field collection item (historical data): Presentation */
+  $handler->display->display_options['fields']['field_talking_files-revision_id']['id'] = 'field_talking_files-revision_id';
+  $handler->display->display_options['fields']['field_talking_files-revision_id']['table'] = 'field_revision_field_talking_files';
+  $handler->display->display_options['fields']['field_talking_files-revision_id']['field'] = 'field_talking_files-revision_id';
+  $handler->display->display_options['fields']['field_talking_files-revision_id']['label'] = '';
+  $handler->display->display_options['fields']['field_talking_files-revision_id']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_talking_files-revision_id']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_talking_files-revision_id']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_talking_files-revision_id']['type'] = 'field_file';
+  $handler->display->display_options['fields']['field_talking_files-revision_id']['settings'] = array(
+    'field_formatter_class' => '',
+  );
+  $handler->display->display_options['fields']['field_talking_files-revision_id']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_talking_files-revision_id']['field_api_classes'] = TRUE;
+  /* Field: Field collection item (historical data): Speaker */
+  $handler->display->display_options['fields']['field_talking_speaker-revision_id']['id'] = 'field_talking_speaker-revision_id';
+  $handler->display->display_options['fields']['field_talking_speaker-revision_id']['table'] = 'field_revision_field_talking_speaker';
+  $handler->display->display_options['fields']['field_talking_speaker-revision_id']['field'] = 'field_talking_speaker-revision_id';
+  $handler->display->display_options['fields']['field_talking_speaker-revision_id']['label'] = '';
+  $handler->display->display_options['fields']['field_talking_speaker-revision_id']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_talking_speaker-revision_id']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_talking_speaker-revision_id']['settings'] = array(
+    'bypass_access' => 0,
+    'link' => 0,
+    'field_formatter_class' => '',
+  );
+  $handler->display->display_options['fields']['field_talking_speaker-revision_id']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_talking_speaker-revision_id']['field_api_classes'] = TRUE;
+  /* Field: Field collection item (historical data): Conference Room */
+  $handler->display->display_options['fields']['field_venue-revision_id']['id'] = 'field_venue-revision_id';
+  $handler->display->display_options['fields']['field_venue-revision_id']['table'] = 'field_revision_field_venue';
+  $handler->display->display_options['fields']['field_venue-revision_id']['field'] = 'field_venue-revision_id';
+  $handler->display->display_options['fields']['field_venue-revision_id']['label'] = '';
+  $handler->display->display_options['fields']['field_venue-revision_id']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_venue-revision_id']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_venue-revision_id']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['field_venue-revision_id']['settings'] = array(
+    'field_formatter_class' => '',
+  );
+  $handler->display->display_options['fields']['field_venue-revision_id']['field_api_classes'] = TRUE;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="col-md-3 col-sm-4 talking-date">
+[field_talking_date-revision_id]
+</div>
+<div class="col-md-9 col-sm-8 talking-details">
+[field_talking_title-revision_id]
+[field_talking_speaker-revision_id]
+[field_venue-revision_id]
+[field_talking_files-revision_id]
+</div>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Sort criterion: Field collection item (historical data): Speech date -  start date (field_talking_date) */
+  $handler->display->display_options['sorts']['field_talking_date_value']['id'] = 'field_talking_date_value';
+  $handler->display->display_options['sorts']['field_talking_date_value']['table'] = 'field_revision_field_talking_date';
+  $handler->display->display_options['sorts']['field_talking_date_value']['field'] = 'field_talking_date_value';
+  /* Sort criterion: Field collection item (historical data): Speech title (field_talking_title) */
+  $handler->display->display_options['sorts']['field_talking_title_value']['id'] = 'field_talking_title_value';
+  $handler->display->display_options['sorts']['field_talking_title_value']['table'] = 'field_revision_field_talking_title';
+  $handler->display->display_options['sorts']['field_talking_title_value']['field'] = 'field_talking_title_value';
+  /* Contextual filter: Field collection item Revisions: Revision_id */
+  $handler->display->display_options['arguments']['revision_id']['id'] = 'revision_id';
+  $handler->display->display_options['arguments']['revision_id']['table'] = 'field_collection_item_revision';
+  $handler->display->display_options['arguments']['revision_id']['field'] = 'revision_id';
+  $handler->display->display_options['arguments']['revision_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['revision_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['revision_id']['default_argument_options']['argument'] = '-1';
+  $handler->display->display_options['arguments']['revision_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['revision_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['revision_id']['summary_options']['items_per_page'] = '25';
+  $translatables['event_schedule_rev'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('<div class="col-md-3 col-sm-4 talking-date">
+[field_talking_date-revision_id]
+</div>
+<div class="col-md-9 col-sm-8 talking-details">
+[field_talking_title-revision_id]
+[field_talking_speaker-revision_id]
+[field_venue-revision_id]
+[field_talking_files-revision_id]
+</div>'),
+    t('All'),
+  );
+  $export['event_schedule_rev'] = $view;
+
+  $view = new view();
   $view->name = 'events';
   $view->description = '';
   $view->tag = 'default';

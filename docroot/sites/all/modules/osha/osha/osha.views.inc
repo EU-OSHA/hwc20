@@ -7,6 +7,13 @@
  * to LEFT JOIN node_revision ON node.nid = node_revision.nid
  */
 function osha_views_query_alter(&$view, &$query) {
+  if ($view->name == 'event_schedule_rev') {
+    $node = menu_get_object();
+    if ($node) {
+      $schedule = $node->field_schedule[LANGUAGE_NONE][0];
+      $query->where[0]['conditions'][0]['value'][':field_collection_item_revision_revision_id'] = $schedule['revision_id'];
+    }
+  }
   // Switch from JOIN to LEFT JOIN with workbench_moderation_node_history
   // to allow adding content types which are not moderated (i.e. page).
   if ($view->name == 'administration_content') {

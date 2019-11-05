@@ -135,22 +135,22 @@ function osha_musculoskeletal_disorders_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '37',
+          'weight' => '38',
         ),
         'title' => array(
           'weight' => '-5',
         ),
         'path' => array(
-          'weight' => '35',
+          'weight' => '36',
         ),
         'redirect' => array(
-          'weight' => '36',
+          'weight' => '37',
         ),
         'workbench_access' => array(
           'weight' => '0',
         ),
         'xmlsitemap' => array(
-          'weight' => '38',
+          'weight' => '39',
         ),
       ),
       'display' => array(),

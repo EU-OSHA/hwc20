@@ -112,7 +112,7 @@ function osha_events_field_formatter_view($entity_type, $entity, $field, $instan
       if (!empty($entity->{$field['field_name']})) {
         $element[0] = array(
           '#type' => 'markup',
-          '#markup' => views_embed_view('event_schedule'),
+          '#markup' => views_embed_view('event_schedule_rev'),
         );
       }
       break;
@@ -151,6 +151,9 @@ function osha_events_form_events_node_form_alter(&$form, &$form_state) {
     if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
       $form['field_for_the_web']['#access'] = FALSE;
     }
+    $form['field_notification_comment']['#access'] = FALSE;
+    $form['body'][LANGUAGE_NONE][0]['#required'] = TRUE;
+    $form['field_show_on']['#access'] = FALSE;
     $form['field_tags']['#access'] = FALSE;
     $form['field_activity']['#access'] = FALSE;
     $form['field_adonis']['#access'] = FALSE;
