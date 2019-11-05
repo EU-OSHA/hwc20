@@ -311,9 +311,6 @@ function hwc_frontend_preprocess_page(&$vars) {
           $vars['theme_hook_suggestions'][] = 'page__european__week';
           $vars['title_suffix'] = '<div id="european_week_date">' . variable_get('european_week_date', '12<sup>th</sup>-14<sup>th</sup> of October 2020') . '</div>';
         }
-        elseif ($n->nid == 163) {
-          $vars['theme_hook_suggestions'][] = 'page__gpa';
-        }
         else {
           $vars['theme_hook_suggestions'][] = 'page__node__article';
         }
