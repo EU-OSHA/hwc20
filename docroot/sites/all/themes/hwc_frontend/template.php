@@ -299,7 +299,6 @@ function hwc_frontend_preprocess_page(&$vars) {
       $vars['theme_hook_suggestions'][] = 'page__splash';
     }
     else {
-      $vars['theme_hook_suggestions'][] = 'page__front';
     }
   }
   if (arg(0) . arg(1) . arg(2) == 'tools-and-publicationspublications') {
