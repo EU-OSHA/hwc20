@@ -10959,18 +10959,6 @@ article .hwc-share-widget ul {
   display: block;
   margin-top: 5px;
 }
-.page-media-center-photo-gallery .views-field-title-field a:before,
-.view-photo-gallery .views-field-title-field a:before,
-.page-photo-gallery .views-field-title-field a:before,
-.page-media-center-photo-gallery .gallery_list_detail_container a:before,
-.view-photo-gallery .gallery_list_detail_container a:before,
-.page-photo-gallery .gallery_list_detail_container a:before,
-.page-media-center-photo-gallery .attachment.attachment-before .views-field-nothing a:before,
-.view-photo-gallery .attachment.attachment-before .views-field-nothing a:before,
-.page-photo-gallery .attachment.attachment-before .views-field-nothing a:before {
-  content: ">";
-  padding-right: 5px;
-}
 .page-media-center-photo-gallery .views-field-field-images img,
 .view-photo-gallery .views-field-field-images img,
 .page-photo-gallery .views-field-field-images img {
