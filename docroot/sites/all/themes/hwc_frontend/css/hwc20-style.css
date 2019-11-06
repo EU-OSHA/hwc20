@@ -2952,6 +2952,16 @@ div.workbench-info-block {
 .page-campaign-partners-national-focal-points .hwc-alpha-pager-view-title-field {
   width: 100%;
 }
+.view-display-id-fop img,
+.view-display-id-een img,
+.view-display-id-block_1 img {
+  width: 110px;
+  height: 74px;
+}
+.view-display-id-block_1 .pager img {
+  width: auto;
+  height: auto;
+}
 .page-campaign-partners-enterprise-europe-network .view-content {
   display: flex;
   flex-wrap: wrap;
@@ -6369,6 +6379,9 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
 .view-flickr-albums .view-content .gallery-row .views-field-field-flickr {
   height: 240px;
 }
+.isMobile {
+  float: right !important;
+}
 @media (min-width: 1200px) {
   /*Slider Publications*/
   body.page-tools-and-publications-publications .slider--video--section {
@@ -6651,7 +6664,7 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
     margin-left: 1em;
   }
   .breadcrumb {
-    padding: 5px 15px !important;
+    padding: 10px !important;
   }
   #navbar > div > div:nth-child(1) > div > div > div.col-xs-12.col-sm-3.xs-menu {
     padding-right: 10px;
@@ -7729,33 +7742,6 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
   .new-select-style {
     display: block !important;
   }
-  /*
-	.page-publications .sidebars_first.with-result-for, .page-publications .sidebars_first, .page-events .sidebars_first{
-		margin-top: 1em;
-	}
-
-	.page-publications, .page-tools-and-publications-campaign-materials{
-		.content{
-			display: block;
-		}
-		.main-container {
-    	padding-right: 0 !important;
-    	padding-left: 0 !important;
-		}
-		.content-publication-info{
-			display: block;
-		}
-		.date-display-single{
-			float: none;
-			display: block;
-			width: 100%;
-		}
-		.pages{
-			display: block;
-			width: 100%;
-		}
-	}
-*/
   .page-publications .sidebars_first,
   .page-tools-and-publications-campaign-materials .sidebars_first,
   .page-tools-and-publications .sidebars_first {
