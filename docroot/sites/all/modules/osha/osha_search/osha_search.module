@@ -11,6 +11,13 @@ module_load_include('inc', 'osha_search', 'osha_search.admin');
  * Implements hook_facet_items().
  */
 function osha_search_facet_items_alter(&$build, &$settings) {
+  if ($settings->facet == "field_country_code") {
+    $country_codes = [];
+    foreach ($build as $code => $item) {
+      $country_codes[$code] = $item['#markup'];
+    }
+    drupal_add_js(array('country_codes' => $country_codes), 'setting');
+  }
 
   $query_params = drupal_get_query_parameters();
   if ($settings->facet == "field_sector_industry_covered") {

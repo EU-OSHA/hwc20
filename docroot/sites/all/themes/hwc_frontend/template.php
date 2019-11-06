@@ -278,6 +278,9 @@ function hwc_frontend_css_alter(&$css) {
  */
 function hwc_frontend_preprocess_block(&$vars) {
   $block = $vars['block'];
+  if (($block->delta == 'savwFG7EXPDT1TOCbW1g7W55ENxEJnMY')) {
+    $vars['theme_hook_suggestions'][] = 'block__empty';
+  }
   if (($block->delta == 'gpexamples-block')) {
     $vars['theme_hook_suggestions'][] = 'block__gpexamples';
   }
