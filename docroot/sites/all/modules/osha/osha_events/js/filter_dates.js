@@ -1,6 +1,14 @@
 (function ($) {
   Drupal.behaviors.search_sort = {
     attach: function (context, settings) {
+      jQuery('#edit-field-country-code > option').each(function() {
+        code = jQuery(this).val();
+        if (!Drupal.settings.country_codes[code]) {
+          jQuery("#edit-field-country-code option[value='" + code + "']").remove();
+        }
+        jQuery('#edit-field-country-code').trigger("chosen:updated");
+      });
+
       jQuery('#edit-years').change(function () {
         if (jQuery(this).val()) {
           jQuery('#edit-field-start-date-value-datepicker-popup-0').val();

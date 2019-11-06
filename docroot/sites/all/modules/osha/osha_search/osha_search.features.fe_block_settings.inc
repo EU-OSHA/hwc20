@@ -130,6 +130,36 @@ tools-and-publications/practical-tools',
     'visibility' => 1,
   );
 
+  $export['facetapi-savwFG7EXPDT1TOCbW1g7W55ENxEJnMY'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'savwFG7EXPDT1TOCbW1g7W55ENxEJnMY',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => 'media-centre/events
+media-centre/events/*',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'hwc_frontend',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 1,
+  );
+
   $export['menu-menu-search'] = array(
     'cache' => -1,
     'css_class' => '',

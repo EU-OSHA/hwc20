@@ -11,6 +11,13 @@ module_load_include('inc', 'osha_search', 'osha_search.admin');
  * Implements hook_facet_items().
  */
 function osha_search_facet_items_alter(&$build, &$settings) {
+  if ($settings->facet == "field_country_code") {
+    $country_codes = [];
+    foreach ($build as $code => $item) {
+      $country_codes[$code] = $item['#markup'];
+    }
+    drupal_add_js(array('country_codes' => $country_codes), 'setting');
+  }
 
   $query_params = drupal_get_query_parameters();
   if ($settings->facet == "field_sector_industry_covered") {
@@ -158,7 +165,7 @@ function osha_search_get_exclude_search_articles() {
       }
     }
   }
-  
+
   $result = db_query('SELECT n.nid, n.title FROM {node} n WHERE n.type = :type AND n.nid NOT IN (:nids) AND n.status = 1', array(':type'=>'article', ':nids' => $nids));
   $article_nids = [];
   foreach ($result as $row) {
