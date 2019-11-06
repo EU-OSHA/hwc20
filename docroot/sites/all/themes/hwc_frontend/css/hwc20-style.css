@@ -6507,7 +6507,7 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
     width: auto;
   }
   .container .menu-name-main-menu ul.menu.nav .content-box-sub {
-    width: 50%;
+    width: 33%;
     margin: 0 0 0.7em;
   }
   /* Private Zone */
@@ -7523,7 +7523,7 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
     height: 31px;
   }
   .container .menu-name-main-menu ul.menu.nav .content-box-sub {
-    width: 100%;
+    width: 50%;
     margin: 0 0 0.7em;
   }
   .intro-splash-20 .views-row-first {
@@ -8196,6 +8196,10 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
   }
   .container .content-box-sub h2 {
     padding: 10px 0 0 0;
+  }
+  .container .menu-name-main-menu ul.menu.nav .content-box-sub {
+    width: 100%;
+    margin: 0 0 0.7em;
   }
   .field.field-name-field-summary {
     margin-left: 0;
