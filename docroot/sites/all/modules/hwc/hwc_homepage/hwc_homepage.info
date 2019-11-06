@@ -26,7 +26,6 @@ features[fe_block_settings][] = hwc_homepage-hwc_homepage_topics
 features[fe_block_settings][] = hwc_homepage-splash_browsing_content
 features[fe_block_settings][] = hwc_homepage-splash_download_news_campaign
 features[fe_block_settings][] = hwc_homepage-splash_title_banner_countdown
-features[fe_block_settings][] = panels_mini-splash_page
 features[fe_block_settings][] = views-be0c1defc438322b14f56f016c122817
 features[fe_block_settings][] = views-cd72cedd59cdde6e501529c8e7edf1d4
 features[fe_block_settings][] = views-frontpage_events-block
