@@ -1,22 +1,140 @@
 @media (max-width: 992px) {
 
-	#navbar > div > div:nth-child(1) > div > div > div.col-xs-12.col-sm-9{
-		padding-top: 1em;
-    	padding-left: 1em!important;
+	header.navbar-default{
+		&.sticky-menu{
+			.campaigns-header{
+				.navbar-header{
+					.col-xs-12.col-sm-9{
+						display: flex;
+						a{
+							margin-top: 0.5em;
+							&.pull-left{
+								margin: 0 1em 0 0;
+								img{
+									width: auto !important;
+								}
+							}
+							img{
+								&.pull-left{
+									
+								}
+							}
+						}
+						img{
+							&:nth-child(3){
+							width: auto !important;
+  						padding: 0em !important;
+							margin: auto 0 0 0;
+							height: 40px;
+							}
+						}
+						.header-text{
+							margin-left: auto;
+					    border: 0;
+					    margin-top: 0;
+						}					
+					}
+				}
+			}			
+		}
+		.campaigns-header{
+			padding: 0rem !important;
+			.row{
+				padding: 0 !important;
+			}
+			.navbar-header{
+				padding: 7px;				
+				.col-xs-12.col-sm-9{
+			    display: flex;
+			    align-self: flex-start;
+					a{
+						margin-top: 3rem;
+						&.pull-left{
+							margin: 2rem 1em 0 0;
+							img{
+								width: auto !important;
+								height: 77px;
+							}
+						}
+						img{
+							&.pull-left{
+								width: auto !important;
+								height:60px;
+								margin: 0;
+							}
+						}
+					}
+					img{
+						&:nth-child(3){
+					    width: auto!important;
+					    padding: 0!important;
+					    margin: 54px 0 0 7px;
+					    height: 36px;
+						}
+					}
+					.header-text{
+				    width: auto;
+				    padding: 1rem 3rem 0 1rem;
+				    margin-top: 2rem;
+				    border-left: 1px solid;
+				    margin-left: 1em;
+					}					
+				}
+			}
+		}	
 	}
-
-	header.navbar-default .campaigns-header .navbar-header a img.pull-left{
-		margin-top: 31px;
+	.breadcrumb {
+	  padding: 5px 15px !important;
 	}
-
-	header.navbar-default .campaigns-header .navbar-header img:nth-child(3){
-		padding-top: 39px;
-    	margin-top: -2px;
-	}
-
 	#navbar > div > div:nth-child(1) > div > div > div.col-xs-12.col-sm-3.xs-menu{
 		padding-right: 10px;
 	}
+
+	.comming-soon{
+		.content-counter{
+			.time-and-counters{
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				li{
+			    width: auto;
+			    display: flex;
+			    flex-wrap: wrap;
+			    span{
+						margin: auto !important;
+			    }
+					.counter-value{
+
+					}
+				}
+			}
+		}
+	}
+	.before-the-campaign{
+		h2{
+			letter-spacing: -1px;
+		}
+		.content-box-before{
+			.box-before{
+				.block-views{
+					.view-view-campaign-materials{
+						.view-content{
+					    display: flex;
+					    flex-wrap: wrap;
+					    > div{
+					    	width: 50%;
+					    	border-bottom: 1px solid #CCC;
+					    	.box-before-title{
+									border: 0;
+					    	}
+					    }
+						}						
+					}
+				}
+			}
+		}
+	} 
+
 
 	.container{
 		padding-left: 15px;
@@ -51,9 +169,7 @@
 		padding-top: 0;
 	}
 
-	header.navbar-default .campaigns-header .row:first-of-type{
-		padding: 0;
-	}
+
 
 	.navbar-default{
 		border-color: transparent;
@@ -67,13 +183,16 @@
 		display: none;
 	}
 
-	.view .views-row h2{
-		margin-left: 0;
-	}
-
-	.view .views-row .field.field-name-field-summary{
-		margin-left: 0;
-		margin-right: 0;
+	.view{
+		.views-row{
+			h2{
+				margin-left: 0;
+			}
+			.field.field-name-field-summary{
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
 	}
 
 	/*Splash page*/
@@ -298,29 +417,49 @@
 
 	/* General Search */
 
-	.page-search .main-container aside{
-		padding: 1em;
-	}
-
-	.page-search .main-container .region-content{
-		padding: 1em;
-	}
-
-	.page-search .region.region-content .view-search .view-header{
-		margin-bottom: 1em;
-	}
-
-	.page-search .region-sidebar-first .block.block-facetapi h2{
-		background-color: transparent;
-		padding-left: 0;
-    	margin-left: 0;
-    	padding-top: 15px;
-	}
-
-	.page-search .view-footer{
-		right: auto;
-		position: relative;
-		top: -6px;
+	.page-search{
+		.main-container{
+			aside{
+				padding: 1em;
+				width: 100%;
+				.region-sidebar-first{
+					.block.block-facetapi{
+						margin-bottom: 15px;
+						margin-top: 0;
+						h2{
+							background-color: transparent;
+							margin: 0;
+							padding: 15px 0 15px 0;
+						}
+					}
+				}
+			}
+			.region-content{
+				padding: 1em;
+				&.region{
+					.view-search{
+						.view-header{
+							margin-bottom: 1em;
+						}
+					}
+				}
+			}
+			#block-system-main{
+				.view{
+					.views-row{
+						.more-link{
+							bottom: 10px;
+					    right: 0;
+						}
+					}
+				}
+			}
+		}
+		.view-footer{
+			right: auto;
+			position: relative;
+			top: -6px;
+		}
 	}
 
 
