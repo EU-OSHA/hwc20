@@ -4357,6 +4357,7 @@ body.een{
 
 	.panels-flexible-row-partner_detail-13{
 		float: right;
+		width: 100%;
 	}
 }
 
@@ -4376,6 +4377,9 @@ body{
 					font-weight: 600;
 				}
 			}
+		}
+		.box-type-partner{
+			width: 100%;
 		}
 	}
 }
@@ -6750,6 +6754,7 @@ body.front-page{
 		}
 
 		#block-hwc-homepage-hwc-homepage-news-events{
+			padding-bottom: 3em;
 			.before-the-campaign{
 				background: transparent;
 				.content-box-before{
@@ -6757,7 +6762,7 @@ body.front-page{
 					margin-top: 4em;
 					padding-bottom: 0;
 					.box-before{
-						margin-bottom: 0;
+						margin-bottom: 2em;
 						padding: 0;
 						margin-right: 0;
 					}
@@ -6790,6 +6795,9 @@ body.front-page{
 										float: left;
 										border-bottom: 1px solid #bcd75b;
 										padding-bottom: 2em;
+										img{
+											height: auto;
+										}
 										.media-body{
 											padding-left: 1em;
 											> span.date-display-single{
@@ -6801,10 +6809,51 @@ body.front-page{
 												margin-top: 0.7em;
     											margin-bottom: 0.7em;
 											}
+											p{
+												position: relative;
+												padding-bottom: 4em;
+											}
+											a.more-link{
+												-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+												line-height: 1.42857143;
+												font-family: 'Open Sans';
+												box-sizing: border-box;
+												background-color: transparent;
+												text-decoration: none;
+												border: 1px solid #b0b1b3;
+												border-bottom: 1px solid #b0b1b3 !important;
+												border-radius: 3px;
+												color: #b0b1b3;
+												text-transform: uppercase;
+												padding: 2px 7px 2px 7px;
+												font-size: 12px;
+												transition: 300ms;
+												background-position: 110%;
+												position: absolute;
+												left: 0;
+												bottom: 0;												
+												&:hover{
+													text-decoration: none;
+													color: #58595b;
+													border: 1px solid #58595b;
+													border-bottom: 1px solid #58595b !important;
+													border-top-left-radius: 3px;
+													border-bottom-left-radius: 3px;
+													border-top-right-radius: 15px;
+													border-bottom-right-radius: 15px;
+													background: url(../images/ico-plus-20-hover-plus.png) no-repeat 98% 0px;
+													padding-right: 2em;
+											    }
+											    &:before{
+											    	content: '';
+											    	display: none;
+											    }
+											}
 										}
 									}
 									> div:nth-child(2){
 										border-bottom: 0;
+										padding-bottom: 12px;
 										> div.pull-left{
 											float: right !important;
 										}
@@ -7015,6 +7064,10 @@ body.front-page{
 					    float: left;
 					    background: url(../images/ico-social-media.png) 1px 5px no-repeat;
 				}
+			}
+
+			p{
+				width: 59%;
 			}
 
 			a.see-more-button-20{

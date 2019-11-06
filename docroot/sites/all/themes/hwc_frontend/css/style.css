@@ -8057,7 +8057,6 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
 }
 .breadcrumb span a {
   color: #003399;
-  font-style: italic;
 }
 /* Share */
 .a2a_kit.a2a_target.addtoany_list span.a2a_img_text {
@@ -10959,18 +10958,6 @@ article .hwc-share-widget ul {
   font-weight: bold;
   display: block;
   margin-top: 5px;
-}
-.page-media-center-photo-gallery .views-field-title-field a:before,
-.view-photo-gallery .views-field-title-field a:before,
-.page-photo-gallery .views-field-title-field a:before,
-.page-media-center-photo-gallery .gallery_list_detail_container a:before,
-.view-photo-gallery .gallery_list_detail_container a:before,
-.page-photo-gallery .gallery_list_detail_container a:before,
-.page-media-center-photo-gallery .attachment.attachment-before .views-field-nothing a:before,
-.view-photo-gallery .attachment.attachment-before .views-field-nothing a:before,
-.page-photo-gallery .attachment.attachment-before .views-field-nothing a:before {
-  content: ">";
-  padding-right: 5px;
 }
 .page-media-center-photo-gallery .views-field-field-images img,
 .view-photo-gallery .views-field-field-images img,
@@ -15853,13 +15840,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 .view-id-partners_list img {
   margin: auto;
-}
-.view-display-id-fop img,
-.view-display-id-een img,
-.view-display-id-block_1 img {
-  width: 110px;
-  height: 74px;
-  border: 1px solid #CCC;
 }
 /*End oficial campaign partners list*/
 /*pag National focal points*/
