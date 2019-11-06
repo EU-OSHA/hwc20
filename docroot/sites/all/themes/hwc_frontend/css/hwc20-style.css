@@ -5917,6 +5917,46 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .be
   margin-top: 0.7em;
   margin-bottom: 0.7em;
 }
+body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news .view-news .view-content > div .media-body p {
+  position: relative;
+  padding-bottom: 4em;
+}
+body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news .view-news .view-content > div .media-body a.more-link {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  line-height: 1.42857143;
+  font-family: 'Open Sans';
+  box-sizing: border-box;
+  background-color: transparent;
+  text-decoration: none;
+  border: 1px solid #b0b1b3;
+  border-bottom: 1px solid #b0b1b3 !important;
+  border-radius: 3px;
+  color: #b0b1b3;
+  text-transform: uppercase;
+  padding: 2px 7px 2px 7px;
+  font-size: 12px;
+  transition: 300ms;
+  background-position: 110%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news .view-news .view-content > div .media-body a.more-link:hover {
+  text-decoration: none;
+  color: #58595b;
+  border: 1px solid #58595b;
+  border-bottom: 1px solid #58595b !important;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background: url(../images/ico-plus-20-hover-plus.png) no-repeat 98% 0px;
+  padding-right: 2em;
+}
+body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news .view-news .view-content > div .media-body a.more-link:before {
+  content: '';
+  display: none;
+}
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news .view-news .view-content > div:nth-child(2) {
   border-bottom: 0;
 }
