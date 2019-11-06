@@ -5878,7 +5878,7 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .be
   padding-bottom: 0;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before {
-  margin-bottom: 0;
+  margin-bottom: 2em;
   padding: 0;
   margin-right: 0;
 }
@@ -6137,6 +6137,9 @@ body.front-page .main-container .box-before.social-media h2:before {
   height: 32px;
   float: left;
   background: url(../images/ico-social-media.png) 1px 5px no-repeat;
+}
+body.front-page .main-container .box-before.social-media p {
+  width: 59%;
 }
 body.front-page .main-container .box-before.social-media a.see-more-button-20 {
   background: url(../images/ico-next-20.png) no-repeat 98.5% 3px #0030a0;

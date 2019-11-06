@@ -15853,13 +15853,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .view-id-partners_list img {
   margin: auto;
 }
-.view-display-id-fop img,
-.view-display-id-een img,
-.view-display-id-block_1 img {
-  width: 110px;
-  height: 74px;
-  border: 1px solid #CCC;
-}
 /*End oficial campaign partners list*/
 /*pag National focal points*/
 .page-national-focal-points article,
