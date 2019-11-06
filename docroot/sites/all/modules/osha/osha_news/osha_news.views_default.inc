@@ -873,7 +873,7 @@ function osha_news_views_default_views() {
   $handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'image_style' => 'news_splash_page',
+    'image_style' => 'home_page_prod_news',
     'image_link' => '',
     'field_formatter_class' => '',
   );
@@ -889,7 +889,7 @@ function osha_news_views_default_views() {
   $handler->display->display_options['fields']['title_field']['type'] = 'smart_trim_format';
   $handler->display->display_options['fields']['title_field']['settings'] = array(
     'trim_link' => '1',
-    'trim_length' => '60',
+    'trim_length' => '70',
     'trim_type' => 'chars',
     'trim_suffix' => '...',
     'more_link' => '0',
@@ -911,7 +911,7 @@ function osha_news_views_default_views() {
   $handler->display->display_options['fields']['field_summary']['type'] = 'smart_trim_format';
   $handler->display->display_options['fields']['field_summary']['settings'] = array(
     'trim_link' => '0',
-    'trim_length' => '140',
+    'trim_length' => '160',
     'trim_type' => 'chars',
     'trim_suffix' => '...',
     'more_link' => '1',
@@ -932,7 +932,7 @@ function osha_news_views_default_views() {
   $handler->display->display_options['fields']['body']['type'] = 'smart_trim_format';
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_link' => '0',
-    'trim_length' => '140',
+    'trim_length' => '160',
     'trim_type' => 'chars',
     'trim_suffix' => '...',
     'more_link' => '1',
