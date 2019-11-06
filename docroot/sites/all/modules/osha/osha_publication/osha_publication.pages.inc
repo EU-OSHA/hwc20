@@ -342,7 +342,7 @@ function osha_publication_menu_publications_native_results($form_state, $results
     $total = ' <span>(' . count($nids) . ')</span>';
   }
   $pager_total = '';
-  if (count($nodes) > $per_page) {
+  if (($start + count($nodes)) > $per_page) {
   $pager_total = '<div class="pager-total"><span>' . ($start + 1) . ' - ' . ($start + count($nodes)) . '</span></div>';
   }
   $pager = theme('pager', [
