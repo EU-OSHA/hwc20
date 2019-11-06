@@ -26,15 +26,54 @@
 	/*Slider Publications*/
 	body.page-tools-and-publications-publications{
 		.slider--video--section{
+			height: auto;
 			.slider--video--block{
 				.slider--video--items{
 					.multicarousel--block{
-						height: 225px;
+						height: auto;
+						.multicarousel--block--inner{
+							.wrapper-responsive-box{
+								display: flex;
+								.right-column{
+									height: 100%;
+									.publication-see-more-bottom-container{
+										margin-bottom: 12px;
+									}
+								}
+							}
+						}
+						.multicarousel-indicators{
+					    position: relative;
+					    bottom: 0;
+					    width: 100% !important;
+					    padding: 0;
+						}
 					}
 				}
 			}
 		}
 	}
+
+
+	header.navbar-default{
+		.navbar-collapse{
+			nav{
+				ul.menu{
+					> li{
+						height: 70px;
+						border-right: 1px solid #FFF;
+						> a{
+					    border: none !important;
+					    .caret{
+					    	display: none;
+					    }
+						}
+					}
+				}
+			}
+		}
+	}
+
 
 	.start-browsing {
     	background: url(../images/background-start-browsing.png) repeat-y;
@@ -74,19 +113,42 @@
 		width: 100%;
 	}
 
-	.page-tools-and-publications{
+	.page-publications, .page-tools-and-publications{
+		#content{
+			width: 98%!important;
+			margin-left: 0 !important;
+		}
 		#edit-left-column{
+			margin-bottom: 0.2rem;
 			.content-filters{
 				margin-top: 0;
+				padding: 0 0.5em 0 1em;
 			}
 		}
-	}
-
-	.page-publications, .page-tools-and-publications{
+		#edit-exposed-widgets{
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+			align-items: flex-end;
+			justify-content: space-between;
+			.views-exposed-widget{
+				width:auto !important;
+				margin: 0.5rem 0.5rem 0 0 !important;
+				&.views-widget-filter-search_api_views_fulltext{
+					flex-grow: 1;
+				}
+				select{
+					padding-right: 30px;
+				}
+				.search-new-design{
+    			background: url(../images/green-search.png) 99% 55% no-repeat #fff;
+				}
+			}
+		}
 		.pager-total{
 			top: -1em;
-    		right: 5em;
-    	}
+  		right: 5em;
+  	}
 	}
 
 	#block-hwc-campaign-resources{
@@ -98,6 +160,19 @@
 				a{
 					span{
 						width: auto;
+					}
+				}
+			}
+		}
+	}
+
+	.container{
+		.menu-name-main-menu{
+			ul.menu{
+				&.nav{
+					.content-box-sub{
+						width: 50%;
+						margin: 0 0 0.7em;
 					}
 				}
 			}
@@ -232,6 +307,21 @@
 					}
 				}
 			}
+		}
+	}
+
+}
+
+@media (min-width: 1230px) and (max-width: 1530px){
+
+	.profile-edit-links-container{
+		.pane-hwc-partner-hwc-partner-private-link-0,
+		.pane-hwc-partner-hwc-partner-private-link-1,
+		.pane-hwc-partner-hwc-partner-private-link-2,
+		.pane-hwc-partner-hwc-partner-private-link-3,
+		.pane-node-profile-update-link{
+		 	width: 376px;
+		 	margin-bottom: 2em;
 		}
 	}
 
