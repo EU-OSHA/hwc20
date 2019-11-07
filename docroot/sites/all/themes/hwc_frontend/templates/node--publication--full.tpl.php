@@ -22,10 +22,10 @@ if ($type == CAMPAIGN_MATERIALS_TID) {
   $back_path = 'tools-and-publications/campaign-materials';
   $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to campaign materials list') . '</span>';
 }
-//if ($type == CASE_STUDY_TID) {
-//  $back_path = 'tools-and-publications/case-studies';
-//  $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to case studies list') . '</span>';
-//}
+if ($type == CASE_STUDY_TID) {
+  $back_path = 'tools-and-publications/case-studies';
+  $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to case studies list') . '</span>';
+}
 ?>
 <div class="container">
     <div class="publication-detail">
