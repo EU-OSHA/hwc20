@@ -796,7 +796,6 @@ jQuery(document).ready(function($) {
 /** CAROUSEL **/
 jQuery(document).ready(function () {
 
-  console.log('CAROUSEL');
   var itemsMainDiv = ('.multicarousel--block');
   var itemsDiv = ('.multicarousel--block--inner');
   var itemWidth = "";
