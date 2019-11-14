@@ -96,7 +96,7 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
         <a id="main-content"></a>
         <?php print render($title_prefix); ?>
         <div class="above_title"><?php print render($page['above_title']); ?></div>
-        <h1 class="page-header"><?php print t('Campaing toolkit'); ?></h1>
+        <h1 class="page-header"><?php print t('Campaign toolkit'); ?></h1>
       </div>
       <?php
       print render($title_suffix);
