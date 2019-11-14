@@ -461,6 +461,7 @@ function osha_events_node_view($node, $view_mode, $langcode) {
               $date_object->setTimezone(new DateTimeZone($date['timezone']));
               $end_date = date_format_date($date_object, 'custom', 'm/d/Y') . ' ' . variable_get('add_calendar_end_date', '18:00:00');
               if ($end_date && $date['value'] > date('Y-m-d H:i:s')) {
+                $title = str_replace("'", "", strip_tags(substr($title, 0, 255)));
                 $description = str_replace("'", "", strip_tags(substr($body, 0, 255)));
                 $add_to_calendar = theme('event_add_to_calendar', array(
                   'nid' => $node->nid,
