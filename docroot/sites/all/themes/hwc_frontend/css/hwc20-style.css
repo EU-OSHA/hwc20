@@ -3138,18 +3138,31 @@ div.workbench-info-block {
   float: left;
   padding-top: 0;
 }
+.profile-2-cols-container-3 .views-row {
+  padding: 1em 1em 1em 0em;
+  border-bottom: 1px solid #acc700;
+}
+.profile-2-cols-container-3 .views-row.views-row-last {
+  border-bottom: 0;
+}
+.profile-2-cols-container-3 .profile-col-left-3 {
+  padding-top: 30px;
+}
 .profile-2-cols-container-3 .profile-col-left-3 h2.pane-title {
-  background: url(../images/mpp-create-news.png) 50% 4% no-repeat;
-  text-align: center;
-  padding-top: 70px;
+  background: url(../images/mpp-create-news.png) 0% 4% no-repeat;
+  text-align: left;
+  padding-top: 15px;
+  padding-left: 83px;
 }
 .profile-2-cols-container-3 .profile-col-right-3 {
-  padding-left: 75px;
+  padding-top: 30px;
+  padding-left: 3em;
 }
 .profile-2-cols-container-3 .profile-col-right-3 h2.pane-title {
-  background: url(../images/mpp-create-event.png) 50% 4% no-repeat;
-  text-align: center;
-  padding-top: 70px;
+  background: url(../images/mpp-create-event.png) 0% 0% no-repeat;
+  text-align: left;
+  padding-top: 15px;
+  padding-left: 76px;
 }
 .profile-2-cols-container-3 .profile-col-right-3 .views-field-field-start-date {
   font-weight: bold;
@@ -3172,10 +3185,6 @@ div.workbench-info-block {
 }
 .profile-2-cols-container-3 .profile-col-right-3 .views-field-title-field {
   clear: both;
-}
-.profile-2-cols-container-3 .view-partner-content {
-  width: 50%;
-  margin: 0 auto;
 }
 .profile-2-cols-container-3 .panels-flexible-region a {
   font-style: normal;
