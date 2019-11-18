@@ -467,7 +467,7 @@ function hwc_frontend_preprocess_page(&$vars) {
 
         $breadcrumb = array();
         $breadcrumb[] = l(t('Home'), '<front>');
-        $breadcrumb[] = l(t('Media centre', 'media-centre'));
+        $breadcrumb[] = l(t('Media centre'), 'media-centre');
         $breadcrumb[] = l(t('Events'), 'media-centre/events');
         $tag_vars['element']['#value'] = t('Events');
         $vars['page']['above_title']['events-page-title'] = array(
@@ -927,7 +927,7 @@ function hwc_frontend_checkboxes($variables) {
           $sub_tids[$sub_tid] = $sub_tid;
         }
       }
-      if (count($sub_tids) > 1) {
+      if (count($sub_tids) >= 1) {
         foreach ($sub_tids as $sub_tid) {
           $term = taxonomy_term_load($sub_tid);
           $sub_tids[$sub_tid] = $term->name;
@@ -948,7 +948,7 @@ function hwc_frontend_checkboxes($variables) {
           $sub_tids[$sub_tid] = $sub_tid;
         }
       }
-      if (count($sub_tids) > 1) {
+      if (count($sub_tids) >= 1) {
         foreach ($sub_tids as $sub_tid) {
           $term = taxonomy_term_load($sub_tid);
           $sub_tids[$sub_tid] = $term->name;
