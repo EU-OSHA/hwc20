@@ -6655,15 +6655,6 @@ body .btn:active.focus,
 body .btn.active.focus {
   outline: 0;
 }
-body .btn-primary:hover,
-body .btn-primary:focus,
-body .btn-primary.focus,
-body .btn-primary:active,
-body .btn-primary.active,
-body .open > .dropdown-toggle.btn-primary {
-  background-color: #003399;
-  border-color: #003399;
-}
 .navbar.container {
   margin-top: 20px;
 }
@@ -8011,14 +8002,18 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
 }
 .back-to-link {
   font-weight: bold;
-  font-style: italic;
   margin-bottom: 0.5em;
   text-align: right;
   width: 100%;
   border-bottom: 1px dotted #749b00;
 }
 .back-to-link:before {
-  content: ">";
+  content: " ";
+  background: url(../images/pag-back.png) 1px 5px no-repeat;
+  width: 17px;
+  height: 17px;
+  display: block;
+  float: left;
   padding-right: 5px;
 }
 /* breadcrumb */
@@ -13388,6 +13383,8 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-communications .back-to-link {
   border: none !important;
   padding-right: 25px;
+  text-align: left;
+  padding-left: 2em;
 }
 .page-partners-documents #views-exposed-form-documents-page-1,
 .page-communications #views-exposed-form-documents-page-1,
@@ -13582,21 +13579,18 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   height: 35px;
   width: 135px;
   top: 54px;
-  border: 2px solid #00349a;
-  color: #00349a;
+  color: #FFF;
   text-align: center;
   line-height: 32px;
-  font-weight: bold;
-  font-style: italic;
+  font-weight: normal;
+  font-style: normal;
+  background: #003399;
 }
 .page-partners-documents .region.region-content .view-search .view-header .count-container p a:hover,
 .page-communications .region.region-content .view-search .view-header .count-container p a:hover {
-  background-color: #00349a;
+  background-color: #002266;
   color: white;
-}
-.page-partners-documents .region.region-content .view-search .view-header .count-container p a:before,
-.page-communications .region.region-content .view-search .view-header .count-container p a:before {
-  content: "> ";
+  text-decoration: none;
 }
 .page-partners-documents .region.region-content .view-search .view-header .no-results.count-container p a,
 .page-communications .region.region-content .view-search .view-header .no-results.count-container p a {
@@ -13605,7 +13599,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-partners-documents .region.region-content .view-search .view-content .views-row,
 .page-communications .region.region-content .view-search .view-content .views-row {
   border-bottom: 1px dotted #749b00;
-  padding-bottom: 0em;
+  padding-bottom: 2em;
   padding-top: 0.5em;
   overflow: hidden;
 }
@@ -13615,11 +13609,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   font-weight: bold;
   font-size: 1.35em;
   padding-bottom: 0.5em;
-}
-.page-partners-documents .region.region-content .view-search .view-content .views-row .views-field-title-field span:before,
-.page-communications .region.region-content .view-search .view-content .views-row .views-field-title-field span:before {
-  content: ">";
-  padding-right: 0.5em;
 }
 .page-partners-documents .region.region-content .view-search .view-content .views-row .views-field-url a,
 .page-communications .region.region-content .view-search .view-content .views-row .views-field-url a {
@@ -13678,7 +13667,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-partners-documents .region.region-content .view-search .view-content .views-row .views-field-field-document-files ul li .entity-field-collection-item .publication-teaser ul,
 .page-communications .region.region-content .view-search .view-content .views-row .views-field-field-document-files ul li .entity-field-collection-item .publication-teaser ul {
   display: inline-block;
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
 }
 .page-partners-documents .region.region-content .view-search .view-content .views-row .views-field-field-document-files ul li .entity-field-collection-item .publication-teaser ul li,
@@ -13687,15 +13676,38 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 .page-partners-documents .region.region-content .view-search .view-content .views-row .views-field-search-api-relevance a,
 .page-communications .region.region-content .view-search .view-content .views-row .views-field-search-api-relevance a {
-  color: #003399;
-  font-weight: bold;
-  font-style: italic;
-  margin-bottom: 10px;
-  display: inline-block;
+  border: 1px solid #b0b1b3;
+  border-bottom: 1px solid #b0b1b3 !important;
+  border-radius: 3px;
+  color: #b0b1b3;
+  text-transform: uppercase;
+  padding: 2px 7px 2px 7px;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  transition: 300ms;
+  background-position: 110%;
 }
-.page-partners-documents .region.region-content .view-search .view-content .views-row .views-field-search-api-relevance a:before,
-.page-communications .region.region-content .view-search .view-content .views-row .views-field-search-api-relevance a:before {
-  content: "> ";
+.page-partners-documents .region.region-content .view-search .view-content .views-row .views-field-search-api-relevance a:hover,
+.page-communications .region.region-content .view-search .view-content .views-row .views-field-search-api-relevance a:hover {
+  width: auto;
+  text-transform: uppercase;
+  padding: 2px 7px 2px 7px;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  float: left;
+  transition: 300ms;
+  text-decoration: none;
+  color: #58595b;
+  border: 1px solid #58595b;
+  border-bottom: 1px solid #58595b !important;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background: url(../images/ico-plus-20-hover-plus.png) no-repeat 98% 0px;
+  padding-right: 2em;
 }
 .page-partners-documents .region.region-content .view-search .view-content .views-row strong,
 .page-communications .region.region-content .view-search .view-content .views-row strong {
