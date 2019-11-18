@@ -516,7 +516,7 @@ function hwc_toolkit_get_left_menu($active_id) {
   $colors[$levels[2]] = 'blue';
 
   hwc_toolkit_menu_breadcrumbs(l(t('Home'), '<front>'));
-  hwc_toolkit_menu_breadcrumbs(t('Tools and publications'));
+  hwc_toolkit_menu_breadcrumbs(l(t('Tools and publications'), 'tools-and-publications'));
 
   $l_map = [];
   foreach ($menu as $l1_id => $menu_item1) {
