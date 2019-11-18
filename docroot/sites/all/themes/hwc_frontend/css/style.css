@@ -13445,6 +13445,11 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   width: 100%;
   padding-right: 35px;
 }
+.page-partners-documents .region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext,
+.page-communications .region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext {
+  width: 100% !important;
+  margin-top: 2px;
+}
 .page-partners-documents .region-sidebar-first .views-exposed-widgets .views-submit-button,
 .page-communications .region-sidebar-first .views-exposed-widgets .views-submit-button {
   position: absolute;
@@ -13585,6 +13590,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   font-weight: normal;
   font-style: normal;
   background: #003399;
+  border-radius: 7px;
 }
 .page-partners-documents .region.region-content .view-search .view-header .count-container p a:hover,
 .page-communications .region.region-content .view-search .view-header .count-container p a:hover {
