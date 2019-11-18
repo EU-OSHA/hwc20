@@ -467,7 +467,7 @@ function hwc_frontend_preprocess_page(&$vars) {
 
         $breadcrumb = array();
         $breadcrumb[] = l(t('Home'), '<front>');
-        $breadcrumb[] = t('Media centre');
+        $breadcrumb[] = l(t('Media centre'), 'media-centre');
         $breadcrumb[] = l(t('Events'), 'media-centre/events');
         $tag_vars['element']['#value'] = t('Events');
         $vars['page']['above_title']['events-page-title'] = array(
@@ -577,7 +577,13 @@ function hwc_frontend_preprocess_page(&$vars) {
       drupal_set_breadcrumb($breadcrumb);
     }
   }
-
+  if (arg(0) == 'entity-collection') {
+    $breadcrumb = [];
+    $breadcrumb[] = l(t('Home'), '<front>');
+    $breadcrumb[] = l(t('Media centre'), 'media-centre');
+    $breadcrumb[] = l(t('Healthy Workplaces Newsletter'), 'node/129');
+    drupal_set_breadcrumb($breadcrumb);
+  }
   // Add back link (e.g. 'Back to homepage') for Partners pages.
   $partner = hwc_partner_get_account_partner();
   if (is_object($partner)) {
@@ -921,7 +927,7 @@ function hwc_frontend_checkboxes($variables) {
           $sub_tids[$sub_tid] = $sub_tid;
         }
       }
-      if (count($sub_tids) > 1) {
+      if (count($sub_tids) >= 1) {
         foreach ($sub_tids as $sub_tid) {
           $term = taxonomy_term_load($sub_tid);
           $sub_tids[$sub_tid] = $term->name;
@@ -942,7 +948,7 @@ function hwc_frontend_checkboxes($variables) {
           $sub_tids[$sub_tid] = $sub_tid;
         }
       }
-      if (count($sub_tids) > 1) {
+      if (count($sub_tids) >= 1) {
         foreach ($sub_tids as $sub_tid) {
           $term = taxonomy_term_load($sub_tid);
           $sub_tids[$sub_tid] = $term->name;
