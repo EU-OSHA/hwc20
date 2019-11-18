@@ -18464,15 +18464,9 @@ input#edit-field-image-und-0-upload::before {
 }
 /*end good practice exchange*/
 /*Social media*/
-.page-social-media-centre .main-container h1 {
-  padding-bottom: 0px;
-  border-bottom: none;
-  margin-bottom: 0px;
-}
 .page-social-media-centre #social-dashboard-media-centre-form {
   border-bottom: 1px dotted #749b00;
   padding-bottom: 0px;
-  overflow: hidden;
   margin-top: -10px;
 }
 .page-social-media-centre #social-dashboard-media-centre-form > div {
