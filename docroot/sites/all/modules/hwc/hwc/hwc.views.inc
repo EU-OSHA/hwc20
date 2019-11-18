@@ -26,6 +26,9 @@ function hwc_views_plugins() {
  * Implements hook_views_pre_render().
  */
 function hwc_views_pre_render(view &$view) {
+  if ($view->name == 'news' && ($view->current_display == 'european_week')) {
+    hwc_european_week_news(count($view->result));
+  }
   if ($view->name == 'frontpage_events' && ($view->current_display == 'european_week')) {
     hwc_european_week_events(count($view->result));
   }
