@@ -117,6 +117,24 @@ body .more-link:before {
   content: '';
   display: none;
 }
+body .btn-default,
+body .more-link,
+body .btn-primary {
+  position: relative;
+  color: #FFF;
+  width: auto;
+  background: #003399;
+  border-radius: 5px;
+}
+body .btn-default .glyphicon-log-in:before,
+body .more-link .glyphicon-log-in:before,
+body .btn-primary .glyphicon-log-in:before {
+  content: " ";
+  background: url(../images/header/login.png) no-repeat 0px center;
+  width: 17px;
+  height: 14px;
+  display: block;
+}
 #block-hwc-homepage-splash-title-banner-countdown {
   margin-top: 1em;
 }

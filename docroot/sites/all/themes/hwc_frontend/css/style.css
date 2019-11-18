@@ -7809,27 +7809,6 @@ body.tk-pages {
 body .form-type-password.form-item-pass {
   padding-bottom: 1em;
 }
-body .btn-default,
-body .more-link,
-body .btn-primary {
-  color: #ffffff;
-  background-color: #003399;
-  border-radius: 0;
-  border: none;
-  width: auto;
-  display: inline;
-  padding: 0.5em;
-}
-body .btn-default a,
-body .more-link a,
-body .btn-primary a {
-  color: #ffffff;
-}
-body .btn-default:before,
-body .more-link:before {
-  content: ">";
-  padding-right: 0.35em;
-}
 body input[type="text"],
 body textarea,
 body textarea.form-control,
@@ -14458,7 +14437,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-node-add-news .node-document-form .group-center .field-name-field-related-documents .form-file,
 .page-node-edit .node-document-form .group-center .field-name-field-related-documents .form-file {
   max-width: 500px;
-  height: 36px !important;
+  height: 34px !important;
 }
 .page-node-add-document .node-events-form .group-center .field-name-field-related-documents .input-group-btn,
 .page-node-add-events .node-events-form .group-center .field-name-field-related-documents .input-group-btn,
@@ -14724,56 +14703,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-node-edit .node-document-form #edit-actions #edit-save-preview:before {
   content: url('../images/content/preview.png');
   display: block;
-}
-.page-node-add-document .node-events-form #edit-actions #edit-send-for-approval,
-.page-node-add-events .node-events-form #edit-actions #edit-send-for-approval,
-.page-node-add-news .node-events-form #edit-actions #edit-send-for-approval,
-.page-node-edit .node-events-form #edit-actions #edit-send-for-approval,
-.page-node-add-document .node-news-form #edit-actions #edit-send-for-approval,
-.page-node-add-events .node-news-form #edit-actions #edit-send-for-approval,
-.page-node-add-news .node-news-form #edit-actions #edit-send-for-approval,
-.page-node-edit .node-news-form #edit-actions #edit-send-for-approval,
-.page-node-add-document .node-document-form #edit-actions #edit-send-for-approval,
-.page-node-add-events .node-document-form #edit-actions #edit-send-for-approval,
-.page-node-add-news .node-document-form #edit-actions #edit-send-for-approval,
-.page-node-edit .node-document-form #edit-actions #edit-send-for-approval {
-  width: 100%;
-  position: relative;
-  font-weight: bold;
-  margin-bottom: 1em;
-}
-.page-node-add-document .node-events-form #edit-actions #edit-send-for-approval:before,
-.page-node-add-events .node-events-form #edit-actions #edit-send-for-approval:before,
-.page-node-add-news .node-events-form #edit-actions #edit-send-for-approval:before,
-.page-node-edit .node-events-form #edit-actions #edit-send-for-approval:before,
-.page-node-add-document .node-news-form #edit-actions #edit-send-for-approval:before,
-.page-node-add-events .node-news-form #edit-actions #edit-send-for-approval:before,
-.page-node-add-news .node-news-form #edit-actions #edit-send-for-approval:before,
-.page-node-edit .node-news-form #edit-actions #edit-send-for-approval:before,
-.page-node-add-document .node-document-form #edit-actions #edit-send-for-approval:before,
-.page-node-add-events .node-document-form #edit-actions #edit-send-for-approval:before,
-.page-node-add-news .node-document-form #edit-actions #edit-send-for-approval:before,
-.page-node-edit .node-document-form #edit-actions #edit-send-for-approval:before {
-  content: "> ";
-}
-.page-node-add-document .node-events-form #edit-actions #edit-send-for-approval:after,
-.page-node-add-events .node-events-form #edit-actions #edit-send-for-approval:after,
-.page-node-add-news .node-events-form #edit-actions #edit-send-for-approval:after,
-.page-node-edit .node-events-form #edit-actions #edit-send-for-approval:after,
-.page-node-add-document .node-news-form #edit-actions #edit-send-for-approval:after,
-.page-node-add-events .node-news-form #edit-actions #edit-send-for-approval:after,
-.page-node-add-news .node-news-form #edit-actions #edit-send-for-approval:after,
-.page-node-edit .node-news-form #edit-actions #edit-send-for-approval:after,
-.page-node-add-document .node-document-form #edit-actions #edit-send-for-approval:after,
-.page-node-add-events .node-document-form #edit-actions #edit-send-for-approval:after,
-.page-node-add-news .node-document-form #edit-actions #edit-send-for-approval:after,
-.page-node-edit .node-document-form #edit-actions #edit-send-for-approval:after {
-  content: url('../images/content/arrow-right-blue-h49px.png');
-  display: inline-block;
-  background-size: cover;
-  position: absolute;
-  right: -16px;
-  top: 0px;
 }
 .page-node-add-document .node-events-form table.mceLayout,
 .page-node-add-events .node-events-form table.mceLayout,

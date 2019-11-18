@@ -11,22 +11,7 @@
 		}
 
 		font-family: @font-family-base;
-		.btn-default, .more-link, .btn-primary{
-			color: @btn-default-color;
-			background-color: @btn-default-bg;
-			border-radius: 0;
-			border: none;
-			width: auto;
-			display: inline;
-			padding: 0.5em;
-			a{
-				color: @btn-default-color;
-			}
-		}
-		.btn-default:before, .more-link:before{
-			content: ">";
-			padding-right: 0.35em;
-		}
+
 		input[type="text"], textarea, textarea.form-control, select{
 			color: @text-color-2;
 			border-color: #B0B2B3;
@@ -6188,7 +6173,7 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 				border-bottom: 1px dotted @color3;
 				.form-file{
 					max-width: 500px;
-					height: 36px !important;
+					height: 34px !important;
 				}
 				.input-group-btn{
 					display: block;
@@ -6261,23 +6246,6 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 				&:before{
 					content: url('../images/content/preview.png');
 					display: block;
-				}
-			}
-			#edit-send-for-approval{
-				width: 100%;
-				position: relative;
-				font-weight: bold;
-				margin-bottom: 1em;
-				&:before{
-					content: "> ";
-				}
-				&:after{
-					content: url('../images/content/arrow-right-blue-h49px.png');
-					display: inline-block;
-					background-size: cover;
-					position: absolute;
-					right: -16px;
-					top: 0px;
 				}
 			}
 		}
