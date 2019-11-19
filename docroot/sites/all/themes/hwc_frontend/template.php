@@ -525,12 +525,6 @@ function hwc_frontend_preprocess_page(&$vars) {
         }
 
         drupal_set_title(t('Photo gallery'));
-        $link_title = t('Back to gallery');
-        $link_href = 'media-centre/photo-gallery';
-        $vars['page']['below_title']['back-to-link'] = array(
-          '#type' => 'item',
-          '#markup' => l($link_title, $link_href, array('attributes' => array('class' => array('back-to-link pull-right')))),
-        );
         unset($link_title);
         unset($vars['page']['above_title']);
         break;
