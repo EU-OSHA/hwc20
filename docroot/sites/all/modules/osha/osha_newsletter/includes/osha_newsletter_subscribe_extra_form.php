@@ -36,7 +36,7 @@ function osha_newsletter_subscribe_extra_form() {
   $form['subscribe_details']['agree_processing_personal_data'] = array(
     '#suffix' => '</div>',
     '#type' => 'checkbox',
-    '#title' => t('I agree to the ') . '<a target="_blank" href="' . url($link_url) . '">' . t('privacy-policy') . '</a>',
+    '#title' => t('I agree to the ') . '<a target="_blank" href="' . url($link_url) . '">' . t('privacy policy') . '</a>',
     '#default_value' => 0,
   );
 
