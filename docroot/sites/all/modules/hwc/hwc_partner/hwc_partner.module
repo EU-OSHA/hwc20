@@ -348,9 +348,6 @@ function hwc_partner_block_view($delta = '') {
     if (isset($_SESSION['masquerading'])) {
       $block['content'] = l(t('Switch back to your user'), 'masquerade/unswitch', array('query' => array('token' => drupal_get_token('masquerade/unswitch'))));
     }
-    elseif (user_access('masquerade as any user')  && arg(0) != 'private_workbench') {
-      $block['content'] = theme('hwc_partner_my_private_workbench', array('content' => ''));
-    }
   }
   return $block;
 }
