@@ -9286,7 +9286,7 @@ div[class*='view-'] .field-name-field-summary {
 }
 #block-views-partners-block-1 .view-display-id-block_1 .hidden-xs .views-field-field-logo {
   padding-top: 0;
-  height: 175px;
+  height: 125px;
   border-top: 1px dotted #749b00;
   border-right: 1px dotted #749b00;
   padding: 25px;
@@ -23654,15 +23654,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     padding-right: 15px;
     padding-left: 15px;
   }
-  #block-views-partners-block-1 h2,
-  .front #block-views-partners-block-1 h2 {
-    margin-top: 40px;
-    padding-top: 70px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    background: url("../images/content/partners.png") no-repeat center top;
-  }
   #block-views-partners-block-1 .views-field-field-logo,
   .front #block-views-partners-block-1 .views-field-field-logo {
     margin: 0 auto 20px auto;
@@ -23711,10 +23702,8 @@ body.front .homepage-slider blockquote.image-field-caption p {
   }
   #block-views-partners-block-1 div.more-link a,
   .front #block-views-partners-block-1 div.more-link a {
-    width: 100% !important;
-    height: 3.5em;
-    padding: 1em;
     margin-top: 1em;
+    margin-left: 1em;
     display: block;
   }
   #block-views-partners-block-1 div.more-link a:before,
