@@ -93,14 +93,14 @@ body .more-link {
   padding-left: 0;
 }
 body .more-link a {
-  background: url(../images/ico-plus-20.png) no-repeat 98.5% 2px #0030a0;
+  background: url(../images/ico-plus-20.png) no-repeat 98.5% 3px #0030a0;
   text-transform: uppercase;
   color: #FFF;
   border-top-left-radius: 7px;
   border-bottom-left-radius: 7px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  padding: 3px 3.5em 4px 0.7em;
+  padding: 3px 3.5em 3px 0.7em;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -110,7 +110,7 @@ body .more-link a {
 }
 body .more-link a:hover {
   color: #FFF;
-  background: url(../images/ico-plus-20-hover.png) no-repeat 98.5% 2px #8fc900;
+  background: url(../images/ico-next-20-white-hover.png) no-repeat 98.5% 3px #acc700;
   text-decoration: none;
 }
 body .more-link:before {
@@ -228,7 +228,7 @@ select {
   border-bottom-left-radius: 7px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  padding: 3px 3.5em 4px 0.7em;
+  padding: 3px 3.5em 3px 0.7em;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -236,7 +236,7 @@ select {
 }
 .see-more-button-20:hover {
   color: #FFF;
-  background: url(../images/ico-plus-20-hover.png) no-repeat 99% 2px #8fc900;
+  background: url(../images/ico-next-20-hover.png) no-repeat 99% 2px #8fc900;
   text-decoration: none;
 }
 .back-to-events span,
@@ -5622,12 +5622,16 @@ body.newsletter .hwc-share-widget {
   justify-content: center;
   align-items: center;
   border: 2px solid #DEE999;
-  padding: 1.5em;
+  padding: 1.2em;
   margin: 0 1em;
   font-weight: 700;
   text-align: center;
-  font-size: 1.1em;
+  font-size: 0.95em;
   min-height: 150px;
+  background: #FFF;
+  border-radius: 7px;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
 }
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst.over,
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .rightLst.over {
@@ -5654,6 +5658,7 @@ body.newsletter .hwc-share-widget {
   background: #EFEFF0;
   height: 100%;
   cursor: pointer;
+  border: 0;
 }
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary:hover img {
   opacity: 0.8;
@@ -6117,6 +6122,11 @@ body.front-page .main-container .newsletter-social-media #block-osha-newsletter-
   clear: both;
   float: left;
   margin-top: 2em;
+  background: url(../images/ico-plus-20.png) no-repeat 98.5% 3px #0030a0;
+}
+body.front-page .main-container .newsletter-social-media #block-osha-newsletter-osha-newsletter-image .see-more-button-20:hover {
+  background: url(../images/ico-next-20-hover.png) no-repeat 98.5% 3px #ffffff;
+  color: #ACC700;
 }
 body.front-page .main-container .newsletter-social-media #newsletter-subscription-frontpage-form-wrapper {
   position: relative;
@@ -6192,7 +6202,7 @@ body.front-page .main-container .box-before.social-media p {
   width: 59%;
 }
 body.front-page .main-container .box-before.social-media a.see-more-button-20 {
-  background: url(../images/ico-next-20.png) no-repeat 98.5% 3px #0030a0;
+  background: url(../images/ico-plus-20.png) no-repeat 98.5% 3px #0030a0;
   clear: both;
   display: block;
   margin-top: 3em;

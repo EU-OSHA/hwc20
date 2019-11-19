@@ -7805,7 +7805,8 @@ body textarea,
 body textarea.form-control,
 body select {
   color: #003399;
-  border-color: #B0B2B3;
+  border-color: #003399;
+  border: 1px solid #003399;
   border-radius: 0;
 }
 body iframe {
@@ -8003,9 +8004,8 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
 .back-to-link {
   font-weight: bold;
   margin-bottom: 0.5em;
-  text-align: right;
+  text-align: left;
   width: 100%;
-  border-bottom: 1px dotted #749b00;
 }
 .back-to-link:before {
   content: " ";
@@ -10742,7 +10742,6 @@ article .hwc-share-widget ul {
 .hwc-share-widget ul .share-this-article {
   color: #003399;
   font-weight: bold;
-  font-style: italic;
   position: relative;
   top: 3px;
 }
@@ -13448,7 +13447,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-partners-documents .region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext,
 .page-communications .region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext {
   width: 100% !important;
-  margin-top: 2px;
+  margin-top: -14px;
 }
 .page-partners-documents .region-sidebar-first .views-exposed-widgets .views-submit-button,
 .page-communications .region-sidebar-first .views-exposed-widgets .views-submit-button {
@@ -16059,12 +16058,18 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-get-your-certificate form.webform-client-form .webform-component {
   margin-bottom: 1em !important;
 }
-.page-get-your-certificate form.webform-client-form .form-control,
-.page-get-your-certificate form.webform-client-form .chosen-single span {
+.page-get-your-certificate form.webform-client-form .form-control {
   color: #003399;
+  border: 1px solid #003399;
+}
+.page-get-your-certificate form.webform-client-form .chosen-single span {
+  color: grey;
 }
 .page-get-your-certificate form.webform-client-form .webform-component--activities {
   margin-bottom: 0em;
+}
+.page-get-your-certificate form.webform-client-form .webform-component--activities label {
+  color: #000 !important;
 }
 .page-get-your-certificate form.webform-client-form .form-checkboxes {
   margin-top: 0.5em;
@@ -16076,8 +16081,9 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-get-your-certificate form.webform-client-form .webform-component--other-activities label {
   margin-left: 0px;
   float: left;
-  color: #003399;
+  color: #000;
   font-family: 'Open Sans';
+  padding-top: 7px;
 }
 .page-get-your-certificate form.webform-client-form .webform-component--other-activities input {
   width: auto;
@@ -16087,7 +16093,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   margin-left: 15px;
   width: 97%;
   margin-left: 0;
-  width: 100%;
+  width: auto;
 }
 .page-get-your-certificate form.webform-client-form .captcha {
   padding-bottom: 25px;
@@ -16109,18 +16115,16 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   box-shadow: none;
 }
 .page-get-your-certificate form.webform-client-form .form-select:after {
-  width: 30px;
-  height: 33px;
+  width: 14px;
+  height: 15px;
   display: block;
   content: '';
   position: absolute;
-  top: 0px;
-  right: 0;
-  pointer-events: none;
-  background: #003399 url("../images/content/arrow-down.png") no-repeat right center;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  top: 14px;
+  right: 18px;
+  background: url(../images/green-select.png) no-repeat scroll 0 0px #ffffff !important;
+  padding-left: 10px;
+  cursor: pointer;
 }
 .page-get-your-certificate form.webform-client-form .form-select select {
   font-style: normal;
@@ -16134,6 +16138,31 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   box-sizing: border-box;
   width: 100%;
   height: 23px;
+}
+.page-get-your-certificate form.webform-client-form #edit-submitted-confirm label {
+  color: #000;
+}
+.page-get-your-certificate form.webform-client-form .captcha .help-block {
+  color: #777777;
+}
+.page-get-your-certificate form.webform-client-form fieldset.captcha {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  padding-left: 1em;
+}
+.page-get-your-certificate form.webform-client-form .form-actions {
+  padding-left: 1em;
+}
+.page-get-your-certificate form.webform-client-form #captcha_0_refresh img {
+  height: 38px;
+  width: 38px;
+}
+.page-get-your-certificate form.webform-client-form .captchaImgReadAudio,
+.page-get-your-certificate form.webform-client-form .captchaImgRefresh,
+.page-get-your-certificate form.webform-client-form .captchaObject {
+  border: 0;
+  height: 42px;
+  width: 38px;
 }
 .page-get-your-certificate .pane-node-field-image {
   float: left;
@@ -16163,6 +16192,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   margin-left: -10px;
   width: 100%;
   max-width: 100%;
+  padding-left: 1em;
 }
 .page-get-your-certificate .container > div > .pane-node-body:last-child .field-items {
   width: 100%;

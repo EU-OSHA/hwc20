@@ -109,14 +109,14 @@ body{
 		background-color: transparent;
 		padding-left: 0;
 		a{
-			background: url(../images/ico-plus-20.png) no-repeat 98.5% 2px #0030a0;
+			background: url(../images/ico-plus-20.png) no-repeat 98.5% 3px #0030a0;
 		    text-transform: uppercase;
 		    color: #FFF;
 		    border-top-left-radius: 7px;
 		    border-bottom-left-radius: 7px;
 		    border-top-right-radius: 15px;
 		    border-bottom-right-radius: 15px;
-		    padding: 3px 3.5em 4px 0.7em;
+		    padding: 3px 3.5em 3px 0.7em;
 			-webkit-transition: all 0.3s;
 			-moz-transition: all 0.3s;
 			-o-transition: all 0.3s;
@@ -125,7 +125,7 @@ body{
 			margin-top: 1em;
 		    &:hover{
 		    	color: #FFF;
-		    	background: url(../images/ico-plus-20-hover.png) no-repeat 98.5% 2px #8fc900;
+		    	background: url(../images/ico-next-20-white-hover.png) no-repeat 98.5% 3px #acc700;
 		    	text-decoration: none;
 		    }
 		}
@@ -260,14 +260,14 @@ select{
     border-bottom-left-radius: 7px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    padding: 3px 3.5em 4px 0.7em;
+    padding: 3px 3.5em 3px 0.7em;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
     &:hover{
     	color: #FFF;
-    	background: url(../images/ico-plus-20-hover.png) no-repeat 99% 2px #8fc900;
+    	background: url(../images/ico-next-20-hover.png) no-repeat 99% 2px #8fc900;
     	text-decoration: none;
     }
 }
@@ -6445,12 +6445,16 @@ body.newsletter{
 									justify-content: center;
 									align-items: center;
 									border: 2px solid #DEE999;
-									padding: 1.5em;
+									padding: 1.2em;
 									margin: 0 1em;
 									font-weight: 700;
 									text-align: center;
-									font-size: 1.1em;
+									font-size: 0.95em;
 									min-height: 150px;
+									background: #FFF;
+    								border-radius: 7px;
+    								text-transform: uppercase;
+    								letter-spacing: -0.5px;
 								}
 							}
 						}
@@ -6482,6 +6486,7 @@ body.newsletter{
 							background: #EFEFF0;
 							height: 100%;
 		    				cursor: pointer;
+		    				border: 0;
 		    				&:hover{
 						    	img{
 						    		opacity: 0.8;
@@ -7032,6 +7037,13 @@ body.front-page{
 					clear: both;
 					float: left;
 					margin-top: 2em;
+					background: url(../images/ico-plus-20.png) no-repeat 98.5% 3px #0030a0;
+			
+						&:hover{
+					background: url(../images/ico-next-20-hover.png) no-repeat 98.5% 3px #FFFFFF;
+					color: #ACC700;
+		
+					}
 				}
 			}
 			#newsletter-subscription-frontpage-form-wrapper{
@@ -7120,7 +7132,7 @@ body.front-page{
 			}
 
 			a.see-more-button-20{
-				background: url(../images/ico-next-20.png) no-repeat 98.5% 3px #0030a0;
+				background: url(../images/ico-plus-20.png) no-repeat 98.5% 3px #0030a0;
 				clear: both;
 				display: block;
 				margin-top: 3em;

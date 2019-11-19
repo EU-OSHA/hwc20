@@ -14,7 +14,8 @@
 
 		input[type="text"], textarea, textarea.form-control, select{
 			color: @text-color-2;
-			border-color: #B0B2B3;
+			border-color: #003399;
+			border: 1px solid #003399;
 			border-radius: 0;
 		}
 		iframe{
@@ -221,10 +222,9 @@ ul.tabs--primary.nav.nav-tabs{
 	.back-to-link {
 		font-weight: bold;
 		margin-bottom: 0.5em;
-		text-align: right;
-
+		text-align: left;
 		width: 100%;
-		border-bottom: 1px dotted @border-default-color;
+
 		&:before{
 			content: " ";
 			background: url(../images/pag-back.png) 1px 5px no-repeat;
@@ -2964,7 +2964,6 @@ article{
 		.share-this-article {
 		    color: @color2;
 		    font-weight: bold;
-		    font-style: italic;
 		    position: relative;
 		    top: 3px;
 		}
@@ -5647,7 +5646,7 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 			}
 			#edit-search-api-views-fulltext{
 				width: 100% !important;
-				margin-top: 2px;
+				margin-top: -14px;
 			}
 			.views-submit-button{
 				position: absolute;
@@ -7435,11 +7434,18 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 			margin-bottom: 1em !important;
 
 		}
-		.form-control, .chosen-single span{
+		.form-control{
 			color: @text-color-2;
+			border: 1px solid @text-color-2;
+		}
+		.chosen-single span{
+			color: grey;
 		}
 		.webform-component--activities{
 			margin-bottom: 0em;
+			label{
+				color: #000 !important;
+			}
 		}
 		.form-checkboxes{
 			margin-top: 0.5em;
@@ -7451,8 +7457,9 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 			label{
 				margin-left: 0px;
 				float: left;
-				color: @text-color-2;
+				color: #000;
     			font-family: 'Open Sans';
+    			padding-top: 7px;
 			}
 			input{
 				width: auto;
@@ -7463,7 +7470,7 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 			margin-left: @margin2;
 			width: 97%;
 			margin-left: 0;
-			width: 100%;
+			width: auto;
 		}
 		.captcha{
 			padding-bottom: 25px;
@@ -7487,18 +7494,16 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 			border: 1px solid @bg-color-2 !important;
 			box-shadow: none;
 			&:after {
-				width: 30px;
-				height: 33px;
-				display: block;
-				content: '';
-				position: absolute;
-				top: 0px;
-				right: 0;
-				pointer-events: none;
-				background: @bg-color-2 url("../images/content/arrow-down.png") no-repeat right center;
-				-moz-box-sizing: border-box;
-				-webkit-box-sizing: border-box;
-				box-sizing: border-box;
+				width: 14px;
+			    height: 15px;
+			    display: block;
+			    content: '';
+			    position: absolute;
+			    top: 14px;
+			    right: 18px;
+			    background: url(../images/green-select.png) no-repeat scroll 0 0px #ffffff !important;
+			    padding-left: 10px;
+			    cursor: pointer;  
 			}
 			select {
 				font-style: normal;
@@ -7513,6 +7518,37 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 				width: 100%;
 				height: 23px;
 			}
+		}
+
+		#edit-submitted-confirm{
+			label{
+				color:#000;
+			}
+		}
+
+		.captcha .help-block{
+			color: #777777;
+		}
+
+		fieldset.captcha{
+			margin-bottom: 0;
+			padding-bottom: 0;
+			padding-left: 1em;
+		}
+
+		.form-actions{
+			padding-left: 1em;
+		}
+
+		#captcha_0_refresh img{
+			height: 38px;
+    		width: 38px;
+		}
+
+		.captchaImgReadAudio, .captchaImgRefresh, .captchaObject {
+		    border: 0;
+		    height: 42px;
+		    width: 38px;
 		}
 	}
 	.pane-node-field-image{
@@ -7544,6 +7580,7 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 		margin-left: -10px;
 		width: 100%;
 		max-width: 100%;
+		padding-left: 1em;
 		.field-items{
 			width: 100%;
 			margin-left: 0;
