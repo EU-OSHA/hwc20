@@ -8892,7 +8892,6 @@ div[class*='view-'] .field-name-field-summary {
 .form-item-main-tags,
 .form-item-relevant-for,
 .form-item-field-publication-type,
-.form-item-language,
 .form-item-field-priority-area,
 .form-item-languages {
   margin-top: 0;
@@ -8905,7 +8904,6 @@ div[class*='view-'] .field-name-field-summary {
 .form-item-main-tags .checkbox:last-child,
 .form-item-relevant-for .checkbox:last-child,
 .form-item-field-publication-type .checkbox:last-child,
-.form-item-language .checkbox:last-child,
 .form-item-field-priority-area .checkbox:last-child,
 .form-item-languages .checkbox:last-child {
   margin-bottom: 10px;
@@ -13382,8 +13380,13 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-communications .back-to-link {
   border: none !important;
   padding-right: 25px;
+  padding-bottom: 25px;
   text-align: left;
   padding-left: 2em;
+}
+.page-partners-documents .region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext,
+.page-communications .region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext {
+  margin-top: 2px;
 }
 .page-partners-documents #views-exposed-form-documents-page-1,
 .page-communications #views-exposed-form-documents-page-1,
@@ -13447,7 +13450,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-partners-documents .region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext,
 .page-communications .region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext {
   width: 100% !important;
-  margin-top: -14px;
 }
 .page-partners-documents .region-sidebar-first .views-exposed-widgets .views-submit-button,
 .page-communications .region-sidebar-first .views-exposed-widgets .views-submit-button {
