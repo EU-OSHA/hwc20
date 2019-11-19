@@ -65,6 +65,20 @@ function hwc_frontend_menu_link__menu_block($variables) {
 function hwc_frontend_menu_link(array $variables) {
   $element = $variables['element'];
 
+  if (arg(0) == 'entity-collection') {
+    $urls = [
+      'node/129',
+      'node/113',
+    ];
+    if (in_array($element['#href'], $urls)) {
+      $element['#attributes']['class'] = [
+        'expanded',
+        'active-trail',
+        'active',
+      ];
+    }
+  }
+
   if (arg(0) == 'node') {
     $urls = [
       'tools-and-publications/publications',
