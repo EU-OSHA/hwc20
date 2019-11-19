@@ -292,6 +292,10 @@ function hwc_frontend_css_alter(&$css) {
  */
 function hwc_frontend_preprocess_block(&$vars) {
   $block = $vars['block'];
+  if ($block->delta == 'partners-block_1') {
+    $vars['theme_hook_suggestions'][] = 'block__partners';
+  }
+
   if (($block->delta == 'savwFG7EXPDT1TOCbW1g7W55ENxEJnMY')) {
     $vars['theme_hook_suggestions'][] = 'block__empty';
   }

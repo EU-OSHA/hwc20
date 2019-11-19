@@ -382,7 +382,7 @@ function hwc_homepage_block_view($delta = '') {
     $block['content']['menu']['#markup'] = '<div class="priority_area">';
     $block['content']['menu']['#markup'] .= theme('item_list', array('items' => $items, 'attributes' => array('class' => 'menu nav')));
     $block['content']['menu']['#markup'] .= '</div>';
-    $block['subject'] = l(t('Priority areas'), variable_get('hwc_homepage_topics_know_more_link'));
+    $block['subject'] = '<span>' . l(t('Priority areas'), variable_get('hwc_homepage_topics_know_more_link')) . '</span>';
   }
   return $block;
 }
