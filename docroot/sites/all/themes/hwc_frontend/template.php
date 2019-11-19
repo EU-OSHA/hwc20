@@ -590,6 +590,7 @@ function hwc_frontend_preprocess_page(&$vars) {
     $breadcrumb[] = l(t('Home'), '<front>');
     $breadcrumb[] = l(t('Media centre'), 'media-centre');
     $breadcrumb[] = l(t('Healthy Workplaces Newsletter'), 'node/129');
+    $breadcrumb[] = drupal_get_title();
     drupal_set_breadcrumb($breadcrumb);
   }
   // Add back link (e.g. 'Back to homepage') for Partners pages.
