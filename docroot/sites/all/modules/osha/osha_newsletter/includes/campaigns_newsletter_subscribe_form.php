@@ -44,7 +44,7 @@ function campaigns_newsletter_subscribe_form() {
   $form['agree_processing_personal_data'] = array(
     '#suffix' => '</div>',
     '#type' => 'checkbox',
-    '#title' => t('I agree to the ') . '<a target="_blank" href="' . url($link_url) . '">' . t('privacy-policy') . '</a>',
+    '#title' => t('I agree to the ') . '<a target="_blank" href="' . url($link_url) . '">' . t('privacy policy') . '</a>',
     '#default_value' => 0,
   );
   $form['#validate'] = array('campaigns_newsletter_subscribe_captcha_form_validate');
