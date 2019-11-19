@@ -6,6 +6,26 @@
 
 include_once 'osha_flickr.features.inc';
 
+function osha_flickr_node_view($node, $view_mode, $langcode) {
+  if ($node->type == 'flickr_gallery') {
+    if (!empty($node->preprocess_fields)) {
+      foreach ($node->preprocess_fields as $field_name) {
+        switch ($field_name) {
+          case 'back_to_list':
+          case 'bottom_back_to_list':
+            $link_href = 'media-centre/photo-gallery';
+            $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to gallery') . '</span>';
+            $node->content[$field_name] = [
+              '#markup' => '<div class="back-links">' . l($back_text, $link_href, ['html' => TRUE]) . '</div>',
+            ];
+            break;
+        }
+      }
+    }
+  }
+}
+
+
 /**
  * Implements Elysia hook_cronapi().
  */
