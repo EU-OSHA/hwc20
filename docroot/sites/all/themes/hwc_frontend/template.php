@@ -292,6 +292,10 @@ function hwc_frontend_css_alter(&$css) {
  */
 function hwc_frontend_preprocess_block(&$vars) {
   $block = $vars['block'];
+  if ($block->delta == '-exp-documents-gpep') {
+    $vars['theme_hook_suggestions'][] = 'block__gpep';
+  }
+
   if ($block->delta == 'partners-block_1') {
     $vars['theme_hook_suggestions'][] = 'block__partners';
   }
@@ -620,15 +624,6 @@ function hwc_frontend_preprocess_page(&$vars) {
       $vars['page']['above_title']['back-to-link'] = array(
         '#type' => 'item',
         '#markup' => l($link_title, $link_href, array('attributes' => array('class' => array('back-to-link pull-right')))),
-      );
-    }
-
-    if (arg(0) == 'good-practice-exchange-platform') {
-      $link_href = url('node/' . $partner->nid);
-      $link_title = t('Back to Private Zone');
-      $vars['page']['below_title']['back-to-link'] = array(
-        '#type' => 'item',
-        '#markup' => '<a class="back-to-link pull-right" href="' . $link_href . '">' . $link_title . '</a>',
       );
     }
   }
