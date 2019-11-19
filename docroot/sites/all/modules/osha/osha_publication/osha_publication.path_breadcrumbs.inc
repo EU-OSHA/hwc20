@@ -68,7 +68,7 @@ function osha_publication_path_breadcrumbs_settings_info() {
       2 => '!page_title',
     ),
     'paths' => array(
-      0 => '<none>',
+      0 => 'tools-and-publications',
       1 => 'tools-and-publications/publications',
       2 => '<none>',
     ),
