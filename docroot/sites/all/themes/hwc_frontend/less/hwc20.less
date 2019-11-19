@@ -1449,18 +1449,18 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 	display: block;
 	width: 100%;
 	.col-md-2{
-		width: 19.666667%;
+		width: 20%;
 	}
 	div{
 		.views-field{
 		  border-top: none !important;
-		  border-right: 1px solid #CCC !important;
+		  border-right: 1px solid #efeff0 !important;
     	}	
 	}	
 
 	.views-row-1{
    		.views-field{
-   			border-left: 1px solid #CCC;
+   			border-left: 1px solid #efeff0;
   		}
   	}
 
@@ -4699,7 +4699,7 @@ body{
 		}
 		.views-row-1{
 			.views-field {
-			    border-left: 1px solid #B0B1B2;
+			    border-left: 1px solid #efeff0;
 			}
 		}
 	}
@@ -5271,6 +5271,13 @@ ul[data-sa-theme="basic-green"].ui-menu{
     	color: #FFF;
     	font-weight: 400;
     	padding-left: 1.3em;
+    	a{
+    		font-size: 1em;
+    		text-decoration:none;
+    		&:hover{
+    			text-decoration: underline;
+    		}
+    	}
 	}
 
 	a{
@@ -6869,6 +6876,9 @@ body.front-page{
 										}
 										.media-body{
 											padding-left: 1em;
+											position: relative;
+											height: 227px;
+											padding-top: 0.5em;
 											> span.date-display-single{
 												float: none;
 											}
@@ -6876,13 +6886,14 @@ body.front-page{
 												display: block;
 												font-size: 2rem;
 												margin-top: 0.7em;
-    											margin-bottom: 0.7em;
+												padding-bottom: 0.5em;
 											}
 											p{
 												position: relative;
 												padding-bottom: 4em;
 											}
 											a.more-link{
+												clear: both;
 												-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 												line-height: 1.42857143;
 												font-family: 'Open Sans';
@@ -6899,7 +6910,7 @@ body.front-page{
 												transition: 300ms;
 												background-position: 110%;
 												position: absolute;
-												left: 0;
+												left: 15px;
 												bottom: 0;												
 												&:hover{
 													text-decoration: none;
@@ -6931,6 +6942,11 @@ body.front-page{
 											padding-left: 0;
 											padding-right: 1em;
 										}
+
+										a.more-link{
+											left: 0;
+										}
+
 									}
 								}
 							}
