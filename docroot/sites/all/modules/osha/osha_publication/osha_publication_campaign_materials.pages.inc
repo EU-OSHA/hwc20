@@ -211,6 +211,7 @@ function osha_publication_menu_campaign_materials_native_results($form_state, $r
   $q->innerJoin('field_data_title_field', 'b', 'a.entity_id = b.entity_id AND a.revision_id = b.revision_id');
   $q->fields('a', array('entity_id'));
   $q->condition('a.entity_id', $nids, 'IN');
+  $q->condition('b.language', array('en', $language->language), 'IN');
   if ($sort == 'alphabetically') {
     $q->orderBy('title_field_value', 'ASC');
   }
