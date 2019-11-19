@@ -1428,6 +1428,20 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 	}
 }
 
+#block-views-partners-block-1{
+	h2{
+		color:#00309d;
+		margin-top: 0;
+		font-weight: 400;
+		background: url(../images/grey-h3-line.png) repeat-x 50% 75%;
+		margin-bottom: 0.5em;
+		span{
+			background:#FFF;
+			padding-right: 0.7em;
+		}
+	}
+}
+
 .view-partners{
 	padding: 1em 0;
 	margin: 0;
@@ -1485,9 +1499,9 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 		color:#FFF;
 		a{
 			color:#FFF;
-			text-decoration: underline;
+			text-decoration: underline !important;
 			&:hover{
-				text-decoration: none;
+				text-decoration: none !important;
 			}
 		}
 		
@@ -7054,13 +7068,14 @@ body.front-page{
 				.form-text{
 					width: 100%;
 					border-radius: 7px;
+					border: 0;
 				}
 				.form-submit{
 					position: absolute;
 					width: 150px;
-					top: 1px;
+					top: 0;
 					right: 0;
-					height: 32px;
+					height: 34px;
 					border-top-right-radius: 7px;
 					border-bottom-right-radius: 7px;
 					border-top-left-radius: 0;
@@ -7222,6 +7237,19 @@ body.front-page{
 		#block-hwc-homepage-hwc-homepage-topics{
 			clear: both;
 			padding-top: 2em;
+
+		
+			h2.block-title{
+				position: relative;
+    			background: url(../images/grey-h3-line.png) repeat-x 50% 75%;
+    			margin-bottom: 1em;
+				span{
+					padding-left: 0;
+					padding-right: 0.7em;
+					background: #FFF
+				}
+			}
+	
 			.priority_area{
 				ul{
 					display: flex;
