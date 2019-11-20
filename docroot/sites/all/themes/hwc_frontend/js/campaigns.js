@@ -783,8 +783,7 @@ jQuery(window).resize(function () {
   }
 });
 
-
-//Add class h2 slider Publications
+// Add class h2 slider Publications.
 jQuery(document).ready(function($) {
 	if ($(".page-tools-and-publications-publications")[0]){
 		 $(".page-tools-and-publications-publications .slider--video--section h2.block-title").addClass('container');
