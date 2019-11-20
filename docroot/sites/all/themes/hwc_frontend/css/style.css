@@ -8892,7 +8892,6 @@ div[class*='view-'] .field-name-field-summary {
 .form-item-main-tags,
 .form-item-relevant-for,
 .form-item-field-publication-type,
-.form-item-language,
 .form-item-field-priority-area,
 .form-item-languages {
   margin-top: 0;
@@ -8905,7 +8904,6 @@ div[class*='view-'] .field-name-field-summary {
 .form-item-main-tags .checkbox:last-child,
 .form-item-relevant-for .checkbox:last-child,
 .form-item-field-publication-type .checkbox:last-child,
-.form-item-language .checkbox:last-child,
 .form-item-field-priority-area .checkbox:last-child,
 .form-item-languages .checkbox:last-child {
   margin-bottom: 10px;
@@ -13368,6 +13366,19 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 */
 /*End partners public profile*/
 /*Partner documents lists*/
+.page-partners-documents #block-views-exp-documents-gpep.contextual-links-region,
+.page-communications #block-views-exp-documents-gpep.contextual-links-region {
+  margin-top: 0 !important;
+  padding-left: 0;
+}
+.page-partners-documents .contextual-links-region .back-links,
+.page-communications .contextual-links-region .back-links {
+  padding-left: 0;
+}
+.page-partners-documents .region-sidebar-first .contextual-links-region,
+.page-communications .region-sidebar-first .contextual-links-region {
+  margin-top: 0 !important;
+}
 .page-partners-documents h1,
 .page-communications h1 {
   border-bottom: none;
@@ -13382,8 +13393,14 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-communications .back-to-link {
   border: none !important;
   padding-right: 25px;
+  padding-bottom: 25px;
   text-align: left;
   padding-left: 2em;
+}
+.page-partners-documents .region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext,
+.page-communications .region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext {
+  margin-top: 18px;
+  margin-bottom: 16px;
 }
 .page-partners-documents #views-exposed-form-documents-page-1,
 .page-communications #views-exposed-form-documents-page-1,
@@ -13447,7 +13464,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-partners-documents .region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext,
 .page-communications .region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext {
   width: 100% !important;
-  margin-top: -14px;
 }
 .page-partners-documents .region-sidebar-first .views-exposed-widgets .views-submit-button,
 .page-communications .region-sidebar-first .views-exposed-widgets .views-submit-button {
@@ -13549,6 +13565,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   display: inline-block;
   width: 100%;
   margin-bottom: 25px;
+  margin-top: 35px;
 }
 .page-partners-documents .region.region-content .view-search .view-header .sort-container.col-xs-3,
 .page-communications .region.region-content .view-search .view-header .sort-container.col-xs-3 {
@@ -20507,6 +20524,9 @@ body.front .homepage-slider blockquote.image-field-caption p {
 .footer ul li a {
   color: #ffffff;
   padding-left: 0;
+}
+.footer ul li a:hover {
+  text-decoration: underline;
 }
 .footer ul li :hover,
 .footer ul li :focus {

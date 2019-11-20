@@ -1072,7 +1072,6 @@ ul.tabs--primary.nav.nav-tabs{
 	.form-item-main-tags,
 	.form-item-relevant-for,
 	.form-item-field-publication-type,
-	.form-item-language,
 	.form-item-field-priority-area,
 	.form-item-languages{
 		margin-top: 0;
@@ -5582,6 +5581,24 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 /*Partner documents lists*/
 .page-partners-documents,
 .page-communications{
+
+
+	#block-views-exp-documents-gpep.contextual-links-region{
+		margin-top:0 !important;
+		padding-left: 0;
+	}
+
+	.contextual-links-region{
+		.back-links{
+			padding-left: 0;
+		}
+	}
+
+	.region-sidebar-first .contextual-links-region{
+		margin-top: 0 !important;
+	}
+	
+
 	h1{
 		border-bottom: none;
 		padding-bottom: 0;
@@ -5593,9 +5610,16 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 	.back-to-link{
 		border: none !important;
 		padding-right: 25px;
+		padding-bottom: 25px;
 		text-align: left;
 		padding-left: 2em;
 	}
+
+	.region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext{
+		margin-top: 18px;
+		margin-bottom: 16px;
+	}
+
 	#views-exposed-form-documents-page-1,
 	#views-exposed-form-documents-page-2{
 		margin-top: 0;
@@ -5646,7 +5670,6 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 			}
 			#edit-search-api-views-fulltext{
 				width: 100% !important;
-				margin-top: -14px;
 			}
 			.views-submit-button{
 				position: absolute;
@@ -5733,6 +5756,7 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 			h3{
 				display: none;
 			}
+
 			.view-header{
 			    border: none;
 				border-top: 1px dotted @color3;
@@ -5743,6 +5767,7 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 				display: inline-block;
 				width: 100%;
 				margin-bottom: 25px;
+				margin-top: 35px;
 					.sort-container.col-xs-3{
 						width: 75%;
 						padding-left: 0px;

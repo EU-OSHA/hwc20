@@ -121,6 +121,8 @@ header.navbar-default .navbar-collapse nav ul.menu > li.first a:before{
 header.navbar-default .campaigns-header .navbar-header #block-search-form button{
 	border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     padding-bottom: 8px;
     height: 34px;
 }
