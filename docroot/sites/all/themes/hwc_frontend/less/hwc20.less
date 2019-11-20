@@ -105,6 +105,13 @@ body.logged-in.ocp .navbar-header .col-xs-12.col-sm-9{
 
 body{
 	color:#59595A;
+
+	.views-widget{
+		input[type="text"], body textarea, body textarea.form-control, body select{
+			border: 1px solid #B0B2B3 !important;
+		}
+	}
+
 	.more-link{
 		background-color: transparent;
 		padding-left: 0;
@@ -267,7 +274,7 @@ select{
 	transition: all 0.3s;
     &:hover{
     	color: #FFF;
-    	background: url(../images/ico-next-20-hover.png) no-repeat 99% 2px #8fc900;
+    	background: url(../images/ico-next-20-white-hover.png) no-repeat 99% 2px #acc700;
     	text-decoration: none;
     }
 }
@@ -389,6 +396,10 @@ select{
     			margin:0 auto;
     		}
     	}
+	}
+
+	.more-link{
+		background: transparent;
 	}
 }
 
@@ -601,9 +612,6 @@ ul.time-and-counters{
 			    		padding-right: 1px;
 			    	}
 			    }
-				.country{
-					font-style: italic;
-				}
 			}
 
 			.content-event{
@@ -5259,6 +5267,8 @@ ul[data-sa-theme="basic-green"].ui-menu{
 		    right: 0;
 		    border-top-right-radius: 5px;
 		    border-bottom-right-radius: 5px;
+		    border-top-left-radius: 0;
+		    border-bottom-left-radius: 0;
     	}
 
     	input[type=checkbox] {
@@ -5333,6 +5343,8 @@ ul[data-sa-theme="basic-green"].ui-menu{
 	#edit-submit{
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
 		width: 160px;
     	right: 0 !important;
     	text-align: center;
@@ -7071,11 +7083,9 @@ body.front-page{
 					float: left;
 					margin-top: 2em;
 					background: url(../images/ico-plus-20.png) no-repeat 98.5% 3px #0030a0;
-			
 						&:hover{
-					background: url(../images/ico-next-20-hover.png) no-repeat 98.5% 3px #FFFFFF;
-					color: #ACC700;
-		
+							background: url(../images/ico-next-20-hover.png) no-repeat 98.5% 3px #FFFFFF;
+							color: #ACC700;
 					}
 				}
 			}

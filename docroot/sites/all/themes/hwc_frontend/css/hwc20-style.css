@@ -88,6 +88,12 @@ body.logged-in.ocp .navbar-header .col-xs-12.col-sm-9 {
 body {
   color: #59595A;
 }
+body .views-widget input[type="text"],
+body .views-widget body textarea,
+body .views-widget body textarea.form-control,
+body .views-widget body select {
+  border: 1px solid #B0B2B3 !important;
+}
 body .more-link {
   background-color: transparent;
   padding-left: 0;
@@ -236,7 +242,7 @@ select {
 }
 .see-more-button-20:hover {
   color: #FFF;
-  background: url(../images/ico-next-20-hover.png) no-repeat 99% 2px #8fc900;
+  background: url(../images/ico-next-20-white-hover.png) no-repeat 99% 2px #acc700;
   text-decoration: none;
 }
 .back-to-events span,
@@ -334,6 +340,9 @@ select {
 }
 .intro-splash-20 .views-row-last .img-right-column img {
   margin: 0 auto;
+}
+.intro-splash-20 .more-link {
+  background: transparent;
 }
 /* Coming Soon */
 .comming-soon {
@@ -522,9 +531,6 @@ ul.time-and-counters li .counter-label {
 .before-the-campaign .content-box-before .two-box-column .content-date-country .city:before {
   content: ',';
   padding-right: 1px;
-}
-.before-the-campaign .content-box-before .two-box-column .content-date-country .country {
-  font-style: italic;
 }
 .before-the-campaign .content-box-before .two-box-column .content-event {
   clear: both;
@@ -4567,6 +4573,8 @@ ul[data-sa-theme="basic-green"].ui-menu {
   right: 0;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details input[type=checkbox] {
   display: none;
@@ -4631,6 +4639,8 @@ ul[data-sa-theme="basic-green"].ui-menu {
 #block-osha-newsletter-osha-newsletter-events-subscribe #edit-submit {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
   width: 160px;
   right: 0 !important;
   text-align: center;
@@ -6479,7 +6489,7 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
   body.page-tools-and-publications-publications .slider--video--section .slider--video--block .slider--video--items .multicarousel--block {
     padding: 0;
   }
-  body.page-tools-and-publications-publications .btn-primary,
+  body.page-tools-and-publications-publications .slider--video--items .btn-primary,
   body.page-tools-and-publications-publications ol.multicarousel-indicators {
     display: none;
   }
@@ -8276,6 +8286,9 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
   }
 }
 @media (max-width: 480px) {
+  body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last p {
+    max-width: 280px;
+  }
   .page_title h1 {
     font-size: 2em;
     width: 320px;
