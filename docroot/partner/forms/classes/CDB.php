@@ -302,10 +302,12 @@ final class CDB
         //Workaround para resolver la response en caso de que un mismo user tenga varios roles. 
         //En este caso, envío información duplicada errónea, por lo que comprobamos que es esta casuística
         // (envío una response con 3 arrauys en vez de 2), y en ese caso nos quedamos con la que se debe.
+		
         if (isset($response[2]) && isset($response[1]['Fields'])) {
             $response = $response[1]['Fields'];
         }elseif (isset($response[0]['Fields'])) {
             $response = $response[0]['Fields'];
+
         } else {
             throw new CDBException('configuration_error', 500);
         }
@@ -320,11 +322,16 @@ final class CDB
                 }else if($key == "osh_quoteonhwc" && $value['Value'] != ""){
                     $this->saveQuoteData($value['Value']);
                 }
-//                
             }
             $responseFixed[$key] = $value;
         }
 
+		//The phone prefix for the main contact seems to come out of the normal structure in the JSON so, in order to obtain and show it, the following "if" is needed.
+		if(isset($response['osh_prefixphone1']['Name']))
+		{
+			$this->fields['contact_osh_prefixmaincontactphone'] = $response['osh_prefixphone1']['Name'];
+		}
+		
         foreach($response2 as $key => $value){
             foreach($value['Fields'] as $key2 => $value2){
                 if(isset($value['Fields']['osh_campaigncontacttype']) && $value['Fields']['osh_campaigncontacttype'] == 2){
@@ -333,7 +340,8 @@ final class CDB
                     $keyValue = $this->setCeoFields($value, $key2, $value2);
                 } else if(isset($value['Fields']['osh_campaigncontacttype']) && $value['Fields']['osh_campaigncontacttype'] == 4){
                     $keyValue = $this->setUserCOMRepresentativeFields($value, $key2, $value2);
-                } else{
+                }
+				else{
                     $keyValue = $this->setOtherUsersField($key, $value, $key2, $value2);
                 }
                 $responseFixed[$this->before(';',$keyValue)] = $this->after(';',$keyValue);
@@ -343,6 +351,7 @@ final class CDB
         }
         $response                 = $responseFixed;
         $response['returnPaises'] = $countries;
+
         foreach ($this->cdbMap as $htmlName => $cdbName) {
             if (isset ($response[$cdbName])) {
                 if  (is_array($response[$cdbName]) && isset($response[$cdbName]['Value'])&& isset($response[$cdbName]['Value']['Value'])) {
@@ -351,11 +360,13 @@ final class CDB
                     $this->fields[$htmlName] = $response[$cdbName]['Value']['Name'];
                 } elseif ($cdbName === "returnPaises") {
                     $this->fields[$htmlName] = $countries;
-                } else {
+                }				
+				else {
                     $this->fields[$htmlName] = isset($response[$cdbName]['Value']) ? $response[$cdbName]['Value'] : $response[$cdbName];
                 }
             }
         }
+		
     }
     
     public function setOtherUsersField($key, $value, $key2, $value2){
@@ -664,7 +675,6 @@ final class CDB
         } else {
             $url = (! empty($this->sessionID)) ? $method['name'] . '?' . $method['idParam'] . '=' . $this->sessionID : '';
         }
-
         return $url;
     }
 
@@ -923,7 +933,6 @@ final class CDB
             echo 'Operación completada sin errores';
         }
 
-
         curl_close($ch);
         
         error_log("Respuesta: " .  print_r($server_output,1));
@@ -1000,6 +1009,7 @@ final class CDB
         curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $server_output = curl_exec ($ch);
+		
         if($server_output === false)
         {
             error_log('Curl error: ' . curl_error($ch));
@@ -1008,7 +1018,6 @@ final class CDB
         {
             echo 'Operación completada sin errores';
         }
-
 
         curl_close($ch);
 
@@ -1026,6 +1035,7 @@ final class CDB
         curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $server_output = curl_exec ($ch);
+
         if($server_output === false)
         {
             error_log('Curl error: ' . curl_error($ch));

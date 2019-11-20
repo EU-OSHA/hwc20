@@ -377,7 +377,7 @@
     "company_osh_country": "osh_phcountryid",
     "company_osh_generalemail": "generalemailaddress1",
     "company_osh_generalphone": "osh_phone1",
-    "company_osh_prefixgeneralphone": "osh_prefixgeneralphone",
+    "company_osh_prefixgeneralphone": "osh_prefixphone1",
     "company_osh_yourmissionstatement": "osh_yourmissionstatement",
     "company_osh_zipcode": "osh_phcp",
     "company_osh_orgname": "osh_companyorganisationname",
