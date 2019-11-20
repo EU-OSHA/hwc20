@@ -69,7 +69,7 @@ function hwc_partner_default_panels_layout() {
         'width_type' => '%',
         'parent' => '3',
         'class' => 'col-sm-6 profile-col-left-3',
-        'hide_empty' => 0,
+        'hide_empty' => 1,
       ),
       'right__' => array(
         'type' => 'region',
@@ -78,7 +78,7 @@ function hwc_partner_default_panels_layout() {
         'width_type' => '%',
         'parent' => '3',
         'class' => 'col-sm-6 profile-col-right-3',
-        'hide_empty' => 0,
+        'hide_empty' => 1,
       ),
       4 => array(
         'type' => 'row',
