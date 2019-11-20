@@ -20,7 +20,6 @@ function osha_publication_form_osha_publication_menu_publications_form_alter(&$f
 function osha_publication_menu_publications_form($form, $form_state) {
   $variables['form_state'] = $form_state;
   $variables['action'] = 'tools-and-publications/publications';
-  $variables['facet_callback'] = '_osha_publication_menu_publications_get_facets_def';
   $variables['search_callback'] = 'osha_publication_menu_publications_search';
 
   return osha_publication_menu_publications_faceted_form($variables);
@@ -35,7 +34,6 @@ function osha_publication_menu_publications_faceted_form($variables) {
   global $current_page, $language;
   $form_state = $variables['form_state'];
   $action = $variables['action'];
-  $facet_callback = $variables['facet_callback'];
   $search_callback = $variables['search_callback'];
 
   drupal_set_title(t('Publications'));
@@ -106,7 +104,7 @@ function osha_publication_menu_publications_faceted_form($variables) {
   );
   $form['content']['exposed-widgets']['language'] = [];
 
-  $facets_def = call_user_func($facet_callback);
+  $facets_def = _osha_publication_menu_publications_get_facets_def();
 
   $response = call_user_func($search_callback, $form_state, $sort);
 
