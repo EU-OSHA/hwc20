@@ -6429,6 +6429,7 @@ body.page-tools-and-publications-publications .slider--video--section .slider--v
   background: #daea96;
   height: 100%;
   cursor: pointer;
+  border: 0;
 }
 body.page-tools-and-publications-publications .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary:hover img {
   opacity: 0.8;
