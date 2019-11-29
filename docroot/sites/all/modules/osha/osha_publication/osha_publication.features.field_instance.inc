@@ -107,7 +107,7 @@ function osha_publication_field_default_field_instances() {
           'field_formatter_class' => '',
           'more_link' => 0,
           'more_text' => 'See more',
-          'summary_handler' => 'full',
+          'summary_handler' => 'trim',
           'trim_length' => 280,
           'trim_link' => 0,
           'trim_options' => array(

@@ -215,6 +215,12 @@ function osha_publication_strongarm() {
             'visible' => TRUE,
           ),
         ),
+        'bottom_share_widget' => array(
+          'pub_teaser' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+        ),
       ),
     ),
   );

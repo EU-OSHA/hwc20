@@ -39,7 +39,6 @@ features[field_instance][] = taxonomy_term-campaign_material_types-description_f
 features[field_instance][] = taxonomy_term-campaign_material_types-name_field
 features[node][] = campaign_materials
 features[page_manager_pages][] = campaign_materials
-features[path_breadcrumbs][] = campaign_materials_listing
 features[taxonomy][] = campaign_material_types
 features[variable][] = comment_anonymous_campaign_materials
 features[variable][] = comment_campaign_materials
