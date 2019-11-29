@@ -21,6 +21,10 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
   protected function addFieldMappings() {
     parent::addFieldMappings();
 
+    $this->addFieldMapping('field_priority_area:source_type')->defaultValue('tid');
+    $this->addFieldMapping('field_priority_area:create_term')->defaultValue(FALSE);
+    $this->addFieldMapping('field_priority_area', 'field_priority_area');
+
     $this->addFieldMapping('field_tags:source_type')->defaultValue('tid');
     $this->addFieldMapping('field_tags:create_term')->defaultValue(FALSE);
     $this->addFieldMapping('field_tags', 'field_tags');
@@ -36,6 +40,7 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
     $this->addFieldMapping('field_aditional_resources', 'field_aditional_resources');
 
     $this->addUnmigratedDestinations(array(
+      'field_priority_area:ignore_case',
       'field_tags:ignore_case',
       'field_publication_type:ignore_case',
       'field_cover_image:file_class',
@@ -71,7 +76,7 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
    * {@inheritdoc}
    */
   protected function getManuallyMigratedFields() {
-    return array('field_tags', 'field_publication_type', 'field_aditional_resources');
+    return array('field_priority_area', 'field_tags', 'field_publication_type', 'field_aditional_resources');
   }
 
   /**
@@ -92,6 +97,8 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
       $row->field_related_publications[] = $this->handleSourceMigration('publications', $original_nid);
     }
     $row->field_tags = osha_migration_normalize_migrated_term_reference($row->field_tags, 'tax_tags');
+
+    $row->field_priority_area = osha_migration_normalize_migrated_term_reference($row->field_priority_area, 'tax_priority_area');
     if (empty($row->field_publication_type)) {
       watchdog(
         'ncw_migration',
@@ -192,6 +199,7 @@ class NCWPublicationsSource extends AbstractNCWNodeSource {
       'field_publication_related_res',
       'field_publication_related_res_language',
       'field_publication_type',
+      'field_priority_area',
       'field_tags',
       'field_related_publications',
       'field_aditional_resources',
