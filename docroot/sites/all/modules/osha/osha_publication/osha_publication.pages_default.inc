@@ -589,7 +589,7 @@ function osha_publication_default_page_manager_pages() {
   );
   $pane->css = array(
     'css_id' => '',
-    'css_class' => 'section-introduction',
+    'css_class' => 'section-introduction container',
   );
   $pane->extras = array();
   $pane->position = 0;
@@ -597,6 +597,29 @@ function osha_publication_default_page_manager_pages() {
   $pane->uuid = 'f9e6150c-417b-46b1-ad86-5cbe6cbbf358';
   $display->content['new-f9e6150c-417b-46b1-ad86-5cbe6cbbf358'] = $pane;
   $display->panels['center'][0] = 'new-f9e6150c-417b-46b1-ad86-5cbe6cbbf358';
+  $pane = new stdClass();
+  $pane->pid = 'new-050e10db-7b8e-4a69-8dbe-e9c79d9ffda0';
+  $pane->panel = 'center';
+  $pane->type = 'block';
+  $pane->subtype = 'osha_publication-osha_case_studies_slideshow';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = '050e10db-7b8e-4a69-8dbe-e9c79d9ffda0';
+  $display->content['new-050e10db-7b8e-4a69-8dbe-e9c79d9ffda0'] = $pane;
+  $display->panels['center'][1] = 'new-050e10db-7b8e-4a69-8dbe-e9c79d9ffda0';
   $pane = new stdClass();
   $pane->pid = 'new-4989b0bb-baba-4d1a-9ca8-a3b068672c20';
   $pane->panel = 'center';
@@ -618,11 +641,11 @@ function osha_publication_default_page_manager_pages() {
     'css_class' => 'container',
   );
   $pane->extras = array();
-  $pane->position = 1;
+  $pane->position = 2;
   $pane->locks = array();
   $pane->uuid = '4989b0bb-baba-4d1a-9ca8-a3b068672c20';
   $display->content['new-4989b0bb-baba-4d1a-9ca8-a3b068672c20'] = $pane;
-  $display->panels['center'][1] = 'new-4989b0bb-baba-4d1a-9ca8-a3b068672c20';
+  $display->panels['center'][2] = 'new-4989b0bb-baba-4d1a-9ca8-a3b068672c20';
   $display->hide_title = PANELS_TITLE_PANE;
   $display->title_pane = 'new-f9e6150c-417b-46b1-ad86-5cbe6cbbf358';
   $handler->conf['display'] = $display;
