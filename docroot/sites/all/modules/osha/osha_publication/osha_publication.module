@@ -6,12 +6,8 @@
 
 include_once 'osha_publication.features.inc';
 
-if (!defined('CAMPAIGN_MATERIALS_TID')) {
-  define('CAMPAIGN_MATERIALS_TID', variable_get('campaign_materials_tid', 3282));
-}
-if (!defined('CASE_STUDY_TID')) {
-  define('CASE_STUDY_TID', variable_get('case_study_tid', 521));
-}
+define('CAMPAIGN_MATERIALS_TID', variable_get('campaign_materials_tid', 3282));
+define('CASE_STUDY_TID', variable_get('case_study_tid', 521));
 define('OSHA_PUBLICATION_CONTENT_TYPE_PUBLICATION', 'publication');
 define('SOLR_SEARCH_INDEX', 'default_multilingual_node_index');
 define('OSHA_PDF_DOWN_PATH', 'public://pdf_download');
@@ -185,6 +181,13 @@ function osha_publication_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'cache' => DRUPAL_NO_CACHE,
   );
+  $blocks['osha_case_studies_slideshow'] = array(
+    'info' => t('Latest case studies'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+  );
 
   $blocks['osha_case_studies_listing'] = array(
     'info' => t('Case studies listing'),
@@ -214,6 +217,9 @@ function osha_publication_result_count($add = 0) {
  */
 function osha_publication_block_view($delta = '') {
   $block = array();
+  if ($delta == 'osha_case_studies_slideshow') {
+    $block['content'] = views_embed_view('case_studies_slideshow', 'slideshow');
+  }
   if ($delta == 'osha_publicatio_slideshow') {
     $block['content'] = views_embed_view('publications_slideshow', 'slidehow');
   }
@@ -337,12 +343,14 @@ function osha_publication_cron() {
       $path = drupal_realpath($uri);
       $pages_count = pdf_to_image_count_pages($path);
       $node = node_load($row->nid);
-      $node->field_pages_count[LANGUAGE_NONE][0]['value'] = $pages_count;
-      $node->field_pages_count_updated[LANGUAGE_NONE][0]['timezone'] = 'Europe/Madrid';
-      $node->field_pages_count_updated[LANGUAGE_NONE][0]['timezone_db'] = 'Europe/Madrid';
-      $node->field_pages_count_updated[LANGUAGE_NONE][0]['date_type'] = 'datetime';
-      $node->field_pages_count_updated[LANGUAGE_NONE][0]['value'] = date('Y-m-d H:i:s');
-      node_save($node);
+      if ($node->field_pages_count[LANGUAGE_NONE][0]['value'] != $pages_count) {
+        $node->field_pages_count[LANGUAGE_NONE][0]['value'] = $pages_count;
+        $node->field_pages_count_updated[LANGUAGE_NONE][0]['timezone'] = 'Europe/Madrid';
+        $node->field_pages_count_updated[LANGUAGE_NONE][0]['timezone_db'] = 'Europe/Madrid';
+        $node->field_pages_count_updated[LANGUAGE_NONE][0]['date_type'] = 'datetime';
+        $node->field_pages_count_updated[LANGUAGE_NONE][0]['value'] = date('Y-m-d H:i:s');
+        node_save($node);
+      }
     }
   }
 }
@@ -979,4 +987,25 @@ function osha_publication_panels_pane_content_alter(&$content, &$pane, $args, $c
       $content->content = !empty($node->field_aditional_resources) ? $title : '';
     }
   }
+}
+
+function _osha_publication_priority_area_options_list() {
+
+  $return = array();
+  $q = db_select('field_data_field_priority_area', 't')
+    ->distinct();
+  $q->fields('t', array('field_priority_area_tid'));
+  $q->condition('entity_type', 'node');
+  $q->condition('bundle', 'publication');
+  $q->innerJoin('taxonomy_term_data', 'td', 'td.tid = t.field_priority_area_tid');
+  $q->orderBy('td.name', 'ASC');
+  $tids = $q->execute()->fetchCol();
+  $terms = taxonomy_term_load_multiple($tids);
+  if (!empty($terms)) {
+    foreach ($terms as $key => $term) {
+      $return[$term->tid] = $term->name;
+    }
+  }
+  asort($return);
+  return $return;
 }

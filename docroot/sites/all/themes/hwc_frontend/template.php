@@ -168,6 +168,11 @@ function hwc_frontend_preprocess_region(&$variables, $hook) {
  * Implements hook_preprocess_html().
  */
 function hwc_frontend_preprocess_html(&$vars) {
+  if (arg(1) == 'case-studies') {
+    $vars['classes_array'][] = 'page-tools-and-publications-publications';
+    $vars['classes_array'][] = 'page-publications';
+  }
+
   $n = menu_get_object('node');
   if ($n) {
     switch ($n->type) {
@@ -410,8 +415,16 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'publication':
-        if ($node->field_publication_type[LANGUAGE_NONE][0]['tid'] == 521 /* Case Studies */) {
+        if ($node->field_publication_type[LANGUAGE_NONE][0]['tid'] == CASE_STUDY_TID) {
           $tag_vars['element']['#value'] = t('Case studies');
+          $vars['page']['above_title']['title-alternative'] = array(
+            '#type' => 'item',
+            '#markup' => theme('html_tag', $tag_vars),
+          );
+          break;
+        }
+        if ($node->field_publication_type[LANGUAGE_NONE][0]['tid'] == CAMPAIGN_MATERIALS_TID) {
+          $tag_vars['element']['#value'] = t('Campaign materials');
           $vars['page']['above_title']['title-alternative'] = array(
             '#type' => 'item',
             '#markup' => theme('html_tag', $tag_vars),
@@ -559,8 +572,11 @@ function hwc_frontend_preprocess_page(&$vars) {
     if ($node->type == 'publication') {
       ctools_include('plugins');
       ctools_include('context');
-      if ($node->field_publication_type[LANGUAGE_NONE][0]['tid'] == 521 /* Case Studies */) {
+      if ($node->field_publication_type[LANGUAGE_NONE][0]['tid'] == CASE_STUDY_TID) {
         $pb = path_breadcrumbs_load_by_name('case_studies_detail_page');
+      }
+      else if ($node->field_publication_type[LANGUAGE_NONE][0]['tid'] == CAMPAIGN_MATERIALS_TID) {
+        $pb = path_breadcrumbs_load_by_name('campaign_materials_details_page');
       }
       else {
         $pb = path_breadcrumbs_load_by_name('publications_detail_page');

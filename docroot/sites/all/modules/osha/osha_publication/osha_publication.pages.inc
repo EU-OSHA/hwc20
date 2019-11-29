@@ -19,9 +19,6 @@ function osha_publication_form_osha_publication_menu_publications_form_alter(&$f
 
 function osha_publication_menu_publications_form($form, $form_state) {
   $variables['form_state'] = $form_state;
-  $variables['action'] = 'tools-and-publications/publications';
-  $variables['search_callback'] = 'osha_publication_menu_publications_search';
-
   return osha_publication_menu_publications_faceted_form($variables);
 }
 
@@ -33,8 +30,7 @@ function osha_publication_menu_publications_form($form, $form_state) {
 function osha_publication_menu_publications_faceted_form($variables) {
   global $current_page, $language;
   $form_state = $variables['form_state'];
-  $action = $variables['action'];
-  $search_callback = $variables['search_callback'];
+  $action = 'tools-and-publications/publications';
 
   drupal_set_title(t('Publications'));
   $text = hwc_req_param($form_state, 'text');
@@ -60,9 +56,18 @@ function osha_publication_menu_publications_faceted_form($variables) {
     '#attributes' => array('class' => array('content-filters')),
   );
 
+  $query_params = drupal_get_query_parameters();
+  if (!empty($query_params)) {
+    // Clear filter link
+    // it's really just a link to current url without params.
+    $form['left-column']['link'] = array(
+      '#type' => 'markup',
+      '#markup' => '<div class="clear_filters">' . l(t('Clear filters'), current_path()) . '</div>',
+    );
+  }
   $form['left-column']['field_publication_type'] = $content_filters;
+  $form['left-column']['field_priority_area'] = $content_filters;
   $form['left-column']['language'] = $content_filters;
-  $form['left-column']['main_tags'] = $content_filters;
 
   $form['#token'] = FALSE;
 
@@ -106,7 +111,7 @@ function osha_publication_menu_publications_faceted_form($variables) {
 
   $facets_def = _osha_publication_menu_publications_get_facets_def();
 
-  $response = call_user_func($search_callback, $form_state, $sort);
+  $response = osha_publication_menu_publications_search($form_state, $sort);
 
   $form['content']['results-native'] = osha_publication_menu_publications_native_results($form_state, $response, $sort, $current_page);
 
@@ -116,7 +121,6 @@ function osha_publication_menu_publications_faceted_form($variables) {
     _osha_publication_facet_value_clear($facets);
   }
 
-  $query_params = drupal_get_query_parameters();
   foreach ($facets_def as $field_name => $facet_def) {
     if (!empty($facets[$field_name])) {
       $values_list = call_user_func($facet_def['options_callback'], $facet_def['options_callback_args']);
@@ -162,6 +166,7 @@ function osha_publication_menu_publications_faceted_form($variables) {
             '#attributes' => array('class' => array($class)),
           );
         }
+        asort($form['left-column'][$field_name][$field_name]['#options']);
       }
     }
   }
@@ -219,21 +224,6 @@ function osha_publication_menu_publications_search($form_state, $sort) {
   $query->setOption('search_api_facets', $facets_def);
   foreach ($facets_def as $field_name => $facet_def) {
     $selected_values = hwc_req_param($form_state, $field_name, []);
-
-    if ($field_name == 'main_tags') {
-      $tags_map = osha_publication_get_main_tags_map(FALSE);
-      $publication_tags_ids = [];
-      foreach ($selected_values as $val) {
-        $publication_tags_ids[] = $val;
-        foreach ($tags_map as $tid => $main_tid) {
-          if ($val == $main_tid) {
-            $publication_tags_ids[] = $tid;
-            $term = taxonomy_term_load($tid);
-          }
-        }
-      }
-      $selected_values = $publication_tags_ids;
-    }
 
     if ($field_name == 'field_publication_type') {
       $types_map = osha_publication_get_main_publication_types_map(FALSE);
@@ -348,7 +338,11 @@ function osha_publication_menu_publications_native_results($form_state, $results
     'parameters' => $pager_params,
   ]);
   if ($nodes) {
-    $data = [end(array_keys($nodes)) => 'last', reset(array_keys($nodes)) => 'first'];
+    $keys = array_keys($nodes);
+    $data = [
+      end($keys) => 'last',
+      reset($keys) => 'first',
+    ];
     osha_publications_classes($data);
   }
   $ret = array(
@@ -492,15 +486,15 @@ function _osha_publication_menu_publications_get_facets_def() {
       'options_callback_args' => array(TRUE, TRUE),
     ),
 
-    'main_tags' => array(
+    'field_priority_area' => array(
       'label' => t('Topics'),
-      'field' => 'main_tags',
+      'field' => 'field_priority_area',
       'limit' => 150,
       'operator' => 'or',
       'min_count' => 1,
       'missing' => TRUE,
-      'options_callback' => '_osha_publication_topic_filter_options_list',
-      'options_callback_args' => array(FALSE),
+      'options_callback' => '_osha_publication_priority_area_options_list',
+      'options_callback_args' => array(),
     ),
   );
 }
@@ -527,10 +521,6 @@ function _osha_publication_language_list_options($prefix = TRUE, $native = TRUE)
     }
   }
   return $languages;
-}
-
-function _osha_publication_topic_filter_options_list() {
-  return _osha_publication_tags_options_list(TRUE);
 }
 
 function _osha_publication_type_filter_options_list() {
@@ -603,72 +593,7 @@ function _publication_type_options_list($map_only = FALSE) {
       }
     }
   }
+  asort($return);
   return $return;
 }
 
-/**
- * Get options for tags filter.
- */
-function _osha_publication_tags_options_list($map_only = FALSE) {
-
-  $return = array();
-  $q = db_select('field_data_field_tags', 't')
-    ->distinct();
-  $q->fields('t', array('field_tags_tid'));
-  $q->condition('entity_type', 'node');
-  $q->condition('bundle', 'publication');
-  $q->innerJoin('taxonomy_term_data', 'td', 'td.tid = t.field_tags_tid');
-  $q->orderBy('td.name', 'ASC');
-  $tids = $q->execute()->fetchCol();
-  if ($map_only) {
-    $map = osha_publication_get_main_tags_map();
-    $old_tids = $tids;
-    $tids = [];
-    foreach ($old_tids as $tid) {
-      $term_id = $tid;
-      if (!empty($map[$term_id])) {
-        $term_id = $map[$term_id];
-      }
-      $term = taxonomy_term_load($term_id);
-      if (!$term->field_main_topic) {
-        continue;
-      }
-      if (!$term->field_main_topic[LANGUAGE_NONE][0]['value']) {
-        continue;
-      }
-      $tids[] = $term_id;
-    }
-  }
-  $terms = taxonomy_term_load_multiple($tids);
-  if (!empty($terms)) {
-    foreach ($terms as $key => $term) {
-//      if (!empty($term->field_tags_code[LANGUAGE_NONE][0]['value'])) {
-//        $code = $term->field_tags_code[LANGUAGE_NONE][0]['value'];
-//        $code = str_replace('/', '__', $code);
-//        $return[$code] = $term->name;
-//      }
-//      else {
-        $return[$term->tid] = $term->name;
-//      }
-    }
-  }
-  return $return;
-}
-
-/**
- * Get tag tid by tag code.
- */
-function _osha_publication_get_tag_by_code($code) {
-  $code = str_replace('__', '/', $code);
-  $tid = FALSE;
-  $query = new EntityFieldQuery();
-  $query->entityCondition('entity_type', 'taxonomy_term')
-    ->fieldCondition('field_tags_code', 'value', $code, '=')
-    ->range(0, 1);
-  $result = $query->execute();
-
-  if (isset($result['taxonomy_term'])) {
-    $tid = current(array_keys($result['taxonomy_term']));
-  }
-  return $tid;
-}

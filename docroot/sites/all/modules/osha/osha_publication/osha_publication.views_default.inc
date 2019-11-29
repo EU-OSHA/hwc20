@@ -501,7 +501,7 @@ function osha_publication_views_default_views() {
   $handler->display->display_options['filters']['field_publication_type_tid']['operator'] = 'not';
   $handler->display->display_options['filters']['field_publication_type_tid']['value'] = array(
     521 => '521',
-    3296 => '3296',
+    3282 => '3282',
   );
   $handler->display->display_options['filters']['field_publication_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_publication_type_tid']['vocabulary'] = 'publication_types';
