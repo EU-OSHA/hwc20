@@ -98,6 +98,18 @@ function hwc_practical_tool_search_api_solr_query_alter(array &$call_args, Searc
       }
       $call_args['params']['sort'] .= $sort_order;
     }
+
+    foreach($call_args['params']['fq'] as &$fq) {
+      if (strpos($fq, 'field_available_in_languages')) {
+        $default = store_pt();
+        if ($default) {
+          foreach($default as &$value) {
+            $value = '(sm_field_available_in_languages\:value:"' . $value . '")';
+          }
+          $fq = '(' . implode(' OR ', $default) . ')';
+        }
+      }
+    }
   }
 }
 
@@ -121,6 +133,17 @@ function hwc_practical_tool_form_alter(&$form, &$form_state, $form_id) {
 }
 
 /**
+ * Implements hook_form_views_exposed_form_alter().
+ */
+function hwc_practical_tool_form_views_exposed_form_alter(&$form, &$form_state) {
+  if ($form['#id'] == 'views-exposed-form-practical-tools-page') {
+    $form['submit']['#name'] = 'submit';
+    $placeholder_text = t('Practical tools');
+    $form['search_api_views_fulltext']['#attributes'] = array('placeholder' => array($placeholder_text), 'title' => array($placeholder_text));
+  }
+}
+
+/**
  * Implements facet_items_alter().
  */
 function hwc_practical_tool_facet_items_alter(&$build, &$settings) {
@@ -129,12 +152,13 @@ function hwc_practical_tool_facet_items_alter(&$build, &$settings) {
     $list = language_list();
     foreach ($build as $lang => $item) {
       if (isset($list[$lang])) {
-        $build[$lang]['#markup'] = $list[$lang]->name;
+        $build[$lang]['#markup'] = $list[$lang]->native;
       }
       else {
-        $build[$lang]['#markup'] = $lang;
+        unset($build[$lang]);
       }
     }
+    asort($build);
   }
 }
 
