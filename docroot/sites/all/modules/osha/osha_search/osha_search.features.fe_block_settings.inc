@@ -28,7 +28,7 @@ function osha_search_default_fe_block_settings() {
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => -86,
+        'weight' => 10,
       ),
       'seven' => array(
         'region' => '',
@@ -39,6 +39,31 @@ function osha_search_default_fe_block_settings() {
     ),
     'title' => 'Language:',
     'visibility' => 1,
+  );
+
+  $export['facetapi-1RmCf5UO07Ll2sgNH2LAfiA1PC3WO8PI'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'delta' => '1RmCf5UO07Ll2sgNH2LAfiA1PC3WO8PI',
+    'i18n_block_language' => array(),
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'hwc_frontend',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
   );
 
   $export['facetapi-C8eorcVV3vQafgn7Jly2bqKGXShnYglD'] = array(
@@ -57,7 +82,7 @@ function osha_search_default_fe_block_settings() {
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 0,
+        'weight' => 16,
       ),
       'seven' => array(
         'region' => '',
@@ -68,6 +93,89 @@ function osha_search_default_fe_block_settings() {
     ),
     'title' => 'Organisation:',
     'visibility' => 1,
+  );
+
+  $export['facetapi-IYV4lO4uBWV9Cstx0SMmJ5nValwNGZX4'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'IYV4lO4uBWV9Cstx0SMmJ5nValwNGZX4',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'hwc_frontend',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['facetapi-OcqWAd1nne5IJ1p7j4FdIclv0gFeLMuF'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'delta' => 'OcqWAd1nne5IJ1p7j4FdIclv0gFeLMuF',
+    'i18n_block_language' => array(),
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'hwc_frontend',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+  );
+
+  $export['facetapi-ROXIK6Y7tQue0DgP244H4JOcqy10UCEc'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'ROXIK6Y7tQue0DgP244H4JOcqy10UCEc',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'hwc_frontend',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
   );
 
   $export['facetapi-azovHlgKCMoXFeRqtkoZUGezu72WIJwb'] = array(
@@ -88,7 +196,7 @@ tools-and-publications/practical-tools',
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => -89,
+        'weight' => 6,
       ),
       'seven' => array(
         'region' => '',
@@ -117,7 +225,7 @@ tools-and-publications/practical-tools',
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => -90,
+        'weight' => 3,
       ),
       'seven' => array(
         'region' => '',
@@ -128,6 +236,168 @@ tools-and-publications/practical-tools',
     ),
     'title' => 'Show:',
     'visibility' => 1,
+  );
+
+  $export['facetapi-fPh9RcZWvL7fPaH9XlgNIR4lOTqmzYLE'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'delta' => 'fPh9RcZWvL7fPaH9XlgNIR4lOTqmzYLE',
+    'i18n_block_language' => array(),
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'hwc_frontend',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+  );
+
+  $export['facetapi-knue6LgSgAqqcrgLihpDZ1gXvUAWp0WH'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'knue6LgSgAqqcrgLihpDZ1gXvUAWp0WH',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'hwc_frontend',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Purpose of the material',
+    'visibility' => 0,
+  );
+
+  $export['facetapi-nqPZTiBsXfs1cYq5b3AGlPbboksOctuW'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'nqPZTiBsXfs1cYq5b3AGlPbboksOctuW',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'hwc_frontend',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Prevention measures',
+    'visibility' => 0,
+  );
+
+  $export['facetapi-p4M2S1zftWp0ewcaQc83IGnBO0ABpF9u'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'delta' => 'p4M2S1zftWp0ewcaQc83IGnBO0ABpF9u',
+    'i18n_block_language' => array(),
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'hwc_frontend',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+  );
+
+  $export['facetapi-pL2TPJELE3Py2k7qjglqywD59z6fxsx2'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'pL2TPJELE3Py2k7qjglqywD59z6fxsx2',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'hwc_frontend',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Type of visual material',
+    'visibility' => 0,
+  );
+
+  $export['facetapi-sQ1fqeN6uvdsnFUbwogsnvWqUG1zGexX'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'delta' => 'sQ1fqeN6uvdsnFUbwogsnvWqUG1zGexX',
+    'i18n_block_language' => array(),
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'hwc_frontend',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
   );
 
   $export['facetapi-savwFG7EXPDT1TOCbW1g7W55ENxEJnMY'] = array(
@@ -147,7 +417,7 @@ media-centre/events/*',
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 0,
+        'weight' => 15,
       ),
       'seven' => array(
         'region' => '',
@@ -158,6 +428,35 @@ media-centre/events/*',
     ),
     'title' => '',
     'visibility' => 1,
+  );
+
+  $export['facetapi-yo61AiIIMEjehliFfwMSQFj2NS5pjAP5'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'yo61AiIIMEjehliFfwMSQFj2NS5pjAP5',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'hwc_frontend',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
   );
 
   $export['menu-menu-search'] = array(
@@ -206,8 +505,6 @@ legislation/directives/*
 safety-and-health-legislation/european-directives
 node/2544
 legislation/guidelines/*
-practical-tools
-tools-and-publications/practical-tools
 good-practice-exchange-platform',
     'roles' => array(),
     'themes' => array(
@@ -215,7 +512,7 @@ good-practice-exchange-platform',
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => -92,
+        'weight' => 1,
       ),
       'seven' => array(
         'region' => '',
