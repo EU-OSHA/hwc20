@@ -56,16 +56,6 @@ function osha_publication_menu_case_studies_faceted_form($variables) {
     '#attributes' => array('class' => array('content-filters')),
   );
 
-  $query_params = drupal_get_query_parameters();
-  if (!empty($query_params)) {
-    // Clear filter link
-    // it's really just a link to current url without params.
-    $form['left-column']['link'] = array(
-      '#type' => 'markup',
-      '#markup' => '<div class="clear_filters">' . l(t('Clear filters'), current_path()) . '</div>',
-    );
-  }
-
   $form['left-column']['field_priority_area'] = $content_filters;
   $form['left-column']['language'] = $content_filters;
 
@@ -108,7 +98,14 @@ function osha_publication_menu_case_studies_faceted_form($variables) {
     ),
   );
   $form['content']['exposed-widgets']['language'] = [];
-
+  
+  $query_params = drupal_get_query_parameters();
+  if (!empty($query_params)) {
+    $form['content']['link'] = [
+      '#type' => 'markup',
+      '#markup' => '<div class="clear_filters">' . l(t('Clear filters'), current_path()) . '</div>',
+    ];
+  }
   $facets_def = _osha_publication_menu_case_studies_get_facets_def();
 
   $response = osha_publication_menu_case_studies_search($form_state, $sort);
