@@ -3972,6 +3972,7 @@ body.een .box-type-partner {
   font-size: 1em;
   text-align: left;
   padding-left: 10px;
+  padding-right: 10px;
   color: #0030a0;
   /*HW20-175 Become a Campaign Partner - The title of the text in boxes should be bold*/
   font-weight: bold;
