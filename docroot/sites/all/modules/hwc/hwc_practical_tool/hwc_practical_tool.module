@@ -31,8 +31,8 @@ function hwc_practical_tool_cron() {
  * Implements hook_menu_alter().
  */
 function hwc_practical_tool_menu_alter(&$items) {
-  $items['node/%node/edit']['access callback'] = 'hwc_practical_tool_node_edit_delete_form_access';
-  $items['node/%node/delete']['access callback'] = 'hwc_practical_tool_node_edit_delete_form_access';
+//  $items['node/%node/edit']['access callback'] = 'hwc_practical_tool_node_edit_delete_form_access';
+//  $items['node/%node/delete']['access callback'] = 'hwc_practical_tool_node_edit_delete_form_access';
 }
 
 /**
@@ -52,9 +52,9 @@ function hwc_practical_tool_node_edit_delete_form_access($op, $node) {
 function hwc_practical_tool_form_node_form_alter(&$form, &$form_state, $form_id) {
   $bundle = $form['#node']->type;
 
-  if ($bundle == 'practical_tool') {
-    drupal_set_message(t('This content is imported from EU-OSHA via synchronization process. <strong>Modifications made here might be lost after the next synchronization</strong>'), 'warning');
-  }
+//  if ($bundle == 'practical_tool') {
+//    drupal_set_message(t('This content is imported from EU-OSHA via synchronization process. <strong>Modifications made here might be lost after the next synchronization</strong>'), 'warning');
+//  }
 }
 
 /**
@@ -107,7 +107,7 @@ function hwc_practical_tool_search_api_solr_query_alter(array &$call_args, Searc
 
     foreach($call_args['params']['fq'] as &$fq) {
       if (strpos($fq, 'field_available_in_languages')) {
-        $default = store_pt();
+        $default = _hwc_store_practical_tool();
         if ($default) {
           foreach($default as &$value) {
             $value = '(sm_field_available_in_languages\:value:"' . $value . '")';
@@ -136,6 +136,72 @@ function hwc_practical_tool_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'views_exposed_form' && $form['#id'] == 'views-exposed-form-documents-page-2') {
     unset($form['#info']['filter-search_api_views_fulltext']['label']);
   }
+  if ($form_id == 'practical_tool_node_form') {
+    $form['field_available_in_languages'][LANGUAGE_NONE]['#options'] = osha_sort_language_list($form['field_available_in_languages'][LANGUAGE_NONE]['#options']);
+    $form['field_original_desc_language'][LANGUAGE_NONE]['#options'] = osha_sort_language_list($form['field_original_desc_language'][LANGUAGE_NONE]['#options']);
+
+    if (!isset($form['#after_build'])) {
+      $form['#after_build'] = array();
+    }
+    $form['#after_build'][] = '_hwc_practical_tool_form_after_build';
+  }
+
+}
+
+function _hwc_practical_tool_get_other_tid($element, $field, $other_name = 'other') {
+  if (!isset($element[$field])) {
+    return '-1';
+  }
+  foreach ($element[$field]['und']['#options'] as $tid => $name) {
+    if (strtolower(trim($name)) == $other_name) {
+      return (string) $tid;
+    }
+  }
+  return '-1';
+}
+
+function _hwc_practical_tool_form_after_build($form, $form_state) {
+
+  // Country code.
+  $_other = _hwc_practical_tool_get_other_tid($form, 'field_material_country');
+  $form['field_country_other']['#states'] = ['visible' => ['#edit-field-material-country-und' => ['value' => [$_other]]]];
+
+  // Languages other.
+  $_other = _hwc_practical_tool_get_other_tid($form, 'field_available_in_languages');
+  $form['field_languages_other']['#states'] = ['visible' => ['#edit-field-available-in-languages-und' => ['value' => [$_other]]]];
+
+  // Original languages other.
+  $_other = _hwc_practical_tool_get_other_tid($form, 'field_original_desc_language');
+  $form['field_original_desc_lang_other']['#states'] = ['visible' => ['#edit-field-original-desc-language-und' => ['value' => [$_other]]]];
+
+  // Hazards other.
+  $_other = _hwc_practical_tool_get_other_tid($form, 'field_hazards');
+  $form['field_hazards_other']['#states'] = ['visible' => ['#edit-field-hazards-und' => ['value' => [$_other]]]];
+
+  // Hazard health effect other.
+  $_other = _hwc_practical_tool_get_other_tid($form, 'field_health_effects');
+  $form['field_hazard_health_other']['#states'] = ['visible' => ['#edit-field-health-effects-und' => ['value' => [$_other]]]];
+
+  // Worker groups covered other.
+  $_other = _hwc_practical_tool_get_other_tid($form, 'field_worker_groups_covered');
+  $form['field_worker_groups_other']['#states'] = ['visible' => ['#edit-field-worker-groups-covered-und' => ['value' => [$_other]]]];
+
+  // Prevention measure other.
+  $_other = _hwc_practical_tool_get_other_tid($form, 'field_prevention_measures');
+  $form['field_prevention_measures_other']['#states'] = ['visible' => ['#edit-field-prevention-measures-und' => ['value' => [$_other]]]];
+
+  // Purpose of the material other.
+  $_other = _hwc_practical_tool_get_other_tid($form, 'field_purpose_of_the_material');
+  $form['field_material_purpose_other']['#states'] = ['visible' => ['#edit-field-purpose-of-the-material-und' => ['value' => [$_other]]]];
+
+  // Target group other.
+  $_other = _hwc_practical_tool_get_other_tid($form, 'field_target_audience');
+  $form['field_target_group_other']['#states'] = ['visible' => ['#edit-field-target-audience-und' => ['value' => [$_other]]]];
+
+  // Type of visual resource other.
+  $_other = _hwc_practical_tool_get_other_tid($form, 'field_msd_resource_type');
+  $form['field_msd_resource_type_other']['#states'] = ['visible' => ['#edit-field-msd-resource-type-und' => ['value' => [$_other]]]];
+  return $form;
 }
 
 /**

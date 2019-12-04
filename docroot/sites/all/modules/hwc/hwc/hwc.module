@@ -1105,11 +1105,34 @@ function hwc_get_available_events_countries() {
   return $q->execute()->fetchAllKeyed(0,0);
 }
 
+function _hwc_store_practical_tool($default = []) {
+  static $values = [];
+  if ($default) {
+    $values = $default;
+  }
+  return $values;
+}
+
 /**
  * Implements hook_form_alter().
  */
 function hwc_form_alter(&$form, &$form_state, $form_id) {
   global $user;
+  if ($form_id == 'views_exposed_form' && $form_state['view']->name == 'practical_tools') {
+    $available_in_languages = hwc_get_available_in_languages_practical_tools();
+    $form['field_available_in_languages_value']['#type'] = 'select';
+    $form['field_available_in_languages_value']['#multiple'] = TRUE;
+    $form['field_available_in_languages_value']['#options'] = $available_in_languages;
+    if (!empty($_REQUEST['field_available_in_languages_value'])) {
+      $form['field_available_in_languages_value']['#default_value'] = [];
+      foreach ($_REQUEST['field_available_in_languages_value'] as $language) {
+        if (!empty($form['field_available_in_languages_value']['#options'][$language])) {
+          $form['field_available_in_languages_value']['#default_value'][$language] = $language;
+        }
+      }
+      _hwc_store_practical_tool($form['field_available_in_languages_value']['#default_value']);
+    }
+  }
   if ($form_id == 'views_exposed_form' && $form_state['view']->name == 'events_search'
     && $form_state['view']->current_display == 'page') {
     $countries = hwc_get_available_events_countries();

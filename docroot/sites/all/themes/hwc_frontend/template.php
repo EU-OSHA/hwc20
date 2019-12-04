@@ -486,7 +486,7 @@ function hwc_frontend_preprocess_page(&$vars) {
 //          unset($link_title);
 //        }
         $tag_vars['element']['#value'] = t('Practical tools and guidance');
-        $vars['page']['below_title']['practical-tool-page-title'] = array(
+        $vars['page']['above_title']['practical-tool-page-title'] = array(
           '#type' => 'item',
           '#markup' => theme('html_tag', $tag_vars),
         );
