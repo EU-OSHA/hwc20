@@ -1004,7 +1004,7 @@ function hwc_update_7064() {
  */
 function hwc_update_7065() {
   module_enable(array('hwc_gpa'));
-  variable_set('exclude_bottom_share_widget', [179, 146]);
+//  variable_set('exclude_bottom_share_widget', [179, 146]);
 }
 
 /*

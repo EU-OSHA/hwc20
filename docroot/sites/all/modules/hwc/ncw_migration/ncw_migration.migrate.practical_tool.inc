@@ -1,11 +1,12 @@
 <?php
 
 /**
- * Class NCWDangerousSubstancesMigration migrates press contacts.
+ * Class NCWMSDMigration migrates practical tool
  *
- * Set hwc_migration_audio_visual_url variable for explicit source URL.
+ * Set hwc_migration_dangerous_substances_url variable for explicit source URL.
  */
-class NCWDangerousSubstancesMigration extends AbstractNCWNodeMigration {
+
+class NCWMSDMigration extends AbstractNCWNodeMigration {
 
   public $new_providers = array();
 
@@ -13,25 +14,23 @@ class NCWDangerousSubstancesMigration extends AbstractNCWNodeMigration {
    * {@inheritdoc}
    */
   public function __construct($arguments) {
-    parent::__construct($arguments, 'NCWDangerousSubstancesSource', 'practical_tool');
+    parent::__construct($arguments, 'NCWMSDSource', 'practical_tool');
     $this->description = 'Import DS from NCW';
   }
 
   function getTermReferenceFieldsMap() {
     return [
+      'field_msd_priority_area' => 'msd_priority_area',
       'field_priority_area' => 'priority_area',
-      'field_country' => 'country',
       'field_sector_industry_covered' => 'nace_codes',
-      'field_tasks_covered' => 'hazmap_categories',
-      'field_biological_hazard' => 'biological_hazard',
-      'field_hazard_physical_state' => 'hazard_physical_state',
-      'field_hazard_health_effects' => 'hazard_health_effects',
-      'field_exposure_route' => 'exposure_route',
-      'field_worker_groups_type' => 'worker_groups',
-      'field_prevention_measure_type' => 'prevention_measures',
-      'field_material_purpose_type' => 'material_purpose',
-      'field_target_group' => 'target_group',
-      'field_visualisation_material_typ' => 'material_objective',
+      'field_hazards' => 'hazards',
+      'field_health_effects' => 'health_effects',
+      'field_worker_groups_covered' => 'worker_groups_covered',
+      'field_prevention_measures' => 'prevention_measures',
+      'field_purpose_of_the_material' => 'purpose_of_material',
+      'field_target_audience' => 'target_audience',
+      'field_msd_resource_type' => 'resource_type',
+      'field_material_country' => 'country',
     ];
   }
 
@@ -42,9 +41,6 @@ class NCWDangerousSubstancesMigration extends AbstractNCWNodeMigration {
     parent::addFieldMappings();
     $unmigrated_destinations = [];
     foreach ($this->getTermReferenceFieldsMap() as $taxonomy => $vocabulary) {
-      if ($taxonomy == 'field_provider_type') {
-        continue;
-      }
       $this->addFieldMapping($taxonomy . ':source_type')->defaultValue('tid');
       $this->addFieldMapping($taxonomy . ':create_term')->defaultValue(FALSE);
       $this->addFieldMapping($taxonomy, $taxonomy);
@@ -60,7 +56,7 @@ class NCWDangerousSubstancesMigration extends AbstractNCWNodeMigration {
    */
   protected function getManuallyMigratedFields() {
     $map = array_keys($this->getTermReferenceFieldsMap());
-    $map[] = 'field_fc_provider';
+    $map[] = 'field_msd_provider';
     $map[] = 'field_modified_date';
     return $map;
   }
@@ -76,53 +72,49 @@ class NCWDangerousSubstancesMigration extends AbstractNCWNodeMigration {
     if ($entity->field_available_in_languages) {
       $entity->field_available_in_languages['und'] = $entity->field_available_in_languages['und'][0]['value'];
     }
+    if ($entity->field_original_desc_language) {
+      $entity->field_original_desc_language['und'] = $entity->field_original_desc_language['und'][0]['value'];
+    }
     $entity->field_modified_date = [];
     $entity->field_modified_date[LANGUAGE_NONE][0]['value'] = $row->changed;
-    // field_collection_item - field_fc_provider.
+
     $entity_ids = [];
     if (!empty($entity->nid)) {
-      $result = db_query("SELECT field_fc_provider_value from field_data_field_fc_provider where entity_id=" . $entity->nid);
+      $result = db_query("SELECT field_msd_provider_value from field_data_field_msd_provider where entity_id=" . $entity->nid);
       foreach ($result as $value) {
-        $objects = entity_load('field_collection_item', [$value->field_fc_provider_value]);
+        $objects = entity_load('field_collection_item', [$value->field_msd_provider_value]);
         if ($objects) {
-          $entity_ids[] = $value->field_fc_provider_value;
+          $entity_ids[] = $value->field_msd_provider_value;
         }
       }
     }
-    $fc_providers = [];
-    foreach ($row->field_fc_provider as $idx => $provider) {
+    $msd_providers = [];
+    foreach ($row->field_msd_provider as $idx => $provider) {
       if (@$entity_ids[$idx]) {
         $objects = entity_load('field_collection_item', [$entity_ids[$idx]]);
         $field_collection = $objects[$entity_ids[$idx]];
       }
       else {
-        $field_collection = entity_create('field_collection_item', array('field_name' => 'field_fc_provider'));
+        $field_collection = entity_create('field_collection_item', array('field_name' => 'field_msd_provider'));
         if (!empty($entity->nid)) {
           $hostEntity = node_load($entity->nid);
           $field_collection->setHostEntity('node', $hostEntity, LANGUAGE_NONE, FALSE);
         }
       }
-      $field_collection->field_fc_provider_name = $provider['field_fc_provider_name'];
-      $field_collection->field_fc_provider_name_o = $provider['field_fc_provider_name_o'];
-      $field_collection->field_fc_provider_url = $provider['field_fc_provider_url'];
-      $tids = osha_migration_normalize_migrated_term_reference($provider['field_provider_type'], 'tax_provider_type');
-      $field_collection->field_provider_type = [];
-      foreach ($tids as $tid) {
-        $field_collection->field_provider_type['und'][] = ['tid' => $tid];
-      }
-      $field_collection->field_type_provider_other = $provider['field_type_provider_other'];
+      $field_collection->field_msd_provider_name = $provider['field_msd_provider_name'];
+      $field_collection->field_msd_provider_name_o = $provider['field_msd_provider_name_o'];
       if (empty($entity->nid)) {
         $this->new_providers[] = $field_collection;
       }
       else {
         $field_collection->save(TRUE);
-        $fc_providers[] = ['value' => $field_collection->item_id, 'revision_id' => $field_collection->revision_id];
+        $msd_providers[] = ['value' => $field_collection->item_id, 'revision_id' => $field_collection->revision_id];
       }
     }
 
-    $entity->field_fc_provider = [];
-    if ($fc_providers) {
-      $entity->field_fc_provider = ['und' => $fc_providers];
+    $entity->field_msd_provider = [];
+    if ($msd_providers) {
+      $entity->field_msd_provider = ['und' => $msd_providers];
     }
   }
 
@@ -135,7 +127,7 @@ class NCWDangerousSubstancesMigration extends AbstractNCWNodeMigration {
       foreach ($this->new_providers as $field_collection) {
         $field_collection->setHostEntity('node', $entity, LANGUAGE_NONE, FALSE);
         $field_collection->save(TRUE);
-        $entity->field_fc_provider['und'][] = ['value' => $field_collection->item_id, 'revision_id' => $field_collection->revision_id];
+        $entity->field_msd_provider['und'][] = ['value' => $field_collection->item_id, 'revision_id' => $field_collection->revision_id];
       }
       node_save($entity);
     }
@@ -145,7 +137,8 @@ class NCWDangerousSubstancesMigration extends AbstractNCWNodeMigration {
    * {@inheritdoc}
    */
   function prepareRow($row) {
-    $row->field_country = $row->field_material_country;
+    $row->field_msd_resource_type_other = $row->field_resource_type_other;
+    $row->field_material_country = $row->field_material_country;
     parent::prepareRow($row);
     if ($row->path) {
       $row->field_migration_path_alias = $row->path;
@@ -200,7 +193,7 @@ class NCWDangerousSubstancesMigration extends AbstractNCWNodeMigration {
           if (!empty($info['http_code']) && $info['http_code'] == 404) {
             node_delete($to_remove->destid1);
             $this->getMap()->delete(array($to_remove->sourceid1));
-            watchdog('osha_sites_migration', 'Deleting NODE that are not in the source anymore (@migration): !nids.',
+            watchdog('ncw_migration', 'Deleting NODE that are not in the source anymore (@migration): !nids.',
               array('!nids' => $to_remove->destid1, '@migration' => $this->arguments['machine_name']), WATCHDOG_INFO);
           }
           else {
@@ -230,8 +223,11 @@ class NCWDangerousSubstancesMigration extends AbstractNCWNodeMigration {
 
 }
 
+class NCWDangerousSubstancesMigration extends NCWMSDMigration {
 
-class NCWDangerousSubstancesSource extends AbstractNCWNodeSource {
+}
+
+class NCWMSDSource extends AbstractNCWNodeSource {
 
   /**
    * @var array
@@ -286,8 +282,8 @@ class NCWDangerousSubstancesSource extends AbstractNCWNodeSource {
   /**
    * Get modified dates.
    */
-  public function getPracticalToolModifiedDates() {
-    $q = db_select('migrate_map_dangerous_substances', 'mm');
+  public function getMSDModifiedDates() {
+    $q = db_select('migrate_map_msd', 'mm');
     $q->fields('mm', ['sourceid1']);
     $q->fields('md', ['field_modified_date_value']);
     $q->leftJoin('field_data_field_modified_date', 'md', 'md.entity_id = mm.destid1');
@@ -305,7 +301,7 @@ class NCWDangerousSubstancesSource extends AbstractNCWNodeSource {
     $content = $this->fileGetContents($this->endpoint_url);
     if ($data = json_decode($content)) {
       ncw_migration_debug('!klass:      * Processing !count items', array('!klass' => get_class($this), '!count' => count($data->items)));
-      $dates = $this->getPracticalToolModifiedDates();
+      $dates = $this->getMSDModifiedDates();
       $check_date = variable_get('ncw_migration_ds_check_date', TRUE);
       foreach ($data->items as $ob) {
         $ob = $ob->item;
@@ -336,57 +332,45 @@ class NCWDangerousSubstancesSource extends AbstractNCWNodeSource {
    */
   public function contentFields() {
     $fields = array(
+      'field_msd_priority_area' => '',
       'field_priority_area' => '',
       'field_sector_industry_covered' => '',
-      'field_tasks_covered' => '',
-      'field_biological_hazard' => '',
-      'field_hazard_physical_state' => '',
-      'field_hazard_health_effects' => '',
-      'field_exposure_route' => '',
-      'field_worker_groups_type' => '',
-      'field_prevention_measure_type' => '',
-      'field_material_purpose_type' => '',
-      'field_target_group' => '',
-      'field_visualisation_material_typ' => '',
+      'field_hazards' => '',
+      'field_health_effects' => '',
+      'field_worker_groups_covered' => '',
+      'field_prevention_measures' => '',
+      'field_purpose_of_the_material' => '',
+      'field_target_audience' => '',
+      'field_msd_resource_type' => '',
+      'field_material_country' => '',
     );
 
     $text = [
-      'field_item_type' => '',
+      'field_msd_provider' => '',
+      'field_original_desc_language' => '',
+      'field_original_desc_lang_other' => '',
       'field_available_in_languages' => '',
-      'body' => '',
-      'body_format' => '',
-      'body_language' => '',
-      'body_summary' => '',
-      'field_biological_hazard_other' => '',
-      'field_body_original' => '',
-      'field_body_original_format' => '',
-      'field_cas_number' => '',
-      'field_country_other' => '',
-      'field_ec_number' => '',
-      'field_exposure_route_other' => '',
       'field_external_url' => '',
-      'field_hazard_health_other' => '',
-      'field_hazard_physical_other' => '',
-      'field_languages_other' => '',
-      'field_material_purpose_other' => '',
-      'field_prevention_measures_other' => '',
       'field_publication_year' => '',
-      'field_publication_year_value2' => '',
-      'field_publication_year_timezone' => '',
-      'field_sector_industry_other' => '',
-      'field_summary' => '',
-      'field_summary_format' => '',
-      'field_summary_language' => '',
-      'field_target_group_other' => '',
-      'field_tasks_other' => '',
-      'field_visualisation_mat_other' => '',
+      'field_nominated_by_fop' => '',
+      'field_type_of_item' => '',
+      'field_title_original' => '',
+      'field_country_other' => '',
+      'field_languages_other' => '',
+      'field_hazards_other' => '',
+      'field_hazard_health_other' => '',
       'field_worker_groups_other' => '',
-      'title_field' => '',
-      'field_fc_provider' => '',
-      'field_modified_date' => '',
-      'title_field_language' => '',
-      'field_migration_path_alias' => '',
+      'field_prevention_measures_other' => '',
+      'field_material_purpose_other' => '',
+      'body' => '',
+      'field_body_original' => '',
+      'field_target_group_other' => '',
+      'field_msd_resource_type_other' => '',
+      'field_msd_video_length' => '',
+      'field_for_pictogram_guide' => '',
+      'field_comments' => '',
     ];
+
     $fields += $text;
     return $fields;
   }

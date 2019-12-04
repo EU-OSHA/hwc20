@@ -16,15 +16,15 @@ function ncw_migration_migrate_api() {
       ),
     ),
     'migrations' => array(
-      'msd' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWMSDMigration',
-      ),
       'dangerous_substances' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),
         'class_name' => 'NCWDangerousSubstancesMigration',
+      ),
+      'practical_tool' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array(),
+        'class_name' => 'NCWMSDMigration',
       ),
       'gallery' => array(
         'group_name' => 'ncw',

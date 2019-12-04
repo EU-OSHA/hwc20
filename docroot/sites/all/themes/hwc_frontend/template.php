@@ -186,6 +186,7 @@ function hwc_frontend_preprocess_html(&$vars) {
         ];
         $vars['classes_array'][] = $map[$tid];
         break;
+
       case "article":
         if ($n->nid == 179) {
           $vars['classes_array'][] = 'press-room';
@@ -357,6 +358,10 @@ function hwc_frontend_preprocess_page(&$vars) {
       case "publication":
         $vars['theme_hook_suggestions'][] = 'page__node__publication';
         break;
+
+      case "practical_tool":
+        $vars['theme_hook_suggestions'][] = 'page__node__practical_tool';
+        break;
     }
   }
 
@@ -470,16 +475,16 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'practical_tool':
-        $link_title = t('Back to practical tools list');
-        $link_href = 'tools-and-publications/practical-tools';
-        if (isset($_REQUEST['destination'])) {
-          $destination = drupal_get_destination();
-          $vars['page']['below_title']['back-to-link'] = array(
-            '#type' => 'item',
-            '#markup' => '<a class="back-to-link pull-right" href="' . strip_tags($destination['destination']) . '">' . $link_title . '</a>',
-          );
-          unset($link_title);
-        }
+//        $link_title = t('Back to practical tools list');
+//        $link_href = 'tools-and-publications/practical-tools';
+//        if (isset($_REQUEST['destination'])) {
+//          $destination = drupal_get_destination();
+//          $vars['page']['below_title']['back-to-link'] = array(
+//            '#type' => 'item',
+//            '#markup' => '<a class="back-to-link pull-right" href="' . strip_tags($destination['destination']) . '">' . $link_title . '</a>',
+//          );
+//          unset($link_title);
+//        }
         $tag_vars['element']['#value'] = t('Practical tools and guidance');
         $vars['page']['below_title']['practical-tool-page-title'] = array(
           '#type' => 'item',

@@ -63,8 +63,14 @@ function hwc_practical_tool_form_node_form_alter(&$form, &$form_state, $form_id)
 function hwc_practical_tool_field_collection_item_view($field_collection_item, $view_mode, $langcode) {
   if ($view_mode == 'title_only') {
     $item = entity_metadata_wrapper('field_collection_item', $field_collection_item);
+    if (!empty($item->field_msd_provider_name)) {
+      $value = $item->field_msd_provider_name->value();
+    }
+    else {
+      $value = $item->field_fc_provider_name->value();
+    }
     $field_collection_item->content['my_additional_field'] = array(
-      '#markup' => $item->field_fc_provider_name->value(),
+      '#markup' => $value,
     );
   }
 }
@@ -474,8 +480,13 @@ function hwc_practical_tool_field_formatter_view($entity_type, $entity, $field, 
 
       foreach ($items as $delta => $item) {
         if ($field_collection = field_collection_field_get_entity($item)) {
-          $name = $field_collection->field_fc_provider_name['und'][0]['value'];
-          $output = $name;
+          $output = '';
+          if (!empty($field_collection->field_msd_provider_name)) {
+            $output = $field_collection->field_msd_provider_name['und'][0]['value'];
+          }
+          else {
+            $output = $field_collection->field_fc_provider_name['und'][0]['value'];
+          }
           $element[$delta] = array('#markup' => $output);
         }
       }

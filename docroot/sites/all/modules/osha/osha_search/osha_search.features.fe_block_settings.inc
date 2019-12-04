@@ -28,7 +28,7 @@ function osha_search_default_fe_block_settings() {
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 14,
+        'weight' => 26,
       ),
       'seven' => array(
         'region' => '',
@@ -41,11 +41,71 @@ function osha_search_default_fe_block_settings() {
     'visibility' => 1,
   );
 
+  $export['facetapi-11ABW7bHR7jxlsi7kP1x0I81mePGjicE'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => '11ABW7bHR7jxlsi7kP1x0I81mePGjicE',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => 'practical-tools
+tools-and-publications/practical-tools',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'hwc_frontend',
+        'weight' => -79,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Item language',
+    'visibility' => 1,
+  );
+
   $export['facetapi-1RmCf5UO07Ll2sgNH2LAfiA1PC3WO8PI'] = array(
     'cache' => -1,
     'css_class' => '',
     'custom' => 0,
     'delta' => '1RmCf5UO07Ll2sgNH2LAfiA1PC3WO8PI',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => 'practical-tools
+tools-and-publications/practical-tools',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'hwc_frontend',
+        'weight' => 6,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Hazards:',
+    'visibility' => 1,
+  );
+
+  $export['facetapi-3wdzGmfuaWV8dFrp0unV5StIH22e8cRK'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => '3wdzGmfuaWV8dFrp0unV5StIH22e8cRK',
     'i18n_block_language' => array(),
     'i18n_mode' => 0,
     'module' => 'facetapi',
@@ -70,6 +130,36 @@ function osha_search_default_fe_block_settings() {
     'visibility' => 0,
   );
 
+  $export['facetapi-6V9dPHi6gLvKkQis1yAzmf7URMn2z2xN'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => '6V9dPHi6gLvKkQis1yAzmf7URMn2z2xN',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => 'practical-tools
+tools-and-publications/practical-tools',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'hwc_frontend',
+        'weight' => 17,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Worker groups:',
+    'visibility' => 1,
+  );
+
   $export['facetapi-C8eorcVV3vQafgn7Jly2bqKGXShnYglD'] = array(
     'cache' => -1,
     'css_class' => '',
@@ -86,7 +176,7 @@ function osha_search_default_fe_block_settings() {
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 20,
+        'weight' => 28,
       ),
       'seven' => array(
         'region' => '',
@@ -97,6 +187,65 @@ function osha_search_default_fe_block_settings() {
     ),
     'title' => 'Organisation:',
     'visibility' => 1,
+  );
+
+  $export['facetapi-CMdKaPNpQUELSbMFeop7CrP1w6I0EvuU'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'CMdKaPNpQUELSbMFeop7CrP1w6I0EvuU',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => 'practical-tools
+tools-and-publications/practical-tools',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'hwc_frontend',
+        'weight' => 1,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Country:',
+    'visibility' => 1,
+  );
+
+  $export['facetapi-H521BlbvKT4VvBQ0eUjaRB22CnF0x2vm'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'H521BlbvKT4VvBQ0eUjaRB22CnF0x2vm',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'hwc_frontend',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
   );
 
   $export['facetapi-IYV4lO4uBWV9Cstx0SMmJ5nValwNGZX4'] = array(
@@ -137,14 +286,15 @@ function osha_search_default_fe_block_settings() {
     'i18n_mode' => 0,
     'module' => 'facetapi',
     'node_types' => array(),
-    'pages' => '',
+    'pages' => 'practical-tools
+tools-and-publications/practical-tools',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'sidebar_first',
+        'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 0,
+        'weight' => 12,
       ),
       'seven' => array(
         'region' => '',
@@ -153,8 +303,8 @@ function osha_search_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
+    'title' => 'Type of visual material',
+    'visibility' => 1,
   );
 
   $export['facetapi-ROXIK6Y7tQue0DgP244H4JOcqy10UCEc'] = array(
@@ -186,6 +336,65 @@ function osha_search_default_fe_block_settings() {
     'visibility' => 0,
   );
 
+  $export['facetapi-WIDhFWDUEw0jl3l0E37RscD1I4NQZp9y'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'WIDhFWDUEw0jl3l0E37RscD1I4NQZp9y',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'hwc_frontend',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['facetapi-arApaxtlviAahyIYl4eWPMPSYulwF5hS'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'arApaxtlviAahyIYl4eWPMPSYulwF5hS',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => 'practical-tools
+tools-and-publications/practical-tools',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'hwc_frontend',
+        'weight' => 16,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Health effects:',
+    'visibility' => 1,
+  );
+
   $export['facetapi-azovHlgKCMoXFeRqtkoZUGezu72WIJwb'] = array(
     'cache' => -1,
     'css_class' => '',
@@ -204,7 +413,7 @@ tools-and-publications/practical-tools',
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 6,
+        'weight' => 4,
       ),
       'seven' => array(
         'region' => '',
@@ -233,7 +442,7 @@ tools-and-publications/practical-tools',
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 2,
+        'weight' => 24,
       ),
       'seven' => array(
         'region' => '',
@@ -246,23 +455,24 @@ tools-and-publications/practical-tools',
     'visibility' => 1,
   );
 
-  $export['facetapi-fPh9RcZWvL7fPaH9XlgNIR4lOTqmzYLE'] = array(
+  $export['facetapi-dn0ROYIfxwx0uGZSLR6ujE2pFn6Rg3vp'] = array(
     'cache' => -1,
     'css_class' => '',
     'custom' => 0,
-    'delta' => 'fPh9RcZWvL7fPaH9XlgNIR4lOTqmzYLE',
+    'delta' => 'dn0ROYIfxwx0uGZSLR6ujE2pFn6Rg3vp',
     'i18n_block_language' => array(),
     'i18n_mode' => 0,
     'module' => 'facetapi',
     'node_types' => array(),
-    'pages' => '',
+    'pages' => 'practical-tools
+tools-and-publications/practical-tools',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'sidebar_first',
+        'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 0,
+        'weight' => 15,
       ),
       'seven' => array(
         'region' => '',
@@ -271,8 +481,38 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
+    'title' => 'Work tasks:',
+    'visibility' => 1,
+  );
+
+  $export['facetapi-gHIFBfP3YHFOxiAV4q6IJVpi1KM0eVj6'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'gHIFBfP3YHFOxiAV4q6IJVpi1KM0eVj6',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => 'practical-tools
+tools-and-publications/practical-tools',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'hwc_frontend',
+        'weight' => 5,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Sector / Industry:',
+    'visibility' => 1,
   );
 
   $export['facetapi-knue6LgSgAqqcrgLihpDZ1gXvUAWp0WH'] = array(
@@ -292,7 +532,7 @@ tools-and-publications/practical-tools',
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 12,
+        'weight' => 11,
       ),
       'seven' => array(
         'region' => '',
@@ -322,7 +562,7 @@ tools-and-publications/practical-tools',
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 9,
+        'weight' => 8,
       ),
       'seven' => array(
         'region' => '',
@@ -344,14 +584,15 @@ tools-and-publications/practical-tools',
     'i18n_mode' => 0,
     'module' => 'facetapi',
     'node_types' => array(),
-    'pages' => '',
+    'pages' => 'practical-tools
+tools-and-publications/practical-tools',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'sidebar_first',
+        'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 0,
+        'weight' => 9,
       ),
       'seven' => array(
         'region' => '',
@@ -360,8 +601,8 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
+    'title' => 'Worker groups covered:',
+    'visibility' => 1,
   );
 
   $export['facetapi-pL2TPJELE3Py2k7qjglqywD59z6fxsx2'] = array(
@@ -381,7 +622,7 @@ tools-and-publications/practical-tools',
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 13,
+        'weight' => 25,
       ),
       'seven' => array(
         'region' => '',
@@ -394,6 +635,67 @@ tools-and-publications/practical-tools',
     'visibility' => 1,
   );
 
+  $export['facetapi-qKTjjfj4pcxhK1CKxcJbuoCqljfnWqbE'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'qKTjjfj4pcxhK1CKxcJbuoCqljfnWqbE',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => 'practical-tools
+tools-and-publications/practical-tools
+partners-documents',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'hwc_frontend',
+        'weight' => 13,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Language:',
+    'visibility' => 1,
+  );
+
+  $export['facetapi-r1CPZ0bxJkiGazQqrYQUlYoa5mMbO8qj'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'r1CPZ0bxJkiGazQqrYQUlYoa5mMbO8qj',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => 'practical-tools
+tools-and-publications/practical-tools',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'hwc_frontend',
+        'weight' => 18,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Target groups:',
+    'visibility' => 1,
+  );
+
   $export['facetapi-sQ1fqeN6uvdsnFUbwogsnvWqUG1zGexX'] = array(
     'cache' => -1,
     'css_class' => '',
@@ -403,14 +705,15 @@ tools-and-publications/practical-tools',
     'i18n_mode' => 0,
     'module' => 'facetapi',
     'node_types' => array(),
-    'pages' => '',
+    'pages' => 'practical-tools
+tools-and-publications/practical-tools',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'sidebar_first',
+        'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 0,
+        'weight' => 7,
       ),
       'seven' => array(
         'region' => '',
@@ -419,8 +722,8 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
+    'title' => 'Health effects:',
+    'visibility' => 1,
   );
 
   $export['facetapi-savwFG7EXPDT1TOCbW1g7W55ENxEJnMY'] = array(
@@ -440,7 +743,7 @@ media-centre/events/*',
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 19,
+        'weight' => 2,
       ),
       'seven' => array(
         'region' => '',
@@ -453,6 +756,36 @@ media-centre/events/*',
     'visibility' => 1,
   );
 
+  $export['facetapi-wQIFZjkOyQ5XU931SF9uzdto5FrPfZQI'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'wQIFZjkOyQ5XU931SF9uzdto5FrPfZQI',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => 'practical-tools
+tools-and-publications/practical-tools',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'hwc_frontend',
+        'weight' => 3,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => 'Type:',
+    'visibility' => 1,
+  );
+
   $export['facetapi-yo61AiIIMEjehliFfwMSQFj2NS5pjAP5'] = array(
     'cache' => -1,
     'css_class' => '',
@@ -462,14 +795,15 @@ media-centre/events/*',
     'i18n_mode' => 0,
     'module' => 'facetapi',
     'node_types' => array(),
-    'pages' => '',
+    'pages' => 'practical-tools
+tools-and-publications/practical-tools',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'sidebar_first',
+        'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 11,
+        'weight' => 10,
       ),
       'seven' => array(
         'region' => '',
@@ -478,8 +812,8 @@ media-centre/events/*',
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
+    'title' => 'Target audience:',
+    'visibility' => 1,
   );
 
   $export['menu-menu-search'] = array(
@@ -535,7 +869,7 @@ good-practice-exchange-platform',
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 1,
+        'weight' => 23,
       ),
       'seven' => array(
         'region' => '',

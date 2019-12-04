@@ -152,6 +152,9 @@ function hwc_practical_tool_strongarm() {
       'highlights_item_alternative' => array(
         'custom_settings' => TRUE,
       ),
+      'hwc_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -177,7 +180,20 @@ function hwc_practical_tool_strongarm() {
           'weight' => '48',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'share_widget' => array(
+          'default' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+        ),
+        'bottom_share_widget' => array(
+          'default' => array(
+            'weight' => '29',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__practical_tool'] = $strongarm;
