@@ -168,6 +168,35 @@ function hwc_frontend_preprocess_region(&$variables, $hook) {
  * Implements hook_preprocess_html().
  */
 function hwc_frontend_preprocess_html(&$vars) {
+  if (variable_get('add_tracking_code', FALSE)) {
+    $script = [
+      '#tag' => 'script',
+      '#attributes' => [
+        'type' => 'text/javascript',
+        'src' => '//script.crazyegg.com/pages/scripts/0083/4460.js',
+        'async' => 'async',
+      ],
+      '#value' => '',
+    ];
+    drupal_add_html_head($script, 'crazyegg-script');
+
+    $script = [
+      '#tag' => 'script',
+      '#attributes' => ['type' => 'text/javascript'],
+      '#value' => '(function(h,o,t,j,a,r){
+  h.hj=h.hj||function() {(h.hj.q=h.hj.q||[]).push(arguments)};
+  h._hjSettings={hjid:1550027,hjsv:6};
+  a=o.getElementsByTagName(\'head\')[0];
+  r=o.createElement(\'script\');
+  r.async=1;
+  r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+  a.appendChild(r);
+})(window,document,\'https://static.hotjar.com/c/hotjar-\',\'.js?sv=\');
+',
+    ];
+    drupal_add_html_head($script, 'hotjar-script');
+  }
+
   $n = menu_get_object('node');
   if ($n) {
     switch ($n->type) {
