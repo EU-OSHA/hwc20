@@ -326,6 +326,10 @@ function osha_search_autocomplete_callback($search = '*') {
   );
   $params['fq'][] = 'ss_search_api_language:"' . $lang . '"';
   $params['fq'][] = 'is_status:"1"';
+  if (variable_get('allow_exclude_search_articles', TRUE)) {
+    $nids = osha_search_get_exclude_search_articles();
+    $params['fq'][] = '-( ' . implode(' OR ', $nids) . ' )';
+  }
   // Add condition for excluded bundles.
   foreach ($bundles as $key => $bundle) {
     if (empty($allowed_bundles[$key])) {
