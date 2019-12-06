@@ -80,6 +80,33 @@ function hwc_frontend_menu_link(array $variables) {
   }
 
   if (arg(0) == 'node') {
+    $map = [
+      "" => 'node/112',
+      "186" => 'campaign-partners/campaign-media-partners',
+      "187" => 'campaign-partners/national-focal-points',
+      "185" => 'campaign-partners/official-campaign-partners',
+      "1804" => 'campaign-partners/enterprise-europe-network',
+    ];
+    if (in_array($element['#href'], $map) && $node = menu_get_object()) {
+      $type = @$node->field_partner_type[LANGUAGE_NONE][0]['tid'];
+      if ($element['#href'] == 'node/112' && $type) {
+        $element['#attributes']['class'] = [
+          'expanded',
+          'active-trail',
+          'active',
+        ];
+      }
+      if ($type && $map[$type] == $element['#href']) {
+        $element['#attributes']['class'] = [
+          'expanded',
+          'active-trail',
+          'active',
+        ];
+      }
+    }
+  }
+
+  if (arg(0) == 'node') {
     $urls = [
       'tools-and-publications/publications',
       'tools-and-publications/case-studies',
