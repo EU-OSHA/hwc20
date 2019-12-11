@@ -11,7 +11,7 @@ function hwc_priority_areas_views_default_views() {
   $export = array();
 
   $view = new view();
-  $view->name = 'topic_related';
+  $view->name = 'priority_area';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
@@ -99,7 +99,7 @@ function hwc_priority_areas_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'practical_tool' => 'practical_tool',
+    'priority_area' => 'priority_area',
   );
 
   /* Display: Case studies */
@@ -677,7 +677,7 @@ function hwc_priority_areas_views_default_views() {
     'article' => 'article',
   );
   $handler->display->display_options['block_description'] = 'Topic Related - Publications';
-  $translatables['topic_related'] = array(
+  $translatables['priority_area'] = array(
     t('Master'),
     t('Related'),
     t('See More tools'),
@@ -719,10 +719,10 @@ function hwc_priority_areas_views_default_views() {
 <div class="field-summary">[field_summary]</div>
 <div class="see-more">[field_external_url]</div>'),
   );
-  $export['topic_related'] = $view;
+  $export['priority_area'] = $view;
 
   $view = new view();
-  $view->name = 'topic_related_publications';
+  $view->name = 'priority_area_publications';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
@@ -867,7 +867,7 @@ function hwc_priority_areas_views_default_views() {
   );
   $handler->display->display_options['filters']['field_publication_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_publication_type_tid']['vocabulary'] = 'publication_types';
-  $translatables['topic_related_publications'] = array(
+  $translatables['priority_area_publications'] = array(
     t('Master'),
     t('more'),
     t('Apply'),
@@ -885,122 +885,7 @@ function hwc_priority_areas_views_default_views() {
     t('Case studies ER'),
     t('Publications ER'),
   );
-  $export['topic_related_publications'] = $view;
-
-  $view = new view();
-  $view->name = 'topics';
-  $view->description = '';
-  $view->tag = 'default';
-  $view->base_table = 'taxonomy_term_data';
-  $view->human_name = 'Topics';
-  $view->core = 7;
-  $view->api_version = '3.0';
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
-  /* Display: Master */
-  $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
-  $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'none';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'col-xs-12 col-sm-6 col-md-4';
-  $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Taxonomy term: Name */
-  $handler->display->display_options['fields']['name_field']['id'] = 'name_field';
-  $handler->display->display_options['fields']['name_field']['table'] = 'field_data_name_field';
-  $handler->display->display_options['fields']['name_field']['field'] = 'name_field';
-  $handler->display->display_options['fields']['name_field']['label'] = '';
-  $handler->display->display_options['fields']['name_field']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['name_field']['type'] = 'title_linked';
-  $handler->display->display_options['fields']['name_field']['settings'] = array(
-    'title_style' => '_none',
-    'title_link' => '',
-    'title_class' => '',
-    'field_formatter_class' => '',
-  );
-  $handler->display->display_options['fields']['name_field']['field_api_classes'] = TRUE;
-  $handler->display->display_options['fields']['name_field']['link_to_entity'] = 0;
-  /* Field: Field: Image */
-  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
-  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
-  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
-  $handler->display->display_options['fields']['field_image']['label'] = '';
-  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'image_style' => 'medium_thumbnail_mc_340',
-    'image_link' => '',
-    'field_formatter_class' => '',
-  );
-  $handler->display->display_options['fields']['field_image']['field_api_classes'] = TRUE;
-  /* Field: Taxonomy term: Description */
-  $handler->display->display_options['fields']['description_field']['id'] = 'description_field';
-  $handler->display->display_options['fields']['description_field']['table'] = 'field_data_description_field';
-  $handler->display->display_options['fields']['description_field']['field'] = 'description_field';
-  $handler->display->display_options['fields']['description_field']['label'] = '';
-  $handler->display->display_options['fields']['description_field']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['description_field']['settings'] = array(
-    'field_formatter_class' => '',
-  );
-  $handler->display->display_options['fields']['description_field']['field_api_classes'] = TRUE;
-  $handler->display->display_options['fields']['description_field']['link_to_entity'] = 0;
-  /* Sort criterion: Taxonomy term: Weight */
-  $handler->display->display_options['sorts']['weight']['id'] = 'weight';
-  $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['sorts']['weight']['field'] = 'weight';
-  /* Filter criterion: Taxonomy vocabulary: Machine name */
-  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
-  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
-  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
-  $handler->display->display_options['filters']['machine_name']['value'] = array(
-    'priority_area' => 'priority_area',
-  );
-
-  /* Display: Block */
-  $handler = $view->new_display('block', 'Block', 'block');
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Field: Thumbnail */
-  $handler->display->display_options['fields']['field_thumbnail']['id'] = 'field_thumbnail';
-  $handler->display->display_options['fields']['field_thumbnail']['table'] = 'field_data_field_thumbnail';
-  $handler->display->display_options['fields']['field_thumbnail']['field'] = 'field_thumbnail';
-  $handler->display->display_options['fields']['field_thumbnail']['label'] = '';
-  $handler->display->display_options['fields']['field_thumbnail']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_thumbnail']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_thumbnail']['settings'] = array(
-    'image_style' => 'medium_thumbnail_mc_340',
-    'image_link' => '',
-    'field_formatter_class' => '',
-  );
-  /* Field: Taxonomy term: Name */
-  $handler->display->display_options['fields']['name_field']['id'] = 'name_field';
-  $handler->display->display_options['fields']['name_field']['table'] = 'field_data_name_field';
-  $handler->display->display_options['fields']['name_field']['field'] = 'name_field';
-  $handler->display->display_options['fields']['name_field']['label'] = '';
-  $handler->display->display_options['fields']['name_field']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['name_field']['type'] = 'title_linked';
-  $handler->display->display_options['fields']['name_field']['settings'] = array(
-    'title_style' => '_none',
-    'title_link' => 'content',
-    'title_class' => '',
-    'field_formatter_class' => '',
-  );
-  $handler->display->display_options['fields']['name_field']['field_api_classes'] = TRUE;
-  $handler->display->display_options['fields']['name_field']['link_to_entity'] = 0;
-  $translatables['topics'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Block'),
-  );
-  $export['topics'] = $view;
+  $export['priority_area_publications'] = $view;
 
   return $export;
 }

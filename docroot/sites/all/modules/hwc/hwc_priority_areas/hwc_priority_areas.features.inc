@@ -28,8 +28,8 @@ function hwc_priority_areas_views_api($module = NULL, $api = NULL) {
  */
 function hwc_priority_areas_node_info() {
   $items = array(
-    'topic_related' => array(
-      'name' => 'Topic related',
+    'priority_area' => array(
+      'name' => 'Priority area',
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

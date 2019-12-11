@@ -15,7 +15,7 @@ function hwc_priority_areas_update_7002() {
   $voc = taxonomy_vocabulary_machine_name_load('priority_area');
   $tree = taxonomy_get_tree($voc->vid);
   foreach($tree as $term) {
-    hwc_priority_areas_create_topic_related_node($term->tid);
+    hwc_priority_areas_create_priority_area_node($term->tid);
   }
 }
 
@@ -27,7 +27,7 @@ function hwc_priority_areas_update_7003() {
   $voc = taxonomy_vocabulary_machine_name_load('priority_area');
   $tree = taxonomy_get_tree($voc->vid);
   foreach($tree as $term) {
-    hwc_priority_areas_create_topic_related_node($term->tid);
+    hwc_priority_areas_create_priority_area_node($term->tid);
   }
 }
 
@@ -37,38 +37,6 @@ function hwc_priority_areas_update_7003() {
 function hwc_priority_areas_update_7004() {
   features_revert_module('hwc_priority_areas');
   features_revert_module('osha');
-}
-
-function hwc_priority_areas_create_topic_related_node($tid) {
-  $q = db_select('node', 'a');
-  $q->fields('a', array('nid', 'vid'));
-  $q->innerJoin('field_data_field_priority_area', 'fs', 'fs.entity_id = a.nid AND fs.revision_id = a.vid');
-  $q->condition('a.type', 'topic_related');
-  $q->condition('fs.field_priority_area_tid', $tid);
-  $nids = $q->execute()->fetchCol();
-  if ($nids) {
-    return $nids;
-  }
-  $term = taxonomy_term_load($tid);
-
-  $node = new stdClass();
-  node_submit($node);
-  // Do not delete/change this marker unless you know what you are doing!
-  $node->title_field['en'][0]['value'] = $term->name;
-  $node->field_priority_area[LANGUAGE_NONE][]['tid'] = $tid;
-  $node->language = 'en';
-  $node->type = 'topic_related';
-  $node->uid = 0;
-  $node->status = 1;
-  $node->path['pathauto'] = 0;
-  $node->path['alias'] = '';
-  node_save($node);
-  if (isset($node->nid)) {
-    return array($node->nid);
-  }
-  else {
-    return FALSE;
-  }
 }
 
 /**
@@ -365,4 +333,22 @@ function hwc_priority_areas_update_7040() {
 function hwc_priority_areas_update_7041() {
   features_revert(array('hwc_priority_areas' => 'views_view'));
   features_revert(array('hwc_priority_areas' => 'field_base'));
+}
+
+/**
+ * HW20-306 Development Priority areas (introduction and detail).
+ */
+function hwc_priority_areas_update_7042() {
+  features_revert_module('hwc_priority_areas');
+}
+
+/**
+ * HW20-306 Development Priority areas (introduction and detail).
+ */
+function hwc_priority_areas_update_7043() {
+  $voc = taxonomy_vocabulary_machine_name_load('msd_priority_area');
+  $tree = taxonomy_get_tree($voc->vid);
+  foreach($tree as $term) {
+    hwc_priority_areas_create_priority_area_node($term->tid);
+  }
 }

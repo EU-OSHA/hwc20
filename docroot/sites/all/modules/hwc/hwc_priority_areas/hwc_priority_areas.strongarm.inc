@@ -13,56 +13,56 @@ function hwc_priority_areas_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_anonymous_topic_related';
+  $strongarm->name = 'comment_anonymous_priority_area';
   $strongarm->value = '0';
-  $export['comment_anonymous_topic_related'] = $strongarm;
+  $export['comment_anonymous_priority_area'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_default_mode_topic_related';
+  $strongarm->name = 'comment_default_mode_priority_area';
   $strongarm->value = 1;
-  $export['comment_default_mode_topic_related'] = $strongarm;
+  $export['comment_default_mode_priority_area'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_default_per_page_topic_related';
+  $strongarm->name = 'comment_default_per_page_priority_area';
   $strongarm->value = '50';
-  $export['comment_default_per_page_topic_related'] = $strongarm;
+  $export['comment_default_per_page_priority_area'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_form_location_topic_related';
+  $strongarm->name = 'comment_form_location_priority_area';
   $strongarm->value = 1;
-  $export['comment_form_location_topic_related'] = $strongarm;
+  $export['comment_form_location_priority_area'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_preview_topic_related';
+  $strongarm->name = 'comment_preview_priority_area';
   $strongarm->value = '1';
-  $export['comment_preview_topic_related'] = $strongarm;
+  $export['comment_preview_priority_area'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_subject_field_topic_related';
+  $strongarm->name = 'comment_priority_area';
+  $strongarm->value = '1';
+  $export['comment_priority_area'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_subject_field_priority_area';
   $strongarm->value = 1;
-  $export['comment_subject_field_topic_related'] = $strongarm;
+  $export['comment_subject_field_priority_area'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_topic_related';
-  $strongarm->value = '1';
-  $export['comment_topic_related'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'field_bundle_settings_node__topic_related';
+  $strongarm->name = 'field_bundle_settings_node__priority_area';
   $strongarm->value = array(
     'view_modes' => array(
       'teaser' => array(
@@ -123,19 +123,19 @@ function hwc_priority_areas_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '22',
+          'weight' => '12',
         ),
         'path' => array(
-          'weight' => '21',
+          'weight' => '11',
         ),
         'redirect' => array(
-          'weight' => '20',
+          'weight' => '10',
         ),
         'xmlsitemap' => array(
-          'weight' => '19',
+          'weight' => '9',
         ),
         'language' => array(
-          'weight' => '2',
+          'weight' => '8',
         ),
         'workbench_access' => array(
           'weight' => '0',
@@ -144,61 +144,61 @@ function hwc_priority_areas_strongarm() {
       'display' => array(),
     ),
   );
-  $export['field_bundle_settings_node__topic_related'] = $strongarm;
+  $export['field_bundle_settings_node__priority_area'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'language_content_type_topic_related';
+  $strongarm->name = 'language_content_type_priority_area';
   $strongarm->value = '4';
-  $export['language_content_type_topic_related'] = $strongarm;
+  $export['language_content_type_priority_area'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_options_topic_related';
+  $strongarm->name = 'menu_options_priority_area';
   $strongarm->value = array();
-  $export['menu_options_topic_related'] = $strongarm;
+  $export['menu_options_priority_area'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_parent_topic_related';
+  $strongarm->name = 'menu_parent_priority_area';
   $strongarm->value = 'main-menu:0';
-  $export['menu_parent_topic_related'] = $strongarm;
+  $export['menu_parent_priority_area'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_options_topic_related';
+  $strongarm->name = 'node_options_priority_area';
   $strongarm->value = array(
     0 => 'status',
   );
-  $export['node_options_topic_related'] = $strongarm;
+  $export['node_options_priority_area'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_preview_topic_related';
+  $strongarm->name = 'node_preview_priority_area';
   $strongarm->value = '1';
-  $export['node_preview_topic_related'] = $strongarm;
+  $export['node_preview_priority_area'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_submitted_topic_related';
+  $strongarm->name = 'node_submitted_priority_area';
   $strongarm->value = 0;
-  $export['node_submitted_topic_related'] = $strongarm;
+  $export['node_submitted_priority_area'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'xmlsitemap_settings_node_topic_related';
+  $strongarm->name = 'xmlsitemap_settings_node_priority_area';
   $strongarm->value = array(
     'status' => '0',
     'priority' => '0.5',
   );
-  $export['xmlsitemap_settings_node_topic_related'] = $strongarm;
+  $export['xmlsitemap_settings_node_priority_area'] = $strongarm;
 
   return $export;
 }
