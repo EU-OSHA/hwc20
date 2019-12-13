@@ -4,22 +4,8 @@
  * Returns the HTML for an article node.
  */
 ?>
-<?php
-/** @var array $content */
-$keys = array_keys($content);
-foreach($keys as $key) {
-  if (strpos($key, '_show_')) {
-    $value = $content[$key][0]['#markup'];
-    if ($value != 1) {
-      unset($content[str_replace('_show', '', $key)]);
-    }
-    unset($content[$key]);
-  }
-}
-?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php
-  print render($content['share_widget']);
   if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
     <header>
       <?php print render($title_prefix); ?>
@@ -48,35 +34,20 @@ foreach($keys as $key) {
   ?>
   <div>
     <?php
-//    print render($content['share_widget']);
+    print render($content['share_widget']);
     print render($content['field_summary']);
     print render($content['body']);
-    // Additional resources.
-    if (!empty($content['field_recommended_resources']) || !empty($content['field_recommended_articles'])) {
+    // PA Recommended resources.
+    if (!empty($content['field_pa_recommended_resources']) || !empty($content['field_pa_recommended_articles'])) {
       print '<div class="dot-separator green"></div><div class="icon recommended-resources"></div>' . '<h2>' . t('Recommended resources for you') . '</h2>';
-      print render($content['field_recommended_resources']);
-      $recommended = render($content['field_recommended_articles']);
-      if (strpos($recommended, '/node/105')) {
-        $recommended = str_replace('/node/105', '/tools-and-publications/publications', $recommended);
-      }
-      if (strpos($recommended, '/node/161')) {
-        $recommended = str_replace('/node/161', '/tools-and-publications/campaign-toolkit', $recommended);
-      }
-      print $recommended;
-    }
-    // Additional resources.
-    if (!empty($content['field_aditional_resources'])) {
-      print '<div class="dot-separator green"></div><div class="icon additional-resources"></div>' . '<h2>' . t('Additional resources') . '</h2>';
-      print render($content['field_aditional_resources']);
+      print render($content['field_pa_recommended_resources']);
+      print render($content['field_recommended_articles']);
     }
 
     // We hide the comments and links now so that we can render them later.
     hide($content['comments']);
     hide($content['links']);
     print render($content);
-
-    print render($content['links']);
-    print render($content['comments']);
     ?>
   </div>
 </article>

@@ -352,3 +352,17 @@ function hwc_priority_areas_update_7043() {
     hwc_priority_areas_create_priority_area_node($term->tid);
   }
 }
+
+/**
+ * HW20-306 Development Priority areas (introduction and detail).
+ */
+function hwc_priority_areas_update_7044() {
+  variable_set('pathauto_node_priority_area_pattern', 'about-topic/priority-area/[node:title]');
+  $mlids = [1150, 2374, 32374];
+  foreach($mlids as $mlid) {
+    $menu_link = menu_link_load($mlid);
+    $menu_link['hidden'] = 0;
+    menu_link_save($menu_link);
+  }
+  features_revert_module('hwc_priority_areas');
+}

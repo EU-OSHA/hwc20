@@ -56,7 +56,7 @@ function osha_publication_menu_case_studies_faceted_form($variables) {
     '#attributes' => array('class' => array('content-filters')),
   );
 
-  $form['left-column']['field_priority_area'] = $content_filters;
+  $form['left-column']['field_msd_priority_area'] = $content_filters;
   $form['left-column']['language'] = $content_filters;
 
   $form['#token'] = FALSE;
@@ -98,7 +98,7 @@ function osha_publication_menu_case_studies_faceted_form($variables) {
     ),
   );
   $form['content']['exposed-widgets']['language'] = [];
-  
+
   $query_params = drupal_get_query_parameters();
   if (!empty($query_params)) {
     $form['content']['link'] = [
@@ -304,14 +304,14 @@ function _osha_publication_menu_case_studies_get_facets_def() {
       'options_callback_args' => array(TRUE, TRUE),
     ),
 
-    'field_priority_area' => array(
+    'field_msd_priority_area' => array(
       'label' => t('Topics'),
-      'field' => 'field_priority_area',
+      'field' => 'field_msd_priority_area',
       'limit' => 150,
       'operator' => 'or',
       'min_count' => 1,
       'missing' => TRUE,
-      'options_callback' => '_osha_publication_priority_area_options_list',
+      'options_callback' => '_osha_publication_msd_priority_area_options_list',
       'options_callback_args' => array(),
     ),
   );

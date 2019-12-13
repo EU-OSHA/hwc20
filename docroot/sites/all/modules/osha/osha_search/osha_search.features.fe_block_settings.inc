@@ -248,6 +248,31 @@ tools-and-publications/practical-tools',
     'visibility' => 1,
   );
 
+  $export['facetapi-EGPopIFsS96ve0gct5RiXekXM5Fay7gV'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'delta' => 'EGPopIFsS96ve0gct5RiXekXM5Fay7gV',
+    'i18n_block_language' => array(),
+    'module' => 'facetapi',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'hwc_frontend',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+  );
+
   $export['facetapi-H521BlbvKT4VvBQ0eUjaRB22CnF0x2vm'] = array(
     'cache' => -1,
     'css_class' => '',

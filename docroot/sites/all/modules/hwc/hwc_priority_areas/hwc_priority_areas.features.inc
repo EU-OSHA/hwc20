@@ -28,6 +28,14 @@ function hwc_priority_areas_views_api($module = NULL, $api = NULL) {
  */
 function hwc_priority_areas_node_info() {
   $items = array(
+    'pa_highlights' => array(
+      'name' => 'PA Highlights',
+      'base' => 'node_content',
+      'description' => 'Priority area Highlights',
+      'has_title' => '1',
+      'title_label' => 'Title',
+      'help' => '',
+    ),
     'priority_area' => array(
       'name' => 'Priority area',
       'base' => 'node_content',

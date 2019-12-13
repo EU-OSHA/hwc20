@@ -20,6 +20,68 @@ function hwc_priority_areas_default_fe_block_settings() {
     'i18n_block_language' => array(),
     'i18n_mode' => 0,
     'module' => 'hwc_priority_areas',
+    'node_types' => array(
+      0 => 'priority_area',
+    ),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'hwc_frontend',
+        'weight' => 5,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['hwc_priority_areas-hwc_pa_publications'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'hwc_pa_publications',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'hwc_priority_areas',
+    'node_types' => array(
+      0 => 'priority_area',
+    ),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'hwc_frontend',
+        'weight' => 4,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['hwc_priority_areas-hwc_pa_term'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'hwc_pa_term',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'hwc_priority_areas',
     'node_types' => array(),
     'pages' => '',
     'roles' => array(),
@@ -41,23 +103,25 @@ function hwc_priority_areas_default_fe_block_settings() {
     'visibility' => 0,
   );
 
-  $export['hwc_priority_areas-hwc_pa_publications'] = array(
+  $export['hwc_priority_areas-hwc_pa_tools_and_guidance'] = array(
     'cache' => -1,
     'css_class' => '',
     'custom' => 0,
-    'delta' => 'hwc_pa_publications',
+    'delta' => 'hwc_pa_tools_and_guidance',
     'i18n_block_language' => array(),
     'i18n_mode' => 0,
     'module' => 'hwc_priority_areas',
-    'node_types' => array(),
+    'node_types' => array(
+      0 => 'priority_area',
+    ),
     'pages' => '',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'content',
+        'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 0,
+        'weight' => 3,
       ),
       'seven' => array(
         'region' => '',

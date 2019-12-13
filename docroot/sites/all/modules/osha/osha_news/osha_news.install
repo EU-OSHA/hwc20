@@ -140,3 +140,10 @@ function osha_news_update_7019() {
 function osha_news_update_7020() {
   features_revert_module('osha_news');
 }
+
+/**
+ * HW20-306 Development Priority areas (introduction and detail).
+ */
+function osha_news_update_7021() {
+  features_revert_module('osha_news');
+}
