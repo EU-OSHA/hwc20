@@ -159,7 +159,7 @@ include(drupal_get_path('theme', 'hwc_frontend').'/templates/header.tpl.php');
           }
           print render($title_suffix);
           print $messages; ?>
-          <div class="below_title">
+          <div class="below_title container">
             <?php print render($page['below_title']); ?>
           </div>
         </section>
@@ -172,14 +172,15 @@ include(drupal_get_path('theme', 'hwc_frontend').'/templates/header.tpl.php');
         <?php if (!empty($action_links)): ?>
           <ul class="action-links"><?php print render($action_links); ?></ul>
         <?php endif; ?>
-        <?php if (!empty($page['sidebar_first'])): ?>
-          <aside class="col-xs-12 col-sm-6 col-md-3" role="complementary">
-            <?php print render($page['sidebar_first']); ?>
-          </aside>  <!-- /#sidebar-first -->
-        <?php endif; ?>
-        <div id="skip-to-content" style="visibility: hidden; height: 0px"><a href="#skip-to-content" rel="nofollow" accesskey="S" style="visibility: hidden;"><?php print t('Skip to content'); ?></a></div>
-        <?php print render($page['content']); ?>
-      </div>
+        <div class="container">
+          <?php if (!empty($page['sidebar_first'])): ?>
+            <aside class="col-xs-12 col-sm-6 col-md-3" role="complementary">
+              <?php print render($page['sidebar_first']); ?>
+            </aside>  <!-- /#sidebar-first -->
+          <?php endif; ?>
+          <div id="skip-to-content" style="visibility: hidden; height: 0px"><a href="#skip-to-content" rel="nofollow" accesskey="S" style="visibility: hidden;"><?php print t('Skip to content'); ?></a></div>
+          <?php print render($page['content']); ?>
+        </div>
     </section>
 
     <?php if (!empty($page['sidebar_second'])): ?>
@@ -188,6 +189,7 @@ include(drupal_get_path('theme', 'hwc_frontend').'/templates/header.tpl.php');
       </aside>  <!-- /#sidebar-second -->
     <?php endif; ?>
   </div>
+</div>
 </div>
 <footer class="footer">
   <div class="container">
