@@ -47,7 +47,6 @@ features[field_instance][] = node-priority_area-field_tools_and_guidance
 features[field_instance][] = node-priority_area-title_field
 features[node][] = pa_highlights
 features[node][] = priority_area
-features[page_manager_pages][] = priority_areas
 features[variable][] = comment_anonymous_pa_highlights
 features[variable][] = comment_anonymous_priority_area
 features[variable][] = comment_default_mode_pa_highlights

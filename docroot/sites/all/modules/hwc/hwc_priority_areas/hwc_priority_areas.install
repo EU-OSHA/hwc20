@@ -358,11 +358,36 @@ function hwc_priority_areas_update_7043() {
  */
 function hwc_priority_areas_update_7044() {
   variable_set('pathauto_node_priority_area_pattern', 'about-topic/priority-area/[node:title]');
-  $mlids = [1150, 2374, 32374];
+  $mlids = [1150, 2374, 32374, 17602];
   foreach($mlids as $mlid) {
     $menu_link = menu_link_load($mlid);
     $menu_link['hidden'] = 0;
     menu_link_save($menu_link);
   }
   features_revert_module('hwc_priority_areas');
+}
+
+function hwc_priority_areas_update_7045() {
+  $mid = 32374;
+  $title = 'Priority areas';
+  $node = new stdClass();
+  $node->type = 'article';
+  $node->title = $title;
+  node_object_prepare($node);
+  $node->field_summary['en']['0']['value'] = $title;
+  $node->language = 'en';
+  $node->uid = 1;
+  $node->status = 1;
+  $node->workbench_access = 'section';
+  $node->workbench_moderation_state_new = 'published';
+  $node->field_article_type[LANGUAGE_NONE][0]['tid'] = HWC_INTRODUCTION_ARTICLE;
+  $node->field_publication_date[LANGUAGE_NONE][0] = [
+    'value' => format_date(strtotime('now'), 'custom', 'Y-m-d H:i:s', 'Europe/Madrid'),
+    'timezone' => 'Europe/Madrid',
+    'timezone_db' => 'Europe/Madrid',
+  ];
+  node_save($node);
+  $menu_link = menu_link_load($mid);
+  $menu_link['link_path'] = 'node/' . $node->nid;
+  menu_link_save($menu_link);
 }
