@@ -363,21 +363,25 @@ function hwc_homepage_block_view($delta = '') {
     $block['content'] = theme('hwc_homepage_browsing_content', ['data' => $data]);
   }
   if ($delta == 'hwc_homepage_topics') {
+    $result = views_get_view_result('msd_priority_areas');
+    $map = [];
+    foreach ($result as $row) {
+      $map[$row->taxonomy_term_data_field_data_field_msd_priority_area_tid] = $row->nid;;
+    }
     $allowed = variable_get('priority_area_allowed', []);
     $voc = taxonomy_vocabulary_machine_name_load('msd_priority_area');
     $tree = taxonomy_get_tree($voc->vid, 0, NULL, TRUE);
     $items = [];
     foreach ($tree as $i => $term) {
-      if (!@$term->field_available[LANGUAGE_NONE][0]['value']) {
-        continue;
-      }
       $w = entity_metadata_wrapper('taxonomy_term', $term->tid);
       $name = $w->label();
-      $items[] = [
-        'data' => l($name, 'taxonomy/term/' . $term->tid),
-        'class' => ['priority_area_' . $term->tid],
-        'title' => $name,
-      ];
+      if (isset($map[$term->tid])) {
+        $items[] = [
+          'data' => l($name, 'node/' . $map[$term->tid]),
+          'class' => ['priority_area_' . $map[$term->tid]],
+          'title' => $name,
+        ];
+      }
     }
     $block['content']['menu']['#markup'] = '<div class="priority_area">';
     $block['content']['menu']['#markup'] .= theme('item_list', array('items' => $items, 'attributes' => array('class' => 'menu nav')));

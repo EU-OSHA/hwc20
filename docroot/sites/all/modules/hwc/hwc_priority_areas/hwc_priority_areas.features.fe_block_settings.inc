@@ -74,35 +74,6 @@ function hwc_priority_areas_default_fe_block_settings() {
     'visibility' => 0,
   );
 
-  $export['hwc_priority_areas-hwc_pa_term'] = array(
-    'cache' => -1,
-    'css_class' => '',
-    'custom' => 0,
-    'delta' => 'hwc_pa_term',
-    'i18n_block_language' => array(),
-    'i18n_mode' => 0,
-    'module' => 'hwc_priority_areas',
-    'node_types' => array(),
-    'pages' => '',
-    'roles' => array(),
-    'themes' => array(
-      'hwc_frontend' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'hwc_frontend',
-        'weight' => 0,
-      ),
-      'seven' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
-    ),
-    'title' => '',
-    'visibility' => 0,
-  );
-
   $export['hwc_priority_areas-hwc_pa_tools_and_guidance'] = array(
     'cache' => -1,
     'css_class' => '',
