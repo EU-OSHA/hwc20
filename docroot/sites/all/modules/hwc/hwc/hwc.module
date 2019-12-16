@@ -344,6 +344,22 @@ function hwc_block_info() {
   return $blocks;
 }
 
+function hwc_gpe_news($num = 0) {
+  static $events = 0;
+  if ($num) {
+    $events = $num;
+  }
+  return $events;
+}
+
+function hwc_gpe_events($num = 0) {
+  static $events = 0;
+  if ($num) {
+    $events = $num;
+  }
+  return $events;
+}
+
 function hwc_european_week_news($num = 0) {
   static $events = 0;
   if ($num) {

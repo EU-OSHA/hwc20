@@ -15,11 +15,11 @@ function hwc_good_practice_exchange_user_default_permissions() {
     'name' => 'create document content',
     'roles' => array(
       'EU-OSHA EEN Reviewers' => 'EU-OSHA EEN Reviewers',
+      'External Provider - Supervisor' => 'External Provider - Supervisor',
       'HWC Staff - Reviewers' => 'HWC Staff - Reviewers',
       'Website Managers' => 'Website Managers',
       'administrator' => 'administrator',
       'campaign partner' => 'campaign partner',
-      'External Provider - Supervisor' => 'External Provider - Supervisor',
     ),
     'module' => 'node',
   );
@@ -29,10 +29,10 @@ function hwc_good_practice_exchange_user_default_permissions() {
     'name' => 'delete any document content',
     'roles' => array(
       'EU-OSHA EEN Reviewers' => 'EU-OSHA EEN Reviewers',
+      'External Provider - Supervisor' => 'External Provider - Supervisor',
       'HWC Staff - Reviewers' => 'HWC Staff - Reviewers',
       'administrator' => 'administrator',
       'campaign partner' => 'campaign partner',
-      'External Provider - Supervisor' => 'External Provider - Supervisor',
     ),
     'module' => 'node',
   );
@@ -42,11 +42,11 @@ function hwc_good_practice_exchange_user_default_permissions() {
     'name' => 'delete own document content',
     'roles' => array(
       'EU-OSHA EEN Reviewers' => 'EU-OSHA EEN Reviewers',
+      'External Provider - Supervisor' => 'External Provider - Supervisor',
       'HWC Staff - Reviewers' => 'HWC Staff - Reviewers',
       'Website Managers' => 'Website Managers',
       'administrator' => 'administrator',
       'campaign partner' => 'campaign partner',
-      'External Provider - Supervisor' => 'External Provider - Supervisor',
     ),
     'module' => 'node',
   );
@@ -63,10 +63,10 @@ function hwc_good_practice_exchange_user_default_permissions() {
     'name' => 'edit any document content',
     'roles' => array(
       'EU-OSHA EEN Reviewers' => 'EU-OSHA EEN Reviewers',
+      'External Provider - Supervisor' => 'External Provider - Supervisor',
       'HWC Staff - Reviewers' => 'HWC Staff - Reviewers',
       'administrator' => 'administrator',
       'campaign partner' => 'campaign partner',
-      'External Provider - Supervisor' => 'External Provider - Supervisor',
     ),
     'module' => 'node',
   );
@@ -76,11 +76,11 @@ function hwc_good_practice_exchange_user_default_permissions() {
     'name' => 'edit own document content',
     'roles' => array(
       'EU-OSHA EEN Reviewers' => 'EU-OSHA EEN Reviewers',
+      'External Provider - Supervisor' => 'External Provider - Supervisor',
       'HWC Staff - Reviewers' => 'HWC Staff - Reviewers',
       'Website Managers' => 'Website Managers',
       'administrator' => 'administrator',
       'campaign partner' => 'campaign partner',
-      'External Provider - Supervisor' => 'External Provider - Supervisor',
     ),
     'module' => 'node',
   );

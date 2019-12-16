@@ -188,3 +188,17 @@ function hwc_good_practice_exchange_update_7024() {
   features_revert(array('hwc_good_practice_exchange' => array('views_view')));
   features_revert(array('hwc_good_practice_exchange' => array('user_permission')));
 }
+
+/**
+ * HW20-305 Development Good practice exchange page.
+ */
+function hwc_good_practice_exchange_update_7025() {
+  $mlid = 17602;
+  $menu_link = menu_link_load($mlid);
+  $menu_link['link_path'] = 'node/3298';
+  $menu_link['router_path'] = 'node/3298';
+  menu_link_save($menu_link);
+  features_revert(array('hwc_homepage' => array('views_view')));
+  features_revert(array('osha_news' => array('views_view')));
+  features_revert_module('hwc_good_practice_exchange');
+}

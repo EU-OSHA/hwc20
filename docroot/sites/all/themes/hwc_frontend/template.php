@@ -391,7 +391,9 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case "article":
-        if ($n->nid == 179) {
+        if ($n->nid == 3298) {
+        }
+        elseif ($n->nid == 179) {
           $vars['theme_hook_suggestions'][] = 'page__press__room';
         }
         elseif ($n->nid == 164) {
