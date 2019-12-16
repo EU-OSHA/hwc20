@@ -27,26 +27,35 @@ function hwc_glossary_field_default_field_instances() {
     'entity_type' => 'taxonomy_term',
     'field_name' => 'description_field',
     'label' => 'Description',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
       'display_summary' => 0,
       'entity_translation_sync' => FALSE,
-      'hide_label' => array(
-        'entity' => FALSE,
-        'page' => FALSE,
+      'linkit' => array(
+        'button_text' => 'Zoeken',
+        'enable' => 0,
+        'profile' => '',
       ),
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
+        'maxlength_js' => '',
+        'maxlength_js_enforce' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_label_summary' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_summary' => '',
+        'maxlength_js_truncate_html' => 0,
         'rows' => 20,
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
       'weight' => 0,
     ),
+    'workbench_access_field' => 0,
   );
 
   // Exported field_instance: 'taxonomy_term-glossary-field_glossary_type'.

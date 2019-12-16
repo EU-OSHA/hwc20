@@ -62,14 +62,6 @@ function hwc_glossary_views_default_views() {
   $handler->display->display_options['sorts']['name']['id'] = 'name';
   $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['name']['field'] = 'name';
-  /* Contextual filter: Taxonomy term: Type (field_glossary_type) */
-  $handler->display->display_options['arguments']['field_glossary_type_tid']['id'] = 'field_glossary_type_tid';
-  $handler->display->display_options['arguments']['field_glossary_type_tid']['table'] = 'field_data_field_glossary_type';
-  $handler->display->display_options['arguments']['field_glossary_type_tid']['field'] = 'field_glossary_type_tid';
-  $handler->display->display_options['arguments']['field_glossary_type_tid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_glossary_type_tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_glossary_type_tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_glossary_type_tid']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
@@ -97,7 +89,6 @@ function hwc_glossary_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('All'),
     t('Page'),
   );
   $export['glossary_list'] = $view;
