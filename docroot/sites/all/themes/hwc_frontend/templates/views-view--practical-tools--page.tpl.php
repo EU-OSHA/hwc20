@@ -61,10 +61,6 @@
     </div>
   <?php endif; ?>
 
-  <?php if ($pager): ?>
-    <?php print $pager; ?>
-  <?php endif; ?>
-
   <?php if ($attachment_after): ?>
     <div class="attachment attachment-after">
       <?php print $attachment_after; ?>
@@ -75,11 +71,17 @@
     <?php print $more; ?>
   <?php endif; ?>
 
-  <?php if ($footer): ?>
-    <div class="view-footer">
-      <?php print $footer; ?>
-    </div>
-  <?php endif; ?>
+  <div class="content-pagination container">
+    <?php if ($pager): ?>
+      <?php print $pager; ?>
+    <?php endif; ?>
+
+    <?php if ($footer): ?>
+      <div class="view-footer">
+        <?php print $footer; ?>
+      </div>
+    <?php endif; ?>
+  </div>
 
   <?php if ($feed_icon): ?>
     <div class="feed-icon">
