@@ -39,9 +39,11 @@
     print render($content['body']);
     // PA Recommended resources.
     if (!empty($content['field_pa_recommended_resources']) || !empty($content['field_pa_recommended_articles'])) {
+      print '<div id="block-hwc-priority-areas" class="block block-hwc-priority-areas contextual-links-region">';
       print '<div class="dot-separator green"></div><div class="icon recommended-resources"></div>' . '<h2>' . t('Recommended resources for you') . '</h2>';
       print render($content['field_pa_recommended_resources']);
       print render($content['field_recommended_articles']);
+      print '</div>';
     }
 
     // We hide the comments and links now so that we can render them later.
