@@ -31,7 +31,7 @@ function hwc_menu_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 25,
+        'weight' => 21,
       ),
       'seven' => array(
         'region' => '',
@@ -84,14 +84,15 @@ function hwc_menu_default_fe_block_settings() {
     'node_types' => array(
       0 => 'article',
     ),
-    'pages' => '',
+    'pages' => 'node/169
+node/7328',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 26,
+        'weight' => 22,
       ),
       'seven' => array(
         'region' => '',
@@ -122,7 +123,7 @@ about-topic/t*',
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 26,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -154,7 +155,7 @@ about-topic/t*',
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 27,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -183,7 +184,36 @@ about-topic/t*',
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 1,
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 1,
+  );
+
+  $export['menu_block-7'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 7,
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
+    'module' => 'menu_block',
+    'node_types' => array(),
+    'pages' => 'about-topic/priority-areas',
+    'roles' => array(),
+    'themes' => array(
+      'hwc_frontend' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'hwc_frontend',
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
