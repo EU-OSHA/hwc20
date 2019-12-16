@@ -33,6 +33,18 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
     $this->addFieldMapping('field_tags:create_term')->defaultValue(FALSE);
     $this->addFieldMapping('field_tags', 'field_tags');
 
+    $this->addFieldMapping('field_thesaurus:source_type')->defaultValue('tid');
+    $this->addFieldMapping('field_thesaurus:create_term')->defaultValue(FALSE);
+    $this->addFieldMapping('field_thesaurus', 'field_thesaurus');
+
+    $this->addFieldMapping('field_nace_codes:source_type')->defaultValue('tid');
+    $this->addFieldMapping('field_nace_codes:create_term')->defaultValue(FALSE);
+    $this->addFieldMapping('field_nace_codes', 'field_nace_codes');
+
+    $this->addFieldMapping('field_activity:source_type')->defaultValue('tid');
+    $this->addFieldMapping('field_activity:create_term')->defaultValue(FALSE);
+    $this->addFieldMapping('field_activity', 'field_activity');
+
     $this->addFieldMapping('field_publication_type:source_type')->defaultValue('tid');
     $this->addFieldMapping('field_publication_type:create_term')->defaultValue(FALSE);
     $this->addFieldMapping('field_publication_type', 'field_publication_type');
@@ -47,6 +59,9 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
       'field_msd_priority_area:ignore_case',
       'field_priority_area:ignore_case',
       'field_tags:ignore_case',
+      'field_thesaurus:ignore_case',
+      'field_nace_codes:ignore_case',
+      'field_activity:ignore_case',
       'field_publication_type:ignore_case',
       'field_cover_image:file_class',
       'field_cover_image:preserve_files',
@@ -81,7 +96,16 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
    * {@inheritdoc}
    */
   protected function getManuallyMigratedFields() {
-    return array('field_msd_priority_area', 'field_priority_area', 'field_tags', 'field_publication_type', 'field_aditional_resources');
+    return array(
+      'field_msd_priority_area',
+      'field_priority_area',
+      'field_tags',
+      'field_thesaurus',
+      'field_nace_codes',
+      'field_activity',
+      'field_publication_type',
+      'field_aditional_resources',
+    );
   }
 
   /**
@@ -105,6 +129,10 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
     $row->field_msd_priority_area = $row->field_msd_priority_areas;
     $row->field_msd_priority_area = osha_migration_normalize_migrated_term_reference($row->field_msd_priority_area, 'tax_msd_priority_area');
     $row->field_priority_area = osha_migration_normalize_migrated_term_reference($row->field_priority_area, 'tax_priority_area');
+
+    $row->field_thesaurus = osha_migration_normalize_migrated_term_reference($row->field_thesaurus, 'tax_thesaurus');
+    $row->field_nace_codes = osha_migration_normalize_migrated_term_reference($row->field_nace_codes, 'tax_nace_codes');
+    $row->field_activity = osha_migration_normalize_migrated_term_reference($row->field_activity, 'tax_activity');
     if (empty($row->field_publication_type)) {
       watchdog(
         'ncw_migration',
@@ -186,6 +214,7 @@ class NCWPublicationsSource extends AbstractNCWNodeSource {
       'body_summary',
       'body_format',
       'field_archived',
+      'field_banner_publications_office',
       'field_author',
       'field_author_language',
       'field_character_count',
@@ -204,6 +233,9 @@ class NCWPublicationsSource extends AbstractNCWNodeSource {
       'field_publication_date_value2',
       'field_publication_related_res',
       'field_publication_related_res_language',
+      'field_thesaurus',
+      'field_nace_codes',
+      'field_activity',
       'field_publication_type',
       'field_priority_area',
       'field_msd_priority_area',

@@ -1,4 +1,20 @@
 <?php
+class NCWTaxonomyThesaurusMigration extends AbstractNCWTaxonomyTermMigration {
+
+  public function __construct($arguments) {
+    parent::__construct($arguments, 'SimpleNCWTaxonomyTermSource', 'thesaurus');
+    $this->description = 'Import taxonomy "thesaurus" from NCW';
+  }
+}
+
+class NCWTaxonomyActivityMigration extends AbstractNCWTaxonomyTermMigration {
+
+  public function __construct($arguments) {
+    parent::__construct($arguments, 'SimpleNCWTaxonomyTermSource', 'activity');
+    $this->description = 'Import taxonomy "activity" from NCW';
+  }
+}
+
 class NCWTaxonomyHazardsMigration extends AbstractNCWTaxonomyTermMigration {
 
   public function __construct($arguments) {

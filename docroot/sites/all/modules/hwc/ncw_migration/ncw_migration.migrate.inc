@@ -31,6 +31,16 @@ function ncw_migration_migrate_api() {
         'dependencies' => array(),
         'class_name' => 'NCWGalleryMigration',
       ),
+      'tax_activity' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array(),
+        'class_name' => 'NCWTaxonomyActivityMigration',
+      ),
+      'tax_thesaurus' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array(),
+        'class_name' => 'NCWTaxonomyThesaurusMigration',
+      ),
       'tax_hazards' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),
