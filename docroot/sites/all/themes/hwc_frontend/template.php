@@ -444,6 +444,9 @@ function hwc_frontend_preprocess_page(&$vars) {
   if (arg(0) . arg(1) . arg(2) == 'tools-and-publicationspublications') {
     $vars['theme_hook_suggestions'][] = 'page__publications';
   }
+  if (arg(0) . arg(1) == 'tools-and-publicationspractical-tools') {
+    $vars['theme_hook_suggestions'][] = 'page__practical__tools';
+  }
   $vars['back_to_pz'] = '';//hwc_partner_back_to_private_zone();
   $vars['page']['content']['#post_render'] = ['hwc_content_post_render'];
   if (drupal_is_front_page()) {
