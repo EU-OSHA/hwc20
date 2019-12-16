@@ -241,6 +241,7 @@ article .hwc-share-widget ul{
 
 #edit-field-priority-area > div > label{
     font-size: 1.8rem;
+    color: #003399 !important;
 }
 
 a.chosen-single{
@@ -262,13 +263,27 @@ a.chosen-single{
 }
 
 
-.form-item-main-tags > label.active:after, .form-item-field-publication-type > label.active:after, .form-item-language > label.active:after, .form-item-field-priority-area > label.active:after, .form-item-relevant-for > label.active:after, .form-item-languages > label.active:after, .form-item-publication-type > label.active:after{
+.form-item-main-tags > label.active:after, 
+.form-item-field-publication-type > label.active:after, 
+.form-item-language > label.active:after, 
+.form-item-field-priority-area > label.active:after, 
+.form-item-relevant-for > label.active:after, 
+.form-item-languages > label.active:after, 
+.form-item-publication-type > label.active:after
+.form-item-field-msd-priority-area > label.active:after{
     color: #c1e000;
     padding-top: 2px;
 }
 
 
-.form-item-main-tags > label:after, .form-item-field-publication-type > label:after, .form-item-language > label:after, .form-item-field-priority-area > label:after, .form-item-relevant-for > label:after, .form-item-languages > label:after, .form-item-publication-type > label:after{
+.form-item-main-tags > label:after, 
+.form-item-field-publication-type > label:after, 
+.form-item-language > label:after, 
+.form-item-field-priority-area > label:after, 
+.form-item-relevant-for > label:after, 
+.form-item-languages > label:after, 
+.form-item-publication-type > label:after,
+.form-item-field-msd-priority-area > label:after{
     color: #c1e000;
     padding-top: 2px;
 }

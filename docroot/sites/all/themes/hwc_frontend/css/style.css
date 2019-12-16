@@ -8890,7 +8890,8 @@ div[class*='view-'] .field-name-field-summary {
 .form-item-relevant-for,
 .form-item-field-publication-type,
 .form-item-field-priority-area,
-.form-item-languages {
+.form-item-languages,
+.form-item-field-msd-priority-area {
   margin-top: 0;
   padding-top: 10px;
   margin-bottom: 0px;
@@ -8902,7 +8903,8 @@ div[class*='view-'] .field-name-field-summary {
 .form-item-relevant-for .checkbox:last-child,
 .form-item-field-publication-type .checkbox:last-child,
 .form-item-field-priority-area .checkbox:last-child,
-.form-item-languages .checkbox:last-child {
+.form-item-languages .checkbox:last-child,
+.form-item-field-msd-priority-area .checkbox:last-child {
   margin-bottom: 10px;
 }
 .form-item-main-tags > label,
@@ -8911,7 +8913,8 @@ div[class*='view-'] .field-name-field-summary {
 .form-item-field-priority-area > label,
 .form-item-relevant-for > label,
 .form-item-languages > label,
-.form-item-publication-type > label {
+.form-item-publication-type > label,
+.form-item-field-msd-priority-area > label {
   font-size: 1.1em;
   font-weight: bold;
   width: 100%;
@@ -8925,7 +8928,8 @@ div[class*='view-'] .field-name-field-summary {
 .form-item-field-priority-area > label:after,
 .form-item-relevant-for > label:after,
 .form-item-languages > label:after,
-.form-item-publication-type > label:after {
+.form-item-publication-type > label:after,
+.form-item-field-msd-priority-area > label:after {
   content: "\e250";
   font-family: "Glyphicons Halflings";
   margin-left: 10px;
@@ -8937,7 +8941,8 @@ div[class*='view-'] .field-name-field-summary {
 .form-item-field-priority-area > label.active:after,
 .form-item-relevant-for > label.active:after,
 .form-item-languages > label.active:after,
-.form-item-publication-type > label.active:after {
+.form-item-publication-type > label.active:after,
+.form-item-field-msd-priority-area > label.active:after {
   content: "\e252";
   font-family: "Glyphicons Halflings";
   margin-left: 10px;
