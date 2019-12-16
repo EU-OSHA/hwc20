@@ -340,6 +340,9 @@ jQuery(document).ready(function() {
 	jQuery(".form-item-publication-type > label").click(function() {
 		jQuery(this).toggleClass("active");
 	});
+	jQuery(".form-item-field-msd-priority-area > label").click(function() {
+		jQuery(this).toggleClass("active");
+	});
 
 	/*filters of list dropdown*/
 	if(jQuery(".form-item-main-tags div").is(':visible')){
@@ -362,6 +365,9 @@ jQuery(document).ready(function() {
 	};
 	if(jQuery(".form-item-publication-type div").is(':visible')){
 		jQuery(".form-item-publication-type > label").addClass("active");
+	};
+	if(jQuery(".form-item-field-msd-priority-area div").is(':visible')){
+		jQuery(".form-item-field-msd-priority-area > label").addClass("active");
 	};
 
 	/*Private zone hover effect menu*/
@@ -547,15 +553,24 @@ jQuery(document).ready(function($) {
       $("#edit-field-priority-area .form-checkboxes").slideUp(200);
     }
   });
+  $("#edit-field-msd-priority-area > div > label").on("click", function() {
+    if ($(this).hasClass("active")) {
+      $("#edit-field-msd-priority-area .form-checkboxes").slideDown(200);
+    }else{
+      $("#edit-field-msd-priority-area .form-checkboxes").slideUp(200);
+    }
+  });
 
    if (jQuery(window).width() < 1200) {
    	$("#edit-main-tags > div > label").removeClass('active');
    	$("#edit-field-publication-type > div > label").removeClass('active');
    	$("#edit-field-priority-area > div > label").removeClass('active');
+   	$("#edit-field-msd-priority-area > div > label").removeClass('active');
 
    	$("#edit-main-tags .form-checkboxes").css('display' , 'none');
    	$("#edit-field-publication-type .form-checkboxes").css('display' , 'none');
    	$("#edit-field-priority-area .form-checkboxes").css('display' , 'none');
+   	$("#edit-field-msd-priority-area .form-checkboxes").css('display' , 'none');
    }
 
    	//Add two-column class when European Week has Events

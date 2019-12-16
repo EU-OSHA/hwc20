@@ -156,10 +156,9 @@ body .btn-primary:hover {
   margin-top: 1em;
 }
 select {
-  -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  -webkit-appearance: button;
+  -webkit-appearance: none;
 }
 .main-container.container {
   padding-bottom: 2em;
@@ -775,7 +774,7 @@ ul.time-and-counters li .counter-label {
   padding-top: 2em;
   border-bottom: 0;
   font-size: 1.7em;
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
   color: #dee999;
 }
@@ -917,7 +916,7 @@ ul.time-and-counters li .counter-label {
 }
 .news-item .news-item-content .title-news {
   font-size: 1.2em;
-  font-style: italic;
+  font-style: normal;
   color: #003399;
 }
 .news-item .news-item-content .summary-news {
@@ -1542,7 +1541,7 @@ aside.col-md-3 .region.region-sidebar-first.well {
 .previous span:nth-child(1) {
   color: #003399;
   font-size: 18px;
-  font-style: italic;
+  font-style: normal;
 }
 .previous span:nth-child(2) {
   font-size: 12px;
@@ -1561,7 +1560,7 @@ aside.col-md-3 .region.region-sidebar-first.well {
 .next span:nth-child(1) {
   color: #003399;
   font-size: 18px;
-  font-style: italic;
+  font-style: normal;
 }
 .next span:nth-child(2) {
   font-size: 12px;
@@ -1626,7 +1625,7 @@ aside.col-md-3 .region.region-sidebar-first.well {
   font-weight: bold;
   line-height: 18px;
   text-decoration: none;
-  font-style: italic;
+  font-style: normal;
 }
 .box-latest-publications h2 a:hover {
   text-decoration: underline;
@@ -1666,7 +1665,7 @@ aside.col-md-3 .region.region-sidebar-first.well {
   padding: 0em 1em 0 1em;
   border: 1px solid #B0B2B3;
   border-radius: 5px;
-  margin-top: 26px;
+  margin-top: 0;
   width: 100%;
   background: #FFF;
 }
@@ -2109,12 +2108,17 @@ div.publications-detail-right-column > a.download {
   font-size: 0.9em !important;
 }
 #edit-field-publication-type > div > label,
-#edit-main-tags > div > label {
+#edit-main-tags > div > label,
+#edit-field-msd-priority-area > div > label {
   font-size: 1.8rem;
   color: #003399 !important;
 }
 #edit-field-publication-type .form-checkboxes,
-#edit-main-tags .form-checkboxes {
+#edit-main-tags .form-checkboxes,
+#edit-field-msd-priority-area .form-checkboxes {
+  padding-top: 10px;
+}
+#edit-field-priority-area--2 {
   padding-top: 10px;
 }
 input[type=checkbox] + label {
@@ -2200,7 +2204,7 @@ html[lang=pt] #edit-search-api-views-fulltext {
 .page-publications .sidebars_first,
 .page-events .sidebars_first {
   border-top: 0;
-  margin-top: 37px;
+  margin-top: 63px;
   margin-right: 0em;
 }
 .no-results .contextual-links-region {
@@ -2341,7 +2345,7 @@ span.pages {
 }
 .publication-detail h2 {
   color: #003399;
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
   padding-top: 1em;
   clear: both;
@@ -2582,7 +2586,7 @@ span.pages {
 }
 .page-media-centre-news .main-container #block-system-main .view .views-row h2 a,
 .page-search .main-container #block-system-main .view .views-row h2 a {
-  font-style: italic;
+  font-style: normal;
   font-size: 2.1rem;
   font-weight: normal;
   padding-top: 0;
@@ -2605,7 +2609,7 @@ span.pages {
 }
 .page-media-centre-news .main-container #block-system-main .view .views-row .views-field-title-field span a,
 .page-search .main-container #block-system-main .view .views-row .views-field-title-field span a {
-  font-style: italic;
+  font-style: normal;
   font-size: 2.1rem;
   font-weight: normal;
   padding-top: 0.6em;
@@ -3038,7 +3042,7 @@ div.workbench-info-block {
 }
 .page-campaign-partners-campaign-media-partners .hwc-alphabet-container a,
 .page-campaign-partners-enterprise-europe-network .hwc-alphabet-container a {
-  font-style: italic;
+  font-style: normal;
 }
 .page-campaign-partners-campaign-media-partners .col-md-2.col-sm-3.col-xs-6,
 .page-campaign-partners-enterprise-europe-network .col-md-2.col-sm-3.col-xs-6 {
@@ -3106,7 +3110,7 @@ div.workbench-info-block {
 }
 .panels-flexible-column-first .pane-node-field-mission-statement .pane-content {
   padding: 10px 20px 20px 20px;
-  font-style: italic;
+  font-style: normal;
   color: #FFF;
 }
 .panels-flexible-row .hwc-share-widget {
@@ -3379,7 +3383,7 @@ body.ocp .box-type-partner .pane-content {
   padding: 1em;
   padding-left: 1em;
   padding-right: 1em;
-  font-style: italic;
+  font-style: normal;
   color: #FFF;
 }
 body.ocp .box-type-partner .field-name-field-ceo-photo {
@@ -3972,6 +3976,7 @@ body.een .box-type-partner {
   font-size: 1em;
   text-align: left;
   padding-left: 10px;
+  padding-right: 10px;
   color: #0030a0;
   /*HW20-175 Become a Campaign Partner - The title of the text in boxes should be bold*/
   font-weight: bold;
@@ -4104,7 +4109,7 @@ body.een .box-type-partner {
   border-radius: 7px;
   padding: 1em 0 1em 1em;
   float: right;
-  margin-top: 34px;
+  margin-top: 18px;
   width: 288px;
   margin-bottom: 3em;
 }
@@ -4928,6 +4933,7 @@ body.european-week .region-sidebar-second #block-views-frontpage-events-press-ro
   float: left;
   margin-top: 1em;
   padding-bottom: 1em;
+  width: 100%;
 }
 body.press-room .region-sidebar-second #block-views-frontpage-events-press-room h2.block-title,
 body.european-week .region-sidebar-second #block-views-frontpage-events-press-room h2.block-title {
@@ -5070,6 +5076,9 @@ body.european-week #block-hwc-european-week-news-events {
   padding-top: 3em;
   padding-bottom: 1em;
   border-radius: 0;
+}
+body.european-week #block-hwc-european-week-news-events .view-frontpage-events .more-link {
+  background: transparent;
 }
 body.european-week #block-views-news-european-week {
   padding-bottom: 0;
@@ -5401,7 +5410,7 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 }
 .profile-edit-links-container .pane-node-profile-update-link .pane-content a.hwc-partner-private-link-block-title:first-child {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   margin-bottom: 15px;
 }
 .profile-edit-links-container .pane-node-profile-update-link .pane-content a.hwc-partner-private-link-block-title:first-child:before {
@@ -5525,14 +5534,14 @@ body.newsletter .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters
 }
 body.newsletter .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .more_newsletters,
 body.newsletter .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .less_newsletters {
-  background: url(../images/ico-plus-20.png) no-repeat 98.5% 2px #0030a0;
+  background: url(../images/ico-plus-20.png) no-repeat 97.5% 3px #0030a0;
   text-transform: uppercase;
   color: #FFF;
   border-top-left-radius: 7px;
   border-bottom-left-radius: 7px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  padding: 3px 3.5em 4px 0.7em;
+  padding: 3px 3.5em 3px 0.7em;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -5544,7 +5553,7 @@ body.newsletter .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters
 body.newsletter .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .more_newsletters:hover,
 body.newsletter .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .less_newsletters:hover {
   color: #FFF;
-  background: url(../images/ico-plus-20-hover.png) no-repeat 98.5% 2px #8fc900;
+  background: url(../images/ico-next-20-white-hover.png) no-repeat 97.5% 3px #acc700;
   text-decoration: none;
 }
 body.newsletter .pane-osha-newsletter-osha-newsletter-latest #latest-newsletters-block .more_newsletters:before,
@@ -6429,6 +6438,7 @@ body.page-tools-and-publications-publications .slider--video--section .slider--v
   background: #daea96;
   height: 100%;
   cursor: pointer;
+  border: 0;
 }
 body.page-tools-and-publications-publications .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary:hover img {
   opacity: 0.8;
@@ -6477,6 +6487,105 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
 }
 .view-flickr-albums .view-content .gallery-row .views-field-field-flickr {
   height: 240px;
+}
+/* Priority aread list - detail */
+.view-msd-priority-areas .view-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.view-msd-priority-areas .view-content .views-row {
+  float: left;
+  width: 23.7%;
+  margin-right: 0.7em;
+  margin-bottom: 3em;
+}
+.view-msd-priority-areas .view-content .views-row .views-field-title {
+  font-family: 'Open Sans', sans-serif;
+  color: #003399;
+  font-size: 1.1em !important;
+  margin: 0;
+  clear: both;
+  line-height: 20px;
+  padding: 10px;
+  font-weight: bold;
+  font-style: normal;
+  padding-left: 0;
+  letter-spacing: 0;
+}
+.node-type-priority-area .region-content .block-hwc-priority-areas {
+  background: #eceaea;
+  float: left;
+}
+.node-type-priority-area .region-content .block-hwc-priority-areas .field-name-title-field div div {
+  color: #003399;
+  font-size: 1.8rem;
+  padding-bottom: 5px;
+}
+.node-type-priority-area .region-content .block-hwc-priority-areas ul {
+  list-style: none;
+  padding: 0 1em 1em 1em;
+  text-align: center;
+}
+.node-type-priority-area .region-content .block-hwc-priority-areas ul li {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background: url(../images/green-line.png) repeat-x;
+}
+.node-type-priority-area .region-content .block-hwc-priority-areas .more-link {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: transparent;
+}
+.node-type-priority-area .region-content .block-hwc-priority-areas .more-link a {
+  margin-top: 0em;
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+.node-type-priority-area .region-content #block-hwc-priority-areas {
+  background: #FFF;
+  margin-top: 2em;
+}
+.node-type-priority-area .region-content #block-hwc-priority-areas > div.field.field-name-field-pa-recommended-resources.field-type-entityreference.field-label-hidden > div > div:nth-child(1) > div > div.content {
+  background: none;
+}
+.node-type-priority-area .region-content #block-hwc-priority-areas .node-news .content {
+  background: url(../images/green-line.png) repeat-x;
+  padding-top: 1em;
+}
+.node-type-priority-area .region-content #block-hwc-priority-areas .node-news h2 {
+  color: #003399;
+  font-size: 1.8rem;
+  padding-bottom: 5px;
+  font-weight: normal;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.node-type-priority-area .region-content #block-hwc-priority-areas .node-news .field.field-name-field-image {
+  width: auto;
+  min-height: 90px;
+  margin-right: 0;
+}
+.node-type-priority-area .region-content #block-hwc-priority-areas .node-news a.more-link {
+  justify-content: left;
+}
+.node-type-priority-area .region-content h2.block-title {
+  float: left;
+  width: 100%;
+  background: url(../images/background-newsletter-300.png) no-repeat;
+  color: #FFF;
+  font-size: 2.5rem;
+  padding: 0.5em;
+  text-align: center;
+}
+.node-type-priority-area .region-content .content {
+  margin-top: 0;
+}
+.node-type-priority-area .region-content .previous-next.two-arrows {
+  margin-top: 3em;
+  float: left;
+  width: 100%;
 }
 .isMobile {
   float: right !important;
