@@ -338,7 +338,9 @@ body > div.main-container > div > aside > div > div:nth-child(2){
 
 .facetapi-facetapi-checkbox-links.facetapi-facet-field-priority-area.facetapi-processed.no-margin-bottom, 
 #facetapi-facet-search-apidefault-multilingual-node-index-block-type,
-#facetapi-facet-search-apidefault-multilingual-node-index-block-language{
+#facetapi-facet-search-apidefault-multilingual-node-index-block-language,
+#facetapi-facet-search-apidefault-multilingual-node-index-block-field-sector-industry-covered,
+#facetapi-facet-search-apidefault-multilingual-node-index-block-field-available-in-languagesvalue{
     padding-top: 10px;
 }
 

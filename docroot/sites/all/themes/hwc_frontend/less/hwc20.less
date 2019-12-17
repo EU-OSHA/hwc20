@@ -1585,13 +1585,31 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 aside.col-md-3{
 	.region.region-sidebar-first.well{
 		padding: 0;
+		h2.block-title{
+			font-size: 1.4rem;
+			padding: 10px 15px !important;
+		    display: block;
+		    margin-bottom: 15px;
+		    border-radius: 3px;
+		    text-decoration: none;
+		    cursor: pointer;
+		    color: white;
+		    font-weight: bold;
+		    background-color: #0030a0;
+		    border-radius: 25px;
+		    padding: 0.5em 0.5em;
+		    margin-bottom: 0.5em;
+		    padding-left: 1em;
+		    padding-right: 30px;
+		    position: relative;
+		}
 	}
 }
 
 .left-menu ul{
 	list-style: none;
 	li{
-		background-color: #daea96;
+		background-color: #ecf4cb;
 	  	border-top-right-radius: 18px;
 	  	border-bottom-right-radius: 18px;
 	  	border-top-left-radius: 18px;
@@ -1630,6 +1648,91 @@ aside.col-md-3{
 	    }
     }
   }
+  li.expanded{
+  	background-color: transparent;
+  	padding: 0;
+  	margin-bottom: 0;
+  	a{
+  		background: #ecf4cb;
+    	border-radius: 25px;
+    	padding: 8px 23px;
+    	color: #003399;
+    	margin-bottom: 15px;
+    	&:before{
+    		content: "\e252";
+		    font-family: "Glyphicons Halflings";
+		    float: right;
+		    vertical-align: middle;
+		    color: #003399;
+		    background-color: transparent;
+		    top: 10px;
+   			right: 13px;
+    	}
+  	}
+  	a.active{
+  		background: #daea96;
+  	}
+  	ul.menu{
+  		li{
+  			padding: 0;
+  			background-color: transparent;
+  			a{
+  				width: 90%;
+  				margin-left: 25px;
+  				margin-bottom: 0;
+  				&:before{
+    				content: none;
+    			}
+  			}
+  		}
+  	}
+  }
+
+  li.expanded.active a.active-trail{
+	background: #daea96;
+  }
+
+  li.active ul li a:before{
+  	content: none;
+  }
+
+  li.active ul li.active a:before{
+  		content: '';
+		width: 15px;
+		height: 15px;
+		border-radius: 10px;
+		background: #003399;
+		position: absolute;
+		right: 14px;
+    	top: 10px;
+  }
+}
+
+
+.node-type-campaign-16, .node-type-campaign-18{
+	.left-menu ul li.expanded ul.menu li {
+	    background-color: #ecf4cb;
+	  	border-top-right-radius: 18px;
+	  	border-bottom-right-radius: 18px;
+	  	border-top-left-radius: 18px;
+	  	border-bottom-left-radius: 18px;
+	  	padding: 0.5em 0.8em 0.5em 1.5em;
+	  	margin-bottom: 1em;
+	  	width: 100%;
+	}
+
+	.left-menu ul li.expanded ul.menu li a {
+		width: 100%;
+		margin-left: 0;
+	}
+
+	.left-menu ul li.expanded.active a.active-trail {
+    	background: transparent;
+	}
+
+	.accordion-menu .menu-level-2 ul li ul li.active {
+	    background-color: #daea96;
+	}
 }
 
 #block-menu-block-5{
@@ -3093,7 +3196,7 @@ span.pages{
 			-webkit-appearance: none;
 			-moz-appearance: none;
 			appearance: none;
-			-webkit-appearance: button;
+			-webkit-appearance: none;
 			background: url(../images/green-select.png) no-repeat 94% 55% #ffffff;
 			border-radius: 5px !important;
 			width: 100%!important;
@@ -7606,6 +7709,62 @@ body.page-tools-and-publications-publications{
 			float: left;
 			width: 100%;
 		}
-	}
-	
+	}	
 }
+
+
+
+/*Pratical tools*/
+body.page-tools-and-publications-practical-tools{
+	.region.region-content{
+		.view-content{
+			.views-row{
+				.views-field-body{
+					padding-bottom: 35px;
+				}
+			}
+		}
+	}
+}
+
+
+/* Glossary */
+.page-about-topic-glossary-list{
+	#glossary-letters{
+		float: left;
+		clear: both;
+    	width: 100%;
+    	border-top: 2px solid #bcd75b;
+    	border-bottom: 2px solid #bcd75b;
+    	padding: 1em;
+    	margin-bottom: 2em;
+    	span{
+			display: block;
+			float: left;
+			padding-right: 1em;
+    	}
+	}
+
+	.content-term{
+		.glossary_letter{
+			color: #003399;
+			font-size: 2rem;
+			font-weight: 900;
+			hr {
+			    margin-top: -9px;
+			    margin-bottom: 17px;
+			    border: 0;
+			    border-top: 1px solid #a7a6a6;
+			    margin-left: 30px;
+			}
+		}
+		.term-title{
+			color: #003399;
+		}
+		.term-description{
+			padding-bottom: 1em;
+		}
+	}
+}
+
+
