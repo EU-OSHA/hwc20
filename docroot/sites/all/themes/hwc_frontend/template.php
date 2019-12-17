@@ -244,6 +244,9 @@ function hwc_frontend_preprocess_html(&$vars) {
         break;
 
       case "article":
+        if ($n->nid == 3298) {
+          $vars['classes_array'][] = 'good-practice-exchange';
+        }
         if ($n->nid == 179) {
           $vars['classes_array'][] = 'press-room';
         }
