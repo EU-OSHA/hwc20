@@ -1391,7 +1391,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 aside.col-md-3 .region.region-sidebar-first.well {
   padding: 0;
 }
-aside.col-md-3 .region.region-sidebar-first.well h2.block-title {
+aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.block-title {
   font-size: 1.4rem;
   padding: 10px 15px !important;
   display: block;
@@ -1775,12 +1775,6 @@ aside.col-md-3 .region.region-sidebar-first.well h2.block-title {
 .filters-header.subtitle {
   font-size: 0.9rem;
   font-weight: bold !important;
-}
-.page-publications .views-exposed-form,
-.page-tools-and-publications .views-exposed-form {
-  padding-bottom: 2em;
-  border-bottom: 1px solid #003399;
-  margin-bottom: 2em;
 }
 .page-publications .views-exposed-widget,
 .page-tools-and-publications .views-exposed-widget,
@@ -2779,9 +2773,6 @@ body.good-practice-exchange .footer {
 .page-search .search-sidebar-left {
   padding-top: 11px;
 }
-.page-search .region-sidebar-first .block.block-facetapi h2:after {
-  color: #c1e000;
-}
 .page-search .main-container #block-system-main .view .views-row .field-name-body {
   padding-bottom: 1em;
 }
@@ -2821,11 +2812,6 @@ body.good-practice-exchange .footer {
 }
 .page-search .region-sidebar-first #block-osha-search-osha-search-clear-filters .clear-wrapper > a {
   border-bottom: 0;
-}
-.page-search .region-sidebar-first .block.block-facetapi h2 {
-  font-size: 1.8rem;
-  color: #003399 !important;
-  font-weight: normal !important;
 }
 .page-search .views-widget-sort-by > .form-item-sort-by > label:after {
   content: '';
@@ -6688,6 +6674,68 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
 body.page-tools-and-publications-practical-tools .region.region-content .view-content .views-row .views-field-body {
   padding-bottom: 35px;
 }
+body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .views-exposed-widget {
+  width: 32.1%!important;
+  padding: .5em 0em 0 0;
+}
+body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .views-exposed-widget .form-select {
+  width: 100% !important;
+  min-height: 34px;
+  height: auto;
+  border-radius: 5px;
+}
+body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .views-exposed-widget .form-select .search-field {
+  display: none;
+}
+body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .views-exposed-widget .form-select .chosen-choices li.search-choice {
+  margin-top: 0;
+  box-shadow: 0 0 0 white inset, 0 0 0 rgba(0, 0, 0, 0.05);
+  background: transparent;
+  border: 0;
+  padding: 2px 20px 0 0;
+}
+body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .views-widget-sort-by {
+  margin-right: 0;
+}
+body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .views-widget-sort-order {
+  display: none;
+}
+body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters #edit-field-available-in-languages-value-wrapper {
+  margin-right: 0;
+  margin-left: 1em;
+  float: right;
+}
+body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters #edit-search-api-views-fulltext {
+  width: 100% !important;
+  margin-top: 30px;
+}
+body.page-tools-and-publications-practical-tools .view-practical-tools .view-header h2 {
+  font-weight: 500;
+  padding-bottom: 0.7em;
+}
+body.page-tools-and-publications-practical-tools .view-practical-tools .view-header h2 span {
+  font-size: 0.7em;
+  padding-left: 5px;
+}
+body.page-tools-and-publications-practical-tools .view-practical-tools .view-content .views-row .views-field-title-field a {
+  padding-bottom: 10px;
+}
+body.page-tools-and-publications-practical-tools .view-practical-tools .view-content .views-row span.views-label {
+  color: #003399;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  border: 1px solid #c1e000;
+  border-radius: 5px;
+  padding: 2px 10px;
+  margin-right: 8px;
+  margin-left: 3em;
+}
+body.page-tools-and-publications-practical-tools .view-practical-tools .view-content .views-row span.views-label.first {
+  margin-left: 0;
+}
+body.page-tools-and-publications-practical-tools .view-practical-tools .view-content .views-row .views-field-body {
+  padding-top: 15px;
+}
 /* Glossary */
 .page-about-topic-glossary-list #glossary-letters {
   float: left;
@@ -6933,6 +6981,52 @@ body.page-tools-and-publications-practical-tools .region.region-content .view-co
 }
 #block-hwc-good-practice-exchange-gpe-news-events .view-frontpage-events .content-event {
   padding-top: 8px;
+}
+.region-sidebar-first .block.block-facetapi {
+  clear: both;
+  width: 100%;
+  border: 1px solid #B0B2B3;
+  background: #FFF;
+  float: left;
+  padding: 0.8em;
+  border-radius: 5px;
+  margin-top: 31px;
+}
+.region-sidebar-first .block.block-facetapi h2 {
+  font-size: 1.8rem;
+  color: #003399;
+  font-weight: normal;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+.region-sidebar-first .block.block-facetapi h2:after {
+  color: #c1e000;
+  content: "\e250";
+  font-family: "Glyphicons Halflings";
+  margin-left: 10px;
+  float: right;
+}
+.region-sidebar-first .block.block-facetapi h2.area-shown:after {
+  content: "\e252";
+  font-family: "Glyphicons Halflings";
+  margin-left: 10px;
+  float: right;
+}
+.region-sidebar-first .block.block-facetapi li.leaf {
+  display: flex;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links {
+  padding-top: 10px;
+  padding-left: 0;
+}
+.region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links a {
+  color: #59595A;
+  padding-left: 5px;
+}
+.region-sidebar-first .block.block-facetapi #facetapi-facet-search-apidefault-multilingual-node-index-block-field-priority-area {
+  padding-top: 0;
 }
 .isMobile {
   float: right !important;
