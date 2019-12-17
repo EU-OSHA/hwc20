@@ -28,16 +28,94 @@ function hwc_practical_tool_views_default_views() {
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
+  $handler->display->display_options['exposed_form']['options']['bef'] = array(
+    'general' => array(
+      'input_required' => 0,
+      'text_input_required' => array(
+        'text_input_required' => array(
+          'value' => 'Select any filter and click on Apply to see results',
+          'format' => 'audio_visual',
+        ),
+      ),
+      'allow_secondary' => 0,
+      'secondary_label' => 'Advanced options',
+      'secondary_collapse_override' => '0',
+    ),
+    'sort' => array(
+      'bef_format' => 'default',
+      'advanced' => array(
+        'collapsible' => 0,
+        'collapsible_label' => 'Sort options',
+        'combine' => 0,
+        'combine_param' => 'sort_bef_combine',
+        'combine_rewrite' => '',
+        'reset' => 0,
+        'reset_label' => '',
+        'is_secondary' => 0,
+        'autosubmit' => 0,
+      ),
+    ),
+    'search_api_views_fulltext' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'autosubmit' => 0,
+        'is_secondary' => 0,
+        'any_label' => '',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+    'field_available_in_languages_value' => array(
+      'bef_format' => 'default',
+      'slider_options' => array(
+        'bef_slider_min' => '0',
+        'bef_slider_max' => '99999',
+        'bef_slider_step' => '1',
+        'bef_slider_animate' => '',
+        'bef_slider_orientation' => 'horizontal',
+      ),
+      'more_options' => array(
+        'autosubmit' => 0,
+        'is_secondary' => 0,
+        'any_label' => '',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+  );
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Header: Global: Result summary */
   $handler->display->display_options['header']['result']['id'] = 'result';
   $handler->display->display_options['header']['result']['table'] = 'views';
   $handler->display->display_options['header']['result']['field'] = 'result';
-  $handler->display->display_options['header']['result']['content'] = 'Showing @start - @end from @total';
+  $handler->display->display_options['header']['result']['content'] = '@total';
+  /* Footer: Global: Result summary */
+  $handler->display->display_options['footer']['result']['id'] = 'result';
+  $handler->display->display_options['footer']['result']['table'] = 'views';
+  $handler->display->display_options['footer']['result']['field'] = 'result';
+  $handler->display->display_options['footer']['result']['content'] = '<div class="pager-total"><span>@start - @end / @total</span></div>';
   /* No results behavior: Global: Unfiltered text */
   $handler->display->display_options['empty']['area_text_custom']['id'] = 'area_text_custom';
   $handler->display->display_options['empty']['area_text_custom']['table'] = 'views';
@@ -72,7 +150,7 @@ function hwc_practical_tool_views_default_views() {
   $handler->display->display_options['fields']['field_material_country']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['field_material_country']['view_mode'] = 'full';
   $handler->display->display_options['fields']['field_material_country']['bypass_access'] = 0;
-  /* Field: Indexed Multilingual Content: Languages */
+  /* Field: Indexed Multilingual Content: Available in languages */
   $handler->display->display_options['fields']['field_available_in_languages']['id'] = 'field_available_in_languages';
   $handler->display->display_options['fields']['field_available_in_languages']['table'] = 'search_api_index_default_multilingual_node_index';
   $handler->display->display_options['fields']['field_available_in_languages']['field'] = 'field_available_in_languages';
@@ -133,10 +211,10 @@ function hwc_practical_tool_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="av-type">
-[field_item_type]
-[field_material_country]
-<span class="views-label">Language: </span><span>[field_available_in_languages]</span>
-[field_msd_provider]
+<span class="views-label first">Type</span><span>[field_item_type]</span>
+<span class="views-label">Country</span>[field_material_country]</span>
+<span class="views-label">Language</span><span>[field_available_in_languages]</span>
+<span class="views-label">Provider</span><span>[field_msd_provider]</span>
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Field: Indexed Multilingual Content: The main body text */
@@ -160,7 +238,7 @@ function hwc_practical_tool_views_default_views() {
     'trim_preserve_tags' => '',
     'field_formatter_class' => '',
   );
-  /* Sort criterion: Indexed Multilingual Content: Date of Publication / Year  */
+  /* Sort criterion: Indexed Multilingual Content: Year of publication */
   $handler->display->display_options['sorts']['field_publication_year']['id'] = 'field_publication_year';
   $handler->display->display_options['sorts']['field_publication_year']['table'] = 'search_api_index_default_multilingual_node_index';
   $handler->display->display_options['sorts']['field_publication_year']['field'] = 'field_publication_year';
@@ -244,7 +322,7 @@ function hwc_practical_tool_views_default_views() {
     'current' => 'current',
   );
   $handler->display->display_options['filters']['search_api_language_1']['group'] = 2;
-  /* Filter criterion: Languages: ISO 639 code (indexed) */
+  /* Filter criterion: Available in languages: ISO 639 code (indexed) */
   $handler->display->display_options['filters']['field_available_in_languages_value']['id'] = 'field_available_in_languages_value';
   $handler->display->display_options['filters']['field_available_in_languages_value']['table'] = 'search_api_index_default_multilingual_node_index';
   $handler->display->display_options['filters']['field_available_in_languages_value']['field'] = 'field_available_in_languages_value';
@@ -286,6 +364,9 @@ function hwc_practical_tool_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
+    t('Select any filter and click on Apply to see results'),
+    t('Advanced options'),
+    t('Sort options'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
@@ -293,7 +374,8 @@ function hwc_practical_tool_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('Showing @start - @end from @total'),
+    t('@total'),
+    t('<div class="pager-total"><span>@start - @end / @total</span></div>'),
     t('No results'),
     t('Multilingual ID'),
     t('<span class="views-label">Country: </span><span>[field_material_country]</span>'),
@@ -301,10 +383,10 @@ function hwc_practical_tool_views_default_views() {
     t('<span class="views-label">Provider:</span><span>[field_msd_provider]</span>'),
     t('<span class="views-label">Type: </span><span>[field_item_type-value]</span>'),
     t('<div class="av-type">
-[field_item_type]
-[field_material_country]
-<span class="views-label">Language: </span><span>[field_available_in_languages]</span>
-[field_msd_provider]
+<span class="views-label first">Type</span><span>[field_item_type]</span>
+<span class="views-label">Country</span>[field_material_country]</span>
+<span class="views-label">Language</span><span>[field_available_in_languages]</span>
+<span class="views-label">Provider</span><span>[field_msd_provider]</span>
 </div>'),
     t('Year of publication'),
     t('Relevance'),
