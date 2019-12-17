@@ -202,3 +202,12 @@ function hwc_good_practice_exchange_update_7025() {
   features_revert(array('osha_news' => array('views_view')));
   features_revert_module('hwc_good_practice_exchange');
 }
+
+/**
+ * HW20-305 Development Good practice exchange page.
+ */
+function hwc_good_practice_exchange_update_7026() {
+  $exclude = variable_get('exclude_bottom_share_widget', []);
+  $exclude[] = 3298;
+  variable_set('exclude_bottom_share_widget', $exclude);
+}
