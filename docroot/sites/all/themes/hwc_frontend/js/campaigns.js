@@ -561,6 +561,9 @@ jQuery(document).ready(function($) {
     }
   });
 
+  $(".page-tools-and-publications-practical-tools .region-sidebar-first .content-filters h2.block-title").addClass('area-shown');
+
+
    if (jQuery(window).width() < 1200) {
    	$("#edit-main-tags > div > label").removeClass('active');
    	$("#edit-field-publication-type > div > label").removeClass('active');

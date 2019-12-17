@@ -9528,7 +9528,6 @@ div[class*='view-'] .field-name-field-summary {
   padding-left: 0px;
   padding-right: 0px;
   padding: 0px;
-  margin-left: 25px;
   -webkit-box-shadow: inset 0 0px 0px rgba(255, 255, 255, 0);
   -moz-box-shadow: inset 0 0px 0px rgba(255, 255, 255, 0);
   box-shadow: inset 0 0px 0px rgba(255, 255, 255, 0);
@@ -11255,16 +11254,6 @@ article .hwc-share-widget ul {
 .page-practical-tools h1 {
   border-bottom: none;
   margin-bottom: 0em;
-}
-.page-practical-tools .below_title .field-type-text-with-summary {
-  padding-right: 85px;
-  padding-left: 85px;
-  margin: 0 25px;
-  padding-bottom: 1em;
-}
-.page-practical-tools .below_title .field-type-text-with-summary p {
-  text-align: center;
-  font-size: 1.2em;
 }
 .page-practical-tools #edit-search-api-views-fulltext-wrapper {
   float: none !important;
@@ -18991,80 +18980,6 @@ input#edit-field-image-und-0-upload::before {
 /*input clean x button*/
 /* Clearable text inputs */
 /*Galder styles*/
-.page-glossary-list {
-  /*end galder styles*/
-}
-.page-glossary-list .page-header {
-  text-align: center;
-  color: #749b00 ;
-  font-size: 48px;
-  font-weight: bold;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  margin-bottom: 1em;
-  border-bottom: 0px;
-}
-.page-glossary-list .view-glossary-list {
-  margin-bottom: 100px;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type {
-  border: 1px solid #749b00;
-  margin-bottom: 1em;
-  margin-top: 1em;
-  padding: 10px 2em 10px 1.5em;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .type-name {
-  color: #003399;
-  font-weight: bold;
-  text-align: left;
-  cursor: pointer;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .content-term {
-  width: 100%;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .content-term dl .term-title {
-  margin-bottom: 0.5em;
-  margin-left: 0.5em;
-  font-weight: bold;
-  padding-top: 1em;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .content-term dl .term-description {
-  margin-left: 0.5em;
-  padding-bottom: 0.5em;
-  border-bottom: 1px dotted #749b00;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .type-name .glyphicon {
-  color: #FFF;
-  background: #003399;
-  border-radius: 17px;
-  width: 21px;
-  height: 21px;
-  float: right;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .type-name .glyphicon:before {
-  content: "\e252";
-  padding-top: 0px;
-  display: block;
-  margin-top: 5px;
-  margin-left: 5px;
-  font-size: 12px;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .type-name.active .glyphicon:before {
-  content: "\e253";
-  padding-top: 0px;
-  display: block;
-  margin-top: 5px;
-  margin-left: 5px;
-  font-size: 12px;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .type-name.active.collapsed .glyphicon:before {
-  content: "\e252";
-  padding-top: 0px;
-  display: block;
-  margin-top: 5px;
-  margin-left: 5px;
-  font-size: 12px;
-}
 /*galder styles css issue bulgaria*/
 .page-topics.i18n-bg .main-container .view-id-topics .views-row .views-field-name-field a {
   font-size: 1em;
