@@ -864,12 +864,6 @@ ul.tabs--primary.nav.nav-tabs{
 			.field-name-title-field{
 				margin-bottom: 1em;
 			}
-
-			.dot-separator.green{
-				border-top: 1px dotted @color3;
-				margin-bottom: 20px;
-				margin-top: 20px;
-			}
 			.icon.recommended-resources{
 				background: url("../images/content/recommended-for-you.png") no-repeat;
 				background-size: cover;
@@ -1762,32 +1756,6 @@ ul.tabs--primary.nav.nav-tabs{
 					}
 				}
 			}
-			.block.block-facetapi{
-				border-bottom: 1px dotted @color3;
-				padding-top: 10px;
-				padding-bottom: 10px;
-				h2{
-					color: @colorNormalText;
-					font-size: 1.1em;
-					text-align: left;
-					margin-bottom: 0px;
-					cursor: pointer;
-					&:after{
-						content: "\e250";
-					    font-family: "Glyphicons Halflings";
-					    margin-left: 10px;
-					    float: right;
-					}
-				}
-				h2.area-shown{
-					&:after{
-						content: "\e252";
-					    font-family: "Glyphicons Halflings";
-					    margin-left: 10px;
-					    float: right;
-					}
-				}
-			}
 		}
 		.region.region-content{
 			float: right;
@@ -1803,34 +1771,6 @@ ul.tabs--primary.nav.nav-tabs{
 				}
 				h3{
 					display: none;
-				}
-				.view-header{
-				    overflow: hidden;
-				    border: none;
-					border-top: 1px dotted @color3;
-					border-bottom: 1px dotted @color3;
-					border-radius: 0px;
-					padding: 7px 0px;
-						.sort-container.col-xs-3{
-							width: inherit;
-							padding-left: 0px;
-							.form-group{
-								margin-bottom: 0px;
-								label{
-									margin-right: 10px;
-									&:after{
-										content: ":";
-									}
-								}
-								#edit-sort-by{
-									display: inline-block;
-								}
-							}
-						}
-						.count-container{
-							margin-top: 7px;
-						}
-					
 				}
 				.view-content .views-row{
 					border-bottom: 1px dotted @border-default-color;
@@ -3418,29 +3358,6 @@ article{
 	h1{
 		border-bottom: none;
 		margin-bottom: 0em;
-	}
-}
-
-.page-practical-tools{ 
-	fieldset.panel-default{
-		//padding: 1em!important;
-
-	}
-	#edit-search-api-views-fulltext-wrapper{
-		float: none !important;
-	}
-	.sort-container.col-xs-3{
-		width: 75% !important;
-		.form-item-sort-by,
-		.form-item-sort-order{
-			display: inline-block;
-			select{
-				display: inline-block;
-			}
-		}
-		.form-item-sort-order{
-			margin-left: 15px;
-		}
 	}
 }
 
