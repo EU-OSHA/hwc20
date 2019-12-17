@@ -8713,11 +8713,6 @@ table tr.error.form-type-select:after {
 .node-type-article article .field-name-title-field {
   margin-bottom: 1em;
 }
-.node-type-article article .dot-separator.green {
-  border-top: 1px dotted #749b00;
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
 .node-type-article article .icon.recommended-resources {
   background: url("../images/content/recommended-for-you.png") no-repeat;
   background-size: cover;

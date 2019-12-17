@@ -8086,6 +8086,8 @@ body.page-tools-and-publications-practical-tools{
 	}
 }
 
+
+/* Filters facetapi */
 .region-sidebar-first{
 	.block.block-facetapi{
 		clear: both;
@@ -8122,6 +8124,7 @@ body.page-tools-and-publications-practical-tools{
 
 		li.leaf{
 			display: flex;
+			align-items: flex-start;
 		    padding-top: 5px;
 		    padding-bottom: 5px;
 		}
@@ -8139,4 +8142,33 @@ body.page-tools-and-publications-practical-tools{
 			padding-top: 0;
 		}
 	} 
+
+	.block.block-facetapi:first-child{
+		margin-top: 45px!important;
+	}
+}
+
+
+/* Popup glossary */
+
+.popup{
+	position: relative;
+	background: #FFF;
+	border: 2px solid #bcd75b;
+    border-radius: 7px;
+    width: 215px;
+    padding: 1em;
+    z-index: 9999999;
+    position: absolute;
+    margin-top: -1em;
+}
+
+.closePop{
+	position: absolute;
+    right: 8px;
+    top: 4px;
+    cursor: pointer;
+    &:hover{
+    	opacity: 0.8;
+    }
 }

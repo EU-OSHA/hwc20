@@ -6982,6 +6982,7 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
 #block-hwc-good-practice-exchange-gpe-news-events .view-frontpage-events .content-event {
   padding-top: 8px;
 }
+/* Filters facetapi */
 .region-sidebar-first .block.block-facetapi {
   clear: both;
   width: 100%;
@@ -7014,6 +7015,7 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
 }
 .region-sidebar-first .block.block-facetapi li.leaf {
   display: flex;
+  align-items: flex-start;
   padding-top: 5px;
   padding-bottom: 5px;
 }
@@ -7027,6 +7029,30 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
 }
 .region-sidebar-first .block.block-facetapi #facetapi-facet-search-apidefault-multilingual-node-index-block-field-priority-area {
   padding-top: 0;
+}
+.region-sidebar-first .block.block-facetapi:first-child {
+  margin-top: 45px!important;
+}
+/* Popup glossary */
+.popup {
+  position: relative;
+  background: #FFF;
+  border: 2px solid #bcd75b;
+  border-radius: 7px;
+  width: 215px;
+  padding: 1em;
+  z-index: 9999999;
+  position: absolute;
+  margin-top: -1em;
+}
+.closePop {
+  position: absolute;
+  right: 8px;
+  top: 4px;
+  cursor: pointer;
+}
+.closePop:hover {
+  opacity: 0.8;
 }
 .isMobile {
   float: right !important;
