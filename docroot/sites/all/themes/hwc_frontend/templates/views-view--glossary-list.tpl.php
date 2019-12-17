@@ -28,7 +28,7 @@
  */
 
 ?>
-<div class="container fluid">
+<div class="container-fluid">
   <div class="<?php print $classes; ?>">
     <div class="view-content">
       <?php
@@ -38,16 +38,16 @@
         $term_title = $term->field_name_field[0]['rendered']['#markup'];
         $letters[$term_title[0]] = $term_title[0];
       }
-      echo '<div id="glossary-letters">';
+      echo '<div id="glossary-letters"><div class="container">';
       foreach (range('A', 'Z') as $letter) {
         if (isset($letters[$letter])) {
           print '<span><a href="#glossary-' . $letter . '">' . $letter . '</a></span>';
         }
       }
-      echo '</div>';
+      echo '</div></div>';
       $prev_letter = '';
       ?>
-      <div class="content-term">
+      <div class="content-term container">
         <dl>
           <?php
           foreach ($glossary_list as $term) {
