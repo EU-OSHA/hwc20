@@ -47,6 +47,7 @@ function hwc_glossary_views_default_views() {
   $handler->display->display_options['fields']['description_field']['field'] = 'description_field';
   $handler->display->display_options['fields']['description_field']['label'] = '';
   $handler->display->display_options['fields']['description_field']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['description_field']['type'] = 'text_plain';
   $handler->display->display_options['fields']['description_field']['settings'] = array(
     'field_formatter_class' => '',
   );
@@ -67,7 +68,7 @@ function hwc_glossary_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['value'] = array(
-    'glossary' => 'glossary',
+    'msd_glossary' => 'msd_glossary',
   );
   /* Filter criterion: Taxonomy term: Type (field_glossary_type) */
   $handler->display->display_options['filters']['field_glossary_type_tid']['id'] = 'field_glossary_type_tid';

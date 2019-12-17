@@ -36,13 +36,13 @@
       $letters = [];
       foreach ($glossary_list as $term) {
         $term_title = $term->field_name_field[0]['rendered']['#markup'];
-        $letters[$term_title[0]] = $term_title[0];
+        $letter = drupal_substr($term_title, 0, 1);
+        $letters[$letter] = $letter;
       }
+      ksort($letters);
       echo '<div id="glossary-letters"><div class="container">';
-      foreach (range('A', 'Z') as $letter) {
-        if (isset($letters[$letter])) {
-          print '<span><a href="#glossary-' . $letter . '">' . $letter . '</a></span>';
-        }
+      foreach ($letters as $letter) {
+        print '<span><a href="#glossary-' . $letter . '">' . $letter . '</a></span>';
       }
       echo '</div></div>';
       $prev_letter = '';
@@ -53,7 +53,7 @@
           foreach ($glossary_list as $term) {
             $term_title = $term->field_name_field[0]['rendered']['#markup'];
             $term_desc = $term->field_description_field[0]['rendered']['#markup'];
-            $letter = $term_title[0];
+            $letter = drupal_substr($term_title, 0, 1);
             if ($prev_letter != $letter) { ?>
               <div class="glossary_letter" id="glossary-<?php print $letter; ?>">
                 <?php print $letter; ?><hr/>

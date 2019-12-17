@@ -134,6 +134,31 @@ function osha_taxonomies_taxonomy_default_vocabularies() {
         ),
       ),
     ),
+    'msd_glossary' => array(
+      'name' => 'MSD Glossary',
+      'machine_name' => 'msd_glossary',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'language' => 'und',
+      'i18n_mode' => 1,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
     'section' => array(
       'name' => 'Partner',
       'machine_name' => 'section',

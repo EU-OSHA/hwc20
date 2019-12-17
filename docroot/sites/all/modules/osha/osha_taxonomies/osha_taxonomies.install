@@ -129,3 +129,45 @@ function osha_taxonomies_update_7004() {
     }
   }
 }
+
+/**
+ * HW20-313 Development of Glossary.
+ */
+function osha_taxonomies_update_7005() {
+  features_revert_module('osha_taxonomies');
+  features_revert_module('hwc_glossary');
+  $file = sprintf('%s/msd_glossary.json', dirname(__FILE__));
+  if (!is_readable($file)) {
+    drupal_set_message("Cannot read taxonomy file! ($file).", 'warning');
+  }
+  else {
+    $json = json_decode(file_get_contents($file), TRUE);
+    $taxonomies = array('msd_glossary');
+    foreach ($taxonomies as $taxonomy) {
+      $voc = taxonomy_vocabulary_machine_name_load($taxonomy);
+      if (empty($voc)) {
+        drupal_set_message("$taxonomy doesn't exits!", 'warning');
+      }
+      else {
+        if (empty($json[$taxonomy])) {
+          drupal_set_message("Empty taxonomy $taxonomy found in file!", 'warning');
+        }
+        else {
+          foreach ($json[$taxonomy] as $row) {
+            // Creating the term.
+            $term = new stdClass();
+            $term->name = $term->name_field['en'][0]['value'] = $row['name'];
+            $term->description_field['en'][0]['value'] = $row['description'];
+            $term->description_field['en'][0]['format'] = 'full_html';
+            $term->vid = $voc->vid;
+            $term->language = 'en';
+            taxonomy_term_save($term);
+            if (empty($term->tid)) {
+              drupal_set_message("$term->name could not be saved!", 'warning');
+            }
+          }
+        }
+      }
+    }
+  }
+}
