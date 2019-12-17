@@ -210,7 +210,7 @@ function _hwc_practical_tool_form_after_build($form, $form_state) {
 function hwc_practical_tool_form_views_exposed_form_alter(&$form, &$form_state) {
   if ($form['#id'] == 'views-exposed-form-practical-tools-page') {
     $form['submit']['#name'] = 'submit';
-    $placeholder_text = t('Practical tools');
+    $placeholder_text = t('Search in resources');
     $form['search_api_views_fulltext']['#attributes'] = array('placeholder' => array($placeholder_text), 'title' => array($placeholder_text));
   }
 }
@@ -273,7 +273,7 @@ function hwc_practical_tool_views_post_render(&$view, &$output, &$cache) {
 jQuery(\'.page-practical-tools .region-sidebar-first a\').click(divFunction);
 function divFunction(){
  jQuery(\'.view-content\').prepend(\'<div class="loader"><img id="tmgmt-4" src="/sites/all/themes/hwc_frontend/images/hwc_clock.png" alt=""><p id="tmgmt-5">' . $loader_text . '</p></div>\');
-}    
+}
     });', 'inline');
   }
 }
