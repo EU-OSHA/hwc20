@@ -70,3 +70,92 @@ function hwc_glossary_block_view($delta = '') {
   return $block;
 }
 
+/**
+ * Implements hook_filter_info().
+ */
+function hwc_glossary_filter_info() {
+  $filters['filter_hwc_glossary'] = array(
+    'title' => t('Mark hwc glossary terms'),
+    'description' => t('This filter will mark terms from hwc_glossary vocabulary'),
+    'process callback' => '_filter_hwc_glossary',
+    'tips callback' => '_filter_hwc_glossary_tips',
+    'cache' => FALSE,
+    'weight' => 50,
+  );
+  return $filters;
+}
+
+/**
+ * Filter tips callback function
+ */
+function _filter_hwc_glossary_tips($filter, $format, $long = FALSE) {
+  $block_tags = array();
+  $blocking_tags_setting = variable_get('lexicon_blocking_tags', 'abbr acronym');
+
+  if ($blocking_tags_setting != '') {
+    $block_tags = explode(' ', $blocking_tags_setting);
+  }
+
+  // Add <a>, <pre>, and <code> elements to the block tags.
+  $standard_blocks = array('a', 'code', 'pre');
+  foreach ($standard_blocks as $tag) {
+    if (!in_array($tag, $block_tags)) {
+      $block_tags[] = check_plain($tag);
+    }
+  }
+
+  foreach ($block_tags as $key => $tag) {
+    if ($tag[0] == '.') {
+      $block_tags[$key] = 'span class="' . check_plain(drupal_substr($tag, 1)) . '"';
+    }
+  }
+
+  sort($block_tags, SORT_STRING);
+  $blocked = implode(', ', $block_tags);
+  $more = ' ' . t('Additionally, these HTML elements will not be scanned: %blocked.', array('%blocked' => $blocked));
+
+  return t('The Lexicon module will automatically mark terms that have been defined in the lexicon vocabulary with links to their descriptions. If there are certain phrases or sections of text that should be excluded from lexicon marking and linking, use the special markup, [no-lexicon] ... [/no-lexicon].') . $more;
+}
+
+/**
+ * Lexicon based filter process callback function.
+ * Marks terms in the content of the website.
+ */
+function _filter_hwc_glossary($text, $filter, $format) {
+  $current_term = 0;
+  // If the current page is a taxonomy term page then set $current_term.
+  if (strcmp(arg(0), 'taxonomy') == 0 && strcmp(arg(1), 'term') == 0 && arg(2) > 0) {
+    $current_term = arg(2);
+  }
+
+  // If marking of terms is enabled then mark terms and synonyms.
+  if (variable_get('hwc_glossary_mark_terms', 1) == 1) {
+    $text = ' ' . $text . ' ';
+
+    $vids = variable_get('msd_glossary_vid', []);
+    if (!$vids) {
+      $voc = taxonomy_vocabulary_machine_name_load('msd_glossary');
+      variable_set('msd_glossary_vid', [$voc->vid => $voc->vid]);
+    }
+    $terms = _lexicon_get_terms($vids);
+    $terms_replace = array();
+
+    if (is_array($terms)) {
+      foreach ($terms as $term) {
+        // If the term is equal to $current_term than skip marking that term.
+        if ($current_term == $term->tid) {
+          continue;
+        }
+        // Set the information needed by the template.
+        $terms_replace[] = array(
+          'term' => $term,
+          'absolute_link' => 'absolute',
+          'linkto' => 'taxonomy/term/' . $term->tid,
+          'term_class' => 'lexicon-term',
+        );
+      }
+    }
+    return _lexicon_insertlink($text, $terms_replace);
+  }
+  return $text;
+}

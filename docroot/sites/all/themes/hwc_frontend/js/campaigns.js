@@ -1,3 +1,96 @@
+function glossary() {
+  //Si está en la página de glossary que no salgan los popups.
+  if (jQuery(".section-glossary").length > 0) {
+    jQuery(".lexicon-term").each(function() {
+      jQuery(this).removeAttr("class").removeAttr("href").removeAttr("title");
+    });
+  }
+
+  var title = "";
+  jQuery(".lexicon-term").each(function () {
+    jQuery(this).removeAttr("href");
+    /*lexicon-mark-term.tpl.php-> Ahí hago la magia*/
+    jQuery(this).click(function () {
+      removePopUps();
+      title = jQuery(this).attr("data-titleBM");
+      jQuery(this).addClass("poparizado");
+      var html = "<div class='popup'><div class='closePop'><img src='/sites/all/themes/hwc_frontend/images/closeGlossary.png'></div><div class='contentPop'>" + title + "</div></div>";
+      jQuery(this).before(html);
+      // positioning
+      // tengo el problema que si el texto sale en 2 lineas la cosa sale mal. Me hago un algoritmo para que detecte si ocupa más de una línea.
+
+      var textoSel = jQuery(this).text();
+      var topPalabra = 0;
+      var variasLineas = 0;
+
+      var cachos = jQuery.trim(textoSel).split(" ");
+      if (cachos.length > 0) {
+        var txtTemporal = "";
+        for (i = 0; i < cachos.length; i++) {
+          txtTemporal = txtTemporal + "<span>" + cachos[i] + "</span> ";
+        }
+        jQuery(this).html(txtTemporal);
+
+        var contador = 0;
+        jQuery("span",this).each(function () {
+          if (contador == 0) {
+            topPalabra = jQuery(this).position().top;
+          }
+          else {
+            if (topPalabra != jQuery(this).position().top) {
+              variasLineas = 1;
+            }
+          }
+          contador++;
+        });
+      }
+
+      if (variasLineas == 0) {
+        jQuery(this).html(textoSel);
+        var widthWord = jQuery(this).width() / 2;
+        var widthBox = jQuery(".popup").width() / 2;
+        var leftWord = jQuery(this).position().left;
+        var leftPut = (leftWord + widthWord) - (widthBox) + "px";
+        jQuery(".popup").css("left",leftPut);
+
+        var topWord = jQuery(this).position().top;
+        var heightWord = jQuery(this).height();
+        var heightBox = jQuery(".popup").height();
+        var topPut = topWord - heightBox - heightWord + "px";
+        jQuery(".popup").css("top",topPut);
+      }
+      else {
+        var widthWord = jQuery("span:eq(0)",this).width() / 2;
+        var widthBox = jQuery(".popup").width() / 2;
+        var leftWord = jQuery("span:eq(0)",this).position().left;
+        var leftPut = (leftWord + widthWord) - (widthBox) + "px";
+        jQuery(".popup").css("left",leftPut);
+
+        var topWord = jQuery("span:eq(0)",this).position().top;
+        var heightWord = jQuery("span:eq(0)",this).height();
+        var heightBox = jQuery(".popup").height();
+        var topPut = topWord - heightBox - heightWord + "px";
+        jQuery(".popup").css("top",topPut);
+        jQuery(this).html(textoSel);
+      }
+
+      jQuery(".closePop").click(function () {
+        removePopUps();
+        jQuery(".poparizado").removeClass("poparizado");
+      });
+    });
+  });
+}
+
+function removePopUps() {
+  jQuery(".popup").each(function () {
+    jQuery(this).remove();
+  });
+  jQuery(".arrowPopUp").each(function () {
+    jQuery(this).remove();
+  });
+}
+
 function ipad_fix_iframe_width() {
 	if (jQuery(window).width() > jQuery(window).height()) {
         jQuery('.fb-post').addClass('ipad_fix_width');
@@ -12,7 +105,7 @@ window.onorientationchange = function() {
 }
 
 jQuery(document).ready(function() {
-
+  glossary();
 	jQuery(".start-here .col-inner").click(function() {
 		window.location = jQuery(this).find("a").attr("href");
 		return false;
