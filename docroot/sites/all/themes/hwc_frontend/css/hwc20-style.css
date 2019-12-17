@@ -7011,6 +7011,16 @@ body.page-tools-and-publications-practical-tools .region.region-content .view-co
   body.european-week .box-before.events {
     width: 100%;
   }
+  #block-hwc-good-practice-exchange-gpe-news-events .box-before.news {
+    width: 100%;
+    height: auto;
+  }
+  #block-hwc-good-practice-exchange-gpe-news-events .box-before.events {
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+    margin-top: 2em;
+  }
   .page-publications #content,
   .page-tools-and-publications #content {
     width: 98%!important;
@@ -8693,22 +8703,29 @@ body.page-tools-and-publications-practical-tools .region.region-content .view-co
   }
   /* press room */
   body.press-room .media-body,
-  body.european-week .media-body {
+  body.european-week .media-body,
+  body.good-practice-exchange .media-body {
     height: auto;
     padding-bottom: 3em;
   }
   body.press-room .pull-left,
-  body.european-week .pull-left {
+  body.european-week .pull-left,
+  body.good-practice-exchange .pull-left {
     display: none;
   }
   body.press-room #block-hwc-european-week-news-events,
-  body.european-week #block-hwc-european-week-news-events {
+  body.european-week #block-hwc-european-week-news-events,
+  body.good-practice-exchange #block-hwc-european-week-news-events {
     margin-left: -15px;
   }
   body.press-room .field-name-body,
-  body.european-week .field-name-body {
+  body.european-week .field-name-body,
+  body.good-practice-exchange .field-name-body {
     width: 100%;
     padding-left: 5px;
+  }
+  #block-hwc-good-practice-exchange-gpe-news-events .view-news .media-body {
+    height: auto;
   }
   body.press-room .related-resources .related-resources-boxes div {
     width: 100%;
