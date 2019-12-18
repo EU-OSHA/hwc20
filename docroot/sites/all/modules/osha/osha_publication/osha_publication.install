@@ -147,3 +147,10 @@ function osha_publication_update_7016() {
 function osha_publication_update_7017() {
   features_revert_module('osha_publication');
 }
+
+/**
+ * HW20-104 Publications - Banner publications office field is not migrated from NCW to HWC20.
+ */
+function osha_publication_update_7018() {
+  features_revert_module('osha_publication');
+}
