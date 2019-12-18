@@ -11448,7 +11448,7 @@ article .hwc-share-widget ul {
 .page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date-1 {
   font-size: 1em;
   margin-bottom: 0.5em;
-  font-weight: bold;
+  font-weight: 600;
   color: #57575a;
 }
 .page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-country-code,
