@@ -11455,7 +11455,7 @@ article .hwc-share-widget ul {
 .page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-country-code,
 .page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-city,
 .page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-city {
-  font-weight: bold;
+  font-weight: 600;
   display: inline-block;
   color: #57575a;
 }

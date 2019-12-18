@@ -3305,13 +3305,13 @@ div.workbench-info-block {
   padding-left: 76px;
 }
 .profile-2-cols-container-3 .profile-col-right-3 .views-field-field-start-date {
-  font-weight: bold;
+  font-weight: 600;
   color: #57575a;
 }
 .profile-2-cols-container-3 .profile-col-right-3 .views-field-field-country-code,
 .profile-2-cols-container-3 .profile-col-right-3 .views-field-field-city {
   float: left;
-  font-weight: bold;
+  font-weight: 600;
   color: #57575a;
 }
 .profile-2-cols-container-3 .profile-col-right-3 .views-field-field-country-code {
