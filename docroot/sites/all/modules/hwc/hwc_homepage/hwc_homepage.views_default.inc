@@ -225,7 +225,7 @@ function hwc_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_start_date']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_start_date']['settings'] = array(
     'format_type' => 'osha_day_only',
-    'fromto' => 'value',
+    'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
@@ -417,7 +417,7 @@ function hwc_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_start_date']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_start_date']['settings'] = array(
     'format_type' => 'osha_day_only',
-    'fromto' => 'value',
+    'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
@@ -844,7 +844,7 @@ function hwc_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_start_date']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_start_date']['settings'] = array(
     'format_type' => 'osha_day_only',
-    'fromto' => 'value',
+    'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',

@@ -163,3 +163,10 @@ function hwc_homepage_update_7021() {
 function hwc_homepage_update_7022() {
   features_revert_module('hwc_homepage');
 }
+
+/**
+ * HW20-243  Events should display 2 dates.
+ */
+function hwc_homepage_update_7023() {
+  features_revert(array('hwc_homepage' => 'views_view'));
+}
