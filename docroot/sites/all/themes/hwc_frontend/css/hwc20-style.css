@@ -4234,9 +4234,7 @@ body.een .box-type-partner {
 .page-events .region-content #block-system-main .views-exposed-widgets label {
   padding-bottom: 0;
   margin-bottom: 2px;
-}
-.page-events .region-content #block-system-main .views-exposed-widgets input {
-  height: 33px;
+  display: block;
 }
 .page-events .region-content #block-system-main .views-exposed-widgets .views-widget-filter-field_start_date_value {
   margin-left: 0.5em;
@@ -4294,9 +4292,9 @@ body.een .box-type-partner {
   padding-top: 4px;
 }
 .page-events .region-content #block-system-main .views-exposed-widgets #edit_years_chosen {
-  display: block!important;
   width: 225px!important;
-  height: 33px;
+  height: auto;
+  min-height: 33px;
   margin-top: 2px;
   padding-top: 4px;
 }
@@ -4318,6 +4316,10 @@ body.een .box-type-partner {
   top: 24px;
   border-radius: 5px;
   float: right;
+  border: 0;
+}
+.page-events .region-content #block-system-main .views-exposed-widget #edit-submit-events-search:hover {
+  background-color: #002266;
 }
 .page-events .region-content #block-system-main .view-events-search .views-exposed-widgets #edit-search-api-views-fulltext-wrapper {
   margin-right: 0.5em;
@@ -5584,6 +5586,8 @@ body.newsletter .panels-flexible-region.panels-flexible-region-new-center.panels
   padding-right: 3em;
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
   top: 28px;
 }
 body.newsletter .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details #edit-submit:before {

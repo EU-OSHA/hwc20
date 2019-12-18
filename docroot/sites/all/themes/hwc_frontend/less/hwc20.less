@@ -4884,10 +4884,7 @@ body{
 				label{
 					padding-bottom: 0;
 					margin-bottom: 2px;
-				}
-
-				input{
-					height: 33px;
+					display: block;
 				}
 
 				.views-widget-filter-field_start_date_value{
@@ -4952,9 +4949,9 @@ body{
 				}
 
 				#edit_years_chosen{
-				 	display: block!important;
 				 	width: 225px!important;
-				 	height: 33px;
+				 	height: auto;
+   					min-height: 33px;
     				margin-top: 2px;
     				padding-top: 4px;
     				.search-choice{
@@ -4978,6 +4975,10 @@ body{
 					top: 24px;
 					border-radius: 5px;
 					float: right;
+					border: 0;
+					&:hover{
+						background-color: #002266;
+					}
 				}
 			}
 
@@ -6391,6 +6392,8 @@ body.newsletter{
     					padding-right: 3em;
     					border-top-right-radius: 7px;
     					border-bottom-right-radius: 7px;
+    					border-top-left-radius: 0;
+    					border-bottom-left-radius: 0;
     					top: 28px;
     					&:before{
     						content: none;
