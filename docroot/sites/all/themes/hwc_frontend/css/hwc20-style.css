@@ -85,6 +85,9 @@ body.logged-in .navbar-header .col-xs-12.col-sm-9 {
 body.logged-in.ocp .navbar-header .col-xs-12.col-sm-9 {
   padding-top: 0;
 }
+.date {
+  font-weight: 600;
+}
 body {
   color: #59595A;
 }
@@ -4338,7 +4341,7 @@ body.een .box-type-partner {
 }
 .page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-view-node {
   position: relative;
-  margin-left: 206px;
+  margin-left: 230px;
   float: left;
   clear: both;
   margin-top: -2em;
@@ -4355,6 +4358,7 @@ body.een .box-type-partner {
 }
 .views-field-field-start-date-1 {
   padding-top: 0.5em;
+  font-weight: 600;
 }
 .add-to-calendar {
   float: right;
