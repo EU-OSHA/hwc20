@@ -2264,7 +2264,8 @@ html[lang=pt] #edit-search-api-views-fulltext {
 }
 .new-select-style,
 #edit_field_country_code_chosen,
-#edit-years {
+#edit-years,
+#edit_years_chosen {
   height: 100%;
   border-radius: 5px !important;
   background: url(../images/green-select.png) no-repeat scroll 94% 13px #ffffff !important;
@@ -4063,6 +4064,7 @@ body.een .box-type-partner {
   color: #0030a0;
   /*HW20-175 Become a Campaign Partner - The title of the text in boxes should be bold*/
   font-weight: bold;
+  word-break: break-word;
 }
 .how-to-apply .boxes p {
   color: #333;
@@ -4288,6 +4290,19 @@ body.een .box-type-partner {
   margin-top: 2px;
   padding-top: 4px;
 }
+.page-events .region-content #block-system-main .views-exposed-widgets #edit_years_chosen {
+  display: block!important;
+  width: 225px!important;
+  height: 33px;
+  margin-top: 2px;
+  padding-top: 4px;
+}
+.page-events .region-content #block-system-main .views-exposed-widgets #edit_years_chosen .search-choice {
+  margin: 1px 5px 3px 0;
+  box-shadow: 0 0 0 white inset, 0 0 0 rgba(0, 0, 0, 0.05);
+  background: transparent;
+  border: 0;
+}
 .page-events .region-content #block-system-main .views-exposed-widget {
   position: relative;
 }
@@ -4312,23 +4327,27 @@ body.een .box-type-partner {
 .page-events .region-content #block-system-main .view-events-search .view-content {
   padding-bottom: 1em;
 }
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row {
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row {
   border-bottom: 1px solid #749b00;
   float: left;
   width: 100%!important;
 }
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-title-field a {
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-title-field a {
   font-size: 1.6em;
   line-height: 24px;
 }
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node {
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-view-node {
   position: relative;
-  margin-left: 230px;
+  margin-left: 206px;
   float: left;
   clear: both;
   margin-top: -2em;
 }
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row-last {
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .event_country {
+  width: 180px;
+  height: 180px;
+}
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row-last {
   border-bottom: 0;
 }
 .page-events ul.pager {
@@ -7034,6 +7053,9 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   margin-top: 45px!important;
 }
 /* Popup glossary */
+.lexicon-term {
+  cursor: pointer;
+}
 .popup {
   position: relative;
   background: #FFF;

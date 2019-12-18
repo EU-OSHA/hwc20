@@ -2589,7 +2589,7 @@ html[lang=pt] #edit-search-api-views-fulltext{
 	width: 168px!important;
 }
 
-.new-select-style, #edit_field_country_code_chosen, #edit-years{
+.new-select-style, #edit_field_country_code_chosen, #edit-years, #edit_years_chosen{
     height: 100%;
     border-radius: 5px !important;
     background: url(../images/green-select.png) no-repeat scroll 94% 13px #FFF !important;
@@ -4672,6 +4672,7 @@ body{
 		    color: #0030a0;
 		    /*HW20-175 Become a Campaign Partner - The title of the text in boxes should be bold*/
 			font-weight: bold;
+			word-break: break-word;
 		}
 
 		p{
@@ -4944,6 +4945,20 @@ body{
     				padding-top: 4px;
 				}
 
+				#edit_years_chosen{
+				 	display: block!important;
+				 	width: 225px!important;
+				 	height: 33px;
+    				margin-top: 2px;
+    				padding-top: 4px;
+    				.search-choice{
+    					margin: 1px 5px 3px 0;    					
+					    box-shadow: 0 0 0 white inset, 0 0 0 rgba(0, 0, 0, 0.05);
+					    background: transparent;
+					    border: 0;
+    				}
+				}
+
 			}
 
 			.views-exposed-widget{
@@ -4978,7 +4993,7 @@ body{
 					padding-bottom: 1em;
 				}
 
-				.view-content:nth-child(2){
+				.view-content{
 					.views-row{
 						 border-bottom: 1px solid #749b00;
 						 float: left;
@@ -4991,10 +5006,17 @@ body{
 
 						.views-field-view-node{
 							position: relative;
-							margin-left: 230px;
+							margin-left: 206px;
 							float: left;
 							clear: both;
 							margin-top: -2em;
+						}
+
+						.views-field-field-start-date{
+							.event_country{
+							    width: 180px;
+    							height: 180px;
+							}
 						}
 					}
 
@@ -8150,6 +8172,10 @@ body.page-tools-and-publications-practical-tools{
 
 
 /* Popup glossary */
+
+.lexicon-term{
+	cursor: pointer;
+}
 
 .popup{
 	position: relative;
