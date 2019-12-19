@@ -170,6 +170,8 @@ function hwc_homepage_views_default_views() {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
+  $handler->display->display_options['query']['options']['pure_distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '4';
@@ -567,21 +569,6 @@ function hwc_homepage_views_default_views() {
     'events' => 'events',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Starting date -  start date (field_start_date) */
-  $handler->display->display_options['filters']['field_start_date_value']['id'] = 'field_start_date_value';
-  $handler->display->display_options['filters']['field_start_date_value']['table'] = 'field_data_field_start_date';
-  $handler->display->display_options['filters']['field_start_date_value']['field'] = 'field_start_date_value';
-  $handler->display->display_options['filters']['field_start_date_value']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_start_date_value']['group'] = 1;
-  $handler->display->display_options['filters']['field_start_date_value']['granularity'] = 'second';
-  $handler->display->display_options['filters']['field_start_date_value']['default_date'] = 'today';
-  $handler->display->display_options['filters']['field_start_date_value']['year_range'] = '-10:+10';
-  /* Filter criterion: Content: Migrate Source (field_migration_source) */
-  $handler->display->display_options['filters']['field_migration_source_value']['id'] = 'field_migration_source_value';
-  $handler->display->display_options['filters']['field_migration_source_value']['table'] = 'field_data_field_migration_source';
-  $handler->display->display_options['filters']['field_migration_source_value']['field'] = 'field_migration_source_value';
-  $handler->display->display_options['filters']['field_migration_source_value']['operator'] = 'empty';
-  $handler->display->display_options['filters']['field_migration_source_value']['group'] = 2;
   /* Filter criterion: Content: Show on (field_show_on) */
   $handler->display->display_options['filters']['field_show_on_value']['id'] = 'field_show_on_value';
   $handler->display->display_options['filters']['field_show_on_value']['table'] = 'field_data_field_show_on';
