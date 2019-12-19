@@ -187,6 +187,9 @@ function hwc_homepage_block_view($delta = '') {
   if ($delta == 'previous_campaign_nav') {
     $all_data = menu_tree_all_data('main-menu');
     $active_trail = menu_get_active_trail();
+    if (count($active_trail) > 4) {
+      return [];
+    }
     $last = end($active_trail);
     if ($last['menu_name'] != 'main-menu') {
       $last = menu_get_item();
