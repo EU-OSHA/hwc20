@@ -328,6 +328,12 @@ function hwc_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'region' => 'footer',
   );
+  $blocks['content_related_resources'] = array(
+    'info' => t('Content related resources'),
+    'status' => 1,
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'region' => 'content',
+  );
   $blocks['article_related_resources'] = array(
     'info' => t('Article related resources'),
     'status' => 1,
@@ -409,7 +415,7 @@ function hwc_block_view($delta = '') {
     $block['content'] = NULL;
   }
 
-  if ($delta == 'article_related_resources') {
+  if ($delta == 'article_related_resources' || $delta == 'content_related_resources') {
     $block['title'] = '<none>';
     $block['subject'] = "<none>";
     $node = menu_get_object();
