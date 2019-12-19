@@ -764,12 +764,6 @@ function osha_news_views_default_views() {
     'European Week' => 'European Week',
   );
   $handler->display->display_options['filters']['field_show_on_value']['group'] = 2;
-  /* Filter criterion: Content: Migrate Source (field_migration_source) */
-  $handler->display->display_options['filters']['field_migration_source_value']['id'] = 'field_migration_source_value';
-  $handler->display->display_options['filters']['field_migration_source_value']['table'] = 'field_data_field_migration_source';
-  $handler->display->display_options['filters']['field_migration_source_value']['field'] = 'field_migration_source_value';
-  $handler->display->display_options['filters']['field_migration_source_value']['operator'] = 'empty';
-  $handler->display->display_options['filters']['field_migration_source_value']['group'] = 2;
   $handler->display->display_options['block_description'] = 'European Week news';
 
   /* Display: HP News */
