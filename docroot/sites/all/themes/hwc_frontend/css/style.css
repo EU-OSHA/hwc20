@@ -11256,15 +11256,15 @@ article .hwc-share-widget ul {
   border-bottom: none;
   margin-bottom: 0;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row {
   padding-top: 20px;
   padding-bottom: 30px;
   min-height: 230px;
   border-bottom: 1px dotted #749b00;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content {
   float: left;
   width: 180px;
   height: 180px;
@@ -11272,199 +11272,199 @@ article .hwc-share-widget ul {
   overflow: hidden;
   margin-top: 5px;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .date-display-single,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .date-display-single {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .date-display-single,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .date-display-single {
   display: block;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .event_country,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .event_country {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .event_country,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .event_country {
   width: 180px;
   height: 180px;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EN,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EN {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EN,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EN {
   background: url(../images/events/big/England-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_AT,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_AT {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_AT,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_AT {
   background: url(../images/events/big/Austria-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CH,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CH {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CH,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CH {
   background: url(../images/events/big/Switzerland-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_BG,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_BG {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_BG,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_BG {
   background: url(../images/events/big/Bulgaria-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_BE,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_BE {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_BE,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_BE {
   background: url(../images/events/big/Belgium-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CZ,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CZ {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CZ,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CZ {
   background: url(../images/events/big/Czech-Republic-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CS,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CS {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CS,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CS {
   background: url(../images/events/big/Czech-Republic-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_DK,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_DK {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_DK,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_DK {
   background: url(../images/events/big/Denmark-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_DE,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_DE {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_DE,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_DE {
   background: url(../images/events/big/Germany-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EL,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EL {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EL,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EL {
   background: url(../images/events/big/Greece-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_ES,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_ES {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_ES,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_ES {
   background: url(../images/events/big/Spain-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EU,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EU {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EU,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EU {
   background: url(../images/events/big/European-Union-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EE,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EE {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EE,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EE {
   background: url(../images/events/big/Estonia-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_FI,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_FI {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_FI,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_FI {
   background: url(../images/events/big/Finland-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_HR,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_HR {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_HR,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_HR {
   background: url(../images/events/big/Croatia-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_FR,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_FR {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_FR,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_FR {
   background: url(../images/events/big/France-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_HU,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_HU {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_HU,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_HU {
   background: url(../images/events/big/Hungary-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_IS,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_IS {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_IS,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_IS {
   background: url(../images/events/big/Iceland-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_IT,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_IT {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_IT,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_IT {
   background: url(../images/events/big/Italy-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LV,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LV {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LV,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LV {
   background: url(../images/events/big/Latvia-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LT,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LT {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LT,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LT {
   background: url(../images/events/big/Lithuania-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LU,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LU {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LU,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LU {
   background: url(../images/events/big/Luxembourg-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LI,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LI {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LI,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LI {
   background: url(../images/events/big/Liechtenstein-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_NL,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_NL {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_NL,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_NL {
   background: url(../images/events/big/Netherlands-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_MT,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_MT {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_MT,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_MT {
   background: url(../images/events/big/Malta-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_NO,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_NO {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_NO,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_NO {
   background: url(../images/events/big/Norway-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_PL,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_PL {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_PL,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_PL {
   background: url(../images/events/big/Poland-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_PT,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_PT {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_PT,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_PT {
   background: url(../images/events/big/Portugal-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_RO,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_RO {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_RO,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_RO {
   background: url(../images/events/big/Romania-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_SK,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_SK {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_SK,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_SK {
   background: url(../images/events/big/Slovakia-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_SI,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_SI {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_SI,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_SI {
   background: url(../images/events/big/Slovenia-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_SE,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_SE {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_SE,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_SE {
   background: url(../images/events/big/Sweden-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_IE,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_IE {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_IE,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_IE {
   background: url(../images/events/big/Ireland-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_UK,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_UK {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_UK,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_UK {
   background: url(../images/events/big/United-Kingdom-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CN,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CN {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CN,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CN {
   background: url(../images/events/big/China-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CY,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CY {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CY,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CY {
   background: url(../images/events/big/Republic-of-Cyprus-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_US,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_US {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_US,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_US {
   background: url(../images/events/big/eeuu-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-title-field a,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-title-field a {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-title-field a,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-title-field a {
   display: block;
   font-size: 1.7em;
   margin-bottom: 10px;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-view-node,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-view-node {
   position: absolute;
   margin-left: 230px;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-website-of-event,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-website-of-event {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-website-of-event,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-website-of-event {
   float: none;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date-1,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date-1 {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date-1,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date-1 {
   font-size: 1em;
   margin-bottom: 0.5em;
-  font-weight: bold;
+  font-weight: 600;
   color: #57575a;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-country-code,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-country-code,
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-city,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-city {
-  font-weight: bold;
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-country-code,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-country-code,
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-city,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-city {
+  font-weight: 600;
   display: inline-block;
   color: #57575a;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-country-code span:after,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-country-code span:after {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-country-code span:after,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-country-code span:after {
   content: ",";
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-body,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-body {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-body,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-body {
   margin-top: 1em;
   margin-bottom: 1em;
   display: flex;
@@ -17349,7 +17349,7 @@ span.form-required {
   padding-bottom: 1em;
 }
 span.date-display-single {
-  font-weight: bold;
+  font-weight: 600;
 }
 .page-node-129 #block-osha-newsletter-osha-newsletter-subscribe-extra div.captcha {
   display: none;

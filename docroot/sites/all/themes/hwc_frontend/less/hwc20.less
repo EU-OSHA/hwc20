@@ -103,6 +103,12 @@ body.logged-in.ocp .navbar-header .col-xs-12.col-sm-9{
 
 }
 
+
+.date{
+	font-weight: 600;
+}
+
+
 body{
 	color:#59595A;
 
@@ -1679,9 +1685,10 @@ aside.col-md-3{
   			padding: 0;
   			background-color: transparent;
   			a{
-  				width: 90%;
-  				margin-left: 25px;
+  				width: 92%;
+  				margin-left: 15px;
   				margin-bottom: 0;
+  				padding-right: 30px;
   				&:before{
     				content: none;
     			}
@@ -1692,6 +1699,18 @@ aside.col-md-3{
 
   li.expanded.active a.active-trail{
 	background: #daea96;
+	font-weight: 600;
+	&:before{
+		display: block;
+  		content: ' '!important;
+		width: 15px;
+		height: 15px;
+		border-radius: 10px;
+		background: #003399;
+		position: absolute;
+		right: 14px;
+    	top: 10px;
+    }
   }
 
   li.active ul li a:before{
@@ -1708,33 +1727,6 @@ aside.col-md-3{
 		right: 14px;
     	top: 10px;
   }
-}
-
-
-.node-type-campaign-16, .node-type-campaign-18{
-	.left-menu ul li.expanded ul.menu li {
-	    background-color: #ecf4cb;
-	  	border-top-right-radius: 18px;
-	  	border-bottom-right-radius: 18px;
-	  	border-top-left-radius: 18px;
-	  	border-bottom-left-radius: 18px;
-	  	padding: 0.5em 0.8em 0.5em 1.5em;
-	  	margin-bottom: 1em;
-	  	width: 100%;
-	}
-
-	.left-menu ul li.expanded ul.menu li a {
-		width: 100%;
-		margin-left: 0;
-	}
-
-	.left-menu ul li.expanded.active a.active-trail {
-    	background: transparent;
-	}
-
-	.accordion-menu .menu-level-2 ul li ul li.active {
-	    background-color: #daea96;
-	}
 }
 
 #block-menu-block-5{
@@ -2589,7 +2581,7 @@ html[lang=pt] #edit-search-api-views-fulltext{
 	width: 168px!important;
 }
 
-.new-select-style, #edit_field_country_code_chosen, #edit-years{
+.new-select-style, #edit_field_country_code_chosen, #edit-years, #edit_years_chosen{
     height: 100%;
     border-radius: 5px !important;
     background: url(../images/green-select.png) no-repeat scroll 94% 13px #FFF !important;
@@ -3261,9 +3253,7 @@ div.workbench-info-block{
 	.menu-level-2{
 		ul{
 			li{
-				background-color: transparent;
-				padding: 0;
-				margin-bottom: 0.5em;
+		
 				.nolink{
 					padding: 10px 15px;
 					display: block;
@@ -3318,38 +3308,6 @@ div.workbench-info-block{
 				    vertical-align: middle;
 				    color: #FFF;
 				}
-
-				ul{
-					background: transparent;
-					padding-left: 2em;
-					li{
-						background-color: #ecf4cb;
-						padding: 0.5em 0.5em;
-						margin-top: 4px;
-						margin-bottom: 13px;
-						a{
-							background: transparent;
-							border: 0;
-    						color: #0030a0;
-    						padding: 0 1em;
-    						margin-bottom: 0;
-    						font-weight: normal;
-						}
-					}
-					li.active{
-						background-color: #daea96;
-						a{
-							font-weight: bold;					
-						}
-					}
-
-					li:hover{
-						background-color: #daea96;
-						a{
-							font-weight: bold;					
-						}
-					}
-				}
 			}
 		}
 	}
@@ -3366,6 +3324,14 @@ div.workbench-info-block{
 			ul.menu{
 				display: block
 			}
+		}
+	}
+
+	ul > li.expanded > ul > li.expanded > ul{
+		margin-top: 10px;
+		li{
+			margin-left: 10px;
+			width: 94%;
 		}
 	}
 }
@@ -3797,13 +3763,13 @@ div.workbench-info-block{
 		}
 
 		.views-field-field-start-date{
-			font-weight: bold;
+			font-weight: 600;
 			color: #57575a;
 		}
 
 		.views-field-field-country-code, .views-field-field-city{
 			float: left;
-			font-weight: bold;
+			font-weight: 600;
 			color: #57575a;
 		}
 
@@ -4672,6 +4638,7 @@ body{
 		    color: #0030a0;
 		    /*HW20-175 Become a Campaign Partner - The title of the text in boxes should be bold*/
 			font-weight: bold;
+			word-break: break-word;
 		}
 
 		p{
@@ -4877,10 +4844,7 @@ body{
 				label{
 					padding-bottom: 0;
 					margin-bottom: 2px;
-				}
-
-				input{
-					height: 33px;
+					display: block;
 				}
 
 				.views-widget-filter-field_start_date_value{
@@ -4944,6 +4908,20 @@ body{
     				padding-top: 4px;
 				}
 
+				#edit_years_chosen{
+				 	width: 225px!important;
+				 	height: auto;
+   					min-height: 33px;
+    				margin-top: 2px;
+    				padding-top: 4px;
+    				.search-choice{
+    					margin: 1px 5px 3px 0;    					
+					    box-shadow: 0 0 0 white inset, 0 0 0 rgba(0, 0, 0, 0.05);
+					    background: transparent;
+					    border: 0;
+    				}
+				}
+
 			}
 
 			.views-exposed-widget{
@@ -4957,6 +4935,10 @@ body{
 					top: 24px;
 					border-radius: 5px;
 					float: right;
+					border: 0;
+					&:hover{
+						background-color: #002266;
+					}
 				}
 			}
 
@@ -4978,7 +4960,7 @@ body{
 					padding-bottom: 1em;
 				}
 
-				.view-content:nth-child(2){
+				.view-content{
 					.views-row{
 						 border-bottom: 1px solid #749b00;
 						 float: left;
@@ -4995,6 +4977,13 @@ body{
 							float: left;
 							clear: both;
 							margin-top: -2em;
+						}
+
+						.views-field-field-start-date{
+							.event_country{
+							    width: 180px;
+    							height: 180px;
+							}
 						}
 					}
 
@@ -5013,6 +5002,7 @@ body{
 
 .views-field-field-start-date-1{
 	padding-top: 0.5em;
+	font-weight: 600;
 }
 
 .add-to-calendar{
@@ -5751,7 +5741,7 @@ body.press-room, body.european-week{
 
 	.view-frontpage-events{
 		.city, .country{
-			font-weight: bold;
+			font-weight: 600;
 		}
 		.country{
 			float: left;
@@ -5779,8 +5769,8 @@ body.press-room, body.european-week{
 		.views-row-last{
 			border-bottom: 0 solid #B0B1B2;
 		}
-
-		.date-display-single{
+ 
+		.date-display-single , .date{
 			float: none;
 			width: 100%;
 			display: block;
@@ -6362,6 +6352,8 @@ body.newsletter{
     					padding-right: 3em;
     					border-top-right-radius: 7px;
     					border-bottom-right-radius: 7px;
+    					border-top-left-radius: 0;
+    					border-bottom-left-radius: 0;
     					top: 28px;
     					&:before{
     						content: none;
@@ -6591,6 +6583,9 @@ body.newsletter{
     								border-radius: 7px;
     								text-transform: uppercase;
     								letter-spacing: -0.5px;
+    								&:hover{
+    									border: 2px solid #c9da60;
+    								}
 								}
 							}
 						}
@@ -6670,6 +6665,7 @@ body.newsletter{
 			padding: 2em;
 			color:#FFF;
 			float: left;
+			margin-bottom: 3em;
 
 			h2{
 				color: #FFF;
@@ -6715,10 +6711,9 @@ body.newsletter{
 	}
 
 	.group-faq{
-		width: 100%;
+		width: 75%;
 		clear: both;
-	    margin-top: 3em;
-	    float: left;
+	    margin: 0 auto;
 	}
 
 	#faq{
@@ -7722,6 +7717,7 @@ body.page-tools-and-publications-practical-tools{
 					min-height: 34px;
 					height: auto;
 					border-radius: 5px;
+					background: url(../images/green-select.png) no-repeat scroll 94% 13px #ffffff !important;
 
 					.search-field{
 						display: none;
@@ -8044,7 +8040,7 @@ body.page-tools-and-publications-practical-tools{
 
 	.view-frontpage-events{
 		.city, .country{
-			font-weight: bold;
+			font-weight: 600;
 		}
 		.country{
 			float: left;
@@ -8150,6 +8146,10 @@ body.page-tools-and-publications-practical-tools{
 
 
 /* Popup glossary */
+
+.lexicon-term{
+	cursor: pointer;
+}
 
 .popup{
 	position: relative;
