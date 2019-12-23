@@ -63,6 +63,10 @@ function osha_news_form_alter(&$form, &$form_state, $form_id) {
 
   if ($theme == 'hwc_frontend' && $form_id == 'news_node_form') {
     $form['field_publication_date']['#access'] = FALSE;
+    $text = t("Please note that your news /event items will be only published on the campaign website after revision by EU-OSHA.");
+    $form['markup'] = array(
+      '#markup' => '<div class="form-item">' . $text . '</div>',
+    );
   }
 
   if ($theme != 'osha_admin' && $form_id == 'news_node_form') {

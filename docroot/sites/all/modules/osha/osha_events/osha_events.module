@@ -147,6 +147,10 @@ function osha_events_form_events_node_form_alter(&$form, &$form_state) {
     $form['field_show_eu_flag']['#access'] = TRUE;
   }
   else {
+    $text = t("Please note that your news /event items will be only published on the campaign website after revision by EU-OSHA.");
+    $form['markup'] = array(
+      '#markup' => '<div class="form-item">' . $text . '</div>',
+    );
     $access = FALSE;
     if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
       $form['field_for_the_web']['#access'] = FALSE;
