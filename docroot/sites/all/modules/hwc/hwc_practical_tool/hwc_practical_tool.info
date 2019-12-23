@@ -1,7 +1,7 @@
 name = HWC Practical tool
 core = 7.x
 package = HWC
-version = 7.x-1.16
+version = 7.x-1.17
 project = hwc_practical_tool
 dependencies[] = better_exposed_filters
 dependencies[] = field_collection

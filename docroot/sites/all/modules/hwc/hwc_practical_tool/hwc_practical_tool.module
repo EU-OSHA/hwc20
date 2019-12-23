@@ -493,6 +493,7 @@ function hwc_practical_tool_field_formatter_settings_summary($field, $instance, 
  * Implements hook_field_formatter_view().
  */
 function hwc_practical_tool_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  global $language;
   $element = array();
   $settings = $display['settings'];
 
@@ -547,11 +548,16 @@ function hwc_practical_tool_field_formatter_view($entity_type, $entity, $field, 
       foreach ($items as $delta => $item) {
         if ($field_collection = field_collection_field_get_entity($item)) {
           $output = '';
-          if (!empty($field_collection->field_msd_provider_name)) {
-            $output = $field_collection->field_msd_provider_name['und'][0]['value'];
+          $original_language = $entity->field_original_desc_language['und'][0]['value'];
+          if (
+            ($original_language == $language->language)
+            &&
+            (!empty($field_collection->field_msd_provider_name_o))
+          ) {
+            $output = $field_collection->field_msd_provider_name_o['und'][0]['value'];
           }
-          else {
-            $output = $field_collection->field_fc_provider_name['und'][0]['value'];
+          else if (!empty($field_collection->field_msd_provider_name)) {
+            $output = $field_collection->field_msd_provider_name['und'][0]['value'];
           }
           $element[$delta] = array('#markup' => $output);
         }
@@ -577,4 +583,20 @@ function hwc_practical_tool_node_view($node, $view_mode, $langcode) {
       hide($node->content['field_tool_type']);
     }
   }
+}
+
+function hwc_practical_tools_get_exclude_fields($original_language) {
+  global $language;
+  if ($language->language == $original_language) {
+    return ['title_field', 'body'];
+  }
+  return ['field_title_original', 'field_body_original'];
+}
+
+function hwc_practical_tools_get_provider_name($original_language, $entity) {
+  global $language;
+  if ($language->language == $original_language) {
+    return $entity->field_msd_provider_name_o['und'][0]['value'];
+  }
+  return $entity->field_msd_provider_name['und'][0]['value'];
 }

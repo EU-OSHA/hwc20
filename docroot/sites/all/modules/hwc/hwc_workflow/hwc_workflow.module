@@ -984,7 +984,7 @@ function _hwc_workflow_partner_node_form_alter(&$form, &$form_state) {
     if (!$is_admin && in_array($form['type']['#value'], ['news', 'events'])) {
       $text = t("Please note that your news /event items will be only published on the campaign website after revision by EU-OSHA.");
       $form['actions']['markup'] = array(
-        '#markup' => '<div class="text-advice">' . $text . '</div>',
+        '#markup' => '<div class="text-advice container">' . $text . '</div>',
       );
     }
     $form['actions']['send_for_approval'] = array(

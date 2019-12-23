@@ -95,6 +95,21 @@ if (!empty($content['body'])) {
 if (!empty($content['field_body_original'])) {
   $content['field_body_original']['#title'] = t('Description');
 }
+if ($node->field_original_desc_language && $node->field_original_desc_language['und'][0]['value']) {
+  $original_language = $node->field_original_desc_language['und'][0]['value'];
+}
+$exclude_fields = hwc_practical_tools_get_exclude_fields($original_language);
+$map = [
+  'title_field' => 'field_title_original',
+  'field_title_original' => 'title_field',
+];
+$show_title = '';
+foreach ($exclude_fields as $exclude_field) {
+  if (!empty($map[$exclude_field])) {
+    $show_title = $map[$exclude_field];
+  }
+  unset($content[$exclude_field]);
+}
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="content container clearfix"<?php print $content_attributes; ?>>
@@ -102,11 +117,11 @@ if (!empty($content['field_body_original'])) {
       <div class="back-to-publications"><?php print l($back_text, $back_path, ['html' => TRUE]); ?></div>
       <div class="share-this"><?php print render($content['share_widget']); ?></div>
       <div class="col-md-9">
-        <h2><?php print strip_tags(render($content['title_field']), '<a>'); ?></h2>
+        <h2><?php print strip_tags(render($content[$show_title]), '<a>'); ?></h2>
       </div>
       <div class="col-md-9">
         <?php
-        hide($content['title_field']);
+        hide($content[$show_title]);
         print render($content);
         ?>
       </div>
