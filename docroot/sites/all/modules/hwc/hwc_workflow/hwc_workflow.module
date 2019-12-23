@@ -547,9 +547,9 @@ function hwc_workflow_node_view($node, $view_mode, $langcode) {
     if ($reminder_text) {
       $_SESSION['validation_reminder'] = array();
       drupal_add_library('system', 'ui.dialog');
-      drupal_add_js('  
+      drupal_add_js('
 (function ($) {
-		Drupal.behaviors.validation_reminder = { 
+		Drupal.behaviors.validation_reminder = {
 		  attach: function(context, settings) {
 				$( "#validation_reminder" ).dialog({
           dialogClass: "validation_reminder",
@@ -971,6 +971,7 @@ function hwc_workflow_node_form_after_build_hide_hints($form, &$form_state) {
  * Adds and hides elements on node add/edit for partners.
  */
 function _hwc_workflow_partner_node_form_alter(&$form, &$form_state) {
+  global $user;
   $form['revision_information']['#access'] = FALSE;
   if (!empty($form['workbench_moderation_state_current']['#value']) && $form['workbench_moderation_state_current']['#value'] == 'draft') {
     $form['actions']['submit']['#access'] = FALSE;
@@ -979,6 +980,13 @@ function _hwc_workflow_partner_node_form_alter(&$form, &$form_state) {
       '#value' => t('Save and preview this !type item', array('!type' => $form['type']['#value'])),
       '#submit' => array('hwc_workflow_node_form_submit_preview'),
     );
+    $is_admin = count(array_intersect(array(HWC_ROLE_ADMIN), $user->roles));
+    if (!$is_admin && in_array($form['type']['#value'], ['news', 'events'])) {
+      $text = t("Please note that your news /event items will be only published on the campaign website after revision by EU-OSHA.");
+      $form['actions']['markup'] = array(
+        '#markup' => '<div class="text-advice">' . $text . '</div>',
+      );
+    }
     $form['actions']['send_for_approval'] = array(
       '#type' => 'submit',
       '#value' => strtr('Submit !type item for validation', array('!type' => $form['type']['#value'])),
@@ -1082,7 +1090,7 @@ function _hwc_workflow_load_users_by_section($section_id) {
 }
 
 /*
- * 
+ *
  */
 function _hwc_workflow_get_default_cpm() {
   $entity_collection = entity_collection_load('campaigns_partner_default_list');
