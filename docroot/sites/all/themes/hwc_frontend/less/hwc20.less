@@ -1685,9 +1685,10 @@ aside.col-md-3{
   			padding: 0;
   			background-color: transparent;
   			a{
-  				width: 90%;
-  				margin-left: 25px;
+  				width: 92%;
+  				margin-left: 15px;
   				margin-bottom: 0;
+  				padding-right: 30px;
   				&:before{
     				content: none;
     			}
@@ -1698,6 +1699,18 @@ aside.col-md-3{
 
   li.expanded.active a.active-trail{
 	background: #daea96;
+	font-weight: 600;
+	&:before{
+		display: block;
+  		content: ' '!important;
+		width: 15px;
+		height: 15px;
+		border-radius: 10px;
+		background: #003399;
+		position: absolute;
+		right: 14px;
+    	top: 10px;
+    }
   }
 
   li.active ul li a:before{
@@ -1714,33 +1727,6 @@ aside.col-md-3{
 		right: 14px;
     	top: 10px;
   }
-}
-
-
-.node-type-campaign-16, .node-type-campaign-18{
-	.left-menu ul li.expanded ul.menu li {
-	    background-color: #ecf4cb;
-	  	border-top-right-radius: 18px;
-	  	border-bottom-right-radius: 18px;
-	  	border-top-left-radius: 18px;
-	  	border-bottom-left-radius: 18px;
-	  	padding: 0.5em 0.8em 0.5em 1.5em;
-	  	margin-bottom: 1em;
-	  	width: 100%;
-	}
-
-	.left-menu ul li.expanded ul.menu li a {
-		width: 100%;
-		margin-left: 0;
-	}
-
-	.left-menu ul li.expanded.active a.active-trail {
-    	background: transparent;
-	}
-
-	.accordion-menu .menu-level-2 ul li ul li.active {
-	    background-color: #daea96;
-	}
 }
 
 #block-menu-block-5{
@@ -3267,9 +3253,7 @@ div.workbench-info-block{
 	.menu-level-2{
 		ul{
 			li{
-				background-color: transparent;
-				padding: 0;
-				margin-bottom: 0.5em;
+		
 				.nolink{
 					padding: 10px 15px;
 					display: block;
@@ -3324,38 +3308,6 @@ div.workbench-info-block{
 				    vertical-align: middle;
 				    color: #FFF;
 				}
-
-				ul{
-					background: transparent;
-					padding-left: 2em;
-					li{
-						background-color: #ecf4cb;
-						padding: 0.5em 0.5em;
-						margin-top: 4px;
-						margin-bottom: 13px;
-						a{
-							background: transparent;
-							border: 0;
-    						color: #0030a0;
-    						padding: 0 1em;
-    						margin-bottom: 0;
-    						font-weight: normal;
-						}
-					}
-					li.active{
-						background-color: #daea96;
-						a{
-							font-weight: bold;					
-						}
-					}
-
-					li:hover{
-						background-color: #daea96;
-						a{
-							font-weight: bold;					
-						}
-					}
-				}
 			}
 		}
 	}
@@ -3372,6 +3324,14 @@ div.workbench-info-block{
 			ul.menu{
 				display: block
 			}
+		}
+	}
+
+	ul > li.expanded > ul > li.expanded > ul{
+		margin-top: 10px;
+		li{
+			margin-left: 10px;
+			width: 94%;
 		}
 	}
 }
@@ -6623,6 +6583,9 @@ body.newsletter{
     								border-radius: 7px;
     								text-transform: uppercase;
     								letter-spacing: -0.5px;
+    								&:hover{
+    									border: 2px solid #c9da60;
+    								}
 								}
 							}
 						}
@@ -6702,6 +6665,7 @@ body.newsletter{
 			padding: 2em;
 			color:#FFF;
 			float: left;
+			margin-bottom: 3em;
 
 			h2{
 				color: #FFF;
@@ -6747,10 +6711,9 @@ body.newsletter{
 	}
 
 	.group-faq{
-		width: 100%;
+		width: 75%;
 		clear: both;
-	    margin-top: 3em;
-	    float: left;
+	    margin: 0 auto;
 	}
 
 	#faq{
@@ -7754,6 +7717,7 @@ body.page-tools-and-publications-practical-tools{
 					min-height: 34px;
 					height: auto;
 					border-radius: 5px;
+					background: url(../images/green-select.png) no-repeat scroll 94% 13px #ffffff !important;
 
 					.search-field{
 						display: none;

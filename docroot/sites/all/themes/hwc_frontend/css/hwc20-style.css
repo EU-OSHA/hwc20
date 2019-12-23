@@ -1484,15 +1484,28 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
   background-color: transparent;
 }
 .left-menu ul li.expanded ul.menu li a {
-  width: 90%;
-  margin-left: 25px;
+  width: 92%;
+  margin-left: 15px;
   margin-bottom: 0;
+  padding-right: 30px;
 }
 .left-menu ul li.expanded ul.menu li a:before {
   content: none;
 }
 .left-menu ul li.expanded.active a.active-trail {
   background: #daea96;
+  font-weight: 600;
+}
+.left-menu ul li.expanded.active a.active-trail:before {
+  display: block;
+  content: ' ' !important;
+  width: 15px;
+  height: 15px;
+  border-radius: 10px;
+  background: #003399;
+  position: absolute;
+  right: 14px;
+  top: 10px;
 }
 .left-menu ul li.active ul li a:before {
   content: none;
@@ -1506,30 +1519,6 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
   position: absolute;
   right: 14px;
   top: 10px;
-}
-.node-type-campaign-16 .left-menu ul li.expanded ul.menu li,
-.node-type-campaign-18 .left-menu ul li.expanded ul.menu li {
-  background-color: #ecf4cb;
-  border-top-right-radius: 18px;
-  border-bottom-right-radius: 18px;
-  border-top-left-radius: 18px;
-  border-bottom-left-radius: 18px;
-  padding: 0.5em 0.8em 0.5em 1.5em;
-  margin-bottom: 1em;
-  width: 100%;
-}
-.node-type-campaign-16 .left-menu ul li.expanded ul.menu li a,
-.node-type-campaign-18 .left-menu ul li.expanded ul.menu li a {
-  width: 100%;
-  margin-left: 0;
-}
-.node-type-campaign-16 .left-menu ul li.expanded.active a.active-trail,
-.node-type-campaign-18 .left-menu ul li.expanded.active a.active-trail {
-  background: transparent;
-}
-.node-type-campaign-16 .accordion-menu .menu-level-2 ul li ul li.active,
-.node-type-campaign-18 .accordion-menu .menu-level-2 ul li ul li.active {
-  background-color: #daea96;
 }
 #block-menu-block-5 ul a:before {
   content: none;
@@ -2856,11 +2845,6 @@ div.workbench-info-block {
 .accordion-menu .left-menu ul li:hover {
   background-color: transparent;
 }
-.accordion-menu .menu-level-2 ul li {
-  background-color: transparent;
-  padding: 0;
-  margin-bottom: 0.5em;
-}
 .accordion-menu .menu-level-2 ul li .nolink {
   padding: 10px 15px;
   display: block;
@@ -2912,41 +2896,18 @@ div.workbench-info-block {
   vertical-align: middle;
   color: #FFF;
 }
-.accordion-menu .menu-level-2 ul li ul {
-  background: transparent;
-  padding-left: 2em;
-}
-.accordion-menu .menu-level-2 ul li ul li {
-  background-color: #ecf4cb;
-  padding: 0.5em 0.5em;
-  margin-top: 4px;
-  margin-bottom: 13px;
-}
-.accordion-menu .menu-level-2 ul li ul li a {
-  background: transparent;
-  border: 0;
-  color: #0030a0;
-  padding: 0 1em;
-  margin-bottom: 0;
-  font-weight: normal;
-}
-.accordion-menu .menu-level-2 ul li ul li.active {
-  background-color: #daea96;
-}
-.accordion-menu .menu-level-2 ul li ul li.active a {
-  font-weight: bold;
-}
-.accordion-menu .menu-level-2 ul li ul li:hover {
-  background-color: #daea96;
-}
-.accordion-menu .menu-level-2 ul li ul li:hover a {
-  font-weight: bold;
-}
 .left-menu.accordion-menu ul.menu > li.expanded ul.menu {
   display: none;
 }
 .left-menu.accordion-menu ul.menu > li.expanded.active ul.menu {
   display: block;
+}
+.left-menu.accordion-menu ul > li.expanded > ul > li.expanded > ul {
+  margin-top: 10px;
+}
+.left-menu.accordion-menu ul > li.expanded > ul > li.expanded > ul li {
+  margin-left: 10px;
+  width: 94%;
 }
 #block-hwc-homepage-previous-campaign-nav {
   clear: both;
@@ -5785,6 +5746,9 @@ body.newsletter .hwc-share-widget {
   text-transform: uppercase;
   letter-spacing: -0.5px;
 }
+.node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .multicarousel--block--inner .item p:hover {
+  border: 2px solid #c9da60;
+}
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .leftLst.over,
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .rightLst.over {
   pointer-events: none;
@@ -5850,6 +5814,7 @@ body.newsletter .hwc-share-widget {
   padding: 2em;
   color: #FFF;
   float: left;
+  margin-bottom: 3em;
 }
 .node-type-gpa .main-container .group-participate h2 {
   color: #FFF;
@@ -5889,10 +5854,9 @@ body.newsletter .hwc-share-widget {
   border-bottom: 0;
 }
 .node-type-gpa .group-faq {
-  width: 100%;
+  width: 75%;
   clear: both;
-  margin-top: 3em;
-  float: left;
+  margin: 0 auto;
 }
 .node-type-gpa #faq {
   margin-top: 2em;
@@ -6712,6 +6676,7 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-fil
   min-height: 34px;
   height: auto;
   border-radius: 5px;
+  background: url(../images/green-select.png) no-repeat scroll 94% 13px #ffffff !important;
 }
 body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .views-exposed-widget .form-select .search-field {
   display: none;
@@ -8195,6 +8160,10 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   .node-type-gpa .main-container .group-participate .field-collection-container .field-collection-view {
     padding-left: 0;
     margin-left: 0;
+  }
+  /* Good Practice Awards - GPA */
+  .node-type-gpa .group-faq {
+    width: 100%;
   }
 }
 @media (max-width: 767px) {
