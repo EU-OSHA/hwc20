@@ -444,6 +444,9 @@ function hwc_frontend_preprocess_page(&$vars) {
       $vars['theme_hook_suggestions'][] = 'page__front';
     }
   }
+  if (arg(0) . arg(1) == 'about-topicglossary-list') {
+    $vars['theme_hook_suggestions'][] = 'page__glossary__list';
+  }
   if (arg(0) . arg(1) . arg(2) == 'tools-and-publicationspublications') {
     $vars['theme_hook_suggestions'][] = 'page__publications';
   }
@@ -846,16 +849,17 @@ function hwc_frontend_preprocess_node(&$vars) {
     }
   }
 
-  //Add template to external infographic code. node--external-infographic.tpl.php - MDR-2432
   $n = menu_get_object('node');
   if ($n) {
     switch ($n->type) {
       case "article":
-        if ($n->field_article_type[LANGUAGE_NONE][0]['tid'] == 73) {
+        if ($n->field_article_type[LANGUAGE_NONE][0]['tid'] == HWC_INTRODUCTION_ARTICLE) {
           $vars['classes_array'][] = 'introductory-page';
         }
         $external_infographic = variable_get('hwc_external_infographic_nid', 7150);
         if ($n->nid == $external_infographic) {
+          // Add template to external infographic code.
+          // node--external-infographic.tpl.php - MDR-2432.
           $vars['theme_hook_suggestions'][] = 'node__external_infographic';
         }
     }
