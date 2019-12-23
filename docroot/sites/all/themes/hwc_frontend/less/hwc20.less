@@ -105,6 +105,8 @@ body.logged-in.ocp .navbar-header .col-xs-12.col-sm-9{
 
 
 .date{
+	display: block;
+	width: 100%;
 	font-weight: 600;
 }
 
@@ -737,6 +739,10 @@ ul.time-and-counters{
 
 /*Splash events*/
 
+.event_country {
+    background: url(../images/events/big/default-calendar-180x180.png) no-repeat center;
+}
+
 .code_EN{
 	background: url(../images/events/big/England-180x180.png) no-repeat center;
 }
@@ -844,6 +850,12 @@ ul.time-and-counters{
 }
 .code_CY{
 	background: url(../images/events/big/Republic-of-Cyprus-180x180.png) no-repeat center;
+}
+.code_US{
+	background: url(../images/events/big/eeuu-180x180.png) no-repeat center;
+}
+.code_CA{
+	background: url(../images/events/big/Canada-180x180.png) no-repeat center;
 }
 .code_US{
 	background: url(../images/events/big/eeuu-180x180.png) no-repeat center;
@@ -1656,6 +1668,7 @@ aside.col-md-3{
 	    }
     }
   }
+
   li.expanded{
   	background-color: transparent;
   	padding: 0;
@@ -1702,7 +1715,7 @@ aside.col-md-3{
 	font-weight: 600;
 	&:before{
 		display: block;
-  		content: ' '!important;
+  		content: ' ';
 		width: 15px;
 		height: 15px;
 		border-radius: 10px;
@@ -1727,6 +1740,20 @@ aside.col-md-3{
 		right: 14px;
     	top: 10px;
   }
+
+  li.expanded.active-trail.active > a{
+  	&:before{
+		content: "\e252";
+	    font-family: "Glyphicons Halflings";
+	    float: right;
+	    vertical-align: middle;
+	    color: #003399;
+	    background-color: transparent;
+	    top: 10px;
+		right: 13px;
+	}
+  }
+
 }
 
 #block-menu-block-5{
@@ -3940,6 +3967,13 @@ div.workbench-info-block{
 /* Types partnet special styles */
 
 /*OCP mission statement*/
+
+.panels-flexible-row-partner_detail-4-inside{
+	display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
 body.ocp .box-type-partner{
 	width: 100%;
 	background: url('../images/background-fop.png') no-repeat;
@@ -4169,6 +4203,7 @@ body.ocp{
 			color: #003399;
 			font-weight: 600;
 			margin-right: 10px;
+			margin-bottom: 10px;
 		}
 		.pane-content{
 			float: left;
@@ -4185,6 +4220,8 @@ body.ocp{
 		padding-top: 0 !important;
 		margin-right: 2em;
 		clear: none;
+		display: flex;
+    	flex-wrap: nowrap;
 		.pane-title{
 			float: left;
 			text-transform: uppercase;
@@ -4194,6 +4231,8 @@ body.ocp{
 			color: #003399;
 			font-weight: 600;
 			margin-right: 10px;
+			display: flex;
+   			align-items: center;
 		}
 		.pane-content{
 			float: left;
@@ -4587,6 +4626,7 @@ body{
 	float: left;
 	width: 100%;
 	height: 392px;
+	margin-top: 1em;
 	h3{
 		padding-bottom: 1em;
 	}
@@ -4747,6 +4787,21 @@ body{
     	top: 29px;
     }
 } 
+
+.page-node-184{
+	.related-resources{
+		width: 100%;
+		.direction-column{
+			flex-direction: row;
+		}
+	}
+
+	.related-resources-boxes{
+		div{
+    		width: 27%;
+		}
+	}
+}
 
 
 #block-views-partners-block-2, #block-views-partners-block-3{
@@ -7810,6 +7865,7 @@ body.page-tools-and-publications-practical-tools{
     	border-top: 2px solid #bcd75b;
     	border-bottom: 2px solid #bcd75b;
     	padding: 1em;
+    	margin-top: 16px;
     	margin-bottom: 2em;
     	span{
 			display: block;
