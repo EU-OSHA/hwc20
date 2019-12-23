@@ -47,7 +47,7 @@
       echo '</div></div>';
       $prev_letter = '';
       ?>
-      <div class="content-term container">
+      <div class="content-term">
         <dl>
           <?php
           foreach ($glossary_list as $term) {
