@@ -86,6 +86,8 @@ body.logged-in.ocp .navbar-header .col-xs-12.col-sm-9 {
   padding-top: 0;
 }
 .date {
+  display: block;
+  width: 100%;
   font-weight: 600;
 }
 body {
@@ -1498,7 +1500,7 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
 }
 .left-menu ul li.expanded.active a.active-trail:before {
   display: block;
-  content: ' ' !important;
+  content: ' ';
   width: 15px;
   height: 15px;
   border-radius: 10px;
@@ -1519,6 +1521,16 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
   position: absolute;
   right: 14px;
   top: 10px;
+}
+.left-menu ul li.expanded.active-trail.active > a:before {
+  content: "\e252";
+  font-family: "Glyphicons Halflings";
+  float: right;
+  vertical-align: middle;
+  color: #003399;
+  background-color: transparent;
+  top: 10px;
+  right: 13px;
 }
 #block-menu-block-5 ul a:before {
   content: none;
@@ -3411,6 +3423,11 @@ div.workbench-info-block {
 }
 /* Types partnet special styles */
 /*OCP mission statement*/
+.panels-flexible-row-partner_detail-4-inside {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
 body.ocp .box-type-partner {
   width: 100%;
   background: url('../images/background-fop.png') no-repeat;
@@ -3613,6 +3630,7 @@ body.ocp .pane-node-field-orgtype .pane-title {
   color: #003399;
   font-weight: 600;
   margin-right: 10px;
+  margin-bottom: 10px;
 }
 body.ocp .pane-node-field-orgtype .pane-content {
   float: left;
@@ -3627,6 +3645,8 @@ body.ocp .pane-node-field-bussines-sector {
   padding-top: 0 !important;
   margin-right: 2em;
   clear: none;
+  display: flex;
+  flex-wrap: nowrap;
 }
 body.ocp .pane-node-field-bussines-sector .pane-title {
   float: left;
@@ -3637,6 +3657,8 @@ body.ocp .pane-node-field-bussines-sector .pane-title {
   color: #003399;
   font-weight: 600;
   margin-right: 10px;
+  display: flex;
+  align-items: center;
 }
 body.ocp .pane-node-field-bussines-sector .pane-content {
   float: left;
@@ -3978,6 +4000,7 @@ body.een .box-type-partner {
   float: left;
   width: 100%;
   height: 392px;
+  margin-top: 1em;
 }
 .how-to-apply h3 {
   padding-bottom: 1em;
@@ -4125,6 +4148,15 @@ body.een .box-type-partner {
   position: absolute;
   right: 15%;
   top: 29px;
+}
+.page-node-184 .related-resources {
+  width: 100%;
+}
+.page-node-184 .related-resources .direction-column {
+  flex-direction: row;
+}
+.page-node-184 .related-resources-boxes div {
+  width: 27%;
 }
 #block-views-partners-block-2 h2,
 #block-views-partners-block-3 h2 {
@@ -6738,6 +6770,7 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   border-top: 2px solid #bcd75b;
   border-bottom: 2px solid #bcd75b;
   padding: 1em;
+  margin-top: 16px;
   margin-bottom: 2em;
 }
 .page-about-topic-glossary-list #glossary-letters span {
