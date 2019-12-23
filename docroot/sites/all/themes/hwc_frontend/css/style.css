@@ -14633,7 +14633,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   background-color: transparent;
   margin-top: 3em;
   color: #003399;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
   clear: both;
   height: auto;
   display: block;
@@ -14655,6 +14655,21 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-node-edit .node-document-form #edit-actions #edit-save-preview:before {
   content: url('../images/content/preview.png');
   display: block;
+}
+.page-node-add-document .node-events-form #edit-actions .text-advice,
+.page-node-add-events .node-events-form #edit-actions .text-advice,
+.page-node-add-news .node-events-form #edit-actions .text-advice,
+.page-node-edit .node-events-form #edit-actions .text-advice,
+.page-node-add-document .node-news-form #edit-actions .text-advice,
+.page-node-add-events .node-news-form #edit-actions .text-advice,
+.page-node-add-news .node-news-form #edit-actions .text-advice,
+.page-node-edit .node-news-form #edit-actions .text-advice,
+.page-node-add-document .node-document-form #edit-actions .text-advice,
+.page-node-add-events .node-document-form #edit-actions .text-advice,
+.page-node-add-news .node-document-form #edit-actions .text-advice,
+.page-node-edit .node-document-form #edit-actions .text-advice {
+  text-align: center;
+  padding-bottom: 2em;
 }
 .page-node-add-document .node-events-form table.mceLayout,
 .page-node-add-events .node-events-form table.mceLayout,
