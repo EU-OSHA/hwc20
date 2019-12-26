@@ -40,21 +40,26 @@ function hwc_frontend_menu_link__menu_block($variables) {
   if (!$render_img) {
     return theme_menu_link($variables);
   }
-
   $description = '';
   if (!empty($element['#localized_options']['attributes']['title'])) {
     $description = $element['#localized_options']['attributes']['title'];
   }
-  if (!empty($element['#localized_options']['content']['image']) && $image_url = file_create_url($element['#localized_options']['content']['image'])) {
-    $text = '<span class="content-img"><img src="' . $image_url . '"/></span><h2>' . $element['#title'] . '</h2><p>' . $description . '</p>';
-    $output_link = l($text, $element['#href'], array('html' => TRUE));
-  }
-  else {
-    $output_link = l($element['#title'], $element['#href'], $element['#localized_options']);
-  }
+  $image_url = file_create_url($element['#localized_options']['content']['image']);
   $text = '<span class="content-img"><img src="' . $image_url . '"/></span><h2>' . $element['#title'] . '</h2><p>' . $description . '</p>';
+  if (!empty($element['#localized_options']['copyright']['author']) || !empty($element['#localized_options']['copyright']['copyright'])) {
+    $text .= '<blockquote class="image-field-caption">';
+    if (!empty($element['#localized_options']['copyright']['author'])) {
+      $text .= check_markup($element['#localized_options']['copyright']['author'], 'full_html');
+    }
+    if (!empty($element['#localized_options']['copyright']['author']) && !empty($element['#localized_options']['copyright']['copyright'])) {
+      $text .= '<span>&nbsp;/&nbsp;</span>';
+    }
+    if (!empty($element['#localized_options']['copyright']['copyright'])) {
+      $text .= '<span class="blockquote-copyright">' . $element['#localized_options']['copyright']['copyright'] . '</span>';
+    }
+    $text .= '</blockquote>';
+  }
   $output_link = l($text, $element['#href'], array('html' => TRUE));
-
   $element['#attributes']['class'][] = 'content-box-sub';
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output_link . '</li>';
 }
