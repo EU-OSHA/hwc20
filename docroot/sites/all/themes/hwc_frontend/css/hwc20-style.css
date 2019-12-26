@@ -6660,13 +6660,18 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
 }
 .node-type-priority-area .region-content .block-hwc-priority-areas ul {
   list-style: none;
-  padding: 0 1em 1em 1em;
+  padding: 0 1em;
+  margin-bottom: 0;
   text-align: center;
 }
 .node-type-priority-area .region-content .block-hwc-priority-areas ul li {
   padding-top: 1em;
   padding-bottom: 1em;
   background: url(../images/green-line.png) repeat-x;
+}
+.node-type-priority-area .region-content .block-hwc-priority-areas ul li .more-link {
+  font-size: 1.2rem;
+  padding-top: 5px;
 }
 .node-type-priority-area .region-content .block-hwc-priority-areas .more-link {
   display: flex;
@@ -6705,6 +6710,8 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
 }
 .node-type-priority-area .region-content #block-hwc-priority-areas .node-news a.more-link {
   justify-content: left;
+  font-size: 1.2rem;
+  padding-top: 5px;
 }
 .node-type-priority-area .region-content h2.block-title {
   float: left;
