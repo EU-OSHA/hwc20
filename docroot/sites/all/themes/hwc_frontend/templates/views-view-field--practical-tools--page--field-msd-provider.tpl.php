@@ -28,7 +28,10 @@ $names = [];
 if ($providers) {
   foreach($providers[LANGUAGE_NONE] as $provider) {
     $entity = field_collection_field_get_entity($provider);
-    $names[] = hwc_practical_tools_get_provider_name($original_language, $entity);
+    $name = hwc_practical_tools_get_provider_name($original_language, $entity);
+    if ($name) {
+      $names[] = $name;
+    }
   }
 }
 if ($names) { ?>
