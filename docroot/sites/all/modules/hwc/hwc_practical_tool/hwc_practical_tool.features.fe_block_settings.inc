@@ -97,7 +97,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Worker groups:',
+    'title' => 'Worker groups',
     'visibility' => 1,
   );
 
@@ -127,7 +127,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Country:',
+    'title' => 'Country',
     'visibility' => 1,
   );
 
@@ -215,7 +215,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Health effects:',
+    'title' => 'Health effects',
     'visibility' => 1,
   );
 
@@ -245,7 +245,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Work tasks:',
+    'title' => 'Work tasks',
     'visibility' => 1,
   );
 
@@ -275,7 +275,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Sector / Industry:',
+    'title' => 'Sector / Industry',
     'visibility' => 1,
   );
 
@@ -306,7 +306,7 @@ partners-documents',
         'weight' => 0,
       ),
     ),
-    'title' => 'Language:',
+    'title' => 'Language',
     'visibility' => 1,
   );
 
@@ -336,7 +336,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Target groups:',
+    'title' => 'Target groups',
     'visibility' => 1,
   );
 
@@ -366,7 +366,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Type:',
+    'title' => 'Type',
     'visibility' => 1,
   );
 

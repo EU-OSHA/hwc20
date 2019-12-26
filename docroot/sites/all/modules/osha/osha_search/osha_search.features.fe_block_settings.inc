@@ -37,7 +37,7 @@ function osha_search_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => 'Language:',
+    'title' => 'Language',
     'visibility' => 1,
   );
 
@@ -97,7 +97,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Hazards:',
+    'title' => 'Hazards',
     'visibility' => 1,
   );
 
@@ -155,7 +155,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Purpose of the material:',
+    'title' => 'Purpose of the material',
     'visibility' => 0,
   );
 
@@ -185,7 +185,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Worker groups:',
+    'title' => 'Worker groups',
     'visibility' => 1,
   );
 
@@ -214,7 +214,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Organisation:',
+    'title' => 'Organisation',
     'visibility' => 1,
   );
 
@@ -244,7 +244,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Country:',
+    'title' => 'Country',
     'visibility' => 1,
   );
 
@@ -356,7 +356,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Type:',
+    'title' => 'Type',
     'visibility' => 0,
   );
 
@@ -386,7 +386,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Type of visual material:',
+    'title' => 'Type of visual material',
     'visibility' => 1,
   );
 
@@ -474,7 +474,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Health effects:',
+    'title' => 'Health effects',
     'visibility' => 1,
   );
 
@@ -505,7 +505,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Priority areas:',
+    'title' => 'Priority areas',
     'visibility' => 1,
   );
 
@@ -534,7 +534,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Show:',
+    'title' => 'Show',
     'visibility' => 1,
   );
 
@@ -564,7 +564,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Work tasks:',
+    'title' => 'Work tasks',
     'visibility' => 1,
   );
 
@@ -594,7 +594,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Sector / Industry:',
+    'title' => 'Sector / Industry',
     'visibility' => 1,
   );
 
@@ -624,7 +624,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Purpose of the material:',
+    'title' => 'Purpose of the material',
     'visibility' => 1,
   );
 
@@ -654,7 +654,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Prevention measures:',
+    'title' => 'Prevention measures',
     'visibility' => 1,
   );
 
@@ -684,7 +684,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Worker groups covered:',
+    'title' => 'Worker groups covered',
     'visibility' => 1,
   );
 
@@ -714,7 +714,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Type of visual material:',
+    'title' => 'Type of visual material',
     'visibility' => 1,
   );
 
@@ -745,7 +745,7 @@ partners-documents',
         'weight' => 0,
       ),
     ),
-    'title' => 'Language:',
+    'title' => 'Language',
     'visibility' => 1,
   );
 
@@ -775,7 +775,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Target groups:',
+    'title' => 'Target groups',
     'visibility' => 1,
   );
 
@@ -805,7 +805,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Health effects:',
+    'title' => 'Health effects',
     'visibility' => 1,
   );
 
@@ -864,7 +864,7 @@ media-centre/events/*',
         'weight' => 0,
       ),
     ),
-    'title' => 'Prevention measures:',
+    'title' => 'Prevention measures',
     'visibility' => 0,
   );
 
@@ -894,7 +894,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Type:',
+    'title' => 'Type',
     'visibility' => 1,
   );
 
@@ -924,7 +924,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Target audience:',
+    'title' => 'Target audience',
     'visibility' => 1,
   );
 
@@ -953,7 +953,7 @@ tools-and-publications/practical-tools',
         'weight' => 0,
       ),
     ),
-    'title' => 'Country:',
+    'title' => 'Country',
     'visibility' => 0,
   );
 
