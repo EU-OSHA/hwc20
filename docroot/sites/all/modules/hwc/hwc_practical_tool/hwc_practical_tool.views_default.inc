@@ -182,7 +182,7 @@ function hwc_practical_tool_views_default_views() {
   $handler->display->display_options['fields']['field_material_country']['label'] = '';
   $handler->display->display_options['fields']['field_material_country']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_material_country']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_material_country']['alter']['text'] = '<span class="views-label">Country: </span><span>[field_material_country]</span>';
+  $handler->display->display_options['fields']['field_material_country']['alter']['text'] = '<span class="views-label">Country </span><span>[field_material_country]</span>';
   $handler->display->display_options['fields']['field_material_country']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_material_country']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['field_material_country']['view_mode'] = 'full';
@@ -218,9 +218,9 @@ function hwc_practical_tool_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="views-field">
-<span class="views-label first">Type: </span><span>[field_type_of_item]</span>
+<span class="views-label first">Type </span><span>[field_type_of_item]</span>
 [field_material_country]
-<span class="views-label">Language:</span><span>[field_available_in_languages]</span>
+<span class="views-label">Language</span><span>[field_available_in_languages]</span>
 ';
   $handler->display->display_options['fields']['nothing']['element_type'] = '0';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
@@ -424,11 +424,11 @@ function hwc_practical_tool_views_default_views() {
     t('No results'),
     t('Multilingual ID'),
     t('Language of original language description	'),
-    t('<span class="views-label">Country: </span><span>[field_material_country]</span>'),
+    t('<span class="views-label">Country </span><span>[field_material_country]</span>'),
     t('<div class="views-field">
-<span class="views-label first">Type: </span><span>[field_type_of_item]</span>
+<span class="views-label first">Type </span><span>[field_type_of_item]</span>
 [field_material_country]
-<span class="views-label">Language:</span><span>[field_available_in_languages]</span>
+<span class="views-label">Language</span><span>[field_available_in_languages]</span>
 '),
     t('Year of publication'),
     t('Relevance'),

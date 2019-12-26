@@ -31,6 +31,9 @@ if ($providers) {
     $names[] = hwc_practical_tools_get_provider_name($original_language, $entity);
   }
 }
+if ($names) { ?>
+  <span class="views-label"><?php echo  t('Provider'); ?></span><span><?php print implode(', ', $names); ?></span>
+<?php
+}
 ?>
-<span class="views-label"><?php echo  t('Provider:'); ?></span><span><?php print implode(', ', $names)?></span>
 </div>
