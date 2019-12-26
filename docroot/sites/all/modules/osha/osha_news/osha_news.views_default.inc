@@ -1151,7 +1151,7 @@ function osha_news_views_default_views() {
   $handler->display->display_options['filters']['field_migration_source_value']['field'] = 'field_migration_source_value';
   $handler->display->display_options['filters']['field_migration_source_value']['operator'] = 'empty';
   $handler->display->display_options['filters']['field_migration_source_value']['group'] = 2;
-  $handler->display->display_options['block_description'] = 'European Week news';
+  $handler->display->display_options['block_description'] = 'GPE news';
   $translatables['news'] = array(
     t('Master'),
     t('News'),
@@ -1191,6 +1191,7 @@ function osha_news_views_default_views() {
 <div class="media-body">[field_publication_date] [title_field] [body]</div>
 '),
     t('GPE'),
+    t('GPE news'),
   );
   $export['news'] = $view;
 

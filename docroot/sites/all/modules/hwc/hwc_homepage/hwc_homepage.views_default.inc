@@ -997,7 +997,7 @@ function hwc_homepage_views_default_views() {
     'GP Exchange' => 'GP Exchange',
   );
   $handler->display->display_options['filters']['field_show_on_value']['group'] = 2;
-  $handler->display->display_options['block_description'] = 'European Week events';
+  $handler->display->display_options['block_description'] = 'GPE events';
   $translatables['frontpage_events'] = array(
     t('Master'),
     t('Events'),
@@ -1021,6 +1021,7 @@ function hwc_homepage_views_default_views() {
     t('European Week events'),
     t('HP Events'),
     t('GPE Block'),
+    t('GPE events'),
   );
   $export['frontpage_events'] = $view;
 
