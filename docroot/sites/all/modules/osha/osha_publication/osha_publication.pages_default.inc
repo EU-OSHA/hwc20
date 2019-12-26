@@ -613,7 +613,10 @@ function osha_publication_default_page_manager_pages() {
   $pane->style = array(
     'settings' => NULL,
   );
-  $pane->css = array();
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'content-fluid green-background',
+  );
   $pane->extras = array();
   $pane->position = 1;
   $pane->locks = array();
