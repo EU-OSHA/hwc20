@@ -174,6 +174,7 @@ jQuery(document).ready(function() {
 			jQuery(this).removeClass("closed-down-arrow");
 			jQuery('.left-menu.accordion-menu').addClass("opened");
 			jQuery(this).siblings("ul").slideDown();
+			jQuery('li.expanded > ul > li.expanded > ul').show();
 		}
 	});
 

@@ -1648,7 +1648,16 @@ aside.col-md-3{
 		a{
 			color:white;	
 		}
+		ul{
+			li:hover{
+				a{
+					color:white;
+					background-color:#0030a0;	
+				}
+			}
+		}
 	}
+
 	.active{
     background-color: #0030a0;
     position: relative;
@@ -1689,6 +1698,13 @@ aside.col-md-3{
 		    top: 10px;
    			right: 13px;
     	}
+    	&:hover{
+    		background: #003399;
+    		color: #FFFFFF;
+    		&:before{
+				color: #FFFFFF;
+    		}
+    	}
   	}
   	a.active{
   		background: #daea96;
@@ -1723,6 +1739,13 @@ aside.col-md-3{
 		position: absolute;
 		right: 14px;
     	top: 10px;
+    }
+    &:hover{
+    	background: #0030a0;
+    	color: #FFF;
+    	&:before{
+    		color: #FFF;
+    	}
     }
   }
 
@@ -2775,6 +2798,7 @@ span.pages{
 	    	width: 100%;
 	    	text-decoration: none;
 	    	border-bottom: 0;
+	    	position: relative;
 	    	&:hover{
 	    		opacity: 0.8;
 	    	}
@@ -3344,12 +3368,12 @@ div.workbench-info-block{
 	ul.menu{
 		> li.expanded{
 			ul.menu{
-				display: none
+				display: none;
 			}
 		}
 		> li.expanded.active{
 			ul.menu{
-				display: block
+				display: block;
 			}
 		}
 	}
@@ -7751,6 +7775,7 @@ body.page-tools-and-publications-publications{
 
 
 /*Pratical tools*/
+
 body.page-tools-and-publications-practical-tools{
 	.region.region-content{
 		.view-content{
@@ -7850,6 +7875,63 @@ body.page-tools-and-publications-practical-tools{
 				}
 
 			}
+		}
+	}
+
+}
+
+/* Practical tools detail */
+.node-type-practical-tool{
+	.field-name-field-type-of-item,
+	.field-name-field-material-country,
+	.field-name-field-available-in-languages,
+	.field-collection-container{
+		float: left;
+		margin: 1em 3em 1em 0;
+		.field-label{
+			color: #003399;
+			text-transform: uppercase;
+			font-size: 1.1rem;
+			border: 1px solid #c1e000;
+			border-radius: 5px;
+			padding: 2px 10px;
+			margin-right: 8px;
+		}
+		.field-items{
+			.field-item{
+				float: left;
+				padding-right: 5px;
+			}
+		}	
+	}
+
+	.field-name-body, .field-name-field-body-original{
+		padding-bottom: 1.5em;
+		.field-label{
+			width: 100%;
+		}
+	}
+
+	.field-name-field-external-url{
+		.field-label{
+			width: 100%;
+		}
+	}
+
+
+	h3{
+		font-size: 2rem;
+		color: #003399;
+	}
+
+	.group-details{
+		.field-label{
+			width: 320px;
+			padding-right: 1em;
+		}
+
+		.date-display-single{
+			font-weight: normal;
 		}
 	}
 
