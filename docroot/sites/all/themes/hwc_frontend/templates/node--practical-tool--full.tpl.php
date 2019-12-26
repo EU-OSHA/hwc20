@@ -122,7 +122,13 @@ foreach ($exclude_fields as $exclude_field) {
       <div class="col-md-12">
         <?php
         hide($content[$show_title]);
-        print render($content);
+        foreach($content as $name => $data) {
+          $output = render($data);
+          if (in_array($name, ['field_type_of_item', 'field_material_country', 'field_available_in_languages'])) {
+            $output = str_replace(':&nbsp;</div>', '</div>', $output);
+          }
+          print $output;
+        }
         ?>
       </div>
       <div class="share-this"><?php print render($content['bottom_share_widget']); ?></div>
