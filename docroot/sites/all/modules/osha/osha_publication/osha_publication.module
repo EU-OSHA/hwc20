@@ -494,6 +494,10 @@ function osha_publication_field_formatter_info() {
       'field types' => array('text'),
       'settings' => array('title_style' => '', 'title_link' => '', 'title_class' => '', 'trim_length' => '', 'trim_suffix' => ''),
     ),
+    'osha_publication_type' => array(
+      'label' => t('Publication Type (localized)'),
+      'field types' => array('taxonomy_term_reference'),
+    ),
   );
   return $info;
 }
@@ -632,6 +636,7 @@ function osha_publication_ctools_plugin_directory($owner, $plugin_type) {
  * Implements hook_field_formatter_view().
  */
 function osha_publication_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  global $language;
   $element = array();
   switch ($display['type']) {
     case 'file_publication_file':
@@ -735,8 +740,33 @@ function osha_publication_field_formatter_view($entity_type, $entity, $field, $i
       );
 
       break;
+
+    case 'osha_publication_type':
+      foreach ($items as $delta => $item) {
+        if (!@$item['taxonomy_term']->field_main_category[LANGUAGE_NONE][0]['value'] && variable_get('show_main_publication_type', TRUE)) {
+          $map = osha_publication_get_main_publication_types_map(FALSE);
+          if (isset($map[$item['tid']])) {
+            $item['taxonomy_term'] = taxonomy_term_load($map[$item['tid']]);
+          }
+        }
+        $name = ($item['tid'] != 'autocreate' ? i18n_taxonomy_term_name($item['taxonomy_term'], $language->language): $item['name']);
+        $element[$delta] = array(
+          '#markup' => check_plain($name),
+        );
+      }
+      break;
   }
   return $element;
+}
+
+/**
+ * Implements hook_field_formatter_prepare_view().
+ *
+ * This preloads all taxonomy terms for multiple loaded objects at once and
+ * unsets values for invalid terms that do not exist.
+ */
+function osha_publication_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, &$items, $displays) {
+  return taxonomy_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, $items, $displays);
 }
 
 /**

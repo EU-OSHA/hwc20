@@ -465,7 +465,7 @@ function _osha_publication_menu_publications_get_facets_def() {
   return array(
     'field_publication_type' => array(
       'label' => t('Publications type'),
-      'field' => 'field_publication_type',
+      'field' => 'main_publication_type',
       'limit' => 50,
       'operator' => 'or',
       'min_count' => 1,

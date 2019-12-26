@@ -2301,11 +2301,11 @@ function osha_publication_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'i18n_taxonomy',
+        'module' => 'osha_publication',
         'settings' => array(
           'field_formatter_class' => '',
         ),
-        'type' => 'i18n_taxonomy_term_reference_plain',
+        'type' => 'osha_publication_type',
         'weight' => 10,
       ),
       'highlights_item' => array(
@@ -2361,11 +2361,11 @@ function osha_publication_field_default_field_instances() {
       ),
       'pub_teaser' => array(
         'label' => 'hidden',
-        'module' => 'i18n_taxonomy',
+        'module' => 'osha_publication',
         'settings' => array(
           'field_formatter_class' => '',
         ),
-        'type' => 'i18n_taxonomy_term_reference_plain',
+        'type' => 'osha_publication_type',
         'weight' => 8,
       ),
       'scs' => array(
