@@ -110,12 +110,15 @@ foreach ($exclude_fields as $exclude_field) {
   }
   unset($content[$exclude_field]);
 }
+$share_widget = $content['share_widget'];
+unset($content['share_widget']);
+unset($content['bottom_share_widget']);
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="content container clearfix"<?php print $content_attributes; ?>>
     <div class="publication-detail">
       <div class="back-to-publications"><?php print l($back_text, $back_path, ['html' => TRUE]); ?></div>
-      <div class="share-this"><?php print render($content['share_widget']); ?></div>
+      <div class="share-this"><?php print render($share_widget); ?></div>
       <div class="col-md-12">
         <h2><?php print strip_tags(render($content[$show_title]), '<a>'); ?></h2>
       </div>
@@ -131,7 +134,7 @@ foreach ($exclude_fields as $exclude_field) {
         }
         ?>
       </div>
-      <div class="share-this"><?php print render($content['bottom_share_widget']); ?></div>
+      <div class="share-this"><?php print render($share_widget); ?></div>
     </div>
   </div>
 </div>
