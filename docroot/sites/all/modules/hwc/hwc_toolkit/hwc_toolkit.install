@@ -173,3 +173,10 @@ function hwc_toolkit_update_7023() {
 function hwc_toolkit_update_7024() {
   features_revert_module('hwc_toolkit');
 }
+
+/**
+ * Search Toolkit Examples.
+ */
+function hwc_toolkit_update_7025() {
+  features_revert(array('hwc_toolkit' => array('views_view')));
+}

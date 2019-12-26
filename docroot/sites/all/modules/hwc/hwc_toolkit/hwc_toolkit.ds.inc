@@ -104,8 +104,8 @@ function hwc_toolkit_ds_field_settings_info() {
       'format' => 'default',
       'formatter_settings' => array(
         'link' => '0',
-        'wrapper' => 'h1',
-        'class' => '',
+        'wrapper' => 'h2',
+        'class' => 'toolkit-h2',
         'exclude node title settings' => '1',
         'field_formatter_class' => '',
       ),
@@ -141,8 +141,8 @@ function hwc_toolkit_ds_field_settings_info() {
       'format' => 'default',
       'formatter_settings' => array(
         'link' => '0',
-        'wrapper' => 'h1',
-        'class' => '',
+        'wrapper' => 'h2',
+        'class' => 'toolkit-h2',
         'exclude node title settings' => '1',
         'field_formatter_class' => '',
       ),

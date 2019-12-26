@@ -93,54 +93,7 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
                   <?php if ($show_title) { ?>
                       <div class="page_title">
                     <?php
-                    $external_infographic = variable_get('hwc_external_infographic_nid', 7150);
-                    $node_nid = NULL;
-                    $node_type = NULL;
-                    /*If is a external infographic, change the breadcrumbs*/
-                    $n = menu_get_object('node');
-                    if ($n) {
-                      $node_nid = $n->nid;
-                      $node_type = $n->type;
-                      switch ($node_type) {
-                        case "article":
-                          if ($node_nid == $external_infographic) { ?>
-                              <div class="breadcrumb breadcrumb-external-infographic contextual-links-region">
-                              <span class="inline odd first">
-                      <?php print '<a href="/' . $language->language . '">' . t("Home") . '</a>'; ?>
-                    </span>
-                              <span class="delimiter">»</span>
-                              <span class="inline even">
-                      <?php print '<a href="/' . $language->language . '/tools-and-publications">' . t("Tools and Publications") . '</a>'; ?>
-                    </span>
-                              <span class="delimiter">»</span>
-                              <span class="inline even">
-                      <?php print '<a href="/' . $language->language . '/tools-and-publications/infographics">' . t("Infographics") . '</a>'; ?>
-                    </span>
-                              <span class="delimiter">»</span>
-                              <span class="inline odd last"><?php print $n->title; ?></span>
-                              </div><?php
-                          }
-                          break;
-
-                        case "infographic": ?>
-                            <div class="breadcrumb breadcrumb-external-infographic contextual-links-region">
-                            <span class="inline odd first">
-                  <?php print '<a href="/' . $language->language . '">' . t("Home") . '</a>' ?>
-                </span>
-                            <span class="delimiter">»</span>
-                            <span class="inline even">
-                  <?php print '<a href="/' . $language->language . '/tools-and-publications">' . t("Tools and Publications") . '</a>' ?>
-                </span>
-                            <span class="delimiter">»</span>
-                            <span class="inline odd last">
-                   <?php print t("Infographics"); ?>
-                </span>
-                            </div><?php
-                          break;
-
-                      }
-                    }
-                    if (!empty($breadcrumb) && ($node_nid != $external_infographic) && ($node_type != 'infographic')) {
+                    if (!empty($breadcrumb)) {
                       print $breadcrumb;
                     }
                     if (!empty($back_to_pz)) {
@@ -148,13 +101,13 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
                     } ?>
                       <a id="main-content"></a>
                     <?php print render($title_prefix); ?>
-                      <div class="above_title">
-                        <?php print render($page['above_title']); ?>
-                      </div>
+                    <div class="above_title">
+                      <?php print render($page['above_title']); ?>
+                    </div>
                     <?php if (!empty($title)): ?>
-                          <h1 class="page-header"><?php print $title; ?></h1>
+                      <h1 class="page-header"><?php print $title; ?></h1>
                     <?php endif; ?>
-                      </div><?php
+                    </div><?php
                   }
                   print render($title_suffix);
                   print $messages; ?>

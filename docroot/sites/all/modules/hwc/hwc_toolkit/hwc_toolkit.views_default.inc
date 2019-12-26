@@ -323,7 +323,7 @@ function hwc_toolkit_views_default_views() {
   $handler->display->display_options['footer']['result']['id'] = 'result';
   $handler->display->display_options['footer']['result']['table'] = 'views';
   $handler->display->display_options['footer']['result']['field'] = 'result';
-  $handler->display->display_options['footer']['result']['content'] = '<p class="result-summary">Showing @start - @end from @total</p>';
+  $handler->display->display_options['footer']['result']['content'] = '<div class="pager-total"><span>@start - @end / @total</span></div>';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Search: Fulltext search */
@@ -494,7 +494,7 @@ function hwc_toolkit_views_default_views() {
     t('Content type'),
     t('Page'),
     t('We know you are keen to see some good practice for different campaings, we are offering you option to search for examples from around whole Europe and get inspired.'),
-    t('<p class="result-summary">Showing @start - @end from @total</p>'),
+    t('<div class="pager-total"><span>@start - @end / @total</span></div>'),
   );
   $export['search_toolkit_examples'] = $view;
 

@@ -458,7 +458,8 @@ function hwc_frontend_preprocess_page(&$vars) {
   if (arg(0) . arg(1) == 'tools-and-publicationspractical-tools') {
     $vars['theme_hook_suggestions'][] = 'page__practical__tools';
   }
-  $vars['back_to_pz'] = '';//hwc_partner_back_to_private_zone();
+  $vars['back_to_pz'] = '';
+  //hwc_partner_back_to_private_zone();
   $vars['page']['content']['#post_render'] = ['hwc_content_post_render'];
   if (drupal_is_front_page()) {
     unset($vars['page']['content']['system_main']['default_message']);
@@ -468,18 +469,18 @@ function hwc_frontend_preprocess_page(&$vars) {
     $vars['classes_array'][] = 'page-search';
   }
 
+  $tag_vars = array(
+    'element' => array(
+      '#tag' => 'h1',
+      '#attributes' => array(
+        'class' => array('page-header'),
+      ),
+    ),
+  );
   $vars['show_title'] = TRUE;
   // Add back to links (e.g. Back to news).
   if (isset($vars['node'])) {
     $node = $vars['node'];
-    $tag_vars = array(
-      'element' => array(
-        '#tag' => 'h1',
-        '#attributes' => array(
-          'class' => array('page-header'),
-        ),
-      ),
-    );
     switch ($node->type) {
       case "tk_section":
       case 'tk_article':
@@ -689,6 +690,16 @@ function hwc_frontend_preprocess_page(&$vars) {
       drupal_set_breadcrumb($breadcrumb);
     }
   }
+
+  if (arg(2) == 'search-toolkit-examples') {
+    $vars['theme_hook_suggestions'][] = 'page__search_toolkit_examples';
+    $tag_vars['element']['#value'] = t('Campaign toolkit');
+    $vars['page']['above_title']['title-alternative'] = array(
+      '#type' => 'item',
+      '#markup' => theme('html_tag', $tag_vars),
+    );
+  }
+
   if (arg(0) == 'entity-collection') {
     $breadcrumb = [];
     $breadcrumb[] = l(t('Home'), '<front>');
