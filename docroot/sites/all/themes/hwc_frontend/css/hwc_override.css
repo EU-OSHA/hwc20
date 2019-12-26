@@ -233,9 +233,7 @@ div.workbench-info-block {
     content: ">";
     padding-right: 0.0em;
 }
-.node-type-practical-tool .page_title .page-header {
-    display: none;
-}
+
 .node-type-practical-tool .pane-node-title-field {
     color: #003399;
     border: none;

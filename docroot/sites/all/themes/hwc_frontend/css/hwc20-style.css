@@ -1491,6 +1491,13 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
   top: 10px;
   right: 13px;
 }
+.left-menu ul li.expanded a:hover {
+  background: #003399;
+  color: #FFFFFF;
+}
+.left-menu ul li.expanded a:hover:before {
+  color: #FFFFFF;
+}
 .left-menu ul li.expanded a.active {
   background: #daea96;
 }
