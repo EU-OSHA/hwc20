@@ -154,3 +154,10 @@ function osha_publication_update_7017() {
 function osha_publication_update_7018() {
   features_revert_module('osha_publication');
 }
+
+/**
+ * HWC20 - Publication type.
+ */
+function osha_publication_update_7019() {
+  features_revert(array('osha_publication' => array('field_instance')));
+}
