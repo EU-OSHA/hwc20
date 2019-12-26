@@ -116,10 +116,10 @@ foreach ($exclude_fields as $exclude_field) {
     <div class="publication-detail">
       <div class="back-to-publications"><?php print l($back_text, $back_path, ['html' => TRUE]); ?></div>
       <div class="share-this"><?php print render($content['share_widget']); ?></div>
-      <div class="col-md-9">
+      <div class="col-md-12">
         <h2><?php print strip_tags(render($content[$show_title]), '<a>'); ?></h2>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-12">
         <?php
         hide($content[$show_title]);
         print render($content);
