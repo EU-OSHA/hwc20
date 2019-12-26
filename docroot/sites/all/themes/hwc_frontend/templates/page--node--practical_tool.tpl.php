@@ -101,10 +101,12 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
                     } ?>
                       <a id="main-content"></a>
                     <?php print render($title_prefix); ?>
-                      <div class="above_title">
-                        <?php
-                        print render($page['above_title']); ?>
-                      </div>
+                    <div class="above_title">
+                      <?php print render($page['above_title']); ?>
+                    </div>
+                    <?php if (!empty($title)): ?>
+                      <h1 class="page-header"><?php print $title; ?></h1>
+                    <?php endif; ?>
                     </div><?php
                   }
                   print render($title_suffix);
