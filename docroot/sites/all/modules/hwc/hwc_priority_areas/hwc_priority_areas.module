@@ -196,32 +196,35 @@ function hwc_priority_areas_block_view($delta = '') {
       foreach($node->field_tools_and_guidance[LANGUAGE_NONE] as $row) {
         $nids[] = $row['target_id'];
       }
-      $block['content'] = hwc_priority_areas_render_nodes($nids, 'priority_areas');
-      $tid = $node->field_msd_priority_area[LANGUAGE_NONE][0]['tid'];
-      $text = t('See all Practical Tools');
-      $base = 'tools-and-publications/practical-tools';
-      $options = [];
-      $options['query']['f[0]'] = 'field_msd_priority_area:' . $tid;
-      $block['content'] .= hwc_priority_areas_see_all($base, $text, $options);
+      if ($nids) {
+        $block['content'] = hwc_priority_areas_render_nodes($nids, 'priority_areas');
+        $tid = $node->field_msd_priority_area[LANGUAGE_NONE][0]['tid'];
+        $text = t('See all Practical Tools');
+        $base = 'tools-and-publications/practical-tools';
+        $options = [];
+        $options['query']['f[0]'] = 'field_msd_priority_area:' . $tid;
+        $block['content'] .= hwc_priority_areas_see_all($base, $text, $options);
+      }
     }
   }
-
   if ($delta == 'hwc_pa_case_studies') {
     $block['title'] = t('Case studies');
     if ($node->field_case_studies) {
       foreach($node->field_case_studies[LANGUAGE_NONE] as $row) {
         $nids[] = $row['target_id'];
       }
-      $block['content'] = hwc_priority_areas_render_nodes($nids, 'priority_areas');
-      $tid = $node->field_msd_priority_area[LANGUAGE_NONE][0]['tid'];
-      $text = t('See all Case Studies');
-      $base = 'tools-and-publications/case-studies';
-      $options = [
-        'query' =>
-          ['field_msd_priority_area[' . $tid . ']' => $tid
-          ]
-      ];
-      $block['content'] .= hwc_priority_areas_see_all($base, $text, $options);
+      if ($nids) {
+        $block['content'] = hwc_priority_areas_render_nodes($nids, 'priority_areas');
+        $tid = $node->field_msd_priority_area[LANGUAGE_NONE][0]['tid'];
+        $text = t('See all Case Studies');
+        $base = 'tools-and-publications/case-studies';
+        $options = [
+          'query' =>
+            ['field_msd_priority_area[' . $tid . ']' => $tid
+            ]
+        ];
+        $block['content'] .= hwc_priority_areas_see_all($base, $text, $options);
+      }
     }
   }
   if ($delta == 'hwc_pa_publications') {
@@ -230,16 +233,18 @@ function hwc_priority_areas_block_view($delta = '') {
       foreach($node->field_publications[LANGUAGE_NONE] as $row) {
         $nids[] = $row['target_id'];
       }
-      $block['content'] = hwc_priority_areas_render_nodes($nids, 'priority_areas');
-      $tid = $node->field_msd_priority_area[LANGUAGE_NONE][0]['tid'];
-      $base = 'tools-and-publications/publications';
-      $text = t('See all Publications');
-      $options = [
-        'query' =>
-          ['field_msd_priority_area[' . $tid . ']' => $tid
-          ]
-      ];
-      $block['content'] .= hwc_priority_areas_see_all($base, $text, $options);
+      if ($nids) {
+        $block['content'] = hwc_priority_areas_render_nodes($nids, 'priority_areas');
+        $tid = $node->field_msd_priority_area[LANGUAGE_NONE][0]['tid'];
+        $base = 'tools-and-publications/publications';
+        $text = t('See all Publications');
+        $options = [
+          'query' =>
+            ['field_msd_priority_area[' . $tid . ']' => $tid
+            ]
+        ];
+        $block['content'] .= hwc_priority_areas_see_all($base, $text, $options);
+      }
     }
   }
   return $block;
