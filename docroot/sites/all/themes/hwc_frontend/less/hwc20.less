@@ -1643,11 +1643,17 @@ aside.col-md-3{
 
 	  	}
 	}
+
 	li:hover{
-		background-color:#0030a0;
+		background-color:#0030a0;	
 		a{
-			color:white;	
+			color: #FFFFFF;
+			
 		}
+	}
+
+
+	li{
 		ul{
 			li:hover{
 				a{
@@ -3293,9 +3299,6 @@ div.workbench-info-block{
 	ul .active{
 		background: transparent;
 	}
-	 ul .active a:before{
-	 	content: initial;
-	}
 
 	.left-menu ul li:hover {
     	background-color: transparent;
@@ -3385,6 +3388,49 @@ div.workbench-info-block{
 			width: 94%;
 		}
 	}
+}
+
+
+.left-menu.accordion-menu ul li ul li:hover a{
+	background: #ecf4cb;
+	color: #003399;
+}
+
+.left-menu.accordion-menu ul li ul li ul li:hover a{
+	background: #0030a0;
+    color: #FFF;
+}
+
+.accordion-menu.left-menu ul li.expanded a:hover {
+    background: #003399;
+    color: #FFFFFF;
+}
+
+
+.accordion-menu.left-menu ul li a.active-trail:after{
+	content: '';
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    background: #acc700;
+    position: absolute;
+    right: 15px;
+    top: 28%;
+}
+
+.accordion-menu.left-menu > div > ul > li.expanded > ul > li.expanded > a:after{
+	content: "\e252";
+    font-family: "Glyphicons Halflings";
+    float: right;
+    vertical-align: middle;
+    color: #003399;
+    background-color: transparent;
+    top: 10px;
+    right: 13px;
+}
+
+.accordion-menu.left-menu > div > ul > li.expanded > ul > li.expanded:hover > a:after{
+    color: #FFFFFF;
 }
 
 #block-hwc-homepage-previous-campaign-nav{
@@ -7714,6 +7760,7 @@ body.page-tools-and-publications-publications{
 			    flex-wrap: wrap;
 			    justify-content: center;
 			    background: transparent;
+			    padding-bottom: 1em;
 				a{
 					margin-top: 0em;
 				    margin-bottom: 1em;

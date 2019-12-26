@@ -1444,9 +1444,9 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
   background-color: #0030a0;
 }
 .left-menu ul li:hover a {
-  color: white;
+  color: #FFFFFF;
 }
-.left-menu ul li:hover ul li:hover a {
+.left-menu ul li ul li:hover a {
   color: white;
   background-color: #0030a0;
 }
@@ -2879,9 +2879,6 @@ div.workbench-info-block {
 .accordion-menu ul .active {
   background: transparent;
 }
-.accordion-menu ul .active a:before {
-  content: initial;
-}
 .accordion-menu .left-menu ul li:hover {
   background-color: transparent;
 }
@@ -2948,6 +2945,41 @@ div.workbench-info-block {
 .left-menu.accordion-menu ul > li.expanded > ul > li.expanded > ul li {
   margin-left: 10px;
   width: 94%;
+}
+.left-menu.accordion-menu ul li ul li:hover a {
+  background: #ecf4cb;
+  color: #003399;
+}
+.left-menu.accordion-menu ul li ul li ul li:hover a {
+  background: #0030a0;
+  color: #FFF;
+}
+.accordion-menu.left-menu ul li.expanded a:hover {
+  background: #003399;
+  color: #FFFFFF;
+}
+.accordion-menu.left-menu ul li a.active-trail:after {
+  content: '';
+  width: 15px;
+  height: 15px;
+  border-radius: 10px;
+  background: #acc700;
+  position: absolute;
+  right: 15px;
+  top: 28%;
+}
+.accordion-menu.left-menu > div > ul > li.expanded > ul > li.expanded > a:after {
+  content: "\e252";
+  font-family: "Glyphicons Halflings";
+  float: right;
+  vertical-align: middle;
+  color: #003399;
+  background-color: transparent;
+  top: 10px;
+  right: 13px;
+}
+.accordion-menu.left-menu > div > ul > li.expanded > ul > li.expanded:hover > a:after {
+  color: #FFFFFF;
 }
 #block-hwc-homepage-previous-campaign-nav {
   clear: both;
@@ -6678,6 +6710,7 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
   flex-wrap: wrap;
   justify-content: center;
   background: transparent;
+  padding-bottom: 1em;
 }
 .node-type-priority-area .region-content .block-hwc-priority-areas .more-link a {
   margin-top: 0em;
