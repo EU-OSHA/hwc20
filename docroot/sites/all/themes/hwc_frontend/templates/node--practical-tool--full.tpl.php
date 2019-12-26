@@ -124,7 +124,7 @@ foreach ($exclude_fields as $exclude_field) {
         hide($content[$show_title]);
         foreach($content as $name => $data) {
           $output = render($data);
-          if (in_array($name, ['field_type_of_item', 'field_material_country', 'field_available_in_languages'])) {
+          if (in_array($name, ['field_type_of_item', 'field_material_country', 'field_available_in_languages', 'field_msd_provider'])) {
             $output = str_replace(':&nbsp;</div>', '</div>', $output);
           }
           print $output;
