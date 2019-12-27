@@ -485,7 +485,7 @@ function _osha_publication_menu_publications_get_facets_def() {
     ),
 
     'field_priority_area' => array(
-      'label' => t('Topics'),
+      'label' => t('Priority Areas'),
       'field' => 'field_priority_area',
       'limit' => 150,
       'operator' => 'or',

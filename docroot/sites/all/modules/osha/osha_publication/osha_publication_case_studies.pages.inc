@@ -305,7 +305,7 @@ function _osha_publication_menu_case_studies_get_facets_def() {
     ),
 
     'field_msd_priority_area' => array(
-      'label' => t('Topics'),
+      'label' => t('Priority Areas'),
       'field' => 'field_msd_priority_area',
       'limit' => 150,
       'operator' => 'or',
