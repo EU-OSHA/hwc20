@@ -2030,9 +2030,15 @@ function osha_field_default_field_instances() {
         'weight' => 0,
       ),
       'hwc_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'hidden',
+        'module' => 'entityreference',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'links' => 0,
+          'use_content_language' => 1,
+          'view_mode' => 'osha_resources',
+        ),
+        'type' => 'entityreference_entity_view',
         'weight' => 0,
       ),
       'newsletter_item' => array(
