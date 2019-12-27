@@ -65,7 +65,7 @@ function hwc_partner_default_page_manager_handlers() {
     'panels_breadcrumbs_titles' => 'Campaign partners
 Enterprise Europe Network
 %node:title-field',
-    'panels_breadcrumbs_paths' => '<none>
+    'panels_breadcrumbs_paths' => 'campaign-partners
 campaign-partners/enterprise-europe-network
 <none>',
     'panels_breadcrumbs_home' => 1,
@@ -1865,7 +1865,7 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
     'panels_breadcrumbs_titles' => 'Campaign partners
 Media partners
 %node:title-field',
-    'panels_breadcrumbs_paths' => '<none>
+    'panels_breadcrumbs_paths' => 'campaign-partners
 campaign-partners/campaign-media-partners
 <none>',
     'panels_breadcrumbs_home' => 1,
@@ -3222,7 +3222,7 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
     'panels_breadcrumbs_titles' => 'Campaign partners
 National focal points
 %node:title-field',
-    'panels_breadcrumbs_paths' => '<none>
+    'panels_breadcrumbs_paths' => 'campaign-partners
 campaign-partners/national-focal-points
 <none>',
     'panels_breadcrumbs_home' => 1,
@@ -4005,8 +4005,8 @@ campaign-partners/national-focal-points
       'field_formatter_class' => '',
     ),
     'context' => 'argument_entity_id:node_1',
-    'override_title' => 1,
-    'override_title_text' => 'Main Contacts',
+    'override_title' => 0,
+    'override_title_text' => '',
     'override_title_heading' => 'div',
   );
   $pane->cache = array();
@@ -4249,9 +4249,9 @@ campaign-partners/national-focal-points
       'field_formatter_class' => '',
     ),
     'context' => 'argument_entity_id:node_1',
-    'override_title' => 0,
-    'override_title_text' => '',
-    'override_title_heading' => 'h2',
+    'override_title' => 1,
+    'override_title_text' => 'Main Contacts',
+    'override_title_heading' => 'div',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -4753,7 +4753,7 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
 Official campaign partners
 %node:title-field
 ',
-    'panels_breadcrumbs_paths' => '<none>
+    'panels_breadcrumbs_paths' => 'campaign-partners
 campaign-partners/official-campaign-partners
 <none>
 ',
