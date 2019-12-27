@@ -255,6 +255,9 @@ function hwc_frontend_preprocess_html(&$vars) {
         if ($n->nid == 179) {
           $vars['classes_array'][] = 'press-room';
         }
+        if ($n->nid == 108) {
+          $vars['classes_array'][] = 'video-page';
+        }
         if ($n->nid == 129) {
           $vars['classes_array'][] = 'newsletter';
         }
