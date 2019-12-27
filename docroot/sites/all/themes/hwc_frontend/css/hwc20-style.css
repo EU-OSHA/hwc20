@@ -6765,7 +6765,7 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
 }
 /*Pratical tools*/
 body.page-tools-and-publications-practical-tools .region.region-content .view-content .views-row .views-field-body {
-  padding-bottom: 35px;
+  padding-bottom: 85px;
 }
 body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .views-exposed-widget {
   width: 32.1%!important;
@@ -6811,8 +6811,20 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-hea
   font-size: 0.7em;
   padding-left: 5px;
 }
+body.page-tools-and-publications-practical-tools .view-practical-tools .view-content .views-row .views-field-title-field .field-content {
+  display: block;
+  width: 100%;
+}
 body.page-tools-and-publications-practical-tools .view-practical-tools .view-content .views-row .views-field-title-field a {
   padding-bottom: 10px;
+}
+body.page-tools-and-publications-practical-tools .view-practical-tools .view-content .views-row .conten-tags {
+  float: left;
+  margin-right: 3em;
+  padding-bottom: 5px;
+}
+body.page-tools-and-publications-practical-tools .view-practical-tools .view-content .views-row .conten-tags.last {
+  margin-right: 0;
 }
 body.page-tools-and-publications-practical-tools .view-practical-tools .view-content .views-row span.views-label {
   color: #003399;
@@ -6822,13 +6834,17 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   border-radius: 5px;
   padding: 2px 10px;
   margin-right: 8px;
-  margin-left: 3em;
 }
 body.page-tools-and-publications-practical-tools .view-practical-tools .view-content .views-row span.views-label.first {
   margin-left: 0;
 }
 body.page-tools-and-publications-practical-tools .view-practical-tools .view-content .views-row .views-field-body {
   padding-top: 15px;
+  clear: both;
+}
+body.page-tools-and-publications-practical-tools .view-practical-tools .view-content .views-row span {
+  display: block;
+  float: left;
 }
 /* Practical tools detail */
 .node-type-practical-tool .field-name-field-type-of-item,
