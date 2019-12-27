@@ -7217,6 +7217,39 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
 .closePop:hover {
   opacity: 0.8;
 }
+/* Video */
+body.video-page .col-md-9 {
+  padding-right: 5em;
+}
+body.video-page .col-md-3 {
+  padding: 0;
+}
+body.video-page .field-name-body iframe {
+  width: 100%;
+}
+body.video-page #block-hwc-article-recommended-resources {
+  margin-top: 1em;
+}
+body.video-page #block-hwc-article-recommended-resources span.recommended-resources-title {
+  line-height: 1.42857143;
+  font-family: 'Open Sans';
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: #003399;
+  font-size: 1.6em;
+  display: block;
+  clear: both;
+}
+body.video-page #block-hwc-article-recommended-resources .content {
+  margin-top: 1em;
+}
+body.video-page #block-hwc-article-recommended-resources .field-name-field-recommended-resources .field-items > .field-item {
+  border-bottom: 0;
+  padding-bottom: 0!important;
+}
+body.video-page #block-hwc-article-recommended-resources .field-name-title-field div div {
+  margin: 0;
+}
 .isMobile {
   float: right !important;
 }
@@ -7954,6 +7987,22 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   /*Footer*/
   .footer-section {
     display: none;
+  }
+  /* Video page */
+  body.video-page .col-md-9 {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  body.video-page .col-md-3 {
+    padding-right: 1em;
+    padding-left: 1em;
+  }
+  body.video-page .field-name-body iframe {
+    width: 100%;
+  }
+  body.video-page .field-name-field-recommended-resources {
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 @media (max-width: 1395px) and (min-width: 696px) {
