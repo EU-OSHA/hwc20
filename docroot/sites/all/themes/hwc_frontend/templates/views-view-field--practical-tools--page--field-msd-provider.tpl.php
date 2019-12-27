@@ -35,8 +35,8 @@ if ($providers) {
   }
 }
 if ($names) { ?>
-  <span class="views-label"><?php echo  t('Provider'); ?></span><span><?php print implode(', ', $names); ?></span>
-<?php
+  <div class="conten-tags last"><span class="views-label"><?php echo  t('Provider'); ?></span><span><?php print implode(', ', $names); ?></span></div>
+  <?php
 }
 ?>
 </div>
