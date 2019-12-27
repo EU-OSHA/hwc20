@@ -7007,6 +7007,9 @@ body.front-page{
 			.view-display-id-block_1{
 				img{
 					width: auto;
+					&:hover{
+						opacity: 0.8;
+					}
 				}
 			}
 			.more-link{
@@ -7020,42 +7023,50 @@ body.front-page{
 
 		/* Recommended tools and resources */
 		.view-recommended-tools-and-resources{
-			.views-row{
-				float: left;
-				width: 257px;
-				margin-top: 0.5em;
-				border: 2px solid #bcd75b;
-				height: 86px;
-				margin-bottom: 2em;
-				border-radius: 12px;
-				margin-right: 2em;
-				&:hover{
-				    background: #00309d;
-				    text-decoration: none;
-				    border: 2px solid #00309d;
-				    a{
-				    	color: #FFF;
-				    }
-				    img{
-				    	filter: brightness(0) invert(1);
-    					-webkit-filter: brightness(0) invert(1);
-				    }
-				}
-				.field-content{
-					img{
-						border: 0;
-						float: left;
+			.view-content{
+				display: flex;
+				flex-wrap: wrap;
+				.views-row{
+					width: 257px;
+					margin-top: 0.5em;
+					border: 2px solid #bcd75b;
+					height: auto;
+					margin-bottom: 2em;
+					border-radius: 12px;
+					margin-right: 2em;
+					display: flex;
+				    justify-content: flex-start;
+				    align-items: center;
+					&:hover{
+					    background: #00309d;
+					    text-decoration: none;
+					    border: 2px solid #00309d;
+					    a{
+					    	color: #FFF;
+					    }
+					    img{
+					    	filter: brightness(0) invert(1);
+	    					-webkit-filter: brightness(0) invert(1);
+					    }
 					}
-				
-					span{
-						float: right;
-					    font-size: 2.1rem;
-					    display: block;
-					    width: 130px;
-					    text-align: right;
-					    font-weight: 600;
-					    line-height: 24px;
-    					padding-top: 3px;
+					.field-content{
+						img{
+							border: 0;
+							float: left;
+						}
+					
+						span{
+							float: right;
+						    font-size: 2.1rem;
+						    display: block;
+						    width: 156px;
+						    text-align: right;
+						    font-weight: 600;
+						    line-height: 24px;
+						    padding-top: 3px;
+						    word-break: break-word;
+						    padding-left: 1em;
+						}
 					}
 				}
 			}
@@ -7910,7 +7921,7 @@ body.page-tools-and-publications-practical-tools{
 						width: 100%;
 					}
 					a{
-						padding-bottom: 10px;
+						padding-bottom: 20px;
 					}
 				}
 
@@ -8404,7 +8415,7 @@ body.video-page{
 	}
 
 	#block-hwc-article-recommended-resources{
-		margin-top: 1em;
+		margin-top: 0;
 		span.recommended-resources-title{
 			line-height: 1.42857143;
 			font-family: 'Open Sans';

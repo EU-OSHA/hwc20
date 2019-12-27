@@ -6088,44 +6088,55 @@ body.front-page .main-container #block-views-partners-block-1 {
 body.front-page .main-container #block-views-partners-block-1 .view-display-id-block_1 img {
   width: auto;
 }
+body.front-page .main-container #block-views-partners-block-1 .view-display-id-block_1 img:hover {
+  opacity: 0.8;
+}
 body.front-page .main-container #block-views-partners-block-1 .more-link a:before {
   content: none;
 }
-body.front-page .main-container .view-recommended-tools-and-resources .views-row {
-  float: left;
+body.front-page .main-container .view-recommended-tools-and-resources .view-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+body.front-page .main-container .view-recommended-tools-and-resources .view-content .views-row {
   width: 257px;
   margin-top: 0.5em;
   border: 2px solid #bcd75b;
-  height: 86px;
+  height: auto;
   margin-bottom: 2em;
   border-radius: 12px;
   margin-right: 2em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
-body.front-page .main-container .view-recommended-tools-and-resources .views-row:hover {
+body.front-page .main-container .view-recommended-tools-and-resources .view-content .views-row:hover {
   background: #00309d;
   text-decoration: none;
   border: 2px solid #00309d;
 }
-body.front-page .main-container .view-recommended-tools-and-resources .views-row:hover a {
+body.front-page .main-container .view-recommended-tools-and-resources .view-content .views-row:hover a {
   color: #FFF;
 }
-body.front-page .main-container .view-recommended-tools-and-resources .views-row:hover img {
+body.front-page .main-container .view-recommended-tools-and-resources .view-content .views-row:hover img {
   filter: brightness(0) invert(1);
   -webkit-filter: brightness(0) invert(1);
 }
-body.front-page .main-container .view-recommended-tools-and-resources .views-row .field-content img {
+body.front-page .main-container .view-recommended-tools-and-resources .view-content .views-row .field-content img {
   border: 0;
   float: left;
 }
-body.front-page .main-container .view-recommended-tools-and-resources .views-row .field-content span {
+body.front-page .main-container .view-recommended-tools-and-resources .view-content .views-row .field-content span {
   float: right;
   font-size: 2.1rem;
   display: block;
-  width: 130px;
+  width: 156px;
   text-align: right;
   font-weight: 600;
   line-height: 24px;
   padding-top: 3px;
+  word-break: break-word;
+  padding-left: 1em;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events {
   padding-bottom: 3em;
@@ -6816,7 +6827,7 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   width: 100%;
 }
 body.page-tools-and-publications-practical-tools .view-practical-tools .view-content .views-row .views-field-title-field a {
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 body.page-tools-and-publications-practical-tools .view-practical-tools .view-content .views-row .conten-tags {
   float: left;
@@ -7228,7 +7239,7 @@ body.video-page .field-name-body iframe {
   width: 100%;
 }
 body.video-page #block-hwc-article-recommended-resources {
-  margin-top: 1em;
+  margin-top: 0;
 }
 body.video-page #block-hwc-article-recommended-resources span.recommended-resources-title {
   line-height: 1.42857143;
