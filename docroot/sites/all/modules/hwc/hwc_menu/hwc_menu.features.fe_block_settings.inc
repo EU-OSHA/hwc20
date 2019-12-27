@@ -31,7 +31,7 @@ function hwc_menu_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 21,
+        'weight' => 22,
       ),
       'seven' => array(
         'region' => '',
@@ -85,14 +85,14 @@ function hwc_menu_default_fe_block_settings() {
       0 => 'article',
     ),
     'pages' => 'node/169
-node/7328',
+about-topic/priority-areas',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 22,
+        'weight' => 24,
       ),
       'seven' => array(
         'region' => '',
@@ -116,7 +116,9 @@ node/7328',
     'node_types' => array(),
     'pages' => 'about-topic/w*
 about-topic/h*
-about-topic/t*',
+about-topic/t*
+about-topic/g*
+about-topic/business-case',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
@@ -177,7 +179,8 @@ about-topic/t*',
     'i18n_mode' => 0,
     'module' => 'menu_block',
     'node_types' => array(),
-    'pages' => 'about-topic/priority-area/*',
+    'pages' => 'about-topic/priority-area/*
+about-topic/priority-areas',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
@@ -193,7 +196,7 @@ about-topic/t*',
         'weight' => 0,
       ),
     ),
-    'title' => '',
+    'title' => 'About the topic',
     'visibility' => 1,
   );
 

@@ -21,7 +21,11 @@ function hwc_homepage_default_fe_block_settings() {
     'i18n_mode' => 0,
     'module' => 'hwc_homepage',
     'node_types' => array(),
-    'pages' => 'about-topic/*',
+    'pages' => 'about-topic/w*
+about-topic/h*
+about-topic/t*
+about-topic/g*
+about-topic/business-case',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
