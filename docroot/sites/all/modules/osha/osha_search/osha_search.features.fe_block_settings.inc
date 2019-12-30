@@ -996,9 +996,7 @@ search/wiki',
     'i18n_mode' => 0,
     'module' => 'osha_search',
     'node_types' => array(),
-    'pages' => 'search
-search/*
-tools-and-publications/seminars
+    'pages' => 'tools-and-publications/seminars
 legislation/directives/*
 safety-and-health-legislation/european-directives
 node/2544

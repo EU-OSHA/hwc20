@@ -128,6 +128,9 @@ function osha_search_block_view($delta = '') {
   if ($delta != 'osha_search_clear_filters') {
     return;
   }
+  if ((arg(0) == 'search')) {
+    return;
+  }
   drupal_add_js(drupal_get_path('module', 'osha_search') . '/facet.js', array('weight' => 20));
   // Add header as in template.
   $content['header'] = array(
