@@ -23998,9 +23998,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   /*FIN detail*/
   /*FIN Practical tools*/
   /*Publications*/
-  .page-publications .content {
-    display: none;
-  }
   .page-publications h4 {
     padding-left: 15px;
     padding-right: 15px;

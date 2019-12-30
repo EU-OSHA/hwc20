@@ -7228,6 +7228,9 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
 .closePop:hover {
   opacity: 0.8;
 }
+.contentPop {
+  padding-right: 15px;
+}
 /* Video */
 body.video-page .col-md-9 {
   padding-right: 5em;
@@ -7389,7 +7392,6 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
   .page-publications .pager-total,
   .page-tools-and-publications .pager-total {
-    top: -1em;
     right: 5em;
   }
   #block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes div {
@@ -7416,6 +7418,14 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
   .node-type-gpa .main-container h2 {
     margin-left: 0;
+  }
+  /* Get your certificate */
+  .page-get-involved-get-your-certificate .pane-node-body {
+    width: 55%;
+  }
+  .page-get-involved-get-your-certificate form.webform-client-form .form-select {
+    height: 34px;
+    width: 100%;
   }
 }
 @media (min-width: 1480px) {
@@ -8015,6 +8025,10 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
     padding-right: 0;
     padding-left: 0;
   }
+  /* Become a campaign partner */
+  .become-partner-text {
+    width: 99%;
+  }
 }
 @media (max-width: 1395px) and (min-width: 696px) {
   .box-before.previous {
@@ -8308,6 +8322,10 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   body.front-page .main-container .box-before:nth-child(2) {
     background: transparent;
   }
+  body.front-page #block-hwc-homepage-hwc-homepage-newsletter-social .social-media a:before {
+    filter: brightness(0) invert(1);
+    -webkit-filter: brightness(0) invert(1);
+  }
   .start-browsing .start-browsing-box {
     width: 309px;
     height: auto;
@@ -8389,6 +8407,16 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   /* Good Practice Awards - GPA */
   .node-type-gpa .group-faq {
     width: 100%;
+  }
+  .node-type-gpa .main-container ol.multicarousel-indicators {
+    padding-left: 0;
+  }
+  /* Publications */
+  .page-publications #edit-exposed-widgets .views-exposed-widget select {
+    height: 33px;
+  }
+  .page-tools-and-publications #edit-exposed-widgets .views-exposed-widget select {
+    height: 33px;
   }
 }
 @media (max-width: 767px) {
@@ -9087,6 +9115,10 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
   .pager-total {
     display: none;
+  }
+  /* Get your certificate */
+  .page-get-involved-get-your-certificate .pane-node-body {
+    width: 100%;
   }
 }
 @media (max-width: 600px) {
