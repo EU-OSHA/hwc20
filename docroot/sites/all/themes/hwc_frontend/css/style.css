@@ -7889,6 +7889,9 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
   border-right-color: #749b00;
   border-style: dotted;
 }
+ul.tabs--primary.nav.nav-tabs > li > a {
+  padding: 10px 8px;
+}
 .pane-node-field-publication-type .field-name-field-activity,
 .pane-node-field-publication-type .field-type-taxonomy-term-reference {
   display: block;
@@ -17378,6 +17381,13 @@ span.date-display-single {
   font-size: 0.89em;
   display: inline-block;
   font-style: normal;
+  background: #003399;
+}
+#block-hwc-partner-hwc-partner-mostra-masquerade a:hover {
+  opacity: 0.8;
+}
+#block-hwc-partner-hwc-partner-mostra-masquerade .contextual-links-trigger {
+  background: transparent;
 }
 #block-hwc-partner-hwc-partner-mostra-masquerade a::before {
   content: ">";
@@ -21180,15 +21190,8 @@ body.front .homepage-slider blockquote.image-field-caption p {
     width: 100%;
     margin-right: 0;
   }
-  .page-practical-tools .form-group {
-    margin-bottom: 15px;
-  }
   .page-practical-tools #search {
     margin-top: 0;
-  }
-  .page-practical-tools #edit-search-api-views-fulltext-wrapper {
-    margin-left: 15px !important;
-    margin-right: 15px !important;
   }
   .page-practical-tools .region-sidebar-first .views-exposed-widgets .form-type-textfield input {
     padding-right: 0px;
@@ -23988,9 +23991,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   /*FIN detail*/
   /*FIN Practical tools*/
   /*Publications*/
-  .page-publications .content {
-    display: none;
-  }
   .page-publications h4 {
     padding-left: 15px;
     padding-right: 15px;
@@ -24696,11 +24696,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .page-partners-documents .region-sidebar-first #edit-search-api-views-fulltext-wrapper,
   .page-search .region-sidebar-first #edit-search-api-views-fulltext-wrapper {
     margin-bottom: 0px;
-  }
-  .page-communications .views-widget-sort-by,
-  .page-partners-documents .views-widget-sort-by,
-  .page-search .views-widget-sort-by {
-    clear: both;
   }
   .page-communications .sort-container.col-xs-3,
   .page-partners-documents .sort-container.col-xs-3,

@@ -2288,7 +2288,7 @@ body .form-control {
   border: 1px solid #B0B2B3;
 }
 #edit-search-api-views-fulltext {
-  width: 210px !important;
+  width: 225px !important;
 }
 html[lang=pt] #edit-search-api-views-fulltext {
   width: 168px!important;
@@ -6088,44 +6088,55 @@ body.front-page .main-container #block-views-partners-block-1 {
 body.front-page .main-container #block-views-partners-block-1 .view-display-id-block_1 img {
   width: auto;
 }
+body.front-page .main-container #block-views-partners-block-1 .view-display-id-block_1 img:hover {
+  opacity: 0.8;
+}
 body.front-page .main-container #block-views-partners-block-1 .more-link a:before {
   content: none;
 }
-body.front-page .main-container .view-recommended-tools-and-resources .views-row {
-  float: left;
+body.front-page .main-container .view-recommended-tools-and-resources .view-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+body.front-page .main-container .view-recommended-tools-and-resources .view-content .views-row {
   width: 257px;
   margin-top: 0.5em;
   border: 2px solid #bcd75b;
-  height: 86px;
+  height: auto;
   margin-bottom: 2em;
   border-radius: 12px;
   margin-right: 2em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
-body.front-page .main-container .view-recommended-tools-and-resources .views-row:hover {
+body.front-page .main-container .view-recommended-tools-and-resources .view-content .views-row:hover {
   background: #00309d;
   text-decoration: none;
   border: 2px solid #00309d;
 }
-body.front-page .main-container .view-recommended-tools-and-resources .views-row:hover a {
+body.front-page .main-container .view-recommended-tools-and-resources .view-content .views-row:hover a {
   color: #FFF;
 }
-body.front-page .main-container .view-recommended-tools-and-resources .views-row:hover img {
+body.front-page .main-container .view-recommended-tools-and-resources .view-content .views-row:hover img {
   filter: brightness(0) invert(1);
   -webkit-filter: brightness(0) invert(1);
 }
-body.front-page .main-container .view-recommended-tools-and-resources .views-row .field-content img {
+body.front-page .main-container .view-recommended-tools-and-resources .view-content .views-row .field-content img {
   border: 0;
   float: left;
 }
-body.front-page .main-container .view-recommended-tools-and-resources .views-row .field-content span {
+body.front-page .main-container .view-recommended-tools-and-resources .view-content .views-row .field-content span {
   float: right;
   font-size: 2.1rem;
   display: block;
-  width: 130px;
+  width: 156px;
   text-align: right;
   font-weight: 600;
   line-height: 24px;
   padding-top: 3px;
+  word-break: break-word;
+  padding-left: 1em;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events {
   padding-bottom: 3em;
@@ -6816,7 +6827,7 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   width: 100%;
 }
 body.page-tools-and-publications-practical-tools .view-practical-tools .view-content .views-row .views-field-title-field a {
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 body.page-tools-and-publications-practical-tools .view-practical-tools .view-content .views-row .conten-tags {
   float: left;
@@ -7217,6 +7228,42 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
 .closePop:hover {
   opacity: 0.8;
 }
+.contentPop {
+  padding-right: 15px;
+}
+/* Video */
+body.video-page .col-md-9 {
+  padding-right: 5em;
+}
+body.video-page .col-md-3 {
+  padding: 0;
+}
+body.video-page .field-name-body iframe {
+  width: 100%;
+}
+body.video-page #block-hwc-article-recommended-resources {
+  margin-top: 0;
+}
+body.video-page #block-hwc-article-recommended-resources span.recommended-resources-title {
+  line-height: 1.42857143;
+  font-family: 'Open Sans';
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: #003399;
+  font-size: 1.6em;
+  display: block;
+  clear: both;
+}
+body.video-page #block-hwc-article-recommended-resources .content {
+  margin-top: 1em;
+}
+body.video-page #block-hwc-article-recommended-resources .field-name-field-recommended-resources .field-items > .field-item {
+  border-bottom: 0;
+  padding-bottom: 0!important;
+}
+body.video-page #block-hwc-article-recommended-resources .field-name-title-field div div {
+  margin: 0;
+}
 .isMobile {
   float: right !important;
 }
@@ -7345,7 +7392,6 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   }
   .page-publications .pager-total,
   .page-tools-and-publications .pager-total {
-    top: -1em;
     right: 5em;
   }
   #block-hwc-campaign-resources .campaign-resources .campaign-resources-boxes div {
@@ -7372,6 +7418,17 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   }
   .node-type-gpa .main-container h2 {
     margin-left: 0;
+  }
+  /* Get your certificate */
+  .page-get-involved-get-your-certificate .pane-node-body {
+    width: 55%;
+  }
+  .page-get-involved-get-your-certificate form.webform-client-form .form-select {
+    height: 34px;
+    width: 100%;
+  }
+  body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .views-exposed-widget {
+    width: 31.1%!important;
   }
 }
 @media (min-width: 1480px) {
@@ -7955,6 +8012,26 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   .footer-section {
     display: none;
   }
+  /* Video page */
+  body.video-page .col-md-9 {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  body.video-page .col-md-3 {
+    padding-right: 1em;
+    padding-left: 1em;
+  }
+  body.video-page .field-name-body iframe {
+    width: 100%;
+  }
+  body.video-page .field-name-field-recommended-resources {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Become a campaign partner */
+  .become-partner-text {
+    width: 99%;
+  }
 }
 @media (max-width: 1395px) and (min-width: 696px) {
   .box-before.previous {
@@ -8248,6 +8325,10 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   body.front-page .main-container .box-before:nth-child(2) {
     background: transparent;
   }
+  body.front-page #block-hwc-homepage-hwc-homepage-newsletter-social .social-media a:before {
+    filter: brightness(0) invert(1);
+    -webkit-filter: brightness(0) invert(1);
+  }
   .start-browsing .start-browsing-box {
     width: 309px;
     height: auto;
@@ -8329,6 +8410,16 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   /* Good Practice Awards - GPA */
   .node-type-gpa .group-faq {
     width: 100%;
+  }
+  .node-type-gpa .main-container ol.multicarousel-indicators {
+    padding-left: 0;
+  }
+  /* Publications */
+  .page-publications #edit-exposed-widgets .views-exposed-widget select {
+    height: 33px;
+  }
+  .page-tools-and-publications #edit-exposed-widgets .views-exposed-widget select {
+    height: 33px;
   }
 }
 @media (max-width: 767px) {
@@ -9027,6 +9118,23 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   }
   .pager-total {
     display: none;
+  }
+  /* Get your certificate */
+  .page-get-involved-get-your-certificate .pane-node-body {
+    width: 100%;
+  }
+  body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .views-exposed-widget {
+    width: 100%!important;
+  }
+  body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters #edit-search-api-views-fulltext {
+    margin-top: 0;
+    margin-bottom: 2em;
+  }
+  body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .views-widget-sort-by {
+    margin-top: 1em;
+  }
+  body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .form-select {
+    max-height: 62px;
   }
 }
 @media (max-width: 600px) {
