@@ -9572,13 +9572,15 @@ div[class*='view-'] .field-name-field-summary {
   color: #003399 !important;
   overflow: hidden !important;
 }
+.page-search .region-sidebar-first #block-osha-search-osha-search-clear-filters {
+  clear: both;
+}
 .page-search .region-sidebar-first #block-osha-search-osha-search-clear-filters h3 {
   display: none;
 }
 .page-search .region-sidebar-first #block-osha-search-osha-search-clear-filters a {
-  font-weight: bold;
   display: block;
-  padding-bottom: 5px;
+  padding-top: 1em;
   margin-top: 5px;
 }
 .page-search .region-sidebar-first #block-osha-search-osha-search-clear-filters .clear-wrapper > a {
@@ -20489,7 +20491,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
     margin-right: 40px;
   }
   .view-id-flickr_albums .view-content .gallery-row .views-field-field-flickr {
-    height: 200px;
+    height: 200px !important;
     overflow: hidden;
   }
   .view-id-flickr_albums .view-content .gallery-row .views-field-field-flickr img {

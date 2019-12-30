@@ -2475,7 +2475,7 @@ span.pages {
 .publication-detail .publications-row {
   border-bottom: 0;
   margin-top: 2em;
-  padding: 0;
+  padding: 0 2em 0 0;
 }
 .publication-detail .publications-row .download {
   margin-top: 2em;
@@ -2799,6 +2799,9 @@ body.good-practice-exchange .footer {
 .page-media-centre-news .main-container #block-system-main .view .views-row-last:after,
 .page-search .main-container #block-system-main .view .views-row-last:after {
   background: none;
+}
+.page-search .region-sidebar-first .block.block-facetapi:first-child {
+  margin-top: 63px!important;
 }
 .page-search .views-row img {
   border: 0;
@@ -5289,6 +5292,9 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   font-size: 1.1em;
   background-color: transparent;
 }
+.pager .active > a:hover {
+  color: #747f94;
+}
 .pagination li.pager-current,
 .pager li.pager-current {
   color: #003399;
@@ -5339,6 +5345,12 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   height: 30px;
   float: left;
   text-indent: -99999px;
+}
+.pager-first a:hover,
+.pager-previous a:hover,
+.pager-next a:hover,
+.pager-last a:hover {
+  opacity: 0.8;
 }
 /* Pagination for right columns views, display responsive pagination */
 .view-partner-content .pagerer-center {
@@ -7264,6 +7276,22 @@ body.video-page #block-hwc-article-recommended-resources .field-name-field-recom
 body.video-page #block-hwc-article-recommended-resources .field-name-title-field div div {
   margin: 0;
 }
+/* Filters */
+.clear_filters {
+  padding-bottom: 1em;
+}
+#remove_filter a {
+  padding-right: 1em;
+  padding-bottom: 1em;
+  display: block;
+  float: left;
+}
+#remove_filter a .glyphicon-remove {
+  padding-right: 5px;
+}
+#remove_filter a:hover .glyphicon-remove {
+  opacity: 0.8;
+}
 .isMobile {
   float: right !important;
 }
@@ -9135,6 +9163,12 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
   body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .form-select {
     max-height: 62px;
+  }
+  .content-languages-download {
+    width: 100%;
+  }
+  .content-languages-download select.new-select-style {
+    height: 34px;
   }
 }
 @media (max-width: 600px) {
