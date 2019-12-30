@@ -2288,7 +2288,7 @@ body .form-control {
   border: 1px solid #B0B2B3;
 }
 #edit-search-api-views-fulltext {
-  width: 210px !important;
+  width: 225px !important;
 }
 html[lang=pt] #edit-search-api-views-fulltext {
   width: 168px!important;
@@ -7427,6 +7427,9 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
     height: 34px;
     width: 100%;
   }
+  body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .views-exposed-widget {
+    width: 31.1%!important;
+  }
 }
 @media (min-width: 1480px) {
   .start-browsing .content-boxes {
@@ -9119,6 +9122,19 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   /* Get your certificate */
   .page-get-involved-get-your-certificate .pane-node-body {
     width: 100%;
+  }
+  body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .views-exposed-widget {
+    width: 100%!important;
+  }
+  body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters #edit-search-api-views-fulltext {
+    margin-top: 0;
+    margin-bottom: 2em;
+  }
+  body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .views-widget-sort-by {
+    margin-top: 1em;
+  }
+  body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .form-select {
+    max-height: 62px;
   }
 }
 @media (max-width: 600px) {
