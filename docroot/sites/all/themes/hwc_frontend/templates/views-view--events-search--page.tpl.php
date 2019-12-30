@@ -47,6 +47,7 @@
 <?php
 $query_params = drupal_get_query_parameters();
 if (!empty($query_params)) {
+  echo '<div id="remove_filter"></div>';
   echo '<div class="clear_filters">' . l(t('Clear filters'), current_path()) . '</div>';
 }
 ?>
