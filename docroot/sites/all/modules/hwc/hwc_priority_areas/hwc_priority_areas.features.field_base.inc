@@ -36,7 +36,7 @@ function hwc_priority_areas_field_default_field_bases() {
         'view' => array(
           'args' => array(),
           'display_name' => 'entityreference_1',
-          'view_name' => 'topic_related_publications',
+          'view_name' => 'priority_area_publications',
         ),
       ),
       'target_type' => 'node',

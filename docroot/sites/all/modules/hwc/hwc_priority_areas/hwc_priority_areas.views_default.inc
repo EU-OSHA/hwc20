@@ -833,7 +833,7 @@ function hwc_priority_areas_views_default_views() {
   $handler->display->display_options['fields']['title_field']['settings'] = array(
     'field_formatter_class' => '',
   );
-  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 0;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -922,7 +922,7 @@ function hwc_priority_areas_views_default_views() {
   $handler->display->display_options['fields']['title_field']['settings'] = array(
     'field_formatter_class' => '',
   );
-  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 0;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -937,7 +937,6 @@ function hwc_priority_areas_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'campaign_materials' => 'campaign_materials',
     'publication' => 'publication',
   );
   /* Filter criterion: Content: Publication Type (field_publication_type) */
