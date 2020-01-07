@@ -860,7 +860,7 @@ function hwc_homepage_views_default_views() {
   $handler->display->display_options['fields']['title_field']['type'] = 'smart_trim_format';
   $handler->display->display_options['fields']['title_field']['settings'] = array(
     'trim_link' => '1',
-    'trim_length' => '38',
+    'trim_length' => '120',
     'trim_type' => 'chars',
     'trim_suffix' => '...',
     'more_link' => '0',
