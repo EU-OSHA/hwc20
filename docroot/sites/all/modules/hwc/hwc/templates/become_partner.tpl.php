@@ -11,10 +11,7 @@
     <div class="box <?php echo $download_class; ?>">
       <h4><?php echo $download_title; ?></h4>
       <p><?php echo $download_body; ?></p>
-      <div><?php
-        if ($download_class == 'active') {
-          echo $download_link;
-        } ?></div>
+      <div><?php echo $download_link; ?></div>
     </div>
     <div class="box <?php echo $application_form_class; ?>">
       <h4><?php echo $application_form_title; ?></h4>

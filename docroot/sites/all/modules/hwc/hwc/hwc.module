@@ -328,6 +328,18 @@ function hwc_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'region' => 'footer',
   );
+  $blocks['content_related_resources'] = array(
+    'info' => t('Content related resources'),
+    'status' => 1,
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'region' => 'content',
+  );
+  $blocks['article_recommended_resources'] = array(
+    'info' => t('Recommended resources for you'),
+    'status' => 1,
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'region' => 'content',
+  );
   $blocks['article_related_resources'] = array(
     'info' => t('Article related resources'),
     'status' => 1,
@@ -342,6 +354,30 @@ function hwc_block_info() {
   );
 
   return $blocks;
+}
+
+function hwc_gpe_news($num = 0) {
+  static $events = 0;
+  if ($num) {
+    $events = $num;
+  }
+  return $events;
+}
+
+function hwc_gpe_events($num = 0) {
+  static $events = 0;
+  if ($num) {
+    $events = $num;
+  }
+  return $events;
+}
+
+function hwc_european_week_news($num = 0) {
+  static $events = 0;
+  if ($num) {
+    $events = $num;
+  }
+  return $events;
 }
 
 function hwc_european_week_events($num = 0) {
@@ -374,7 +410,12 @@ function hwc_block_view($delta = '') {
   if ($delta == 'european_week_news_events') {
     $news = block_load('views', 'news-european_week');
     $array = _block_get_renderable_array(_block_render_blocks([$news]));
-    $news = render($array);
+    if (hwc_european_week_news()) {
+      $news = render($array);
+    }
+    else {
+      $news = [];
+    }
 
     $events = block_load('views', 'frontpage_events-european_week');
     $array = _block_get_renderable_array(_block_render_blocks([$events]));
@@ -409,7 +450,16 @@ function hwc_block_view($delta = '') {
     $block['content'] = NULL;
   }
 
-  if ($delta == 'article_related_resources') {
+  if ($delta == 'article_recommended_resources') {
+    // Recommended resources for you - Video article only.
+    $block['title'] = '<none>';
+    $block['subject'] = "<none>";
+    $node = menu_get_object();
+    $view = node_view_multiple([$node], 'hwc_teaser', 0, $language->language);
+    $block['content'] = render($view);
+  }
+
+  if ($delta == 'article_related_resources' || $delta == 'content_related_resources') {
     $block['title'] = '<none>';
     $block['subject'] = "<none>";
     $node = menu_get_object();
@@ -582,11 +632,18 @@ function hwc_field_extra_fields() {
   $extra['node']['publication'] = $share_widget;
   $extra['node']['events'] = $share_widget;
   $extra['node']['article'] = $share_widget;
+  $extra['node']['gpa'] = $share_widget;
+  $extra['node']['gpa']['display']['gpe'] = array(
+    'label' => t('GPA Examples'),
+    'weight' => 0,
+  );
   $extra['node']['campaign_16'] = $share_widget;
   $extra['node']['campaign_18'] = $share_widget;
+  $extra['node']['priority_area'] = $share_widget;
   $extra['node']['hwc_gallery'] = $share_widget;
   $extra['node']['flickr_gallery'] = $share_widget;
   $extra['node']['press_release'] = $share_widget;
+  $extra['node']['practical_tool'] = $share_widget;
   return $extra;
 }
 
@@ -651,6 +708,11 @@ function hwc_mime_friendly_name($mime) {
  */
 function hwc_field_formatter_info() {
   $info = array(
+    'gpa_faq' => array(
+      'label' => t('GPA Faq'),
+      'field types' => array('field_collection'),
+      'settings' => array(),
+    ),
     'field_file' => array(
       'label' => 'Resource file formatter',
       'field types' => array('file'),
@@ -721,6 +783,13 @@ function hwc_field_formatter_settings_summary($field, $instance, $view_mode) {
  */
 function hwc_theme() {
   return array(
+    'gpa_faq' => array(
+      'variables' => array(
+        'items' => NULL,
+        'node' => NULL,
+      ),
+      'template' => 'templates/hwc_gpa_faq',
+    ),
     'hwc_file_format' => array(
       'variables' => array('file' => NULL, 'delta' => NULL),
     ),
@@ -840,6 +909,14 @@ function hwc_entity_info_alter(&$entity_info) {
 function hwc_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
   $element = array();
   switch ($display['type']) {
+    case 'gpa_faq':
+      $element = array(
+        '#theme' => 'gpa_faq',
+        '#items' => $items,
+        '#node' => entity_metadata_wrapper('node', $entity),
+      );
+      break;
+
     case 'field_file':
       foreach ($items as $delta => $item) {
         $element[$delta] = array(
@@ -1033,11 +1110,77 @@ function hwc_content_post_render_add_classes($content) {
   return $content;
 }
 
+function hwc_get_available_in_languages_practical_tools() {
+  $q = db_select('node', 'n');
+  $q->join('field_data_field_available_in_languages', 'c', 'c.entity_id = n.nid');
+  $q->fields('c', ['field_available_in_languages_value']);
+  $q->condition('c.bundle', 'practical_tool');
+  $q->condition('n.type', 'practical_tool');
+  $q->condition('n.status', 1);
+  $options = $q->execute()->fetchAllKeyed(0,0);
+  $list = language_list();
+  if ($options) {
+    foreach ($options as $language => &$option) {
+      if (!empty($list[$language])) {
+        $option = $list[$language]->native;
+      }
+      else {
+        unset($options[$language]);
+      }
+    }
+    asort($options);
+  }
+  return $options;
+}
+
+function hwc_get_available_events_countries() {
+  $q = db_select('node', 'n');
+  $q->join('field_data_field_country_code', 'c', 'c.entity_id = n.nid');
+  $q->fields('c', ['field_country_code_value']);
+  $q->condition('c.bundle', 'events');
+  $q->condition('n.type', 'events');
+  $q->condition('n.status', 1);
+  return $q->execute()->fetchAllKeyed(0,0);
+}
+
+function _hwc_store_practical_tool($default = []) {
+  static $values = [];
+  if ($default) {
+    $values = $default;
+  }
+  return $values;
+}
+
 /**
  * Implements hook_form_alter().
  */
 function hwc_form_alter(&$form, &$form_state, $form_id) {
   global $user;
+  if ($form_id == 'views_exposed_form' && $form_state['view']->name == 'practical_tools') {
+    $available_in_languages = hwc_get_available_in_languages_practical_tools();
+    $form['field_available_in_languages_value']['#type'] = 'select';
+    $form['field_available_in_languages_value']['#multiple'] = TRUE;
+    $form['field_available_in_languages_value']['#options'] = $available_in_languages;
+    if (!empty($_REQUEST['field_available_in_languages_value'])) {
+      $form['field_available_in_languages_value']['#default_value'] = [];
+      foreach ($_REQUEST['field_available_in_languages_value'] as $language) {
+        if (!empty($form['field_available_in_languages_value']['#options'][$language])) {
+          $form['field_available_in_languages_value']['#default_value'][$language] = $language;
+        }
+      }
+      _hwc_store_practical_tool($form['field_available_in_languages_value']['#default_value']);
+    }
+  }
+  if ($form_id == 'views_exposed_form' && $form_state['view']->name == 'events_search'
+    && $form_state['view']->current_display == 'page') {
+    $countries = hwc_get_available_events_countries();
+    foreach ($form['field_country_code']['#options'] as $tid => $value) {
+      if (in_array($tid, $countries) || $tid == 'All') {
+        continue;
+      }
+      unset($form['field_country_code']['#options'][$tid]);
+    }
+  }
   if ($form_id == 'document_node_form') {
     $form['#attributes']['class'][] = 'container';
   }
@@ -1076,6 +1219,7 @@ function hwc_form_alter(&$form, &$form_state, $form_id) {
 
   if ($form_id == 'lang_dropdown_form') {
     $form['lang_dropdown_select']['#attributes']['title'] = t('Language switcher dropdown');
+    $form['lang_dropdown_select']['#chosen'] = FALSE;
   }
 
   if ($form_id == 'system_site_information_settings') {
@@ -1319,15 +1463,18 @@ function hwc_node_view($node, $view_mode, $langcode) {
   }
 
   $share_widget_content_types = array(
+    'priority_area',
     'campaign_16',
     'campaign_18',
     'news',
     'events',
     'publication',
     'article',
+    'gpa',
     'hwc_gallery',
     'flickr_gallery',
     'press_release',
+    'practical_tool',
   );
   // Array of nids where to hide the share widget.
   $no_share_widget = array(
@@ -1379,6 +1526,13 @@ function hwc_node_view($node, $view_mode, $langcode) {
       }
 
     }
+    if (!empty($extra_fields['gpe']['display']['default']['visible'])) {
+      $gpa = block_load('views', 'gpexamples-block');
+      $array = _block_get_renderable_array(_block_render_blocks([$gpa]));
+      $gpe = render($array);
+      $node->content['gpe'] = array('#markup' => $gpe);
+    }
+
     if (!empty($extra_fields['bottom_share_widget']['display']['default']['visible'])) {
       $options = array();
       if (in_array($node->type, array('article', 'hwc_gallery', 'flickr_gallery', 'press_release'))) {
@@ -1457,6 +1611,10 @@ function hwc_news_share_widget($node, $options = array()) {
       break;
 
     case 'article':
+      $widget = theme('article_share_widget', $vars);
+      break;
+
+    case 'gpa':
       $widget = theme('article_share_widget', $vars);
       break;
 
@@ -2134,5 +2292,20 @@ function hwc_update_main_menu_links($link, $alias, $aliases) {
       'language' => $language,
     );
     path_save($args);
+  }
+}
+
+function hwc_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  switch($root_path) {
+    case 'admin/content/related-resources':
+      $item = menu_get_item('admin/structure/taxonomy/related_resources/add');
+      $item['title'] = t('Add new related resource');
+      if ($item['access']) {
+        $data['actions']['output'][] = array(
+          '#theme' => 'menu_local_action',
+          '#link' => $item,
+        );
+      }
+      break;
   }
 }

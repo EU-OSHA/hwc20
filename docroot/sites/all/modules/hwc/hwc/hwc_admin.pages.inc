@@ -214,6 +214,62 @@ function hwc_admin_config_form() {
     '#default_value' => variable_get('site_hwc_mostra_mailbox', ''),
   );
 
+
+  $form['workflow'] = array(
+    '#type' => 'fieldset',
+    '#title' => 'Workflow mail settings',
+    '#collapsible' => TRUE,
+    '#weight' => 101,
+  );
+
+  $form['workflow']['hwc_workflow_approved_subject'] = array(
+    '#type' => 'textfield',
+    '#default_value' => variable_get('hwc_workflow_approved_subject', ''),
+    '#title' => 'Approved subject',
+  );
+
+  $form['workflow']['hwc_workflow_approved_body'] = array(
+    '#type' => 'textarea',
+    '#default_value' => variable_get('hwc_workflow_approved_body', ''),
+    '#title' => 'Approved body',
+  );
+
+  $form['workflow']['hwc_workflow_rejection_subject'] = array(
+    '#type' => 'textfield',
+    '#default_value' => variable_get('hwc_workflow_rejection_subject', ''),
+    '#title' => 'Rejection subject',
+  );
+
+  $form['workflow']['hwc_workflow_rejection_body'] = array(
+    '#type' => 'textarea',
+    '#default_value' => variable_get('hwc_workflow_rejection_body', ''),
+    '#title' => 'Rejection body',
+  );
+
+  $form['workflow']['hwc_workflow_supervisor_subject'] = array(
+    '#type' => 'textfield',
+    '#default_value' => variable_get('hwc_workflow_supervisor_subject', ''),
+    '#title' => 'Supervisor subject',
+  );
+
+  $form['workflow']['hwc_workflow_supervisor_body'] = array(
+    '#type' => 'textarea',
+    '#default_value' => variable_get('hwc_workflow_supervisor_body', ''),
+    '#title' => 'Supervisor body',
+  );
+
+  $form['workflow']['hwc_workflow_reviewer_subject'] = array(
+    '#type' => 'textfield',
+    '#default_value' => variable_get('hwc_workflow_reviewer_subject', ''),
+    '#title' => 'Reviewer subject',
+  );
+
+  $form['workflow']['hwc_workflow_reviewer_body'] = array(
+    '#type' => 'textarea',
+    '#default_value' => variable_get('hwc_workflow_reviewer_body', ''),
+    '#title' => 'Reviewer body',
+  );
+
   // NCW migration.
   if (module_exists('migrate')) {
     $form['migration'] = array(
@@ -275,61 +331,6 @@ function hwc_admin_config_form() {
     '#type' => 'textfield',
     '#default_value' => variable_get('hwc_toolkit_about_nid', 6746),
     '#title' => 'Toolkit about page node nid',
-  );
-
-  $form['workflow'] = array(
-    '#type' => 'fieldset',
-    '#title' => 'Workflow mail settings',
-    '#collapsible' => TRUE,
-    '#weight' => 101,
-  );
-
-  $form['workflow']['hwc_workflow_approved_subject'] = array(
-    '#type' => 'textfield',
-    '#default_value' => variable_get('hwc_workflow_approved_subject', ''),
-    '#title' => 'Approved subject',
-  );
-
-  $form['workflow']['hwc_workflow_approved_body'] = array(
-    '#type' => 'textarea',
-    '#default_value' => variable_get('hwc_workflow_approved_body', ''),
-    '#title' => 'Approved body',
-  );
-
-  $form['workflow']['hwc_workflow_rejection_subject'] = array(
-    '#type' => 'textfield',
-    '#default_value' => variable_get('hwc_workflow_rejection_subject', ''),
-    '#title' => 'Rejection subject',
-  );
-
-  $form['workflow']['hwc_workflow_rejection_body'] = array(
-    '#type' => 'textarea',
-    '#default_value' => variable_get('hwc_workflow_rejection_body', ''),
-    '#title' => 'Rejection body',
-  );
-
-  $form['workflow']['hwc_workflow_supervisor_subject'] = array(
-    '#type' => 'textfield',
-    '#default_value' => variable_get('hwc_workflow_supervisor_subject', ''),
-    '#title' => 'Supervisor subject',
-  );
-
-  $form['workflow']['hwc_workflow_supervisor_body'] = array(
-    '#type' => 'textarea',
-    '#default_value' => variable_get('hwc_workflow_supervisor_body', ''),
-    '#title' => 'Supervisor body',
-  );
-
-  $form['workflow']['hwc_workflow_reviewer_subject'] = array(
-    '#type' => 'textfield',
-    '#default_value' => variable_get('hwc_workflow_reviewer_subject', ''),
-    '#title' => 'Reviewer subject',
-  );
-
-  $form['workflow']['hwc_workflow_reviewer_body'] = array(
-    '#type' => 'textarea',
-    '#default_value' => variable_get('hwc_workflow_reviewer_body', ''),
-    '#title' => 'Reviewer body',
   );
 
   $form = system_settings_form($form);

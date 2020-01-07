@@ -63,7 +63,7 @@ function hwc_gpa_field_group_info() {
     'format_settings' => array(
       'label' => 'How to participate	',
       'instance_settings' => array(
-        'id' => '',
+        'id' => 'how-to-participate',
         'classes' => 'group-participate field-group-div',
         'description' => '',
         'show_label' => '1',

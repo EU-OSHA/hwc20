@@ -1,4 +1,4 @@
-  <h2><?php echo t('Frequent asking questions'); ?></h2>
+<h2><?php echo t('Frequently asked questions'); ?></h2>
 <?php
 $entities_to_load = array();
 foreach ($items as $item) {
