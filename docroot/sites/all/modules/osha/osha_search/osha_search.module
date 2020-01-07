@@ -45,6 +45,39 @@ function osha_search_facet_items_alter(&$build, &$settings) {
       drupal_add_js(array('facet_items' => [$settings->facet => $facet_items]), 'setting');
     }
   }
+  if (($settings->facet == 'field_country_code') && ($path == 'media-centre/events')) {
+    $facet_items = [];
+    if (!empty($_REQUEST['field_country_code'])) {
+      foreach ($build as $key => $item) {
+        if (in_array($item['#indexed_value'], $_REQUEST['field_country_code'])) {
+          $query = _osha_events_strip_param_value($query_params, urlencode($settings->facet), $item['#indexed_value']);
+          $filter_label = '<span class="glyphicon glyphicon-remove"></span>' . $item['#markup'];
+          $facet_items[] = l($filter_label, $path, [
+            'query' => $query,
+            'html' => TRUE
+          ]);
+        }
+      }
+      if ($facet_items) {
+        drupal_add_js(array('facet_items' => [$settings->facet => $facet_items]), 'setting');
+      }
+    }
+    $year_facet = 'years';
+    $facet_items = [];
+    if (!empty($_REQUEST[$year_facet]) && is_array($_REQUEST[$year_facet])) {
+      foreach ($_REQUEST[$year_facet] as $year) {
+        $query = _osha_events_strip_param_value($query_params, urlencode($year_facet), intval($year));
+        $filter_label = '<span class="glyphicon glyphicon-remove"></span>' . intval($year);
+        $facet_items[] = l($filter_label, $path, [
+          'query' => $query,
+          'html' => TRUE
+        ]);
+      }
+    }
+    if ($facet_items) {
+      drupal_add_js(array('facet_items' => [$year_facet => $facet_items]), 'setting');
+    }
+  }
 }
 
 /**
@@ -93,6 +126,9 @@ function osha_search_block_info() {
  */
 function osha_search_block_view($delta = '') {
   if ($delta != 'osha_search_clear_filters') {
+    return;
+  }
+  if ((arg(0) == 'search')) {
     return;
   }
   drupal_add_js(drupal_get_path('module', 'osha_search') . '/facet.js', array('weight' => 20));
@@ -173,8 +209,8 @@ function osha_search_get_exclude_search_articles() {
   }
 
   $query = '
-    SELECT n.nid, n.title 
-    FROM {node} n 
+    SELECT n.nid, n.title
+    FROM {node} n
     JOIN {field_data_field_article_type} t on (t.entity_id = n.nid) and (t.field_article_type_tid = :tid)
     WHERE n.type = :type AND n.status = 1';
   $result = db_query($query, array(':type' => 'article', ':tid' => 74));
@@ -326,6 +362,10 @@ function osha_search_autocomplete_callback($search = '*') {
   );
   $params['fq'][] = 'ss_search_api_language:"' . $lang . '"';
   $params['fq'][] = 'is_status:"1"';
+  if (variable_get('allow_exclude_search_articles', TRUE)) {
+    $nids = osha_search_get_exclude_search_articles();
+    $params['fq'][] = '-( ' . implode(' OR ', $nids) . ' )';
+  }
   // Add condition for excluded bundles.
   foreach ($bundles as $key => $bundle) {
     if (empty($allowed_bundles[$key])) {
@@ -596,6 +636,20 @@ function _osha_search_strip_param_value($params, $name, $value = NULL) {
     }
     if (!$params['f']) {
       $params = [];
+    }
+  }
+  return $params;
+}
+
+function _osha_events_strip_param_value($params, $name, $value = NULL) {
+  if (!empty($params[$name])) {
+    foreach ($params[$name] as $k => $v) {
+      if ($v == $value) {
+        unset($params[$name][$k]);
+      }
+    }
+    if (!$params[$name]) {
+      $params[$name] = [];
     }
   }
   return $params;

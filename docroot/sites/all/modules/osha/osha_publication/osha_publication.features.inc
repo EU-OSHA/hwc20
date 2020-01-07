@@ -38,6 +38,30 @@ function osha_publication_views_api($module = NULL, $api = NULL) {
 function osha_publication_fe_nodequeue_export_fields() {
   $nodequeues = array();
 
+  // Exported nodequeues: case_studies_slideshow_
+  $nodequeues['case_studies_slideshow_'] = array(
+    'name' => 'case_studies_slideshow_',
+    'title' => 'Case studies Slideshow	',
+    'subqueue_title' => '',
+    'size' => 5,
+    'link' => '',
+    'link_remove' => '',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 0,
+    'reference' => 0,
+    'reverse' => 1,
+    'i18n' => 0,
+    'unique_entries' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'publication',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
   // Exported nodequeues: publication_queue
   $nodequeues['publication_queue'] = array(
     'name' => 'publication_queue',
@@ -53,6 +77,7 @@ function osha_publication_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 1,
     'i18n' => 1,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'publication',

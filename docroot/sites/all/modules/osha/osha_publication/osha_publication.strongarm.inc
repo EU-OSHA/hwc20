@@ -186,7 +186,7 @@ function osha_publication_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '20',
+          'weight' => '14',
         ),
         'workbench_access' => array(
           'weight' => '0',
@@ -195,22 +195,40 @@ function osha_publication_strongarm() {
           'weight' => '1',
         ),
         'redirect' => array(
-          'weight' => '21',
+          'weight' => '15',
         ),
         'metatags' => array(
-          'weight' => '22',
+          'weight' => '17',
         ),
         'xmlsitemap' => array(
-          'weight' => '30',
+          'weight' => '21',
         ),
       ),
       'display' => array(
         'share_widget' => array(
           'default' => array(
-            'weight' => '0',
+            'weight' => '2',
             'visible' => TRUE,
           ),
           'pub_teaser' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'priority_areas' => array(
+            'weight' => '3',
+            'visible' => FALSE,
+          ),
+        ),
+        'bottom_share_widget' => array(
+          'pub_teaser' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+          'default' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+          'priority_areas' => array(
             'weight' => '0',
             'visible' => TRUE,
           ),

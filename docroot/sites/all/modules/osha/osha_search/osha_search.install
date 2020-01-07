@@ -187,3 +187,24 @@ function osha_search_update_7021() {
 function osha_search_update_7022() {
   features_revert_module('osha_search');
 }
+
+/**
+ * HW20-303 Development Practical tool (list, detail).
+ */
+function osha_search_update_7023() {
+  features_revert_module('osha_search');
+}
+
+/**
+ * HW20-303 Development Practical tool (list, detail).
+ */
+function osha_search_update_7024() {
+  features_revert_module('osha_search');
+}
+
+/**
+ * HW20-303 Development Practical tool (list, detail).
+ */
+function osha_search_update_7025() {
+  features_revert_module('osha_search');
+}

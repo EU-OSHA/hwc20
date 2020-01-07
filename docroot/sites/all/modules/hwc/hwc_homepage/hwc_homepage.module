@@ -44,6 +44,29 @@ function hwc_homepage_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+
+  $blocks['hwc_homepage_news_events'] = array(
+    'info' => t('Homepage News / Events'),
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['hwc_homepage_newsletter_social'] = array(
+    'info' => t('Homepage Newsletter / Social Media'),
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['hwc_homepage_topics'] = array(
+    'info' => t('Homepage Priority areas'),
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+
   $blocks['splash_download_news_campaign'] = array(
     'info' => t('Splash Download / News / Events / Previous campaigns'),
     'status' => 1,
@@ -53,21 +76,6 @@ function hwc_homepage_block_info() {
   );
   $blocks['splash_browsing_content'] = array(
     'info' => t('Splash Start browsing the content'),
-    'status' => 1,
-    'region' => 'content',
-    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
-    'cache' => DRUPAL_CACHE_GLOBAL,
-  );
-
-  $blocks['hwc_homepage_tools_and_resources'] = array(
-    'info' => t('Tools and publications'),
-    'status' => 1,
-    'region' => 'content',
-    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
-    'cache' => DRUPAL_CACHE_GLOBAL,
-  );
-  $blocks['hwc_homepage_topics'] = array(
-    'info' => t('Priority areas'),
     'status' => 1,
     'region' => 'content',
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
@@ -103,14 +111,6 @@ function hwc_homepage_block_info() {
  */
 function hwc_homepage_block_configure($delta = '') {
   $form = array();
-  if ($delta == 'hwc_homepage_tools_and_resources') {
-    $form['hwc_homepage_tools_and_resources_message'] = array(
-      '#type' => 'textarea',
-      '#title' => t('Message'),
-      '#description' => 'The message shown underneath',
-      '#default_value' => variable_get('hwc_homepage_tools_and_resources_message'),
-    );
-  }
   if ($delta == 'hwc_homepage_topics') {
     $form['hwc_homepage_topics_message'] = array(
       '#type' => 'textarea',
@@ -154,9 +154,6 @@ function hwc_homepage_info_tailored_intro_text($form, &$form_state) {
  * Implements hook_block_save().
  */
 function hwc_homepage_block_save($delta = '', $edit = array()) {
-  if ($delta == 'hwc_homepage_tools_and_resources') {
-    variable_set('hwc_homepage_tools_and_resources_message', $edit['hwc_homepage_tools_and_resources_message']);
-  }
   if ($delta == 'hwc_homepage_topics') {
     variable_set('hwc_homepage_topics_message', $edit['hwc_homepage_topics_message']);
     variable_set('hwc_homepage_topics_know_more_link', $edit['hwc_homepage_topics_know_more_link']);
@@ -190,6 +187,9 @@ function hwc_homepage_block_view($delta = '') {
   if ($delta == 'previous_campaign_nav') {
     $all_data = menu_tree_all_data('main-menu');
     $active_trail = menu_get_active_trail();
+    if (count($active_trail) > 4) {
+      return [];
+    }
     $last = end($active_trail);
     if ($last['menu_name'] != 'main-menu') {
       $last = menu_get_item();
@@ -298,6 +298,34 @@ function hwc_homepage_block_view($delta = '') {
     $data = render($array);
     $block['content'] = theme('hwc_homepage_title_banner_countdown', ['data' => $data]);
   }
+
+  if ($delta == 'hwc_homepage_newsletter_social') {
+    $data = [];
+    $newsletter = block_load('osha_newsletter', 'osha_newsletter_image');
+    $array = _block_get_renderable_array(_block_render_blocks([$newsletter]));
+    $data['newsletter'] = render($array);
+    $social_media = module_invoke('on_the_web', 'block_view', 'on_the_web');
+    $link_text = t(variable_get('homepage_social_media_link_text', 'See all from Social media'));
+    $data['social_media_icons'] = render($social_media['content']);
+    $data['social_media_title'] = t(variable_get('homepage_social_media_title', 'Social Media'));
+    $data['social_media_intro'] = t(variable_get('homepage_social_media_intro', 'Follow us'));
+    $data['social_media_see_all'] = l($link_text, 'media-centre/social-media-centre', ['attributes' => ['class' => 'see-more-button-20']]);
+    $block['content'] = theme('hwc_homepage_newsletter_social_media', ['data' => $data]);
+  }
+
+  if ($delta == 'hwc_homepage_news_events') {
+    $data = [];
+
+    $news = block_load('views', 'news-front');
+    $array = _block_get_renderable_array(_block_render_blocks([$news]));
+    $data['news'] = render($array);
+
+    $events = block_load('views', 'frontpage_events-front');
+    $array = _block_get_renderable_array(_block_render_blocks([$events]));
+    $data['events'] = render($array);
+
+    $block['content'] = theme('hwc_homepage_news_events', ['data' => $data]);
+  }
   if ($delta == 'splash_download_news_campaign') {
     $data = [];
 
@@ -338,49 +366,30 @@ function hwc_homepage_block_view($delta = '') {
     $block['content'] = theme('hwc_homepage_browsing_content', ['data' => $data]);
   }
   if ($delta == 'hwc_homepage_topics') {
-    $voc = taxonomy_vocabulary_machine_name_load('priority_area');
-    $tree = taxonomy_get_tree($voc->vid);
+    $result = views_get_view_result('msd_priority_areas');
+    $map = [];
+    foreach ($result as $row) {
+      $map[$row->taxonomy_term_data_field_data_field_msd_priority_area_tid] = $row->nid;;
+    }
+    $allowed = variable_get('priority_area_allowed', []);
+    $voc = taxonomy_vocabulary_machine_name_load('msd_priority_area');
+    $tree = taxonomy_get_tree($voc->vid, 0, NULL, TRUE);
     $items = [];
     foreach ($tree as $i => $term) {
       $w = entity_metadata_wrapper('taxonomy_term', $term->tid);
       $name = $w->label();
-      $items[$i % 2][] = [
-        'data' => l($name, 'taxonomy/term/' . $term->tid),
-        'class' => ['priority_area_' . ($i + 1)],
-        'title' => $name,
-      ];
+      if (isset($map[$term->tid])) {
+        $items[] = [
+          'data' => l($name, 'node/' . $map[$term->tid]),
+          'class' => ['priority_area_' . $map[$term->tid]],
+          'title' => $name,
+        ];
+      }
     }
-    $block['content']['message'] = array(
-      'type' => 'item',
-      '#prefix' => '<div class="text-muted">',
-      '#markup' => t(variable_get('hwc_homepage_topics_message')),
-      '#suffix' => '</div>',
-    );
     $block['content']['menu']['#markup'] = '<div class="priority_area">';
-    $block['content']['menu']['#markup'] .= theme('item_list', array('items' => $items[0], 'attributes' => array('class' => 'menu nav')));
-    $block['content']['menu']['#markup'] .= theme('item_list', array('items' => $items[1], 'attributes' => array('class' => 'menu nav')));
+    $block['content']['menu']['#markup'] .= theme('item_list', array('items' => $items, 'attributes' => array('class' => 'menu nav')));
     $block['content']['menu']['#markup'] .= '</div>';
-    $block['subject'] = l(t('Priority areas'), variable_get('hwc_homepage_topics_know_more_link'));
-  }
-  if ($delta == 'hwc_homepage_tools_and_resources') {
-    $items = [];
-    $items[] = l(t('Case studies'), 'tools-and-publications/case-studies');
-    $items[] = l(t('DS e-tool'), 'e-tool');
-    $items[] = l(t('Practical tools'), 'tools-and-publications/practical-tools');
-    $block['content']['message'] = array(
-      'type' => 'item',
-      '#prefix' => '<div class="text-muted">',
-      '#markup' => t(variable_get('hwc_homepage_tools_and_resources_message')),
-      '#suffix' => '</div>',
-    );
-    $block['content']['menu']['#markup'] = theme('item_list', array('items' => $items, 'attributes' => array('class' => 'menu nav')));
-    $block['content']['link'] = array(
-      'type' => 'item',
-      '#prefix' => '<div class="more-link">',
-      '#markup' => l(t('See other Tools and Publications'), 'tools_and_publications'),
-      '#suffix' => '</div>',
-    );
-    $block['subject'] = l(t('Tools and publications'), 'tools_and_publications');
+    $block['subject'] = '<span>' . l(t('Priority areas'), variable_get('hwc_homepage_topics_know_more_link')) . '</span>';
   }
   return $block;
 }
@@ -399,6 +408,14 @@ function hwc_homepage_theme() {
     'hwc_homepage_title_banner_countdown' => array(
       'variables' => array('data' => NULL),
       'template' => 'templates/hwc_homepage_title_banner_countdown',
+    ),
+    'hwc_homepage_newsletter_social_media' => array(
+      'variables' => array('data' => NULL),
+      'template' => 'templates/hwc_homepage_newsletter_social_media',
+    ),
+    'hwc_homepage_news_events' => array(
+      'variables' => array('data' => NULL),
+      'template' => 'templates/hwc_homepage_news_events',
     ),
     'hwc_homepage_download_news_events_campaign' => array(
       'variables' => array('data' => NULL),

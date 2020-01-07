@@ -6,7 +6,7 @@
         <?php print $data['news']; ?>
       </div>
     </div>
-    <div class="box-before col-md-5 col-sm-7 col-xs-12">
+    <div class="box-before col-md-5 col-sm-5 col-xs-12">
       <div class="box-before events">
         <h3><span><?php print t('Events'); ?></span></h3>
         <?php print $data['events']; ?>

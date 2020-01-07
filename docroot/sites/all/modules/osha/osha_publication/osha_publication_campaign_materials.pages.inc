@@ -59,44 +59,15 @@ function osha_publication_menu_campaign_materials_faceted_form($variables) {
 
   $form['#token'] = FALSE;
 
-//  if (!empty($text)) {
-//    $form['content']['search_phrase'] = array(
-//      '#type' => 'markup',
-//      '#markup' => '<div class="results-for">' . t('Results for !text',
-//          array('!text' => '<span class="searched-text"> ' . check_plain($text) . '</span>')) . '</div>',
-//    );
-//  }
-//  $form['content']['exposed-widgets'] = array(
-//    '#type' => 'container',
-//    '#attributes' => array('class' => array('views-exposed-widgets clearfix')),
-//  );
-//
-//  $form['content']['exposed-widgets']['search']['text'] = array(
-//    '#type' => 'textfield',
-//    '#size' => 30,
-//    '#title' => t('Search in resources'),
-//    '#maxlength' => 200,
-//    '#default_value' => $text,
-//    '#title_display' => 'invisible',
-//    '#attributes' => array('placeholder' => t('Search in resources'), 'class' => ['search-new-design']),
-//    '#prefix' => '<div id="edit-search-api-views-fulltext-wrapper" class="views-exposed-widget views-widget-filter-search_api_views_fulltext"><div class="views-widget">',
-//    '#suffix' => '</div></div>',
-//  );
-//
-//  $form['content']['exposed-widgets']['sort'] = array(
-//    '#type' => 'select',
-//    '#title' => t('Sort by'),
-//    '#default_value' => $sort,
-//    '#attributes' => array('class' => ['new-select-style']),
-//    '#prefix' => '<div class="views-exposed-widget views-widget-sort-by">',
-//    '#suffix' => '</div>',
-//    '#options' => array(
-//      'date' => t('Latest first'),
-//      'alphabetically' => t('Alphabetically'),
-//    ),
-//  );
   $form['content']['exposed-widgets']['language'] = [];
 
+  $query_params = drupal_get_query_parameters();
+  if (!empty($query_params)) {
+    $form['content']['link'] = [
+      '#type' => 'markup',
+      '#markup' => '<div class="clear_filters">' . l(t('Clear filters'), current_path()) . '</div>',
+    ];
+  }
   $facets_def = _osha_publication_menu_campaign_materials_get_facets_def();
 
   $response = osha_publication_menu_campaign_materials_search($form_state, $sort);

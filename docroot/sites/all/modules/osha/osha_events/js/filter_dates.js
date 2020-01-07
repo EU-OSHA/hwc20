@@ -2,12 +2,12 @@
   Drupal.behaviors.search_sort = {
     attach: function (context, settings) {
       if (typeof Drupal.settings.country_codes != 'undefined') {
-      jQuery('#edit-field-country-code > option').each(function() {
-        code = jQuery(this).val();
-        if (!Drupal.settings.country_codes[code]) {
-          jQuery("#edit-field-country-code option[value='" + code + "']").remove();
-        }
-      });
+        jQuery('#edit-field-country-code > option').each(function() {
+          code = jQuery(this).val();
+          if (!Drupal.settings.country_codes[code]) {
+            jQuery("#edit-field-country-code option[value='" + code + "']").remove();
+          }
+        });
         jQuery('#edit-field-country-code').trigger("chosen:updated");
       }
 
