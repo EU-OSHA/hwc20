@@ -1,4 +1,7 @@
 .views-field-field-document-files > span > ul {
-    list-style: none;
-    padding-left: 0px;
+  list-style: none;
+  padding-left: 0px;
+}
+.view-rel-res .views-exposed-form .views-exposed-widget .form-submit {
+  margin-top: 7px;
 }

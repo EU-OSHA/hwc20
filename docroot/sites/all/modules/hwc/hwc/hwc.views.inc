@@ -38,6 +38,9 @@ function hwc_views_pre_render(view &$view) {
   if ($view->name == 'frontpage_events' && ($view->current_display == 'european_week')) {
     hwc_european_week_events(count($view->result));
   }
+  if ($view->name == 'rel_res') {
+    drupal_add_css(drupal_get_path('module', 'hwc') . '/css/hwc.css');
+  }
   if ($view->name == 'documents') {
     drupal_add_css(drupal_get_path('module', 'hwc') . '/css/hwc.css');
   }

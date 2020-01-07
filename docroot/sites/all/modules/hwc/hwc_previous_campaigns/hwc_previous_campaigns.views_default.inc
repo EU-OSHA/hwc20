@@ -36,6 +36,8 @@ function hwc_previous_campaigns_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Clear filters';
   $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '25';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -88,6 +90,7 @@ function hwc_previous_campaigns_views_default_views() {
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = 'Title';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
@@ -95,24 +98,18 @@ function hwc_previous_campaigns_views_default_views() {
   $handler->display->display_options['fields']['field_icon']['id'] = 'field_icon';
   $handler->display->display_options['fields']['field_icon']['table'] = 'field_data_field_icon';
   $handler->display->display_options['fields']['field_icon']['field'] = 'field_icon';
+  $handler->display->display_options['fields']['field_icon']['label'] = 'Icon';
   $handler->display->display_options['fields']['field_icon']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_icon']['settings'] = array(
     'image_style' => '',
     'image_link' => '',
     'field_formatter_class' => '',
   );
-  /* Field: Taxonomy term: Link */
-  $handler->display->display_options['fields']['field_resource_link']['id'] = 'field_resource_link';
-  $handler->display->display_options['fields']['field_resource_link']['table'] = 'field_data_field_resource_link';
-  $handler->display->display_options['fields']['field_resource_link']['field'] = 'field_resource_link';
-  $handler->display->display_options['fields']['field_resource_link']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_resource_link']['settings'] = array(
-    'field_formatter_class' => '',
-  );
   /* Field: Taxonomy term: Resource type */
   $handler->display->display_options['fields']['field_resource_type']['id'] = 'field_resource_type';
   $handler->display->display_options['fields']['field_resource_type']['table'] = 'field_data_field_resource_type';
   $handler->display->display_options['fields']['field_resource_type']['field'] = 'field_resource_type';
+  $handler->display->display_options['fields']['field_resource_type']['label'] = 'Campaign';
   $handler->display->display_options['fields']['field_resource_type']['settings'] = array(
     'field_formatter_class' => '',
   );
@@ -120,6 +117,7 @@ function hwc_previous_campaigns_views_default_views() {
   $handler->display->display_options['fields']['edit_term']['id'] = 'edit_term';
   $handler->display->display_options['fields']['edit_term']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['edit_term']['field'] = 'edit_term';
+  $handler->display->display_options['fields']['edit_term']['label'] = 'Action';
   /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
@@ -136,7 +134,6 @@ function hwc_previous_campaigns_views_default_views() {
   $handler->display->display_options['filters']['combine']['group'] = 1;
   $handler->display->display_options['filters']['combine']['exposed'] = TRUE;
   $handler->display->display_options['filters']['combine']['expose']['operator_id'] = 'combine_op';
-  $handler->display->display_options['filters']['combine']['expose']['label'] = 'Search';
   $handler->display->display_options['filters']['combine']['expose']['operator'] = 'combine_op';
   $handler->display->display_options['filters']['combine']['expose']['identifier'] = 'combine';
   $handler->display->display_options['filters']['combine']['expose']['remember_roles'] = array(
@@ -169,7 +166,6 @@ function hwc_previous_campaigns_views_default_views() {
   $handler->display->display_options['filters']['field_resource_type_value']['group'] = 1;
   $handler->display->display_options['filters']['field_resource_type_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_resource_type_value']['expose']['operator_id'] = 'field_resource_type_value_op';
-  $handler->display->display_options['filters']['field_resource_type_value']['expose']['label'] = 'Resource type';
   $handler->display->display_options['filters']['field_resource_type_value']['expose']['operator'] = 'field_resource_type_value_op';
   $handler->display->display_options['filters']['field_resource_type_value']['expose']['identifier'] = 'field_resource_type_value';
   $handler->display->display_options['filters']['field_resource_type_value']['expose']['multiple'] = TRUE;
@@ -206,7 +202,7 @@ function hwc_previous_campaigns_views_default_views() {
     t('Related resources'),
     t('more'),
     t('Apply'),
-    t('Reset'),
+    t('Clear filters'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -217,12 +213,10 @@ function hwc_previous_campaigns_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('Name'),
-    t('Section icon'),
-    t('Link'),
-    t('Resource type'),
-    t('Term edit link'),
-    t('Search'),
+    t('Title'),
+    t('Icon'),
+    t('Campaign'),
+    t('Action'),
     t('Page'),
   );
   $export['rel_res'] = $view;
