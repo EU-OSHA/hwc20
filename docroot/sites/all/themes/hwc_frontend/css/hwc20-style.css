@@ -2801,7 +2801,7 @@ body.good-practice-exchange .footer {
   background: none;
 }
 .page-search .region-sidebar-first .block.block-facetapi:first-child {
-  margin-top: 63px!important;
+  margin-top: 41px!important;
 }
 .page-search .views-row img {
   border: 0;
@@ -2816,7 +2816,7 @@ body.good-practice-exchange .footer {
   bottom: 15px;
 }
 .page-search .views-exposed-widgets {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 .page-search .views-exposed-widgets input {
   height: 35px;
@@ -7208,7 +7208,10 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
 }
 .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links a {
   color: #59595A;
-  padding-left: 5px;
+}
+.region-sidebar-first .block.block-facetapi input[type="radio"],
+.region-sidebar-first .block.block-facetapi input[type="checkbox"] {
+  margin-right: 5px;
 }
 .region-sidebar-first .block.block-facetapi #facetapi-facet-search-apidefault-multilingual-node-index-block-field-priority-area {
   padding-top: 0;
