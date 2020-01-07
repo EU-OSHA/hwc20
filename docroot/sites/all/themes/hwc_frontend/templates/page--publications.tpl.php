@@ -75,11 +75,7 @@
 
 global $language;
 $theme_dir = drupal_get_path('theme', 'hwc_frontend');
-?>
-<?php if (!empty($page['above_header'])): ?>
-<?php endif; ?>
-<?php
-  include(drupal_get_path('theme', 'hwc_frontend').'/templates/header.tpl.php');
+include(drupal_get_path('theme', 'hwc_frontend').'/templates/header.tpl.php');
 ?>
 <div class="main-container">
     <div class="row">
