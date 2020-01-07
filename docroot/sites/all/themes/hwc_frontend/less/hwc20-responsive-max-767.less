@@ -1,5 +1,30 @@
 @media (max-width: 768px){
 
+	body.front-page{
+
+		.newsletter-social-media .newsletter{
+			border-right: 0;
+	    	border-bottom: 1px dashed #FFF;
+	    	padding-bottom: 1em;
+		}
+
+		.main-container{
+			.box-before:nth-child(2){
+				background: transparent;
+			}
+		}
+
+		#block-hwc-homepage-hwc-homepage-newsletter-social{
+			.social-media{
+				a:before{
+		   			filter: brightness(0) invert(1);
+		   			-webkit-filter: brightness(0) invert(1);
+   				}
+			}
+		}
+		
+	}
+
 	.start-browsing .start-browsing-box{
 		width: 309px;
 		height: auto;
@@ -95,6 +120,42 @@
 			}
 		}
 	}	
+
+
+	/* Good Practice Awards - GPA */
+	.node-type-gpa{
+		.group-faq{
+			width: 100%;
+		}
+
+		.main-container{
+			ol.multicarousel-indicators{
+				padding-left: 0;
+			}
+		}
+	} 
+
+
+	/* Publications */
+	.page-publications{
+		#edit-exposed-widgets{
+			.views-exposed-widget{
+				select{
+					height: 33px;
+				} 
+			}
+		}
+	}
+	
+	.page-tools-and-publications{
+		#edit-exposed-widgets{
+			.views-exposed-widget{
+				select{
+					height: 33px;
+				} 
+			}
+		}
+	}
 
 }
 
@@ -389,34 +450,6 @@
 			padding-left: 0;
 		}
 	}
-
-	/*Home*/
-	body.front-page{ 
-		.main-container {
-			#block-hwc-homepage-hwc-homepage-news-events {
-				.before-the-campaign {
-					.content-box-before {
-						.box-before:nth-child(1) {
-							.box-before.news {
-								.view-news {
-									.view-content{ 
-										> div:nth-child(2) {
-											> div.pull-left{
-												float: left !important;
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-											
-
 
 	.priority-area-box {
 	    width: 100%;
@@ -962,7 +995,7 @@
 	}
 
 	/* press room */
-	body.press-room, body.european-week{
+	body.press-room, body.european-week, body.good-practice-exchange{
 
 		.media-body{
 			height: auto;
@@ -981,6 +1014,10 @@
 			width: 100%;
     		padding-left: 5px;
 		}
+	}
+
+	#block-hwc-good-practice-exchange-gpe-news-events .view-news .media-body{
+		height: auto;
 	}
 
 	body.press-room{
@@ -1006,6 +1043,43 @@
 
 	.pager-total{
 		display: none;
+	}
+
+	/* Get your certificate */
+	.page-get-involved-get-your-certificate{
+		.pane-node-body{
+			width: 100%;
+		}
+	}
+
+	body.page-tools-and-publications-practical-tools {
+		.view-practical-tools {
+			.view-filters {
+				.views-exposed-widget{
+					width: 100%!important;
+				}
+
+				#edit-search-api-views-fulltext{
+					margin-top: 0;
+    				margin-bottom: 2em;
+				}
+
+				.views-widget-sort-by{
+					margin-top: 1em;
+				}
+
+				.form-select{
+					max-height: 62px;
+				}
+			}
+		}
+	}
+
+	.content-languages-download{
+		width: 100%;
+		select.new-select-style{
+			height: 34px;
+		}
 	}
 
 }

@@ -4587,10 +4587,10 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   color: #444444;
 }
 .breadcrumb {
-  padding: "??" "??";
+  padding: 1px 1px;
   margin-bottom: 20px;
   list-style: none;
-  background-color: "??";
+  background-color: #003399;
   border-radius: 4px;
 }
 .breadcrumb > li {
@@ -4621,8 +4621,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   line-height: 1.42857143;
   text-decoration: none;
   color: #003399;
-  background-color: "??";
-  border: 1px solid "??";
+  background-color: #003399;
+  border: 1px solid #003399;
   margin-left: -1px;
 }
 .pagination > li:first-child > a,
@@ -4640,9 +4640,9 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > span:hover,
 .pagination > li > a:focus,
 .pagination > li > span:focus {
-  color: "??";
-  background-color: "??";
-  border-color: "??";
+  color: #003399;
+  background-color: #003399;
+  border-color: #003399;
 }
 .pagination > .active > a,
 .pagination > .active > span,
@@ -4652,8 +4652,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > .active > span:focus {
   z-index: 2;
   color: #575757;
-  background-color: "??";
-  border-color: "??";
+  background-color: #003399;
+  border-color: #003399;
   cursor: default;
 }
 .pagination > .disabled > span,
@@ -4662,9 +4662,9 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > .disabled > a,
 .pagination > .disabled > a:hover,
 .pagination > .disabled > a:focus {
-  color: "??";
-  background-color: "??";
-  border-color: "??";
+  color: #003399;
+  background-color: #003399;
+  border-color: #003399;
   cursor: not-allowed;
 }
 .pagination-lg > li > a,
@@ -4710,14 +4710,14 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pager li > span {
   display: inline-block;
   padding: 5px 14px;
-  background-color: "??";
-  border: 1px solid "??";
+  background-color: #003399;
+  border: 1px solid #003399;
   border-radius: 15px;
 }
 .pager li > a:hover,
 .pager li > a:focus {
   text-decoration: none;
-  background-color: "??";
+  background-color: #003399;
 }
 .pager .next > a,
 .pager .next > span {
@@ -4731,8 +4731,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pager .disabled > a:hover,
 .pager .disabled > a:focus,
 .pager .disabled > span {
-  color: "??";
-  background-color: "??";
+  color: #003399;
+  background-color: #003399;
   cursor: not-allowed;
 }
 .label {
@@ -6057,9 +6057,6 @@ button.close {
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
-    -webkit-perspective: 1000;
-    -moz-perspective: 1000;
-    perspective: 1000;
   }
   .carousel-inner > .item.next,
   .carousel-inner > .item.active.right {
@@ -6873,7 +6870,7 @@ ul li.leaf {
 }
 .submitted {
   margin-bottom: 1em;
-  font-style: italic;
+  font-style: normal;
   font-weight: normal;
   color: #777;
 }
@@ -7423,7 +7420,7 @@ header.navbar-default .campaigns-header #block-block-1 {
   right: 0;
   top: 116px;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 header.navbar-default .campaigns-header #block-block-1 a:before {
   content: ">";
@@ -7431,7 +7428,7 @@ header.navbar-default .campaigns-header #block-block-1 a:before {
 }
 header.navbar-default .campaigns-header #block-hwc-partner-hwc-partner-back-to-profile {
   font-weight: 700;
-  font-style: italic;
+  font-style: normal;
   float: right;
   font-size: .89em;
   padding-top: 5px;
@@ -7509,7 +7506,7 @@ header.navbar-default .navbar-collapse nav ul.menu li .dropdown-menu li {
 header.navbar-default .navbar-collapse nav ul.menu li .dropdown-menu li a {
   text-align: left;
   display: inline;
-  font-style: italic;
+  font-style: normal;
   padding: 0;
   white-space: normal;
   text-transform: none;
@@ -7836,7 +7833,7 @@ body .modal-content .views-submit-button {
 body .required-form-fields {
   float: right;
   margin-top: 1em;
-  font-style: italic;
+  font-style: normal;
 }
 body p a.inline-href,
 body.private-area #private .pane-custom p a.inline-href,
@@ -7891,6 +7888,9 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
   border-left-color: #749b00;
   border-right-color: #749b00;
   border-style: dotted;
+}
+ul.tabs--primary.nav.nav-tabs > li > a {
+  padding: 10px 8px;
 }
 .pane-node-field-publication-type .field-name-field-activity,
 .pane-node-field-publication-type .field-type-taxonomy-term-reference {
@@ -8036,7 +8036,7 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
 .a2a_kit.a2a_target.addtoany_list span.a2a_img_text {
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .a2a_kit.a2a_target.addtoany_list .a2a_i_facebook {
   background: url("../images/content/facebook.png") no-repeat center;
@@ -8116,7 +8116,7 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
 #block-views-news-oshnews-latest ul.menu li a,
 .panels-flexible-column-new-1 ul.menu li a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   font-size: 1.05em;
 }
 .tools-and-resources-block ul.menu li a:before,
@@ -8165,7 +8165,7 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
 #block-views-news-oshnews-latest .view-news .views-row a,
 .panels-flexible-column-new-1 .view-news .views-row a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .tools-and-resources-block .view-news .views-row a:before,
 .panels-flexible-column-new-main .view-news .views-row a:before,
@@ -8418,14 +8418,14 @@ html:lang(en) #homepage_slider .views-field-title > span {
   color: #003399;
   border: none;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .pagination li.pager-current,
 .pager li.pager-current {
   padding-left: 14px;
   padding-right: 14px;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .pagination .pager-ellipsis span,
 .pager .pager-ellipsis span {
@@ -8455,7 +8455,7 @@ html:lang(en) #homepage_slider .views-field-title > span {
   min-height: 180px;
 }
 .node-news h1 {
-  font-style: italic;
+  font-style: normal;
   font-weight: normal;
   color: #575757;
   font-size: 2.5em;
@@ -8559,7 +8559,7 @@ table tr.error.form-type-select:after {
   color: #003399;
   background-color: transparent;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .node-article .list-inline .node-readmore a:before {
   content: ">";
@@ -8702,7 +8702,7 @@ table tr.error.form-type-select:after {
 .node-article .node-external-url a.external-link {
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   font-size: 1.3em;
 }
 .node-article .node-external-url a.external-link:before {
@@ -8715,11 +8715,6 @@ table tr.error.form-type-select:after {
 }
 .node-type-article article .field-name-title-field {
   margin-bottom: 1em;
-}
-.node-type-article article .dot-separator.green {
-  border-top: 1px dotted #749b00;
-  margin-bottom: 20px;
-  margin-top: 20px;
 }
 .node-type-article article .icon.recommended-resources {
   background: url("../images/content/recommended-for-you.png") no-repeat;
@@ -8809,7 +8804,7 @@ table tr.error.form-type-select:after {
   padding-right: 3px;
 }
 .node-infographic a {
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
 }
 .node-infographic .field-name-field-twin-infographics {
@@ -8833,7 +8828,7 @@ table tr.error.form-type-select:after {
   color: #003399;
   background-color: transparent;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   padding-right: 20px;
 }
 .node-press-release .more-link:before {
@@ -8842,7 +8837,7 @@ table tr.error.form-type-select:after {
 /* Node-XXX */
 div[class*='node-'] h1 {
   text-align: center;
-  font-style: italic;
+  font-style: normal;
   font-weight: lighter;
   color: #575757;
   font-size: 2.5em;
@@ -8855,11 +8850,11 @@ div[class*='node-'] .more-link {
   color: #003399;
   background-color: transparent;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 div[class*='view-'] h1 {
   text-align: center;
-  font-style: italic;
+  font-style: normal;
   font-weight: lighter;
   color: #575757;
   font-size: 2.5em;
@@ -8893,7 +8888,8 @@ div[class*='view-'] .field-name-field-summary {
 .form-item-relevant-for,
 .form-item-field-publication-type,
 .form-item-field-priority-area,
-.form-item-languages {
+.form-item-languages,
+.form-item-field-msd-priority-area {
   margin-top: 0;
   padding-top: 10px;
   margin-bottom: 0px;
@@ -8905,7 +8901,8 @@ div[class*='view-'] .field-name-field-summary {
 .form-item-relevant-for .checkbox:last-child,
 .form-item-field-publication-type .checkbox:last-child,
 .form-item-field-priority-area .checkbox:last-child,
-.form-item-languages .checkbox:last-child {
+.form-item-languages .checkbox:last-child,
+.form-item-field-msd-priority-area .checkbox:last-child {
   margin-bottom: 10px;
 }
 .form-item-main-tags > label,
@@ -8914,7 +8911,8 @@ div[class*='view-'] .field-name-field-summary {
 .form-item-field-priority-area > label,
 .form-item-relevant-for > label,
 .form-item-languages > label,
-.form-item-publication-type > label {
+.form-item-publication-type > label,
+.form-item-field-msd-priority-area > label {
   font-size: 1.1em;
   font-weight: bold;
   width: 100%;
@@ -8928,7 +8926,8 @@ div[class*='view-'] .field-name-field-summary {
 .form-item-field-priority-area > label:after,
 .form-item-relevant-for > label:after,
 .form-item-languages > label:after,
-.form-item-publication-type > label:after {
+.form-item-publication-type > label:after,
+.form-item-field-msd-priority-area > label:after {
   content: "\e250";
   font-family: "Glyphicons Halflings";
   margin-left: 10px;
@@ -8940,7 +8939,8 @@ div[class*='view-'] .field-name-field-summary {
 .form-item-field-priority-area > label.active:after,
 .form-item-relevant-for > label.active:after,
 .form-item-languages > label.active:after,
-.form-item-publication-type > label.active:after {
+.form-item-publication-type > label.active:after,
+.form-item-field-msd-priority-area > label.active:after {
   content: "\e252";
   font-family: "Glyphicons Halflings";
   margin-left: 10px;
@@ -8995,7 +8995,7 @@ div[class*='view-'] .field-name-field-summary {
 .panels-flexible-column-new-1 a {
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 #block-views-news-oshnews-latest a:before,
 .panels-flexible-column-new-1 a:before {
@@ -9159,7 +9159,7 @@ div[class*='view-'] .field-name-field-summary {
 #block-views-frontpage-events-block a {
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 #block-views-frontpage-events-block a:before {
   content: ">";
@@ -9402,7 +9402,7 @@ div[class*='view-'] .field-name-field-summary {
 }
 #block-views-publications-slideshow-slidehow #publications_slideshow #num_slides .publication-item ul a,
 #block-system-main #publications_slideshow #num_slides .publication-item ul a {
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
 }
 #block-views-publications-slideshow-slidehow #publications_slideshow .jssora03l,
@@ -9474,7 +9474,7 @@ div[class*='view-'] .field-name-field-summary {
   color: #003399;
   background-color: transparent;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .col #block-views-publications-slideshow-slidehow #publications_slideshow,
 .col #block-system-main #publications_slideshow {
@@ -9494,13 +9494,13 @@ div[class*='view-'] .field-name-field-summary {
   font-size: 30px;
   margin-bottom: 0em;
   padding-top: 20px !important;
-  font-style: italic;
+  font-style: normal;
   font-weight: 100;
 }
 .pane-osha-publication-osha-publication-listing h4 {
   font-size: 30px;
   margin-bottom: 0em;
-  font-style: italic;
+  font-style: normal;
   font-weight: 100;
 }
 /* pag Search */
@@ -9526,7 +9526,6 @@ div[class*='view-'] .field-name-field-summary {
   padding-left: 0px;
   padding-right: 0px;
   padding: 0px;
-  margin-left: 25px;
   -webkit-box-shadow: inset 0 0px 0px rgba(255, 255, 255, 0);
   -moz-box-shadow: inset 0 0px 0px rgba(255, 255, 255, 0);
   box-shadow: inset 0 0px 0px rgba(255, 255, 255, 0);
@@ -9573,13 +9572,15 @@ div[class*='view-'] .field-name-field-summary {
   color: #003399 !important;
   overflow: hidden !important;
 }
+.page-search .region-sidebar-first #block-osha-search-osha-search-clear-filters {
+  clear: both;
+}
 .page-search .region-sidebar-first #block-osha-search-osha-search-clear-filters h3 {
   display: none;
 }
 .page-search .region-sidebar-first #block-osha-search-osha-search-clear-filters a {
-  font-weight: bold;
   display: block;
-  padding-bottom: 5px;
+  padding-top: 1em;
   margin-top: 5px;
 }
 .page-search .region-sidebar-first #block-osha-search-osha-search-clear-filters .clear-wrapper > a {
@@ -9587,30 +9588,6 @@ div[class*='view-'] .field-name-field-summary {
 }
 .page-search .region-sidebar-first #block-osha-search-osha-search-clear-filters #remove_filter > a:last-child {
   border-bottom: 1px dotted #749b00;
-}
-.page-search .region-sidebar-first .block.block-facetapi {
-  border-bottom: 1px dotted #749b00;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-.page-search .region-sidebar-first .block.block-facetapi h2 {
-  color: #333333;
-  font-size: 1.1em;
-  text-align: left;
-  margin-bottom: 0px;
-  cursor: pointer;
-}
-.page-search .region-sidebar-first .block.block-facetapi h2:after {
-  content: "\e250";
-  font-family: "Glyphicons Halflings";
-  margin-left: 10px;
-  float: right;
-}
-.page-search .region-sidebar-first .block.block-facetapi h2.area-shown:after {
-  content: "\e252";
-  font-family: "Glyphicons Halflings";
-  margin-left: 10px;
-  float: right;
 }
 .page-search .region.region-content {
   float: right;
@@ -9626,33 +9603,6 @@ div[class*='view-'] .field-name-field-summary {
 }
 .page-search .region.region-content .view-search h3 {
   display: none;
-}
-.page-search .region.region-content .view-search .view-header {
-  overflow: hidden;
-  border: none;
-  border-top: 1px dotted #749b00;
-  border-bottom: 1px dotted #749b00;
-  border-radius: 0px;
-  padding: 7px 0px;
-}
-.page-search .region.region-content .view-search .view-header .sort-container.col-xs-3 {
-  width: inherit;
-  padding-left: 0px;
-}
-.page-search .region.region-content .view-search .view-header .sort-container.col-xs-3 .form-group {
-  margin-bottom: 0px;
-}
-.page-search .region.region-content .view-search .view-header .sort-container.col-xs-3 .form-group label {
-  margin-right: 10px;
-}
-.page-search .region.region-content .view-search .view-header .sort-container.col-xs-3 .form-group label:after {
-  content: ":";
-}
-.page-search .region.region-content .view-search .view-header .sort-container.col-xs-3 .form-group #edit-sort-by {
-  display: inline-block;
-}
-.page-search .region.region-content .view-search .view-header .count-container {
-  margin-top: 7px;
 }
 .page-search .region.region-content .view-search .view-content .views-row {
   border-bottom: 1px dotted #749b00;
@@ -9704,7 +9654,7 @@ div[class*='view-'] .field-name-field-summary {
 }
 .page-search .region.region-content .view-search .view-content .views-row .views-field-search-api-relevance a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .page-search .region.region-content .view-search .view-content .views-row .views-field-search-api-relevance a:before {
   content: ">";
@@ -9729,7 +9679,7 @@ div[class*='view-'] .field-name-field-summary {
   display: inline;
 }
 .page-search .views-widget-sort-by > .form-item-sort-by > label {
-  font-style: italic;
+  font-style: normal;
   margin-top: 0.5em;
   margin-right: 2em;
   padding-right: 0;
@@ -9752,7 +9702,7 @@ div[class*='view-'] .field-name-field-summary {
 }
 .page-search .views-field-field-file a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .page-search .radio label:before {
   border: none;
@@ -9846,7 +9796,7 @@ div[class*='view-'] .field-name-field-summary {
   color: #003399;
   background-color: transparent;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .publication-item ul {
   list-style: none;
@@ -9876,7 +9826,7 @@ div[class*='view-'] .field-name-field-summary {
 .pane-hwc-practical-tool-hwc-practical-tool-listing .h4-title {
   padding-top: 10px !important;
   font-size: 30px;
-  font-style: italic;
+  font-style: normal;
   font-weight: 100;
   margin-bottom: 1em;
 }
@@ -9914,7 +9864,7 @@ div[class*='view-'] .field-name-field-summary {
 }
 .pane-hwc-practical-tool-hwc-practical-tool-listing .node-practical-tool ul.links .node-readmore {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .pane-hwc-practical-tool-hwc-practical-tool-listing .node-practical-tool ul.links .node-readmore:before {
   content: ">";
@@ -9930,7 +9880,7 @@ div[class*='view-'] .field-name-field-summary {
   color: #003399;
   background-color: transparent;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .pane-hwc-practical-tool-hwc-practical-tool-listing .link-wrapper ul li a:before {
   content: ">";
@@ -9957,7 +9907,7 @@ div[class*='view-'] .field-name-field-summary {
   padding-top: 1em;
 }
 .pane-hwc-practical-tool-hwc-practical-tool-listing #edit-content .form-type-radios.form-item-sort > label {
-  font-style: italic;
+  font-style: normal;
   padding-right: 0;
 }
 .pane-hwc-practical-tool-hwc-practical-tool-listing #edit-content .form-type-radios.form-item-sort label {
@@ -10030,7 +9980,7 @@ div[class*='view-'] .field-name-field-summary {
 /*
 	.pane-node-field-free, .pane-node-field-country, .pane-node-field-tool-type{
 		color: @text-color-2;
-		font-style: italic;
+		font-style: normal;
 		font-weight: bold;
 		float: left;
 		margin-top: 1em;
@@ -10133,7 +10083,7 @@ html:lang(no) .pane-node-field-provider .field-items,
 }
 .pane-node-field-access-tool-link a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   background: url("../images/content/continue-reading.png") no-repeat right center;
   padding-right: 20px;
 }
@@ -10143,7 +10093,7 @@ html:lang(no) .pane-node-field-provider .field-items,
 }
 .pane-node-field-access-tool-link-fc a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   padding-right: 20px;
 }
 .panel-panel div .pane-node-field-access-tool-link:first-child {
@@ -10157,7 +10107,7 @@ html:lang(no) .pane-node-field-provider .field-items,
 }
 .pane-node-field-external-urls a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .pane-node-field-external-urls a:before {
   content: ">";
@@ -10169,7 +10119,7 @@ html:lang(no) .pane-node-field-provider .field-items,
 }
 .site-map-menu a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .site-map-menu a:before {
   content: ">";
@@ -10460,7 +10410,7 @@ html:lang(no) .pane-node-field-provider .field-items,
 .front .pane-homepage-about-topics .view-homepage-about-topics .views-row .views-field-title-field {
   font-size: 1.3em;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   margin-bottom: 10px;
 }
 .front .panels-flexible-region-new-center {
@@ -10653,7 +10603,7 @@ html:lang(no) .pane-node-field-provider .field-items,
   background-color: transparent;
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   border-bottom: 1px solid #749b00;
 }
 /*End login page*/
@@ -10685,7 +10635,7 @@ html:lang(no) .pane-node-field-provider .field-items,
   background-color: transparent;
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .view-news .views-row .field-type-text-with-summary .more-link:before {
   content: "> ";
@@ -10701,7 +10651,7 @@ html:lang(no) .pane-node-field-provider .field-items,
   margin-bottom: 1em;
 }
 .node-news h1 {
-  font-style: italic;
+  font-style: normal;
   font-weight: normal;
   color: #575757;
   font-size: 2.5em;
@@ -10750,7 +10700,7 @@ article .hwc-share-widget ul {
 .hwc-share-widget ul .label {
   color: #003399;
   font-size: 1em;
-  font-style: italic;
+  font-style: normal;
   padding-top: 5px;
 }
 .hwc-share-widget ul li[id*="facebook-share-button-"] {
@@ -10866,7 +10816,7 @@ article .hwc-share-widget ul {
   background-color: transparent;
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   border-bottom: 1px solid #749b00;
 }
 .page-private .field.field-name-body p a {
@@ -10876,7 +10826,7 @@ article .hwc-share-widget ul {
   background-color: transparent;
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .field-name-field-aditional-resources .field-name-title-field a:before {
   content: "> ";
@@ -11188,7 +11138,7 @@ article .hwc-share-widget ul {
 #mini-panel-press_room_blocks .pane-osha-press-release-osha-press-rel-become-partner #become-partner-link a {
   margin-top: 1.5em;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   display: block;
 }
 #mini-panel-press_room_blocks .pane-osha-press-release-osha-press-rel-become-partner #become-partner-link a:before {
@@ -11210,7 +11160,7 @@ article .hwc-share-widget ul {
 }
 #mini-panel-press_room_blocks .pane-press-contacts .views-field-field-press-contact-email a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 #mini-panel-press_room_blocks .pane-osha-press-release-osha-press-kit {
   padding-right: 15px;
@@ -11224,7 +11174,7 @@ article .hwc-share-widget ul {
 #mini-panel-press_room_blocks .pane-osha-press-release-osha-press-kit .osha-press-contact-block-link a {
   margin-top: 1.5em;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   display: inline-block;
 }
 #mini-panel-press_room_blocks .pane-osha-press-release-osha-press-kit .osha-press-contact-block-link:before {
@@ -11253,33 +11203,6 @@ article .hwc-share-widget ul {
 .page-practical-tools h1 {
   border-bottom: none;
   margin-bottom: 0em;
-}
-.page-practical-tools .below_title .field-type-text-with-summary {
-  padding-right: 85px;
-  padding-left: 85px;
-  margin: 0 25px;
-  padding-bottom: 1em;
-}
-.page-practical-tools .below_title .field-type-text-with-summary p {
-  text-align: center;
-  font-size: 1.2em;
-}
-.page-practical-tools #edit-search-api-views-fulltext-wrapper {
-  float: none !important;
-}
-.page-practical-tools .sort-container.col-xs-3 {
-  width: 75% !important;
-}
-.page-practical-tools .sort-container.col-xs-3 .form-item-sort-by,
-.page-practical-tools .sort-container.col-xs-3 .form-item-sort-order {
-  display: inline-block;
-}
-.page-practical-tools .sort-container.col-xs-3 .form-item-sort-by select,
-.page-practical-tools .sort-container.col-xs-3 .form-item-sort-order select {
-  display: inline-block;
-}
-.page-practical-tools .sort-container.col-xs-3 .form-item-sort-order {
-  margin-left: 15px;
 }
 .node-type-practical-tool .panel-col .field-label {
   min-width: 192px;
@@ -11338,15 +11261,15 @@ article .hwc-share-widget ul {
   border-bottom: none;
   margin-bottom: 0;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row {
   padding-top: 20px;
   padding-bottom: 30px;
   min-height: 230px;
   border-bottom: 1px dotted #749b00;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content {
   float: left;
   width: 180px;
   height: 180px;
@@ -11354,199 +11277,199 @@ article .hwc-share-widget ul {
   overflow: hidden;
   margin-top: 5px;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .date-display-single,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .date-display-single {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .date-display-single,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .date-display-single {
   display: block;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .event_country,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .event_country {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .event_country,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .event_country {
   width: 180px;
   height: 180px;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EN,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EN {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EN,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EN {
   background: url(../images/events/big/England-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_AT,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_AT {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_AT,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_AT {
   background: url(../images/events/big/Austria-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CH,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CH {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CH,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CH {
   background: url(../images/events/big/Switzerland-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_BG,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_BG {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_BG,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_BG {
   background: url(../images/events/big/Bulgaria-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_BE,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_BE {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_BE,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_BE {
   background: url(../images/events/big/Belgium-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CZ,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CZ {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CZ,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CZ {
   background: url(../images/events/big/Czech-Republic-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CS,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CS {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CS,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CS {
   background: url(../images/events/big/Czech-Republic-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_DK,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_DK {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_DK,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_DK {
   background: url(../images/events/big/Denmark-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_DE,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_DE {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_DE,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_DE {
   background: url(../images/events/big/Germany-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EL,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EL {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EL,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EL {
   background: url(../images/events/big/Greece-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_ES,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_ES {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_ES,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_ES {
   background: url(../images/events/big/Spain-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EU,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EU {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EU,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EU {
   background: url(../images/events/big/European-Union-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EE,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EE {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EE,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EE {
   background: url(../images/events/big/Estonia-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_FI,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_FI {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_FI,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_FI {
   background: url(../images/events/big/Finland-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_HR,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_HR {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_HR,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_HR {
   background: url(../images/events/big/Croatia-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_FR,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_FR {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_FR,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_FR {
   background: url(../images/events/big/France-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_HU,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_HU {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_HU,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_HU {
   background: url(../images/events/big/Hungary-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_IS,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_IS {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_IS,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_IS {
   background: url(../images/events/big/Iceland-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_IT,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_IT {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_IT,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_IT {
   background: url(../images/events/big/Italy-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LV,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LV {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LV,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LV {
   background: url(../images/events/big/Latvia-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LT,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LT {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LT,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LT {
   background: url(../images/events/big/Lithuania-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LU,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LU {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LU,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LU {
   background: url(../images/events/big/Luxembourg-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LI,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LI {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LI,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LI {
   background: url(../images/events/big/Liechtenstein-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_NL,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_NL {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_NL,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_NL {
   background: url(../images/events/big/Netherlands-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_MT,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_MT {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_MT,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_MT {
   background: url(../images/events/big/Malta-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_NO,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_NO {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_NO,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_NO {
   background: url(../images/events/big/Norway-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_PL,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_PL {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_PL,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_PL {
   background: url(../images/events/big/Poland-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_PT,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_PT {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_PT,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_PT {
   background: url(../images/events/big/Portugal-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_RO,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_RO {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_RO,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_RO {
   background: url(../images/events/big/Romania-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_SK,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_SK {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_SK,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_SK {
   background: url(../images/events/big/Slovakia-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_SI,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_SI {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_SI,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_SI {
   background: url(../images/events/big/Slovenia-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_SE,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_SE {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_SE,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_SE {
   background: url(../images/events/big/Sweden-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_IE,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_IE {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_IE,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_IE {
   background: url(../images/events/big/Ireland-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_UK,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_UK {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_UK,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_UK {
   background: url(../images/events/big/United-Kingdom-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CN,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CN {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CN,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CN {
   background: url(../images/events/big/China-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CY,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CY {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CY,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CY {
   background: url(../images/events/big/Republic-of-Cyprus-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_US,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_US {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_US,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_US {
   background: url(../images/events/big/eeuu-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-title-field a,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-title-field a {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-title-field a,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-title-field a {
   display: block;
   font-size: 1.7em;
   margin-bottom: 10px;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-view-node,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-view-node {
   position: absolute;
   margin-left: 230px;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-website-of-event,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-website-of-event {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-website-of-event,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-website-of-event {
   float: none;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date-1,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date-1 {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date-1,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date-1 {
   font-size: 1em;
   margin-bottom: 0.5em;
-  font-weight: bold;
+  font-weight: 600;
   color: #57575a;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-country-code,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-country-code,
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-city,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-city {
-  font-weight: bold;
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-country-code,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-country-code,
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-city,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-city {
+  font-weight: 600;
   display: inline-block;
   color: #57575a;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-country-code span:after,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-country-code span:after {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-country-code span:after,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-country-code span:after {
   content: ",";
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-body,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-body {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-body,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-body {
   margin-top: 1em;
   margin-bottom: 1em;
   display: flex;
@@ -11831,7 +11754,7 @@ article .hwc-share-widget ul {
   float: left;
   width: 65%;
   margin-top: 0.5em;
-  font-style: italic;
+  font-style: normal;
 }
 .node-events .field-collection-container .field-name-field-schedule .field-name-field-talking-files div {
   width: auto;
@@ -11884,7 +11807,7 @@ article .hwc-share-widget ul {
 }
 .node-events .field-name-field-contact-email .field-items,
 .node-events .field-name-field-website-of-event .field-items {
-  font-style: italic;
+  font-style: normal;
 }
 .node-events .field-collection-container {
   border-bottom: 1px dotted #749b00;
@@ -12088,7 +12011,7 @@ article .hwc-share-widget ul {
 #block-views-events-block-1 .view-events .events-filter-by-date h3 {
   margin: 0;
   float: left;
-  font-style: italic;
+  font-style: normal;
   font-size: 0.85714em;
   font-weight: bold;
   color: #749b00;
@@ -12110,7 +12033,7 @@ article .hwc-share-widget ul {
   padding: 3px 0.5em;
   margin: 0;
   float: left;
-  font-style: italic;
+  font-style: normal;
   font-size: 0.85714em;
   font-weight: bold;
   color: #003399;
@@ -12221,7 +12144,7 @@ article .hwc-share-widget ul {
 }
 .become-partner .partners .partner .partner-name h3 {
   font-weight: 100;
-  font-style: italic;
+  font-style: normal;
   font-size: 32px;
   margin-bottom: 1em;
 }
@@ -12233,7 +12156,7 @@ article .hwc-share-widget ul {
   overflow: hidden;
 }
 .become-partner .partners .partner .partner-opinion p {
-  font-style: italic;
+  font-style: normal;
 }
 .become-partner .partners .partner .partner-opinion .quottes-left {
   height: 25px;
@@ -12258,7 +12181,7 @@ article .hwc-share-widget ul {
 .become-partner .description p a {
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .become-partner button,
 .become-partner a.btn-become-a-campaign-partner {
@@ -12317,7 +12240,7 @@ article .hwc-share-widget ul {
   padding: 0px;
 }
 .see-also .more-links ul a {
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
 }
 .see-also .more-links ul a:before {
@@ -12355,7 +12278,7 @@ article .hwc-share-widget ul {
   content: " ";
 }
 .employers-section .introduction-section .btn-1-normal .btn-1-acent {
-  font-style: italic;
+  font-style: normal;
 }
 .employers-section .introduction-section .btn-1-normal .btn-1-acent:before {
   content: "> ";
@@ -12368,7 +12291,7 @@ article .hwc-share-widget ul {
 .employers-section .recomended-resources-for-you p {
   color: #ffffff;
   font-size: 30px;
-  font-style: italic;
+  font-style: normal;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
   font-weight: 100;
@@ -12472,7 +12395,7 @@ article .hwc-share-widget ul {
 }
 .employers-section .other-relevant-resources .relevant-resources-section .revelant-resource a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .employers-section .other-relevant-resources .relevant-resources-section .revelant-resource a:before {
   content: "> ";
@@ -12555,7 +12478,7 @@ article .hwc-share-widget ul {
 }
 .employers-section .news-events-section .news-section .news-content .one-new a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .employers-section .news-events-section .news-section .news-content .one-new a:before {
   content: "> ";
@@ -12565,7 +12488,7 @@ article .hwc-share-widget ul {
 }
 .employers-section .news-events-section .events-section .events-content .one-event a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .employers-section .news-events-section .events-section .events-content .one-event a:before {
   content: "> ";
@@ -12700,7 +12623,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .profile-edit-links-container .pane-node-profile-update-link .pane-content .hwc-partner-private-link-block-title a {
   color: #749b00;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   font-size: 1.4em;
   cursor: pointer;
   padding: 0px 0px 20px !important;
@@ -12734,12 +12657,12 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .profile-edit-links-container .pane-node-profile-update-link .pane-content .hwc-partner-private-link-block-description a {
   color: #575757;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .profile-edit-links-container .pane-node-profile-update-link .pane-content a.hwc-partner-private-link-block-title:first-child {
   color: #749b00;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   margin-bottom: 15px;
   font-size: 20px;
 }
@@ -12783,7 +12706,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .pane-hwc-good-practice-exchange-gpep-links .back_link a {
   display: block;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   margin-bottom: 0.5em;
   text-align: right;
   width: 100%;
@@ -12825,7 +12748,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .pane-hwc-good-practice-exchange-gpep-links .hwc-gpep-links .partners-documents .title,
 .pane-hwc-good-practice-exchange-gpep-links .hwc-gpep-links .communications .title {
   font-size: 1.4em;
-  font-style: italic;
+  font-style: normal;
   font-weight: 600;
   text-align: center;
   color: #749b00;
@@ -12872,7 +12795,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   font-weight: bold;
 }
 .profile-title-type-container .profile-inline-field a {
-  font-style: italic;
+  font-style: normal;
 }
 .profile-title-type-container .pane-node-field-country {
   width: 100%;
@@ -12916,7 +12839,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 .profile-ceo-container .field-name-field-ceo .field-item {
   font-weight: 100;
-  font-style: italic;
+  font-style: normal;
   font-size: 32px;
   margin-top: .5em;
   margin-bottom: .5em;
@@ -12929,7 +12852,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   text-align: center;
 }
 .profile-ceo-container .pane-node-field-quote {
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
   position: relative;
   display: inline-block;
@@ -13034,7 +12957,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 			display: block;
 			font-weight: bold;
 			color: @color2;
-			font-style: italic;
+			font-style: normal;
 			text-align: center;
 			&:before{
 				content: "> ";
@@ -13131,7 +13054,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 				margin-bottom: 20px;
 				a{
 					font-weight: bold;
-					font-style: italic;
+					font-style: normal;
 				}
 			}
 		}
@@ -13757,7 +13680,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 .page-partners-documents .views-widget-sort-by > .form-item-sort-by > label,
 .page-communications .views-widget-sort-by > .form-item-sort-by > label {
-  font-style: italic;
+  font-style: normal;
   margin-top: 0.5em;
   margin-right: 2em;
   padding-right: 0;
@@ -13786,7 +13709,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-partners-documents .views-field-field-file a,
 .page-communications .views-field-field-file a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .page-partners-documents .radio label:before,
 .page-communications .radio label:before {
@@ -14715,7 +14638,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   background-color: transparent;
   margin-top: 3em;
   color: #003399;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
   clear: both;
   height: auto;
   display: block;
@@ -14737,6 +14660,21 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-node-edit .node-document-form #edit-actions #edit-save-preview:before {
   content: url('../images/content/preview.png');
   display: block;
+}
+.page-node-add-document .node-events-form #edit-actions .text-advice,
+.page-node-add-events .node-events-form #edit-actions .text-advice,
+.page-node-add-news .node-events-form #edit-actions .text-advice,
+.page-node-edit .node-events-form #edit-actions .text-advice,
+.page-node-add-document .node-news-form #edit-actions .text-advice,
+.page-node-add-events .node-news-form #edit-actions .text-advice,
+.page-node-add-news .node-news-form #edit-actions .text-advice,
+.page-node-edit .node-news-form #edit-actions .text-advice,
+.page-node-add-document .node-document-form #edit-actions .text-advice,
+.page-node-add-events .node-document-form #edit-actions .text-advice,
+.page-node-add-news .node-document-form #edit-actions .text-advice,
+.page-node-edit .node-document-form #edit-actions .text-advice {
+  text-align: center;
+  padding-bottom: 2em;
 }
 .page-node-add-document .node-events-form table.mceLayout,
 .page-node-add-events .node-events-form table.mceLayout,
@@ -15267,7 +15205,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 .private-area #private h2 {
   font-weight: 100;
-  font-style: italic;
+  font-style: normal;
   font-size: 30px;
   text-align: left;
   border-bottom: none;
@@ -15352,7 +15290,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 .private-area #private #tmgmt-6 li a {
   display: inline;
-  font-style: italic;
+  font-style: normal;
   font-size: inherit;
   margin-left: 1em;
 }
@@ -15409,7 +15347,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .private-area #private .pane-node:last-child p a {
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   display: inline-block;
   font-size: 14px;
   margin-bottom: 0px;
@@ -15471,7 +15409,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   font-weight: bold;
   font-size: 1em;
   color: #003399;
-  font-style: italic;
+  font-style: normal;
 }
 .page-campaign-materials .view-id-view_campaign_materials .views-row .field-type-file .glyphicon {
   display: none;
@@ -15510,7 +15448,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   color: #333333;
 }
 .node-type-campaign-materials .field-type-file span {
-  font-style: italic;
+  font-style: normal;
   font-size: 1em;
   float: left;
   margin-right: 10px;
@@ -15565,7 +15503,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   display: inline-block;
   background-color: #e2e2e3;
   color: #003399;
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
   margin-right: 2em;
   padding: 0.5em 1.5em;
@@ -15577,7 +15515,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .node-type-document .gpep-organisation,
 .node-type-publication .gpep-organisation {
   margin-top: 10px;
-  font-style: italic;
+  font-style: normal;
 }
 .node-type-document .pane-node-field-document-files,
 .node-type-publication .pane-node-field-document-files,
@@ -15591,7 +15529,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .node-type-publication .pane-node-field-document-files .first.last,
 .node-type-document .pane-node-field-file .first.last,
 .node-type-publication .pane-node-field-file .first.last {
-  font-style: italic;
+  font-style: normal;
 }
 .node-type-document .pane-node-field-document-files .first.last > div:first-child a,
 .node-type-publication .pane-node-field-document-files .first.last > div:first-child a,
@@ -15653,7 +15591,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   padding-top: 1em;
   border-bottom: 1px dotted #749b00;
   width: 100%;
-  font-style: italic;
+  font-style: normal;
 }
 .node-type-document .pane-node-field-related-publications ul li,
 .node-type-publication .pane-node-field-related-publications ul li {
@@ -15692,7 +15630,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 .node-type-document .field-name-field-document-files .field-collection-view .entity-field-collection-item .publication-teaser ul {
   display: inline-block;
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
 }
 .node-type-document .field-name-field-document-files .field-collection-view .entity-field-collection-item .publication-teaser ul li {
@@ -15710,7 +15648,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   color: #003399;
   font-size: 1.15em;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .view-id-partners_list .quicktabs-tabs {
   display: inline-block;
@@ -16053,7 +15991,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   background-color: transparent;
   color: #039;
   font-weight: 700;
-  font-style: italic;
+  font-style: normal;
 }
 .page-get-your-certificate .pane-node-field-image {
   padding-right: 15px;
@@ -16116,7 +16054,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   padding-bottom: 25px;
 }
 .page-get-your-certificate form.webform-client-form .help-block a {
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
   font-size: 1.25em;
 }
@@ -16258,7 +16196,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   padding: 0px;
 }
 .page-get-your-certificate .see-also .more-links ul a {
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
 }
 .page-get-your-certificate .see-also .more-links ul a:before {
@@ -16455,7 +16393,6 @@ fieldset.captcha div {
 .panels-flexible-region-container-additional_resources #additional-resources-external_url-pane a {
   color: #003399;
   font-weight: bold;
-  font-style: italic;
   font-style: normal;
   font-size: 1.3em;
 }
@@ -17432,7 +17369,7 @@ span.form-required {
   padding-bottom: 1em;
 }
 span.date-display-single {
-  font-weight: bold;
+  font-weight: 600;
 }
 .page-node-129 #block-osha-newsletter-osha-newsletter-subscribe-extra div.captcha {
   display: none;
@@ -17445,7 +17382,14 @@ span.date-display-single {
   font-weight: bold;
   font-size: 0.89em;
   display: inline-block;
-  font-style: italic;
+  font-style: normal;
+  background: #003399;
+}
+#block-hwc-partner-hwc-partner-mostra-masquerade a:hover {
+  opacity: 0.8;
+}
+#block-hwc-partner-hwc-partner-mostra-masquerade .contextual-links-trigger {
+  background: transparent;
 }
 #block-hwc-partner-hwc-partner-mostra-masquerade a::before {
   content: ">";
@@ -17849,7 +17793,6 @@ input#edit-field-image-und-0-upload::before {
 }
 .page-publications .view-publication-type .views-row:hover .views-field-description-field .field-content {
   display: block;
-  filter: scale(1000);
 }
 .page-publications .view-publication-type .views-row .views-field-description-field {
   padding: 15px;
@@ -17974,7 +17917,7 @@ input#edit-field-image-und-0-upload::before {
 .priority-detail .see-more a {
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .priority-detail .see-more a:before {
   content: "> ";
@@ -18021,7 +17964,7 @@ input#edit-field-image-und-0-upload::before {
 .priority-detail .pane-hwc-priority-areas-hwc-pa-links-and-info .recomended-resources-for-you {
   color: #ffffff;
   font-size: 30px;
-  font-style: italic;
+  font-style: normal;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
   font-weight: 100;
@@ -18196,7 +18139,7 @@ input#edit-field-image-und-0-upload::before {
   background-color: transparent;
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   border-bottom: 1px solid #749b00;
 }
 .priority-detail .tools_and_guidance h2.pane-title:before {
@@ -18270,8 +18213,6 @@ input#edit-field-image-und-0-upload::before {
   width: 100%;
   height: 360px;
   overflow: hidden;
-  padding-right: -15px;
-  padding-left: -15px;
 }
 .page-good-practice-exchange .panels-flexible-region-inside > .pane-node-title-field .field-name-title-field {
   position: absolute;
@@ -18512,18 +18453,18 @@ input#edit-field-image-und-0-upload::before {
   background-color: transparent;
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   border-bottom: 1px solid #749b00;
 }
 /*end good practice exchange*/
 /*Social media*/
 .page-social-media-centre #social-dashboard-media-centre-form {
-  border-bottom: 1px dotted #749b00;
   padding-bottom: 0px;
   margin-top: -10px;
 }
 .page-social-media-centre #social-dashboard-media-centre-form > div {
   float: right;
+  margin-right: 5em;
 }
 .page-social-media-centre #social-dashboard-media-centre-form > div .form-type-select {
   margin-bottom: 0px;
@@ -18827,7 +18768,7 @@ input#edit-field-image-und-0-upload::before {
   display: block;
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   text-align: center;
 }
 /*end page-node-366*/
@@ -18993,80 +18934,6 @@ input#edit-field-image-und-0-upload::before {
 /*input clean x button*/
 /* Clearable text inputs */
 /*Galder styles*/
-.page-glossary-list {
-  /*end galder styles*/
-}
-.page-glossary-list .page-header {
-  text-align: center;
-  color: #749b00 ;
-  font-size: 48px;
-  font-weight: bold;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  margin-bottom: 1em;
-  border-bottom: 0px;
-}
-.page-glossary-list .view-glossary-list {
-  margin-bottom: 100px;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type {
-  border: 1px solid #749b00;
-  margin-bottom: 1em;
-  margin-top: 1em;
-  padding: 10px 2em 10px 1.5em;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .type-name {
-  color: #003399;
-  font-weight: bold;
-  text-align: left;
-  cursor: pointer;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .content-term {
-  width: 100%;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .content-term dl .term-title {
-  margin-bottom: 0.5em;
-  margin-left: 0.5em;
-  font-weight: bold;
-  padding-top: 1em;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .content-term dl .term-description {
-  margin-left: 0.5em;
-  padding-bottom: 0.5em;
-  border-bottom: 1px dotted #749b00;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .type-name .glyphicon {
-  color: #FFF;
-  background: #003399;
-  border-radius: 17px;
-  width: 21px;
-  height: 21px;
-  float: right;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .type-name .glyphicon:before {
-  content: "\e252";
-  padding-top: 0px;
-  display: block;
-  margin-top: 5px;
-  margin-left: 5px;
-  font-size: 12px;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .type-name.active .glyphicon:before {
-  content: "\e253";
-  padding-top: 0px;
-  display: block;
-  margin-top: 5px;
-  margin-left: 5px;
-  font-size: 12px;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .type-name.active.collapsed .glyphicon:before {
-  content: "\e252";
-  padding-top: 0px;
-  display: block;
-  margin-top: 5px;
-  margin-left: 5px;
-  font-size: 12px;
-}
 /*galder styles css issue bulgaria*/
 .page-topics.i18n-bg .main-container .view-id-topics .views-row .views-field-name-field a {
   font-size: 1em;
@@ -19259,7 +19126,7 @@ input#edit-field-image-und-0-upload::before {
 }
 .toolkit-page .main-container .introduction-text {
   font-weight: 600;
-  font-style: italic;
+  font-style: normal;
   margin-bottom: 40px;
 }
 .toolkit-page .main-container .above_title {
@@ -20102,7 +19969,7 @@ input#edit-field-image-und-0-upload::before {
 }
 .node-type-tk-topic .node-tk-topic .group-left .field-name-body .body-summary p {
   font-weight: 600;
-  font-style: italic;
+  font-style: normal;
   margin-bottom: 25px;
   font-size: 1.1em;
 }
@@ -20443,6 +20310,9 @@ blockquote.image-field-caption {
   padding: 0;
   margin: 0;
   width: 100%;
+  font-size: 10px;
+  position: absolute;
+  top: -5px;
 }
 blockquote.image-field-caption p {
   z-index: 999;
@@ -20478,11 +20348,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
 }
 .field.field-name-field-image {
   position: relative;
-}
-.node-type-article blockquote.image-field-caption {
-  position: absolute;
-  width: 100%;
-  top: 335px;
 }
 .node-type-article blockquote.image-field-caption p {
   background: transparent;
@@ -20626,7 +20491,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
     margin-right: 40px;
   }
   .view-id-flickr_albums .view-content .gallery-row .views-field-field-flickr {
-    height: 200px;
+    height: 200px !important;
     overflow: hidden;
   }
   .view-id-flickr_albums .view-content .gallery-row .views-field-field-flickr img {
@@ -21327,15 +21192,8 @@ body.front .homepage-slider blockquote.image-field-caption p {
     width: 100%;
     margin-right: 0;
   }
-  .page-practical-tools .form-group {
-    margin-bottom: 15px;
-  }
   .page-practical-tools #search {
     margin-top: 0;
-  }
-  .page-practical-tools #edit-search-api-views-fulltext-wrapper {
-    margin-left: 15px !important;
-    margin-right: 15px !important;
   }
   .page-practical-tools .region-sidebar-first .views-exposed-widgets .form-type-textfield input {
     padding-right: 0px;
@@ -22548,10 +22406,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     padding-right: 30px;
     padding-left: 30px;
   }
-  .breadcrumb {
-    padding-right: 30px;
-    padding-left: 30px;
-  }
   h1 {
     padding-right: 15px;
     padding-left: 15px;
@@ -22775,8 +22629,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     width: 100%;
     height: 360px;
     overflow: hidden;
-    padding-right: -15px;
-    padding-left: -15px;
   }
   .page-good-practice-exchange .panels-flexible-region-inside > .pane-node-title-field .field-name-title-field {
     position: absolute;
@@ -23702,7 +23554,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
     margin-top: 0;
     background-color: #003399;
     padding: 15px;
-    font-style: italic;
+    font-style: normal;
     padding: 0;
   }
   #block-views-partners-block-1 a.more-link:before,
@@ -24141,9 +23993,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   /*FIN detail*/
   /*FIN Practical tools*/
   /*Publications*/
-  .page-publications .content {
-    display: none;
-  }
   .page-publications h4 {
     padding-left: 15px;
     padding-right: 15px;
@@ -24850,11 +24699,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .page-search .region-sidebar-first #edit-search-api-views-fulltext-wrapper {
     margin-bottom: 0px;
   }
-  .page-communications .views-widget-sort-by,
-  .page-partners-documents .views-widget-sort-by,
-  .page-search .views-widget-sort-by {
-    clear: both;
-  }
   .page-communications .sort-container.col-xs-3,
   .page-partners-documents .sort-container.col-xs-3,
   .page-search .sort-container.col-xs-3 {
@@ -25013,7 +24857,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
     padding-left: 15px;
   }
   .profile-title-type-container .profile-inline-field a {
-    font-style: italic;
+    font-style: normal;
   }
   .profile-title-type-container .profile-inline-field:last-child {
     width: 100%;
@@ -25146,7 +24990,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .profile-4-cols-container-2 .profile-col-middle-right-2 .field-item.even a,
   .node-type-partner .profile-4-cols-container-2 .profile-col-middle-right-2 .field-item.even a {
     font-weight: bold;
-    font-style: italic;
+    font-style: normal;
   }
   .profile-4-cols-container-2 [class*="field-type-link"],
   .node-type-partner .profile-4-cols-container-2 [class*="field-type-link"] {
@@ -26025,8 +25869,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     width: 100%;
     height: 200px;
     overflow: hidden;
-    padding-right: -15px;
-    padding-left: -15px;
   }
   .page-good-practice-exchange .panels-flexible-region-inside > .pane-node-title-field .field-name-title-field {
     position: absolute;

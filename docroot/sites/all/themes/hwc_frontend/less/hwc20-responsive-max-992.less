@@ -272,6 +272,12 @@
     	padding-bottom: 1em;
 	}
 
+	body.front-page{
+		.newsletter-social-media .newsletter{			
+	    	border-bottom: 0;
+		}
+	}
+
 	/*Publications page*/
 
 	.content-fluid .container{
@@ -475,7 +481,6 @@
 	body.ocp .panels-flexible-region .pane-node-field-bussines-sector{
 	    float: none;
 	    padding-right: 0;
-	    padding-top: 10px !important;
 	    clear: both;
 	}
 
@@ -672,6 +677,36 @@
 	.footer-section{
 		display: none;
 	}
+
+	/* Video page */
+	body.video-page{
+	
+		.col-md-9{
+			padding-right: 0;
+    		padding-left: 0;
+		}
+
+		.col-md-3{
+			padding-right: 1em;
+    		padding-left: 1em;
+		}
+
+		.field-name-body{
+			iframe{
+				width: 100%;
+			}
+		}
+
+		.field-name-field-recommended-resources{
+			padding-right: 0;
+    		padding-left: 0;
+		}
+	}
+
+	/* Become a campaign partner */
+	.become-partner-text{
+		width: 99%;
+	} 
 
 }
 
@@ -922,7 +957,7 @@
 
 	.before-the-campaign .content-box-before .box-before{
 		margin-bottom: 0;
-		margin-left: 1em;
+		margin-left: 0;
 	}
 
 	/* Splash page */

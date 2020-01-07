@@ -1,3 +1,96 @@
+function glossary() {
+  //Si está en la página de glossary que no salgan los popups.
+  if (jQuery(".section-glossary").length > 0) {
+    jQuery(".lexicon-term").each(function() {
+      jQuery(this).removeAttr("class").removeAttr("href").removeAttr("title");
+    });
+  }
+
+  var title = "";
+  jQuery(".lexicon-term").each(function () {
+    jQuery(this).removeAttr("href");
+    /*lexicon-mark-term.tpl.php-> Ahí hago la magia*/
+    jQuery(this).click(function () {
+      removePopUps();
+      title = jQuery(this).attr("data-titleBM");
+      jQuery(this).addClass("poparizado");
+      var html = "<div class='popup'><div class='closePop'><img src='/sites/all/themes/hwc_frontend/images/closeGlossary.png'></div><div class='contentPop'>" + title + "</div></div>";
+      jQuery(this).before(html);
+      // positioning
+      // tengo el problema que si el texto sale en 2 lineas la cosa sale mal. Me hago un algoritmo para que detecte si ocupa más de una línea.
+
+      var textoSel = jQuery(this).text();
+      var topPalabra = 0;
+      var variasLineas = 0;
+
+      var cachos = jQuery.trim(textoSel).split(" ");
+      if (cachos.length > 0) {
+        var txtTemporal = "";
+        for (i = 0; i < cachos.length; i++) {
+          txtTemporal = txtTemporal + "<span>" + cachos[i] + "</span> ";
+        }
+        jQuery(this).html(txtTemporal);
+
+        var contador = 0;
+        jQuery("span",this).each(function () {
+          if (contador == 0) {
+            topPalabra = jQuery(this).position().top;
+          }
+          else {
+            if (topPalabra != jQuery(this).position().top) {
+              variasLineas = 1;
+            }
+          }
+          contador++;
+        });
+      }
+
+      if (variasLineas == 0) {
+        jQuery(this).html(textoSel);
+        var widthWord = jQuery(this).width() / 2;
+        var widthBox = jQuery(".popup").width() / 2;
+        var leftWord = jQuery(this).position().left;
+        var leftPut = (leftWord + widthWord) - (widthBox) + "px";
+        jQuery(".popup").css("left",leftPut);
+
+        var topWord = jQuery(this).position().top;
+        var heightWord = jQuery(this).height();
+        var heightBox = jQuery(".popup").height();
+        var topPut = topWord - heightBox - heightWord + "px";
+        jQuery(".popup").css("top",topPut);
+      }
+      else {
+        var widthWord = jQuery("span:eq(0)",this).width() / 2;
+        var widthBox = jQuery(".popup").width() / 2;
+        var leftWord = jQuery("span:eq(0)",this).position().left;
+        var leftPut = (leftWord + widthWord) - (widthBox) + "px";
+        jQuery(".popup").css("left",leftPut);
+
+        var topWord = jQuery("span:eq(0)",this).position().top;
+        var heightWord = jQuery("span:eq(0)",this).height();
+        var heightBox = jQuery(".popup").height();
+        var topPut = topWord - heightBox - heightWord + "px";
+        jQuery(".popup").css("top",topPut);
+        jQuery(this).html(textoSel);
+      }
+
+      jQuery(".closePop").click(function () {
+        removePopUps();
+        jQuery(".poparizado").removeClass("poparizado");
+      });
+    });
+  });
+}
+
+function removePopUps() {
+  jQuery(".popup").each(function () {
+    jQuery(this).remove();
+  });
+  jQuery(".arrowPopUp").each(function () {
+    jQuery(this).remove();
+  });
+}
+
 function ipad_fix_iframe_width() {
 	if (jQuery(window).width() > jQuery(window).height()) {
         jQuery('.fb-post').addClass('ipad_fix_width');
@@ -12,7 +105,7 @@ window.onorientationchange = function() {
 }
 
 jQuery(document).ready(function() {
-
+  glossary();
 	jQuery(".start-here .col-inner").click(function() {
 		window.location = jQuery(this).find("a").attr("href");
 		return false;
@@ -81,6 +174,7 @@ jQuery(document).ready(function() {
 			jQuery(this).removeClass("closed-down-arrow");
 			jQuery('.left-menu.accordion-menu').addClass("opened");
 			jQuery(this).siblings("ul").slideDown();
+			jQuery('li.expanded > ul > li.expanded > ul').show();
 		}
 	});
 
@@ -340,6 +434,9 @@ jQuery(document).ready(function() {
 	jQuery(".form-item-publication-type > label").click(function() {
 		jQuery(this).toggleClass("active");
 	});
+	jQuery(".form-item-field-msd-priority-area > label").click(function() {
+		jQuery(this).toggleClass("active");
+	});
 
 	/*filters of list dropdown*/
 	if(jQuery(".form-item-main-tags div").is(':visible')){
@@ -362,6 +459,9 @@ jQuery(document).ready(function() {
 	};
 	if(jQuery(".form-item-publication-type div").is(':visible')){
 		jQuery(".form-item-publication-type > label").addClass("active");
+	};
+	if(jQuery(".form-item-field-msd-priority-area div").is(':visible')){
+		jQuery(".form-item-field-msd-priority-area > label").addClass("active");
 	};
 
 	/*Private zone hover effect menu*/
@@ -547,15 +647,27 @@ jQuery(document).ready(function($) {
       $("#edit-field-priority-area .form-checkboxes").slideUp(200);
     }
   });
+  $("#edit-field-msd-priority-area > div > label").on("click", function() {
+    if ($(this).hasClass("active")) {
+      $("#edit-field-msd-priority-area .form-checkboxes").slideDown(200);
+    }else{
+      $("#edit-field-msd-priority-area .form-checkboxes").slideUp(200);
+    }
+  });
+
+  $(".page-tools-and-publications-practical-tools .region-sidebar-first .content-filters h2.block-title").addClass('area-shown');
+
 
    if (jQuery(window).width() < 1200) {
    	$("#edit-main-tags > div > label").removeClass('active');
    	$("#edit-field-publication-type > div > label").removeClass('active');
    	$("#edit-field-priority-area > div > label").removeClass('active');
+   	$("#edit-field-msd-priority-area > div > label").removeClass('active');
 
    	$("#edit-main-tags .form-checkboxes").css('display' , 'none');
    	$("#edit-field-publication-type .form-checkboxes").css('display' , 'none');
    	$("#edit-field-priority-area .form-checkboxes").css('display' , 'none');
+   	$("#edit-field-msd-priority-area .form-checkboxes").css('display' , 'none');
    }
 
    	//Add two-column class when European Week has Events
@@ -698,10 +810,10 @@ jQuery(document).ready(function () {
   ResCarouselSize();
 
   var cl='class="active"';
-	for (i = 0; i < Math.ceil(jQuery('.multicarousel--block--inner .item').length / incno); i++) {
-    	jQuery('.multicarousel-indicators').append('<li id="multicarousel-indicator-'+i+'" data-slide-to="' + i + '" '+cl+'></li>');
-    	cl='class=""';
-	}
+  for (i = 0; i < Math.ceil(jQuery('.multicarousel--block--inner .item').length / incno); i++) {
+    jQuery('.multicarousel-indicators').append('<li id="multicarousel-indicator-'+i+'" data-slide-to="' + i + '" '+cl+'></li>');
+    cl='class=""';
+  }
 
   jQuery(window).resize(function () {
     ResCarouselSize();
@@ -788,4 +900,37 @@ jQuery(document).ready(function($) {
 	if ($(".page-tools-and-publications-publications")[0]){
 		 $(".page-tools-and-publications-publications .slider--video--section h2.block-title").addClass('container');
 	}
+});
+
+jQuery(document).ready(function($){
+
+  var video1 = $(".hp-video-modal-1").attr("src");
+
+  // Get the modal.
+  var modal1 = document.getElementById('hp-modal1');
+
+  // Get the button that opens the modal.
+  var btn1 = document.getElementById("hp-btn1");
+
+  // Get the <span> element that closes the modal.
+  var span1 = document.getElementsByClassName("close1")[0];
+
+  // When the user clicks the button, open the modal.
+  $(btn1).click(function() {
+    modal1.style.display = "block";
+    $(".hp-video-modal-1").attr("src",video1);
+    $(".hp-video-modal-1").prop("allow",'autoplay');
+  });
+
+  // When the user clicks on <span> (x), close the modal.
+  $(span1).click(function() {
+    modal1.style.display = "none";
+    $(".hp-video-modal-1").attr("src","");
+
+  });
+
+  // Cookies declined.
+  $(".decline-button").click(function() {
+    $('#sliding-popup').remove();
+  });
 });

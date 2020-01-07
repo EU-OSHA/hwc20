@@ -14,6 +14,12 @@ if (isset($node) && isset($node->field_article_type) && $node->field_article_typ
 else {
   ?>
     <div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
+      <?php print render($title_prefix); ?>
+      <?php if ($translated): ?>
+        <h2<?php print $title_attributes; ?>><?php print $translated; ?></h2>
+      <?php endif; ?>
+      <?php print render($title_suffix); ?>
+
       <?php print $content; ?>
     </div>
 <?php

@@ -40,21 +40,26 @@ function hwc_frontend_menu_link__menu_block($variables) {
   if (!$render_img) {
     return theme_menu_link($variables);
   }
-
   $description = '';
   if (!empty($element['#localized_options']['attributes']['title'])) {
     $description = $element['#localized_options']['attributes']['title'];
   }
-  if (!empty($element['#localized_options']['content']['image']) && $image_url = file_create_url($element['#localized_options']['content']['image'])) {
-    $text = '<span class="content-img"><img src="' . $image_url . '"/></span><h2>' . $element['#title'] . '</h2><p>' . $description . '</p>';
-    $output_link = l($text, $element['#href'], array('html' => TRUE));
-  }
-  else {
-    $output_link = l($element['#title'], $element['#href'], $element['#localized_options']);
-  }
+  $image_url = file_create_url($element['#localized_options']['content']['image']);
   $text = '<span class="content-img"><img src="' . $image_url . '"/></span><h2>' . $element['#title'] . '</h2><p>' . $description . '</p>';
+  if (!empty($element['#localized_options']['copyright']['author']) || !empty($element['#localized_options']['copyright']['copyright'])) {
+    $text .= '<blockquote class="image-field-caption">';
+    if (!empty($element['#localized_options']['copyright']['author'])) {
+      $text .= check_markup($element['#localized_options']['copyright']['author'], 'full_html');
+    }
+    if (!empty($element['#localized_options']['copyright']['author']) && !empty($element['#localized_options']['copyright']['copyright'])) {
+      $text .= '<span>&nbsp;/&nbsp;</span>';
+    }
+    if (!empty($element['#localized_options']['copyright']['copyright'])) {
+      $text .= '<span class="blockquote-copyright">' . $element['#localized_options']['copyright']['copyright'] . '</span>';
+    }
+    $text .= '</blockquote>';
+  }
   $output_link = l($text, $element['#href'], array('html' => TRUE));
-
   $element['#attributes']['class'][] = 'content-box-sub';
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output_link . '</li>';
 }
@@ -76,6 +81,33 @@ function hwc_frontend_menu_link(array $variables) {
         'active-trail',
         'active',
       ];
+    }
+  }
+
+  if (arg(0) == 'node') {
+    $map = [
+      "" => 'node/112',
+      "186" => 'campaign-partners/campaign-media-partners',
+      "187" => 'campaign-partners/national-focal-points',
+      "185" => 'campaign-partners/official-campaign-partners',
+      "1804" => 'campaign-partners/enterprise-europe-network',
+    ];
+    if (in_array($element['#href'], $map) && $node = menu_get_object()) {
+      $type = @$node->field_partner_type[LANGUAGE_NONE][0]['tid'];
+      if ($element['#href'] == 'node/112' && $type) {
+        $element['#attributes']['class'] = [
+          'expanded',
+          'active-trail',
+          'active',
+        ];
+      }
+      if ($type && $map[$type] == $element['#href']) {
+        $element['#attributes']['class'] = [
+          'expanded',
+          'active-trail',
+          'active',
+        ];
+      }
     }
   }
 
@@ -197,6 +229,11 @@ function hwc_frontend_preprocess_html(&$vars) {
     drupal_add_html_head($script, 'hotjar-script');
   }
 
+  if (arg(1) == 'case-studies') {
+    $vars['classes_array'][] = 'page-tools-and-publications-publications';
+    $vars['classes_array'][] = 'page-publications';
+  }
+
   $n = menu_get_object('node');
   if ($n) {
     switch ($n->type) {
@@ -210,9 +247,16 @@ function hwc_frontend_preprocess_html(&$vars) {
         ];
         $vars['classes_array'][] = $map[$tid];
         break;
+
       case "article":
+        if ($n->nid == 3298) {
+          $vars['classes_array'][] = 'good-practice-exchange';
+        }
         if ($n->nid == 179) {
           $vars['classes_array'][] = 'press-room';
+        }
+        if ($n->nid == 108) {
+          $vars['classes_array'][] = 'video-page';
         }
         if ($n->nid == 129) {
           $vars['classes_array'][] = 'newsletter';
@@ -321,6 +365,14 @@ function hwc_frontend_css_alter(&$css) {
  */
 function hwc_frontend_preprocess_block(&$vars) {
   $block = $vars['block'];
+  if ($block->delta == '-exp-documents-gpep') {
+    $vars['theme_hook_suggestions'][] = 'block__gpep';
+  }
+
+  if ($block->delta == 'partners-block_1') {
+    $vars['theme_hook_suggestions'][] = 'block__partners';
+  }
+
   if (($block->delta == 'savwFG7EXPDT1TOCbW1g7W55ENxEJnMY')) {
     $vars['theme_hook_suggestions'][] = 'block__empty';
   }
@@ -350,7 +402,9 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case "article":
-        if ($n->nid == 179) {
+        if ($n->nid == 3298) {
+        }
+        elseif ($n->nid == 179) {
           $vars['theme_hook_suggestions'][] = 'page__press__room';
         }
         elseif ($n->nid == 164) {
@@ -390,10 +444,17 @@ function hwc_frontend_preprocess_page(&$vars) {
       $vars['theme_hook_suggestions'][] = 'page__front';
     }
   }
+  if (arg(0) . arg(1) == 'about-topicglossary-list') {
+    $vars['theme_hook_suggestions'][] = 'page__glossary__list';
+  }
   if (arg(0) . arg(1) . arg(2) == 'tools-and-publicationspublications') {
     $vars['theme_hook_suggestions'][] = 'page__publications';
   }
-  $vars['back_to_pz'] = hwc_partner_back_to_private_zone();
+  if (arg(0) . arg(1) == 'tools-and-publicationspractical-tools') {
+    $vars['theme_hook_suggestions'][] = 'page__practical__tools';
+  }
+  $vars['back_to_pz'] = '';
+  //hwc_partner_back_to_private_zone();
   $vars['page']['content']['#post_render'] = ['hwc_content_post_render'];
   if (drupal_is_front_page()) {
     unset($vars['page']['content']['system_main']['default_message']);
@@ -403,18 +464,18 @@ function hwc_frontend_preprocess_page(&$vars) {
     $vars['classes_array'][] = 'page-search';
   }
 
+  $tag_vars = array(
+    'element' => array(
+      '#tag' => 'h1',
+      '#attributes' => array(
+        'class' => array('page-header'),
+      ),
+    ),
+  );
   $vars['show_title'] = TRUE;
   // Add back to links (e.g. Back to news).
   if (isset($vars['node'])) {
     $node = $vars['node'];
-    $tag_vars = array(
-      'element' => array(
-        '#tag' => 'h1',
-        '#attributes' => array(
-          'class' => array('page-header'),
-        ),
-      ),
-    );
     switch ($node->type) {
       case "tk_section":
       case 'tk_article':
@@ -431,7 +492,7 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'publication':
-        if ($node->field_publication_type[LANGUAGE_NONE][0]['tid'] == 521 /* Case Studies */) {
+        if ($node->field_publication_type[LANGUAGE_NONE][0]['tid'] == CASE_STUDY_TID) {
           $tag_vars['element']['#value'] = t('Case studies');
           $vars['page']['above_title']['title-alternative'] = array(
             '#type' => 'item',
@@ -478,22 +539,21 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'practical_tool':
-        $link_title = t('Back to practical tools list');
-        $link_href = 'tools-and-publications/practical-tools';
-        if (isset($_REQUEST['destination'])) {
-          $destination = drupal_get_destination();
-          $vars['page']['below_title']['back-to-link'] = array(
-            '#type' => 'item',
-            '#markup' => '<a class="back-to-link pull-right" href="' . strip_tags($destination['destination']) . '">' . $link_title . '</a>',
-          );
-          unset($link_title);
-        }
+//        $link_title = t('Back to practical tools list');
+//        $link_href = 'tools-and-publications/practical-tools';
+//        if (isset($_REQUEST['destination'])) {
+//          $destination = drupal_get_destination();
+//          $vars['page']['below_title']['back-to-link'] = array(
+//            '#type' => 'item',
+//            '#markup' => '<a class="back-to-link pull-right" href="' . strip_tags($destination['destination']) . '">' . $link_title . '</a>',
+//          );
+//          unset($link_title);
+//        }
         $tag_vars['element']['#value'] = t('Practical tools and guidance');
-        $vars['page']['below_title']['practical-tool-page-title'] = array(
+        $vars['page']['above_title']['title-alternative'] = array(
           '#type' => 'item',
           '#markup' => theme('html_tag', $tag_vars),
         );
-        krsort($vars['page']['below_title']);
         break;
 
       case 'news':
@@ -580,7 +640,7 @@ function hwc_frontend_preprocess_page(&$vars) {
     if ($node->type == 'publication') {
       ctools_include('plugins');
       ctools_include('context');
-      if ($node->field_publication_type[LANGUAGE_NONE][0]['tid'] == 521 /* Case Studies */) {
+      if ($node->field_publication_type[LANGUAGE_NONE][0]['tid'] == CASE_STUDY_TID) {
         $pb = path_breadcrumbs_load_by_name('case_studies_detail_page');
       }
       else {
@@ -614,6 +674,16 @@ function hwc_frontend_preprocess_page(&$vars) {
       drupal_set_breadcrumb($breadcrumb);
     }
   }
+
+  if (arg(2) == 'search-toolkit-examples') {
+    $vars['theme_hook_suggestions'][] = 'page__search_toolkit_examples';
+    $tag_vars['element']['#value'] = t('Campaign toolkit');
+    $vars['page']['above_title']['title-alternative'] = array(
+      '#type' => 'item',
+      '#markup' => theme('html_tag', $tag_vars),
+    );
+  }
+
   if (arg(0) == 'entity-collection') {
     $breadcrumb = [];
     $breadcrumb[] = l(t('Home'), '<front>');
@@ -787,16 +857,17 @@ function hwc_frontend_preprocess_node(&$vars) {
     }
   }
 
-  //Add template to external infographic code. node--external-infographic.tpl.php - MDR-2432
   $n = menu_get_object('node');
   if ($n) {
     switch ($n->type) {
       case "article":
-        if ($n->field_article_type[LANGUAGE_NONE][0]['tid'] == 73) {
+        if ($n->field_article_type[LANGUAGE_NONE][0]['tid'] == HWC_INTRODUCTION_ARTICLE) {
           $vars['classes_array'][] = 'introductory-page';
         }
         $external_infographic = variable_get('hwc_external_infographic_nid', 7150);
         if ($n->nid == $external_infographic) {
+          // Add template to external infographic code.
+          // node--external-infographic.tpl.php - MDR-2432.
           $vars['theme_hook_suggestions'][] = 'node__external_infographic';
         }
     }

@@ -29,7 +29,12 @@
 
   unset($content['comments']);
   unset($content['links']);
-
+  unset($content['share_widget']);
+  $group_faq = '';
+  if (!empty($content['group_faq'])) {
+    $group_faq = render($content['group_faq']);
+    unset($content['group_faq']);
+  }
   $date = $content['group_participate']['field_participate_date']['#items'][0]['value'];
   unset($content['group_participate']['field_participate_date']);
   if ($date < date('Y-m-d')) {
@@ -41,5 +46,6 @@
   foreach($content as $field => $row) {
     print render($row);
   }
+  print $group_faq;
   ?>
 </article>
