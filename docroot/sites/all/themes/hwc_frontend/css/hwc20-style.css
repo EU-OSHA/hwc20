@@ -532,7 +532,7 @@ ul.time-and-counters li .counter-label {
 .before-the-campaign .content-box-before .two-box-column .content-date-country .city {
   padding-left: 5px;
 }
-.before-the-campaign .content-box-before .two-box-column .content-date-country .city:before {
+.before-the-campaign .content-box-before .two-box-column .content-date-country .country:after {
   content: ',';
   padding-right: 1px;
 }
