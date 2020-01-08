@@ -22,21 +22,3 @@ function osha_musculoskeletal_disorders_ctools_plugin_api($module = NULL, $api =
 function osha_musculoskeletal_disorders_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
-
-/**
- * Implements hook_node_info().
- */
-function osha_musculoskeletal_disorders_node_info() {
-  $items = array(
-    'musculoskeletal_disorders' => array(
-      'name' => 'Musculoskeletal Disorders',
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => 'Title',
-      'help' => '',
-    ),
-  );
-  drupal_alter('node_info', $items);
-  return $items;
-}
