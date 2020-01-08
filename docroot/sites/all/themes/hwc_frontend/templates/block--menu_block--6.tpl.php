@@ -7,8 +7,6 @@
  * @see https://drupal.org/node/1728246
  *
  */
-?>
-<?php
 $translated = osha_tmgmt_literal_get_translation($title);
 ?>
 <div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
