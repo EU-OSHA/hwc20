@@ -4,8 +4,9 @@
  * @file
  * Display Suite 2 column stacked template.
  */
-$back_path = '<front>';
-$back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to Campaign Resources') . '</span>';
+$back_path = variable_get('campaign_resources_back_path', '<front>');
+$back_title = variable_get('campaign_resources_back_title', 'Back to Campaign Resources');
+$back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t($back_title) . '</span>';
 ?>
 <<?php print $layout_wrapper; print $layout_attributes; ?> class="ds-2col-stacked <?php print $classes;?> clearfix">
 
