@@ -45,7 +45,7 @@ function hwc_frontend_menu_link__menu_block($variables) {
     $description = $element['#localized_options']['attributes']['title'];
   }
   $image_url = file_create_url($element['#localized_options']['content']['image']);
-  $text = '<span class="content-img"><img src="' . $image_url . '"/></span><h2>' . $element['#title'] . '</h2><p>' . $description . '</p>';
+  $text = '<span class="content-img"><img src="' . $image_url . '"/></span>';
   if (!empty($element['#localized_options']['copyright']['author']) || !empty($element['#localized_options']['copyright']['copyright'])) {
     $text .= '<blockquote class="image-field-caption">';
     if (!empty($element['#localized_options']['copyright']['author'])) {
@@ -59,6 +59,7 @@ function hwc_frontend_menu_link__menu_block($variables) {
     }
     $text .= '</blockquote>';
   }
+  $text .= '<h2>' . $element['#title'] . '</h2><p>' . $description . '</p>';
   $output_link = l($text, $element['#href'], array('html' => TRUE));
   $element['#attributes']['class'][] = 'content-box-sub';
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output_link . '</li>';
