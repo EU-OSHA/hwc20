@@ -526,13 +526,13 @@ ul.time-and-counters li .counter-label {
 }
 .before-the-campaign .content-box-before .two-box-column .content-date-country .city,
 .before-the-campaign .content-box-before .two-box-column .content-date-country .country {
-  float: right;
+  float: left;
   font-weight: bold;
 }
 .before-the-campaign .content-box-before .two-box-column .content-date-country .city {
   padding-left: 5px;
 }
-.before-the-campaign .content-box-before .two-box-column .content-date-country .city:before {
+.before-the-campaign .content-box-before .two-box-column .content-date-country .country:after {
   content: ',';
   padding-right: 1px;
 }
@@ -1422,6 +1422,11 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
   padding-left: 1em;
   padding-right: 30px;
   position: relative;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.block-title a {
+  color: #FFF;
 }
 .left-menu ul {
   list-style: none;
@@ -1445,17 +1450,18 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
 }
 .left-menu ul li:hover a {
   color: #FFFFFF;
+  background: transparent;
 }
 .left-menu ul li ul li:hover a {
   color: white;
   background-color: #0030a0;
 }
 .left-menu ul .active {
-  background-color: #0030a0;
+  background-color: #daea96;
   position: relative;
 }
 .left-menu ul .active a {
-  color: white;
+  color: #003399;
   display: block;
   width: 100%;
 }
@@ -1464,7 +1470,7 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
   width: 15px;
   height: 15px;
   border-radius: 10px;
-  background: #acc700;
+  background: #0030a0;
   position: absolute;
   right: 0;
   top: 10%;
@@ -2083,6 +2089,9 @@ span.title-select {
 }
 .content-order-copy a:hover img {
   opacity: 0.8;
+}
+.content-order-copy {
+  display: none;
 }
 div.publications-detail-right-column > a.download {
   margin-left: 3em;
@@ -2966,7 +2975,7 @@ div.workbench-info-block {
   width: 15px;
   height: 15px;
   border-radius: 10px;
-  background: #acc700;
+  background: #003399;
   position: absolute;
   right: 15px;
   top: 28%;
@@ -6311,6 +6320,10 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .be
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events .view-frontpage-events {
   float: left;
   width: 100%;
+}
+body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events .view-frontpage-events .view-content .date {
+  display: inline-block;
+  width: auto;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events .view-frontpage-events .view-content > div {
   clear: both;
