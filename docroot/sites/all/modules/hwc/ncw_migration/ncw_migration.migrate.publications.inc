@@ -25,10 +25,6 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
     $this->addFieldMapping('field_msd_priority_area:create_term')->defaultValue(FALSE);
     $this->addFieldMapping('field_msd_priority_area', 'field_msd_priority_area');
 
-    $this->addFieldMapping('field_priority_area:source_type')->defaultValue('tid');
-    $this->addFieldMapping('field_priority_area:create_term')->defaultValue(FALSE);
-    $this->addFieldMapping('field_priority_area', 'field_priority_area');
-
     $this->addFieldMapping('field_tags:source_type')->defaultValue('tid');
     $this->addFieldMapping('field_tags:create_term')->defaultValue(FALSE);
     $this->addFieldMapping('field_tags', 'field_tags');
@@ -57,7 +53,6 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
 
     $this->addUnmigratedDestinations(array(
       'field_msd_priority_area:ignore_case',
-      'field_priority_area:ignore_case',
       'field_tags:ignore_case',
       'field_thesaurus:ignore_case',
       'field_nace_codes:ignore_case',
@@ -98,7 +93,6 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
   protected function getManuallyMigratedFields() {
     return array(
       'field_msd_priority_area',
-      'field_priority_area',
       'field_tags',
       'field_thesaurus',
       'field_nace_codes',
@@ -128,7 +122,6 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
     $row->field_tags = osha_migration_normalize_migrated_term_reference($row->field_tags, 'tax_tags');
     $row->field_msd_priority_area = $row->field_msd_priority_areas;
     $row->field_msd_priority_area = osha_migration_normalize_migrated_term_reference($row->field_msd_priority_area, 'tax_msd_priority_area');
-    $row->field_priority_area = osha_migration_normalize_migrated_term_reference($row->field_priority_area, 'tax_priority_area');
 
     $row->field_thesaurus = osha_migration_normalize_migrated_term_reference($row->field_thesaurus, 'tax_thesaurus');
     $row->field_nace_codes = osha_migration_normalize_migrated_term_reference($row->field_nace_codes, 'tax_nace_codes');
@@ -237,7 +230,6 @@ class NCWPublicationsSource extends AbstractNCWNodeSource {
       'field_nace_codes',
       'field_activity',
       'field_publication_type',
-      'field_priority_area',
       'field_msd_priority_area',
       'field_tags',
       'field_related_publications',

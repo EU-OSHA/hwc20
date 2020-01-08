@@ -411,7 +411,7 @@ function hwc_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_start_date']['ui_name'] = 'Date City Country';
   $handler->display->display_options['fields']['field_start_date']['label'] = '';
   $handler->display->display_options['fields']['field_start_date']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_start_date']['alter']['text'] = '<div class="content-date-country"><span class="date">[field_start_date]</span><span class="city">[field_city]</span><span class="country">[field_country_code]</span></div>';
+  $handler->display->display_options['fields']['field_start_date']['alter']['text'] = '<div class="content-date-country"><span class="date">[field_start_date]</span><span class="country">[field_country_code]</span><span class="city">[field_city]</span></div>';
   $handler->display->display_options['fields']['field_start_date']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['field_start_date']['element_type'] = '0';
   $handler->display->display_options['fields']['field_start_date']['element_label_colon'] = FALSE;

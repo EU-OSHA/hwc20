@@ -21,7 +21,6 @@ class NCWMSDMigration extends AbstractNCWNodeMigration {
   function getTermReferenceFieldsMap() {
     return [
       'field_msd_priority_area' => 'msd_priority_area',
-      'field_priority_area' => 'priority_area',
       'field_sector_industry_covered' => 'nace_codes',
       'field_hazards' => 'hazards',
       'field_health_effects' => 'health_effects',
@@ -333,7 +332,6 @@ class NCWMSDSource extends AbstractNCWNodeSource {
   public function contentFields() {
     $fields = array(
       'field_msd_priority_area' => '',
-      'field_priority_area' => '',
       'field_sector_industry_covered' => '',
       'field_hazards' => '',
       'field_health_effects' => '',

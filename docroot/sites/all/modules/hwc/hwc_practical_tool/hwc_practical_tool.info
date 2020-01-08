@@ -1,7 +1,7 @@
 name = HWC Practical tool
 core = 7.x
 package = HWC
-version = 7.x-1.17
+version = 7.x-1.18
 project = hwc_practical_tool
 dependencies[] = better_exposed_filters
 dependencies[] = field_collection
@@ -79,7 +79,6 @@ features[field_instance][] = node-practical_tool-field_original_desc_lang_other
 features[field_instance][] = node-practical_tool-field_original_desc_language
 features[field_instance][] = node-practical_tool-field_prevention_measures
 features[field_instance][] = node-practical_tool-field_prevention_measures_other
-features[field_instance][] = node-practical_tool-field_priority_area
 features[field_instance][] = node-practical_tool-field_publication_year
 features[field_instance][] = node-practical_tool-field_purpose_of_the_material
 features[field_instance][] = node-practical_tool-field_sector_industry_covered
