@@ -4341,11 +4341,10 @@ body.een .box-type-partner {
   cursor: pointer;
 }
 .page-events .region-content #block-system-main .views-exposed-widgets select {
-  width: 150px!important;
+  width: 225px!important;
   height: 33px;
-  margin-top: 2px;
+  margin-top: 5px;
   border-radius: 5px;
-  background: url(../images/green-select.png) no-repeat scroll 94% center #ffffff !important;
 }
 .page-events .region-content #block-system-main .views-exposed-widgets a.chosen-single {
   line-height: 17px;
