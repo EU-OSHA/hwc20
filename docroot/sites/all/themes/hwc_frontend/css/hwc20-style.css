@@ -526,7 +526,7 @@ ul.time-and-counters li .counter-label {
 }
 .before-the-campaign .content-box-before .two-box-column .content-date-country .city,
 .before-the-campaign .content-box-before .two-box-column .content-date-country .country {
-  float: right;
+  float: left;
   font-weight: bold;
 }
 .before-the-campaign .content-box-before .two-box-column .content-date-country .city {
@@ -6320,6 +6320,10 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .be
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events .view-frontpage-events {
   float: left;
   width: 100%;
+}
+body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events .view-frontpage-events .view-content .date {
+  display: inline-block;
+  width: auto;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events .view-frontpage-events .view-content > div {
   clear: both;
