@@ -1022,12 +1022,12 @@ function osha_publication_panels_pane_content_alter(&$content, &$pane, $args, $c
 function _osha_publication_priority_area_options_list() {
 
   $return = array();
-  $q = db_select('field_data_field_priority_area', 't')
+  $q = db_select('field_data_field_msd_priority_area', 't')
     ->distinct();
-  $q->fields('t', array('field_priority_area_tid'));
+  $q->fields('t', array('field_msd_priority_area_tid'));
   $q->condition('entity_type', 'node');
   $q->condition('bundle', 'publication');
-  $q->innerJoin('taxonomy_term_data', 'td', 'td.tid = t.field_priority_area_tid');
+  $q->innerJoin('taxonomy_term_data', 'td', 'td.tid = t.field_msd_priority_area_tid');
   $q->orderBy('td.name', 'ASC');
   $tids = $q->execute()->fetchCol();
   $terms = taxonomy_term_load_multiple($tids);

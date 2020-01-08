@@ -57,7 +57,7 @@ function osha_publication_menu_publications_faceted_form($variables) {
   );
 
   $form['left-column']['field_publication_type'] = $content_filters;
-  $form['left-column']['field_priority_area'] = $content_filters;
+  $form['left-column']['field_msd_priority_area'] = $content_filters;
   $form['left-column']['language'] = $content_filters;
 
   $form['#token'] = FALSE;
@@ -484,9 +484,9 @@ function _osha_publication_menu_publications_get_facets_def() {
       'options_callback_args' => array(TRUE, TRUE),
     ),
 
-    'field_priority_area' => array(
+    'field_msd_priority_area' => array(
       'label' => t('Priority Areas'),
-      'field' => 'field_priority_area',
+      'field' => 'field_msd_priority_area',
       'limit' => 150,
       'operator' => 'or',
       'min_count' => 1,
