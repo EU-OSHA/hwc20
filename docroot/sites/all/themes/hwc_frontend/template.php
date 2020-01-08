@@ -530,7 +530,7 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'campaign_materials':
-        $tag_vars['element']['#value'] = t('Campaign materials');
+        $tag_vars['element']['#value'] = t(variable_get('campaign_resources_title', 'Campaign Resources'));
         $vars['page']['above_title']['title-alternative'] = array(
           '#type' => 'item',
           '#markup' => theme('html_tag', $tag_vars),

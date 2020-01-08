@@ -2509,6 +2509,12 @@ span.pages {
 .publication-detail .content-publication-info {
   padding-top: 0;
 }
+.publication-detail.campaign-materials {
+  clear: both;
+}
+.node-type-campaign-materials .back-to-publications {
+  padding-left: 0;
+}
 /* Footer */
 .splash-page .footer {
   min-height: auto;
