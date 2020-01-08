@@ -530,8 +530,6 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'campaign_materials':
-        $link_title = t('Back to campaign materials list');
-        $link_href = 'campaign-materials';
         $tag_vars['element']['#value'] = t('Campaign materials');
         $vars['page']['above_title']['title-alternative'] = array(
           '#type' => 'item',
