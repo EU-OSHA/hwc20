@@ -6725,6 +6725,7 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
 .node-type-priority-area .region-content .block-hwc-priority-areas {
   background: #eceaea;
   float: left;
+  width: 100%;
 }
 .node-type-priority-area .region-content .block-hwc-priority-areas .field-name-title-field div div {
   color: #003399;
