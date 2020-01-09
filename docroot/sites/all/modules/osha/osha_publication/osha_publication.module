@@ -6,8 +6,8 @@
 
 include_once 'osha_publication.features.inc';
 
-define('CAMPAIGN_MATERIALS_TID', variable_get('campaign_materials_tid', 3282));
-define('CASE_STUDY_TID', variable_get('case_study_tid', 521));
+  define('CAMPAIGN_MATERIALS_TID', variable_get('campaign_materials_tid', 3282));
+  define('CASE_STUDY_TID', variable_get('case_study_tid', 521));
 define('OSHA_PUBLICATION_CONTENT_TYPE_PUBLICATION', 'publication');
 define('SOLR_SEARCH_INDEX', 'default_multilingual_node_index');
 define('OSHA_PDF_DOWN_PATH', 'public://pdf_download');
@@ -344,15 +344,15 @@ function osha_publication_cron() {
       $pages_count = pdf_to_image_count_pages($path);
       $node = node_load($row->nid);
       if ($node->field_pages_count[LANGUAGE_NONE][0]['value'] != $pages_count) {
-        $node->field_pages_count[LANGUAGE_NONE][0]['value'] = $pages_count;
-        $node->field_pages_count_updated[LANGUAGE_NONE][0]['timezone'] = 'Europe/Madrid';
-        $node->field_pages_count_updated[LANGUAGE_NONE][0]['timezone_db'] = 'Europe/Madrid';
-        $node->field_pages_count_updated[LANGUAGE_NONE][0]['date_type'] = 'datetime';
-        $node->field_pages_count_updated[LANGUAGE_NONE][0]['value'] = date('Y-m-d H:i:s');
-        node_save($node);
-      }
+      $node->field_pages_count[LANGUAGE_NONE][0]['value'] = $pages_count;
+      $node->field_pages_count_updated[LANGUAGE_NONE][0]['timezone'] = 'Europe/Madrid';
+      $node->field_pages_count_updated[LANGUAGE_NONE][0]['timezone_db'] = 'Europe/Madrid';
+      $node->field_pages_count_updated[LANGUAGE_NONE][0]['date_type'] = 'datetime';
+      $node->field_pages_count_updated[LANGUAGE_NONE][0]['value'] = date('Y-m-d H:i:s');
+      node_save($node);
     }
   }
+}
 }
 
 /**
@@ -766,6 +766,9 @@ function osha_publication_field_formatter_view($entity_type, $entity, $field, $i
  * unsets values for invalid terms that do not exist.
  */
 function osha_publication_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, &$items, $displays) {
+  if ($field['type'] != 'taxonomy_term_reference') {
+    return;
+  }
   return taxonomy_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, $items, $displays);
 }
 
