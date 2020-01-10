@@ -218,42 +218,42 @@ function osha_publication_menu_publications_search($form_state, $sort) {
   else {
     $query->sort('field_publication_date', 'DESC');
   }
-//  https://trello.com/c/hgZCLjcJ/88-publication-search-intelligent-filters
+
   $query->setOption('search_api_facets', $facets_def);
-//  foreach ($facets_def as $field_name => $facet_def) {
-//    $selected_values = hwc_req_param($form_state, $field_name, []);
-//
-//    if ($field_name == 'field_publication_type') {
-//      $types_map = osha_publication_get_main_publication_types_map(FALSE);
-//      $publication_type_ids = array();
-//      if (!empty($selected_values)) {
-//        foreach ($selected_values as $val) {
-//          if ($val) {
-//            $publication_type_ids[] = $val;
-//            foreach ($types_map as $tid => $main_tid) {
-//              if ($val == $main_tid) {
-//                $publication_type_ids[] = $tid;
-//              }
-//            }
-//          }
-//        }
-//      }
-//      $selected_values = $publication_type_ids;
-//    }
-//    if (!empty($selected_values) && is_array($selected_values)) {
-//      $filter = $query->createFilter($facet_def['operator'], ['facet:' . $field_name]);
-//      foreach ($selected_values as $value) {
-//        // No value.
-//        if ($value == '!') {
-//          $filter->condition($field_name, NULL);
-//        }
-//        else {
-//          $filter->condition($field_name, $value);
-//        }
-//        $query->filter($filter);
-//      }
-//    }
-//  }
+  foreach ($facets_def as $field_name => $facet_def) {
+    $selected_values = hwc_req_param($form_state, $field_name, []);
+
+    if ($field_name == 'field_publication_type') {
+      $types_map = osha_publication_get_main_publication_types_map(FALSE);
+      $publication_type_ids = array();
+      if (!empty($selected_values)) {
+        foreach ($selected_values as $val) {
+          if ($val) {
+            $publication_type_ids[] = $val;
+            foreach ($types_map as $tid => $main_tid) {
+              if ($val == $main_tid) {
+                $publication_type_ids[] = $tid;
+              }
+            }
+          }
+        }
+      }
+      $selected_values = $publication_type_ids;
+    }
+    if (!empty($selected_values) && is_array($selected_values)) {
+      $filter = $query->createFilter($facet_def['operator'], ['facet:' . $field_name]);
+      foreach ($selected_values as $value) {
+        // No value.
+        if ($value == '!') {
+          $filter->condition($field_name, NULL);
+        }
+        else {
+          $filter->condition($field_name, $value);
+        }
+        $query->filter($filter);
+      }
+    }
+  }
   return $server->search($query);
 }
 
