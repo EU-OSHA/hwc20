@@ -52,6 +52,11 @@ function osha_news_osha_tmgmt_i18n_string_list() {
  * Implements hook_form_FORM_ID_alter().
  */
 function osha_news_form_news_node_form_alter(&$form, &$form_state) {
+  global $user;
+  $is_admin = count(array_intersect(array(HWC_ROLE_ADMIN), $user->roles));
+  if (!$is_admin) {
+    $form['field_show_on']['#access'] = FALSE;
+  }
   hwc_workflow_add_extra_fields($form, $form_state);
 }
 
