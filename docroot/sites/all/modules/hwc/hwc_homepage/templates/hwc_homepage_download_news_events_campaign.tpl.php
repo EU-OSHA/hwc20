@@ -4,7 +4,7 @@
   </div>
   <div class="content-box-before">
       <div class="box-before">
-          <h3><?php print('Download Campaign resources'); ?></h3>
+          <h3><?php print('Download campaign resources'); ?></h3>
       <?php print $data['download']; ?>
     </div>
     <div class="two-box-column">
