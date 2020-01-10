@@ -766,6 +766,9 @@ function osha_publication_field_formatter_view($entity_type, $entity, $field, $i
  * unsets values for invalid terms that do not exist.
  */
 function osha_publication_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, &$items, $displays) {
+  if ($field['type'] != 'taxonomy_term_reference') {
+    return;
+  }
   return taxonomy_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, $items, $displays);
 }
 
