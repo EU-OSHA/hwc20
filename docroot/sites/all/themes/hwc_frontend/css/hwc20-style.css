@@ -6165,7 +6165,7 @@ body.front-page .main-container .view-recommended-tools-and-resources .view-cont
   padding-left: 1em;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events {
-  padding-bottom: 3em;
+  padding-bottom: 0;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign {
   background: transparent;
