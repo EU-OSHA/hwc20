@@ -17384,10 +17384,12 @@ span.date-display-single {
   font-size: 0.89em;
   display: inline-block;
   font-style: normal;
-  background: #003399;
 }
 #block-hwc-partner-hwc-partner-mostra-masquerade a:hover {
   opacity: 0.8;
+}
+#block-hwc-partner-hwc-partner-mostra-masquerade a.btn {
+  background: #003399;
 }
 #block-hwc-partner-hwc-partner-mostra-masquerade .contextual-links-trigger {
   background: transparent;

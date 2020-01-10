@@ -488,8 +488,8 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'document':
-        $link_href = 'good-practice-exchange-platform';
-        $link_title = t('Back to the Good practice exchange platform');
+//        $link_href = 'good-practice-exchange-platform';
+//        $link_title = t('Back to the Good practice exchange platform');
         break;
 
       case 'publication':
@@ -714,15 +714,6 @@ function hwc_frontend_preprocess_page(&$vars) {
       $vars['page']['above_title']['back-to-link'] = array(
         '#type' => 'item',
         '#markup' => l($link_title, $link_href, array('attributes' => array('class' => array('back-to-link pull-right')))),
-      );
-    }
-
-    if (arg(0) == 'good-practice-exchange-platform') {
-      $link_href = url('node/' . $partner->nid);
-      $link_title = t('Back to Private Zone');
-      $vars['page']['below_title']['back-to-link'] = array(
-        '#type' => 'item',
-        '#markup' => '<a class="back-to-link pull-right" href="' . $link_href . '">' . $link_title . '</a>',
       );
     }
   }

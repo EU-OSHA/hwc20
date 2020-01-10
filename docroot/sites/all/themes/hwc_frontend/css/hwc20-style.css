@@ -2512,7 +2512,8 @@ span.pages {
 .publication-detail.campaign-materials {
   clear: both;
 }
-.node-type-campaign-materials .back-to-publications {
+.node-type-campaign-materials .back-to-publications,
+.node-type-document .back-to-publications {
   padding-left: 0;
 }
 /* Footer */
@@ -6165,7 +6166,7 @@ body.front-page .main-container .view-recommended-tools-and-resources .view-cont
   padding-left: 1em;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events {
-  padding-bottom: 3em;
+  padding-bottom: 0;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign {
   background: transparent;
@@ -6725,6 +6726,7 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
 .node-type-priority-area .region-content .block-hwc-priority-areas {
   background: #eceaea;
   float: left;
+  width: 100%;
 }
 .node-type-priority-area .region-content .block-hwc-priority-areas .field-name-title-field div div {
   color: #003399;
