@@ -6797,6 +6797,8 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
   font-size: 2.5rem;
   padding: 0.5em;
   text-align: center;
+  margin-left: 0;
+  margin-right: 0;
 }
 .node-type-priority-area .region-content .content {
   margin-top: 0;
@@ -7314,6 +7316,18 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
 }
 #remove_filter a:hover .glyphicon-remove {
   opacity: 0.8;
+}
+/* Good practice exchange platform */
+.page-good-practice-exchange-platform .view-documents ul li .content {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+.page-good-practice-exchange-platform .view-documents ul li .content .publication-ext-type img {
+  border: 0;
+  border-radius: 0;
+}
+.page-partners-documents .region.region-content .view-search .view-content .views-row .views-field-field-document-files {
+  margin-top: 0;
 }
 .isMobile {
   float: right !important;
