@@ -855,23 +855,17 @@ function hwc_homepage_views_default_views() {
   $handler->display->display_options['fields']['title_field']['ui_name'] = 'Title';
   $handler->display->display_options['fields']['title_field']['label'] = '';
   $handler->display->display_options['fields']['title_field']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title_field']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title_field']['alter']['text'] = '[title_field]';
+  $handler->display->display_options['fields']['title_field']['alter']['max_length'] = '120';
+  $handler->display->display_options['fields']['title_field']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['title_field']['element_class'] = 'event-link-front';
   $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title_field']['type'] = 'smart_trim_format';
+  $handler->display->display_options['fields']['title_field']['type'] = 'text_plain';
   $handler->display->display_options['fields']['title_field']['settings'] = array(
-    'trim_link' => '1',
-    'trim_length' => '120',
-    'trim_type' => 'chars',
-    'trim_suffix' => '...',
-    'more_link' => '0',
-    'more_text' => 'Read more',
-    'trim_options' => array(
-      'text' => 0,
-    ),
-    'trim_preserve_tags' => '',
     'field_formatter_class' => '',
   );
-  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
   /* Field: Image + title end ] */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -928,12 +922,13 @@ function hwc_homepage_views_default_views() {
   $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
   $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
   $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
-    'good_practice_exchange' => 'good_practice_exchange',
+    'good_practice_exchange_events' => 'good_practice_exchange_events',
     'publication_queue' => 0,
     'featured_press_release' => 0,
     'press_contacts_queue' => 0,
     'featured_partner_frontpage' => 0,
     'featured_gallery' => 0,
+    'good_practice_exchange' => 0,
     'good_practice_exchange_intro' => 0,
     'homepage_about_the_topic' => 0,
     'most_popular_tools_and_examples' => 0,
@@ -947,10 +942,10 @@ function hwc_homepage_views_default_views() {
     'press_room_events' => 0,
     'european_week_events' => 0,
     'european_week_news' => 0,
+    'good_practice_examples' => 0,
     'homepage_banners' => 0,
     'homepage_recommended' => 0,
     'homepage_news' => 0,
-    'good_practice_examples' => 0,
     'case_studies_slideshow_' => 0,
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -1021,6 +1016,7 @@ function hwc_homepage_views_default_views() {
     t('European Week Block'),
     t('European Week events'),
     t('HP Events'),
+    t('[title_field]'),
     t('GPE Block'),
     t('GPE events'),
   );
