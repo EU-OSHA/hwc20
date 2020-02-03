@@ -33,6 +33,7 @@
     <div class="view-content">
       <?php
       $glossary_list = views_get_view_result('glossary_list', 'page');
+      $alphas = range('A', 'Z');
       $letters = [];
       foreach ($glossary_list as $term) {
         $term_title = $term->field_name_field[0]['rendered']['#markup'];
@@ -41,7 +42,18 @@
       }
       ksort($letters);
       echo '<div id="glossary-letters"><div class="container">';
+      foreach ($alphas as $letter) {
+        if (!empty($letters[$letter])) {
+          print '<span><a href="#glossary-' . $letter . '">' . $letter . '</a></span>';
+        }
+        else {
+          print '<span>' . $letter . '</span>';
+        }
+      }
       foreach ($letters as $letter) {
+        if (in_array($letter, $alphas)) {
+          continue;
+        }
         print '<span><a href="#glossary-' . $letter . '">' . $letter . '</a></span>';
       }
       echo '</div></div>';
