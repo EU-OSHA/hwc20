@@ -376,6 +376,29 @@ function hwc_good_practice_exchange_default_page_manager_handlers() {
   $display->content['new-591e90db-25af-449e-a621-b9b57508ccaa'] = $pane;
   $display->panels['left'][0] = 'new-591e90db-25af-449e-a621-b9b57508ccaa';
   $pane = new stdClass();
+  $pane->pid = 'new-a7a838d1-9404-4e02-9bd8-ed5473648df6';
+  $pane->panel = 'title';
+  $pane->type = 'block';
+  $pane->subtype = 'hwc_good_practice_exchange-gpepbacklink';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = 'a7a838d1-9404-4e02-9bd8-ed5473648df6';
+  $display->content['new-a7a838d1-9404-4e02-9bd8-ed5473648df6'] = $pane;
+  $display->panels['title'][0] = 'new-a7a838d1-9404-4e02-9bd8-ed5473648df6';
+  $pane = new stdClass();
   $pane->pid = 'new-b06a0bea-1c65-46a2-9e97-a27764fa2bb7';
   $pane->panel = 'title';
   $pane->type = 'entity_field';
@@ -408,11 +431,11 @@ function hwc_good_practice_exchange_default_page_manager_handlers() {
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 0;
+  $pane->position = 1;
   $pane->locks = array();
   $pane->uuid = 'b06a0bea-1c65-46a2-9e97-a27764fa2bb7';
   $display->content['new-b06a0bea-1c65-46a2-9e97-a27764fa2bb7'] = $pane;
-  $display->panels['title'][0] = 'new-b06a0bea-1c65-46a2-9e97-a27764fa2bb7';
+  $display->panels['title'][1] = 'new-b06a0bea-1c65-46a2-9e97-a27764fa2bb7';
   $pane = new stdClass();
   $pane->pid = 'new-3c002ad1-74fe-4ad1-9a02-a6a97b5f53ce';
   $pane->panel = 'title';
@@ -442,11 +465,11 @@ function hwc_good_practice_exchange_default_page_manager_handlers() {
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 1;
+  $pane->position = 2;
   $pane->locks = array();
   $pane->uuid = '3c002ad1-74fe-4ad1-9a02-a6a97b5f53ce';
   $display->content['new-3c002ad1-74fe-4ad1-9a02-a6a97b5f53ce'] = $pane;
-  $display->panels['title'][1] = 'new-3c002ad1-74fe-4ad1-9a02-a6a97b5f53ce';
+  $display->panels['title'][2] = 'new-3c002ad1-74fe-4ad1-9a02-a6a97b5f53ce';
   $pane = new stdClass();
   $pane->pid = 'new-938184b7-4c8d-4cdd-9fd0-39031998af2c';
   $pane->panel = 'title';
@@ -472,11 +495,11 @@ function hwc_good_practice_exchange_default_page_manager_handlers() {
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 2;
+  $pane->position = 3;
   $pane->locks = array();
   $pane->uuid = '938184b7-4c8d-4cdd-9fd0-39031998af2c';
   $display->content['new-938184b7-4c8d-4cdd-9fd0-39031998af2c'] = $pane;
-  $display->panels['title'][2] = 'new-938184b7-4c8d-4cdd-9fd0-39031998af2c';
+  $display->panels['title'][3] = 'new-938184b7-4c8d-4cdd-9fd0-39031998af2c';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-591e90db-25af-449e-a621-b9b57508ccaa';
   $handler->conf['display'] = $display;
