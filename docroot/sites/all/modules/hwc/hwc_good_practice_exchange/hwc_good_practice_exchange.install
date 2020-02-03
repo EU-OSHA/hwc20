@@ -211,3 +211,10 @@ function hwc_good_practice_exchange_update_7026() {
   $exclude[] = 3298;
   variable_set('exclude_bottom_share_widget', $exclude);
 }
+
+/**
+ * HW20-432 HWC GPE platform (PZ): back button.
+ */
+function hwc_good_practice_exchange_update_7027() {
+  features_revert_module('hwc_good_practice_exchange');
+}
