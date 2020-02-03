@@ -33,7 +33,8 @@
     <div class="view-content">
       <?php
       $glossary_list = views_get_view_result('glossary_list', 'page');
-      $alphas = range('A', 'Z');
+      $alphas = t('A B C D E F G H I J K L M N O P Q R S T U V W X Y Z');
+      $alphas = explode(' ', $alphas);
       $letters = [];
       foreach ($glossary_list as $term) {
         $term_title = $term->field_name_field[0]['rendered']['#markup'];
