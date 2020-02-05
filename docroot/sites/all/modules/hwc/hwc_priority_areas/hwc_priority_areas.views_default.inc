@@ -636,7 +636,7 @@ function hwc_priority_areas_views_default_views() {
   $handler->display->display_options['header']['area']['content'] = '_highlights_intro_';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Broken/missing handler */
+  /* Relationship: Entity Reference: Referencing entity */
   $handler->display->display_options['relationships']['reverse_field_highlights_node']['id'] = 'reverse_field_highlights_node';
   $handler->display->display_options['relationships']['reverse_field_highlights_node']['table'] = 'node';
   $handler->display->display_options['relationships']['reverse_field_highlights_node']['field'] = 'reverse_field_highlights_node';
@@ -728,7 +728,7 @@ function hwc_priority_areas_views_default_views() {
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing']['element_wrapper_class'] = 'col-sm-10';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Broken/missing handler */
+  /* Sort criterion: Content: Highlights (field_highlights:delta) */
   $handler->display->display_options['sorts']['delta']['id'] = 'delta';
   $handler->display->display_options['sorts']['delta']['table'] = 'field_data_field_highlights';
   $handler->display->display_options['sorts']['delta']['field'] = 'delta';

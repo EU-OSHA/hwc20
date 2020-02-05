@@ -4088,7 +4088,7 @@ body.een .box-type-partner {
   position: relative;
 }
 .how-to-apply .boxes .box {
-  width: 184px;
+  width: 197px;
   border: 2px solid #8ea64b;
   background: #FFF;
   height: auto;
@@ -4109,6 +4109,19 @@ body.een .box-type-partner {
   padding-right: 35px;
   border-radius: 3px;
   text-decoration: none;
+  display: inline-block;
+  max-width: 171px;
+}
+.how-to-apply .boxes .box div .btn-become-partner-register {
+  text-align: left;
+  border: 1px solid #0030a0;
+  color: #0030a0;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  text-decoration: none;
+  display: inline-block;
+  max-width: 171px;
 }
 .how-to-apply .boxes .box.inactive {
   background: #efeff0;
@@ -8274,7 +8287,7 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
   .how-to-apply > div.boxes > div:nth-child(2) {
     position: absolute;
-    left: 41%;
+    left: 38%;
     top: 73px;
   }
   .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node,

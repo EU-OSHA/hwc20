@@ -35,7 +35,7 @@ function osha_news_fe_nodequeue_export_fields() {
   // Exported nodequeues: good_practice_exchange
   $nodequeues['good_practice_exchange'] = array(
     'name' => 'good_practice_exchange',
-    'title' => 'Good Practice Exchange',
+    'title' => 'Good Practice Exchange news',
     'subqueue_title' => '',
     'size' => 3,
     'link' => '',

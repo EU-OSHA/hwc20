@@ -496,8 +496,8 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'document':
-        $link_href = 'good-practice-exchange-platform';
-        $link_title = t('Back to the Good practice exchange platform');
+//        $link_href = 'good-practice-exchange-platform';
+//        $link_title = t('Back to the Good practice exchange platform');
         break;
 
       case 'publication':

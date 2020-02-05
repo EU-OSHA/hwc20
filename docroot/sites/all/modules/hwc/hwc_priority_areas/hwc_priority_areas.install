@@ -391,3 +391,10 @@ function hwc_priority_areas_update_7045() {
   $menu_link['link_path'] = 'node/' . $node->nid;
   menu_link_save($menu_link);
 }
+
+/**
+ * HW20-460 PA_Highlight: The format of the highlight is disturb.
+ */
+function hwc_priority_areas_update_7046() {
+  features_revert_module('hwc_priority_areas');
+}

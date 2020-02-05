@@ -255,6 +255,14 @@ function hwc_good_practice_exchange_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'cache' => DRUPAL_NO_CACHE,
   );
+
+  $blocks['gpepbacklink'] = array(
+    'info' => t('Good Practice Exchange Platform back link'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+  );
   return $blocks;
 }
 
@@ -401,6 +409,13 @@ function hwc_good_practice_exchange_block_view($delta = '') {
     }
     $block['subject'] = '';
     $block['content']['#markup'] = '<div class="gpep-edit-button">' . $link . '</div>';
+  }
+
+  if ($delta == 'gpepbacklink') {
+    $block['subject'] = '';
+    $link_href = 'good-practice-exchange-platform';
+    $link_title = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to the Good practice exchange platform') . '</span>';
+    $block['content'] = '<div class="publication-detail" style="overflow: auto;"><div class="back-to-publications">' . l($link_title, $link_href, ['html' => TRUE]) . '</div></div>';
   }
 
   if ($delta == 'gpep_document_organisation') {

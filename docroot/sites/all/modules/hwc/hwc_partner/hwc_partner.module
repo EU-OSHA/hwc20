@@ -238,6 +238,18 @@ function hwc_partner_back_to_private_zone($link = '') {
   return $content;
 }
 
+function hwc_partner_get_user_partner_node_url() {
+  global $user;
+  if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles) && !empty($user->workbench_access)) {
+    $sections = array_keys($user->workbench_access);
+    foreach ($sections as $id_section) {
+      if ($partner = hwc_partner_by_section_id_load($id_section)) {
+        return 'node/' . $partner->nid;
+      }
+    }
+  }
+  return FALSE;
+}
 /**
  * Implements hook_block_view().
  */
