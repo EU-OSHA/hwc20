@@ -6780,11 +6780,13 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
 .node-type-priority-area .region-content #block-hwc-priority-areas > div.field.field-name-field-pa-recommended-resources.field-type-entityreference.field-label-hidden > div > div:nth-child(1) > div > div.content {
   background: none;
 }
-.node-type-priority-area .region-content #block-hwc-priority-areas .node-news .content {
+.node-type-priority-area .region-content #block-hwc-priority-areas .node-news .content,
+.node-type-priority-area .region-content #block-hwc-priority-areas .node-pa-highlights .content {
   background: url(../images/green-line.png) repeat-x;
   padding-top: 1em;
 }
-.node-type-priority-area .region-content #block-hwc-priority-areas .node-news h2 {
+.node-type-priority-area .region-content #block-hwc-priority-areas .node-news h2,
+.node-type-priority-area .region-content #block-hwc-priority-areas .node-pa-highlights h2 {
   color: #003399;
   font-size: 1.8rem;
   padding-bottom: 5px;
@@ -6792,12 +6794,21 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
   padding-bottom: 0;
   margin-bottom: 0;
 }
-.node-type-priority-area .region-content #block-hwc-priority-areas .node-news .field.field-name-field-image {
+.node-type-priority-area .region-content #block-hwc-priority-areas .node-news .field.field-name-field-image,
+.node-type-priority-area .region-content #block-hwc-priority-areas .node-pa-highlights .field.field-name-field-image {
   width: auto;
   min-height: 90px;
   margin-right: 0;
+  float: left;
 }
-.node-type-priority-area .region-content #block-hwc-priority-areas .node-news a.more-link {
+.node-type-priority-area .region-content #block-hwc-priority-areas .node-news .field.field-name-field-image img,
+.node-type-priority-area .region-content #block-hwc-priority-areas .node-pa-highlights .field.field-name-field-image img {
+  margin-top: 0.3em;
+  margin-bottom: 0em;
+  margin-right: 1em;
+}
+.node-type-priority-area .region-content #block-hwc-priority-areas .node-news a.more-link,
+.node-type-priority-area .region-content #block-hwc-priority-areas .node-pa-highlights a.more-link {
   justify-content: left;
   font-size: 1.2rem;
   padding-top: 5px;
