@@ -7353,6 +7353,14 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
 .page-partners-documents .region.region-content .view-search .view-content .views-row .views-field-field-document-files {
   margin-top: 0;
 }
+.node-type-pa-highlights .node-pa-highlights .field-name-field-image {
+  float: left;
+}
+.node-type-pa-highlights .node-pa-highlights .field-name-field-image img {
+  margin-top: 0.3em;
+  margin-bottom: 0em;
+  margin-right: 1em;
+}
 .isMobile {
   float: right !important;
 }
