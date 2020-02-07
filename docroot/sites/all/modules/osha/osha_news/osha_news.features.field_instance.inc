@@ -133,7 +133,7 @@ function osha_news_field_default_field_instances() {
           'trim_length' => 150,
           'trim_link' => 0,
           'trim_options' => array(
-            'text' => 0,
+            'text' => 'text',
           ),
           'trim_preserve_tags' => '',
           'trim_suffix' => '...',
