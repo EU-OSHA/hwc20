@@ -69,16 +69,16 @@ function osha_news_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Field: Publication date (field_publication_date) */
-  $handler->display->display_options['sorts']['field_publication_date_value']['id'] = 'field_publication_date_value';
-  $handler->display->display_options['sorts']['field_publication_date_value']['table'] = 'field_data_field_publication_date';
-  $handler->display->display_options['sorts']['field_publication_date_value']['field'] = 'field_publication_date_value';
-  $handler->display->display_options['sorts']['field_publication_date_value']['order'] = 'DESC';
   /* Sort criterion: Nodequeue: In queue */
   $handler->display->display_options['sorts']['in_queue']['id'] = 'in_queue';
   $handler->display->display_options['sorts']['in_queue']['table'] = 'nodequeue_nodes';
   $handler->display->display_options['sorts']['in_queue']['field'] = 'in_queue';
   $handler->display->display_options['sorts']['in_queue']['relationship'] = 'nodequeue_rel';
+  /* Sort criterion: Field: Publication date (field_publication_date) */
+  $handler->display->display_options['sorts']['field_publication_date_value']['id'] = 'field_publication_date_value';
+  $handler->display->display_options['sorts']['field_publication_date_value']['table'] = 'field_data_field_publication_date';
+  $handler->display->display_options['sorts']['field_publication_date_value']['field'] = 'field_publication_date_value';
+  $handler->display->display_options['sorts']['field_publication_date_value']['order'] = 'DESC';
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
@@ -562,12 +562,11 @@ function osha_news_views_default_views() {
   $handler->display->display_options['sorts']['field_publication_date_value']['table'] = 'field_data_field_publication_date';
   $handler->display->display_options['sorts']['field_publication_date_value']['field'] = 'field_publication_date_value';
   $handler->display->display_options['sorts']['field_publication_date_value']['order'] = 'DESC';
-  /* Sort criterion: Nodequeue: Position */
-  $handler->display->display_options['sorts']['position']['id'] = 'position';
-  $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
-  $handler->display->display_options['sorts']['position']['field'] = 'position';
-  $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
-  $handler->display->display_options['sorts']['position']['order'] = 'DESC';
+  /* Sort criterion: Nodequeue: In queue */
+  $handler->display->display_options['sorts']['in_queue']['id'] = 'in_queue';
+  $handler->display->display_options['sorts']['in_queue']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['in_queue']['field'] = 'in_queue';
+  $handler->display->display_options['sorts']['in_queue']['relationship'] = 'nodequeue_rel';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
 
   /* Display: Press room */

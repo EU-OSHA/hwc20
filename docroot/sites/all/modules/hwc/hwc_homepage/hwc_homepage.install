@@ -178,3 +178,10 @@ function hwc_homepage_update_7024() {
   features_revert(array('hwc_homepage' => ['views_view']));
   features_revert(array('osha_news' => ['views_view']));
 }
+
+/**
+ * HW20-406 European Week: the latest events should be displayed.
+ */
+function hwc_homepage_update_7025() {
+  features_revert(array('hwc_homepage' => 'views_view'));
+}
