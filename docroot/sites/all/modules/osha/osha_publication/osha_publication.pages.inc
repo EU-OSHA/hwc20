@@ -480,8 +480,8 @@ function _osha_publication_menu_publications_get_facets_def() {
       'operator' => 'or',
       'min_count' => 1,
       'missing' => 0,
-      'options_callback' => '_osha_publication_language_list_options',
-      'options_callback_args' => array(TRUE, TRUE),
+      'options_callback' => '_osha_publication_publication_language_list_options',
+      'options_callback_args' => array(),
     ),
 
     'field_msd_priority_area' => array(
@@ -491,7 +491,7 @@ function _osha_publication_menu_publications_get_facets_def() {
       'operator' => 'or',
       'min_count' => 1,
       'missing' => TRUE,
-      'options_callback' => '_osha_publication_priority_area_options_list',
+      'options_callback' => '_osha_publication_msd_priority_area_options_list',
       'options_callback_args' => array(),
     ),
   );
@@ -505,20 +505,6 @@ function _osha_publication_get_query() {
   $query->fields(array());
   $solr = new SearchApiSolrService($server);
   return array($solr, $query);
-}
-
-function _osha_publication_language_list_options($prefix = TRUE, $native = TRUE) {
-  // Used by hwc_practical_tool_get_facets_def and _oira_promotional_material_search_form_get_facets.
-  // For tools and promotional materials we don't exclude Catalan.
-  $disabled = osha_disabled_language_list();
-  unset($disabled['ca']);
-  $languages = osha_language_list_options($native);
-  if ($prefix) {
-    foreach ($languages as $lang_code => $value) {
-      $languages[$lang_code] = strtoupper($lang_code) . ' - ' . $value;
-    }
-  }
-  return $languages;
 }
 
 function _osha_publication_type_filter_options_list() {
