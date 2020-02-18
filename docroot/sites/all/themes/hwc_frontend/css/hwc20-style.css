@@ -956,7 +956,7 @@ ul.time-and-counters li .counter-label {
   border-bottom-left-radius: 3px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background: url(../images/ico-plus-20-hover-plus.png) no-repeat 98% 0px;
+  background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
   padding-right: 2em;
   transition: 300ms;
 }
@@ -2702,7 +2702,7 @@ body.good-practice-exchange .footer {
   border-bottom-left-radius: 3px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background: url(../images/ico-plus-20-hover-plus.png) no-repeat 98% 0px;
+  background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
   padding-right: 2em;
 }
 .page-media-centre-news .main-container #block-system-main .view .views-row .more-link:before,
@@ -2965,6 +2965,10 @@ div.workbench-info-block {
   margin-left: 10px;
   width: 94%;
 }
+.left-menu.accordion-menu .external-menu-item {
+  background: url('../images/target-blank-blue.png') 90% no-repeat #ecf4cb;
+  padding-right: 45px !important;
+}
 .left-menu.accordion-menu ul li ul li:hover a {
   background: #ecf4cb;
   color: #003399;
@@ -2972,6 +2976,9 @@ div.workbench-info-block {
 .left-menu.accordion-menu ul li ul li ul li:hover a {
   background: #0030a0;
   color: #FFF;
+}
+.accordion-menu.left-menu ul li.expanded a.external-menu-item:hover {
+  background: url('../images/target-blank-white-12.png') 90% no-repeat #0030a0;
 }
 .accordion-menu.left-menu ul li.expanded a:hover {
   background: #003399;
@@ -5225,7 +5232,7 @@ body.european-week .media-body a.more-link:hover {
   border-bottom-left-radius: 3px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background: url(../images/ico-plus-20-hover-plus.png) no-repeat 98% 0px;
+  background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
   padding-right: 2em;
 }
 body.press-room .media-body a.more-link:before,
@@ -6273,7 +6280,7 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .be
   border-bottom-left-radius: 3px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background: url(../images/ico-plus-20-hover-plus.png) no-repeat 98% 0px;
+  background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
   padding-right: 2em;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news .view-news .view-content > div .media-body a.more-link:before {
@@ -7171,7 +7178,7 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   border-bottom-left-radius: 3px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background: url(../images/ico-plus-20-hover-plus.png) no-repeat 98% 0px;
+  background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
   padding-right: 2em;
 }
 #block-hwc-good-practice-exchange-gpe-news-events .view-news .media-body a.more-link:before {

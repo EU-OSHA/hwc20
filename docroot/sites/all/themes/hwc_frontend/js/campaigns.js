@@ -933,4 +933,11 @@ jQuery(document).ready(function($){
   $(".decline-button").click(function() {
     $('#sliding-popup').remove();
   });
+
+  	//Add ico external link on left menu - target="_blanck"
+	if( jQuery('.left-menu ul.menu li a[target="_blank"]')[0] ){
+		jQuery('.left-menu ul.menu li a[target="_blank"]').addClass('external-menu-item');
+	}
+
+
 });
