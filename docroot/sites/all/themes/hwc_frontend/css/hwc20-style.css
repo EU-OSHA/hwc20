@@ -6780,6 +6780,9 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
 .node-type-priority-area .region-content #block-hwc-priority-areas > div.field.field-name-field-pa-recommended-resources.field-type-entityreference.field-label-hidden > div > div:nth-child(1) > div > div.content {
   background: none;
 }
+.node-type-priority-area .region-content #block-hwc-priority-areas .field-name-field-pa-recommended-resources .node-pa-highlights {
+  width: 100%;
+}
 .node-type-priority-area .region-content #block-hwc-priority-areas .node-news .content,
 .node-type-priority-area .region-content #block-hwc-priority-areas .node-pa-highlights .content {
   background: url(../images/green-line.png) repeat-x;
@@ -6816,7 +6819,7 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
 .node-type-priority-area .region-content h2.block-title {
   float: left;
   width: 100%;
-  background: url(../images/background-newsletter-300.png) no-repeat;
+  background: url(../images/background-priority.png) no-repeat;
   color: #FFF;
   font-size: 2.5rem;
   padding: 0.5em;
@@ -7007,6 +7010,9 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+}
+#block-hwc-good-practice-exchange-gpe-news-events .two-box-column {
+  width: 100%;
 }
 #block-hwc-good-practice-exchange-gpe-news-events .box-before.news {
   background: #FFF;
