@@ -1401,6 +1401,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 }
 #block-menu-block-4 {
   width: 100%;
+  margin-top: 47px;
 }
 aside.col-md-3 .region.region-sidebar-first.well {
   padding: 0;
@@ -2817,7 +2818,7 @@ body.good-practice-exchange .footer {
   background: none;
 }
 .page-search .region-sidebar-first .block.block-facetapi:first-child {
-  margin-top: 41px!important;
+  margin-top: 44px!important;
 }
 .page-search .views-row img {
   border: 0;
@@ -3012,6 +3013,7 @@ div.workbench-info-block {
 }
 .accordion-menu {
   float: left;
+  margin-top: 47px;
 }
 .main-container .node-campaign-18 .body-summary,
 .main-container .node-campaign-16 .body-summary {
@@ -7375,6 +7377,12 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   margin-bottom: 0em;
   margin-right: 1em;
 }
+/* Cookies banner */
+#sliding-popup.sliding-popup-top,
+#sliding-popup.sliding-popup-top .eu-cookie-withdraw-banner,
+.eu-cookie-withdraw-tab {
+  background: url('../images/background-cookies.png') repeat;
+}
 .isMobile {
   float: right !important;
 }
@@ -7742,6 +7750,10 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
   .node-article .hwc-share-widget {
     padding-top: 0;
+  }
+  #block-menu-block-4,
+  .accordion-menu {
+    margin-top: 0;
   }
   .navbar-default {
     border-color: transparent;
