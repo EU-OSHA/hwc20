@@ -387,8 +387,13 @@ function hwc_frontend_preprocess_block(&$vars) {
 
 function hwc_frontend_preprocess_page(&$vars) {
   $vars['head_text'] = t('Healthy Workplaces LIGHTEN THE LOAD 2020-22');
+  $vars['banner_title'] = '';
   $n = menu_get_object('node');
   if ($n) {
+    $active_trail = menu_get_active_trail();
+    if (count($active_trail) > 2) {
+      $vars['banner_title'] = $active_trail[count($active_trail) - 2]['title'];
+    }
     switch ($n->type) {
       case "partner":
         $tid = $n->field_partner_type[LANGUAGE_NONE][0]['tid'];

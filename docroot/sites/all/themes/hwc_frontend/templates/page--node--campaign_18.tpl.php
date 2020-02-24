@@ -104,9 +104,15 @@ $title = variable_get('campaign_18_title', 'HWC Manage Dangerous Substances 2018
   if (!empty($back_to_pz)) {
     print $back_to_pz;
   } ?>
-    <?php if (!empty($title)) { ?>
-          <h1 class="page-header"><?php print t($title); ?></h1>
-    <?php } ?>
+        <?php if (!empty($title)) { ?>
+        <h1 class="page-header"><?php
+          if ($banner_title) {
+            print $banner_title;
+          }
+          else {
+            print $title;
+          } ?></h1>
+        <?php } ?>
       </div>
     <?php
   }

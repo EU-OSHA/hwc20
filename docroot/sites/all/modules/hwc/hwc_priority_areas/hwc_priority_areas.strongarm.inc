@@ -289,13 +289,13 @@ function hwc_priority_areas_strongarm() {
       'display' => array(
         'share_widget' => array(
           'default' => array(
-            'weight' => '0',
+            'weight' => '1',
             'visible' => TRUE,
           ),
         ),
         'bottom_share_widget' => array(
           'default' => array(
-            'weight' => '3',
+            'weight' => '4',
             'visible' => TRUE,
           ),
         ),
