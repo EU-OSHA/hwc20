@@ -13,6 +13,22 @@ class NCWTaxonomyActivityMigration extends AbstractNCWTaxonomyTermMigration {
     parent::__construct($arguments, 'SimpleNCWTaxonomyTermSource', 'activity');
     $this->description = 'Import taxonomy "activity" from NCW';
   }
+
+  function addFieldMappings() {
+    parent::addFieldMappings();
+    $this->addSimpleMappings(array('parent'));
+  }
+
+  function prepareRow($row) {
+    parent::prepareRow($row);
+    $map = $this->getMap();
+    if ($destid1 = $map->lookupDestinationID(array($row->tid))) {
+      if ($destid1) {
+        $row->parent = array_keys(taxonomy_get_parents($destid1['destid1']));
+      }
+    }
+  }
+
 }
 
 class NCWTaxonomyHazardsMigration extends AbstractNCWTaxonomyTermMigration {
