@@ -477,7 +477,7 @@ function osha_news_views_default_views() {
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
     'image_style' => 'home_page_prod_news',
-    'image_link' => '',
+    'image_link' => 'content',
     'field_formatter_class' => '',
   );
   /* Field: Content: Title */

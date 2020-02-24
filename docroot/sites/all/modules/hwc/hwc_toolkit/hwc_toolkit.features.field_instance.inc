@@ -1464,7 +1464,7 @@ function hwc_toolkit_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'field_formatter_class' => '',
-          'image_link' => '',
+          'image_link' => 'content',
           'image_style' => 'toolkit',
         ),
         'type' => 'image',
@@ -1505,7 +1505,7 @@ function hwc_toolkit_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'field_formatter_class' => '',
-          'image_link' => '',
+          'image_link' => 'content',
           'image_style' => 'toolkit_example',
         ),
         'type' => 'image',
@@ -3355,7 +3355,7 @@ function hwc_toolkit_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'field_formatter_class' => '',
-          'image_link' => '',
+          'image_link' => 'content',
           'image_style' => 'toolkit',
         ),
         'type' => 'image',

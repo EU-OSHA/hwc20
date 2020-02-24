@@ -123,6 +123,15 @@ if ($language->language=="en"){
                 </div>
             </div>
         </div>
+        <div class="row">
+          <div class="navbar-collapse collapse">
+            <nav>
+              <?php if (!empty($primary_nav)): ?>
+                <?php print render($primary_nav); ?>
+              <?php endif; ?>
+            </nav>
+          </div>
+        </div>
     </div>
 </header>
 <div class="main-container">
