@@ -7561,9 +7561,6 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   .start-browsing .content-boxes {
     width: 72%;
   }
-  header.navbar-default .campaigns-header .row:first-of-type {
-    padding: 10px 20px 5px 35px;
-  }
 }
 @media (max-width: 1465px) {
   .publication-detail {
