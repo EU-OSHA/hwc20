@@ -7923,20 +7923,6 @@ ul.tabs--primary.nav.nav-tabs > li > a {
   margin-top: 0;
   padding-bottom: 0em;
 }
-.main-container h2 {
-  color: #575757;
-  font-size: 30px;
-  font-weight: 100;
-  font-style: normal;
-  margin-top: 0px;
-}
-.main-container h2 a:empty {
-  display: none;
-}
-.main-container h2 a:before {
-  content: ">";
-  padding-right: 10px;
-}
 .main-container h4,
 .main-container .h4-title {
   color: #749b00;
@@ -8732,14 +8718,6 @@ table tr.error.form-type-select:after {
   margin: 0 auto;
   margin-top: 1em;
   clear: both;
-}
-.node-type-article article h2 {
-  margin-top: .5em;
-  color: #749b00;
-  font-style: normal;
-  font-weight: bold;
-  margin-bottom: 1em;
-  font-size: 2em;
 }
 .node-type-article article .icon.recommended-resources ~ h2 {
   text-align: center;
