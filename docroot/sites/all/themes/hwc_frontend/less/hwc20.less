@@ -1898,6 +1898,15 @@ aside.col-md-3{
   	padding-bottom: 0;
 	a{
 		align-self: center;
+		&:hover{
+			span{
+				text-decoration: underline;
+			}
+			
+      		img{
+      			opacity: 0.8;
+      		}
+      	}
 	}
   	img{
   		height: 49px;
@@ -1916,17 +1925,27 @@ aside.col-md-3{
   	padding-bottom: 0;
 	a{
 		align-self: center;
+		&:hover{
+			span{
+				text-decoration: underline;
+			}
+			
+      		img{
+      			opacity: 0.8;
+      		}
+      	}
 	}
   	img{
   		height: 49px;
-    	&:hover{
-      	opacity: 0.8;
-    	}
   	}
 }
 
 .previous {
 	display: flex;
+	img{
+		float: left;
+    	padding-right: 10px;
+	}
   span:nth-child(1){
     color: #003399;
     font-size: 18px;
@@ -1948,10 +1967,15 @@ aside.col-md-3{
 
 .next{ 
 	display: flex;
+	img{
+		float: right;
+    	padding-left: 10px;
+	}
   span:nth-child(1){
     color: #003399;
     font-size: 18px;
     font-style: normal;
+    float: left;
   }
   span:nth-child(2){
     font-size: 12px;
@@ -1962,7 +1986,6 @@ aside.col-md-3{
 .next-text{ 
 	display: flex;
 	flex-direction: column;
-	margin-right: 1em;
 	span{
 		text-align: end;
 		width: 160px;
