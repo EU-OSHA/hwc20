@@ -291,7 +291,6 @@ function hwc_homepage_block_view($delta = '') {
   }
 
   if ($delta == 'splash_title_banner_countdown') {
-    drupal_add_js(drupal_get_path('module', 'hwc_homepage') . '/js/moment.min.js');
     drupal_add_js(drupal_get_path('module', 'hwc_homepage') . '/js/splash-page.js');
     $blocks[] = block_load('views', 'splash_banners-block');
     $array = _block_get_renderable_array(_block_render_blocks($blocks));
