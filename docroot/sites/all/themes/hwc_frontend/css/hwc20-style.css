@@ -1648,6 +1648,12 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
 .previous-next a {
   align-self: center;
 }
+.previous-next a:hover span {
+  text-decoration: underline;
+}
+.previous-next a:hover img {
+  opacity: 0.8;
+}
 .previous-next img {
   height: 49px;
 }
@@ -1665,14 +1671,21 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
 .previous-next.two-arrows a {
   align-self: center;
 }
+.previous-next.two-arrows a:hover span {
+  text-decoration: underline;
+}
+.previous-next.two-arrows a:hover img {
+  opacity: 0.8;
+}
 .previous-next.two-arrows img {
   height: 49px;
 }
-.previous-next.two-arrows img:hover {
-  opacity: 0.8;
-}
 .previous {
   display: flex;
+}
+.previous img {
+  float: left;
+  padding-right: 10px;
 }
 .previous span:nth-child(1) {
   color: #003399;
@@ -1693,10 +1706,15 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
 .next {
   display: flex;
 }
+.next img {
+  float: right;
+  padding-left: 10px;
+}
 .next span:nth-child(1) {
   color: #003399;
   font-size: 18px;
   font-style: normal;
+  float: left;
 }
 .next span:nth-child(2) {
   font-size: 12px;
@@ -1704,7 +1722,6 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
 .next-text {
   display: flex;
   flex-direction: column;
-  margin-right: 1em;
 }
 .next-text span {
   text-align: end;
