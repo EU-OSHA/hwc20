@@ -7608,6 +7608,7 @@ header.navbar-default .navbar-collapse nav ul.menu > li.first a:before {
 .region-above-header.region > div {
   float: left;
   margin-right: -5px;
+  clear: none;
 }
 .region-above-header.region a#text_resize_increase,
 .region-above-header.region a#text_resize_decrease {

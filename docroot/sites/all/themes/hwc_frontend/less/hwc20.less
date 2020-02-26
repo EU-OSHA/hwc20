@@ -175,10 +175,6 @@ body{
     }
 }
 
-#block-hwc-homepage-splash-title-banner-countdown{
-	margin-top: 1em;
-}
-
 select{
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -362,10 +358,7 @@ select{
 			font-weight: 600;
 		}
 
-		p{
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
+		> p:nth-child(3){
 			color: #FFF;
 		    padding-top: 1em;
 		    padding-bottom: 2em;
@@ -374,10 +367,31 @@ select{
 		    font-size: 1.2em;
 		}
 
+		> p:nth-child(4){
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			color: #FFF;
+		    padding-top: 0;
+		    padding-bottom: 2em;
+		    max-width: 740px;
+		    margin: 0 auto;
+		    font-size: 1.2em;
+		}
+
 		.btn-background-transparent{
 			display: flex;
     		justify-content: center;
     		align-items: center;
+    		background: #003399;
+    		border: 0;
+    		width: 350px;
+    		height: 56px;
+    		font-size: 1.8rem;
+    		&:hover{
+    			color: #FFF;
+    			background: #335CAD;
+    		}
 		}
 	}
 	.views-row-last{
