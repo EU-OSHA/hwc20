@@ -157,9 +157,6 @@ body .btn-primary:hover {
   background-color: #002266;
   border-color: #001f5c;
 }
-#block-hwc-homepage-splash-title-banner-countdown {
-  margin-top: 1em;
-}
 select {
   -moz-appearance: none;
   appearance: none;
@@ -309,10 +306,7 @@ select {
   font-style: normal;
   font-weight: 600;
 }
-.intro-splash-20 .views-row-first p {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.intro-splash-20 .views-row-first > p:nth-child(3) {
   color: #FFF;
   padding-top: 1em;
   padding-bottom: 2em;
@@ -320,10 +314,30 @@ select {
   margin: 0 auto;
   font-size: 1.2em;
 }
+.intro-splash-20 .views-row-first > p:nth-child(4) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: #FFF;
+  padding-top: 0;
+  padding-bottom: 2em;
+  max-width: 740px;
+  margin: 0 auto;
+  font-size: 1.2em;
+}
 .intro-splash-20 .views-row-first .btn-background-transparent {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #003399;
+  border: 0;
+  width: 350px;
+  height: 56px;
+  font-size: 1.8rem;
+}
+.intro-splash-20 .views-row-first .btn-background-transparent:hover {
+  color: #FFF;
+  background: #335CAD;
 }
 .intro-splash-20 .views-row-last {
   background: #FFF;
@@ -7424,6 +7438,12 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
 }
 @media (max-width: 1200px) {
+  .intro-splash-20 .views-row-first h1 {
+    padding-top: 0.5em;
+  }
+  .intro-splash-20 .views-row-first p:nth-child(4) {
+    padding-bottom: 1em;
+  }
   /*Slider Publications*/
   body.page-tools-and-publications-publications .slider--video--section {
     height: auto;
@@ -7580,6 +7600,23 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
 }
 @media (max-width: 1465px) {
+  .intro-splash-20 .views-row-first > p:nth-child(4) {
+    max-width: 500px;
+  }
+  .intro-splash-20 .views-row-first .btn-background-transparent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #003399;
+    border: 0;
+    width: 227px;
+    height: 56px;
+    font-size: 1.4rem;
+  }
+  .intro-splash-20 .views-row-first .btn-background-transparent:hover {
+    color: #FFF;
+    background: #335CAD;
+  }
   .publication-detail {
     background: none;
   }

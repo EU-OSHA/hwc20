@@ -25,6 +25,17 @@
 
 @media (max-width: 1200px) {
 
+	.intro-splash-20{
+		.views-row-first{
+			 h1 {
+    			padding-top: 0.5em;
+			}
+			p:nth-child(4) {
+				padding-bottom: 1em;
+			}
+		}
+	}
+
 	/*Slider Publications*/
 	body.page-tools-and-publications-publications{
 		.slider--video--section{
@@ -252,6 +263,29 @@
 }
 
 @media (max-width: 1465px) {
+
+	.intro-splash-20{
+		.views-row-first{
+			> p:nth-child(4){
+			    max-width: 500px;
+			}
+
+			.btn-background-transparent{
+				display: flex;
+	    		justify-content: center;
+	    		align-items: center;
+	    		background: #003399;
+	    		border: 0;
+	    		width: 227px;
+	    		height: 56px;
+	    		font-size: 1.4rem;
+	    		&:hover{
+	    			color: #FFF;
+	    			background: #335CAD;
+		    	}
+		    }
+		}
+	}
 
 	.publication-detail{
 		background: none;
