@@ -100,22 +100,20 @@ header.navbar-default{
 				border-right: 1px solid @border-header-color;
 				padding-right: 2em;
 				margin-right: 1em;
+				padding-bottom: 7px;
 			}
 			img:nth-child(1){
-				margin-top: 5px;
-				width: 150px;
-				height: auto;
 				margin-left: 30px;
 			}
 			a img.pull-left{
 				width: 190px;
 			    height: auto;
-			    margin-top: 44px;
+			    margin-top: 23px;
 			    margin-left: 0px;
 			}
 			img:nth-child(3){
-				padding-top: 69px;
-				padding-bottom: 32px;
+				padding-top: 36px;
+    			padding-bottom: 41px;
 				padding-right: 24px;
 				width: 89px;
 				height: auto;
@@ -128,7 +126,7 @@ header.navbar-default{
 				font-size: 1.6em;
 			    font-weight: bold;
 			    max-width: 315px;
-			    padding-top: 1em;
+			    padding-top: 8px;
 			    padding-left: 1.5em;
 			    float: left;
 			}
@@ -238,7 +236,7 @@ header.navbar-default{
 			}
 		}
 		.row:first-of-type{
-			padding: 10px 20px 5px 0;
+			padding: 0 20px 0 0;
 		}
 		
 		/* login */
@@ -290,7 +288,6 @@ header.navbar-default{
 		padding: 0;
 		border: none;
 		nav{
-			margin: 10px 0 0;
 			ul.menu{
 				background-color: @menu-bg-color;
 				width: 100%;
@@ -444,9 +441,15 @@ header.navbar-default{
 		}
 	}
 }
+
+#navbar > div > div:nth-child(1){
+	padding: 10px 20px 10px 35px;
+}
+
 .nav-up {
     top: -210px !important;
 }
+
 .region-above-header.region{
 	float: right;
 	width: auto;

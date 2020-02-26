@@ -1464,7 +1464,7 @@ function hwc_toolkit_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'field_formatter_class' => '',
-          'image_link' => '',
+          'image_link' => 'content',
           'image_style' => 'toolkit',
         ),
         'type' => 'image',
@@ -1505,7 +1505,7 @@ function hwc_toolkit_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'field_formatter_class' => '',
-          'image_link' => '',
+          'image_link' => 'content',
           'image_style' => 'toolkit_example',
         ),
         'type' => 'image',
@@ -2715,17 +2715,8 @@ function hwc_toolkit_field_default_field_instances() {
       ),
       'default' => array(
         'label' => 'above',
-        'module' => 'date',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-          'osha_date_theme' => '',
-        ),
-        'type' => 'date_default',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 16,
       ),
       'highlights_item' => array(
@@ -3355,7 +3346,7 @@ function hwc_toolkit_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'field_formatter_class' => '',
-          'image_link' => '',
+          'image_link' => 'content',
           'image_style' => 'toolkit',
         ),
         'type' => 'image',

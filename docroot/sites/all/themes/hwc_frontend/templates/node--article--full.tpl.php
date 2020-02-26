@@ -6,6 +6,9 @@
 ?>
 <?php
 /** @var array $content */
+//if (!in_array($nid, variable_get('allow_recommended_resources', [108]))) {
+unset($content['field_recommended_resources']);
+//}
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php

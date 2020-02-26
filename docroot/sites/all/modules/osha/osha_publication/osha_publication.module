@@ -1063,3 +1063,43 @@ function _osha_publication_msd_priority_area_options_list() {
   asort($return);
   return $return;
 }
+
+
+function _osha_publication_publication_language_list_options($prefix = TRUE, $native = TRUE) {
+  return _osha_publication_language_list_options($prefix, $native, FALSE);
+}
+
+function _osha_publication_case_study_language_list_options($prefix = TRUE, $native = TRUE) {
+  return _osha_publication_language_list_options($prefix, $native, TRUE);
+}
+
+function _osha_publication_language_list_options($prefix, $native, $is_case_study) {
+  $q = db_select('field_data_field_file', 't')->distinct();
+  $q->fields('t', array('language'));
+  $q->condition('t.entity_type', 'node');
+  $q->condition('t.bundle', 'publication');
+
+  if ($is_case_study) {
+    $q->condition('field_publication_type_tid', CASE_STUDY_TID);
+  }
+  else {
+    $q->condition('field_publication_type_tid', CASE_STUDY_TID, '!=');
+  }
+  $q->innerJoin('field_data_field_publication_type', 'pt', 'pt.entity_id = t.entity_id');
+  $used = $q->execute()->fetchAllKeyed(0,0);
+
+  // Used by hwc_practical_tool_get_facets_def and _oira_promotional_material_search_form_get_facets.
+  // For tools and promotional materials we don't exclude Catalan.
+  $disabled = osha_disabled_language_list();
+  unset($disabled['ca']);
+  $languages = osha_language_list_options($native);
+  if ($prefix) {
+    foreach ($languages as $lang_code => $value) {
+      $languages[$lang_code] = strtoupper($lang_code) . ' - ' . $value;
+      if (empty($used[$lang_code])) {
+        unset($languages[$lang_code]);
+      }
+    }
+  }
+  return $languages;
+}

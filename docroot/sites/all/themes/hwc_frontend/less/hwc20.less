@@ -297,6 +297,9 @@ select{
 .main-container{
 	h2{
 		color: #003399;
+		font-weight: 400;
+		padding-top: 0;
+		margin-top: 0;
 		a:before{
 			content: '';
 			padding-right: 0;
@@ -1086,7 +1089,7 @@ ul.time-and-counters{
 		border-bottom-left-radius: 3px;
 		border-top-right-radius: 15px;
 		border-bottom-right-radius: 15px;
-		background: url(../images/ico-plus-20-hover-plus.png) no-repeat 98% 0px;
+		background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
 		padding-right: 2em;
 		transition: 300ms;
 	}
@@ -1600,6 +1603,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 
 #block-menu-block-4{
 	width: 100%;
+	margin-top: 49px !important;
 }
 
 
@@ -2056,7 +2060,7 @@ aside.col-md-3{
     padding: 0 0 0 1em;
     border: 0;
     border-radius: 5px;
-   	margin-top: 16px !important;
+   	margin-top: 8px !important;
     width: 100%;
 }
 
@@ -3114,7 +3118,7 @@ body.good-practice-exchange{
 							border-bottom-left-radius: 3px;
 							border-top-right-radius: 15px;
 							border-bottom-right-radius: 15px;
-							background: url(../images/ico-plus-20-hover-plus.png) no-repeat 98% 0px;
+							background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
 							padding-right: 2em;
 					    }
 					    &:before{
@@ -3216,7 +3220,7 @@ body.good-practice-exchange{
 .page-search{
 
 	.region-sidebar-first .block.block-facetapi:first-child {
-	    margin-top: 41px!important;
+	    margin-top: 44px!important;
 	}
 
 	.views-row img{
@@ -3410,6 +3414,11 @@ div.workbench-info-block{
 			width: 94%;
 		}
 	}
+
+	.external-menu-item{
+		background: url('../images/target-blank-blue.png') 90% no-repeat #ecf4cb;
+		padding-right: 45px !important;
+	}
 }
 
 
@@ -3421,6 +3430,10 @@ div.workbench-info-block{
 .left-menu.accordion-menu ul li ul li ul li:hover a{
 	background: #0030a0;
     color: #FFF;
+}
+
+.accordion-menu.left-menu ul li.expanded a.external-menu-item:hover {
+    background: url('../images/target-blank-white-12.png') 90% no-repeat #0030a0;
 }
 
 .accordion-menu.left-menu ul li.expanded a:hover {
@@ -3461,6 +3474,7 @@ div.workbench-info-block{
 
 .accordion-menu{
 	float: left;
+	margin-top: 47px;
 }
 
 .main-container{
@@ -3473,7 +3487,7 @@ div.workbench-info-block{
 
 		h2{
 			color: #003399;
-	    	font-size: 2.2em;
+	    	font-size: 1.9em;
 	    	font-weight: 500;
 	    	font-style: normal;
 	    	margin-left: 0;
@@ -4725,7 +4739,7 @@ body{
 	.boxes{
 		position: relative;
 		.box{
-			width: 184px;
+			width: 197px;
 			border: 2px solid #8ea64b;
 			background: #FFF;
 			height: auto;
@@ -4744,6 +4758,19 @@ body{
 					padding-right: 35px;
 					border-radius: 3px;
 					text-decoration: none;
+					display: inline-block;
+    				max-width: 171px;
+				}
+				.btn-become-partner-register{
+					text-align: left;
+					border: 1px solid #0030a0;
+					color: #0030a0;
+					padding-left: 10px;
+					padding-right: 10px;
+					border-radius: 3px;
+					text-decoration: none;
+					display: inline-block;
+    				max-width: 171px;
 				}
 			}
 			
@@ -5618,8 +5645,9 @@ ul[data-sa-theme="basic-green"].ui-menu{
 /* Press room */
 body.press-room{
 	.field-name-body{
-		width: 76%;
-    	padding-left: 2.2em;
+		width: 100%;
+		text-align: center;
+		padding: 0.6em 0.5em;
 	}
 	.related-resources-title{
 		padding-top: 1em;
@@ -5963,7 +5991,7 @@ body.press-room, body.european-week{
 				border-bottom-left-radius: 3px;
 				border-top-right-radius: 15px;
 				border-bottom-right-radius: 15px;
-				background: url(../images/ico-plus-20-hover-plus.png) no-repeat 98% 0px;
+				background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
 				padding-right: 2em;
 		    }
 	    	&:before{
@@ -7195,7 +7223,7 @@ body.front-page{
 													border-bottom-left-radius: 3px;
 													border-top-right-radius: 15px;
 													border-bottom-right-radius: 15px;
-													background: url(../images/ico-plus-20-hover-plus.png) no-repeat 98% 0px;
+													background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
 													padding-right: 2em;
 											    }
 											    &:before{
@@ -7826,7 +7854,18 @@ body.page-tools-and-publications-publications{
 				background: none;
 			}
 
-			.node-news{
+			.field-name-field-pa-recommended-resources{
+				.field-item{
+					padding-bottom: 0.5em;
+				}
+
+				.node-pa-highlights{
+					width: 100%;
+					padding: 0;
+				}
+			}
+
+			.node-news, .node-pa-highlights{
 				.content{
 					background: url(../images/green-line.png) repeat-x;
 					padding-top: 1em;
@@ -7842,8 +7881,14 @@ body.page-tools-and-publications-publications{
 				}
 				.field.field-name-field-image{
 					width: auto;
-					min-height: 90px;
 				    margin-right: 0;
+				    float: left;
+				    min-height: 90px;
+				    img {
+			    		margin-top: 0.3em;
+			    		margin-bottom: 0em;
+			    		margin-right: 1em;
+					}
 				}
 				a.more-link{
 					justify-content: left;
@@ -7856,11 +7901,13 @@ body.page-tools-and-publications-publications{
 		h2.block-title{
 			float: left;
 	    	width: 100%;
-			background: url(../images/background-newsletter-300.png) no-repeat;
+			background: url(../images/background-priority.png) no-repeat;
 			color: #FFF;
 			font-size: 2.5rem;
 		    padding: 0.5em;
 		    text-align: center;
+		    margin-left: 0;
+		    margin-right: 0;
 		}
 
 		.content{
@@ -8112,6 +8159,9 @@ body.page-tools-and-publications-practical-tools{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    .two-box-column{
+    	width: 100%;
+    }
 	.box-before.news{
 		background: #FFF;
 		float: left;
@@ -8282,7 +8332,7 @@ body.page-tools-and-publications-practical-tools{
 					border-bottom-left-radius: 3px;
 					border-top-right-radius: 15px;
 					border-bottom-right-radius: 15px;
-					background: url(../images/ico-plus-20-hover-plus.png) no-repeat 98% 0px;
+					background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
 					padding-right: 2em;
 			    }
 		    	&:before{
@@ -8520,3 +8570,59 @@ body.video-page{
 	}	
 }
 
+
+/* Good practice exchange platform */
+
+.page-good-practice-exchange-platform{
+	.view-documents{
+		ul{
+			li{
+				.content{
+					margin-top: 0.3em;
+    				margin-bottom: 0.3em;
+    				.publication-ext-type{
+    					img{
+    						border: 0;
+    						border-radius: 0;
+    					}
+    				}
+				}
+			}
+		}
+	}
+}
+
+.page-partners-documents{
+	.region.region-content{
+		.view-search {
+			.view-content{
+				.views-row{ 
+					.views-field-field-document-files{
+						margin-top: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+.node-type-pa-highlights{
+	.node-pa-highlights{
+		.field-name-field-image{
+		float: left;
+			img{
+				margin-top: 0.3em;
+				margin-bottom: 0em;
+				margin-right: 1em;
+			}
+
+		}
+	}
+}
+
+
+/* Cookies banner */
+
+#sliding-popup.sliding-popup-top, #sliding-popup.sliding-popup-top .eu-cookie-withdraw-banner, .eu-cookie-withdraw-tab {
+    background: url('../images/background-cookies.png') repeat;
+}

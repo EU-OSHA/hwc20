@@ -422,3 +422,17 @@ function osha_update_7034() {
 function osha_update_7035() {
   features_revert_module('osha_search');
 }
+
+/**
+ * HW20-307 Videos development.
+ */
+function osha_update_7036() {
+  features_revert(array('osha' => array('field_instance')));
+}
+
+/**
+ * HW20-307 Videos development.
+ */
+function osha_update_7037() {
+  features_revert(array('osha' => array('field_instance', 'fe_block_settings')));
+}

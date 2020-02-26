@@ -52,6 +52,29 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'count' => 0,
   );
 
+  // Exported nodequeues: good_practice_exchange_events
+  $nodequeues['good_practice_exchange_events'] = array(
+    'name' => 'good_practice_exchange_events',
+    'title' => 'Good Practice Exchange events',
+    'subqueue_title' => '',
+    'size' => 3,
+    'link' => '',
+    'link_remove' => '',
+    'owner' => 'nodequeue',
+    'show_in_ui' => 1,
+    'show_in_tab' => 1,
+    'show_in_links' => 0,
+    'reference' => 0,
+    'reverse' => 0,
+    'i18n' => 0,
+    'subqueues' => 1,
+    'types' => array(
+      0 => 'events',
+    ),
+    'roles' => array(),
+    'count' => 0,
+  );
+
   // Exported nodequeues: homepage_about_the_topic
   $nodequeues['homepage_about_the_topic'] = array(
     'name' => 'homepage_about_the_topic',

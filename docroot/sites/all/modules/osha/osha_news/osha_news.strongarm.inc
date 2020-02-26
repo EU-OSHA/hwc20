@@ -207,7 +207,7 @@ function osha_news_strongarm() {
       'display' => array(
         'share_widget' => array(
           'default' => array(
-            'weight' => '3',
+            'weight' => '1',
             'visible' => TRUE,
           ),
           'teaser' => array(
@@ -238,6 +238,10 @@ function osha_news_strongarm() {
         'bottom_share_widget' => array(
           'priority_areas' => array(
             'weight' => '3',
+            'visible' => FALSE,
+          ),
+          'default' => array(
+            'weight' => '13',
             'visible' => FALSE,
           ),
         ),

@@ -218,42 +218,42 @@ function osha_publication_menu_publications_search($form_state, $sort) {
   else {
     $query->sort('field_publication_date', 'DESC');
   }
-
+//  https://trello.com/c/hgZCLjcJ/88-publication-search-intelligent-filters
   $query->setOption('search_api_facets', $facets_def);
-  foreach ($facets_def as $field_name => $facet_def) {
-    $selected_values = hwc_req_param($form_state, $field_name, []);
-
-    if ($field_name == 'field_publication_type') {
-      $types_map = osha_publication_get_main_publication_types_map(FALSE);
-      $publication_type_ids = array();
-      if (!empty($selected_values)) {
-        foreach ($selected_values as $val) {
-          if ($val) {
-            $publication_type_ids[] = $val;
-            foreach ($types_map as $tid => $main_tid) {
-              if ($val == $main_tid) {
-                $publication_type_ids[] = $tid;
-              }
-            }
-          }
-        }
-      }
-      $selected_values = $publication_type_ids;
-    }
-    if (!empty($selected_values) && is_array($selected_values)) {
-      $filter = $query->createFilter($facet_def['operator'], ['facet:' . $field_name]);
-      foreach ($selected_values as $value) {
-        // No value.
-        if ($value == '!') {
-          $filter->condition($field_name, NULL);
-        }
-        else {
-          $filter->condition($field_name, $value);
-        }
-        $query->filter($filter);
-      }
-    }
-  }
+//  foreach ($facets_def as $field_name => $facet_def) {
+//    $selected_values = hwc_req_param($form_state, $field_name, []);
+//
+//    if ($field_name == 'field_publication_type') {
+//      $types_map = osha_publication_get_main_publication_types_map(FALSE);
+//      $publication_type_ids = array();
+//      if (!empty($selected_values)) {
+//        foreach ($selected_values as $val) {
+//          if ($val) {
+//            $publication_type_ids[] = $val;
+//            foreach ($types_map as $tid => $main_tid) {
+//              if ($val == $main_tid) {
+//                $publication_type_ids[] = $tid;
+//              }
+//            }
+//          }
+//        }
+//      }
+//      $selected_values = $publication_type_ids;
+//    }
+//    if (!empty($selected_values) && is_array($selected_values)) {
+//      $filter = $query->createFilter($facet_def['operator'], ['facet:' . $field_name]);
+//      foreach ($selected_values as $value) {
+//        // No value.
+//        if ($value == '!') {
+//          $filter->condition($field_name, NULL);
+//        }
+//        else {
+//          $filter->condition($field_name, $value);
+//        }
+//        $query->filter($filter);
+//      }
+//    }
+//  }
   return $server->search($query);
 }
 
@@ -465,6 +465,7 @@ function _osha_publication_menu_publications_get_facets_def() {
   return array(
     'field_publication_type' => array(
       'label' => t('Publications type'),
+//      'field' => 'field_publication_type',
       'field' => 'main_publication_type',
       'limit' => 50,
       'operator' => 'or',
@@ -480,8 +481,8 @@ function _osha_publication_menu_publications_get_facets_def() {
       'operator' => 'or',
       'min_count' => 1,
       'missing' => 0,
-      'options_callback' => '_osha_publication_publication_language_list_options',
-      'options_callback_args' => array(),
+      'options_callback' => '_osha_publication_language_list_options',
+      'options_callback_args' => array(TRUE, TRUE),
     ),
 
     'field_msd_priority_area' => array(
@@ -491,7 +492,7 @@ function _osha_publication_menu_publications_get_facets_def() {
       'operator' => 'or',
       'min_count' => 1,
       'missing' => TRUE,
-      'options_callback' => '_osha_publication_msd_priority_area_options_list',
+      'options_callback' => '_osha_publication_priority_area_options_list',
       'options_callback_args' => array(),
     ),
   );
@@ -505,6 +506,20 @@ function _osha_publication_get_query() {
   $query->fields(array());
   $solr = new SearchApiSolrService($server);
   return array($solr, $query);
+}
+
+function _osha_publication_language_list_options($prefix = TRUE, $native = TRUE) {
+  // Used by hwc_practical_tool_get_facets_def and _oira_promotional_material_search_form_get_facets.
+  // For tools and promotional materials we don't exclude Catalan.
+  $disabled = osha_disabled_language_list();
+  unset($disabled['ca']);
+  $languages = osha_language_list_options($native);
+  if ($prefix) {
+    foreach ($languages as $lang_code => $value) {
+      $languages[$lang_code] = strtoupper($lang_code) . ' - ' . $value;
+    }
+  }
+  return $languages;
 }
 
 function _osha_publication_type_filter_options_list() {

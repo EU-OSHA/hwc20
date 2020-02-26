@@ -105,7 +105,13 @@ $title = variable_get('campaign_18_title', '2016-2017 Healthy Workplaces for All
           print $back_to_pz;
         } ?>
         <?php if (!empty($title)) { ?>
-            <h1 class="page-header"><?php print t($title); ?></h1>
+        <h1 class="page-header"><?php
+          if ($banner_title) {
+            print $banner_title;
+          }
+          else {
+            print $title;
+          } ?></h1>
         <?php } ?>
       </div>
     <?php

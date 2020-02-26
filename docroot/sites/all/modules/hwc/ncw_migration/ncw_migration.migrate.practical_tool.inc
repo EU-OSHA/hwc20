@@ -25,7 +25,7 @@ class NCWMSDMigration extends AbstractNCWNodeMigration {
       'field_hazards' => 'hazards',
       'field_health_effects' => 'health_effects',
       'field_worker_groups_covered' => 'worker_groups_covered',
-      'field_prevention_measures' => 'prevention_measures',
+      'field_prevention_measures' => 'prevention_measures_msd',
       'field_purpose_of_the_material' => 'purpose_of_material',
       'field_target_audience' => 'target_audience',
       'field_msd_resource_type' => 'resource_type',
@@ -138,6 +138,7 @@ class NCWMSDMigration extends AbstractNCWNodeMigration {
   function prepareRow($row) {
     $row->field_msd_resource_type_other = $row->field_resource_type_other;
     $row->field_material_country = $row->field_material_country;
+    $row->field_msd_resource_type = $row->field_resource_type;
     parent::prepareRow($row);
     if ($row->path) {
       $row->field_migration_path_alias = $row->path;

@@ -194,7 +194,7 @@ function osha_publication_menu_case_studies_search($form_state, $sort) {
 
   $query->condition('status', 1);
   $query->condition('type', 'publication');
-//  $query->condition('field_file:file', 0, '>');
+  $query->condition('field_file:file', 0, '>');
   $query->condition('field_publication_type', CASE_STUDY_TID);
   $query->condition('language', 'und', "<>");
   $query->keys($text);
@@ -242,9 +242,42 @@ function osha_publication_menu_case_studies_native_results($form_state, $results
     );
   }
 
+  $restrict = array_unique($restrict);
   $languages = hwc_req_param($form_state, 'languages', array($language->language));
 
-  $nids = array_unique($restrict);
+  $nids = [];
+  foreach ($restrict as $pnid) {
+    $q = db_select('field_data_title_field', 'b');
+    $q->fields('b', array('entity_id'));
+    $q->innerJoin('node', 'a', 'a.nid = b.entity_id AND a.vid = b.revision_id');
+    $q->condition('b.bundle', 'publication');
+    $q->condition('b.entity_id', $pnid);
+    $q->condition('b.language', $languages, 'IN');
+    $c = $q->countQuery()->execute()->fetchField();
+    if ($c >= count($languages)) {
+      $nids[] = $pnid;
+    }
+  }
+
+  $nids = array_unique($nids);
+  if (empty($nids)) {
+    return array();
+  }
+
+  $q = db_select('field_data_field_publication_date', 'a');
+  $q->innerJoin('field_data_title_field', 'b', 'a.entity_id = b.entity_id AND a.revision_id = b.revision_id');
+  $q->condition('b.language', $languages, 'IN');
+  $q->fields('a', array('entity_id'));
+  $q->condition('a.entity_id', $nids, 'IN');
+  if ($sort == 'alphabetically') {
+    $q->orderBy('title_field_value', 'ASC');
+  }
+  else {
+    // Order publications by publication_date.
+    $q->orderBy('field_publication_date_value', 'DESC');
+  }
+  $nids = $q->execute()->fetchCol();
+  $nids = array_unique($nids);
 
   $per_page = 5;
   $current_page = pager_default_initialize(count($nids), $per_page);
@@ -300,8 +333,8 @@ function _osha_publication_menu_case_studies_get_facets_def() {
       'operator' => 'or',
       'min_count' => 1,
       'missing' => 0,
-      'options_callback' => '_osha_publication_language_list_options',
-      'options_callback_args' => array(TRUE, TRUE),
+      'options_callback' => '_osha_publication_case_study_language_list_options',
+      'options_callback_args' => array(),
     ),
 
     'field_msd_priority_area' => array(

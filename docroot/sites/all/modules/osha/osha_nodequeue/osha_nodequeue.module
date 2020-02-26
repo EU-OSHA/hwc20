@@ -215,3 +215,20 @@ function _osha_nodequeue_get_queue_sid($qid) {
             )->fetchField();
   return $sqid;
 }
+
+function osha_nodequeue_query_nodequeue_api_autocomplete_alter(QueryAlterableInterface $query) {
+  $queue = $query->getMetaData('queue');
+  $show_on_map = variable_get('show_on_map', [
+    'european_week_events' => 'European Week',
+    'european_week_news' => 'European Week',
+    'press_room_events' => 'Press Room',
+    'press_room_news' => 'Press Room',
+    'good_practice_exchange' => 'GP Exchange',
+    'good_practice_exchange_events' => 'GP Exchange',
+  ]);
+
+  if (!empty($show_on_map[$queue->name])) {
+    $query->join('field_data_field_show_on', 's', 's.entity_id = n.nid');
+    $query->condition('s.field_show_on_value', $show_on_map[$queue->name]);
+  }
+}
