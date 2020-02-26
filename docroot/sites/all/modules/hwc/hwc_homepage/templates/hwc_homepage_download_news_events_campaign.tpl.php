@@ -1,6 +1,6 @@
 <section class="before-the-campaign">
   <div class="col-md-12">
-    <h2><?php print t('Before the campaign starts, here is what you can do'); ?></h2>
+    <h2><?php print t('Before the campaign starts, here is what you can do:'); ?></h2>
   </div>
   <div class="content-box-before">
       <div class="box-before">
