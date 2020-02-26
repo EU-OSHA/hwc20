@@ -256,6 +256,9 @@ select {
 }
 .main-container h2 {
   color: #003399;
+  font-weight: 400;
+  padding-top: 0;
+  margin-top: 0;
 }
 .main-container h2 a:before {
   content: '';
@@ -1401,7 +1404,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 }
 #block-menu-block-4 {
   width: 100%;
-  margin-top: 47px;
+  margin-top: 49px !important;
 }
 aside.col-md-3 .region.region-sidebar-first.well {
   padding: 0;
@@ -1790,7 +1793,7 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
   padding: 0 0 0 1em;
   border: 0;
   border-radius: 5px;
-  margin-top: 16px !important;
+  margin-top: 8px !important;
   width: 100%;
 }
 .sidebars_first .content-filters {
@@ -6790,8 +6793,12 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
 .node-type-priority-area .region-content #block-hwc-priority-areas > div.field.field-name-field-pa-recommended-resources.field-type-entityreference.field-label-hidden > div > div:nth-child(1) > div > div.content {
   background: none;
 }
+.node-type-priority-area .region-content #block-hwc-priority-areas .field-name-field-pa-recommended-resources .field-item {
+  padding-bottom: 0.5em;
+}
 .node-type-priority-area .region-content #block-hwc-priority-areas .field-name-field-pa-recommended-resources .node-pa-highlights {
   width: 100%;
+  padding: 0;
 }
 .node-type-priority-area .region-content #block-hwc-priority-areas .node-news .content,
 .node-type-priority-area .region-content #block-hwc-priority-areas .node-pa-highlights .content {
@@ -6810,9 +6817,9 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
 .node-type-priority-area .region-content #block-hwc-priority-areas .node-news .field.field-name-field-image,
 .node-type-priority-area .region-content #block-hwc-priority-areas .node-pa-highlights .field.field-name-field-image {
   width: auto;
-  min-height: 90px;
   margin-right: 0;
   float: left;
+  min-height: 90px;
 }
 .node-type-priority-area .region-content #block-hwc-priority-areas .node-news .field.field-name-field-image img,
 .node-type-priority-area .region-content #block-hwc-priority-areas .node-pa-highlights .field.field-name-field-image img {
@@ -7553,9 +7560,6 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
 @media (min-width: 1480px) {
   .start-browsing .content-boxes {
     width: 72%;
-  }
-  header.navbar-default .campaigns-header .row:first-of-type {
-    padding: 10px 20px 5px 35px;
   }
 }
 @media (max-width: 1465px) {
