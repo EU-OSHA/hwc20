@@ -24,7 +24,9 @@ function hwc_menu_default_fe_block_settings() {
       0 => 'campaign_16',
       1 => 'campaign_18',
     ),
-    'pages' => 'previous-campaigns/*/about-the-topic',
+    'pages' => 'previous-campaigns/*/about-the-topic
+node/8013
+node/8006',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
@@ -134,7 +136,7 @@ about-topic/business-case',
         'weight' => 0,
       ),
     ),
-    'title' => '<none>',
+    'title' => 'About the topic',
     'visibility' => 1,
   );
 
