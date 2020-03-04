@@ -864,6 +864,7 @@ abstract class AbstractNCWTaxonomyTermMigration extends AbstractNCWNodeMigration
       $row->language = 'en';
       $row->path = !empty($row->path['alias']) ? $row->path['alias'] : NULL;
       // Normalize JSON structure, to match migrate expectations for field data.
+      $row->format = str_replace('full_html_minimal', 'full_html', $row->format);
       $fields = field_info_instances('taxonomy_term', $this->bundle);
       foreach ($fields as $field_name => $field_info) {
         if (in_array($field_name, $this->getManuallyMigratedFields())) {
