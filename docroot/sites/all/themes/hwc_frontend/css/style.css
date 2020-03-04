@@ -21767,7 +21767,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .page-communications .region-sidebar-first .block.block-facetapi,
   .page-partners-documents .region-sidebar-first .block.block-facetapi,
   .page-search .region-sidebar-first .block.block-facetapi {
-    border-bottom: none;
     padding-top: 0px;
     padding-bottom: 10px;
     overflow: hidden;
@@ -21800,11 +21799,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     float: left;
     width: 100%;
     margin-left: 0;
-  }
-  .page-communications .region.region-content .view-search .view-header,
-  .page-partners-documents .region.region-content .view-search .view-header,
-  .page-search .region.region-content .view-search .view-header {
-    padding: 7px 15px;
   }
   .page-communications .region.region-content .view-search .view-content .views-row,
   .page-partners-documents .region.region-content .view-search .view-content .views-row,
@@ -24617,27 +24611,21 @@ body.front .homepage-slider blockquote.image-field-caption p {
     margin-left: 15px;
     margin-right: 15px;
   }
-  .node-type-news .back-to-link {
+  .node-type-news .main-container .back-to-link {
     display: none;
   }
-  .node-type-news .node-news {
+  .node-type-news .main-container .node-news {
     padding-left: 15px;
     padding-right: 15px;
   }
-  .node-type-news h2 {
+  .node-type-news .main-container h2 {
+    margin-top: 0.5em;
     margin-left: 0;
     margin-right: 0;
     font-size: 1.45em;
   }
-  .node-type-news .field-type-image {
-    margin-right: 0em;
-    margin-bottom: 1em;
-    text-align: center;
-  }
-  .node-type-news .field-type-image img {
-    width: 100%;
-    display: block;
-    padding: 0 7em;
+  .node-type-news .main-container .field.field-name-field-summary {
+    margin-top: 0;
   }
   /*end news*/
   /*infographics*/
@@ -26314,11 +26302,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     top: 1px;
   }
   /*FIN home*/
-  /*news*/
-  .node-type-news .field-type-image img {
-    padding: 0 3em;
-  }
-  /*end news*/
   /*create events & news*/
   .page-node-add-events .node-events-form .field-name-field-related-documents .form-file,
   .page-node-add-news .node-events-form .field-name-field-related-documents .form-file,
@@ -26358,9 +26341,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .view-mode-full .hwc-share-widget ul {
     overflow: hidden;
   }
-  .view-mode-full .hwc-share-widget ul .share-this-article {
-    top: -5px;
-  }
   .view-mode-full .hwc-share-widget ul li[id*="twitter-share-button-"] {
     margin-top: 5px;
   }
@@ -26379,11 +26359,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   }
   .view-mode-full .hwc-share-widget ul .pull-right {
     float: none !important;
-  }
-  .hwc-share-widget ul .share-this-article {
-    top: -5px;
-    display: block;
-    clear: both;
   }
   /*gallery*/
   .page-media-center-photo-gallery .view-content,
@@ -26407,24 +26382,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .page-photo-gallery .view-content .views-row[class*="col-"]:nth-child(2n) {
     margin-right: 1em;
     padding: 0px;
-  }
-  /*End gallery*/
-  .node-type-flickr-gallery .hwc-share-widget ul,
-  .node-type-hwc-gallery .hwc-share-widget ul {
-    left: 0px;
-  }
-  .node-type-flickr-gallery .hwc-share-widget ul li,
-  .node-type-hwc-gallery .hwc-share-widget ul li {
-    display: inline-block !important;
-    margin-top: 0px !important;
-    margin-bottom: 5px;
-    margin-left: 0px !important;
-  }
-  .node-type-flickr-gallery .hwc-share-widget ul li.label,
-  .node-type-hwc-gallery .hwc-share-widget ul li.label {
-    display: inline-block !important;
-    margin-bottom: 0px;
-    vertical-align: top;
   }
   /*Focal points*/
   .view-display-id-fop img {
@@ -26462,13 +26419,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     bottom: -1px;
     position: relative;
     float: left;
-  }
-  .node-type-article .hwc-share-widget li {
-    display: inline-block !important;
-  }
-  .node-type-article .hwc-share-widget .share-this-article {
-    display: block;
-    width: 100%;
   }
   .pane-node-field-access-tool-link .field-label-inline .field-label,
   .pane-node-field-access-tool-link-fc .field-label-inline .field-label,

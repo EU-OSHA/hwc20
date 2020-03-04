@@ -7836,6 +7836,9 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
     margin-left: 0;
     margin-right: 0;
   }
+  .view-news .views-row h2 {
+    margin-left: 15px;
+  }
   /*Splash page*/
   .intro-splash-20 .views-row-first {
     padding-bottom: 1em;
@@ -8028,7 +8031,7 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
   .page-search .main-container aside .region-sidebar-first .block.block-facetapi {
     margin-bottom: 15px;
-    margin-top: 0;
+    margin-top: 0 !important;
   }
   .page-search .main-container aside .region-sidebar-first .block.block-facetapi h2 {
     background-color: transparent;
@@ -8154,7 +8157,7 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
   .page-events .add-to-calendar {
     margin-left: 330px;
-    margin-top: -2em;
+    margin-top: -20px;
   }
   .node-type-events .main-container h2 {
     margin-left: 0;
@@ -9358,6 +9361,32 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
 }
 @media (max-width: 480px) {
+  .page_title {
+    margin-bottom: 1em;
+  }
+  .hwc-share-widget {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .hwc-share-widget ul {
+    width: 100%;
+  }
+  body.page-tools-and-publications-practical-tools .region.region-content .view-content .views-row {
+    padding-bottom: 3em!important;
+  }
+  body.page-tools-and-publications-practical-tools .region.region-content .view-content .views-row .views-field-body {
+    padding-bottom: 0;
+  }
+  body.page-tools-and-publications-practical-tools .region.region-content .view-content .views-row .views-field-body .more-link {
+    right: 15px !important;
+  }
+  body.page-tools-and-publications-practical-tools .region.region-content .view-practical-tools .view-content .views-row .conten-tags {
+    width: 100%;
+    margin-right: 0;
+  }
+  body.page-tools-and-publications-practical-tools .region.region-content .view-practical-tools .view-content .views-row .conten-tags span:nth-child(2) {
+    max-width: 175px;
+  }
   body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last p {
     max-width: 280px;
   }
@@ -9465,11 +9494,14 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
     bottom: -64px;
   }
   /* Newsletter page */
-  .page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details .form-item-email input {
+  body.newsletter h2.pane-title {
+    padding-top: 1em;
+  }
+  body.newsletter .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details .form-item-email input {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
-  .page-node-129 .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details #edit-submit {
+  body.newsletter .panels-flexible-region.panels-flexible-region-new-center.panels-flexible-region-first.col-md-6 .pane-osha-newsletter-osha-newsletter-subscribe-extra #subscribe-extra #edit-subscribe-details #edit-submit {
     top: 5px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
