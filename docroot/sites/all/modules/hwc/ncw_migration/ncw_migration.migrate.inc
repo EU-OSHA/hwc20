@@ -56,6 +56,11 @@ function ncw_migration_migrate_api() {
         'dependencies' => array(),
         'class_name' => 'NCWTaxonomyMSDPrioritySreaMigration',
       ),
+      'tax_msd_glossary' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array(),
+        'class_name' => 'NCWTaxonomyMSDGlossaryMigration',
+      ),
       'tax_prevention_measures_msd' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),

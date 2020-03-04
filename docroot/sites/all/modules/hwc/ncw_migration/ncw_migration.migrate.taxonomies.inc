@@ -63,6 +63,15 @@ class NCWTaxonomyPreventionMeasuresMSDMigration extends AbstractNCWTaxonomyTermM
   }
 }
 
+
+class NCWTaxonomyMSDGlossaryMigration extends AbstractNCWTaxonomyTermMigration {
+
+  public function __construct($arguments) {
+    parent::__construct($arguments, 'SimpleNCWTaxonomyTermSource', 'msd_glossary');
+    $this->description = 'Import taxonomy "msd_glossary" from NCW';
+  }
+}
+
 class NCWTaxonomyPurposeOfMaterialMigration extends AbstractNCWTaxonomyTermMigration {
 
   public function __construct($arguments) {
