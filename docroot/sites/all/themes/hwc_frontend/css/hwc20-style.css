@@ -4112,6 +4112,10 @@ body.een .box-type-partner {
 .node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col p {
   margin-bottom: 0;
 }
+.node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col p.more-padding {
+  padding-left: 1em;
+  padding-right: 1em;
+}
 .node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col .more-link {
   margin-top: auto;
   display: flex;
@@ -7427,6 +7431,27 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
 #sliding-popup.sliding-popup-top .eu-cookie-withdraw-banner,
 .eu-cookie-withdraw-tab {
   background: url('../images/background-cookies.png') repeat;
+}
+/* Become a campaign partner */
+.page-node-165 .field-name-title-field h2 {
+  text-align: center;
+}
+.page-node-165 .became-green-block {
+  background: url(../images/became-green-block.png) no-repeat;
+  background-size: cover;
+  padding: 2em 3em;
+  color: #FFF;
+  text-align: left;
+  float: none;
+  margin: 2em auto 2em;
+  border-radius: 5px;
+}
+.page-node-165 .became-green-block a {
+  color: #003399;
+  font-weight: 400;
+}
+.page-node-165 .became-green-block a:hover {
+  text-decoration: underline;
 }
 .isMobile {
   float: right !important;
