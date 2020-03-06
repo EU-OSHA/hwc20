@@ -388,8 +388,8 @@ select {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 2em;
-  padding-bottom: 1.6em;
+  padding-top: 1em;
+  padding-bottom: 0.6em;
 }
 ul.time-and-counters {
   list-style: none;
