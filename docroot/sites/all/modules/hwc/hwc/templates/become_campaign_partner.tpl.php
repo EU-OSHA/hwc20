@@ -7,13 +7,13 @@
 <div class="how-to-apply">
   <h3><?php print t('How to apply');?></h3>
   <div class="timeline">
-    <div><?php echo t(gmdate('F', $first_date)) . gmdate(' Y', $first_date); ?></div>
-    <div><?php
+    <div><span></span><?php echo t(gmdate('F', $first_date)) . gmdate(' Y', $first_date); ?></div></div>
+    <div><span><?php
       echo t(gmdate('F', $download_deadline)) . gmdate(' Y', $download_deadline);
       echo ' - ';
       echo t(gmdate('F', $registration_deadline)) . gmdate(' Y', $registration_deadline);
-      ?></div>
-    <div><?php echo t(gmdate('F', $last_date)) . gmdate(' Y', $last_date); ?></div>
+        ?></span></div>
+    <div><span><?php echo t(gmdate('F', $last_date)) . gmdate(' Y', $last_date); ?></span></div>
   </div>
   <div class="boxes">
     <div class="box <?php echo $download_class; ?>">
