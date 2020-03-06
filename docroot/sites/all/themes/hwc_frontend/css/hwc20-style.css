@@ -4133,7 +4133,7 @@ body.een .box-type-partner {
   float: left;
   width: 100%;
   height: 392px;
-  margin-top: 1em;
+  margin-top: 1.5em;
 }
 .how-to-apply h3 {
   padding-bottom: 1em;
@@ -7435,11 +7435,12 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
 /* Become a campaign partner */
 .page-node-165 .field-name-title-field h2 {
   text-align: center;
+  font-size: 3.8rem;
 }
 .page-node-165 .became-green-block {
   background: url(../images/became-green-block.png) no-repeat;
   background-size: cover;
-  padding: 2em 3em;
+  padding: 1em;
   color: #FFF;
   text-align: left;
   float: none;
