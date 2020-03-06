@@ -463,9 +463,9 @@ function hwc_block_view($delta = '') {
     $block['title'] = '<none>';
     $block['subject'] = "<none>";
     $node = menu_get_object();
-    if ($node->field_resources) {
+    if ($node && !empty($node->field_resources)) {
       $resources = [];
-      foreach($node->field_resources[LANGUAGE_NONE] as $term) {
+      foreach ($node->field_resources[LANGUAGE_NONE] as $term) {
         $wrapper = entity_metadata_wrapper('taxonomy_term', $term['tid']);
         $icon = $wrapper->language($language->language)->field_icon->value()['uri'];
         $image = theme('image_style', ['style_name' => 'relres', 'path' => $icon]);
@@ -799,6 +799,28 @@ function hwc_theme() {
         'events' => '',
       ),
       'template' => 'templates/european_week_news_events',
+    ),
+    'become_campaign_partner' => array(
+      'variables' => array(
+        'download_title' => '',
+        'download_body' => '',
+        'download_link' => '',
+
+        'application_form_title' => '',
+        'application_form_body' => '',
+        'application_form_link' => '',
+
+        'see_results_title' => '',
+        'see_results_body' => '',
+
+        'download_class' => '',
+        'application_form_class' => '',
+        'see_results_class' => '',
+
+        'first_date' => '',
+        'last_date' => '',
+      ),
+      'template' => 'templates/become_campaign_partner',
     ),
     'become_partner' => array(
       'variables' => array(
@@ -1434,7 +1456,11 @@ function hwc_node_view($node, $view_mode, $langcode) {
 
         'download_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_download_deadline', ''),
         'registration_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_registration_deadline', ''),
+
+        'first_date' => hwc_get_partner_deadline_mktime('hwc_partner_how_to_apply_first_date', ''),
+        'last_date' => hwc_get_partner_deadline_mktime('hwc_partner_how_to_apply_last_date', ''),
       );
+      $registration_block = theme('become_campaign_partner', $variables);
     }
     else { // media_partner.
       $download_link = variable_get('become_media_partner_download_link', '#');
@@ -1457,8 +1483,8 @@ function hwc_node_view($node, $view_mode, $langcode) {
         'download_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_download_deadline', ''),
         'registration_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_registration_deadline', ''),
       );
+      $registration_block = theme('become_partner', $variables);
     }
-    $registration_block = theme('become_partner', $variables);
     $body = str_replace('[-PLACEHOLDER-REGISTER-DO-NOT-REMOVE-]', $registration_block, $body);
   }
 

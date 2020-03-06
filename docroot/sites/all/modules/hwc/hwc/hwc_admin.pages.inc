@@ -166,6 +166,13 @@ function hwc_admin_config_form() {
     '#title' => 'Get the result body',
   );
 
+  $form['hwc_partner_how_to_apply_first_date'] = array(
+    '#title' => 'Deadline to Download information',
+    '#description' => 'How to apply first date',
+    '#type' => 'date',
+    '#default_value' => variable_get('hwc_partner_how_to_apply_first_date', ''),
+  );
+
   // Deadline to Download information.
   $form['hwc_partner_download_deadline'] = array(
     '#title' => 'Deadline to Download information',
@@ -180,6 +187,13 @@ function hwc_admin_config_form() {
     '#description' => 'Starting from 12:00 AM of the date selected here, the registration is no longer visible',
     '#type' => 'date',
     '#default_value' => variable_get('hwc_partner_registration_deadline', ''),
+  );
+
+  $form['hwc_partner_how_to_apply_last_date'] = array(
+    '#title' => 'Deadline for partner registration',
+    '#description' => 'How to apply last date',
+    '#type' => 'date',
+    '#default_value' => variable_get('hwc_partner_how_to_apply_last_date', ''),
   );
 
 //  $deadline_message = variable_get('hwc_partner_registration_deadline_message', '');
