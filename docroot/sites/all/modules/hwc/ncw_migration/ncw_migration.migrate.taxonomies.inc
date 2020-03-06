@@ -16,7 +16,7 @@ class NCWTaxonomyActivityMigration extends AbstractNCWTaxonomyTermMigration {
 
   function addFieldMappings() {
     parent::addFieldMappings();
-    $this->addSimpleMappings(array('parent'));
+    $this->addSimpleMappings(array('parent', 'field_activity_code', 'field_activity_level'));
   }
 
   function prepareRow($row) {

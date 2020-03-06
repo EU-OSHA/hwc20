@@ -1193,8 +1193,8 @@ function hwc_form_alter(&$form, &$form_state, $form_id) {
     && !empty($form['#node'])
     && empty($form['#node']->nid)
     && empty($form['field_activity'][LANGUAGE_NONE]['#default_value'])) {
-
-    if ($tid = osha_taxonomies_load_activity_by_code('dangerous_substances_2018_19')) {
+    $code = variable_get('activity_default_code', 'dangerous_substances_2018_19');
+    if ($tid = osha_taxonomies_load_activity_by_code($code)) {
       $form['field_activity'][LANGUAGE_NONE]['#default_value'][] = $tid;
     }
   }
