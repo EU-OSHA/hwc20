@@ -395,7 +395,7 @@ function hwc_frontend_preprocess_page(&$vars) {
   if ($n) {
     $active_trail = menu_get_active_trail();
     if (count($active_trail) > 2) {
-      $vars['banner_title'] = $active_trail[count($active_trail) - 2]['title'];
+      $vars['title'] = $active_trail[count($active_trail) - 2]['title'];
     }
     switch ($n->type) {
       case "partner":
