@@ -454,8 +454,8 @@ select{
     display: flex;
     flex-wrap:wrap;
     justify-content: center;
-    padding-top: 2em;
-    padding-bottom: 1.6em;
+    padding-top: 1em;
+    padding-bottom: 0.6em;
 }
 
 ul.time-and-counters{
@@ -1018,6 +1018,18 @@ ul.time-and-counters{
 	   	width: 100%;
 		padding-left: 1em;
 		word-break: break-word;
+	}
+}
+
+.page-node-184{
+	.recommended-tool{
+	  	span{
+		    display: block;
+		   	width: 100%;
+			padding-left: 1em;
+			word-break: break-word;
+			text-align: left;
+		}
 	}
 }
 
@@ -4744,6 +4756,11 @@ body{
 
 			p{
 				margin-bottom: 0;
+			}
+
+			p.more-padding{
+				padding-left: 1em;
+				padding-right: 1em;
 			}
 
 			.more-link{
@@ -8662,4 +8679,30 @@ body.video-page{
 
 #sliding-popup.sliding-popup-top, #sliding-popup.sliding-popup-top .eu-cookie-withdraw-banner, .eu-cookie-withdraw-tab {
     background: url('../images/background-cookies.png') repeat;
+}
+
+/* Become a campaign partner */
+.page-node-165{
+	.field-name-title-field{
+		h2{
+			text-align: center;
+		}
+	}
+	.became-green-block{
+		background: url(../images/became-green-block.png) no-repeat;
+		background-size: cover;
+		padding: 2em 3em;
+		color:#FFF;
+		text-align: left;
+		float: none;
+		margin: 2em auto 2em;
+		border-radius: 5px;
+		a{
+			color: #003399;
+			font-weight: 400;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+	}
 }
