@@ -44,8 +44,11 @@ function hwc_frontend_menu_link__menu_block($variables) {
   if (!empty($element['#localized_options']['attributes']['title'])) {
     $description = $element['#localized_options']['attributes']['title'];
   }
+  $text = '';
+  if (!empty($element['#localized_options']['content']['image'])) {
   $image_url = file_create_url($element['#localized_options']['content']['image']);
   $text = '<span class="content-img"><img src="' . $image_url . '"/></span>';
+  }
   if (!empty($element['#localized_options']['copyright']['author']) || !empty($element['#localized_options']['copyright']['copyright'])) {
     $text .= '<blockquote class="image-field-caption">';
     if (!empty($element['#localized_options']['copyright']['author'])) {
@@ -869,6 +872,12 @@ function hwc_frontend_preprocess_node(&$vars) {
     if (context_isset('context', 'segmentation_page')) {
       $vars['theme_hook_suggestions'][] = 'node__article_segment';
     }
+  }
+
+  $vars['hide_title'] = FALSE;
+  $active_trail = menu_get_active_trail();
+  if (count($active_trail) < 3) {
+    $vars['hide_title'] = TRUE;
   }
 
   $n = menu_get_object('node');

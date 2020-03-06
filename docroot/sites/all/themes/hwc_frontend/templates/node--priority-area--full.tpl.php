@@ -3,6 +3,11 @@
  * @file
  * Returns the HTML for an article node.
  */
+/** @var array $content */
+/** @var boolean $hide_title */
+if ($hide_title) {
+  unset($content['title_field']);
+}
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php
