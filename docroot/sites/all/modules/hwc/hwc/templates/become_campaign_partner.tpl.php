@@ -7,7 +7,7 @@
 <div class="how-to-apply">
   <h3><?php print t('How to apply');?></h3>
   <div class="timeline">
-    <div><span></span><?php echo t(gmdate('F', $first_date)) . gmdate(' Y', $first_date); ?></div></div>
+    <div><span><?php echo t(gmdate('F', $first_date)) . gmdate(' Y', $first_date); ?></span></div>
     <div><span><?php
       echo t(gmdate('F', $download_deadline)) . gmdate(' Y', $download_deadline);
       echo ' - ';
