@@ -59,6 +59,10 @@ function hwc_glossary_views_default_views() {
   $handler->display->display_options['fields']['field_glossary_type']['label'] = '';
   $handler->display->display_options['fields']['field_glossary_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_glossary_type']['type'] = 'taxonomy_term_reference_plain';
+  /* Sort criterion: Taxonomy term: Name (name_field) */
+  $handler->display->display_options['sorts']['name_field_value']['id'] = 'name_field_value';
+  $handler->display->display_options['sorts']['name_field_value']['table'] = 'field_data_name_field';
+  $handler->display->display_options['sorts']['name_field_value']['field'] = 'name_field_value';
   /* Sort criterion: Taxonomy term: Name */
   $handler->display->display_options['sorts']['name']['id'] = 'name';
   $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
@@ -77,6 +81,13 @@ function hwc_glossary_views_default_views() {
   $handler->display->display_options['filters']['field_glossary_type_tid']['relationship'] = 'field_glossary_type_tid';
   $handler->display->display_options['filters']['field_glossary_type_tid']['value'] = '';
   $handler->display->display_options['filters']['field_glossary_type_tid']['vocabulary'] = 'glossary_type';
+  /* Filter criterion: Taxonomy term: Name (name_field:language) */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'field_data_name_field';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
