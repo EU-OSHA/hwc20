@@ -401,7 +401,10 @@ function hwc_frontend_preprocess_page(&$vars) {
   $n = menu_get_object('node');
   if ($n) {
     $active_trail = menu_get_active_trail();
-    if (count($active_trail) > 2) {
+    $path = current_path();
+    $exclude_banner_titles = str_replace("\r", '', variable_get('hwc_exclude_banner_titles', ''));
+    $exclude_banner_titles = explode("\n", $exclude_banner_titles);
+    if (count($active_trail) > 2 && !in_array($path, $exclude_banner_titles)) {
       $vars['title'] = $active_trail[count($active_trail) - 2]['title'];
     }
     switch ($n->type) {
@@ -881,9 +884,12 @@ function hwc_frontend_preprocess_node(&$vars) {
     }
   }
 
+  $path = current_path();
+  $exclude_banner_titles = str_replace("\r", '', variable_get('hwc_exclude_banner_titles', ''));
+  $exclude_banner_titles = explode("\n", $exclude_banner_titles);
   $vars['hide_title'] = FALSE;
   $active_trail = menu_get_active_trail();
-  if (count($active_trail) < 3) {
+  if ((count($active_trail) < 3)|| in_array($path, $exclude_banner_titles)) {
     $vars['hide_title'] = TRUE;
   }
 

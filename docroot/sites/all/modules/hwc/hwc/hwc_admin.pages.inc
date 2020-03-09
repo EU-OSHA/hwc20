@@ -25,6 +25,13 @@ function hwc_admin_config_form() {
     '#description' => 'Page alias list to remove meta description. One alias per line',
   );
 
+  $form['hwc_exclude_banner_titles'] = array(
+    '#type' => 'textarea',
+    '#default_value' => variable_get('hwc_exclude_banner_titles', ''),
+    '#title' => 'Exclude pages from banner titles changes',
+    '#description' => 'Page alias nad node url list without banner titles changes. One alias or node/nid per line',
+  );
+
   $form['splash_mode'] = array(
     '#type' => 'checkbox',
     '#title' => t('Splash mode'),
