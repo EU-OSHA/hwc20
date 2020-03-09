@@ -20,6 +20,13 @@ function hwc_frontend_html_head_alter(&$head_elements) {
         '/' . $n->field_migration_path_alias[LANGUAGE_NONE][0]['value'];
     }
   }
+
+  $path = current_path();
+  $hide_pages = str_replace("\r", '', variable_get('hwc_hide_meta_description_pages', ''));
+  $hide_pages = explode("\n", $hide_pages);
+  if (in_array($path, $hide_pages)) {
+    unset($head_elements['metatag_description_0']);
+  }
 }
 
 /**

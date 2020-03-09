@@ -18,6 +18,12 @@ function hwc_admin_config_form() {
     '#description' => 'URIs that exists in current website but you want to redirect to the previous websites. One uri per line in format  path/to/page|redirect/to/full/url',
   );
 
+  $form['hwc_hide_meta_description_pages'] = array(
+    '#type' => 'textarea',
+    '#default_value' => variable_get('hwc_hide_meta_description_pages', ''),
+    '#title' => 'Do not show meta description for pages',
+    '#description' => 'Page alias list to remove meta description. One alias per line',
+  );
 
   $form['splash_mode'] = array(
     '#type' => 'checkbox',

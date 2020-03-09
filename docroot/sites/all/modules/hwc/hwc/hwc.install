@@ -1021,3 +1021,16 @@ function hwc_update_7066() {
   }
   node_save($node);
 }
+
+/*
+ * HW20-464 SEO Recommendations implementation.
+ */
+function hwc_update_7067() {
+  variable_set('hwc_hide_meta_description_pages', 'about-topic/glossary-list
+tools-and-publications/campaign-materials
+media-centre/news
+tools-and-publications/practical-tools
+media-centre/events
+campaign-partners/official-campaign-partners
+campaign-partners/enterprise-europe-network');
+}
