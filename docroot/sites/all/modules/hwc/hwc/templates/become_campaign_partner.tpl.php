@@ -9,9 +9,9 @@
   <div class="timeline">
     <div><span><?php echo t(gmdate('F', $first_date)) . gmdate(' Y', $first_date); ?></span></div>
     <div><span><?php
-        echo t(gmdate('F', $download_deadline)) . gmdate(' Y', $download_deadline);
-        echo ' - ';
-        echo t(gmdate('F', $registration_deadline)) . gmdate(' Y', $registration_deadline);
+      echo t(gmdate('F', $download_deadline)) . gmdate(' Y', $download_deadline);
+      echo ' - ';
+      echo t(gmdate('F', $registration_deadline)) . gmdate(' Y', $registration_deadline);
         ?></span></div>
     <div><span><?php echo t(gmdate('F', $last_date)) . gmdate(' Y', $last_date); ?></span></div>
   </div>

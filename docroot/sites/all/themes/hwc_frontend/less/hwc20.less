@@ -4794,7 +4794,8 @@ body{
 		position: relative;
 		.box{
 			width: 197px;
-			border: 2px solid #8ea64b;
+			min-height: 175px;
+			border: 0;
 			background: #FFF;
 			height: auto;
 			padding-bottom: 1em;
@@ -4803,38 +4804,90 @@ body{
 			div{
 				text-align: left;
 				padding-left: 10px;
+				padding-right: 10px;
 				.btn-become-partner-download{
-					background: url(../images/download-timeline.png) no-repeat 93% 40%;
+					width: 100%;
+					min-height: 36px;
+					background: url(../images/timeline-button-active.png) repeat-y 93% 40%;
 					text-align: left;
-					border: 1px solid #0030a0;
-					color: #0030a0;
-					padding-left: 5px;
-					padding-right: 35px;
-					border-radius: 3px;
-					text-decoration: none;
-					display: inline-block;
-    				max-width: 171px;
-				}
-				.btn-become-partner-register{
-					text-align: left;
-					border: 1px solid #0030a0;
-					color: #0030a0;
+					color: #FFF;
+					padding-top: 7px;
 					padding-left: 10px;
-					padding-right: 10px;
+    				padding-right: 10px;
 					border-radius: 3px;
 					text-decoration: none;
 					display: inline-block;
-    				max-width: 171px;
+					&:after{
+						content:'';
+						display: block;	
+						background: url(../images/timeline-button-download.png) no-repeat;
+						width: 17px;
+						height: 17px;
+						float: right;
+					}
+					&:hover{
+						opacity: 0.8;
+					}
+				}
+
+				.btn-become-partner-register{
+					width: 100%;
+					min-height: 36px;
+					background: url(../images/timeline-button-active.png) repeat-y 93% 40%;
+					text-align: left;
+					color: #FFF;
+					padding-top: 7px;
+					padding-left: 10px;
+    				padding-right: 10px;
+					border-radius: 3px;
+					text-decoration: none;
+					display: inline-block;
+					&:after{
+						content:'';
+						display: block;	
+						background: url(../images/active-next.png) no-repeat 85% 75%;
+						width: 17px;
+						height: 17px;
+						float: right;
+					}
+					&:hover{
+						opacity: 0.8;
+					}
 				}
 			}
 			
 		}
 
 		.box.inactive{
-			background: #efeff0;
-			border: 2px solid #b0b1b2;
-			h4, p{
+			/*background: #efeff0;*/
+			border: 0;
+			/*h4, p{
 				color:#b0b1b2;
+			}*/
+			div{
+				.btn-become-partner-register{
+					background: url(../images/timeline-button-no-active.png) repeat-y 93% 40%;					
+					width: 100%;
+					min-height: 36px;
+					text-align: left;
+					color: #b3bccc;
+					padding-top: 7px;
+					padding-left: 10px;
+					padding-right: 10px;
+					border-radius: 3px;
+					text-decoration: none;
+					display: inline-block;
+					pointer-events: none;
+					cursor: pointer;
+					&:after{
+						content:'';
+						display: block;	
+						background: url(../images/no-active-next.png) no-repeat 85% 75%;
+						width: 17px;
+						height: 17px;
+						float: right;
+					}
+				}
 			}
 		}
 
@@ -4849,6 +4902,7 @@ body{
 		    padding-left: 10px;
 		    padding-right: 10px;
 		    color: #0030a0;
+		    line-height: 19px;
 		    /*HW20-175 Become a Campaign Partner - The title of the text in boxes should be bold*/
 			font-weight: bold;
 			word-break: break-word;
@@ -4859,25 +4913,26 @@ body{
 			font-size: 0.8em;
 			padding-left: 10px;
 			padding-right: 10px;
+			margin-bottom: 20px;
 			text-align: left;
 		}
 	}
 
 	> div.boxes > div:nth-child(1){
 		position: absolute;
-		left: 8%;
+		left: 17%;
     	top: 73px;
 	}
 
 	> div.boxes > div:nth-child(2){
 		position: absolute;
-		left: 42%;
+		left: 43%;
 		top: 73px;
 	}
 
 	> div.boxes > div:nth-child(3){
 		position: absolute;
-		right: 5%;
+		right: 12%;
 		top: 73px;
 	}
 	
@@ -4890,18 +4945,13 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background: url(../images/timeline-dots.png) repeat-x 50%;
+    background: url(../images/time-line-v2.png) no-repeat 50%;
     padding-top: 70px;
     padding-bottom: 1em;
     position: relative;
+    
     > div {
 		float: left;
-	}
-	> div:nth-child(1), > div:nth-child(3), > div:nth-child(5){
-		background: #0030a0;
-		border-radius: 25px;
-		width: 27px;
-    	border: 3px solid #FFF;
 	}
 
 	> div:nth-child(1){
@@ -4910,29 +4960,52 @@ body{
     	top: 29px;
     }
 
-    > div:nth-child(2){
+    > div:nth-child(1){
 		position: absolute;
-    	left: 29%;
+    	left: 234px;
     	top: 9px;
     	font-weight: bold;
     	&:after{
-    		content:' ';
-    		display: block;
-    		width: 15px;
-    		height: 15px;
-    		background: #0030a0;
-    		border-radius: 7px;
-    		border: 2px solid #FFF;
     		position: absolute;
-    		left: 42%;
-    		top: 26px;
-    	}
+		    left: 32px;
+		    top: 21px;
+		}
+    }
+
+    > div:nth-child(2){
+		position: absolute;
+    	left: 42%;
+    	top: 9px;
+    	font-weight: bold;
+		&:after{
+    		position: absolute;
+		    left: 42%;
+		    top: 21px;
+		}
     }
 
     > div:nth-child(3){
 		position: absolute;
-    	left: 49%;
-    	top: 29px;
+    	right: 205px;
+    	top: 9px;
+    	font-weight: bold;
+		&:after{
+    		position: absolute;
+		    left: 42%;
+		    top: 21px;
+		}
+    }
+
+    > div:nth-child(1), > div:nth-child(2), > div:nth-child(3){
+    	&:after{
+    		content: ' ';
+		    display: block;
+		    width: 25px;
+		    height: 25px;
+		    background: #FFF;
+		    border-radius: 16px;
+		    border: 3px solid #3b7d46;
+    	}
     }
 
     > div:nth-child(4){

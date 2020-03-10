@@ -4143,7 +4143,8 @@ body.een .box-type-partner {
 }
 .how-to-apply .boxes .box {
   width: 197px;
-  border: 2px solid #8ea64b;
+  min-height: 175px;
+  border: 0;
   background: #FFF;
   height: auto;
   padding-bottom: 1em;
@@ -4153,37 +4154,85 @@ body.een .box-type-partner {
 .how-to-apply .boxes .box div {
   text-align: left;
   padding-left: 10px;
+  padding-right: 10px;
 }
 .how-to-apply .boxes .box div .btn-become-partner-download {
-  background: url(../images/download-timeline.png) no-repeat 93% 40%;
+  width: 100%;
+  min-height: 36px;
+  background: url(../images/timeline-button-active.png) repeat-y 93% 40%;
   text-align: left;
-  border: 1px solid #0030a0;
-  color: #0030a0;
-  padding-left: 5px;
-  padding-right: 35px;
-  border-radius: 3px;
-  text-decoration: none;
-  display: inline-block;
-  max-width: 171px;
-}
-.how-to-apply .boxes .box div .btn-become-partner-register {
-  text-align: left;
-  border: 1px solid #0030a0;
-  color: #0030a0;
+  color: #FFF;
+  padding-top: 7px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 3px;
   text-decoration: none;
   display: inline-block;
-  max-width: 171px;
+}
+.how-to-apply .boxes .box div .btn-become-partner-download:after {
+  content: '';
+  display: block;
+  background: url(../images/timeline-button-download.png) no-repeat;
+  width: 17px;
+  height: 17px;
+  float: right;
+}
+.how-to-apply .boxes .box div .btn-become-partner-download:hover {
+  opacity: 0.8;
+}
+.how-to-apply .boxes .box div .btn-become-partner-register {
+  width: 100%;
+  min-height: 36px;
+  background: url(../images/timeline-button-active.png) repeat-y 93% 40%;
+  text-align: left;
+  color: #FFF;
+  padding-top: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  text-decoration: none;
+  display: inline-block;
+}
+.how-to-apply .boxes .box div .btn-become-partner-register:after {
+  content: '';
+  display: block;
+  background: url(../images/active-next.png) no-repeat 85% 75%;
+  width: 17px;
+  height: 17px;
+  float: right;
+}
+.how-to-apply .boxes .box div .btn-become-partner-register:hover {
+  opacity: 0.8;
 }
 .how-to-apply .boxes .box.inactive {
-  background: #efeff0;
-  border: 2px solid #b0b1b2;
+  /*background: #efeff0;*/
+  border: 0;
+  /*h4, p{
+				color:#b0b1b2;
+			}*/
 }
-.how-to-apply .boxes .box.inactive h4,
-.how-to-apply .boxes .box.inactive p {
-  color: #b0b1b2;
+.how-to-apply .boxes .box.inactive div .btn-become-partner-register {
+  background: url(../images/timeline-button-no-active.png) repeat-y 93% 40%;
+  width: 100%;
+  min-height: 36px;
+  text-align: left;
+  color: #b3bccc;
+  padding-top: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  text-decoration: none;
+  display: inline-block;
+  pointer-events: none;
+  cursor: pointer;
+}
+.how-to-apply .boxes .box.inactive div .btn-become-partner-register:after {
+  content: '';
+  display: block;
+  background: url(../images/no-active-next.png) no-repeat 85% 75%;
+  width: 17px;
+  height: 17px;
+  float: right;
 }
 .how-to-apply .boxes h3 {
   font-size: 2em;
@@ -4195,6 +4244,7 @@ body.een .box-type-partner {
   padding-left: 10px;
   padding-right: 10px;
   color: #0030a0;
+  line-height: 19px;
   /*HW20-175 Become a Campaign Partner - The title of the text in boxes should be bold*/
   font-weight: bold;
   word-break: break-word;
@@ -4204,21 +4254,22 @@ body.een .box-type-partner {
   font-size: 0.8em;
   padding-left: 10px;
   padding-right: 10px;
+  margin-bottom: 20px;
   text-align: left;
 }
 .how-to-apply > div.boxes > div:nth-child(1) {
   position: absolute;
-  left: 8%;
+  left: 17%;
   top: 73px;
 }
 .how-to-apply > div.boxes > div:nth-child(2) {
   position: absolute;
-  left: 42%;
+  left: 43%;
   top: 73px;
 }
 .how-to-apply > div.boxes > div:nth-child(3) {
   position: absolute;
-  right: 5%;
+  right: 12%;
   top: 73px;
 }
 .timeline {
@@ -4228,7 +4279,7 @@ body.een .box-type-partner {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background: url(../images/timeline-dots.png) repeat-x 50%;
+  background: url(../images/time-line-v2.png) no-repeat 50%;
   padding-top: 70px;
   padding-bottom: 1em;
   position: relative;
@@ -4236,41 +4287,54 @@ body.een .box-type-partner {
 .timeline > div {
   float: left;
 }
-.timeline > div:nth-child(1),
-.timeline > div:nth-child(3),
-.timeline > div:nth-child(5) {
-  background: #0030a0;
-  border-radius: 25px;
-  width: 27px;
-  border: 3px solid #FFF;
-}
 .timeline > div:nth-child(1) {
   position: absolute;
   left: 15%;
   top: 29px;
 }
+.timeline > div:nth-child(1) {
+  position: absolute;
+  left: 234px;
+  top: 9px;
+  font-weight: bold;
+}
+.timeline > div:nth-child(1):after {
+  position: absolute;
+  left: 32px;
+  top: 21px;
+}
 .timeline > div:nth-child(2) {
   position: absolute;
-  left: 29%;
+  left: 42%;
   top: 9px;
   font-weight: bold;
 }
 .timeline > div:nth-child(2):after {
-  content: ' ';
-  display: block;
-  width: 15px;
-  height: 15px;
-  background: #0030a0;
-  border-radius: 7px;
-  border: 2px solid #FFF;
   position: absolute;
   left: 42%;
-  top: 26px;
+  top: 21px;
 }
 .timeline > div:nth-child(3) {
   position: absolute;
-  left: 49%;
-  top: 29px;
+  right: 205px;
+  top: 9px;
+  font-weight: bold;
+}
+.timeline > div:nth-child(3):after {
+  position: absolute;
+  left: 42%;
+  top: 21px;
+}
+.timeline > div:nth-child(1):after,
+.timeline > div:nth-child(2):after,
+.timeline > div:nth-child(3):after {
+  content: ' ';
+  display: block;
+  width: 25px;
+  height: 25px;
+  background: #FFF;
+  border-radius: 16px;
+  border: 3px solid #3b7d46;
 }
 .timeline > div:nth-child(4) {
   position: absolute;
@@ -8424,10 +8488,29 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   .page-events #content {
     margin-top: 0;
   }
+  .how-to-apply > div.boxes > div:nth-child(1) {
+    position: absolute;
+    left: 9%;
+    top: 73px;
+  }
   .how-to-apply > div.boxes > div:nth-child(2) {
     position: absolute;
-    left: 38%;
+    left: 37%;
     top: 73px;
+  }
+  .timeline > div:nth-child(1) {
+    position: absolute;
+    left: 130px;
+    top: 9px;
+    font-weight: bold;
+  }
+  .timeline > div:nth-child(2) {
+    position: absolute;
+    left: 36%;
+  }
+  .timeline > div:nth-child(3) {
+    position: absolute;
+    right: 178px;
   }
   .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node,
   .add-to-calendar {
@@ -8438,16 +8521,6 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-  /* iPad */
-  .how-to-apply > div.boxes > div:nth-child(1) {
-    left: 4%;
-  }
-  .how-to-apply > div.boxes > div:nth-child(2) {
-    left: 36.5%;
-  }
-  .how-to-apply > div.boxes > div:nth-child(3) {
-    right: 0%;
-  }
   .before-the-campaign .content-box-before .box-before {
     margin-bottom: 0;
     margin-left: 0;
@@ -8531,6 +8604,46 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
   .profile-edit-links-container .hwc-partner-private-link-block-description {
     margin-top: 0.8em;
+  }
+  /* Timeline */
+  .how-to-apply > div.boxes > div:nth-child(1) {
+    left: 44px;
+  }
+  .how-to-apply > div.boxes > div:nth-child(2) {
+    left: 332px;
+  }
+  .how-to-apply > div.boxes > div:nth-child(3) {
+    right: 8px;
+  }
+  .timeline > div:nth-child(1) {
+    left: 104px;
+  }
+  .timeline > div:nth-child(2) {
+    left: 320px;
+  }
+  .timeline > div:nth-child(3) {
+    right: 89px;
+  }
+}
+@media (max-width: 854px) {
+  /* Timeline */
+  .how-to-apply > div.boxes > div:nth-child(1) {
+    left: 44px;
+  }
+  .how-to-apply > div.boxes > div:nth-child(2) {
+    left: 258px;
+  }
+  .how-to-apply > div.boxes > div:nth-child(3) {
+    right: 8px;
+  }
+  .timeline > div:nth-child(1) {
+    left: 104px;
+  }
+  .timeline > div:nth-child(2) {
+    left: 255px;
+  }
+  .timeline > div:nth-child(3) {
+    right: 89px;
   }
 }
 @media (max-width: 768px) {
@@ -9082,22 +9195,22 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
     text-align: center;
     float: left;
     width: 100%;
-    height: 736px;
+    height: 868px;
   }
   .how-to-apply > div.boxes > div:nth-child(1) {
     position: absolute;
-    left: 100px;
-    top: 17px;
+    left: 72px;
+    top: 68px;
   }
   .how-to-apply > div.boxes > div:nth-child(2) {
     position: absolute;
-    left: 100px;
-    top: 265px;
+    left: 72px;
+    top: 310px;
   }
   .how-to-apply > div.boxes > div:nth-child(3) {
     position: absolute;
-    left: 100px;
-    top: 487px;
+    left: 71px;
+    top: 546px;
   }
   .timeline {
     width: 100%;
@@ -9107,7 +9220,7 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background: url(../images/timeline-dots-vertical.png) repeat-y 39px 0;
+    background: none;
     padding-top: 70px;
     padding-bottom: 1em;
     position: relative;
@@ -9115,32 +9228,33 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   .timeline > div {
     float: left;
   }
-  .timeline > div:nth-child(1),
-  .timeline > div:nth-child(3),
-  .timeline > div:nth-child(5) {
-    background: #0030a0;
-    border-radius: 25px;
-    width: 27px;
-    border: 3px solid #FFF;
-  }
   .timeline > div:nth-child(1) {
     position: absolute;
-    left: 28px;
-    top: 70px;
+    left: 76px;
+    top: 37px;
+  }
+  .timeline > div:nth-child(1):after {
+    left: -67px;
+    top: 92px;
   }
   .timeline > div:nth-child(2) {
     position: absolute;
-    left: 101px;
-    top: 193px;
+    left: 74px;
+    top: 281px;
   }
   .timeline > div:nth-child(2):after {
-    left: -67px;
-    top: 3px;
+    left: -65px;
+    top: 101px;
   }
   .timeline > div:nth-child(3) {
     position: absolute;
-    left: 28px;
-    top: 318px;
+    left: 73px;
+    top: 518px;
+    right: initial;
+  }
+  .timeline > div:nth-child(3):after {
+    left: -64px;
+    top: 97px;
   }
   .timeline > div:nth-child(4) {
     position: absolute;

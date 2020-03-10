@@ -932,11 +932,37 @@
 		margin-top: 0;
 	}
 
-	.how-to-apply > div.boxes > div:nth-child(2) {
-	    position: absolute;
-	    left: 38%;
-	    top: 73px;
+	.how-to-apply{
+		> div.boxes{
+			> div:nth-child(1) {
+				position: absolute;
+	    		left: 9%;
+	    		top: 73px;					
+			}
+			> div:nth-child(2) {
+	    		position: absolute;
+	   			left: 37%;
+	    		top: 73px;
+			}
+		}
 	}
+
+	.timeline{
+		> div:nth-child(1) {
+	    	position: absolute;
+	    	left: 130px;
+	    	top: 9px;
+	    	font-weight: bold;
+		}
+		> div:nth-child(2) {
+    		position: absolute;
+    		left: 36%;
+    	}
+    	> div:nth-child(3) {
+    		position: absolute;
+    		right: 178px;
+    	}
+	} 
 
 	.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node,
 	.add-to-calendar{
@@ -951,20 +977,7 @@
 
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) { 
-	/* iPad */
-
-	.how-to-apply > div.boxes > div:nth-child(1) {
-    	left: 4%;
-    }
-
-	.how-to-apply > div.boxes > div:nth-child(2) {
-	    left: 36.5%;
-	}
-
-	.how-to-apply > div.boxes > div:nth-child(3) {
-	    right: 0%;
-	}
-
+	
 	.before-the-campaign .content-box-before .box-before{
 		margin-bottom: 0;
 		margin-left: 0;
@@ -1071,5 +1084,70 @@
 		    margin-top: 0.8em;
 		}
 	}
+
+	/* Timeline */
+
+	.how-to-apply{
+		> div.boxes{
+			> div:nth-child(1) {
+	    		left: 44px;				
+			}
+			> div:nth-child(2) {
+	   			left: 332px;
+			}
+			> div:nth-child(3) {
+	    		right: 8px;
+			}
+
+		}
+	}
+
+	.timeline{
+		> div:nth-child(1) {
+	    	left: 104px;;
+		}
+		> div:nth-child(2) {
+    		left: 320px;
+    	}
+    	> div:nth-child(3) {
+    		right: 89px;
+    	}
+	} 
+
+
+}
+
+
+@media (max-width: 854px) {
+	
+	/* Timeline */
+
+	.how-to-apply{
+		> div.boxes{
+			> div:nth-child(1) {
+	    		left: 44px;				
+			}
+			> div:nth-child(2) {
+	   			left: 258px;
+			}
+			> div:nth-child(3) {
+	    		right: 8px;
+			}
+
+		}
+	}
+
+	.timeline{
+		> div:nth-child(1) {
+	    	left: 104px;;
+		}
+		> div:nth-child(2) {
+    		left: 255px;
+    	}
+    	> div:nth-child(3) {
+    		right: 89px;
+    	}
+	} 
+
 
 }
