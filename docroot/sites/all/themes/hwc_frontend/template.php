@@ -44,8 +44,11 @@ function hwc_frontend_menu_link__menu_block($variables) {
   if (!empty($element['#localized_options']['attributes']['title'])) {
     $description = $element['#localized_options']['attributes']['title'];
   }
+  $text = '';
+  if (!empty($element['#localized_options']['content']['image'])) {
   $image_url = file_create_url($element['#localized_options']['content']['image']);
   $text = '<span class="content-img"><img src="' . $image_url . '"/></span>';
+  }
   if (!empty($element['#localized_options']['copyright']['author']) || !empty($element['#localized_options']['copyright']['copyright'])) {
     $text .= '<blockquote class="image-field-caption">';
     if (!empty($element['#localized_options']['copyright']['author'])) {
