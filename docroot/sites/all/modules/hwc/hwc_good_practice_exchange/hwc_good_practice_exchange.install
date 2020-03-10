@@ -218,3 +218,12 @@ function hwc_good_practice_exchange_update_7026() {
 function hwc_good_practice_exchange_update_7027() {
   features_revert_module('hwc_good_practice_exchange');
 }
+
+/**
+ * HW20-495 Good Practice Exchange will go with Splash page Golive.
+ */
+function hwc_good_practice_exchange_update_7028() {
+  $menu_link = menu_link_load(17602);
+  $menu_link['hidden'] = 0;
+  menu_link_save($menu_link);
+}

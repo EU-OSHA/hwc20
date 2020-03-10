@@ -374,7 +374,7 @@ function hwc_good_practice_exchange_theme($existing, $type, $theme, $path) {
 function hwc_good_practice_exchange_block_view($delta = '') {
   $block = array();
 
-  if ($delta == 'gpe_news_events') {
+  if ($delta == 'gpe_news_events' && !variable_get('splash_mode', FALSE)) {
     $news = block_load('views', 'news-gpe');
     $array = _block_get_renderable_array(_block_render_blocks([$news]));
     if (hwc_gpe_news()) {
