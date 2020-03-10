@@ -4181,23 +4181,58 @@ body.een .box-type-partner {
   opacity: 0.8;
 }
 .how-to-apply .boxes .box div .btn-become-partner-register {
+  width: 100%;
+  min-height: 36px;
+  background: url(../images/timeline-button-active.png) repeat-y 93% 40%;
   text-align: left;
-  border: 1px solid #0030a0;
-  color: #0030a0;
+  color: #FFF;
+  padding-top: 7px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 3px;
   text-decoration: none;
   display: inline-block;
-  max-width: 171px;
+}
+.how-to-apply .boxes .box div .btn-become-partner-register:after {
+  content: '';
+  display: block;
+  background: url(../images/active-next.png) no-repeat 85% 75%;
+  width: 17px;
+  height: 17px;
+  float: right;
+}
+.how-to-apply .boxes .box div .btn-become-partner-register:hover {
+  opacity: 0.8;
 }
 .how-to-apply .boxes .box.inactive {
-  background: #efeff0;
+  /*background: #efeff0;*/
   border: 0;
+  /*h4, p{
+				color:#b0b1b2;
+			}*/
 }
-.how-to-apply .boxes .box.inactive h4,
-.how-to-apply .boxes .box.inactive p {
-  color: #b0b1b2;
+.how-to-apply .boxes .box.inactive div .btn-become-partner-register {
+  background: url(../images/timeline-button-no-active.png) repeat-y 93% 40%;
+  width: 100%;
+  min-height: 36px;
+  text-align: left;
+  color: #b3bccc;
+  padding-top: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  text-decoration: none;
+  display: inline-block;
+  pointer-events: none;
+  cursor: pointer;
+}
+.how-to-apply .boxes .box.inactive div .btn-become-partner-register:after {
+  content: '';
+  display: block;
+  background: url(../images/no-active-next.png) no-repeat 85% 75%;
+  width: 17px;
+  height: 17px;
+  float: right;
 }
 .how-to-apply .boxes h3 {
   font-size: 2em;
@@ -4219,7 +4254,7 @@ body.een .box-type-partner {
   font-size: 0.8em;
   padding-left: 10px;
   padding-right: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   text-align: left;
 }
 .how-to-apply > div.boxes > div:nth-child(1) {
