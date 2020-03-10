@@ -400,16 +400,28 @@ function hwc_frontend_preprocess_block(&$vars) {
   }
 }
 
+function _hwc_frontend_allow_title($active_trail) {
+  $path = current_path();
+  $exclude_banner_titles = str_replace("\r", '', variable_get('hwc_exclude_banner_titles', ''));
+  $exclude_banner_titles = explode("\n", $exclude_banner_titles);
+  $previous_campaigns_mlid = variable_get('hwc_previous_campaigns_mlid', '35515');
+  if (
+    count($active_trail) > 2 &&
+    ($active_trail[1]['mlid'] == 1123 || $active_trail[1]['mlid'] == $previous_campaigns_mlid) &&
+    !in_array($path, $exclude_banner_titles)
+  ) {
+    return TRUE;
+  }
+  return FALSE;
+}
+
 function hwc_frontend_preprocess_page(&$vars) {
   $vars['head_text'] = t('Healthy Workplaces Lighten the Load 2020-22');
   $vars['banner_title'] = '';
   $n = menu_get_object('node');
   if ($n) {
     $active_trail = menu_get_active_trail();
-    $path = current_path();
-    $exclude_banner_titles = str_replace("\r", '', variable_get('hwc_exclude_banner_titles', ''));
-    $exclude_banner_titles = explode("\n", $exclude_banner_titles);
-    if (count($active_trail) > 2 && $active_trail[1]['mlid'] == 1123 && !in_array($path, $exclude_banner_titles)) {
+    if (_hwc_frontend_allow_title($active_trail)) {
       $vars['title'] = $active_trail[count($active_trail) - 2]['title'];
     }
     switch ($n->type) {
@@ -889,12 +901,9 @@ function hwc_frontend_preprocess_node(&$vars) {
     }
   }
 
-  $path = current_path();
-  $exclude_banner_titles = str_replace("\r", '', variable_get('hwc_exclude_banner_titles', ''));
-  $exclude_banner_titles = explode("\n", $exclude_banner_titles);
   $vars['hide_title'] = FALSE;
   $active_trail = menu_get_active_trail();
-  if ((count($active_trail) < 3)|| in_array($path, $exclude_banner_titles) || $active_trail[1]['mlid'] != 1123) {
+  if (!_hwc_frontend_allow_title($active_trail)) {
     $vars['hide_title'] = TRUE;
   }
 
