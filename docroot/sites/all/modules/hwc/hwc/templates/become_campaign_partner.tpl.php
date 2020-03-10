@@ -27,10 +27,7 @@
     <div class="box <?php echo $application_form_class; ?>">
       <h4><?php echo $application_form_title; ?></h4>
       <p><?php echo $application_form_body; ?></p>
-      <div><?php
-        if ($application_form_class == 'active') {
-          echo $application_form_link;
-        } ?></div>
+      <div><?php echo $application_form_link; ?></div>
     </div>
     <div class="box <?php echo $see_results_class; ?>">
       <h4><?php echo $see_results_title; ?></h4>
