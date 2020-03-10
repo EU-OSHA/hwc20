@@ -7873,11 +7873,14 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
     flex-wrap: wrap;
   }
   .before-the-campaign .content-box-before .box-before .block-views .view-view-campaign-materials .view-content > div {
-    width: 50%;
+    width: 100%;
     border-bottom: 1px solid #CCC;
   }
   .before-the-campaign .content-box-before .box-before .block-views .view-view-campaign-materials .view-content > div .box-before-title {
     border: 0;
+  }
+  .before-the-campaign .content-box-before .box-before .block-views .view-view-campaign-materials .view-content > div:nth-child(4) {
+    border-bottom: 0;
   }
   .container {
     padding-left: 15px;
