@@ -32,7 +32,7 @@
  *   ));?>
  */
 ?>
-<?php print l($text, $term["linkto"], array(
+<?php print l($text, '', array(
   'attributes' => array(
     'data-titleBM' => $term["term"]->description,
     'data' => "", //antes ponía safe_description pero debido a que meten HTML esto es lo que necesitan, a pesar de lo que indican los comentarios de este módulo más arriba

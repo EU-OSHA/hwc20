@@ -18,6 +18,19 @@ function hwc_admin_config_form() {
     '#description' => 'URIs that exists in current website but you want to redirect to the previous websites. One uri per line in format  path/to/page|redirect/to/full/url',
   );
 
+  $form['hwc_hide_meta_description_pages'] = array(
+    '#type' => 'textarea',
+    '#default_value' => variable_get('hwc_hide_meta_description_pages', ''),
+    '#title' => 'Do not show meta description for pages',
+    '#description' => 'Page alias list to remove meta description. One alias per line',
+  );
+
+  $form['hwc_exclude_banner_titles'] = array(
+    '#type' => 'textarea',
+    '#default_value' => variable_get('hwc_exclude_banner_titles', ''),
+    '#title' => 'Exclude pages from banner titles changes',
+    '#description' => 'Page alias nad node url list without banner titles changes. One alias or node/nid per line',
+  );
 
   $form['splash_mode'] = array(
     '#type' => 'checkbox',
@@ -166,6 +179,13 @@ function hwc_admin_config_form() {
     '#title' => 'Get the result body',
   );
 
+  $form['hwc_partner_how_to_apply_first_date'] = array(
+    '#title' => 'Deadline to Download information',
+    '#description' => 'How to apply first date',
+    '#type' => 'date',
+    '#default_value' => variable_get('hwc_partner_how_to_apply_first_date', ''),
+  );
+
   // Deadline to Download information.
   $form['hwc_partner_download_deadline'] = array(
     '#title' => 'Deadline to Download information',
@@ -180,6 +200,13 @@ function hwc_admin_config_form() {
     '#description' => 'Starting from 12:00 AM of the date selected here, the registration is no longer visible',
     '#type' => 'date',
     '#default_value' => variable_get('hwc_partner_registration_deadline', ''),
+  );
+
+  $form['hwc_partner_how_to_apply_last_date'] = array(
+    '#title' => 'Deadline for partner registration',
+    '#description' => 'How to apply last date',
+    '#type' => 'date',
+    '#default_value' => variable_get('hwc_partner_how_to_apply_last_date', ''),
   );
 
 //  $deadline_message = variable_get('hwc_partner_registration_deadline_message', '');
