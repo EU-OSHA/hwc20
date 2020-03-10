@@ -4144,7 +4144,7 @@ body.een .box-type-partner {
 .how-to-apply .boxes .box {
   width: 197px;
   min-height: 175px;
-  border: 2px solid #8ea64b;
+  border: 0;
   background: #FFF;
   height: auto;
   padding-bottom: 1em;
@@ -4159,12 +4159,12 @@ body.een .box-type-partner {
 .how-to-apply .boxes .box div .btn-become-partner-download {
   width: 100%;
   min-height: 36px;
-  background: url(../images/timeline-button-active.png) no-repeat 93% 40%;
+  background: url(../images/timeline-button-active.png) repeat-y 93% 40%;
   text-align: left;
   color: #FFF;
   padding-top: 7px;
-  padding-left: 5px;
-  padding-right: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 3px;
   text-decoration: none;
   display: inline-block;
@@ -4193,7 +4193,7 @@ body.een .box-type-partner {
 }
 .how-to-apply .boxes .box.inactive {
   background: #efeff0;
-  border: 2px solid #b0b1b2;
+  border: 0;
 }
 .how-to-apply .boxes .box.inactive h4,
 .how-to-apply .boxes .box.inactive p {
