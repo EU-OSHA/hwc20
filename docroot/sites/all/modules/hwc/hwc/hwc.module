@@ -1433,13 +1433,13 @@ function hwc_node_view($node, $view_mode, $langcode) {
         }
       }
     }
-    if ($node->nid == 165) { // campaign_partner.
-      $download_class = 'active';
-      $see_results_class = 'active';
-      if ($registration_allowed && !$download_allowed) {// > download deadline and < registration deadline.
-        $application_form_class = 'active';
-      }
+//    if ($node->nid == 165) { // campaign_partner.
+    $download_class = 'active';
+    $see_results_class = 'active';
+    if ($registration_allowed && !$download_allowed) {// > download deadline and < registration deadline.
+      $application_form_class = 'active';
     }
+//    }
     if ($node->nid == 165) { // campaign_partner.
       $download_link = variable_get('become_campaign_partner_download_link', '#');
       $download_title = variable_get('become_campaign_partner_download_link_title', 'Download the offer');
@@ -1471,7 +1471,7 @@ function hwc_node_view($node, $view_mode, $langcode) {
     else { // media_partner.
       $download_link = variable_get('become_media_partner_download_link', '#');
       $download_title = variable_get('become_media_partner_download_link_title', 'Download the offer');
-      $register_title = variable_get('become_media_partner_register_title', 'Become a campaign partner');
+      $register_title = variable_get('become_media_partner_register_title', 'Apply here');
       $variables = array(
         'download_title' => t(variable_get('become_media_partner_download_title', 'Download the Campaign Partnership offer')),
         'download_body' => t(variable_get('become_media_partner_download_body', 'Get to know more about the status and make sure you meet the requirements.')),
