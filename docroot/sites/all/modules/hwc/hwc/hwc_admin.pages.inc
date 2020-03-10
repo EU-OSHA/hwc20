@@ -32,6 +32,20 @@ function hwc_admin_config_form() {
     '#description' => 'Page alias nad node url list without banner titles changes. One alias or node/nid per line',
   );
 
+  $form['hwc_exclude_top_share_widget'] = array(
+    '#type' => 'textarea',
+    '#default_value' => variable_get('hwc_exclude_top_share_widget', ''),
+    '#title' => 'Exclude top share widget from nodes',
+    '#description' => 'Node list to exclude top share widget. One node id per line',
+  );
+
+  $form['hwc_exclude_bottom_share_widget'] = array(
+    '#type' => 'textarea',
+    '#default_value' => variable_get('hwc_exclude_bottom_share_widget', ''),
+    '#title' => 'Exclude bottom share widget from nodes',
+    '#description' => 'Node list to exclude bottom share widget. One node id per line',
+  );
+
   $form['splash_mode'] = array(
     '#type' => 'checkbox',
     '#title' => t('Splash mode'),

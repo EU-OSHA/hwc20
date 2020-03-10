@@ -444,3 +444,14 @@ function osha_update_7038() {
   features_revert(array('osha' => array('field_instance')));
   features_revert(array('hwc_priority_areas' => array('field_instance')));
 }
+
+/**
+ * HW20-484 UX: Include the block to share the content below the content.
+ */
+function osha_update_7039() {
+  $exclude = variable_get('exclude_top_share_widget', []);
+  variable_set('hwc_exclude_top_share_widget', implode("\r\n", $exclude));
+
+  $exclude = variable_get('exclude_bottom_share_widget', []);
+  variable_set('hwc_exclude_bottom_share_widget', implode("\r\n", $exclude));
+}

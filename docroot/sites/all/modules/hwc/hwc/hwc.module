@@ -1568,8 +1568,8 @@ function hwc_node_view($node, $view_mode, $langcode) {
       if ($node->type == 'events') {
         $options['rss_url'] = url('rss-feeds/latest/events.xml', array('absolute' => TRUE));
       }
-
-      if (!in_array($node->nid, variable_get('exclude_top_share_widget', []))) {
+      $exclude = explode("\n", str_replace("\r", '', variable_get('hwc_exclude_top_share_widget', '')));
+      if (!in_array($node->nid, $exclude)) {
         $node->content['share_widget'] = ['#markup' => hwc_news_share_widget($node, $options)];
       }
 
@@ -1589,7 +1589,8 @@ function hwc_node_view($node, $view_mode, $langcode) {
       if ($node->type == 'events') {
         $options['rss_url'] = url('rss-feeds/latest/events.xml', array('absolute' => TRUE));
       }
-      if (!in_array($node->nid, variable_get('exclude_bottom_share_widget', []))) {
+      $exclude = explode("\n", str_replace("\r", '', variable_get('hwc_exclude_bottom_share_widget', '')));
+      if (!in_array($node->nid, $exclude)) {
         $node->content['bottom_share_widget'] = array('#markup' => hwc_news_share_widget($node, $options));
       }
     }
