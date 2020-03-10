@@ -93,7 +93,8 @@ function drush_ncw_migration_hwc_migrate_all() {
     'tax_publication_types',
     'tax_tags',
     'tax_segment',
-
+    'tax_activity',
+    'tax_msd_glossary',
     'highlights_add_res',
     'press_releases_add_res',
     'news_add_res',

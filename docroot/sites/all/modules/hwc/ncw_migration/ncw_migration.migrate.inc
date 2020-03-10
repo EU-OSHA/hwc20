@@ -56,6 +56,11 @@ function ncw_migration_migrate_api() {
         'dependencies' => array(),
         'class_name' => 'NCWTaxonomyMSDPrioritySreaMigration',
       ),
+      'tax_msd_glossary' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array(),
+        'class_name' => 'NCWTaxonomyMSDGlossaryMigration',
+      ),
       'tax_prevention_measures_msd' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),
@@ -859,6 +864,7 @@ abstract class AbstractNCWTaxonomyTermMigration extends AbstractNCWNodeMigration
       $row->language = 'en';
       $row->path = !empty($row->path['alias']) ? $row->path['alias'] : NULL;
       // Normalize JSON structure, to match migrate expectations for field data.
+      $row->format = str_replace('full_html_minimal', 'full_html', $row->format);
       $fields = field_info_instances('taxonomy_term', $this->bundle);
       foreach ($fields as $field_name => $field_info) {
         if (in_array($field_name, $this->getManuallyMigratedFields())) {

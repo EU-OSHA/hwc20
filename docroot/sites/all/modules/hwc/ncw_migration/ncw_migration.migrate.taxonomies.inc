@@ -16,7 +16,7 @@ class NCWTaxonomyActivityMigration extends AbstractNCWTaxonomyTermMigration {
 
   function addFieldMappings() {
     parent::addFieldMappings();
-    $this->addSimpleMappings(array('parent'));
+    $this->addSimpleMappings(array('parent', 'field_activity_code', 'field_activity_level'));
   }
 
   function prepareRow($row) {
@@ -60,6 +60,15 @@ class NCWTaxonomyPreventionMeasuresMSDMigration extends AbstractNCWTaxonomyTermM
   public function __construct($arguments) {
     parent::__construct($arguments, 'SimpleNCWTaxonomyTermSource', 'prevention_measures_msd');
     $this->description = 'Import taxonomy "prevention_measures_msd" from NCW';
+  }
+}
+
+
+class NCWTaxonomyMSDGlossaryMigration extends AbstractNCWTaxonomyTermMigration {
+
+  public function __construct($arguments) {
+    parent::__construct($arguments, 'SimpleNCWTaxonomyTermSource', 'msd_glossary');
+    $this->description = 'Import taxonomy "msd_glossary" from NCW';
   }
 }
 
