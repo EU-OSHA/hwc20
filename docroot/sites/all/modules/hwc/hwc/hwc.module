@@ -1441,11 +1441,11 @@ function hwc_node_view($node, $view_mode, $langcode) {
       $variables = array(
         'download_title' => variable_get('become_campaign_partner_download_title', 'Download the Campaign Partnership offer'),
         'download_body' => variable_get('become_campaign_partner_download_body', 'Get to know more about the status and make sure you meet the requirements.'),
-        'download_link' => '<a class="btn-become-partner-download" href="' . $download_link . '">' . t('Download') . '</a>',
+        'download_link' => '<a class="btn-become-partner-download" href="' . $download_link . '">' . t('Download the offer') . '</a>',
 
         'application_form_title' => variable_get('become_campaign_partner_application_form_title', 'Fill up the online application form'),
         'application_form_body' => variable_get('become_campaign_partner_application_form_body', 'The form will be available from the 6th of december 2020'),
-        'application_form_link' => '<a class="btn-become-partner-register" href="/partner/register">' . t('Apply now') . '</a>',
+        'application_form_link' => '<a class="btn-become-partner-register" href="/partner/register">' . t('Apply here') . '</a>',
 
         'see_results_title' => variable_get('become_campaign_partner_see_results_title', 'Get the result'),
         'see_results_body' => variable_get('become_campaign_partner_see_results_body', 'The internal selection process will take place at the end of May 2020, and candidate organisations will be informed soon after that.'),
