@@ -7875,6 +7875,7 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   .before-the-campaign .content-box-before .box-before .block-views .view-view-campaign-materials .view-content > div {
     width: 100%;
     border-bottom: 1px solid #CCC;
+    padding-bottom: 10px;
   }
   .before-the-campaign .content-box-before .box-before .block-views .view-view-campaign-materials .view-content > div .box-before-title {
     border: 0;
