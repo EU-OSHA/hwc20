@@ -246,12 +246,12 @@ function hwc_frontend_preprocess_html(&$vars) {
   }
 
   $vars['menu_title'] = '';
+  $active_trail = menu_get_active_trail();
+  if (count($active_trail) > 2) {
+    $vars['menu_title'] = $active_trail[count($active_trail) - 1]['title'];
+  }
   $n = menu_get_object('node');
   if ($n) {
-    $active_trail = menu_get_active_trail();
-    if (count($active_trail) > 2) {
-      $vars['menu_title'] = $active_trail[count($active_trail) - 1]['title'];
-    }
     switch ($n->type) {
       case "partner":
         $tid = $n->field_partner_type[LANGUAGE_NONE][0]['tid'];
