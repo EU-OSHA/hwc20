@@ -3,6 +3,8 @@
  * @file
  * Returns the HTML for an article node.
  */
+?>
+<?php
 /** @var array $content */
 /** @var boolean $hide_title */
 if ($hide_title) {
@@ -11,6 +13,7 @@ if ($hide_title) {
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php
+  print render($content['share_widget']);
   if ($title_prefix || $title_suffix || $display_submitted || $unpublished || !$page && $title): ?>
     <header>
       <?php print render($title_prefix); ?>
@@ -39,7 +42,6 @@ if ($hide_title) {
   ?>
   <div>
     <?php
-    print render($content['share_widget']);
     print render($content['field_summary']);
     print render($content['body']);
     // PA Recommended resources.
