@@ -1423,7 +1423,8 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.05);
   padding-top: 5px;
 }
-#block-menu-block-4 {
+#block-menu-block-4,
+#block-menu-block-6 {
   width: 100%;
   margin-top: 49px !important;
 }
@@ -4157,9 +4158,9 @@ body.een .box-type-partner {
   padding-right: 10px;
 }
 .how-to-apply .boxes .box div .btn-become-partner-download {
-  width: 100%;
+  width: 178px;
   min-height: 36px;
-  background: url(../images/timeline-button-active.png) repeat-y 93% 40%;
+  background: url(../images/timeline-button-active.png) repeat-y;
   text-align: left;
   color: #FFF;
   padding-top: 7px;
@@ -4168,6 +4169,9 @@ body.een .box-type-partner {
   border-radius: 3px;
   text-decoration: none;
   display: inline-block;
+  position: absolute;
+  left: 8px;
+  bottom: 10px;
 }
 .how-to-apply .boxes .box div .btn-become-partner-download:after {
   content: '';
@@ -4175,15 +4179,17 @@ body.een .box-type-partner {
   background: url(../images/timeline-button-download.png) no-repeat;
   width: 17px;
   height: 17px;
-  float: right;
+  right: 11px;
+  position: absolute;
+  top: 7px;
 }
 .how-to-apply .boxes .box div .btn-become-partner-download:hover {
   opacity: 0.8;
 }
 .how-to-apply .boxes .box div .btn-become-partner-register {
-  width: 100%;
+  width: 178px;
   min-height: 36px;
-  background: url(../images/timeline-button-active.png) repeat-y 93% 40%;
+  background: url(../images/timeline-button-active.png) repeat-y;
   text-align: left;
   color: #FFF;
   padding-top: 7px;
@@ -4192,14 +4198,19 @@ body.een .box-type-partner {
   border-radius: 3px;
   text-decoration: none;
   display: inline-block;
+  position: absolute;
+  left: 8px;
+  bottom: 10px;
 }
 .how-to-apply .boxes .box div .btn-become-partner-register:after {
   content: '';
   display: block;
-  background: url(../images/active-next.png) no-repeat 85% 75%;
+  background: url(../images/active-next.png) no-repeat;
   width: 17px;
   height: 17px;
-  float: right;
+  right: 11px;
+  position: absolute;
+  top: 14px;
 }
 .how-to-apply .boxes .box div .btn-become-partner-register:hover {
   opacity: 0.8;
@@ -4212,8 +4223,8 @@ body.een .box-type-partner {
 			}*/
 }
 .how-to-apply .boxes .box.inactive div .btn-become-partner-register {
-  background: url(../images/timeline-button-no-active.png) repeat-y 93% 40%;
-  width: 100%;
+  background: url(../images/timeline-button-no-active.png) repeat-y;
+  width: 179px;
   min-height: 36px;
   text-align: left;
   color: #b3bccc;
@@ -4225,14 +4236,20 @@ body.een .box-type-partner {
   display: inline-block;
   pointer-events: none;
   cursor: pointer;
+  position: absolute;
+  left: 8px;
+  bottom: 10px;
 }
 .how-to-apply .boxes .box.inactive div .btn-become-partner-register:after {
   content: '';
   display: block;
-  background: url(../images/no-active-next.png) no-repeat 85% 75%;
+  background: url(../images/no-active-next.png) no-repeat;
   width: 17px;
   height: 17px;
   float: right;
+  right: 11px;
+  position: absolute;
+  top: 14px;
 }
 .how-to-apply .boxes h3 {
   font-size: 2em;
@@ -7349,7 +7366,7 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   float: left;
   padding: 0.8em;
   border-radius: 5px;
-  margin-top: 31px;
+  margin-top: 15px;
 }
 .region-sidebar-first .block.block-facetapi h2 {
   font-size: 1.8rem;
@@ -7517,6 +7534,11 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
 }
 .page-node-165 .became-green-block a:hover {
   text-decoration: underline;
+}
+/* Landing pages content */
+#block-menu-block-1 .nav > li > a,
+#block-menu-block-7 .nav > li > a {
+  padding: 10px 15px 0 0;
 }
 .isMobile {
   float: right !important;
@@ -7875,12 +7897,16 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   .before-the-campaign .content-box-before .box-before .block-views .view-view-campaign-materials .view-content > div {
     width: 100%;
     border-bottom: 1px solid #CCC;
+    padding-bottom: 10px;
   }
   .before-the-campaign .content-box-before .box-before .block-views .view-view-campaign-materials .view-content > div .box-before-title {
     border: 0;
   }
   .before-the-campaign .content-box-before .box-before .block-views .view-view-campaign-materials .view-content > div:nth-child(4) {
     border-bottom: 0;
+  }
+  .page-node-184 .recommended-tool span {
+    text-align: center;
   }
   .container {
     padding-left: 15px;

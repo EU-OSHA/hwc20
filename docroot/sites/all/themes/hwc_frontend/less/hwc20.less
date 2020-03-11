@@ -1627,7 +1627,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 
 }
 
-#block-menu-block-4{
+#block-menu-block-4, #block-menu-block-6{
 	width: 100%;
 	margin-top: 49px !important;
 }
@@ -4806,9 +4806,9 @@ body{
 				padding-left: 10px;
 				padding-right: 10px;
 				.btn-become-partner-download{
-					width: 100%;
+					width: 178px;
 					min-height: 36px;
-					background: url(../images/timeline-button-active.png) repeat-y 93% 40%;
+					background: url(../images/timeline-button-active.png) repeat-y;
 					text-align: left;
 					color: #FFF;
 					padding-top: 7px;
@@ -4817,13 +4817,18 @@ body{
 					border-radius: 3px;
 					text-decoration: none;
 					display: inline-block;
+					position: absolute;
+					left: 8px;
+					bottom: 10px;
 					&:after{
 						content:'';
 						display: block;	
 						background: url(../images/timeline-button-download.png) no-repeat;
 						width: 17px;
 						height: 17px;
-						float: right;
+						right: 11px;
+					    position: absolute;
+					    top: 7px;
 					}
 					&:hover{
 						opacity: 0.8;
@@ -4831,9 +4836,9 @@ body{
 				}
 
 				.btn-become-partner-register{
-					width: 100%;
+					width: 178px;
 					min-height: 36px;
-					background: url(../images/timeline-button-active.png) repeat-y 93% 40%;
+					background: url(../images/timeline-button-active.png) repeat-y;
 					text-align: left;
 					color: #FFF;
 					padding-top: 7px;
@@ -4842,13 +4847,18 @@ body{
 					border-radius: 3px;
 					text-decoration: none;
 					display: inline-block;
+					position: absolute;
+					left: 8px;
+					bottom: 10px;
 					&:after{
 						content:'';
 						display: block;	
-						background: url(../images/active-next.png) no-repeat 85% 75%;
+						background: url(../images/active-next.png) no-repeat;
 						width: 17px;
 						height: 17px;
-						float: right;
+						right: 11px;
+					    position: absolute;
+					    top: 14px;
 					}
 					&:hover{
 						opacity: 0.8;
@@ -4866,8 +4876,8 @@ body{
 			}*/
 			div{
 				.btn-become-partner-register{
-					background: url(../images/timeline-button-no-active.png) repeat-y 93% 40%;					
-					width: 100%;
+					background: url(../images/timeline-button-no-active.png) repeat-y;					
+					width: 179px;
 					min-height: 36px;
 					text-align: left;
 					color: #b3bccc;
@@ -4879,13 +4889,19 @@ body{
 					display: inline-block;
 					pointer-events: none;
 					cursor: pointer;
+					position: absolute;
+					left: 8px;
+					bottom: 10px;
 					&:after{
 						content:'';
 						display: block;	
-						background: url(../images/no-active-next.png) no-repeat 85% 75%;
+						background: url(../images/no-active-next.png) no-repeat;
 						width: 17px;
 						height: 17px;
 						float: right;
+    					right: 11px;
+    					position: absolute;
+    					top: 14px;
 					}
 				}
 			}
@@ -8046,7 +8062,7 @@ body.page-tools-and-publications-publications{
 			float: left;
 			width: 100%;
 		}
-	}	
+	}
 }
 
 
@@ -8530,7 +8546,7 @@ body.page-tools-and-publications-practical-tools{
 		float: left;
 		padding: 0.8em;
 		border-radius: 5px;
-		margin-top: 31px;
+		margin-top: 15px;
 		h2{
 			font-size: 1.8rem;
 		    color: #003399;
@@ -8778,5 +8794,14 @@ body.video-page{
 				text-decoration: underline;
 			}
 		}
+	}
+}
+
+
+/* Landing pages content */
+
+#block-menu-block-1, #block-menu-block-7{
+	.nav > li > a{
+		padding: 10px 15px 0 0;
 	}
 }
