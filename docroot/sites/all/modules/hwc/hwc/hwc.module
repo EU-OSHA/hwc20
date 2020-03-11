@@ -425,8 +425,9 @@ function hwc_block_view($delta = '') {
     else {
       $events = [];
     }
-
+    if ($events || $news) {
     $block['content'] = theme('european_week_news_events', ['events' => $events, 'news' => $news]);
+  }
   }
   if ($delta == 'page_share_widget') {
     $block['title'] = '<none>';
