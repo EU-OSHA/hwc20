@@ -80,6 +80,13 @@ function _hwc_menu_form_alter(array &$form, array $item = array(), array &$compl
     'description' => t('The Author caption field.'),
   );
 
+  unset($form['options']['#value']['image_alt']);
+
+  $attributes['image_alt'] = array(
+    'label' => t('Image alt text'),
+    'description' => t('menu image alt text field.'),
+  );
+
   // Merge in default values.
   foreach ($attributes as $attribute => $info) {
     $info += array(
