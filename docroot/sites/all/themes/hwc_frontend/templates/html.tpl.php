@@ -63,21 +63,26 @@
   else {
     $site_name = $head_title_array['name'];
   }
-  // If, at least, there is one breadcrumbs element.
-  if (count($breadcrumbs_items) > 1){
-    if(count($breadcrumbs_items) > 2){
-      $custom_title_page = strip_tags(implode(" | ", array_reverse($breadcrumbs_items)));
-    }
-    else {
-      $custom_title_page = strip_tags(implode(" | ", array_reverse($breadcrumbs_items))) . ' | ' . $site_name;
-    }
+  if ($menu_title && variable_get('allow_short_titles', TRUE)) {
+    $custom_title_page = $menu_title . ' | ' . $site_name;
   }
   else {
-    if (drupal_get_title()) {
-      $custom_title_page = drupal_get_title() . ' | ' . $site_name;
+    // If, at least, there is one breadcrumbs element.
+    if (count($breadcrumbs_items) > 1) {
+      if (count($breadcrumbs_items) > 2) {
+        $custom_title_page = strip_tags(implode(" | ", array_reverse($breadcrumbs_items)));
+      }
+      else {
+        $custom_title_page = strip_tags(implode(" | ", array_reverse($breadcrumbs_items))) . ' | ' . $site_name;
+      }
     }
     else {
-      $custom_title_page = $site_name;
+      if (drupal_get_title()) {
+        $custom_title_page = drupal_get_title() . ' | ' . $site_name;
+      }
+      else {
+        $custom_title_page = $site_name;
+      }
     }
   }
   ?>
