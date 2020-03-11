@@ -1526,7 +1526,7 @@ function hwc_node_view($node, $view_mode, $langcode) {
   );
   // Array of nids where to hide the share widget.
   $no_share_widget = array(
-    160, 162, 241, 242, 243, 244, 245, 246,
+//    160, 162, 241, 242, 243, 244, 245, 246,
   );
   $no_share_nids = variable_get('no_share_nids', []);
   foreach ($no_share_nids as $nid) {
