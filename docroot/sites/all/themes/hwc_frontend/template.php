@@ -54,7 +54,12 @@ function hwc_frontend_menu_link__menu_block($variables) {
   $text = '';
   if (!empty($element['#localized_options']['content']['image'])) {
   $image_url = file_create_url($element['#localized_options']['content']['image']);
-  $text = '<span class="content-img"><img src="' . $image_url . '"/></span>';
+    $attributes = [];
+    if (!empty($element['#localized_options']['copyright']['image_alt'])) {
+      $attributes['alt'] = strip_tags($element['#localized_options']['copyright']['image_alt']);
+      $attributes['title'] = $attributes['alt'];
+    }
+    $text = '<span class="content-img"><img ' . drupal_attributes($attributes) . ' src="' . $image_url . '"/></span>';
   }
   if (!empty($element['#localized_options']['copyright']['author']) || !empty($element['#localized_options']['copyright']['copyright'])) {
     $text .= '<blockquote class="image-field-caption">';
