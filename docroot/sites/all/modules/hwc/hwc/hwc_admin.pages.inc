@@ -18,38 +18,45 @@ function hwc_admin_config_form() {
     '#description' => 'URIs that exists in current website but you want to redirect to the previous websites. One uri per line in format  path/to/page|redirect/to/full/url',
   );
 
-  $form['hwc_hide_meta_description_pages'] = array(
+  $form['splash_mode'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Splash mode'),
+    '#default_value' => variable_get('splash_mode', FALSE),
+  );
+
+  $form['exceptions'] = array(
+    '#type' => 'fieldset',
+    '#title' => 'Exceptions',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+
+  $form['exceptions']['hwc_hide_meta_description_pages'] = array(
     '#type' => 'textarea',
     '#default_value' => variable_get('hwc_hide_meta_description_pages', ''),
     '#title' => 'Do not show meta description for pages',
     '#description' => 'Page alias list to remove meta description. One alias per line',
   );
 
-  $form['hwc_exclude_banner_titles'] = array(
+  $form['exceptions']['hwc_exclude_banner_titles'] = array(
     '#type' => 'textarea',
     '#default_value' => variable_get('hwc_exclude_banner_titles', ''),
     '#title' => 'Exclude pages from banner titles changes',
     '#description' => 'Page alias nad node url list without banner titles changes. One alias or node/nid per line',
   );
 
-  $form['hwc_exclude_top_share_widget'] = array(
+  $form['exceptions']['hwc_exclude_top_share_widget'] = array(
     '#type' => 'textarea',
     '#default_value' => variable_get('hwc_exclude_top_share_widget', ''),
     '#title' => 'Exclude top share widget from nodes',
     '#description' => 'Node list to exclude top share widget. One node id per line',
   );
 
-  $form['hwc_exclude_bottom_share_widget'] = array(
+  $form['exceptions']['hwc_exclude_bottom_share_widget'] = array(
     '#type' => 'textarea',
     '#default_value' => variable_get('hwc_exclude_bottom_share_widget', ''),
     '#title' => 'Exclude bottom share widget from nodes',
     '#description' => 'Node list to exclude bottom share widget. One node id per line',
-  );
-
-  $form['splash_mode'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Splash mode'),
-    '#default_value' => variable_get('splash_mode', FALSE),
   );
 
   $form['disable_masquerading_notifications'] = array(
@@ -93,6 +100,7 @@ function hwc_admin_config_form() {
     '#type' => 'fieldset',
     '#title' => 'Campaign Partner',
     '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
   );
 
   $form['campaign_partner']['become_campaign_partner_download_title'] = array(
@@ -113,6 +121,20 @@ function hwc_admin_config_form() {
     '#description' => '',
     '#type' => 'textfield',
     '#default_value' => variable_get('become_campaign_partner_download_link', '#'),
+  );
+
+  $form['campaign_partner']['become_campaign_partner_download_link_title'] = array(
+    '#title' => 'Download the Campaign Partnership offer link title',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_campaign_partner_download_link_title', 'Download the offer'),
+  );
+
+  $form['campaign_partner']['become_campaign_partner_register_title'] = array(
+    '#title' => 'Download the Campaign Partnership register link',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_campaign_partner_register_title', 'Apply here'),
   );
 
   $form['campaign_partner']['become_campaign_partner_application_form_title'] = array(
@@ -145,6 +167,7 @@ function hwc_admin_config_form() {
     '#type' => 'fieldset',
     '#title' => 'Media Partner',
     '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
   );
 
   $form['media_partner']['become_media_partner_download_title'] = array(
@@ -165,6 +188,20 @@ function hwc_admin_config_form() {
     '#description' => '',
     '#type' => 'textfield',
     '#default_value' => variable_get('become_media_partner_download_link', '#'),
+  );
+
+  $form['media_partner']['become_media_partner_download_link_title'] = array(
+    '#title' => 'Download the Media Partnership offer link title',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_media_partner_download_link_title', 'Download the offer'),
+  );
+
+  $form['media_partner']['become_media_partner_register_title'] = array(
+    '#title' => 'Download the Media Partner register link title',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_media_partner_register_title', 'Apply here'),
   );
 
   $form['media_partner']['become_media_partner_application_form_title'] = array(
