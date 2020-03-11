@@ -4259,12 +4259,12 @@ body.een .box-type-partner {
 }
 .how-to-apply > div.boxes > div:nth-child(1) {
   position: absolute;
-  left: 17%;
+  left: 15%;
   top: 73px;
 }
 .how-to-apply > div.boxes > div:nth-child(2) {
   position: absolute;
-  left: 43%;
+  left: 41.5%;
   top: 73px;
 }
 .how-to-apply > div.boxes > div:nth-child(3) {
@@ -4294,7 +4294,7 @@ body.een .box-type-partner {
 }
 .timeline > div:nth-child(1) {
   position: absolute;
-  left: 234px;
+  left: 215px;
   top: 9px;
   font-weight: bold;
 }
@@ -4305,7 +4305,7 @@ body.een .box-type-partner {
 }
 .timeline > div:nth-child(2) {
   position: absolute;
-  left: 42%;
+  left: 40.5%;
   top: 9px;
   font-weight: bold;
 }
@@ -7873,11 +7873,14 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
     flex-wrap: wrap;
   }
   .before-the-campaign .content-box-before .box-before .block-views .view-view-campaign-materials .view-content > div {
-    width: 50%;
+    width: 100%;
     border-bottom: 1px solid #CCC;
   }
   .before-the-campaign .content-box-before .box-before .block-views .view-view-campaign-materials .view-content > div .box-before-title {
     border: 0;
+  }
+  .before-the-campaign .content-box-before .box-before .block-views .view-view-campaign-materials .view-content > div:nth-child(4) {
+    border-bottom: 0;
   }
   .container {
     padding-left: 15px;
@@ -8610,7 +8613,7 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
     left: 44px;
   }
   .how-to-apply > div.boxes > div:nth-child(2) {
-    left: 332px;
+    left: 38%;
   }
   .how-to-apply > div.boxes > div:nth-child(3) {
     right: 8px;
@@ -8619,7 +8622,7 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
     left: 104px;
   }
   .timeline > div:nth-child(2) {
-    left: 320px;
+    left: 37%;
   }
   .timeline > div:nth-child(3) {
     right: 89px;
@@ -8631,7 +8634,7 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
     left: 44px;
   }
   .how-to-apply > div.boxes > div:nth-child(2) {
-    left: 258px;
+    left: 37%;
   }
   .how-to-apply > div.boxes > div:nth-child(3) {
     right: 8px;

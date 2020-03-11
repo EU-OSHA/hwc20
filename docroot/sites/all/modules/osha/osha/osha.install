@@ -436,3 +436,11 @@ function osha_update_7036() {
 function osha_update_7037() {
   features_revert(array('osha' => array('field_instance', 'fe_block_settings')));
 }
+
+/**
+ * HW20-486 UX: Depending on the level change the banner titles.
+ */
+function osha_update_7038() {
+  features_revert(array('osha' => array('field_instance')));
+  features_revert(array('hwc_priority_areas' => array('field_instance')));
+}
