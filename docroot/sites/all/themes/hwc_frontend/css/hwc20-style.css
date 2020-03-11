@@ -1423,7 +1423,8 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.05);
   padding-top: 5px;
 }
-#block-menu-block-4 {
+#block-menu-block-4,
+#block-menu-block-6 {
   width: 100%;
   margin-top: 49px !important;
 }
@@ -7365,7 +7366,7 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   float: left;
   padding: 0.8em;
   border-radius: 5px;
-  margin-top: 31px;
+  margin-top: 15px;
 }
 .region-sidebar-first .block.block-facetapi h2 {
   font-size: 1.8rem;
@@ -7533,6 +7534,11 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
 }
 .page-node-165 .became-green-block a:hover {
   text-decoration: underline;
+}
+/* Landing pages content */
+#block-menu-block-1 .nav > li > a,
+#block-menu-block-7 .nav > li > a {
+  padding: 10px 15px 0 0;
 }
 .isMobile {
   float: right !important;
