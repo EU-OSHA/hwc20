@@ -82,6 +82,22 @@ function hwc_admin_config_form() {
     $form['#theme'] = 'system_settings_form';
   }
 
+  $file = variable_get('hwc_crm_data_dir', '') . '/PublicProfile_HW18.xml';
+  $options = [
+    'PublicProfile_20.xml' => 'PublicProfile_20.xml',
+    'PublicProfile.xml' => 'PublicProfile.xml',
+  ];
+  if (file_exists($file)) {
+    $options['PublicProfile_HW18.xml'] = 'PublicProfile_HW18.xml';
+  }
+  $form['hwc_crm_data_xml'] = array(
+    '#title' => 'PublicProfile source',
+    '#type' => 'select',
+    '#multiple' => FALSE,
+    '#options' => $options,
+    '#default_value' => variable_get('hwc_crm_data_xml', ''),
+  );
+
   $tags_voc = taxonomy_vocabulary_machine_name_load(OSHA_TAXONOMIES_TAGS);
   $tags = taxonomy_term_load_multiple(array(), array('vid' => $tags_voc->vid));
   $options = array();
