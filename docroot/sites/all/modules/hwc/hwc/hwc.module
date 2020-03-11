@@ -1447,7 +1447,7 @@ function hwc_node_view($node, $view_mode, $langcode) {
       $variables = array(
         'download_title' => t(variable_get('become_campaign_partner_download_title', 'Download the Campaign Partnership offer')),
         'download_body' => t(variable_get('become_campaign_partner_download_body', 'Get to know more about the status and make sure you meet the requirements.')),
-        'download_link' => '<a class="btn-become-partner-download" href="' . $download_link . '">' . t($download_title) . '</a>',
+        'download_link' => '<a class="btn-become-partner-download" target="_blank" href="' . $download_link . '">' . t($download_title) . '</a>',
 
         'application_form_title' => t(variable_get('become_campaign_partner_application_form_title', 'Fill up the online application form')),
         'application_form_body' => t(variable_get('become_campaign_partner_application_form_body', 'The form will be available from the 6th of december 2020')),
@@ -1475,7 +1475,7 @@ function hwc_node_view($node, $view_mode, $langcode) {
       $variables = array(
         'download_title' => t(variable_get('become_media_partner_download_title', 'Download the Campaign Partnership offer')),
         'download_body' => t(variable_get('become_media_partner_download_body', 'Get to know more about the status and make sure you meet the requirements.')),
-        'download_link' => '<a class="btn-become-partner-download" href="' . $download_link . '">' . t($download_title) . '</a>',
+        'download_link' => '<a class="btn-become-partner-download" target="_blank" href="' . $download_link . '">' . t($download_title) . '</a>',
 
         'application_form_title' => t(variable_get('become_media_partner_application_form_title', 'Fill up the online application form')),
         'application_form_body' => t(variable_get('become_media_partner_application_form_body', 'The form will be available from the 6th of december 2020')),
