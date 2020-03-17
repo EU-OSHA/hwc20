@@ -830,7 +830,7 @@ select.company_osh_selectsocialnetworks{
 }
 
 input#socialNetworkTextBox{
-    width: 100%;
+    width: 130%;
     margin-top: 4px;
     /*vertical-align: middle;*/
 }
