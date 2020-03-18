@@ -204,6 +204,19 @@ final class CDB
         unset($_SESSION['mainContactChangeCheck']);
         unset($_SESSION['basicRequirements']);
 
+        // Filter the response to clean the prefixes
+        foreach ($response as $key => $value) {
+            if (strpos($key, '.') !== false) {
+                $key = explode('.', $key)[1];
+                if($key == "osh_campaignpledge" && $value['Value'] != ""){
+                    $this->savePledgeData($value['Value']);
+                }else if($key == "osh_quoteonhwc" && $value['Value'] != ""){
+                    $this->saveQuoteData($value['Value']);
+                }
+            }
+            $responseFixed[$key] = $value;
+        }
+
         $params = Parameters::getInstance();
         if ($params->getUrlParamValue('maintenance_mode')) {
             $_SESSION['partner_nid'] = $params->get("partner_nid");
