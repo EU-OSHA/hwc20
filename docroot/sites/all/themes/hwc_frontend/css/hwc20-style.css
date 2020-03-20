@@ -16,6 +16,13 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
   border-radius: 5px;
   padding-left: 0.5em;
 }
+.rel1 #block-menu-menu-header-login,
+.rel1 #block-lang-dropdown-language {
+  display: none;
+}
+.rel1 header.navbar-default .campaigns-header .navbar-header .header_top_bar .region-above-header {
+  padding-top: 1.3em;
+}
 header.navbar-default .navbar-collapse nav ul.menu li {
   width: 15%;
 }
