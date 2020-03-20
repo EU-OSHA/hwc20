@@ -9691,11 +9691,33 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
     padding-right: 1em;
   }
 }
-@media (max-width: 348px) {
+@media (max-width: 370px) {
   .how-to-apply > div.boxes > div:nth-child(1),
   .how-to-apply > div.boxes > div:nth-child(2),
   .how-to-apply > div.boxes > div:nth-child(3) {
-    left: 62px;
+    left: 55px;
+  }
+  .how-to-apply .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .how-to-apply .timeline > div:nth-child(1) {
+    left: 35px;
+  }
+  .how-to-apply .timeline > div:nth-child(1):after {
+    left: -25px;
+  }
+  .how-to-apply .timeline > div:nth-child(2) {
+    left: 35px;
+  }
+  .how-to-apply .timeline > div:nth-child(2):after {
+    left: -25px;
+  }
+  .how-to-apply .timeline > div:nth-child(3) {
+    left: 35px;
+  }
+  .how-to-apply .timeline > div:nth-child(3):after {
+    left: -25px;
   }
   body.front-page .main-container .newsletter-social-media #block-osha-newsletter-osha-newsletter-image {
     padding: 0;
