@@ -261,6 +261,10 @@ function hwc_frontend_preprocess_html(&$vars) {
     $vars['classes_array'][] = 'page-publications';
   }
 
+  if (variable_get('splash_mode', FALSE)) {
+    $vars['classes_array'][] = 'rel1';
+  }
+
   $vars['menu_title'] = '';
     $active_trail = menu_get_active_trail();
     if (count($active_trail) > 2) {
