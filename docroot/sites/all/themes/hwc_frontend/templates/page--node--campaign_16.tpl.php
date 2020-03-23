@@ -81,7 +81,6 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
 <?php endif; ?>
 <?php
 include(drupal_get_path('theme', 'hwc_frontend') . '/templates/header.tpl.php');
-$title = variable_get('campaign_18_title', '2016-2017 Healthy Workplaces for All Ages');
 ?>
 
 <div class="main-container container-fluid">
