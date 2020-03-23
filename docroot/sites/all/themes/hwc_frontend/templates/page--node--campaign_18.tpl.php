@@ -81,7 +81,6 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
 <?php endif; ?>
 <?php
 include(drupal_get_path('theme', 'hwc_frontend') . '/templates/header.tpl.php');
-$title = variable_get('campaign_18_title', 'HWC Manage Dangerous Substances 2018-2019');
 ?>
 
 <div class="main-container container-fluid">
