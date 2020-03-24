@@ -16,6 +16,19 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
   border-radius: 5px;
   padding-left: 0.5em;
 }
+/* Styles for only REL1 */
+.rel1 #block-menu-menu-header-login,
+.rel1 #block-lang-dropdown-language {
+  display: none;
+}
+.rel1 header.navbar-default .campaigns-header .navbar-header .header_top_bar .region-above-header {
+  padding-top: 1.3em;
+}
+/*HW20-489*/
+.rel1 .related-resources-boxes {
+  justify-content: flex-start;
+}
+/*  END Styles for only REL1  */
 header.navbar-default .navbar-collapse nav ul.menu li {
   width: 15%;
 }
@@ -1663,7 +1676,7 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
   display: flex;
   justify-content: flex-end;
   border-top: 1px solid black;
-  margin-top: 2em;
+  margin-top: .3em;
   padding-top: 1.3em;
   padding-bottom: 0;
 }
@@ -1686,7 +1699,7 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
   display: flex;
   justify-content: space-between;
   border-top: 1px solid black;
-  margin-top: 2em;
+  margin-top: .3em;
   padding-top: 1.3em;
   padding-bottom: 0;
 }
@@ -1832,7 +1845,6 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
   padding: 0 0 0 1em;
   border: 0;
   border-radius: 5px;
-  margin-top: 8px !important;
   width: 100%;
 }
 .sidebars_first .content-filters {
@@ -2645,7 +2657,7 @@ span.pages {
   margin-top: 0;
 }
 body.good-practice-exchange .footer {
-  margin-top: 0;
+  margin-top: 1em;
 }
 .footer-section {
   font-size: 12.5px;
@@ -4079,6 +4091,13 @@ body.mp .box-type-partner,
 body.fop .box-type-partner,
 body.een .box-type-partner {
   width: 100%;
+}
+/* HW20-513 - Display the HWC 18-19 OCP, MP, FOP and EEN without news and events */
+.rel1.ocp .panels-flexible-row-partner_detail-3,
+.rel1.fop .panels-flexible-row-partner_detail-3,
+.rel1.mp .panels-flexible-row-partner_detail-3,
+.rel1.een .panels-flexible-row-partner_detail-3 {
+  display: none;
 }
 /* Become a campaign partner */
 .become-partner-text {
@@ -7150,6 +7169,8 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
 }
 #block-hwc-good-practice-exchange-gpe-news-events .two-box-column {
   width: 100%;
@@ -9677,11 +9698,33 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
     padding-right: 1em;
   }
 }
-@media (max-width: 348px) {
+@media (max-width: 370px) {
   .how-to-apply > div.boxes > div:nth-child(1),
   .how-to-apply > div.boxes > div:nth-child(2),
   .how-to-apply > div.boxes > div:nth-child(3) {
-    left: 62px;
+    left: 55px;
+  }
+  .how-to-apply .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .how-to-apply .timeline > div:nth-child(1) {
+    left: 35px;
+  }
+  .how-to-apply .timeline > div:nth-child(1):after {
+    left: -25px;
+  }
+  .how-to-apply .timeline > div:nth-child(2) {
+    left: 35px;
+  }
+  .how-to-apply .timeline > div:nth-child(2):after {
+    left: -25px;
+  }
+  .how-to-apply .timeline > div:nth-child(3) {
+    left: 35px;
+  }
+  .how-to-apply .timeline > div:nth-child(3):after {
+    left: -25px;
   }
   body.front-page .main-container .newsletter-social-media #block-osha-newsletter-osha-newsletter-image {
     padding: 0;
