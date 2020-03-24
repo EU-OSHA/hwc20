@@ -1676,7 +1676,7 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
   display: flex;
   justify-content: flex-end;
   border-top: 1px solid black;
-  margin-top: 2em;
+  margin-top: .3em;
   padding-top: 1.3em;
   padding-bottom: 0;
 }
@@ -1699,7 +1699,7 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
   display: flex;
   justify-content: space-between;
   border-top: 1px solid black;
-  margin-top: 2em;
+  margin-top: .3em;
   padding-top: 1.3em;
   padding-bottom: 0;
 }
@@ -1845,7 +1845,6 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
   padding: 0 0 0 1em;
   border: 0;
   border-radius: 5px;
-  margin-top: 8px !important;
   width: 100%;
 }
 .sidebars_first .content-filters {
@@ -2658,7 +2657,7 @@ span.pages {
   margin-top: 0;
 }
 body.good-practice-exchange .footer {
-  margin-top: 0;
+  margin-top: 1em;
 }
 .footer-section {
   font-size: 12.5px;
@@ -7170,6 +7169,8 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
 }
 #block-hwc-good-practice-exchange-gpe-news-events .two-box-column {
   width: 100%;
