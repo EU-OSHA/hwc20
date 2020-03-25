@@ -7945,13 +7945,13 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   #block-on-the-web-0 {
     float: right;
   }
-  .main-container h2 {
-    margin-left: 15px;
-    margin-right: 15px;
-  }
   .region.region-sidebar-first.well {
     padding-bottom: 0;
     margin-bottom: 0;
+  }
+  .node-type-article article .field-name-body {
+    padding-right: 0;
+    padding-left: 0;
   }
   .node-article .hwc-share-widget {
     padding-top: 0;
