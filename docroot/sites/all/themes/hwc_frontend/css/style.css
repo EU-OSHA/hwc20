@@ -23110,10 +23110,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .main-container strong.title-alt .form-item {
     margin-top: 15px;
   }
-  .main-container h2 {
-    margin-left: 15px;
-    margin-right: 15px;
-  }
   .list-inline {
     margin-left: 0;
   }
@@ -23600,8 +23596,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     padding-left: 15px;
   }
   .node-type-article article h2 {
-    margin-right: 15px;
-    margin-left: 15px;
     margin-bottom: 1em;
   }
   .node-type-article article .field-name-field-recommended-articles .node-article {
@@ -26428,9 +26422,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   /*Fix DA language*/
   .main-container h1 {
     font-size: 1.60em;
-  }
-  .main-container h2 {
-    font-size: 1.45em!important;
   }
   .employers-section .case-studies .one-resource h4,
   .employers-section .other-practical-tools .one-resource h4,
