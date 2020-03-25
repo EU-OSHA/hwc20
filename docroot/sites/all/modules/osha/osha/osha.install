@@ -444,3 +444,9 @@ function osha_update_7038() {
   features_revert(array('osha' => array('field_instance')));
   features_revert(array('hwc_priority_areas' => array('field_instance')));
 }
+
+/**
+ * HW20-484 UX: Include the block to share the content below the content.
+ */
+function osha_update_7039() {
+}
