@@ -8717,6 +8717,7 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
   .popup {
     width: 155px;
+    left: 27%!important;
   }
   .region-sidebar-first .contextual-links-region {
     padding: 0;
