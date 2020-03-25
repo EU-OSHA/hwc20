@@ -8715,6 +8715,12 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
     filter: brightness(0) invert(1);
     -webkit-filter: brightness(0) invert(1);
   }
+  .popup {
+    width: 155px;
+  }
+  .region-sidebar-first .contextual-links-region {
+    padding: 0;
+  }
   .start-browsing .start-browsing-box {
     width: 309px;
     height: auto;
