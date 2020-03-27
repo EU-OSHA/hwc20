@@ -6739,6 +6739,12 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priorit
   color: #FFF;
 }
 /* Publications Slider  */
+body.page-tools-and-publications-publications .page_title {
+  margin-bottom: 0;
+}
+body.page-tools-and-publications-publications .section-introduction .field-type-text-with-summary {
+  padding-bottom: 0;
+}
 body.page-tools-and-publications-publications .slider--video--section {
   clear: both;
   padding: 0;
