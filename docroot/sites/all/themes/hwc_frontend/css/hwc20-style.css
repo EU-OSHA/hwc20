@@ -7552,14 +7552,16 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   font-size: 3.8rem;
 }
 .page-node-165 .became-green-block {
-  background: url(../images/became-green-block.png) no-repeat;
-  background-size: cover;
+  background: #FFF;
   padding: 1em;
-  color: #FFF;
+  color: #59595A;
   text-align: left;
   float: none;
-  margin: 2em auto 2em;
+  margin: 0.5em auto 2em;
   border-radius: 5px;
+  border: 1px solid #78AD00;
+  max-width: 52%;
+  text-align: center;
 }
 .page-node-165 .became-green-block a {
   color: #003399;
@@ -8375,6 +8377,9 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   .become-partner-text {
     width: 99%;
   }
+  .page-node-165 .became-green-block {
+    max-width: 75%;
+  }
 }
 @media (max-width: 1395px) and (min-width: 696px) {
   .box-before.previous {
@@ -8822,6 +8827,9 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
   .page-tools-and-publications #edit-exposed-widgets .views-exposed-widget select {
     height: 33px;
+  }
+  .page-node-165 .became-green-block {
+    max-width: 90%;
   }
 }
 @media (max-width: 767px) {
