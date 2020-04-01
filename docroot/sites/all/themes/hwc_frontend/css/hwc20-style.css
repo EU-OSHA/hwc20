@@ -4358,7 +4358,7 @@ body.een .box-type-partner {
 }
 .timeline > div:nth-child(3):after {
   position: absolute;
-  left: 42%;
+  left: 28%;
   top: 21px;
 }
 .timeline > div:nth-child(1):after,
