@@ -189,29 +189,32 @@ final class CDB
         $response     = $responseData[$readMethod['response']];
         $countries    = $responseData['returnPaises'];
         
+        $params = Parameters::getInstance();
+
+
+
 // file_put_contents("/tmp/curl.log", "8.0 ".implode(",",$responseData).PHP_EOL, FILE_APPEND | LOCK_EX);
         if(isset($responseData['returnContacts'])){
             $response2    = $responseData['returnContacts'];
         
         }
         if(isset($response)){
-            if (! is_array($response)) {
-                $response = json_decode($response, true);
-
-
-		$arrayToMerge = array();
-		foreach($response as $keyPar=> $valuePar)
+		if (!is_array($response))
 		{
-			$arrayToMerge = array_merge($arrayToMerge, $valuePar);
+                	$response = json_decode($response, true);
+// file_put_contents("/tmp/curl.log", "8.0.0: ".$params->getUrlParamValue('maintenance_mode').PHP_EOL, FILE_APPEND | LOCK_EX);
+			if ($params->getUrlParamValue('maintenance_mode'))
+			{
+				$arrayToMerge = array();
+				foreach($response as $keyPar=> $valuePar)
+				{
+					$arrayToMerge = array_merge($arrayToMerge, $valuePar);
 // file_put_contents("/tmp/curl.log", "8.0.1: ".$keyPar.", ".$valuePar.PHP_EOL, FILE_APPEND | LOCK_EX);
+				}
+				$response = array();
+				$response[0] = $arrayToMerge;
+			}
 		}
-// foreach($arrayToMerge as $keyPar=> $valuePar)
-// {
-// 	file_put_contents("/tmp/curl.log", "8.0.2: ".$keyPar.", ".$valuePar.PHP_EOL, FILE_APPEND | LOCK_EX);
-// }
-		$response = array();
-		$response[0] = $arrayToMerge;
-            }
         }
         if(isset($response2)){
              if(! is_array($response2)) {
@@ -244,24 +247,24 @@ final class CDB
             }
             $responseFixed[$key] = $value;
 // file_put_contents("/tmp/curl.log", "8.2: ".$responseFixed[$key].PHP_EOL, FILE_APPEND | LOCK_EX);
-// foreach($responseFixed as $keyPar=> $valuePar)
-// {
-// 	file_put_contents("/tmp/curl.log", "8.2.1: ".$keyPar.", ".$valuePar.PHP_EOL, FILE_APPEND | LOCK_EX);
-// }
-// foreach($responseFixed[$key] as $keyPar => $valuePar)
-// {
-// 	file_put_contents("/tmp/curl.log", "8.2.2: ".$keyPar.", ".$valuePar.PHP_EOL, FILE_APPEND | LOCK_EX);
-// 	if(isset($responseFixed[$key]['Fields']))
-// 	{
-// 		foreach($responseFixed[$key]['Fields'] as $keyPar2=> $valuePar2)
-// 		{
-// 			file_put_contents("/tmp/curl.log", "8.2.2.1: ".$keyPar2.", ".$valuePar2.PHP_EOL, FILE_APPEND | LOCK_EX);
-// 		}
-// 	}
-// }
+foreach($responseFixed as $keyPar=> $valuePar)
+{
+	// file_put_contents("/tmp/curl.log", "8.2.1: ".$keyPar.", ".$valuePar.PHP_EOL, FILE_APPEND | LOCK_EX);
+}
+foreach($responseFixed[$key] as $keyPar => $valuePar)
+{
+	// file_put_contents("/tmp/curl.log", "8.2.2: ".$keyPar.", ".$valuePar.PHP_EOL, FILE_APPEND | LOCK_EX);
+	if(isset($responseFixed[$key]['Fields']))
+	{
+		foreach($responseFixed[$key]['Fields'] as $keyPar2=> $valuePar2)
+		{
+			// file_put_contents("/tmp/curl.log", "8.2.2.1: ".$keyPar2.", ".$valuePar2.PHP_EOL, FILE_APPEND | LOCK_EX);
+		}
+	}
+}
         }
 
-        $params = Parameters::getInstance();
+//        $params = Parameters::getInstance();
 //file_put_contents("/tmp/curl.log", "8.5".$params.PHP_EOL, FILE_APPEND | LOCK_EX);
         if ($params->getUrlParamValue('maintenance_mode')) {
             $_SESSION['partner_nid'] = $params->get("partner_nid");
@@ -821,11 +824,11 @@ final class CDB
         $fieldNameArray = $method['fields'];
         $values         = $response;
 // file_put_contents("/tmp/curl.log", "fields INIT".PHP_EOL, FILE_APPEND | LOCK_EX);
-foreach($this->fields as $incomingField)
-{
-// file_put_contents("/tmp/curl.log", "Field: ".$incomingField.PHP_EOL, FILE_APPEND | LOCK_EX);
-// file_put_contents("/tmp/curl.log", key($incomingField).PHP_EOL, FILE_APPEND | LOCK_EX);
-}
+//foreach($this->fields as $incomingField)
+//{
+//file_put_contents("/tmp/curl.log", "Field: ".$incomingField.PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", key($incomingField).PHP_EOL, FILE_APPEND | LOCK_EX);
+//}
 // file_put_contents("/tmp/curl.log", "fields END".PHP_EOL, FILE_APPEND | LOCK_EX);
         foreach ($fieldNameArray as $fieldName) {
 // file_put_contents("/tmp/curl.log", "25"." ".$fieldName.PHP_EOL, FILE_APPEND | LOCK_EX);
@@ -872,10 +875,10 @@ foreach($this->fields as $incomingField)
         } else {
             throw new CDBException('resource_not_found', 404);
         }
-// foreach ($response as $value)
-// { 
-// 	file_put_contents("/tmp/curl.log", $value.PHP_EOL, FILE_APPEND | LOCK_EX);
-// } 
+foreach ($response as $value)
+{ 
+	// file_put_contents("/tmp/curl.log", $value.PHP_EOL, FILE_APPEND | LOCK_EX);
+} 
 
         return $response;
     }
