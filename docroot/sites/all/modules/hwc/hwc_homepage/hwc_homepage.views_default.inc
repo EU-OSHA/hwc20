@@ -271,13 +271,13 @@ function hwc_homepage_views_default_views() {
   $handler->display->display_options['fields']['title_field']['type'] = 'smart_trim_format';
   $handler->display->display_options['fields']['title_field']['settings'] = array(
     'trim_link' => '1',
-    'trim_length' => '50',
+    'trim_length' => '100',
     'trim_type' => 'chars',
     'trim_suffix' => '...',
     'more_link' => '0',
     'more_text' => 'Read more',
     'trim_options' => array(
-      'text' => 0,
+      'text' => 'text',
     ),
     'trim_preserve_tags' => '',
     'field_formatter_class' => '',
