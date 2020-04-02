@@ -1,12 +1,9 @@
-name = Nodequeue Service
-description = Provides a nodequeue service.
+name = Smartqueue taxonomy
+description = Creates a node queue for each taxonomy vocabulary
 package = Nodequeue
 core = 7.x
-
-dependencies[] = services
-dependencies[] = nodequeue
-
-files[] = nodequeue_service.inc
+dependencies[] = nodequeue 
+dependencies[] = taxonomy
 
 ; Information added by Drupal.org packaging script on 2019-11-22
 version = "7.x-2.2"
