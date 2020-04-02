@@ -31,8 +31,8 @@ function hwc_practical_tool_cron() {
  * Implements hook_menu_alter().
  */
 function hwc_practical_tool_menu_alter(&$items) {
-  $items['node/%node/edit']['access callback'] = 'hwc_practical_tool_node_edit_delete_form_access';
-  $items['node/%node/delete']['access callback'] = 'hwc_practical_tool_node_edit_delete_form_access';
+//  $items['node/%node/edit']['access callback'] = 'hwc_practical_tool_node_edit_delete_form_access';
+//  $items['node/%node/delete']['access callback'] = 'hwc_practical_tool_node_edit_delete_form_access';
 }
 
 /**
@@ -52,9 +52,9 @@ function hwc_practical_tool_node_edit_delete_form_access($op, $node) {
 function hwc_practical_tool_form_node_form_alter(&$form, &$form_state, $form_id) {
   $bundle = $form['#node']->type;
 
-  if ($bundle == 'practical_tool') {
-    drupal_set_message(t('This content is imported from EU-OSHA via synchronization process. <strong>Modifications made here might be lost after the next synchronization</strong>'), 'warning');
-  }
+//  if ($bundle == 'practical_tool') {
+//    drupal_set_message(t('This content is imported from EU-OSHA via synchronization process. <strong>Modifications made here might be lost after the next synchronization</strong>'), 'warning');
+//  }
 }
 
 /**

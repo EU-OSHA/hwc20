@@ -67,7 +67,7 @@ function hwc_gallery_path_breadcrumbs_settings_info() {
       1 => '!page_title',
     ),
     'paths' => array(
-      0 => '<none>',
+      0 => 'media-centre',
       1 => '<none>',
     ),
     'home' => 1,

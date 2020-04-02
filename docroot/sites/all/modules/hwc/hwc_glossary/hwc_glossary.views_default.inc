@@ -47,6 +47,7 @@ function hwc_glossary_views_default_views() {
   $handler->display->display_options['fields']['description_field']['field'] = 'description_field';
   $handler->display->display_options['fields']['description_field']['label'] = '';
   $handler->display->display_options['fields']['description_field']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['description_field']['type'] = 'text_plain';
   $handler->display->display_options['fields']['description_field']['settings'] = array(
     'field_formatter_class' => '',
   );
@@ -58,24 +59,20 @@ function hwc_glossary_views_default_views() {
   $handler->display->display_options['fields']['field_glossary_type']['label'] = '';
   $handler->display->display_options['fields']['field_glossary_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_glossary_type']['type'] = 'taxonomy_term_reference_plain';
+  /* Sort criterion: Taxonomy term: Name (name_field) */
+  $handler->display->display_options['sorts']['name_field_value']['id'] = 'name_field_value';
+  $handler->display->display_options['sorts']['name_field_value']['table'] = 'field_data_name_field';
+  $handler->display->display_options['sorts']['name_field_value']['field'] = 'name_field_value';
   /* Sort criterion: Taxonomy term: Name */
   $handler->display->display_options['sorts']['name']['id'] = 'name';
   $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['name']['field'] = 'name';
-  /* Contextual filter: Taxonomy term: Type (field_glossary_type) */
-  $handler->display->display_options['arguments']['field_glossary_type_tid']['id'] = 'field_glossary_type_tid';
-  $handler->display->display_options['arguments']['field_glossary_type_tid']['table'] = 'field_data_field_glossary_type';
-  $handler->display->display_options['arguments']['field_glossary_type_tid']['field'] = 'field_glossary_type_tid';
-  $handler->display->display_options['arguments']['field_glossary_type_tid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_glossary_type_tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_glossary_type_tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_glossary_type_tid']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['value'] = array(
-    'glossary' => 'glossary',
+    'msd_glossary' => 'msd_glossary',
   );
   /* Filter criterion: Taxonomy term: Type (field_glossary_type) */
   $handler->display->display_options['filters']['field_glossary_type_tid']['id'] = 'field_glossary_type_tid';
@@ -84,6 +81,13 @@ function hwc_glossary_views_default_views() {
   $handler->display->display_options['filters']['field_glossary_type_tid']['relationship'] = 'field_glossary_type_tid';
   $handler->display->display_options['filters']['field_glossary_type_tid']['value'] = '';
   $handler->display->display_options['filters']['field_glossary_type_tid']['vocabulary'] = 'glossary_type';
+  /* Filter criterion: Taxonomy term: Name (name_field:language) */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'field_data_name_field';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -97,7 +101,6 @@ function hwc_glossary_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('All'),
     t('Page'),
   );
   $export['glossary_list'] = $view;

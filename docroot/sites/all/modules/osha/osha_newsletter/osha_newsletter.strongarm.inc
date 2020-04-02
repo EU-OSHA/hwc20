@@ -345,7 +345,7 @@ function osha_newsletter_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'subscribe_extra_block_intro_text';
-  $strongarm->value = 'To get the latest news from the Healthy Workplaces Campaign 2018–19 direct to your inbox, sign up for our bimonthly newsletter. We’ll cover all the big events and key issues to keep you up to date.';
+  $strongarm->value = 'To get the latest news from the Healthy Workplaces Campaign 2020–22 direct to your inbox, sign up for our bimonthly newsletter. We’ll cover all the big events and key issues to keep you up to date.';
   $export['subscribe_extra_block_intro_text'] = $strongarm;
 
   return $export;

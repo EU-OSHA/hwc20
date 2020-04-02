@@ -25,21 +25,26 @@ function campaigns_newsletter_subscribe_form() {
   $form['#prefix'] = '<div id="newsletter-subscription-frontpage-form-wrapper">';
   $form['#suffix'] = '</div>';
 
+  $form['intro'] = array(
+    '#markup' => '<p class="intro-text">' . t(variable_get('subscribe_homepage_block_intro_text', '')) . '</p>',
+  );
+
   $form['email'] = array(
-    '#prefix' => '<div style="subscribe_block">',
+    '#prefix' => '<div class="subscribe_block">',
     '#type' => 'textfield',
     '#size' => 30,
     '#attributes' => array('placeholder' => t('E-mail address'), 'title' => t('E-mail address')),
   );
   $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Sign up!'),
+    '#value' => t('Subscribe'),
     '#submit' => array('campaigns_newsletter_subscribe_captcha_form_submit'),
   );
+  $link_url = variable_get('events_subscribe_block_details_link_url', OSHA_PRIVACY_PAGE_URL);
   $form['agree_processing_personal_data'] = array(
     '#suffix' => '</div>',
     '#type' => 'checkbox',
-    '#title' => t('I agree to the processing of my personal data'),
+    '#title' => t('I agree to the ') . '<a target="_blank" href="' . url($link_url) . '">' . t('privacy policy') . '</a>',
     '#default_value' => 0,
   );
   $form['#validate'] = array('campaigns_newsletter_subscribe_captcha_form_validate');

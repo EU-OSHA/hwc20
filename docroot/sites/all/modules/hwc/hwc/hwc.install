@@ -998,3 +998,45 @@ function hwc_update_7064() {
   features_revert(array('hwc_homepage' => 'views_view'));
   features_revert(array('osha_news' => 'views_view'));
 }
+
+/*
+ * HW20-209 HWC20 Development of the complete GPA.
+ */
+function hwc_update_7065() {
+  module_enable(array('hwc_gpa'));
+}
+
+/*
+ * Release 2 - Get your certificate.
+ */
+function hwc_update_7066() {
+  $node = node_load(365);
+  foreach($node->body as &$text) {
+    if ($text[0]['value']) {
+      $pos = strpos($text[0]['value'], '<div class="see-also">');
+      if ($pos) {
+        $text[0]['value'] = substr($text[0]['value'], 0, $pos);
+      }
+    }
+  }
+  node_save($node);
+}
+
+/*
+ * HW20-464 SEO Recommendations implementation.
+ */
+function hwc_update_7067() {
+  variable_set('hwc_hide_meta_description_pages', 'about-topic/glossary-list
+tools-and-publications/campaign-materials
+media-centre/news
+tools-and-publications/practical-tools
+media-centre/events
+campaign-partners/official-campaign-partners
+campaign-partners/enterprise-europe-network');
+}
+
+/*
+ * HW20-486 UX: Depending on the level change the banner titles.
+ */
+function hwc_update_7068() {
+}

@@ -339,3 +339,17 @@ function hwc_partner_update_7042() {
 function hwc_partner_update_7043() {
   features_revert_module('hwc_partner');
 }
+
+/**
+ * My public profile.
+ */
+function hwc_partner_update_7044() {
+  features_revert_module('hwc_partner');
+}
+
+/**
+ * MDR-3404 FoP- Move the label 'Main Contacts' to be displayed before the main contacts.
+ */
+function hwc_partner_update_7045() {
+  features_revert(array('hwc_partner' => array('page_manager_handlers')));
+}
