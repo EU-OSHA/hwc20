@@ -472,6 +472,10 @@ function hwc_frontend_preprocess_page(&$vars) {
         }
         break;
 
+      case "priority_area":
+        $vars['theme_hook_suggestions'][] = 'page__node__priority_area';
+        break;
+
       case "campaign_16":
         $vars['theme_hook_suggestions'][] = 'page__node__campaign_16';
         break;
@@ -482,6 +486,10 @@ function hwc_frontend_preprocess_page(&$vars) {
 
       case "publication":
         $vars['theme_hook_suggestions'][] = 'page__node__publication';
+        break;
+
+      case "practical_tool":
+        $vars['theme_hook_suggestions'][] = 'page__node__practical_tool';
         break;
     }
   }
