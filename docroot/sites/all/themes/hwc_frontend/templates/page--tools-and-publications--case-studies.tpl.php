@@ -75,67 +75,64 @@
 
 global $language;
 $theme_dir = drupal_get_path('theme', 'hwc_frontend');
+include(drupal_get_path('theme', 'hwc_frontend').'/templates/header.tpl.php');
 ?>
-<?php if (!empty($page['above_header'])): ?>
-<?php endif; ?>
-<?php
-  include(drupal_get_path('theme', 'hwc_frontend').'/templates/header.tpl.php');
-?>
+<div class="main-container">
+    <div class="row">
+        <section class="<?php print (!empty($content_class)) ? $content_class : ''; ?>">
+            <div class="">
+              <?php /* print $content_column_class; */ ?>
+              <?php if (!empty($page['highlighted'])): ?>
+                  <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
+              <?php endif; ?>
+                <section class="title-section">
+                  <?php if ($show_title) { ?>
+                      <div class="page_title">
+                  <?php
+                  $external_infographic = variable_get('hwc_external_infographic_nid', 7150);
+                  $node_nid = NULL;
+                  $node_type = NULL;
+                  /*If is a external infographic, change the breadcrumbs*/
+                  $n = menu_get_object('node');
+                  if (!empty($breadcrumb) && ($node_nid != $external_infographic) && ($node_type != 'infographic')) {
+                    print $breadcrumb;
+                  }
+                  if (!empty($back_to_pz)) {
+                    print $back_to_pz;
+                  } ?>
+                    <a id="main-content"></a>
+                  <?php print render($title_prefix); ?>
+                    <div class="above_title">
+                      <?php print render($page['above_title']); ?>
+                    </div>
+                    <?php if (!empty($title)): ?>
+                          <h1 class="page-header"><?php print $title; ?></h1>
+                    <?php endif; ?>
+                      </div><?php
+                  }
+                  print render($title_suffix);
+                  print $messages; ?>
+                    <div class="below_title">
+                      <?php print render($page['below_title']); ?>
+                    </div>
+                  <?php if (!empty($tabs)): ?>
+                    <?php print render($tabs); ?>
+                  <?php endif; ?>
+                  <?php if (!empty($page['help'])): ?>
+                    <?php print render($page['help']); ?>
+                  <?php endif; ?>
+                </section>
+              <?php if (!empty($action_links)): ?>
+                  <ul class="action-links"><?php print render($action_links); ?></ul>
+              <?php endif; ?>
 
-<div class="main-container container-fluid">
-
-  <div class="row">
-    <section class="<?php print (!empty($content_class)) ? $content_class : ''; ?>">
-      <?php if ($show_title) {?>
-          <div class="page_title">
-    <?php /* print $content_column_class; */ ?>
-      <?php if (!empty($page['highlighted'])): ?>
-        <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
-      <?php endif; ?>
-      <?php if (!empty($back_to_pz)) {
-        print $back_to_pz;
-      } ?>
-      <a id="main-content"></a>
-      <?php print render($title_prefix); ?>
-      <div class="above_title">
-        <?php print render($page['above_title']); ?>
-      </div>
-        <?php if (!empty($title)): ?>
-          <h1 class="page-header"><?php print $title; ?></h1>
-        <?php endif; ?>
-      </div><?php
-      }
-      print render($title_suffix);
-      print $messages; ?>
-      <div class="below_title">
-        <?php print render($page['below_title']); ?>
-      </div>
-      <?php if (!empty($tabs)): ?>
-        <?php print render($tabs); ?>
-      <?php endif; ?>
-      <?php if (!empty($page['help'])): ?>
-        <?php print render($page['help']); ?>
-      <?php endif; ?>
-      <?php if (!empty($action_links)): ?>
-        <ul class="action-links"><?php print render($action_links); ?></ul>
-      <?php endif; ?>
-
-	  <?php if (!empty($page['sidebar_first'])): ?>
-		  <aside class="col-xs-12 col-sm-6 col-md-3" role="complementary">
-			<?php print render($page['sidebar_first']); ?>
-		  </aside>  <!-- /#sidebar-first -->
-	  <?php endif; ?>
-      <div id="skip-to-content" style="visibility: hidden; height: 0px"><a href="#skip-to-content" rel="nofollow" accesskey="S" style="visibility: hidden;"><?php print t('Skip to content'); ?></a></div>
-      <?php print render($page['content']); ?>
-    </section>
-
-    <?php if (!empty($page['sidebar_second'])): ?>
-      <aside class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <?php print render($page['sidebar_second']); ?>
-      </aside>  <!-- /#sidebar-second -->
-    <?php endif; ?>
-  </div>
+        </section>
+    </div>
 </div>
+
+<div id="skip-to-content" style="visibility: hidden; height: 0px"><a href="#skip-to-content" rel="nofollow" accesskey="S" style="visibility: hidden;"><?php print t('Skip to content'); ?></a></div>
+<?php print render($page['content']); ?>
+
 <footer class="footer">
     <div class="container">
       <?php print render($page['footer']); ?>
