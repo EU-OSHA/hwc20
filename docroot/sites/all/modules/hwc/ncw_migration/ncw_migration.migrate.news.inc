@@ -49,6 +49,8 @@ class NCWNewsMigration extends AbstractNCWNodeMigration {
   public function prepareRow($row) {
     parent::prepareRow($row);
     $row->field_migration_path_alias = $row->path;
+    $row->field_image_caption = $row->field_image_image_captions;
+    $row->field_image_caption_language = $row->field_image_image_captions_language;
     // Disable NCW alias.
     $row->path = NULL;
     $row->field_tags = osha_migration_normalize_migrated_term_reference($row->field_tags, 'tax_tags');
@@ -78,6 +80,8 @@ class NCWNewsSource extends AbstractNCWNodeSource {
       'body_language',
       'body_summary',
       'body_format',
+      'field_image_caption',
+      'field_image_caption_language',
       'field_summary',
       'field_summary_format',
       'field_summary_language',

@@ -1039,8 +1039,4 @@ campaign-partners/enterprise-europe-network');
  * HW20-486 UX: Depending on the level change the banner titles.
  */
 function hwc_update_7068() {
-  variable_set('hwc_exclude_banner_titles', 'node/129
-node/165
-node/184
-node/160');
 }
