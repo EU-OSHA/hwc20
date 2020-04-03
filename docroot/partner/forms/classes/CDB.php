@@ -404,7 +404,7 @@ foreach($responseFixed[$key] as $keyPar => $valuePar)
                 if(isset($value['Fields']['osh_campaigncontacttype']) && $value['Fields']['osh_campaigncontacttype'] == 2){
                     $keyValue = $this->setUserRepresentativeFields($value, $key2, $value2);
                 } else if(isset($value['Fields']['osh_campaigncontacttype']) && $value['Fields']['osh_campaigncontacttype'] == 3){
-                    $keyValue = $this->setCeoFields($value, $key2, $value2);
+                    // $keyValue = $this->setCeoFields($value, $key2, $value2);
                 } else if(isset($value['Fields']['osh_campaigncontacttype']) && $value['Fields']['osh_campaigncontacttype'] == 4){
                     $keyValue = $this->setUserCOMRepresentativeFields($value, $key2, $value2);
                 } else{
