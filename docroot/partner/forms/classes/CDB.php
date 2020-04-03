@@ -404,7 +404,7 @@ foreach($responseFixed[$key] as $keyPar => $valuePar)
                 if(isset($value['Fields']['osh_campaigncontacttype']) && $value['Fields']['osh_campaigncontacttype'] == 2){
                     $keyValue = $this->setUserRepresentativeFields($value, $key2, $value2);
                 } else if(isset($value['Fields']['osh_campaigncontacttype']) && $value['Fields']['osh_campaigncontacttype'] == 3){
-                    // $keyValue = $this->setCeoFields($value, $key2, $value2);
+                    $keyValue = $this->setCeoFields($value, $key2, $value2);
                 } else if(isset($value['Fields']['osh_campaigncontacttype']) && $value['Fields']['osh_campaigncontacttype'] == 4){
                     $keyValue = $this->setUserCOMRepresentativeFields($value, $key2, $value2);
                 } else{
@@ -474,10 +474,10 @@ foreach($responseFixed[$key] as $keyPar => $valuePar)
             $key = "osh_ceolastname";
             $value = $value2;
             return $key .";" . $value;
-        }else if($key2 == "osh_ceoimage"){
+        /*}else if($key2 == "osh_ceoimage"){
             $key = "osh_ceoimage";
             $value = $value2;
-            return $key .";" . $value;
+            return $key .";" . $value;*/
         }else if($key2 == "osh_position"){
             $key = "osh_positionid";
             $value = $value2;
