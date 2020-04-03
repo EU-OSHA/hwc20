@@ -62,11 +62,12 @@ label + img{}
 }
 
 .print {
-    background      : url(../img/print.png) no-repeat;
-    padding-left    : 2vw !important;
-    padding-bottom  : 0.4vw !important;
-    background-size : 2em;
+    background: url(../img/print.png) no-repeat 0px 7px;
+    padding-left: 2vw !important;
+    padding-bottom: 0.4vw !important;
+    background-size: 2em;
     margin: 1vw;
+    padding-top: 10px;
 }
 
 .export-pdf {
