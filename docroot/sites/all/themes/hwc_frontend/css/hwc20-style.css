@@ -7579,6 +7579,9 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
 #block-menu-block-7 .nav > li > a {
   padding: 10px 15px 0 0;
 }
+.pane-hwc-good-practice-exchange-gpepbacklink {
+  clear: both;
+}
 .isMobile {
   float: right !important;
 }
