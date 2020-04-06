@@ -20,13 +20,6 @@
     <div class="box-before">
       <h3><?php print t('Check out previous campaigns'); ?></h3>
       <?php print $data['campaign']; ?>
-        <div class="content-buttom">
-          <?php
-          $options['attributes']['class'] = ['see-more-button-20'];
-          $path = variable_get('about_the_campaigns_path', '');
-          print l(t('About the Campaigns'), $path, $options);
-          ?>
-        </div>
     </div>
   </div>
 </section>
