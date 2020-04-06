@@ -7565,8 +7565,15 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   margin-bottom: 0em;
   margin-right: 1em;
 }
-.node-type-pa-highlights .field-name-body .field-item ul {
-  margin-left: 17em;
+.node-type-pa-highlights .node-pa-highlights.view-mode-full .field-name-field-image {
+  float: left;
+  width: 220px;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+.node-type-pa-highlights .node-pa-highlights.view-mode-full .field-name-body {
+  float: left;
+  width: 70%;
 }
 /* Cookies banner */
 #sliding-popup.sliding-popup-top,
@@ -8833,6 +8840,10 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   .node-type-priority-area .region-content #block-hwc-priority-areas .node-pa-highlights .field.field-name-field-image,
   .node-type-priority-area .region-content #block-hwc-priority-areas .node-news .field.field-name-field-image {
     min-height: auto;
+  }
+  .node-type-pa-highlights .node-pa-highlights.view-mode-full .field-name-body {
+    float: left;
+    width: 100%;
   }
   .popup {
     width: 155px;
