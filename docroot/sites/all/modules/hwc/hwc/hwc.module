@@ -452,13 +452,13 @@ function hwc_block_view($delta = '') {
   }
 
   if ($delta == 'article_recommended_resources') {
-      // Recommended resources for you - Video article only.
-      $block['title'] = '<none>';
-      $block['subject'] = "<none>";
-      $node = menu_get_object();
-      $view = node_view_multiple([$node], 'hwc_teaser', 0, $language->language);
-      $block['content'] = render($view);
-    }
+    // Recommended resources for you - Video article only.
+    $block['title'] = '<none>';
+    $block['subject'] = "<none>";
+    $node = menu_get_object();
+    $view = node_view_multiple([$node], 'hwc_teaser', 0, $language->language);
+    $block['content'] = render($view);
+  }
 
   if ($delta == 'article_related_resources' || $delta == 'content_related_resources') {
     $block['title'] = '<none>';
@@ -466,7 +466,7 @@ function hwc_block_view($delta = '') {
     $node = menu_get_object();
     if ($node && !empty($node->field_resources)) {
       $resources = [];
-      foreach($node->field_resources[LANGUAGE_NONE] as $term) {
+      foreach ($node->field_resources[LANGUAGE_NONE] as $term) {
         $wrapper = entity_metadata_wrapper('taxonomy_term', $term['tid']);
         $icon = $wrapper->language($language->language)->field_icon->value()['uri'];
         $image = theme('image_style', ['style_name' => 'relres', 'path' => $icon]);
@@ -1436,11 +1436,11 @@ function hwc_node_view($node, $view_mode, $langcode) {
       }
     }
 //    if ($node->nid == 165) { // campaign_partner.
-      $download_class = 'active';
-      $see_results_class = 'active';
-      if ($registration_allowed && !$download_allowed) {// > download deadline and < registration deadline.
-        $application_form_class = 'active';
-      }
+    $download_class = 'active';
+    $see_results_class = 'active';
+    if ($registration_allowed && !$download_allowed) {// > download deadline and < registration deadline.
+      $application_form_class = 'active';
+    }
 //    }
     if ($node->nid == 165) { // campaign_partner.
       $download_link = variable_get('become_campaign_partner_download_link', '#');

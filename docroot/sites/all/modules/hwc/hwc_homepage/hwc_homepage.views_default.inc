@@ -1365,7 +1365,7 @@ function hwc_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_image']['settings'] = array(
     'image_style' => '',
     'image_link' => '',
-    'field_formatter_class' => 'aaaa',
+    'field_formatter_class' => '',
   );
   /* Field: Content: Video */
   $handler->display->display_options['fields']['field_banner_video']['id'] = 'field_banner_video';

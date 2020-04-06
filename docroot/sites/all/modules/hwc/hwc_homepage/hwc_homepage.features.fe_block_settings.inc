@@ -83,7 +83,8 @@ about-topic/business-case',
     'i18n_mode' => 0,
     'module' => 'hwc_homepage',
     'node_types' => array(),
-    'pages' => '<front>',
+    'pages' => 'regular-page
+<front>',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
@@ -112,7 +113,8 @@ about-topic/business-case',
     'i18n_mode' => 0,
     'module' => 'hwc_homepage',
     'node_types' => array(),
-    'pages' => '<front>',
+    'pages' => 'regular-page
+<front>',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
@@ -141,14 +143,15 @@ about-topic/business-case',
     'i18n_mode' => 0,
     'module' => 'hwc_homepage',
     'node_types' => array(),
-    'pages' => '<front>',
+    'pages' => 'regular-page
+<front>',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 11,
+        'weight' => 10,
       ),
       'seven' => array(
         'region' => '',
@@ -170,12 +173,12 @@ about-topic/business-case',
     'i18n_mode' => 0,
     'module' => 'hwc_homepage',
     'node_types' => array(),
-    'pages' => '<front>',
+    'pages' => 'splash-page',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'content',
+        'status' => 1,
         'theme' => 'hwc_frontend',
         'weight' => 4,
       ),
@@ -199,12 +202,12 @@ about-topic/business-case',
     'i18n_mode' => 0,
     'module' => 'hwc_homepage',
     'node_types' => array(),
-    'pages' => '<front>',
+    'pages' => 'splash-page',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'content',
+        'status' => 1,
         'theme' => 'hwc_frontend',
         'weight' => 2,
       ),
@@ -228,12 +231,12 @@ about-topic/business-case',
     'i18n_mode' => 0,
     'module' => 'hwc_homepage',
     'node_types' => array(),
-    'pages' => '<front>',
+    'pages' => 'splash-page',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'content',
+        'status' => 1,
         'theme' => 'hwc_frontend',
         'weight' => 1,
       ),
@@ -402,7 +405,8 @@ about-topic/business-case',
     'i18n_mode' => 0,
     'module' => 'views',
     'node_types' => array(),
-    'pages' => '<front>',
+    'pages' => 'regular-page
+<front>',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
@@ -460,7 +464,8 @@ about-topic/business-case',
     'i18n_mode' => 0,
     'module' => 'views',
     'node_types' => array(),
-    'pages' => '<front>',
+    'pages' => 'regular-page
+<front>',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
@@ -489,12 +494,12 @@ about-topic/business-case',
     'i18n_mode' => 0,
     'module' => 'views',
     'node_types' => array(),
-    'pages' => '',
+    'pages' => 'splash-page',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'content',
+        'status' => 1,
         'theme' => 'hwc_frontend',
         'weight' => 0,
       ),
@@ -506,7 +511,7 @@ about-topic/business-case',
       ),
     ),
     'title' => '',
-    'visibility' => 0,
+    'visibility' => 1,
   );
 
   $export['views-view_campaign_materials-splash'] = array(

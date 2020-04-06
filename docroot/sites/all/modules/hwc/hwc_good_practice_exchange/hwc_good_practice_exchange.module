@@ -393,8 +393,8 @@ function hwc_good_practice_exchange_block_view($delta = '') {
       $events = '';
     }
     if ($news || $events) {
-    $block['content'] = theme('gpe_news_events', ['events' => $events, 'news' => $news]);
-  }
+      $block['content'] = theme('gpe_news_events', ['events' => $events, 'news' => $news]);
+    }
   }
 
   if ($delta == 'gpep_document_links') {

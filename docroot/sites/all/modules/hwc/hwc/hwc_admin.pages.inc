@@ -493,18 +493,21 @@ function hwc_splash_mode_form($form, &$form_state) {
 
 function hwc_splash_mode_form_submit($form, &$form_state) {
   $splash_blocks = array(
-    'splash_browsing_content',
-    'splash_download_news_campaign',
-    'splash_title_banner_countdown',
+    'splash_banners-block' => 'views',
+    'splash_browsing_content' => 'hwc_homepage',
+    'splash_download_news_campaign' => 'hwc_homepage',
+    'splash_title_banner_countdown' => 'hwc_homepage',
   );
+
   $home_blocks = array(
-    'frontpage_slider-block',
-    'front_page_blocks_set',
-    'hwc_homepage_tools_and_resources',
-    'hwc_homepage_topics',
-    'osha_newsletter_image',
-    'partners-block_1',
+    'homepage_banners-block' => 'views',
+    'hwc_homepage_news_events' => 'hwc_homepage',
+    'hwc_homepage_newsletter_social' => 'hwc_homepage',
+    'hwc_homepage_topics' => 'hwc_homepage',
+    'partners-block_1' => 'views',
   );
+
+  $pages_suffix = "\r\n<front>";
 
   if (variable_get('splash_mode', FALSE)) {
     variable_set('splash_mode', FALSE);
@@ -519,17 +522,20 @@ function hwc_splash_mode_form_submit($form, &$form_state) {
     $disable = $home_blocks;
   }
 
-  db_update('block')
-    ->fields(array(
-      'status' => 0,
-    ))
-    ->condition('delta', $disable, 'IN')
-    ->execute();
-  db_update('block')
-    ->fields(array(
-      'status' => 1,
-    ))
-    ->condition('delta', $enable, 'IN')
-    ->condition('theme', 'hwc_frontend')
-    ->execute();
+  foreach ($disable as $delta => $module) {
+    $block = block_load($module, $delta);
+    $pages = str_replace($pages_suffix, '', $block->pages);
+    db_update('block')
+      ->fields(['status' => 1, 'pages' => $pages])
+      ->condition('bid', $block->bid)
+      ->execute();
+  }
+  foreach ($enable as $delta => $module) {
+    $block = block_load($module, $delta);
+    $pages = $block->pages . $pages_suffix;
+    db_update('block')
+      ->fields(['status' => 1, 'pages' => $pages])
+      ->condition('bid', $block->bid)
+      ->execute();
+  }
 }
