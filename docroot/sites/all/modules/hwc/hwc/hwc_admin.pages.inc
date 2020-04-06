@@ -147,10 +147,17 @@ function hwc_admin_config_form() {
   );
 
   $form['campaign_partner']['become_campaign_partner_register_title'] = array(
-    '#title' => 'Download the Campaign Partnership register link',
+    '#title' => 'Download the Campaign Partnership register link title',
     '#description' => '',
     '#type' => 'textfield',
     '#default_value' => variable_get('become_campaign_partner_register_title', 'Apply here'),
+  );
+
+  $form['campaign_partner']['become_campaign_partner_register_link'] = array(
+    '#title' => 'Download the Campaign Partnership register link',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_campaign_partner_register_link', '#'),
   );
 
   $form['campaign_partner']['become_campaign_partner_application_form_title'] = array(
@@ -218,6 +225,13 @@ function hwc_admin_config_form() {
     '#description' => '',
     '#type' => 'textfield',
     '#default_value' => variable_get('become_media_partner_register_title', 'Apply here'),
+  );
+
+  $form['media_partner']['become_media_partner_register_link'] = array(
+    '#title' => 'Download the Media Partnership register link',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_media_partner_register_link', '#'),
   );
 
   $form['media_partner']['become_media_partner_application_form_title'] = array(
