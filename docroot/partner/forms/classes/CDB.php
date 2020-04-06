@@ -325,7 +325,7 @@ final class CDB
             }
             $responseFixed[$key] = $value;
         }
-
+		
 		//The phone prefix for the main contact seems to come out of the normal structure in the JSON so, in order to obtain and show it, the following "if" is needed.
 		if(isset($response['osh_prefixphone1']['Name']))
 		{
