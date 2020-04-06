@@ -103,7 +103,7 @@ include(drupal_get_path('theme', 'hwc_frontend') . '/templates/header.tpl.php');
   if (!empty($back_to_pz)) {
     print $back_to_pz;
   } ?>
-    <?php if (!empty($title)) { ?>
+        <?php if (!empty($title)) { ?>
         <h1 class="page-header"><?php
           if ($banner_title) {
             print $banner_title;
@@ -111,7 +111,7 @@ include(drupal_get_path('theme', 'hwc_frontend') . '/templates/header.tpl.php');
           else {
             print $title;
           } ?></h1>
-    <?php } ?>
+        <?php } ?>
       </div>
     <?php
   }

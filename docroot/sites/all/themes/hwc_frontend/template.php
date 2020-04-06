@@ -53,7 +53,7 @@ function hwc_frontend_menu_link__menu_block($variables) {
   }
   $text = '';
   if (!empty($element['#localized_options']['content']['image'])) {
-  $image_url = file_create_url($element['#localized_options']['content']['image']);
+    $image_url = file_create_url($element['#localized_options']['content']['image']);
     $attributes = [];
     if (!empty($element['#localized_options']['copyright']['image_alt'])) {
       $attributes['alt'] = strip_tags($element['#localized_options']['copyright']['image_alt']);
@@ -240,7 +240,7 @@ function hwc_frontend_preprocess_html(&$vars) {
 
     if (variable_get('splash_mode', FALSE)) {
       $value .= '
-(function(h,o,t,j,a,r){
+  (function(h,o,t,j,a,r){
   h.hj=h.hj||function() {(h.hj.q=h.hj.q||[]).push(arguments)};
   h._hjSettings={hjid:1642038,hjsv:6};
   a=o.getElementsByTagName(\'head\')[0];
@@ -249,7 +249,7 @@ function hwc_frontend_preprocess_html(&$vars) {
   r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
   a.appendChild(r);
 })(window,document,\'https://static.hotjar.com/c/hotjar-\',\'.js?sv=\');';
-  }
+    }
     $script = [
       '#tag' => 'script',
       '#attributes' => ['type' => 'text/javascript'],
@@ -268,10 +268,10 @@ function hwc_frontend_preprocess_html(&$vars) {
   }
 
   $vars['menu_title'] = '';
-    $active_trail = menu_get_active_trail();
-    if (count($active_trail) > 2) {
-      $vars['menu_title'] = $active_trail[count($active_trail) - 1]['title'];
-    }
+  $active_trail = menu_get_active_trail();
+  if (count($active_trail) > 2) {
+    $vars['menu_title'] = $active_trail[count($active_trail) - 1]['title'];
+  }
   $n = menu_get_object('node');
   if ($n) {
     switch ($n->type) {

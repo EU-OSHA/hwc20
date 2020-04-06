@@ -31,7 +31,7 @@ if ($hide_title) {
     print render($content['field_image']);
     print render($content['title_field']);
 
-    
+
     print render($content['field_summary']);
     print render($content['body']);
   ?>
