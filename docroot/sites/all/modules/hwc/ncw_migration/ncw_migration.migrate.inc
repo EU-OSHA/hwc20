@@ -1222,7 +1222,6 @@ function osha_migration_normalize_field_entityreference($row, $field_name, $fiel
 function osha_migration_normalize_field_file($row, $field_name, $field_info, $filter_languages) {
   $field = array();
   $languages = array();
-  $image_field_captions = [];
   if (!empty($row->{$field_name}) && is_array($row->{$field_name})) {
     foreach ($row->{$field_name} as $language => $values) {
       if (!empty($filter_languages) && !in_array($language, $filter_languages)) {
@@ -1231,18 +1230,11 @@ function osha_migration_normalize_field_file($row, $field_name, $field_info, $fi
       foreach ($values as $f) {
         $field[] = osha_migration_url_files(str_replace('public://', '', $f['uri']));
         $languages[] = $language;
-        $image_field_caption = '';
-        if (!empty($f['image_field_caption']['value'])) {
-          $image_field_caption = $f['image_field_caption']['value'];
-        }
-        $image_field_captions[] = $image_field_caption;
       }
     }
   }
   $row->{$field_name} = $field;
   $row->{$field_name . '_language'} = $languages;
-  $row->{$field_name . '_image_captions'} = strip_tags($image_field_captions);
-  $row->{$field_name . '_image_captions_language'} = $languages;
 }
 
 function osha_migration_normalize_field_image($row, $field_name, $field_info, $filter_languages) {
