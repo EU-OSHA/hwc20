@@ -7544,6 +7544,9 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   margin-bottom: 0em;
   margin-right: 1em;
 }
+.node-type-pa-highlights .field-name-body .field-item ul {
+  margin-left: 17em;
+}
 /* Cookies banner */
 #sliding-popup.sliding-popup-top,
 #sliding-popup.sliding-popup-top .eu-cookie-withdraw-banner,
