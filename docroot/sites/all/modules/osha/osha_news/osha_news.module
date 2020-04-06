@@ -53,7 +53,7 @@ function osha_news_osha_tmgmt_i18n_string_list() {
  */
 function osha_news_form_news_node_form_alter(&$form, &$form_state) {
   global $user;
-  $is_admin = count(array_intersect(array(HWC_ROLE_ADMIN), $user->roles));
+  $is_admin = count(array_intersect(array(HWC_ROLE_ADMIN, HWC_ROLE_WEBSITE_MANAGERS, HWC_ROLE_EEN_REVIEW_MANAGER, HWC_ROLE_HWC_STAFF_REVIEWERS), $user->roles));
   if (!$is_admin) {
     $form['field_show_on']['#access'] = FALSE;
   }
