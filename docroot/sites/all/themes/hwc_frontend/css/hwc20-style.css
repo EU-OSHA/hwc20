@@ -7544,6 +7544,9 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   margin-bottom: 0em;
   margin-right: 1em;
 }
+.node-type-pa-highlights .field-name-body .field-item ul {
+  margin-left: 17em;
+}
 /* Cookies banner */
 #sliding-popup.sliding-popup-top,
 #sliding-popup.sliding-popup-top .eu-cookie-withdraw-banner,
@@ -7578,6 +7581,9 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
 #block-menu-block-1 .nav > li > a,
 #block-menu-block-7 .nav > li > a {
   padding: 10px 15px 0 0;
+}
+.pane-hwc-good-practice-exchange-gpepbacklink {
+  clear: both;
 }
 .isMobile {
   float: right !important;
