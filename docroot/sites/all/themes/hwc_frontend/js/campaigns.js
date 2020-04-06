@@ -939,5 +939,10 @@ jQuery(document).ready(function($){
 		jQuery('.left-menu ul.menu li a[target="_blank"]').addClass('external-menu-item');
 	}
 
+	//Good Practice Awards - add class collapsed on FAQ
+	if ($(".group-faq")[0]){
+		 $("#faq > div:nth-child(2) a").addClass('collapsed');
+		 $("#faq > div:nth-child(3) a").addClass('collapsed');
+	}
 
 });
