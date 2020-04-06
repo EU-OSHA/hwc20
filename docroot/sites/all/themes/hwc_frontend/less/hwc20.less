@@ -463,7 +463,6 @@ select{
 		color:#FFF;
 		font-weight: 400;
 		font-style: normal;
-		margin-right: 2em;
 		font-size: 4rem;
     	padding-top: 3px;
 	}	
@@ -7055,6 +7054,15 @@ body.newsletter{
     			padding-top: 5px;
     			padding-right: 2em;
 			}
+
+			.field-name-field-participate-upcoming-descr{
+				float: left;
+				width: 70%;
+    			padding-top: 5px;
+    			padding-right: 2em;
+    			color: #FFF;
+			}
+
 			.field-collection-container{
 				float: right;
 				width: 30%;
@@ -7356,7 +7364,8 @@ body.front-page{
 										.media-body{
 											padding-left: 1em;
 											position: relative;
-											height: 227px;
+											height: auto;
+											padding-bottom: 60px;
 											padding-top: 0.5em;
 											> span.date-display-single{
 												float: none;
@@ -7644,7 +7653,8 @@ body.front-page{
 			}
 
 			p{
-				width: 59%;
+				width: 100%;
+    			padding-right: 8em;
 			}
 
 			a.see-more-button-20{
@@ -8069,13 +8079,29 @@ body.page-tools-and-publications-publications{
 					width: auto;
 				    margin-right: 0;
 				    float: left;
-				    min-height: 90px;
+				    min-height: 132px;
 				    img {
 			    		margin-top: 0.3em;
 			    		margin-bottom: 0em;
 			    		margin-right: 1em;
 					}
 				}
+
+				.field-name-body{
+					ul {
+					    list-style: inside;
+					    padding: 0;
+					    margin-bottom: 0;
+					    text-align: left;
+					    li{
+					    	padding-top: 0;
+						    padding-bottom: 0;
+						    background: none;
+					   	}
+					}
+
+				}
+
 				a.more-link{
 					justify-content: left;
 					font-size: 1.2rem;
@@ -8812,8 +8838,20 @@ body.video-page{
 
 		}
 	}
-	.field-name-body .field-item ul{
-		margin-left: 17em;
+}
+
+.node-type-pa-highlights{
+	.node-pa-highlights.view-mode-full{
+		.field-name-field-image{
+			float: left;
+			width: 220px;
+			margin-right: 1em;
+			margin-bottom: 1em;
+		}
+		.field-name-body{
+			float: left;
+    		width: 70%;
+		}
 	}
 }
 

@@ -1040,3 +1040,10 @@ campaign-partners/enterprise-europe-network');
  */
 function hwc_update_7068() {
 }
+
+/*
+ *
+ */
+function hwc_update_7069() {
+  variable_set('homepage_social_media_intro', 'Follow us on social media and get the latest information');
+}
