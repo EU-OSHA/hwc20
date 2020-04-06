@@ -669,12 +669,14 @@ final class CDB
      */
     private function buildUrl($method)
     {
+// file_put_contents("/tmp/curl.log", "21".PHP_EOL, FILE_APPEND | LOCK_EX);
 
         if ($this->debug) {
             $url = $method['name'];
         } else {
             $url = (! empty($this->sessionID)) ? $method['name'] . '?' . $method['idParam'] . '=' . $this->sessionID : '';
         }
+// file_put_contents("/tmp/curl.log", $url.PHP_EOL, FILE_APPEND | LOCK_EX);
         return $url;
     }
 
@@ -683,6 +685,7 @@ final class CDB
      */
     private function loadDropdownsData()
     {
+// file_put_contents("/tmp/curl.log", "22".PHP_EOL, FILE_APPEND | LOCK_EX);
         $params          = Parameters::getInstance();
         $dropDownMethods = $params->get('cdb')['dropdown_methods'];
         foreach ($dropDownMethods as $method) {
