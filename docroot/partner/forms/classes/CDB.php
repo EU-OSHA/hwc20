@@ -474,10 +474,10 @@ foreach($responseFixed[$key] as $keyPar => $valuePar)
             $key = "osh_ceolastname";
             $value = $value2;
             return $key .";" . $value;
-        }else if($key2 == "osh_ceoimage"){
+        /*}else if($key2 == "osh_ceoimage"){
             $key = "osh_ceoimage";
             $value = $value2;
-            return $key .";" . $value;
+            return $key .";" . $value;*/
         }else if($key2 == "osh_position"){
             $key = "osh_positionid";
             $value = $value2;
