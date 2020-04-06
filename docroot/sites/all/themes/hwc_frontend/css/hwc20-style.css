@@ -6130,6 +6130,13 @@ body.newsletter .hwc-share-widget {
   padding-top: 5px;
   padding-right: 2em;
 }
+.node-type-gpa .main-container .group-participate .field-name-field-participate-upcoming-descr {
+  float: left;
+  width: 70%;
+  padding-top: 5px;
+  padding-right: 2em;
+  color: #FFF;
+}
 .node-type-gpa .main-container .group-participate .field-collection-container {
   float: right;
   width: 30%;
@@ -7621,6 +7628,43 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
   .intro-splash-20 .views-row-first p:nth-child(4) {
     padding-bottom: 1em;
+  }
+  body.front-page .main-container .box-before.social-media p {
+    padding-right: 2em;
+  }
+  body.front-page .main-container .box-before.social-media .on-the-web a {
+    width: 45px;
+    padding-top: 29px;
+  }
+  body.front-page .main-container .box-before.social-media .otw-twitter a:before {
+    width: 36px;
+    height: 28px;
+    background-size: contain;
+  }
+  body.front-page .main-container .box-before.social-media .otw-facebook a:before {
+    width: 32px;
+    height: 28px;
+    background-size: contain;
+  }
+  body.front-page .main-container .box-before.social-media .otw-linkedin a:before {
+    width: 32px;
+    height: 28px;
+    background-size: contain;
+  }
+  body.front-page .main-container .box-before.social-media .otw-youtube a:before {
+    width: 42px;
+    height: 28px;
+    background-size: contain;
+  }
+  body.front-page .main-container .box-before.social-media .otw-flickr a:before {
+    width: 35px;
+    height: 28px;
+    background-size: contain;
+  }
+  body.front-page .main-container .box-before.social-media .otw-slideshare a:before {
+    width: 30px;
+    height: 28px;
+    background-size: contain;
   }
   /*Slider Publications*/
   body.page-tools-and-publications-publications .slider--video--section {
