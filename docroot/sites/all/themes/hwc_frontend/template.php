@@ -228,10 +228,7 @@ function hwc_frontend_preprocess_html(&$vars) {
     ];
     drupal_add_html_head($script, 'crazyegg-script');
 
-    $script = [
-      '#tag' => 'script',
-      '#attributes' => ['type' => 'text/javascript'],
-      '#value' => '(function(h,o,t,j,a,r){
+    $value = '(function(h,o,t,j,a,r){
   h.hj=h.hj||function() {(h.hj.q=h.hj.q||[]).push(arguments)};
   h._hjSettings={hjid:1550027,hjsv:6};
   a=o.getElementsByTagName(\'head\')[0];
@@ -239,8 +236,24 @@ function hwc_frontend_preprocess_html(&$vars) {
   r.async=1;
   r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
   a.appendChild(r);
-})(window,document,\'https://static.hotjar.com/c/hotjar-\',\'.js?sv=\');
-',
+})(window,document,\'https://static.hotjar.com/c/hotjar-\',\'.js?sv=\');';
+
+    if (variable_get('splash_mode', FALSE)) {
+      $value .= '
+  (function(h,o,t,j,a,r){
+  h.hj=h.hj||function() {(h.hj.q=h.hj.q||[]).push(arguments)};
+  h._hjSettings={hjid:1642038,hjsv:6};
+  a=o.getElementsByTagName(\'head\')[0];
+  r=o.createElement(\'script\');
+  r.async=1;
+  r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+  a.appendChild(r);
+})(window,document,\'https://static.hotjar.com/c/hotjar-\',\'.js?sv=\');';
+    }
+    $script = [
+      '#tag' => 'script',
+      '#attributes' => ['type' => 'text/javascript'],
+      '#value' => $value,
     ];
     drupal_add_html_head($script, 'hotjar-script');
   }
