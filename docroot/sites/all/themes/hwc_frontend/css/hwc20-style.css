@@ -6384,7 +6384,8 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .be
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news .view-news .view-content > div .media-body {
   padding-left: 1em;
   position: relative;
-  height: 227px;
+  height: auto;
+  padding-bottom: 60px;
   padding-top: 0.5em;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news .view-news .view-content > div .media-body > span.date-display-single {
