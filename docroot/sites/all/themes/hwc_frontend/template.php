@@ -250,7 +250,7 @@ function hwc_frontend_preprocess_html(&$vars) {
     $vars['classes_array'][] = 'page-publications';
   }
 
-  if (variable_get('splash_mode', FALSE)) {
+  if (variable_get('splash_mode', FALSE) || arg(0) == 'splash-page') {
     $vars['classes_array'][] = 'rel1';
   }
 
@@ -313,8 +313,8 @@ function hwc_frontend_preprocess_html(&$vars) {
     }
   }
 
-  if (drupal_is_front_page()) {
-    if (variable_get('splash_mode', FALSE)) {
+  if (drupal_is_front_page() || arg(0) == 'splash-page' || arg(0) == 'regular-page') {
+    if (variable_get('splash_mode', FALSE) || arg(0) == 'splash-page') {
       $vars['classes_array'][] = 'splash-page';
     }
     else {
@@ -381,6 +381,9 @@ function hwc_get_views_class_map() {
 
 function hwc_frontend_css_alter(&$css) {
   if (drupal_is_front_page() && variable_get('splash_mode', FALSE)) {
+    unset($css['sites/all/themes/hwc_frontend/css/hwc20.css']);
+  }
+  if (variable_get('splash_mode', FALSE) && arg(0) == 'splash-page') {
     unset($css['sites/all/themes/hwc_frontend/css/hwc20.css']);
   }
 }
@@ -489,8 +492,8 @@ function hwc_frontend_preprocess_page(&$vars) {
     $breadcrumb[] = drupal_get_title();
     drupal_set_breadcrumb($breadcrumb);
   }
-  if (drupal_is_front_page()) {
-    if (variable_get('splash_mode', FALSE)) {
+  if (drupal_is_front_page() || arg(0) == 'splash-page' || arg(0) == 'regular-page') {
+    if (variable_get('splash_mode', FALSE) || arg(0) == 'splash-page') {
       $vars['theme_hook_suggestions'][] = 'page__splash';
     }
     else {
