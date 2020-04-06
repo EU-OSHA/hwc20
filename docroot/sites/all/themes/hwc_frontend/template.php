@@ -228,10 +228,7 @@ function hwc_frontend_preprocess_html(&$vars) {
     ];
     drupal_add_html_head($script, 'crazyegg-script');
 
-    $script = [
-      '#tag' => 'script',
-      '#attributes' => ['type' => 'text/javascript'],
-      '#value' => '(function(h,o,t,j,a,r){
+    $value = '(function(h,o,t,j,a,r){
   h.hj=h.hj||function() {(h.hj.q=h.hj.q||[]).push(arguments)};
   h._hjSettings={hjid:1550027,hjsv:6};
   a=o.getElementsByTagName(\'head\')[0];
@@ -239,8 +236,24 @@ function hwc_frontend_preprocess_html(&$vars) {
   r.async=1;
   r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
   a.appendChild(r);
-})(window,document,\'https://static.hotjar.com/c/hotjar-\',\'.js?sv=\');
-',
+})(window,document,\'https://static.hotjar.com/c/hotjar-\',\'.js?sv=\');';
+
+    if (variable_get('splash_mode', FALSE)) {
+      $value .= '
+  (function(h,o,t,j,a,r){
+  h.hj=h.hj||function() {(h.hj.q=h.hj.q||[]).push(arguments)};
+  h._hjSettings={hjid:1642038,hjsv:6};
+  a=o.getElementsByTagName(\'head\')[0];
+  r=o.createElement(\'script\');
+  r.async=1;
+  r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+  a.appendChild(r);
+})(window,document,\'https://static.hotjar.com/c/hotjar-\',\'.js?sv=\');';
+    }
+    $script = [
+      '#tag' => 'script',
+      '#attributes' => ['type' => 'text/javascript'],
+      '#value' => $value,
     ];
     drupal_add_html_head($script, 'hotjar-script');
   }
@@ -250,7 +263,7 @@ function hwc_frontend_preprocess_html(&$vars) {
     $vars['classes_array'][] = 'page-publications';
   }
 
-  if (variable_get('splash_mode', FALSE)) {
+  if (variable_get('splash_mode', FALSE) || arg(0) == 'splash-page') {
     $vars['classes_array'][] = 'rel1';
   }
 
@@ -313,8 +326,8 @@ function hwc_frontend_preprocess_html(&$vars) {
     }
   }
 
-  if (drupal_is_front_page()) {
-    if (variable_get('splash_mode', FALSE)) {
+  if (drupal_is_front_page() || arg(0) == 'splash-page' || arg(0) == 'regular-page') {
+    if (variable_get('splash_mode', FALSE) || arg(0) == 'splash-page') {
       $vars['classes_array'][] = 'splash-page';
     }
     else {
@@ -381,6 +394,9 @@ function hwc_get_views_class_map() {
 
 function hwc_frontend_css_alter(&$css) {
   if (drupal_is_front_page() && variable_get('splash_mode', FALSE)) {
+    unset($css['sites/all/themes/hwc_frontend/css/hwc20.css']);
+  }
+  if (variable_get('splash_mode', FALSE) && arg(0) == 'splash-page') {
     unset($css['sites/all/themes/hwc_frontend/css/hwc20.css']);
   }
 }
@@ -489,8 +505,8 @@ function hwc_frontend_preprocess_page(&$vars) {
     $breadcrumb[] = drupal_get_title();
     drupal_set_breadcrumb($breadcrumb);
   }
-  if (drupal_is_front_page()) {
-    if (variable_get('splash_mode', FALSE)) {
+  if (drupal_is_front_page() || arg(0) == 'splash-page' || arg(0) == 'regular-page') {
+    if (variable_get('splash_mode', FALSE) || arg(0) == 'splash-page') {
       $vars['theme_hook_suggestions'][] = 'page__splash';
     }
     else {
