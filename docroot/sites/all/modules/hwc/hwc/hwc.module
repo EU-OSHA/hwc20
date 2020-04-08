@@ -2153,18 +2153,15 @@ function hwc_get_htmlmail_content($body) {
   $directory = drupal_get_path('theme', 'hwc_frontend');
 
   $content = [];
-
+  $title = t('Healthy Workplaces Lighten the Load');
   $bottom_text = variable_get('hwc_mail_bottom_text', '');
   $image = l(theme('image', array(
-    'path' => $directory . '/images/email-header.png',
-    'width' => 800,
-    'height' => 117,
-    'attributes' => array('style' => 'border: 0px;'),
+    'path' => $directory . '/images/imghwccrm/healthy-workplaces.png',
+    'attributes' => array('style' => 'display: inline-block;', 'border'=>'0', 'alt'=>$title, 'title'=>$title, 'class'=>'img_scale'),
   )), $base_url, array(
     'html' => TRUE,
     'external' => TRUE,
   ));
-
   $content['header'] = theme('html_mail_header', ['image' => $image]);
   $content['footer'] = theme('html_mail_footer', ['bottom_text' => $bottom_text]);
 
