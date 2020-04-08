@@ -283,7 +283,7 @@ class NCWMSDSource extends AbstractNCWNodeSource {
    * Get modified dates.
    */
   public function getMSDModifiedDates() {
-    $q = db_select('migrate_map_msd', 'mm');
+    $q = db_select('migrate_map_practical_tool', 'mm');
     $q->fields('mm', ['sourceid1']);
     $q->fields('md', ['field_modified_date_value']);
     $q->leftJoin('field_data_field_modified_date', 'md', 'md.entity_id = mm.destid1');
