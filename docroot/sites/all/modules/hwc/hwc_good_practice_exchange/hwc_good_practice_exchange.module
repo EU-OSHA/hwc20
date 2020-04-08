@@ -64,7 +64,7 @@ function hwc_good_practice_exchange_search_api_solr_query_alter(array &$call_arg
     $call_args['params']['fq'][] = '(' . $fq1 . ') OR (' . $fq2 . ')';
   }
 
-  $call_args['params']['sort'] = 'sort_title2 asc';
+  $call_args['params']['sort'] = 'ds_field_publication_date desc';
   $sort_by = strtolower(@$_REQUEST['sort_by']);
   $sort_order = strtolower(@$_REQUEST['sort_order']);
   if ($sort_by) {
@@ -271,19 +271,19 @@ function hwc_good_practice_exchange_sort_form($form, $form_state) {
   $form['sort_by'] = [
     '#type' => 'select',
     '#title' => t('Sort by'),
-    '#default_value' => 'title2',
+    '#default_value' => 'field_publication_date',
     '#options' => [
-      'title2' => t('Alphabetically'),
       'field_publication_date' => t('Date of publication'),
+      'title2' => t('Alphabetically'),
     ],
   ];
   $form['sort_order'] = [
     '#type' => 'select',
     '#title' => t('Order'),
-    '#default_value' => 'ASC',
+    '#default_value' => 'DESC',
     '#options' => [
-      'ASC' => t('ASC'),
       'DESC' => t('DESC'),
+      'ASC' => t('ASC'),
     ],
   ];
   $form['sort_by']['#value'] = @$_REQUEST['sort_by'];
