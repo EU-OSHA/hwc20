@@ -1233,7 +1233,7 @@ function osha_migration_normalize_field_file($row, $field_name, $field_info, $fi
         $languages[] = $language;
         $image_field_caption = '';
         if (!empty($f['image_field_caption']['value'])) {
-          $image_field_caption = $f['image_field_caption']['value'];
+          $image_field_caption = strip_tags($f['image_field_caption']['value']);
         }
         $image_field_captions[] = $image_field_caption;
       }
@@ -1241,8 +1241,10 @@ function osha_migration_normalize_field_file($row, $field_name, $field_info, $fi
   }
   $row->{$field_name} = $field;
   $row->{$field_name . '_language'} = $languages;
-  $row->{$field_name . '_image_captions'} = strip_tags($image_field_captions);
-  $row->{$field_name . '_image_captions_language'} = $languages;
+  if ($field_name == 'field_image') {
+    $row->{$field_name . '_image_captions'} = $image_field_captions;
+    $row->{$field_name . '_image_captions_language'} = $languages;
+  }
 }
 
 function osha_migration_normalize_field_image($row, $field_name, $field_info, $filter_languages) {
