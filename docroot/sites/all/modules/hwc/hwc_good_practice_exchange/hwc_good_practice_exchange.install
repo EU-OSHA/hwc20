@@ -227,3 +227,10 @@ function hwc_good_practice_exchange_update_7028() {
   $menu_link['hidden'] = 0;
   menu_link_save($menu_link);
 }
+
+/**
+ * HW20-456 GPE Platform: date of publication and descending order should be displayed by default.
+ */
+function hwc_good_practice_exchange_update_7029() {
+  features_revert(array('hwc_good_practice_exchange' => array('views_view')));
+}

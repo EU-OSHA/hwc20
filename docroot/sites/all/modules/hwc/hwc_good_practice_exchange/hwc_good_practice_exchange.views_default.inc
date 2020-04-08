@@ -297,12 +297,6 @@ function hwc_good_practice_exchange_views_default_views() {
   $handler->display->display_options['fields']['search_api_relevance']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['search_api_relevance']['link_to_entity'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Indexed Multilingual Content: Title #2 */
-  $handler->display->display_options['sorts']['title2']['id'] = 'title2';
-  $handler->display->display_options['sorts']['title2']['table'] = 'search_api_index_default_multilingual_node_index';
-  $handler->display->display_options['sorts']['title2']['field'] = 'title2';
-  $handler->display->display_options['sorts']['title2']['exposed'] = TRUE;
-  $handler->display->display_options['sorts']['title2']['expose']['label'] = 'Alphabetically';
   /* Sort criterion: Indexed Multilingual Content: Publication date */
   $handler->display->display_options['sorts']['field_publication_date']['id'] = 'field_publication_date';
   $handler->display->display_options['sorts']['field_publication_date']['table'] = 'search_api_index_default_multilingual_node_index';
@@ -310,6 +304,12 @@ function hwc_good_practice_exchange_views_default_views() {
   $handler->display->display_options['sorts']['field_publication_date']['order'] = 'DESC';
   $handler->display->display_options['sorts']['field_publication_date']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['field_publication_date']['expose']['label'] = 'Date of publication';
+  /* Sort criterion: Indexed Multilingual Content: Title #2 */
+  $handler->display->display_options['sorts']['title2']['id'] = 'title2';
+  $handler->display->display_options['sorts']['title2']['table'] = 'search_api_index_default_multilingual_node_index';
+  $handler->display->display_options['sorts']['title2']['field'] = 'title2';
+  $handler->display->display_options['sorts']['title2']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['title2']['expose']['label'] = 'Alphabetically';
   $handler->display->display_options['path'] = 'good-practice-exchange-platform';
   $translatables['documents'] = array(
     t('Master'),

@@ -1106,8 +1106,16 @@ function hwc_form_node_form_alter(&$form, &$form_state, $form_id) {
     $form['field_migration_path_alias']['#access'] = FALSE;
   }
 
+  $access = FALSE;
+  $is_admin = count(array_intersect(array(HWC_ROLE_ADMIN, HWC_ROLE_WEBSITE_MANAGERS, HWC_ROLE_EEN_REVIEW_MANAGER, HWC_ROLE_HWC_STAFF_REVIEWERS), $user->roles));
+  if ($is_admin) {
+    $access = TRUE;
+  }
   if (isset($form['field_show_in_ncw'])) {
-    $form['field_show_in_ncw']['#access'] = OshaWorkflowPermissions::userHasRole(HWC_ROLE_ADMIN, $user);
+    $form['field_show_in_ncw']['#access'] = $access;
+  }
+  if (isset($form['field_archived'])) {
+    $form['field_archived']['#access'] = $access;
   }
 
   if (!empty($form['#entity']->field_migration_source)
@@ -2145,18 +2153,15 @@ function hwc_get_htmlmail_content($body) {
   $directory = drupal_get_path('theme', 'hwc_frontend');
 
   $content = [];
-
+  $title = t('Healthy Workplaces Lighten the Load');
   $bottom_text = variable_get('hwc_mail_bottom_text', '');
   $image = l(theme('image', array(
-    'path' => $directory . '/images/email-header.png',
-    'width' => 800,
-    'height' => 117,
-    'attributes' => array('style' => 'border: 0px;'),
+    'path' => $directory . '/images/imghwccrm/healthy-workplaces.png',
+    'attributes' => array('style' => 'display: inline-block;', 'border'=>'0', 'alt'=>$title, 'title'=>$title, 'class'=>'img_scale'),
   )), $base_url, array(
     'html' => TRUE,
     'external' => TRUE,
   ));
-
   $content['header'] = theme('html_mail_header', ['image' => $image]);
   $content['footer'] = theme('html_mail_footer', ['bottom_text' => $bottom_text]);
 

@@ -185,7 +185,6 @@ function hwc_priority_areas_see_all($base, $text, $options = []) {
  * Implements hook_block_view().
  */
 function hwc_priority_areas_block_view($delta = '') {
-  $relevant_for = arg(2);
   $block = array();
   $block['content'] = '';
   $node = menu_get_object();
@@ -197,7 +196,10 @@ function hwc_priority_areas_block_view($delta = '') {
         $nids[] = $row['target_id'];
       }
       if ($nids) {
-        $block['content'] = hwc_priority_areas_render_nodes($nids, 'priority_areas');
+        $nodes = node_load_multiple($nids);
+        $block['content'] = hwc_priority_areas_render_nodes($nodes, 'priority_areas');
+      }
+      if ($block['content']) {
         $tid = $node->field_msd_priority_area[LANGUAGE_NONE][0]['tid'];
         $text = t('See all Practical Tools');
         $base = 'tools-and-publications/practical-tools';
@@ -214,7 +216,10 @@ function hwc_priority_areas_block_view($delta = '') {
         $nids[] = $row['target_id'];
       }
       if ($nids) {
-        $block['content'] = hwc_priority_areas_render_nodes($nids, 'priority_areas');
+        $nodes = node_load_multiple($nids);
+        $block['content'] = hwc_priority_areas_render_nodes($nodes, 'priority_areas');
+      }
+      if ($block['content']) {
         $tid = $node->field_msd_priority_area[LANGUAGE_NONE][0]['tid'];
         $text = t('See all Case Studies');
         $base = 'tools-and-publications/case-studies';
@@ -234,7 +239,10 @@ function hwc_priority_areas_block_view($delta = '') {
         $nids[] = $row['target_id'];
       }
       if ($nids) {
-        $block['content'] = hwc_priority_areas_render_nodes($nids, 'priority_areas');
+        $nodes = node_load_multiple($nids);
+        $block['content'] = hwc_priority_areas_render_nodes($nodes, 'priority_areas');
+      }
+      if ($block['content']) {
         $tid = $node->field_msd_priority_area[LANGUAGE_NONE][0]['tid'];
         $base = 'tools-and-publications/publications';
         $text = t('See all Publications');
@@ -260,10 +268,13 @@ function hwc_priority_areas_entity_info_alter(&$entity_info) {
   );
 }
 
-function hwc_priority_areas_render_nodes($nids, $view_mode) {
-  $nodes = node_load_multiple($nids);
+function hwc_priority_areas_render_nodes($nodes, $view_mode) {
+  global $user;
   $items = [];
   foreach ($nodes as $node) {
+    if (!$node->status && !$user->uid) {
+      continue;
+    }
     $view = node_view($node, $view_mode);
     $items[] = drupal_render($view);
   }

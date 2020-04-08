@@ -594,10 +594,6 @@ function osha_form_node_form_alter(&$form, &$form_state, $form_id) {
   if (isset($form_state['field']['field_character_count'])) {
     $form['field_character_count']['#access'] = FALSE;
   }
-
-  if (!in_array(HWC_ROLE_ADMIN, $user->roles)) {
-    $form['field_archived']['#access'] = FALSE;
-  }
   // Hide Delete button for all roles
   unset($form['actions']['delete']);
 }
