@@ -1106,8 +1106,16 @@ function hwc_form_node_form_alter(&$form, &$form_state, $form_id) {
     $form['field_migration_path_alias']['#access'] = FALSE;
   }
 
+  $access = FALSE;
+  $is_admin = count(array_intersect(array(HWC_ROLE_ADMIN, HWC_ROLE_WEBSITE_MANAGERS, HWC_ROLE_EEN_REVIEW_MANAGER, HWC_ROLE_HWC_STAFF_REVIEWERS), $user->roles));
+  if ($is_admin) {
+    $access = TRUE;
+  }
   if (isset($form['field_show_in_ncw'])) {
-    $form['field_show_in_ncw']['#access'] = OshaWorkflowPermissions::userHasRole(HWC_ROLE_ADMIN, $user);
+    $form['field_show_in_ncw']['#access'] = $access;
+  }
+  if (isset($form['field_archived'])) {
+    $form['field_archived']['#access'] = $access;
   }
 
   if (!empty($form['#entity']->field_migration_source)
