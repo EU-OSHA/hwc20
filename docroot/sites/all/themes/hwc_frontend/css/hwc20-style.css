@@ -8807,19 +8807,46 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
     right: 89px;
   }
 }
+@media (max-width: 880px) {
+  body.front-page .main-container .box-before.social-media p {
+    padding-right: 2em;
+  }
+  body.front-page .main-container .box-before.social-media .on-the-web a {
+    width: 37px;
+    padding-top: 29px;
+  }
+  body.front-page .main-container .box-before.social-media .otw-twitter a:before {
+    width: 27px;
+    height: 28px;
+    background-size: contain;
+  }
+  body.front-page .main-container .box-before.social-media .otw-facebook a:before {
+    width: 24px;
+    height: 28px;
+    background-size: contain;
+  }
+  body.front-page .main-container .box-before.social-media .otw-linkedin a:before {
+    width: 24px;
+    height: 28px;
+    background-size: contain;
+  }
+  body.front-page .main-container .box-before.social-media .otw-youtube a:before {
+    width: 34px;
+    height: 28px;
+    background-size: contain;
+  }
+  body.front-page .main-container .box-before.social-media .otw-flickr a:before {
+    width: 27px;
+    height: 28px;
+    background-size: contain;
+  }
+  body.front-page .main-container .box-before.social-media .otw-slideshare a:before {
+    width: 22px;
+    height: 28px;
+    background-size: contain;
+  }
+}
 @media (max-width: 768px) {
-  body.front-page .newsletter-social-media .newsletter {
-    border-right: 0;
-    border-bottom: 1px dashed #FFF;
-    padding-bottom: 1em;
-  }
-  body.front-page .main-container .box-before:nth-child(2) {
-    background: transparent;
-  }
-  body.front-page #block-hwc-homepage-hwc-homepage-newsletter-social .social-media a:before {
-    filter: brightness(0) invert(1);
-    -webkit-filter: brightness(0) invert(1);
-  }
   body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .view-frontpage-events {
     background: none;
   }
@@ -8955,6 +8982,22 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
 }
 @media (max-width: 767px) {
+  body.front-page .newsletter-social-media .newsletter {
+    border-right: 0;
+    border-bottom: 1px dashed #FFF;
+    padding-bottom: 1em;
+  }
+  body.front-page .main-container .box-before:nth-child(2) {
+    background: transparent;
+    padding: 0;
+  }
+  body.front-page #block-hwc-homepage-hwc-homepage-newsletter-social .social-media a:before {
+    filter: brightness(0) invert(1);
+    -webkit-filter: brightness(0) invert(1);
+  }
+  body.front-page #edit-agree-processing-personal-data {
+    width: auto;
+  }
   header.navbar-default .campaigns-header {
     padding: 0rem !important;
   }

@@ -1,30 +1,6 @@
 @media (max-width: 768px){
 
 	body.front-page{
-
-		.newsletter-social-media .newsletter{
-			border-right: 0;
-	    	border-bottom: 1px dashed #FFF;
-	    	padding-bottom: 1em;
-		}
-
-		.main-container{
-			.box-before:nth-child(2){
-				background: transparent;
-			}
-		}
-
-		#block-hwc-homepage-hwc-homepage-newsletter-social{
-			.social-media{
-				a:before{
-		   			filter: brightness(0) invert(1);
-		   			-webkit-filter: brightness(0) invert(1);
-   				}
-			}
-		}
-	}
-
-	body.front-page{
 		.main-container{
 			#block-hwc-homepage-hwc-homepage-news-events{
 				.view-frontpage-events{
@@ -240,6 +216,36 @@
 
 
 @media (max-width: 767px){
+
+	body.front-page{
+
+		.newsletter-social-media .newsletter{
+			border-right: 0;
+	    	border-bottom: 1px dashed #FFF;
+	    	padding-bottom: 1em;
+		}
+
+		.main-container{
+			.box-before:nth-child(2){
+				background: transparent;
+				padding: 0
+			}
+		}
+
+		#block-hwc-homepage-hwc-homepage-newsletter-social{
+			.social-media{
+				a:before{
+		   			filter: brightness(0) invert(1);
+		   			-webkit-filter: brightness(0) invert(1);
+					}
+			}
+		}
+
+		#edit-agree-processing-personal-data{
+			width: auto;
+		}
+
+	}
 
 	header.navbar-default{
 		&.sticky-menu{
