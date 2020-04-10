@@ -67,6 +67,7 @@ features[field_instance][] = taxonomy_term-tools_and_publications_type-descripti
 features[field_instance][] = taxonomy_term-tools_and_publications_type-field_image
 features[field_instance][] = taxonomy_term-tools_and_publications_type-field_tools_publications_link
 features[field_instance][] = taxonomy_term-tools_and_publications_type-name_field
+features[image][] = banner_1
 features[image][] = partner_logo_front
 features[menu_custom][] = management
 features[node][] = frontpage_slider
