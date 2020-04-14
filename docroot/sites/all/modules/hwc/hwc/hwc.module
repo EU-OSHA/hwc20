@@ -12,7 +12,7 @@ define('HWC_ROLE_HWC_STAFF_REVIEWERS', 'HWC Staff - Reviewers');
 
 define('HWC_ROLE_CAMPAIGN_PARTNER', 'campaign partner');
 // Mostra = supervisor.
-define('HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR', 'External Provider - Supervisor');
+define('HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR', 'External Provider');
 define('HWC_ROLE_SUPERADMIN', 'Superadministrators');
 
 define('HWC_SOLR_SEARCH_INDEX', 'default_multilingual_node_index');
@@ -258,7 +258,7 @@ function hwc_menu() {
     'title' => 'Toggle splash mode',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('hwc_splash_mode_form'),
-    'access arguments' => array('configure hwc website'),
+    'access arguments' => array('administer site configuration'),
     'file' => 'hwc_admin.pages.inc',
     'type' => MENU_NORMAL_ITEM,
   );
