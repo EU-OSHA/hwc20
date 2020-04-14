@@ -6194,6 +6194,10 @@ body.newsletter .hwc-share-widget {
   padding-right: 2em;
 }
 /* Home page */
+body.front-page .youtube-video {
+  margin-top: 0;
+  margin-right: 0;
+}
 body.front-page .youtube-video .hp-modal-content {
   padding-bottom: 3em;
 }
