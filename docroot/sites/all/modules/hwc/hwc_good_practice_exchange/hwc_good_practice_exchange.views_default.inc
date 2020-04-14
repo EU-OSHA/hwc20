@@ -29,11 +29,12 @@ function hwc_good_practice_exchange_views_default_views() {
   $handler->display->display_options['access']['role'] = array(
     3 => '3',
     12 => '12',
-    15 => '15',
     17 => '17',
-    14 => '14',
-    11 => '11',
     13 => '13',
+    19 => '19',
+    15 => '15',
+    11 => '11',
+    14 => '14',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';

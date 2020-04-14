@@ -366,8 +366,27 @@ function hwc_partner_block_view($delta = '') {
       arg(0) != 'good-practice-exchange-platform') {
       $block['content'] = theme('hwc_partner_my_private_workbench', array('content' => ''));
     }
+    elseif (
+      user_access('access my private workbench')  &&
+      arg(0) != 'private_workbench' &&
+      arg(0) != 'good-practice-exchange-platform') {
+      $block['content'] = theme('hwc_partner_my_private_workbench', array('content' => ''));
+    }
   }
   return $block;
+}
+
+/**
+ * Implements hook_permission().
+ *
+ * @return array
+ */
+function hwc_partner_permission() {
+  return array(
+    'access my private workbench' => array(
+      'title' => t('access my private workbench page'),
+    ),
+  );
 }
 
 function hwc_partner_hide_name($name, $flag) {
@@ -796,6 +815,7 @@ function hwc_partner_node_access($node, $op, $account) {
       !in_array(HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR, $account->roles) &&
       !in_array(HWC_ROLE_ADMIN, $account->roles) &&
       !in_array(HWC_ROLE_WEBSITE_MANAGERS, $account->roles) &&
+      !in_array(HWC_ROLE_GPE_PLATFORM_EDITORS, $account->roles) &&
       !in_array(HWC_ROLE_EEN_REVIEW_MANAGER, $account->roles) &&
       !in_array(HWC_ROLE_HWC_STAFF_REVIEWERS, $account->roles) &&
       !in_array(HWC_ROLE_SUPERADMIN, $account->roles)

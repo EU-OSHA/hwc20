@@ -8456,6 +8456,16 @@ foreach( $contexts[\'argument_entity_id:node_1\']->data->field_users[\'und\'] as
         'context' => 'logged-in-user',
         'not' => FALSE,
       ),
+      7 => array(
+        'name' => 'role',
+        'settings' => array(
+          'rids' => array(
+            0 => 19,
+          ),
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
     ),
     'logic' => 'or',
     'type' => 'none',
@@ -8507,6 +8517,7 @@ foreach( $contexts[\'argument_entity_id:node_1\']->data->field_users[\'und\'] as
               4 => 14,
               5 => 15,
               6 => 17,
+              7 => 19,
             ),
           ),
           'context' => 'context_user_1',
@@ -8968,8 +8979,16 @@ foreach( $contexts[\'argument_entity_id:node_1\']->data->field_users[\'und\'] as
           'context' => 'logged-in-user',
           'not' => FALSE,
         ),
+        1 => array(
+          'name' => 'perm',
+          'settings' => array(
+            'perm' => 'access my private workbench',
+          ),
+          'context' => 'logged-in-user',
+          'not' => FALSE,
+        ),
       ),
-      'logic' => 'and',
+      'logic' => 'or',
     ),
     'panels_breadcrumbs_state' => 1,
     'panels_breadcrumbs_titles' => '',
