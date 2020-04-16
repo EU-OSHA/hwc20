@@ -339,7 +339,6 @@ function hwc_practical_tool_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'search_api_index_default_multilingual_node_index';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'audio_visual' => 'audio_visual',
     'practical_tool' => 'practical_tool',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;

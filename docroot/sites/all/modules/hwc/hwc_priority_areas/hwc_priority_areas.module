@@ -199,7 +199,7 @@ function hwc_priority_areas_block_view($delta = '') {
         $nodes = node_load_multiple($nids);
         $block['content'] = hwc_priority_areas_render_nodes($nodes, 'priority_areas');
       }
-      if ($block['content']) {
+      if (@$block['content']) {
         $tid = $node->field_msd_priority_area[LANGUAGE_NONE][0]['tid'];
         $text = t('See all Practical Tools');
         $base = 'tools-and-publications/practical-tools';
