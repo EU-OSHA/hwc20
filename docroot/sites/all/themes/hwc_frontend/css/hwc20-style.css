@@ -343,14 +343,15 @@ select {
   justify-content: center;
   align-items: center;
   background: #003399;
-  border: 0;
+  border: 2px solid #00309d;
   width: 350px;
   height: 56px;
   font-size: 1.8rem;
 }
 .intro-splash-20 .views-row-first .btn-background-transparent:hover {
-  color: #FFF;
-  background: #335CAD;
+  color: #00309d;
+  background: #e5f1ac;
+  border: 2px solid #00309d;
 }
 .intro-splash-20 .views-row-last {
   background: #FFF;
@@ -7857,14 +7858,15 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
     justify-content: center;
     align-items: center;
     background: #003399;
-    border: 0;
+    border: 2px solid #00309d;
     width: 227px;
     height: 56px;
     font-size: 1.4rem;
   }
   .intro-splash-20 .views-row-first .btn-background-transparent:hover {
-    color: #FFF;
-    background: #335CAD;
+    color: #00309d;
+    background: #e5f1ac;
+    border: 2px solid #00309d;
   }
   .publication-detail {
     background: none;
