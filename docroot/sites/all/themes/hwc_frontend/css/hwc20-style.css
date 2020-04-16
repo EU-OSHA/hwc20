@@ -4589,6 +4589,9 @@ body.een .box-type-partner {
   width: 180px;
   height: 180px;
 }
+.page-events .region-content #block-system-main .view-events-search .view-content .views-field-field-country-code {
+  padding-bottom: 1em;
+}
 .page-events .region-content #block-system-main .view-events-search .view-content .views-row-last {
   border-bottom: 0;
 }
@@ -4598,6 +4601,11 @@ body.een .box-type-partner {
 .views-field-field-start-date-1 {
   padding-top: 0.5em;
   font-weight: 600;
+}
+span.add-to-my-calendar {
+  display: block;
+  float: left;
+  margin-left: 400px;
 }
 .add-to-calendar {
   float: right;
@@ -5390,9 +5398,6 @@ body.press-room .more-link,
 body.european-week .more-link {
   display: block;
   clear: both;
-}
-body.european-week .page_title {
-  height: 225px;
 }
 body.european-week #european_week_date {
   color: #FFF;
@@ -6194,6 +6199,10 @@ body.newsletter .hwc-share-widget {
   padding-right: 2em;
 }
 /* Home page */
+body.front-page .youtube-video {
+  margin-top: 0;
+  margin-right: 0;
+}
 body.front-page .youtube-video .hp-modal-content {
   padding-bottom: 3em;
 }
@@ -6976,7 +6985,7 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
 }
 .node-type-priority-area .region-content #block-hwc-priority-areas .node-news .field.field-name-field-image,
 .node-type-priority-area .region-content #block-hwc-priority-areas .node-pa-highlights .field.field-name-field-image {
-  width: auto;
+  width: 118px;
   margin-right: 0;
   float: left;
   min-height: 132px;
@@ -7630,6 +7639,10 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
 }
 @media (max-width: 1200px) {
+  /*Events calendar*/
+  span.add-to-my-calendar {
+    margin-left: 166px;
+  }
   .intro-splash-20 .views-row-first h1 {
     padding-top: 0.5em;
   }
@@ -8402,10 +8415,6 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
   .page-events .region-content #block-system-main .views-exposed-widgets .form-item-years {
     padding-top: 0px;
-  }
-  .page-events .add-to-calendar {
-    margin-left: 330px;
-    margin-top: -20px;
   }
   .node-type-events .main-container h2 {
     margin-left: 0;
@@ -9609,7 +9618,7 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
     float: none;
     clear: both;
     margin-top: 20px;
-    width: 100%;
+    width: 150px;
   }
   .page-events .region-content #block-system-main .views-row > div {
     margin-left: 0;
@@ -9618,8 +9627,12 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row {
     min-height: auto;
   }
+  span.add-to-my-calendar {
+    margin-left: 0;
+    float: right;
+  }
   .add-to-calendar {
-    margin-left: 108px;
+    margin-left: 0;
     margin-top: -21px;
   }
   .page-events .col-md-9 {
