@@ -25,13 +25,13 @@ function hwc_priority_areas_node_view($node, $view_mode) {
   if ($view_mode == 'priority_areas') {
     $node->title = NULL;
   }
-  if ($node && $node->type == 'priority_area' & $view_mode == 'full') {
-    $tid = @$node->field_priority_area['und'][0]['tid'];
+//  if ($node && $node->type == 'priority_area' & $view_mode == 'full') {
+//    $tid = @$node->field_priority_area['und'][0]['tid'];
 //    if (!$tid) {
 //        drupal_goto(drupal_get_path_alias('taxonomy/term/' . $tid, $language->language));
 //      $tid = @$node->field_msd_priority_area['und'][0]['tid'];
 //    }
-  }
+//  }
 }
 
 /**
@@ -189,7 +189,7 @@ function hwc_priority_areas_block_view($delta = '') {
   $block['content'] = '';
   $node = menu_get_object();
   if ($delta == 'hwc_pa_tools_and_guidance') {
-    $block['title'] = t('Tools and Guidance');
+    $block['title'] = t('Practical tools and guidance');
     if ($node->field_tools_and_guidance) {
       $nids = [];
       foreach($node->field_tools_and_guidance[LANGUAGE_NONE] as $row) {
