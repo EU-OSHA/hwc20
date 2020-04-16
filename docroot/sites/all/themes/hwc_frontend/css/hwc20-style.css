@@ -5391,9 +5391,6 @@ body.european-week .more-link {
   display: block;
   clear: both;
 }
-body.european-week .page_title {
-  height: 225px;
-}
 body.european-week #european_week_date {
   color: #FFF;
   font-size: 2.2em;
