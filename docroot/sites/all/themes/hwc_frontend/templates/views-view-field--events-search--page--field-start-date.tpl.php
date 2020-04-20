@@ -26,4 +26,8 @@ if ($row->_entity_properties['entity object']->field_show_eu_flag && $row->_enti
   $country_code = 'EU';
 }
 $content = '<div class="event_day_month"><div class="event_country code_' . $country_code . '"> </div></div>';
-echo l($content, 'node/' . $row->entity, ['html' => TRUE]);
+$nid = $row->entity;
+if (is_object($row->entity)) {
+  $nid = $row->entity->nid;
+}
+echo l($content, 'node/' . $nid, ['html' => TRUE]);
