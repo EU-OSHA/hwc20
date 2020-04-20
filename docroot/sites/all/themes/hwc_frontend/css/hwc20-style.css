@@ -5614,7 +5614,7 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 /* Styling Wysiwyg  */
 .float-img {
   float: left;
-  margin-right: 2em;
+  margin-right: 1em;
 }
 /* Styles for Release 2, This styles shouldn't be merge on release_1 branch */
 /* Private Zone */
