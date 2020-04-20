@@ -5616,6 +5616,10 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   float: left;
   margin-right: 1em;
 }
+.float-img-2 {
+  float: left;
+  margin-right: 2em;
+}
 /* Styles for Release 2, This styles shouldn't be merge on release_1 branch */
 /* Private Zone */
 .pane-hwc-partner-hwc-partner-profile-title {
