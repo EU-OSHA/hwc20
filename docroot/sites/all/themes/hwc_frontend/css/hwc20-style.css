@@ -4608,6 +4608,10 @@ span.add-to-my-calendar {
   float: left;
   margin-left: 400px;
 }
+.group-right2 span.add-to-my-calendar {
+  float: none;
+  margin-left: 0;
+}
 .add-to-calendar {
   float: right;
   padding-left: 1.5em;
