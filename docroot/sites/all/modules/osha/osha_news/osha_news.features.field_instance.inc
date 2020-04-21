@@ -134,6 +134,7 @@ function osha_news_field_default_field_instances() {
           'trim_link' => 0,
           'trim_options' => array(
             'text' => 'text',
+            'use_field_summary' => 'use_field_summary',
           ),
           'trim_preserve_tags' => '',
           'trim_suffix' => '...',
