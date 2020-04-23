@@ -7641,6 +7641,10 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   margin-top: 0;
   margin-bottom: 2em;
 }
+/* Napo film fix width video */
+.video-js .vjs-tech {
+  height: auto !important;
+}
 .isMobile {
   float: right !important;
 }
