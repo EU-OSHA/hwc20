@@ -30,8 +30,7 @@ function hwc_napo_films_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
@@ -40,7 +39,6 @@ function hwc_napo_films_views_default_views() {
   $handler->display->display_options['header']['area_text_custom']['id'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
-  $handler->display->display_options['header']['area_text_custom']['content'] = '<h1 class="page-header">Napo films</h1>';
   /* Field: Field: Publication date */
   $handler->display->display_options['fields']['field_publication_date']['id'] = 'field_publication_date';
   $handler->display->display_options['fields']['field_publication_date']['table'] = 'field_data_field_publication_date';
@@ -167,7 +165,9 @@ function hwc_napo_films_views_default_views() {
     'loop' => FALSE,
     'hidecontrols' => FALSE,
     'defaulttrack' => NULL,
-    'preload' => 'auto',
+    'preload' => 'none',
+    'posterimage_field' => 'field_image',
+    'posterimage_style' => '',
     'field_formatter_class' => '',
   );
   /* Field: Global: Custom text */
@@ -179,6 +179,11 @@ function hwc_napo_films_views_default_views() {
 ';
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Updated date */
+  $handler->display->display_options['sorts']['changed']['id'] = 'changed';
+  $handler->display->display_options['sorts']['changed']['table'] = 'node';
+  $handler->display->display_options['sorts']['changed']['field'] = 'changed';
+  $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
   /* Sort criterion: Global: Random */
   $handler->display->display_options['sorts']['random']['id'] = 'random';
   $handler->display->display_options['sorts']['random']['table'] = 'views';
@@ -210,12 +215,12 @@ function hwc_napo_films_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('<h1 class="page-header">Napo films</h1>'),
     t('Body'),
     t('Block'),
     t('<div class="title-field">[title_field]</div>
 <div class="homepage-video-body">[body]</div>'),
-    t('__SHARE__'),
+    t('__SHARE__
+'),
   );
   $export['napo_film_carousel'] = $view;
 
