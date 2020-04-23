@@ -7706,6 +7706,21 @@ header.navbar-default .navbar-collapse nav ul.menu > li.first a:before {
   .sticky-menu .col-sm-9 {
     width: 100% !important;
   }
+  .sticky-menu .col-sm-9 a.pull-left {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    background-image: url("/sites/all/themes/hwc_frontend/images/header/logo-sticky.png");
+    display: inline-block;
+    width: 100px;
+    height: 77px;
+    float: left;
+    background-repeat: no-repeat;
+    margin-top: 6px;
+    padding-right: 8em !important;
+  }
   .sticky-menu .col-sm-9 a.pull-left img {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
@@ -7714,6 +7729,7 @@ header.navbar-default .navbar-collapse nav ul.menu > li.first a:before {
     transition: all 0.3s;
     width: 100px !important;
     height: 77px !important;
+    display: none;
   }
   .sticky-menu .col-sm-9 a[title*="EU-OSHA"] {
     -webkit-transition: all 0.3s;
@@ -7761,7 +7777,7 @@ header.navbar-default .navbar-collapse nav ul.menu > li.first a:before {
     transition: all 0.6s;
     font-size: 1.5em !important;
     width: 300px !important;
-    padding-top: 0.3em !important;
+    padding-top: 0.5em !important;
     padding-left: 0em !important;
     float: right !important;
     text-align: right !important;
@@ -18702,7 +18718,7 @@ input#edit-field-image-und-0-upload::before {
 .page-national-focal-points #block-system-main .node-article .field-type-text-with-summary p,
 .page-campaign-media-partners #block-system-main .node-article .field-type-text-with-summary p,
 .page-campaign-partners-official-campaign-partners #block-system-main .node-article .field-type-text-with-summary p {
-  text-align: center;
+  text-align: left;
   font-size: 1.2em;
 }
 .page-enterprise-europe-network #block-system-main .node-article .field-type-text-with-summary p:last-child,

@@ -434,6 +434,9 @@ ul.time-and-counters li .counter-label {
 .splash-page .content-box-before .box-before {
   width: 320px;
 }
+.splash-page .content-box-before .box-before.events .titlte-news-events a {
+  font-size: 1em;
+}
 .before-the-campaign {
   background: #efeff1;
   clear: both;
@@ -4436,7 +4439,7 @@ body.een .box-type-partner {
   border-radius: 7px;
   padding: 1em 0 1em 1em;
   float: right;
-  margin-top: 18px;
+  margin-top: 34px;
   width: 288px;
   margin-bottom: 3em;
 }
@@ -4607,6 +4610,10 @@ span.add-to-my-calendar {
   display: block;
   float: left;
   margin-left: 400px;
+}
+.group-right2 span.add-to-my-calendar {
+  float: none;
+  margin-left: 0;
 }
 .add-to-calendar {
   float: right;
@@ -5606,6 +5613,10 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 }
 /* Styling Wysiwyg  */
 .float-img {
+  float: left;
+  margin-right: 1em;
+}
+.float-img-2 {
   float: left;
   margin-right: 2em;
 }
