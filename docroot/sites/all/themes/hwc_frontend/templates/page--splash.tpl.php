@@ -135,6 +135,7 @@ if ($language->language=="en"){
     </div>
 </header>
 <div class="main-container">
+  <?php print $messages; ?>
   <?php print render($page['content']); ?>
 </div>
 <footer class="footer">
