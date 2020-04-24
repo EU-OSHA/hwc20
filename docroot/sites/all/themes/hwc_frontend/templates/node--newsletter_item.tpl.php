@@ -137,7 +137,7 @@ if (!empty($campaign_id)) {
                       </td>
                     </tr>
                   </table>
-                
+
                 </td>
             </tr>
             <tr>
@@ -196,6 +196,100 @@ if (!empty($campaign_id)) {
           <?php
       }
       ?>
+      <?php
+    }
+    if ($node->type == 'spotlight') {
+      $w = entity_metadata_wrapper('node', $node);
+      if (!empty($node->field_image)) {
+        $field_image = $w->field_image->value();
+        if (!$field_image) {
+          $field_image = $node->field_image[0];
+        }
+      }
+      $field_publication_date = '';
+      if (!empty($node->field_publication_date)) {
+        if (isset($node->field_publication_date[0])) {
+          $node->field_publication_date = [LANGUAGE_NONE => $node->field_publication_date];
+        }
+        $field_publication_date = $w->field_publication_date->value();
+      }
+    ?>
+      <tr>
+        <td colspan="2" style=""><?php
+          // todo spotlight styles here.
+          echo t(variable_get('in_spotlight_text', 'In the spotlight')); ?></td>
+      </tr>
+      <tr>
+        <td style="width: 220px; font-size: 12px; font-family: Arial, sans-serif; color: #000000; vertical-align: middle; padding: 0; margin: 0;">
+          <table>
+            <tr>
+              <td style="border: 1px solid #efefef;margin:0;padding: 0;">
+                <?php
+                if (isset($field_image)) {
+                  print l(theme('image_style', array(
+                    'style_name' => 'spotlight',
+                    'path' => (isset($field_image) && !empty($field_image)) ? $field_image['uri'] : '',
+                    'width' => 220, // todo ...
+                    'alt' => (isset($field_image) && !empty($field_image)) ? $field_image['alt'] : '',
+                    'attributes' => array(
+                      'style' => 'vertical-align:middle;max-width: initial!important;',
+                      'align' => 'left',
+                    ),
+                  )), url('node/' . $node->nid, array('absolute' => TRUE)), array(
+                    'html' => TRUE,
+                    'external' => TRUE,
+                    'query' => $url_query,
+                    'attributes' => array('style' => ''),
+                  ));
+                }
+                ?>
+              </td>
+            </tr>
+          </table>
+          </div>
+        </td>
+        <td style="padding-bottom: 0px; width: 80%; font-size: 12px; font-family: Arial, sans-serif; color: #000000; padding-left: 15px; ">
+          <div style="font-weight: bold;"><?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?></div>
+          <div>
+            <?php
+            print l($title, url('node/' . $node->nid, array('absolute' => TRUE)), array(
+              'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #003399; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;'),
+              'query' => $url_query,
+              'external' => TRUE,
+            ));
+            ?>
+          </div>
+          <table>
+            <tr>
+              <td style="padding-top: 8px;color:#000;font-size: 13px;line-height: 18px;">
+                <?php
+                $is_empty = FALSE;
+                // todo may be both summary and body require to display.
+                // todo city country.
+                $summary = render($elements['field_summary']);
+                if (!trim(strip_tags($summary))) {
+                  $is_empty = TRUE;
+                }
+                else {
+                  $clear = strip_tags($summary);
+                  print substrwords($clear, 300);
+                }
+                if (!empty($elements['body']) && $is_empty) {
+                  $text = $elements['body'][0]['#markup'];
+                  $clear = strip_tags($text);
+                  print substrwords($clear, 300);
+                }
+                $directory = drupal_get_path('module', 'osha_newsletter');
+                ?>
+              </td>
+            </tr>
+          </table>
+
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="border-top: 1px dotted #749b00;line-height: 12px;">&nbsp;</td>
+      </tr>
       <?php
     }
     if ($node->type == 'twitter_tweet_feed') {

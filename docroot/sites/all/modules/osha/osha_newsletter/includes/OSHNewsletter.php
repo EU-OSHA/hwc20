@@ -740,7 +740,6 @@ class OSHNewsletter {
     $stylesheet_path = drupal_get_path('module', 'osha_newsletter') . '/includes/css/newsletter.css';
     $fullNewsletter = self::cssToInlineStyles($fullNewsletter, $stylesheet_path);
     $fullNewsletter = self::appendFontInHead($fullNewsletter);
-
     return $fullNewsletter;
   }
 
