@@ -264,7 +264,6 @@ if (!empty($campaign_id)) {
               <td style="padding-top: 8px;color:#000;font-size: 13px;line-height: 18px;">
                 <?php
                 $is_empty = FALSE;
-                // todo may be both summary and body require to display.
                 // todo city country.
                 $summary = render($elements['field_summary']);
                 if (!trim(strip_tags($summary))) {
@@ -272,11 +271,6 @@ if (!empty($campaign_id)) {
                 }
                 else {
                   $clear = strip_tags($summary);
-                  print substrwords($clear, 300);
-                }
-                if (!empty($elements['body']) && $is_empty) {
-                  $text = $elements['body'][0]['#markup'];
-                  $clear = strip_tags($text);
                   print substrwords($clear, 300);
                 }
                 $directory = drupal_get_path('module', 'osha_newsletter');
