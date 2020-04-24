@@ -229,7 +229,7 @@ if (!empty($campaign_id)) {
                   print l(theme('image_style', array(
                     'style_name' => 'spotlight',
                     'path' => (isset($field_image) && !empty($field_image)) ? $field_image['uri'] : '',
-                    'width' => 220, // todo ...
+                    'width' => 260,
                     'alt' => (isset($field_image) && !empty($field_image)) ? $field_image['alt'] : '',
                     'attributes' => array(
                       'style' => 'vertical-align:middle;max-width: initial!important;',
