@@ -631,6 +631,14 @@ function hwc_frontend_preprocess_page(&$vars) {
         );
         break;
 
+      case 'pa_highlights':
+        $tag_vars['element']['#value'] = t(variable_get('pa_highlights_title', 'News'));
+        $vars['page']['above_title']['news-page-title'] = array(
+          '#type' => 'item',
+          '#markup' => theme('html_tag', $tag_vars),
+        );
+        break;
+
       case 'news':
         $tag_vars['element']['#value'] = t('News');
         $vars['page']['above_title']['news-page-title'] = array(

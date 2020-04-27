@@ -630,6 +630,7 @@ function hwc_field_extra_fields() {
     ),
   );
   $extra['node']['news'] = $share_widget;
+  $extra['node']['pa_highlights'] = $share_widget;
   $extra['node']['publication'] = $share_widget;
   $extra['node']['events'] = $share_widget;
   $extra['node']['article'] = $share_widget;
@@ -1527,6 +1528,7 @@ function hwc_node_view($node, $view_mode, $langcode) {
     'campaign_16',
     'campaign_18',
     'news',
+    'pa_highlights',
     'events',
     'publication',
     'article',

@@ -172,6 +172,13 @@ include(drupal_get_path('theme', 'hwc_frontend').'/templates/header.tpl.php');
         <?php if (!empty($action_links)): ?>
           <ul class="action-links"><?php print render($action_links); ?></ul>
         <?php endif; ?>
+        <?php if (!empty($page['above_content'])): ?>
+        <div class="container-fluid practical">
+          <div class="container">
+              <?php print render($page['above_content']); ?>
+          </div>
+        </div>
+        <?php endif; ?>
         <div class="container">
           <?php if (!empty($page['sidebar_first'])): ?>
             <aside class="col-xs-12 col-sm-6 col-md-3" role="complementary">
