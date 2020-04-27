@@ -433,6 +433,9 @@ ul.time-and-counters li .counter-label {
 .splash-page .content-box-before .box-before {
   width: 320px;
 }
+.splash-page .content-box-before .box-before.events .titlte-news-events a {
+  font-size: 1em;
+}
 .before-the-campaign {
   background: #efeff1;
   clear: both;
