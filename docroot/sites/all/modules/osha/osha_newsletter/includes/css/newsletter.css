@@ -226,12 +226,13 @@ td.social {
 }
 
 .newsletter-section .section-title.events {
-  background: url(/sites/all/themes/hwc_frontend/images/newsletter-events.png) no-repeat 0px 3px;
+  background: url(/sites/all/themes/hwc_frontend/images/newsletter-events.png) no-repeat 0px 1px;
   vertical-align: top;
   padding: 0;
   color: #003399;
   padding-left: 24px;
-  font-size: 20px;
+  font-size: 19px;
+  height: 20px;
 }
 
 .newsletter-section .item {
@@ -296,12 +297,13 @@ td.social {
 }
 .newsletter-half-width-twitter .newsletter-item p.tweet-author {
   margin-top: 0;
-  font-weight: 500;
-  font-family: Arial Black, sans-serif;
+  font-weight: 600;
+  font-family: Arial, sans-serif;
 }
 p.tweet-author a {
   color: #003399 !important;
-  font-family: Arial Black, sans-serif;
+  font-family: Arial, sans-serif;
+  font-weight: 600;
 }
 p.tweet-contents {
   padding-left: 10px;
@@ -324,7 +326,7 @@ p.tweet-contents {
 }
 .tweet-contents a,
 .tweet-link a {
-  color: #38aadc !important;
+  color: #039de1 !important;
   max-width: 149px;
   word-break: break-all;
 }
