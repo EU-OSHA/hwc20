@@ -71,7 +71,7 @@ $directory = drupal_get_path('module','osha_newsletter');
         ?>
       </td>
       <td class="condensed-title hidden-mobile" width="140" style="width: 140px; max-width: 140px; font-family: Arial; font-size: 16px; font-weight: bold; color: #003399; vertical-align: middle;" valign="bottom">
-        Healthy Workplaces MANAGE DANGEROUS SUBSTANCES
+        Healthy Workplaces Campaign Newsletter
       </td>
       <td class="osha-logos" width="182" style="width: 182px; max-width: 182px;" valign="bottom">
         <?php
@@ -137,10 +137,12 @@ $directory = drupal_get_path('module','osha_newsletter');
           <table border="0" cellpadding="0" cellspacing="0" width="800" class="header-banner">
             <tbody>
               <tr>
-                <td style="width: 70%; text-align: left; font-size: 24px; font-weight: bold; color: #ffffff; font-family: Arial,sans-serif;" class="header-title responsive-column">
+                <td style="width: 70%; text-align: center; font-size: 24px; font-weight: bold; color: #ffffff; font-family: Arial,sans-serif;" class="header-title responsive-column">
                   <?php print t("Healthy Workplaces Campaign Newsletter");?>
                 </td>
-                <td style="width: 30%; text-align: right; font-size: 24px; font-weight: normal; color: #ffffff; font-family: Arial,sans-serif;" class="header-date hidden-print responsive-column">
+              </tr>
+              <tr>
+                <td style="width: 30%; text-align: center; font-size: 24px; font-weight: normal; color: #ffffff; font-family: Arial,sans-serif;" class="header-date hidden-print responsive-column">
                   <?php print t($newsletter_ready_date); ?>
                 </td>
               </tr>

@@ -295,10 +295,9 @@ class OSHNewsletter {
       $content['#suffix'] .= '<table><tr><td align="center">
         <div class="more-link-newsletter" style="background-color: #003399;display: table;margin: 0px auto;">
         <table style="border: 0; margin: 0;">
-        <tr>
-          <td style="background-color: #003399; border: 0; color: #ffffff; padding: 0.5em 0 0.5em 0.5em;">&gt; </td>
-          <td style="background-color: #003399; border: 0; color: #ffffff; padding: 0.5em;"><a href="' . $url . '" style="
-          color: #ffffff; text-decoration: none;">' . t('View All') . '</a></td>
+         <tr>
+          <td><a href="' . $url . '" style="background-color: #FFF; border: 1px solid #acc700;border-radius: 5px; color: #ffffff; padding: 0.5em 1em;
+          color: #003399; text-decoration: none;text-transform: uppercase">' . t('View All') . '</a></td>
         </tr>
         </table>
         </div></td></tr></table>';
@@ -309,9 +308,8 @@ class OSHNewsletter {
         <div class="more-link-newsletter" style="background-color: #003399;display: table;margin: 0px auto;">
         <table style="border: 0; margin: 0;">
         <tr>
-          <td style="background-color: #003399; border: 0; color: #ffffff; padding: 0.5em 0 0.5em 0.5em;">&gt; </td>
-          <td style="background-color: #003399; border: 0; color: #ffffff; padding: 0.5em;"><a href="' . $url . '" style="
-          color: #ffffff; text-decoration: none;">' . t('More Social media') . '</a></td>
+          <td><a href="' . $url . '" style="style="background-color: #FFF; border: 1px solid #acc700;border-radius: 5px; color: #ffffff; padding: 0.5em 1em;
+          color: #003399; text-decoration: none;text-transform: uppercase"">' . t('More Social media') . '</a></td>
         </tr>
         </table>
         </div></td></tr></table>';
@@ -420,7 +418,7 @@ class OSHNewsletter {
           // $cellContent['height'] = '100%';
           $cellContent['align'] = 'left';
           $cellContent['valign'] = 'top';
-          $cellStyle = sprintf('max-width:%spx;background-color: #749b00;', $cellWidth);
+          $cellStyle = sprintf('max-width:%spx;background-color: #749b00;border-right: 20px solid #FFF;border-bottom: 20px solid #FFFF;', $cellWidth);
           if (empty($cellContent['style'])) {
             $cellContent['style'] = $cellStyle;
           }
