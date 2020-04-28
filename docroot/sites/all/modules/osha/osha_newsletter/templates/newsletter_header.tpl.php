@@ -39,7 +39,7 @@ $directory = drupal_get_path('module','osha_newsletter');
 <table border="0" cellpadding="0" cellspacing="0" width="800" style="font-family: Arial,sans-serif; table-layout: fixed;" class="header template-container">
   <tbody>
     <tr>
-      <td style="padding: 0;">
+      <td style="padding: 0;line-height: 0">
         <?php
         print l(
           theme('image', array(
@@ -47,7 +47,7 @@ $directory = drupal_get_path('module','osha_newsletter');
             'width' => 800,
             'height' => 114,
             'alt' => 'Healthy Workplaces',
-            'attributes' => array('style' => 'border: 0px; width: 800px; max-width: 800px; height: 114px; max-height: 114px;'),
+            'attributes' => array('style' => 'border: 0px;'),
           )
           ), $base_url . '/' . $language->language, array(
             'html' => TRUE,

@@ -243,12 +243,12 @@ class OSHNewsletter {
         $content['#header'][0]['data'][] = ['data' => $cellContent, 'class' => ['section-icon']];
 
         $cellContent = sprintf("<span>%s</span>", $variables['section']->name);
-        $content['#header'][1]['data'][] = ['data' => $cellContent, 'class' => ['section-title']];
+        $content['#header'][1]['data'][] = ['data' => $cellContent, 'class' => ['section-title events']];
 
       }
       else {
         $cellContent = sprintf("<span>%s</span>", $variables['section']->name);
-        $content['#header'][0]['data'][] = ['data' => $cellContent, 'class' => ['section-title']];
+        $content['#header'][0]['data'][] = ['data' => $cellContent, 'class' => ['section-title events']];
       }
       $cssClass = drupal_clean_css_identifier('section-' . strtolower($variables['section']->name));
       $content['#attributes']['class'][] = $cssClass;
@@ -293,7 +293,7 @@ class OSHNewsletter {
     if ($variables['section']->name == 'Events') {
       $url = url('events', ['absolute' => TRUE, 'query' => $url_query]);
       $content['#suffix'] .= '<table><tr><td align="center">
-        <div class="more-link-newsletter" style="background-color: #003399;display: table;margin: 0px auto;">
+        <div class="more-link-newsletter" style="display: table;margin: 0px auto;">
         <table style="border: 0; margin: 0;">
          <tr>
           <td><a href="' . $url . '" style="background-color: #FFF; border: 1px solid #acc700;border-radius: 5px; color: #ffffff; padding: 0.5em 1em;
@@ -305,11 +305,11 @@ class OSHNewsletter {
     if ($variables['section']->name == 'Tweets') {
       $url = url('media-centre/social-media-centre', ['absolute' => TRUE, 'query' => $url_query]);
       $content['#suffix'] .= '<table><tr><td align="center">
-        <div class="more-link-newsletter" style="background-color: #003399;display: table;margin: 0px auto;">
+        <div class="more-link-newsletter" style="display: table;margin: 0px auto;">
         <table style="border: 0; margin: 0;">
         <tr>
-          <td><a href="' . $url . '" style="style="background-color: #FFF; border: 1px solid #acc700;border-radius: 5px; color: #ffffff; padding: 0.5em 1em;
-          color: #003399; text-decoration: none;text-transform: uppercase"">' . t('More Social media') . '</a></td>
+          <td><a href="' . $url . '" style="background-color: #FFF; border: 1px solid #acc700;border-radius: 5px; color: #ffffff; padding: 0.5em 1em;
+          color: #003399; text-decoration: none;text-transform: uppercase">' . t('More Social media') . '</a></td>
         </tr>
         </table>
         </div></td></tr></table>';
@@ -455,7 +455,7 @@ class OSHNewsletter {
         global $base_url;
         $image_path = "{$base_url}/sites/all/modules/osha/osha_newsletter/images/twitter-gray.png";
 
-        $content['#header'][0]['data'][0]['data'] .= '&nbsp;<img height="20" style="vertical-align:middle;height:20px!important;" src="' . $image_path . '"/>';
+        $content['#header'][0]['data'][0]['data'] .= '&nbsp;';
         $currentRow = $currentCol = 0;
 
         $content['#rows'][$currentRow]['no_striping'] = TRUE;

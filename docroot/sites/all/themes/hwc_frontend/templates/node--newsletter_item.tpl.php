@@ -74,7 +74,7 @@ if (!empty($campaign_id)) {
                 <td style="width: 220px; font-size: 12px; font-family: Arial, sans-serif; color: #000000; vertical-align: middle; padding: 0; margin: 0;">
                   <table>
                     <tr>
-                      <td style="border: 1px solid #efefef;margin:0;padding: 0;">
+                      <td style="border: 0;margin:0;padding: 0;">
                         <?php
                           if (isset($field_image)) {
                               print l(theme('image_style', array(
@@ -83,7 +83,7 @@ if (!empty($campaign_id)) {
                                 'width' => 220,
                                 'alt' => (isset($field_image) && !empty($field_image)) ? $field_image['alt'] : '',
                                 'attributes' => array(
-                                  'style' => 'vertical-align:middle;max-width: initial!important;',
+                                  'style' => 'vertical-align:middle;max-width: initial!important; border-radius: 15px;',
                                   'align' => 'left',
                                 ),
                               )), url('node/' . $node->nid, array('absolute' => TRUE)), array(
@@ -204,7 +204,7 @@ if (!empty($campaign_id)) {
         <td colspan="2" style="font-size:20px; border-bottom: 2px solid #003399; margin-bottom: 10px;">
           <table>
             <tr>
-              <td style="vertical-align: top;padding: 0;border: 0;color: #003399;padding-left: 24px;font-size: 20px;background: url(/sites/all/themes/hwc_frontend/images/spotlight.png) no-repeat 0px 3px;">
+              <td style="vertical-align: top;padding: 0;border: 0;color: #003399;padding-left: 24px;font-size: 19px;height: 20px;background: url(/sites/all/themes/hwc_frontend/images/spotlight.png) no-repeat 0px 1px;">
                  <?php
                   // todo spotlight styles here.
                   echo t(variable_get('in_spotlight_text', 'In the spotlight'));
