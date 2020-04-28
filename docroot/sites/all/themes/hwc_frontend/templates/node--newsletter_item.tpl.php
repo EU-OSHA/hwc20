@@ -147,30 +147,15 @@ if (!empty($campaign_id)) {
                         <tr>
                             <td style="padding-top: 0px;" width="505">
                               <?php
-
-                              print '<div class="">';
+                              print '<div>';
                               $node_url = url('node/' . $node->nid, array('absolute' => TRUE));
                               print l(t('See more'), $node_url, array(
                                 'attributes' => array('class' => ['see-more']),
                                 'query' => $url_query,
                                 'external' => TRUE,
                               ));
-
-                              print l(theme('image', array(
-                                'path' => $directory . '/images/' . 'green-arrow.png',
-                                'width' => '19',
-                                'height' => '11',
-                                'attributes' => array('style' => 'border:0px;width:19px;height:11px;'),
-                              ))
-                              , $node_url, array(
-                                'html' => TRUE,
-                                'query' => $url_query,
-                                'external' => TRUE,
-                              ));
-
                               print '</div>';
                               ?>
-
                             </td>
                             <td align="right" valign="middle" style="padding-top: 0px;" width="20">
                               <?php
@@ -222,7 +207,7 @@ if (!empty($campaign_id)) {
               <td style="vertical-align: top;padding: 0;border: 0;color: #003399;padding-left: 24px;font-size: 20px;background: url(/sites/all/themes/hwc_frontend/images/spotlight.png) no-repeat 0px 3px;">
                  <?php
                   // todo spotlight styles here.
-                  echo t(variable_get('in_spotlight_text', 'In the spotlight')); 
+                  echo t(variable_get('in_spotlight_text', 'In the spotlight'));
                   ?>
               </td>
             </tr>
