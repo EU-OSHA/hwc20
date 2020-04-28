@@ -195,32 +195,43 @@ td.social {
   max-width: 100%;
 }
 .see-more {
-  color: #003399;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
+    border: 1px solid #b0b1b3;
+    border-radius: 3px;
+    color: #b0b1b3;
+    text-transform: uppercase;
+    padding: 2px 7px 2px 7px;
+    font-size: 12px;
+    transition: 300ms;
+    background-position: 110%;
 }
 
 .highlight-title {
   font-family: Arial, sans-serif;
   font-size: 20px;
-  font-weight: bold;
   color: #003399;
   text-decoration: none;
 }
 
 .newsletter-section .section-title {
   background-color: transparent;
-  color: #749b00;
+  color: #003399;
   border-style: none none solid none;
-  border-bottom-width: 4px;
-  border-bottom-color: #749b00;
+  border-bottom-width: 2px;
+  border-bottom-color: #003399;
   font-size: 20px;
-  font-weight: bold;
   height: 25px;
   text-align: left;
   text-transform: none;
   padding: 20px 0 0 0;
+}
+
+.newsletter-section .section-title.events {
+  background: url(/sites/all/themes/hwc_frontend/images/newsletter-events.png) no-repeat 0px 3px;
+  vertical-align: top;
+  padding: 0;
+  color: #003399;
+  padding-left: 24px;
+  font-size: 20px;
 }
 
 .newsletter-section .item {

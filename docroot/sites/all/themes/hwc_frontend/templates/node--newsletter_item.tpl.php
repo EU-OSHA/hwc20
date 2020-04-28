@@ -54,7 +54,7 @@ if (!empty($campaign_id)) {
           ?>
           <tr>
               <td style="padding-left: 10px;padding-top: 10px; width: 100%; font-size: 12px; font-family: Arial, sans-serif; color: #000000;">
-                  <div><?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?></div>
+                  <div style="color:#59595a"><?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?></div>
                   <div>
                     <?php
                     print l($title, url($node->url, array('absolute' => TRUE)), array(
@@ -100,7 +100,7 @@ if (!empty($campaign_id)) {
                   </div>
                 </td>
                 <td style="padding-bottom: 0px; width: 80%; font-size: 12px; font-family: Arial, sans-serif; color: #000000; padding-left: 15px; ">
-                    <div style="font-weight: bold;"><?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?></div>
+                    <div style="font-weight: bold; color: #59595a"><?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?></div>
                     <div>
                       <?php
                       print l($title, url('node/' . $node->nid, array('absolute' => TRUE)), array(
@@ -112,7 +112,7 @@ if (!empty($campaign_id)) {
                     </div>
                     <table>
                       <tr>
-                        <td style="padding-top: 8px;color:#000;font-size: 13px;line-height: 18px;">
+                        <td style="padding-top: 8px;color:#000;font-size: 13px;line-height: 18px; color:#59595a">
                           <?php
                             $is_empty = FALSE;
                             $summary = render($elements['field_summary']);
@@ -148,7 +148,7 @@ if (!empty($campaign_id)) {
                             <td style="padding-top: 0px;" width="505">
                               <?php
 
-                              print '<div class="see-more">';
+                              print '<div class="">';
                               $node_url = url('node/' . $node->nid, array('absolute' => TRUE));
                               print l(t('See more'), $node_url, array(
                                 'attributes' => array('class' => ['see-more']),
@@ -161,7 +161,8 @@ if (!empty($campaign_id)) {
                                 'width' => '19',
                                 'height' => '11',
                                 'attributes' => array('style' => 'border:0px;width:19px;height:11px;'),
-                              )), $node_url, array(
+                              ))
+                              , $node_url, array(
                                 'html' => TRUE,
                                 'query' => $url_query,
                                 'external' => TRUE,
@@ -191,7 +192,7 @@ if (!empty($campaign_id)) {
                 </td>
             </tr>
             <tr>
-              <td colspan="2" style="border-top: 1px dotted #749b00;line-height: 12px;">&nbsp;</td>
+              <td colspan="2" style="border-top: 1px solid #749b00;line-height: 12px;">&nbsp;</td>
             </tr>
           <?php
       }
@@ -215,15 +216,29 @@ if (!empty($campaign_id)) {
       }
     ?>
       <tr>
-        <td colspan="2" style=""><?php
-          // todo spotlight styles here.
-          echo t(variable_get('in_spotlight_text', 'In the spotlight')); ?></td>
-      </tr>
-      <tr>
-        <td style="width: 220px; font-size: 12px; font-family: Arial, sans-serif; color: #000000; vertical-align: middle; padding: 0; margin: 0;">
+        <td colspan="2" style="font-size:20px; border-bottom: 2px solid #003399; margin-bottom: 10px;">
           <table>
             <tr>
-              <td style="border: 1px solid #efefef;margin:0;padding: 0;">
+              <td style="vertical-align: top;padding: 0;border: 0;color: #003399;padding-left: 24px;font-size: 20px;background: url(/sites/all/themes/hwc_frontend/images/spotlight.png) no-repeat 0px 3px;">
+                 <?php
+                  // todo spotlight styles here.
+                  echo t(variable_get('in_spotlight_text', 'In the spotlight')); 
+                  ?>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          &nbsp;
+        </td>
+      </tr>
+      <tr>
+        <td style="min-height: 160px; width: 220px; font-size: 12px; font-family: Arial, sans-serif; color: #000000; vertical-align: middle; padding: 0; margin: 0;">
+          <table style="min-height: 160px;">
+            <tr>
+              <td style="vertical-align: middle; margin:0;padding: 0; padding-left: 30px; color:#FFF;background: #a6be1d;border-bottom-left-radius: 15px; border-top-left-radius: 15px;padding-top: 2em;padding-bottom: 2em;">
                 <?php
                 if (isset($field_image)) {
                   print l(theme('image_style', array(
@@ -232,7 +247,7 @@ if (!empty($campaign_id)) {
                     'width' => 260,
                     'alt' => (isset($field_image) && !empty($field_image)) ? $field_image['alt'] : '',
                     'attributes' => array(
-                      'style' => 'vertical-align:middle;max-width: initial!important;',
+                      'style' => 'vertical-align:middle;max-width: initial!important;border-radius:15px',
                       'align' => 'left',
                     ),
                   )), url('node/' . $node->nid, array('absolute' => TRUE)), array(
@@ -248,12 +263,12 @@ if (!empty($campaign_id)) {
           </table>
           </div>
         </td>
-        <td style="padding-bottom: 0px; width: 80%; font-size: 12px; font-family: Arial, sans-serif; color: #000000; padding-left: 15px; ">
-          <div style="font-weight: bold;"><?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?></div>
-          <div>
+        <td style="padding-bottom: 0px; width: 80%; font-size: 12px; font-family: Arial, sans-serif; color: #FFF; padding-left: 15px; background: #a6be1d; vertical-align: middle; border-bottom-right-radius: 15px; border-top-right-radius: 15px; vertical-align: top; padding-top: 2em;">
+          <div style="font-weight: bold; color:#59595a"><?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?></div>
+          <div style="padding-top: 1em;">
             <?php
             print l($title, url('node/' . $node->nid, array('absolute' => TRUE)), array(
-              'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #003399; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;'),
+              'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #FFF; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;'),
               'query' => $url_query,
               'external' => TRUE,
             ));
@@ -261,7 +276,7 @@ if (!empty($campaign_id)) {
           </div>
           <table>
             <tr>
-              <td style="padding-top: 8px;color:#000;font-size: 13px;line-height: 18px;">
+              <td style="padding-top: 8px;color:#FFF;font-size: 13px;line-height: 18px;">
                 <?php
                 $is_empty = FALSE;
                 // todo city country.
@@ -282,7 +297,7 @@ if (!empty($campaign_id)) {
         </td>
       </tr>
       <tr>
-        <td colspan="2" style="border-top: 1px dotted #749b00;line-height: 12px;">&nbsp;</td>
+        <td colspan="2" style="border-top: 1px solid #749b00;line-height: 12px;">&nbsp;</td>
       </tr>
       <?php
     }
