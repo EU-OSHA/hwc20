@@ -328,6 +328,7 @@ if (!empty($campaign_id)) {
       <tr>
           <td class="rs2" rowspan="2">
             <?php
+            $calendar_month = date('D', $date);
 
             $calendar_img = 'calendar-' . date('d', $date);
             $calendar_img = !empty($node->arrow_color) ? "{$calendar_img}-{$node->arrow_color}.png" : "{$calendar_img}.png";
@@ -344,6 +345,7 @@ if (!empty($campaign_id)) {
               url('node/' . $node->nid, array('absolute' => TRUE)),
               array('html' => TRUE, 'external' => TRUE, 'query' => $url_query));
            ?>
+            <span><?php echo t(strtoupper($calendar_month)); ?></span>
           </td>
           <td colspan="2" class="cs2">
             <span class="item-date"><?php
