@@ -320,6 +320,10 @@ if (!empty($campaign_id)) {
     if ($node->type == 'events') {
       global $base_url;
       $date = (isset($field_start_date) && !empty($field_start_date)) ? strtotime($field_start_date[0]['value']) : '';
+      $city = $node->field_city[LANGUAGE_NONE][0]['value'];
+      $country_code = $node->field_country_code[LANGUAGE_NONE][0]['value'];
+      $info = field_info_field('field_country_code');
+      $country_codes = $info['settings']['allowed_values'];
       ?>
       <tr>
           <td class="rs2" rowspan="2">
@@ -350,6 +354,7 @@ if (!empty($campaign_id)) {
                 'external' => TRUE,
               ));
            ?></span>
+            <div class="content-date-country"><span class="country"><?php echo $city; ?><?php if ($country_code) { ?></span><span class="city"><?php echo ', ' . $country_codes[$country_code]; ?><?php } ?></span></div>
           </td>
       </tr>
       <tr class="tr_h">
