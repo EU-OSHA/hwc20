@@ -414,8 +414,8 @@ class OSHNewsletter {
         foreach ($variables['nodes'] as $node) {
           $cellContent = self::getCellContent($template, $node);
           $cellWidth = 378;
-          $cellContent['width'] = $cellWidth; // half - 2px of margin.
-          // $cellContent['height'] = '100%';
+          // Half - 2px of margin.
+          $cellContent['width'] = $cellWidth;
           $cellContent['align'] = 'left';
           $cellContent['valign'] = 'top';
           $cellStyle = sprintf('max-width:%spx;background-color: #749b00;border-right: 20px solid #FFF;border-bottom: 20px solid #FFFF;', $cellWidth);
@@ -441,12 +441,12 @@ class OSHNewsletter {
             $currentCol = 0;
           }
         }
-        $content['#rows'][++$currentRow]['no_striping'] = TRUE;
-        $content['#rows'][$currentRow]['data'][] = [
-          'data' => '&nbsp;',
-          'colspan' => '3',
-          'style' => 'padding-top: 0; padding-bottom: 20px;font-size: 0px; line-height: 0px; mso-line-height-rule: exactly;',
-        ];
+//        $content['#rows'][++$currentRow]['no_striping'] = TRUE;
+//        $content['#rows'][$currentRow]['data'][] = [
+//          'data' => '&nbsp;',
+//          'colspan' => '3',
+//          'style' => 'padding-top: 0; padding-bottom: 20px;font-size: 0px; line-height: 0px; mso-line-height-rule: exactly;',
+//        ];
         break;
 
       case 'newsletter_half_width_twitter':
@@ -687,9 +687,9 @@ class OSHNewsletter {
       'newsletter_title' => $source->title,
       'newsletter_id' => $source->eid,
       'newsletter_date' =>
-        !empty($source->field_publication_date)
-          ? $source->field_publication_date[LANGUAGE_NONE][0]['value']
-          : $source->field_created[LANGUAGE_NONE][0]['value'],
+      !empty($source->field_publication_date)
+      ? $source->field_publication_date[LANGUAGE_NONE][0]['value']
+      : $source->field_created[LANGUAGE_NONE][0]['value'],
       'newsletter_intro' => $newsletter_intro,
       'campaign_id' => $campaign_id,
 
@@ -701,7 +701,7 @@ class OSHNewsletter {
 
     $newsletterClasses = [
       'newsletter-container',
-      empty($osha_newsletter_send_mail) ? 'web-version' : ''
+      empty($osha_newsletter_send_mail) ? 'web-version' : '',
     ];
     $fullNewsletter = [
       '#theme' => 'table',
@@ -723,7 +723,12 @@ class OSHNewsletter {
           'class' => 'footer-container',
         ],
       ],
-      '#attributes' => ['class' => $newsletterClasses, 'border' => '0', 'cellpadding' => '0', 'width' => '800'],
+      '#attributes' => [
+        'class' => $newsletterClasses,
+        'border' => '0',
+        'cellpadding' => '0',
+        'width' => '800',
+      ],
       '#printed' => FALSE,
       '#sticky' => FALSE,
       '#children' => [],
