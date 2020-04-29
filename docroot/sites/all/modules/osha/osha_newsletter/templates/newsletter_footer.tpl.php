@@ -71,13 +71,15 @@ $bottom_text = variable_get('hwc_mail_bottom_text', '');
         </tr>
         </tbody>
       </table>
-      <table style="font-family:Arial,sans-serif;font-size:14px;border:0;margin:0;border-collapse:collapse;border-spacing:0;padding-top:15px;width:700px;margin-left:50px">
+      <table style="font-family:Arial,sans-serif;font-size:14px;border:0;margin:0;border-collapse:collapse;border-spacing:0;padding-top:15px;width:800px;margin-left:0">
         <tbody>
         <tr style="border:0;background-color:transparent">
-          <td style="vertical-align:top;border:0;padding:5px 20px 5px 20px;padding-bottom:20px;font-size:10px;font-family:verdana;color:#666666;text-align:center">
+          <td style="vertical-align:top;border:0;padding:20px 20px 5px 20px;padding-bottom:20px;font-size:10px;font-family:verdana;color:#666666;text-align:center">
             <?php echo $bottom_text; ?>
           </td>
-          <td style="vertical-align:top;border:0;padding:5px 20px 5px 20px;padding-bottom:20px;font-size:10px;font-family:verdana;color:#666666;text-align:center">
+        </tr>
+        <tr>
+          <td style="vertical-align:top;border-top:2px solid #666666;padding:5px 20px 5px 20px;padding-bottom:20px;padding-top:20px;font-size:10px;font-family:verdana;color:#666666;text-align:center">
             <?php echo $unsubscribe_text; ?>
             <br>
             <a href="<?php echo $unsubscribe_url; ?>"><?php echo $unsubscribe_url; ?></a>
