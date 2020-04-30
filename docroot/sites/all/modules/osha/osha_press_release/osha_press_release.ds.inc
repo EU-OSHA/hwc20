@@ -20,15 +20,17 @@ function osha_press_release_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'field_publication_date',
-        1 => 'title_field',
-        2 => 'share_widget',
-        3 => 'field_summary',
-        4 => 'body',
-        5 => 'field_pr_notes_to_editor',
+        0 => 'back_to_list',
+        1 => 'field_publication_date',
+        2 => 'title_field',
+        3 => 'share_widget',
+        4 => 'field_summary',
+        5 => 'body',
+        6 => 'field_pr_notes_to_editor',
       ),
     ),
     'fields' => array(
+      'back_to_list' => 'ds_content',
       'field_publication_date' => 'ds_content',
       'title_field' => 'ds_content',
       'share_widget' => 'ds_content',
@@ -49,6 +51,7 @@ function osha_press_release_ds_layout_settings_info() {
     'layout_attributes_merge' => 1,
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
+    'layout_disable_css' => FALSE,
   );
   $export['node|press_release|default'] = $ds_layout;
 

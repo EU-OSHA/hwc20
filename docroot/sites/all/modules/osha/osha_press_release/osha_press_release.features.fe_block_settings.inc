@@ -147,10 +147,10 @@ function osha_press_release_default_fe_block_settings() {
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
-        'region' => 'content',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'hwc_frontend',
-        'weight' => 12,
+        'weight' => 17,
       ),
       'seven' => array(
         'region' => '',
@@ -174,12 +174,12 @@ function osha_press_release_default_fe_block_settings() {
     'node_types' => array(
       0 => 'press_release',
     ),
-    'pages' => '',
+    'pages' => 'media-centre/press-room',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'content',
+        'status' => 1,
         'theme' => 'hwc_frontend',
         'weight' => -50,
       ),
@@ -190,8 +190,8 @@ function osha_press_release_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
+    'title' => 123,
+    'visibility' => 1,
   );
 
   $export['views-press_releases-block'] = array(

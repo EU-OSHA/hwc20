@@ -67,6 +67,12 @@ function hwc_cron() {
  * hook_views_query_alter
  */
 function hwc_views_query_alter(&$view, &$query) {
+  if (($view->name == 'news') && (in_array($view->current_display, ['page_1', 'press_room']))) {
+    if (!empty($query->table_queue['field_data_field_show_on'])) {
+      $query->table_queue['field_data_field_show_on']['join']->type = "LEFT";
+    }
+  }
+
   if ($view->name == 'first_publication_date_update') {
     $view->query->table_queue['node_revision']['join']->left_field = 'nid';
     $view->query->table_queue['node_revision']['join']->field = 'nid';

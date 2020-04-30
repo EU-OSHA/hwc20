@@ -736,6 +736,7 @@ function osha_news_views_default_views() {
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
     2 => 'OR',
+    3 => 'OR',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -761,7 +762,15 @@ function osha_news_views_default_views() {
   $handler->display->display_options['filters']['field_show_on_value']['value'] = array(
     'Press Room' => 'Press Room',
   );
-  $handler->display->display_options['filters']['field_show_on_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_show_on_value']['group'] = 3;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
+  $handler->display->display_options['filters']['type_1']['table'] = 'node';
+  $handler->display->display_options['filters']['type_1']['field'] = 'type';
+  $handler->display->display_options['filters']['type_1']['value'] = array(
+    'press_release' => 'press_release',
+  );
+  $handler->display->display_options['filters']['type_1']['group'] = 3;
   /* Filter criterion: Field: Publication date (field_publication_date) */
   $handler->display->display_options['filters']['field_publication_date_value']['id'] = 'field_publication_date_value';
   $handler->display->display_options['filters']['field_publication_date_value']['table'] = 'field_data_field_publication_date';
@@ -1285,6 +1294,7 @@ function osha_news_views_default_views() {
     'image_style' => 'thumbnail',
     'image_link' => 'content',
   );
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
