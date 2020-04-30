@@ -134,9 +134,9 @@ function osha_press_release_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'exclude_node_title_content_type_modes_press_release';
   $strongarm->value = array(
+    'full' => 'full',
     'teaser' => 'teaser',
     'osha_resources' => 'osha_resources',
-    'full' => 0,
     'rss' => 0,
     'search_index' => 0,
     'search_result' => 0,
@@ -357,7 +357,7 @@ function osha_press_release_strongarm() {
       'display' => array(
         'share_widget' => array(
           'default' => array(
-            'weight' => '3',
+            'weight' => '1',
             'visible' => TRUE,
           ),
           'teaser' => array(
@@ -367,7 +367,7 @@ function osha_press_release_strongarm() {
         ),
         'bottom_share_widget' => array(
           'default' => array(
-            'weight' => '9',
+            'weight' => '17',
             'visible' => FALSE,
           ),
           'teaser' => array(

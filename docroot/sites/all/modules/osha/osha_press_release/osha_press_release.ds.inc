@@ -21,22 +21,22 @@ function osha_press_release_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'back_to_list',
-        1 => 'field_publication_date',
-        2 => 'title_field',
-        3 => 'share_widget',
+        1 => 'share_widget',
+        2 => 'field_publication_date',
+        3 => 'title_field',
         4 => 'field_summary',
-        5 => 'body',
-        6 => 'field_pr_notes_to_editor',
+        5 => 'field_image',
+        6 => 'body',
       ),
     ),
     'fields' => array(
       'back_to_list' => 'ds_content',
+      'share_widget' => 'ds_content',
       'field_publication_date' => 'ds_content',
       'title_field' => 'ds_content',
-      'share_widget' => 'ds_content',
       'field_summary' => 'ds_content',
+      'field_image' => 'ds_content',
       'body' => 'ds_content',
-      'field_pr_notes_to_editor' => 'ds_content',
     ),
     'classes' => array(
       'layout_class' => array(
