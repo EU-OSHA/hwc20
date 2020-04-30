@@ -589,7 +589,8 @@ function hwc_frontend_preprocess_page(&$vars) {
         $breadcrumb = array();
         $breadcrumb[] = l(t('Home'), '<front>');
         $breadcrumb[] = l(t('Media centre'), 'media-centre');
-        $breadcrumb[] = l(t('Press room news'), 'media-centre/press-room-news');
+        $breadcrumb[] = l(t('Press room'), 'media-centre/press-room');
+        $breadcrumb[] = l(t('Press room news'), 'media-centre/press-room/press-room-news');
         $breadcrumb[] = $node->title;
         drupal_set_breadcrumb($breadcrumb);
         $tag_vars['element']['#value'] = t('Press releases');

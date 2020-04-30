@@ -1341,7 +1341,7 @@ function osha_news_views_default_views() {
     'press_release' => 'press_release',
   );
   $handler->display->display_options['filters']['type_1']['group'] = 2;
-  $handler->display->display_options['path'] = 'media-centre/press-room-news';
+  $handler->display->display_options['path'] = 'media-centre/press-room/press-room-news';
   $translatables['news'] = array(
     t('Master'),
     t('News'),
