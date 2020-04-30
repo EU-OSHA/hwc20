@@ -235,6 +235,16 @@ td.social {
   height: 20px;
 }
 
+.newsletter-section .section-title.twitter {
+  background: url(/sites/all/themes/hwc_frontend/images/newsletter-twitter.png) no-repeat 0px 1px;
+  vertical-align: top;
+  padding: 0;
+  color: #003399;
+  padding-left: 24px;
+  font-size: 19px;
+  height: 20px;
+}
+
 .newsletter-section .item {
   padding-top: 10px;
   padding-bottom: 10px;

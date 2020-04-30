@@ -334,11 +334,9 @@ if (!empty($campaign_id)) {
             $calendar_img = !empty($node->arrow_color) ? "{$calendar_img}-{$node->arrow_color}.png" : "{$calendar_img}.png";
             $calendar_img_path = "{$base_url}/sites/all/modules/osha/osha_newsletter/images/calendars/{$calendar_img}";
 
-            $style = 'border: 0px;height:35px!important;width:40px!important;max-height:35px!important;max-width:40px!important;display:block;';
+            $style = 'border: 0px;display:block;';
             print l(theme('image', array(
               'path' => $calendar_img_path,
-              'width' => 40,
-              'height' => 36,
               'alt' => 'calendar',
               'attributes' => array('style' => $style),
             )),
