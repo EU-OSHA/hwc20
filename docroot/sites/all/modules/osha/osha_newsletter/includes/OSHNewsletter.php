@@ -237,18 +237,25 @@ class OSHNewsletter {
     }
     if (!empty($variables['section']->name)) {
       $icon = self::getConfiguration($entityCollection, 'field_icon', $variables['section']);
+      $class = 'section-title';
+      if ($variables['section']->name == 'Events') {
+        $class .= ' events';
+      }
+      if ($variables['section']->name == 'Tweets') {
+        $class .= ' twitter';
+      }
       if (!empty($icon)) {
 
         $cellContent = sprintf("<img src=\"%s\">", $icon);
         $content['#header'][0]['data'][] = ['data' => $cellContent, 'class' => ['section-icon']];
 
         $cellContent = sprintf("<span>%s</span>", $variables['section']->name);
-        $content['#header'][1]['data'][] = ['data' => $cellContent, 'class' => ['section-title events']];
+        $content['#header'][1]['data'][] = ['data' => $cellContent, 'class' => [$class]];
 
       }
       else {
         $cellContent = sprintf("<span>%s</span>", $variables['section']->name);
-        $content['#header'][0]['data'][] = ['data' => $cellContent, 'class' => ['section-title events']];
+        $content['#header'][0]['data'][] = ['data' => $cellContent, 'class' => [$class]];
       }
       $cssClass = drupal_clean_css_identifier('section-' . strtolower($variables['section']->name));
       $content['#attributes']['class'][] = $cssClass;
