@@ -326,7 +326,7 @@ if (!empty($campaign_id)) {
       $country_codes = $info['settings']['allowed_values'];
       ?>
       <tr>
-          <td class="rs2" rowspan="2">
+          <td class="rs2" rowspan="2" style="text-align: center;">
             <?php
             $calendar_month = date('D', $date);
 
@@ -345,7 +345,7 @@ if (!empty($campaign_id)) {
               url('node/' . $node->nid, array('absolute' => TRUE)),
               array('html' => TRUE, 'external' => TRUE, 'query' => $url_query));
            ?>
-            <span><?php echo t(strtoupper($calendar_month)); ?></span>
+            <span style="padding-top: 5px;display: block;font-weight: bold;"><?php echo t(strtoupper($calendar_month)); ?></span>
           </td>
           <td colspan="2" class="cs2">
             <span class="item-date"><?php
@@ -356,13 +356,18 @@ if (!empty($campaign_id)) {
                 'external' => TRUE,
               ));
            ?></span>
-            <div class="content-date-country"><span class="country"><?php echo $city; ?><?php if ($country_code) { ?></span><span class="city"><?php echo ', ' . $country_codes[$country_code]; ?><?php } ?></span></div>
+            <div class="content-date-country">
+                <?php if ($country_code) { ?>
+                <span class="city">
+                  <?php echo $country_codes[$country_code] . ', ';?><?php } ?>    
+                </span>
+                <span class="country">
+                  <?php echo $city; ?>
+                </span>
+              </div>
           </td>
       </tr>
       <tr class="tr_h">
-          <td class="td_h">
-              <span> > </span>
-          </td>
           <td class="ar"><?php
             print l($node->title, url($link, array('absolute' => TRUE)), array(
               'attributes' => array('style' => 'text-decoration: none; font-family:Arial, sans-serif; font-size: 13px; font-weight: bold;'),
