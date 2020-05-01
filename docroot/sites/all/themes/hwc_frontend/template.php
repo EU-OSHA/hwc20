@@ -174,7 +174,7 @@ function hwc_frontend_menu_link(array $variables) {
           'active',
         ];
       }
-      if ($element['#original_link']['plid'] == variable_get('campaign_materials_item', 1372)) {
+      if (in_array($element['#original_link']['plid'], variable_get('campaign_materials_item', [1372]))) {
         $element['#attributes']['class'] = [
           'active-trail',
           'active',
