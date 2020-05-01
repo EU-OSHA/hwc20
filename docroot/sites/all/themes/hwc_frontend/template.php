@@ -157,25 +157,31 @@ function hwc_frontend_menu_link(array $variables) {
     }
   }
 
-//  if (arg(1) == 'campaign-materials') {
-//    $exclude = variable_get('campaign_materials_exclude', []);
-//    $include = variable_get('campaign_materials_include', []);
-//    if (in_array($element['#href'], $exclude)) {
-//      $element['#attributes']['class'] = [];
-//    }
-//    if (in_array($element['#href'], $include)) {
-//      if (!empty($element['#localized_options']['attributes'])) {
-//        $element['#attributes']['class'] = [];
-//      }
-//      else {
-//        $element['#attributes']['class'] = [
-//          'expanded',
-//          'active-trail',
-//          'active',
-//        ];
-//      }
-//    }
-//  }
+  if (arg(1) == 'campaign-materials') {
+    $exclude = variable_get('campaign_materials_exclude', []);
+    $include = variable_get('campaign_materials_include', []);
+    if (in_array($element['#href'], $exclude)) {
+      $element['#attributes']['class'] = [];
+    }
+    if (in_array($element['#href'], $include)) {
+      if (!empty($element['#localized_options']['attributes'])) {
+        $element['#attributes']['class'] = [];
+      }
+      else {
+        $element['#attributes']['class'] = [
+          'expanded',
+          'active-trail',
+          'active',
+        ];
+      }
+      if ($element['#original_link']['plid'] == variable_get('campaign_materials_item', 1372)) {
+        $element['#attributes']['class'] = [
+          'active-trail',
+          'active',
+        ];
+      }
+    }
+  }
 
   $sub_menu = '';
   if ($element['#below']) {
