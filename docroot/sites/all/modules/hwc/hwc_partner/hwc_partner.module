@@ -282,6 +282,12 @@ function hwc_partner_block_view($delta = '') {
           $url = 'good-practice-exchange-platform';
           $url_options = [];
         }
+        if ($it < 2) {
+          if (!$node->status) {
+            $url_options['attributes']['class'] = ['unpublish'];
+          }
+        }
+
         $block['content'] = theme('hwc_partner_private_link_' . $it,
           array(
             'hwc_partner_private_link_title' => l(variable_get('hwc_partner_private_link_' . $it . '_title'), $url, $url_options),
@@ -609,6 +615,9 @@ function hwc_partner_form_masquerade_redirect($form, $form_state) {
       $sections = array_keys($account->workbench_access);
       foreach ($sections as $id_section) {
         if ($partner = hwc_partner_by_section_id_load($id_section)) {
+          if (!$partner->status) {
+            drupal_set_message(t('This is an unpublish partner the only actions available are: Update your profile and Partner Resources.'), 'warning');
+          }
           $_SERVER['HTTP_REFERER'] = 'node/' . $partner->nid;
           break;
         }
