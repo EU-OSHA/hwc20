@@ -357,21 +357,21 @@ function osha_press_release_strongarm() {
       'display' => array(
         'share_widget' => array(
           'default' => array(
-            'weight' => '1',
+            'weight' => '0',
             'visible' => TRUE,
           ),
           'teaser' => array(
-            'weight' => '6',
+            'weight' => '14',
             'visible' => FALSE,
           ),
         ),
         'bottom_share_widget' => array(
           'default' => array(
-            'weight' => '17',
+            'weight' => '18',
             'visible' => FALSE,
           ),
           'teaser' => array(
-            'weight' => '5',
+            'weight' => '13',
             'visible' => FALSE,
           ),
         ),
