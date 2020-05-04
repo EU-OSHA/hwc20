@@ -5037,11 +5037,17 @@ ul[data-sa-theme="basic-green"].ui-menu {
 /* Press room */
 body.press-room .field-name-body {
   width: 100%;
-  text-align: center;
+  text-align: left;
   padding: 0.6em 0.5em;
 }
 body.press-room .related-resources-title {
   padding-top: 1em;
+}
+body.press-room #block-osha-press-release-osha-press-contacts h2 {
+  font-size: 1.6em;
+}
+body.press-room #block-osha-press-release-osha-press-contacts p {
+  margin-bottom: 0;
 }
 body.press-room .field-name-body h2,
 body.european-week .field-name-body h2 {
