@@ -262,3 +262,10 @@ Disallow: /*/media-centre/events/*
 Disallow: /*/tools-and-publications/practical-tools/*
 Disallow: /*/media-centre/news/*
 Disallow: /*/tools-and-publications/publications/*
+Disallow: /*search?
+Disallow: /*publications?
+Disallow: /*practical-tools?
+Disallow: /*case-studies?
+Disallow: /*events?
+Disallow: /*past-events?
+Disallow: /*page=
