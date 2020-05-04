@@ -20,7 +20,7 @@ function hwc_practical_tool_cronapi() {
 
 function hwc_practical_tool_cron() {
   $migrations = array(
-    'dangerous_substances',
+    'practical_tool',
   );
   foreach ($migrations as $migration) {
     ncw_migration_run_single($migration);
