@@ -945,4 +945,8 @@ jQuery(document).ready(function($){
 		 $("#faq > div:nth-child(3) a").addClass('collapsed');
 	}
 
+	//Add class unpublish on PZ boxes
+	if ($(".hwc-partner-private-link-block-title .unpublish")[0]){
+		$( ".hwc-partner-private-link-block-title .unpublish" ).parent().addClass( "unpublish" );
+	}
 });
