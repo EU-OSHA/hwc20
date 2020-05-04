@@ -5037,11 +5037,17 @@ ul[data-sa-theme="basic-green"].ui-menu {
 /* Press room */
 body.press-room .field-name-body {
   width: 100%;
-  text-align: center;
+  text-align: left;
   padding: 0.6em 0.5em;
 }
 body.press-room .related-resources-title {
   padding-top: 1em;
+}
+body.press-room #block-osha-press-release-osha-press-contacts h2 {
+  font-size: 1.6em;
+}
+body.press-room #block-osha-press-release-osha-press-contacts p {
+  margin-bottom: 0;
 }
 body.press-room .field-name-body h2,
 body.european-week .field-name-body h2 {
@@ -5628,6 +5634,7 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 .logged-in.ocp .profile-edit-links-container {
   border-bottom: 2px solid #bcd75b;
   padding-bottom: 3em;
+  margin-bottom: 3em;
 }
 .profile-edit-links-container {
   border-bottom: 0 solid #bcd75b;
@@ -5747,6 +5754,37 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 .profile-edit-links-container .pane-node-profile-update-link .pane-content .hwc-partner-private-link-block-description span {
   display: block;
 }
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .pane-content .hwc-partner-private-link-block-title.unpublish,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .pane-content .hwc-partner-private-link-block-title.unpublish,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2 .pane-content .hwc-partner-private-link-block-title.unpublish,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .pane-content .hwc-partner-private-link-block-title.unpublish,
+.profile-edit-links-container .pane-node-profile-update-link .pane-content .hwc-partner-private-link-block-title.unpublish {
+  background: #f1efef;
+  border-color: #aba6a6;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .pane-content .hwc-partner-private-link-block-title.unpublish a,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .pane-content .hwc-partner-private-link-block-title.unpublish a,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2 .pane-content .hwc-partner-private-link-block-title.unpublish a,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .pane-content .hwc-partner-private-link-block-title.unpublish a,
+.profile-edit-links-container .pane-node-profile-update-link .pane-content .hwc-partner-private-link-block-title.unpublish a {
+  color: #757272;
+  pointer-events: none;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .pane-content .hwc-partner-private-link-block-title.unpublish:hover,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .pane-content .hwc-partner-private-link-block-title.unpublish:hover,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2 .pane-content .hwc-partner-private-link-block-title.unpublish:hover,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .pane-content .hwc-partner-private-link-block-title.unpublish:hover,
+.profile-edit-links-container .pane-node-profile-update-link .pane-content .hwc-partner-private-link-block-title.unpublish:hover {
+  background: #f1efef;
+  border-color: #aba6a6;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .pane-content .hwc-partner-private-link-block-title.unpublish:hover a,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .pane-content .hwc-partner-private-link-block-title.unpublish:hover a,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2 .pane-content .hwc-partner-private-link-block-title.unpublish:hover a,
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .pane-content .hwc-partner-private-link-block-title.unpublish:hover a,
+.profile-edit-links-container .pane-node-profile-update-link .pane-content .hwc-partner-private-link-block-title.unpublish:hover a {
+  color: #757272;
+}
 .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .hwc-partner-private-link-block-title a {
   background: url(../images/pz-events.png) 0 50% no-repeat;
   height: 66px;
@@ -5754,6 +5792,12 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 }
 .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .hwc-partner-private-link-block-title:hover a {
   background: url(../images/mpp-create-event-hover.png) 0 50% no-repeat;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .hwc-partner-private-link-block-title.unpublish a {
+  background: url(../images/pz-events-disabled.png) 0 50% no-repeat;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0 .hwc-partner-private-link-block-title.unpublish:hover a {
+  background: url(../images/pz-events-disabled.png) 0 50% no-repeat;
 }
 .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .hwc-partner-private-link-block-title a {
   background: url(../images/pz-news.png) 0 50% no-repeat;
@@ -5763,20 +5807,32 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .hwc-partner-private-link-block-title:hover a {
   background: url(../images/mpp-create-news-hover.png) 0 50% no-repeat;
 }
-.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2 .hwc-partner-private-link-block-title a {
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .hwc-partner-private-link-block-title.unpublish a {
+  background: url(../images/pz-news-disabled.png) 0 50% no-repeat;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1 .hwc-partner-private-link-block-title.unpublish:hover a {
+  background: url(../images/pz-news-disabled.png) 0 50% no-repeat;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .hwc-partner-private-link-block-title a {
   background: url(../images/pz-good-practice.png) 0 50% no-repeat;
   height: 66px;
   width: 100%;
 }
-.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2 .hwc-partner-private-link-block-title:hover a {
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .hwc-partner-private-link-block-title:hover a {
   background: url(../images/mpp-good-practice-hover.png) 0 50% no-repeat;
 }
-.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .hwc-partner-private-link-block-title a {
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .hwc-partner-private-link-block-title.unpublish a {
+  background: url(../images/mpp-good-practice-disabled.png) 0 50% no-repeat;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .hwc-partner-private-link-block-title.unpublish:hover a {
+  background: url(../images/mpp-good-practice-disabled.png) 0 50% no-repeat;
+}
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2 .hwc-partner-private-link-block-title a {
   background: url(../images/pz-partner-resource.png) 0 50% no-repeat;
   height: 66px;
   width: 100%;
 }
-.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3 .hwc-partner-private-link-block-title:hover a {
+.profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2 .hwc-partner-private-link-block-title:hover a {
   background: url(../images/mpp-partner-resources-hover.png) 0 50% no-repeat;
 }
 .profile-edit-links-container .pane-node-profile-update-link .hwc-partner-private-link-block-title a {

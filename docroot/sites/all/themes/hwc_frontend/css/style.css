@@ -17336,7 +17336,8 @@ fieldset.captcha div {
   margin-left: -15px;
 }
 .alert.alert-block.alert-danger,
-.alert.alert-block.alert-success {
+.alert.alert-block.alert-success,
+.alert-warning.messages.warning {
   clear: both;
   margin-left: 25px;
   margin-right: 25px;
@@ -17344,7 +17345,8 @@ fieldset.captcha div {
   word-wrap: break-word;
 }
 .alert.alert-block.alert-danger ul,
-.alert.alert-block.alert-success ul {
+.alert.alert-block.alert-success ul,
+.alert-warning.messages.warning ul {
   margin-left: 1em;
   list-style-type: disc;
 }
