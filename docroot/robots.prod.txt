@@ -208,12 +208,6 @@ Disallow: /*taxonomy/term/*/feed
 Disallow: /*taxonomy/term/*
 Disallow: /*segment/*
 Disallow: /*tags/*
-Allow: /*taxonomy/term/778
-Allow: /*taxonomy/term/779
-Allow: /*taxonomy/term/780
-Allow: /*taxonomy/term/781
-Allow: /*taxonomy/term/782
-Allow: /*taxonomy/term/783
 Allow: /*taxonomy/term/3023
 Allow: /*taxonomy/term/3024
 Allow: /*taxonomy/term/3025
