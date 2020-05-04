@@ -5634,6 +5634,7 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 .logged-in.ocp .profile-edit-links-container {
   border-bottom: 2px solid #bcd75b;
   padding-bottom: 3em;
+  margin-bottom: 3em;
 }
 .profile-edit-links-container {
   border-bottom: 0 solid #bcd75b;
