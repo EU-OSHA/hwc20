@@ -25,7 +25,7 @@ $bottom_text = variable_get('hwc_mail_bottom_text', '');
 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-family:Arial,sans-serif;font-size:14px;border:0;margin:0;border-collapse:collapse;border-spacing:0;background-color:#ffffff;table-layout:fixed;max-width:800px;width:800px">
   <tbody>
   <tr style="border:0;background-color:transparent">
-    <td style="vertical-align:top;border:0;">
+    <td style="vertical-align:top;border:0;padding-top: 40px;">
       <table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-family:Arial,sans-serif;font-size:14px;border:0;margin:0;border-collapse:collapse;border-spacing:0">
         <tbody>
         <tr style="border:0;background-color:#a6be1d;height:100px">
@@ -34,7 +34,7 @@ $bottom_text = variable_get('hwc_mail_bottom_text', '');
               <tbody>
               <tr style="border:0;background-color:transparent">
                 <td style="vertical-align: top;border: 0;padding: 5px 20px 5px 20px;width: 400px;text-align: right;font-size: 23px;color: #FFF;">
-                  Follow us on
+                  <?php print  t('Follow us on'); ?>
                 </td>
                 <td style="vertical-align:top;border:0;padding:5px 20px 5px 20px;width:40px;text-align:center;padding-top:5px">
                   <a href="https://twitter.com/eu_osha" style="color:#0074bd;text-decoration:none;display:inline-block;vertical-align:middle" target="_blank" data-saferedirecturl="https://twitter.com/eu_osha&amp;source=gmail&amp;ust=1581508467712000&amp;usg=AFQjCNEjD-bso_INECdN2hSssHEjnJUtMA">
