@@ -226,13 +226,14 @@ td.social {
 }
 
 .newsletter-section .section-title.events {
-  background: url(/sites/all/themes/hwc_frontend/images/newsletter-events.png) no-repeat 0px 1px;
+  background: url(/sites/all/themes/hwc_frontend/images/newsletter-events.png) no-repeat 0px 41px;
   vertical-align: top;
   padding: 0;
   color: #003399;
   padding-left: 24px;
   font-size: 19px;
   height: 20px;
+  padding-top: 40px;
 }
 
 .newsletter-section .section-title.twitter {

@@ -299,7 +299,7 @@ class OSHNewsletter {
     }
     if ($variables['section']->name == 'Events') {
       $url = url('events', ['absolute' => TRUE, 'query' => $url_query]);
-      $content['#suffix'] .= '<table><tr><td align="center">
+      $content['#suffix'] .= '<table><tr><td align="center" style="padding-top:10px;">
         <div class="more-link-newsletter" style="display: table;margin: 0px auto;">
         <table style="border: 0; margin: 0;">
          <tr>

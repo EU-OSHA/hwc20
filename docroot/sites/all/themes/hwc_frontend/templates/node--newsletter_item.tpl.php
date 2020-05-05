@@ -71,10 +71,10 @@ if (!empty($campaign_id)) {
         else {
           ?>
             <tr>
-                <td style="width: 220px; font-size: 12px; font-family: Arial, sans-serif; color: #000000; vertical-align: middle; padding: 0; margin: 0;">
+                <td style="width: 220px; font-size: 12px; font-family: Arial, sans-serif; color: #000000; vertical-align: top; padding: 0; margin: 0;">
                   <table>
                     <tr>
-                      <td style="border: 0;margin:0;padding: 0;">
+                      <td style="border: 0;margin:0;padding: 0;vertical-align: top">
                         <?php
                           if (isset($field_image)) {
                               print l(theme('image_style', array(
@@ -110,7 +110,7 @@ if (!empty($campaign_id)) {
                       ));
                       ?>
                     </div>
-                    <table>
+                    <table style="height: 85px;">
                       <tr>
                         <td style="padding-top: 8px;color:#000;font-size: 13px;line-height: 18px; color:#59595a">
                           <?php
@@ -138,42 +138,38 @@ if (!empty($campaign_id)) {
                     </tr>
                   </table>
 
-                </td>
-            </tr>
-            <tr>
-                <td style="padding-bottom: 10px; ">&nbsp;</td>
-                <td style="padding-bottom: 10px;padding-left: 15px">
-                    <table>
-                        <tr>
-                            <td style="padding-top: 0px;" width="505">
-                              <?php
-                              print '<div>';
-                              $node_url = url('node/' . $node->nid, array('absolute' => TRUE));
-                              print l(t('See more'), $node_url, array(
-                                'attributes' => array('class' => ['see-more']),
-                                'query' => $url_query,
-                                'external' => TRUE,
-                              ));
-                              print '</div>';
-                              ?>
-                            </td>
-                            <td align="right" valign="middle" style="padding-top: 0px;" width="20">
-                              <?php
-                              print l(theme('image', array(
-                                'path' => $directory . '/images/' . 'share-icon.png',
-                                'width' => '20',
-                                'height' => '20',
-                                'attributes' => array('style' => 'border:0px;width:20px;height:20px;'),
-                              )), $node_url, array(
-                                'html' => TRUE,
-                                'query' => $url_query + ['action' => 'share'],
-                                'external' => TRUE,
-                              ));
-                              ?>
+                  <table style="height: 45px;">
+                    <tr>
+                        <td style="padding-top: 0px;" width="505">
+                          <?php
+                          print '<div>';
+                          $node_url = url('node/' . $node->nid, array('absolute' => TRUE));
+                          print l(t('See more'), $node_url, array(
+                            'attributes' => array('class' => ['see-more']),
+                            'query' => $url_query,
+                            'external' => TRUE,
+                          ));
+                          print '</div>';
+                          ?>
+                        </td>
+                        <td align="right" valign="middle" style="padding-top: 0px;" width="20">
+                          <?php
+                          print l(theme('image', array(
+                            'path' => $directory . '/images/' . 'share-icon.png',
+                            'width' => '20',
+                            'height' => '20',
+                            'attributes' => array('style' => 'border:0px;width:20px;height:20px;'),
+                          )), $node_url, array(
+                            'html' => TRUE,
+                            'query' => $url_query + ['action' => 'share'],
+                            'external' => TRUE,
+                          ));
+                          ?>
 
-                            </td>
-                        </tr>
-                    </table>
+                        </td>
+                    </tr>
+                  </table>
+
                 </td>
             </tr>
             <tr>
@@ -282,7 +278,7 @@ if (!empty($campaign_id)) {
         </td>
       </tr>
       <tr>
-        <td colspan="2" style="border-top: 1px solid #749b00;line-height: 12px;">&nbsp;</td>
+        <td colspan="2" style="border-top: 0px solid #749b00;line-height: 24px;">&nbsp;</td>
       </tr>
       <?php
     }
