@@ -252,6 +252,7 @@ function osha_newsletter_views_default_views() {
     'news' => 'news',
     'spotlight' => 'spotlight',
     'twitter_tweet_feed' => 'twitter_tweet_feed',
+    'youtube' => 'youtube',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['filters']['type']['exposed'] = TRUE;
