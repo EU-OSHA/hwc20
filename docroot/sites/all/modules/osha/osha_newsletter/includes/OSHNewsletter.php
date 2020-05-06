@@ -238,11 +238,14 @@ class OSHNewsletter {
     if (!empty($variables['section']->name)) {
       $icon = self::getConfiguration($entityCollection, 'field_icon', $variables['section']);
       $class = 'section-title';
+      $image = '';
       if ($variables['section']->name == 'Events') {
         $class .= ' events';
+        $image = 'newsletter-events';
       }
       if ($variables['section']->name == 'Tweets') {
         $class .= ' twitter';
+        $image = 'newsletter-twitter';
       }
       if (!empty($icon)) {
 
@@ -255,6 +258,14 @@ class OSHNewsletter {
       }
       else {
         $cellContent = sprintf("<span>%s</span>", $variables['section']->name);
+        if ($image) {
+          $cellContent = theme('image', array(
+            'path' => drupal_get_path('module', 'osha_newsletter') . '/images/' . $image . '.png',
+            'width' => '15',
+            'height' => '15',
+            'attributes' => array('style' => 'border:0px;width:15px;height:15px;'),
+          )) . $cellContent;
+        }
         $content['#header'][0]['data'][] = ['data' => $cellContent, 'class' => [$class]];
       }
       $cssClass = drupal_clean_css_identifier('section-' . strtolower($variables['section']->name));
