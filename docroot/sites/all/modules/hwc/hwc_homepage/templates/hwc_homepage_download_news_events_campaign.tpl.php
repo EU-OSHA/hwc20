@@ -7,15 +7,16 @@
           <h3><?php print('Download campaign resources'); ?></h3>
       <?php print $data['download']; ?>
     </div>
-    <div class="two-box-column">
+    <div class="two-box-column"><?php if ($data['news']) { ?>
         <div class="box-before news">
             <h3><span><?php print t('News'); ?></span></h3>
           <?php print $data['news']; ?>
-        </div>
+        </div><?php }
+        if ($data['events']) { ?>
         <div class="box-before events">
             <h3><span><?php print t('Events'); ?></span></h3>
           <?php print $data['events']; ?>
-        </div>
+        </div><?php } ?>
     </div>
     <div class="box-before">
       <h3><?php print t('Check out previous campaigns'); ?></h3>
