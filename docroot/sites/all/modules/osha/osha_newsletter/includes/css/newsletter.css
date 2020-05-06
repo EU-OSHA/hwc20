@@ -250,6 +250,11 @@ td.social {
   height: 20px;
 }
 
+.newsletter-section .section-title span{
+  margin-left: 0;
+  display: inline-block;
+}
+
 .newsletter-section .item {
   padding-top: 10px;
   padding-bottom: 10px;
