@@ -516,6 +516,11 @@ function hwc_homepage_views_default_views() {
   $handler->display->display_options['filters']['field_start_date_value2']['field'] = 'field_start_date_value2';
   $handler->display->display_options['filters']['field_start_date_value2']['operator'] = '>=';
   $handler->display->display_options['filters']['field_start_date_value2']['default_date'] = 'today';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status_1']['id'] = 'status_1';
+  $handler->display->display_options['filters']['status_1']['table'] = 'node';
+  $handler->display->display_options['filters']['status_1']['field'] = 'status';
+  $handler->display->display_options['filters']['status_1']['value'] = '0';
 
   /* Display: HP Events */
   $handler = $view->new_display('block', 'HP Events', 'front');
