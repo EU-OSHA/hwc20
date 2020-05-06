@@ -58,7 +58,7 @@ if (!empty($campaign_id)) {
                   <div>
                     <?php
                     print l($title, url($node->url, array('absolute' => TRUE)), array(
-                      'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #003399; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: top; text-decoration: none;'),
+                      'attributes' => array('style' => 'font-family: Arial, sans-serif; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: top; text-decoration: none;color:#003399;'),
                       'query' => $url_query,
                       'external' => TRUE,
                     ));
@@ -71,7 +71,7 @@ if (!empty($campaign_id)) {
         else {
           ?>
             <tr>
-                <td style="width: 220px; font-size: 12px; font-family: Arial, sans-serif; color: #000000; vertical-align: top; padding: 0; margin: 0;">
+                <td style="width: 220px; font-size: 12px; font-family: Arial, sans-serif; color: #000000; vertical-align: top; padding: 0; margin: 0;padding-bottom: 25px;">
                   <table>
                     <tr>
                       <td style="border: 0;margin:0;padding: 0;vertical-align: top">
@@ -97,14 +97,13 @@ if (!empty($campaign_id)) {
                        </td>
                       </tr>
                     </table>
-                  </div>
                 </td>
                 <td style="padding-bottom: 0px; width: 80%; font-size: 12px; font-family: Arial, sans-serif; color: #000000; padding-left: 15px; ">
                     <div style="font-weight: bold; color: #59595a"><?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?></div>
                     <div>
                       <?php
                       print l($title, url('node/' . $node->nid, array('absolute' => TRUE)), array(
-                        'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #003399; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;'),
+                        'attributes' => array('style' => 'font-family: Arial, sans-serif;padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;color:#003399;'),
                         'query' => $url_query,
                         'external' => TRUE,
                       ));
@@ -112,7 +111,7 @@ if (!empty($campaign_id)) {
                     </div>
                     <table style="height: 85px;">
                       <tr>
-                        <td style="padding-top: 8px;color:#000;font-size: 13px;line-height: 18px; color:#59595a">
+                        <td style="padding-top: 8px;color:#000;font-size: 13px;line-height: 18px; color:#59595a;height: 85px;">
                           <?php
                             $is_empty = FALSE;
                             $summary = render($elements['field_summary']);
@@ -200,13 +199,13 @@ if (!empty($campaign_id)) {
         <td colspan="2" style="font-size:20px; border-bottom: 2px solid #003399; margin-bottom: 10px;">
           <table>
             <tr>
-              <td style="width: 23px">
+              <td style="width: 25px;vertical-align: middle;">
                  <?php
                    $img_spotlight = theme('image', array(
                       'path' => drupal_get_path('module', 'osha_newsletter') . '/images/' . 'spotlight.png',
-                      'width' => '15',
+                      'width' => '25',
                       'height' => '15',
-                      'attributes' => array('style' => 'border:0px;width:15px;height:15px;'),
+                      'attributes' => array('style' => 'border:0px;width:25px;height:15px;'),
                     ));
                    print_r($img_spotlight);
                   ?>
@@ -227,10 +226,10 @@ if (!empty($campaign_id)) {
         </td>
       </tr>
       <tr>
-        <td style="min-height: 160px; width: 220px; font-size: 12px; font-family: Arial, sans-serif; color: #000000; vertical-align: middle; padding: 0; margin: 0;">
-          <table style="min-height: 160px;">
+        <td style="width: 220px;background: #a6be1d;border-top-left-radius: 15px;border-bottom-left-radius: 15px">
+          <table">
             <tr>
-              <td style="vertical-align: middle; margin:0;padding: 0; padding-left: 30px; color:#FFF;background: #a6be1d;border-bottom-left-radius: 15px; border-top-left-radius: 15px;padding-top: 2em;padding-bottom: 2em;">
+              <td style="padding-top: 25px;padding-bottom: 25px;padding-left: 25px;">
                 <?php
                 if (isset($field_image)) {
                   print l(theme('image_style', array(
@@ -239,7 +238,7 @@ if (!empty($campaign_id)) {
                     'width' => 260,
                     'alt' => (isset($field_image) && !empty($field_image)) ? $field_image['alt'] : '',
                     'attributes' => array(
-                      'style' => 'vertical-align:middle;max-width: initial!important;border-radius:15px',
+                      'style' => 'vertical-align:top;max-width: initial!important;border-radius:15px',
                       'align' => 'left',
                     ),
                   )), url('node/' . $node->nid, array('absolute' => TRUE)), array(
@@ -253,22 +252,29 @@ if (!empty($campaign_id)) {
               </td>
             </tr>
           </table>
-          </div>
         </td>
-        <td style="padding-bottom: 0px; width: 80%; font-size: 12px; font-family: Arial, sans-serif; color: #FFF; padding-left: 15px; background: #a6be1d; vertical-align: middle; border-bottom-right-radius: 15px; border-top-right-radius: 15px; vertical-align: top; padding-top: 2em;">
-          <div style="font-weight: bold; color:#FFF"><?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?></div>
-          <div style="padding-top: 1em;">
-            <?php
-            print l($title, url('node/' . $node->nid, array('absolute' => TRUE)), array(
-              'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #FFF; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;'),
-              'query' => $url_query,
-              'external' => TRUE,
-            ));
-            ?>
-          </div>
+        <td style="background: #a6be1d;width: 540px;border-top-right-radius: 15px;border-bottom-right-radius: 15px">
           <table>
             <tr>
-              <td style="padding-top: 8px;color:#FFF;font-size: 13px;line-height: 18px;">
+              <td style="font-weight: normal; color:#FFF;padding-top: 25px;padding-bottom: 0;padding-left: 25px;">
+                <?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-left: 25px;">
+                <?php
+                  print l($title, url('node/' . $node->nid, array('absolute' => TRUE)), array(
+                    'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #FFF; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;'),
+                    'query' => $url_query,
+                    'external' => TRUE,
+                  ));
+                  ?>
+              </td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td style="padding-top: 8px;color:#FFF;font-size: 13px;line-height: 18px;padding-left: 25px;">
                 <?php
                 $is_empty = FALSE;
                 // todo city country.

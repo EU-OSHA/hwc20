@@ -61,7 +61,7 @@ $directory = drupal_get_path('module','osha_newsletter');
   </tbody>
 </table>
 
-<table border="0" cellpadding="0" cellspacing="0" width="800" class="template-container">
+<table border="0" cellpadding="0" cellspacing="0" width="800" height="140" class="template-container">
   <tbody>
     <tr>
       <?php
@@ -78,24 +78,15 @@ $directory = drupal_get_path('module','osha_newsletter');
           <table border="0" cellpadding="0" cellspacing="0" width="800" class="header-banner">
             <tbody>
               <tr>
-                <td style="width: 70%; text-align: center; font-size: 24px; font-weight: bold; color: #ffffff; font-family: Arial,sans-serif;" class="header-title responsive-column">
+                <td style="width: 70%; text-align: center; font-size: 24px; font-weight: bold; color: #ffffff; font-family: Arial,sans-serif;padding-top: 35px;" class="header-title responsive-column">
                   <?php print t("Healthy Workplaces Campaign Newsletter");?>
                 </td>
               </tr>
               <tr>
-                <td style="width: 30%; text-align: center; font-size: 24px; font-weight: normal; color: #ffffff; font-family: Arial,sans-serif;" class="header-date hidden-print responsive-column">
+                <td style="width: 30%; text-align: center; font-size: 21px; font-weight: normal; color: #ffffff; font-family: Arial,sans-serif;padding-top: 17px;padding-bottom: 17px;" class="header-date hidden-print responsive-column">
                   <?php print t($newsletter_ready_date); ?>
                 </td>
               </tr>
-            <tr class="intro"><td colspan="2">
-                    <p style="font-style: italic; color: #ffffff; font-size: 12px; font-family: Arial,sans-serif;">
-                      <?php
-                        if ($newsletter_intro != '') {
-                          print t($newsletter_intro);
-                        }
-                      ?>
-                    </p>
-                </td></tr>
             </tbody>
           </table>
          </div>

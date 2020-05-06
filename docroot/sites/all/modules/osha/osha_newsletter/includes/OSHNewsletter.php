@@ -265,9 +265,7 @@ class OSHNewsletter {
         if ($image) {
           $cellContent = theme('image', array(
             'path' => drupal_get_path('module', 'osha_newsletter') . '/images/' . $image . '.png',
-            'width' => '15',
-            'height' => '15',
-            'attributes' => array('style' => 'border:0px;width:15px;height:15px;'),
+            'attributes' => array('style' => 'border:0px;'),
           )) . $cellContent;
         }
         $content['#header'][0]['data'][] = ['data' => $cellContent, 'class' => [$class]];
