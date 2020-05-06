@@ -245,7 +245,7 @@ if (!empty($campaign_id)) {
           </div>
         </td>
         <td style="padding-bottom: 0px; width: 80%; font-size: 12px; font-family: Arial, sans-serif; color: #FFF; padding-left: 15px; background: #a6be1d; vertical-align: middle; border-bottom-right-radius: 15px; border-top-right-radius: 15px; vertical-align: top; padding-top: 2em;">
-          <div style="font-weight: bold; color:#59595a"><?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?></div>
+          <div style="font-weight: bold; color:#FFF"><?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?></div>
           <div style="padding-top: 1em;">
             <?php
             print l($title, url('node/' . $node->nid, array('absolute' => TRUE)), array(

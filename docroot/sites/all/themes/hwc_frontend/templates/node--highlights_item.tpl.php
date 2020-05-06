@@ -104,7 +104,7 @@ if (!empty($campaign_id)) {
                   $date = strtotime($node->field_publication_date[LANGUAGE_NONE][0]['value']);
                 }
                 ?>
-                <div class="item-date" style="font-family: Arial, sans-serif; font-size: 14px; line-height:25px;"><?php print format_date($date, 'custom', 'd/m/Y');?></div>
+                <div class="item-date" style="color: #59595a;font-family: Arial, sans-serif;font-size: 12px;line-height: 25px;font-weight: bold;"><?php print format_date($date, 'custom', 'd/m/Y');?></div>
                 <?php
                 if ($node->type == 'publication') {
                   print l($title, url('node/' . $node->nid . '/view', array('absolute' => TRUE)), array(
@@ -180,24 +180,14 @@ if (!empty($campaign_id)) {
                             'query' => $url_query,
                             'external' => TRUE,
                           ));
-                        $directory = drupal_get_path('module', 'osha_newsletter');
-                        print l(theme('image', array(
-                          'path' => $directory . '/images/' . 'green-arrow.png',
-                          'width' => '19',
-                          'height' => '11',
-                          'attributes' => array('style' => 'border:0px;width:19px;height:11px;', 'class' => 'hidden-mobile'),
-                        )), $node_url, array(
-                          'html' => TRUE,
-                          'query' => $url_query,
-                          'external' => TRUE,
-                        ));
                         ?>
 
                       </td>
                       <td class="highlight-share hidden-mobile" align="right" valign="middle" style="font-family: Arial, sans-serif; padding-top: 10px;">
                         <?php
+                        $directory = drupal_get_path('module', 'osha_newsletter');
                         print l(theme('image', array(
-                          'path' => $directory . '/images/' . 'share-icon--green.png',
+                          'path' => $directory . '/images/' . 'share-icon.png',
                           'width' => '20',
                           'height' => '20',
                           'attributes' => array('style' => 'border:0px;width:20px;height:20px;'),
