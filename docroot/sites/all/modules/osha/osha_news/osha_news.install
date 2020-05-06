@@ -154,3 +154,10 @@ function osha_news_update_7021() {
 function osha_news_update_7022() {
   features_revert(array('osha_news' => array('views_view')));
 }
+
+/**
+ * HW20-454 List of news in the HWC20 should display(extract the summary/body).
+ */
+function osha_news_update_7023() {
+  features_revert_module('osha_news');
+}
