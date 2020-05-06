@@ -199,13 +199,13 @@ if (!empty($campaign_id)) {
         <td colspan="2" style="font-size:20px; border-bottom: 2px solid #003399; margin-bottom: 10px;">
           <table>
             <tr>
-              <td style="width: 23px;vertical-align: middle;">
+              <td style="width: 25px;vertical-align: middle;">
                  <?php
                    $img_spotlight = theme('image', array(
                       'path' => drupal_get_path('module', 'osha_newsletter') . '/images/' . 'spotlight.png',
-                      'width' => '15',
+                      'width' => '25',
                       'height' => '15',
-                      'attributes' => array('style' => 'border:0px;width:15px;height:15px;'),
+                      'attributes' => array('style' => 'border:0px;width:25px;height:15px;'),
                     ));
                    print_r($img_spotlight);
                   ?>
