@@ -189,7 +189,7 @@ function hwc_priority_areas_block_view($delta = '') {
   $block['content'] = '';
   $node = menu_get_object();
   if ($delta == 'hwc_pa_tools_and_guidance') {
-    $block['title'] = t('Tools and Guidance');
+    $block['title'] = t('Practical tools and guidance');
     if ($node->field_tools_and_guidance) {
       $nids = [];
       foreach($node->field_tools_and_guidance[LANGUAGE_NONE] as $row) {
@@ -199,7 +199,7 @@ function hwc_priority_areas_block_view($delta = '') {
         $nodes = node_load_multiple($nids);
         $block['content'] = hwc_priority_areas_render_nodes($nodes, 'priority_areas');
       }
-      if ($block['content']) {
+      if (@$block['content']) {
         $tid = $node->field_msd_priority_area[LANGUAGE_NONE][0]['tid'];
         $text = t('See all Practical Tools');
         $base = 'tools-and-publications/practical-tools';

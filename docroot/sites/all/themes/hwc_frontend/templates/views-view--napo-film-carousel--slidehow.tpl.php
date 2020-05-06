@@ -36,7 +36,7 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner num_slides">
-      <?php print str_replace('row-1', 'row-1 active', $rows); ?>
+      <?php print str_replace('row-1 item', 'row-1 active item', $rows); ?>
     </div>
 
     <!-- Left and right controls -->

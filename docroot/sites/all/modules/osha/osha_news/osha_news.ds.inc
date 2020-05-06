@@ -273,14 +273,14 @@ function osha_news_ds_layout_settings_info() {
       'right' => array(
         1 => 'field_publication_date',
         2 => 'title_field',
-        3 => 'field_summary',
+        3 => 'body',
       ),
     ),
     'fields' => array(
       'field_image' => 'left',
       'field_publication_date' => 'right',
       'title_field' => 'right',
-      'field_summary' => 'right',
+      'body' => 'right',
     ),
     'classes' => array(
       'layout_class' => array(
