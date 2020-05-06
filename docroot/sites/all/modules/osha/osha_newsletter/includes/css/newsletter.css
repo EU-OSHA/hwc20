@@ -226,22 +226,26 @@ td.social {
 }
 
 .newsletter-section .section-title.events {
-  background: url(/sites/all/themes/hwc_frontend/images/newsletter-events.png) no-repeat 0px 41px;
   vertical-align: top;
   padding: 0;
   color: #003399;
-  padding-left: 24px;
   font-size: 19px;
   height: 20px;
   padding-top: 40px;
 }
 
 .newsletter-section .section-title.twitter {
-  background: url(/sites/all/themes/hwc_frontend/images/newsletter-twitter.png) no-repeat 0px 1px;
   vertical-align: top;
   padding: 0;
   color: #003399;
-  padding-left: 24px;
+  font-size: 19px;
+  height: 20px;
+}
+
+.newsletter-section.section-audiovisual thead tr th span{
+  vertical-align: top;
+  padding: 0;
+  color: #003399;
   font-size: 19px;
   height: 20px;
 }
@@ -451,5 +455,9 @@ p.tweet-link a {
 }
 
 .highlight-item .item-date {
-  color: #575757;
+    color: #59595a;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    line-height: 25px;
+    font-weight: bold;
 }

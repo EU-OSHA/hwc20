@@ -200,7 +200,18 @@ if (!empty($campaign_id)) {
         <td colspan="2" style="font-size:20px; border-bottom: 2px solid #003399; margin-bottom: 10px;">
           <table>
             <tr>
-              <td style="vertical-align: top;padding: 0;border: 0;color: #003399;padding-left: 24px;font-size: 19px;height: 20px;background: url(/sites/all/themes/hwc_frontend/images/spotlight.png) no-repeat 0px 1px;">
+              <td style="width: 23px">
+                 <?php
+                   $img_spotlight = theme('image', array(
+                      'path' => drupal_get_path('module', 'osha_newsletter') . '/images/' . 'spotlight.png',
+                      'width' => '15',
+                      'height' => '15',
+                      'attributes' => array('style' => 'border:0px;width:15px;height:15px;'),
+                    ));
+                   print_r($img_spotlight);
+                  ?>
+              </td>
+              <td style="vertical-align: top;padding: 0;border: 0;color: #003399;font-size: 19px;height: 20px;">
                  <?php
                   // todo spotlight styles here.
                   echo t(variable_get('in_spotlight_text', 'In the spotlight'));
@@ -245,7 +256,7 @@ if (!empty($campaign_id)) {
           </div>
         </td>
         <td style="padding-bottom: 0px; width: 80%; font-size: 12px; font-family: Arial, sans-serif; color: #FFF; padding-left: 15px; background: #a6be1d; vertical-align: middle; border-bottom-right-radius: 15px; border-top-right-radius: 15px; vertical-align: top; padding-top: 2em;">
-          <div style="font-weight: bold; color:#59595a"><?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?></div>
+          <div style="font-weight: bold; color:#FFF"><?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?></div>
           <div style="padding-top: 1em;">
             <?php
             print l($title, url('node/' . $node->nid, array('absolute' => TRUE)), array(
