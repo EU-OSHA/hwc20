@@ -58,7 +58,7 @@ if (!empty($campaign_id)) {
                   <div>
                     <?php
                     print l($title, url($node->url, array('absolute' => TRUE)), array(
-                      'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #003399; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: top; text-decoration: none;'),
+                      'attributes' => array('style' => 'font-family: Arial, sans-serif; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: top; text-decoration: none;color:#003399;'),
                       'query' => $url_query,
                       'external' => TRUE,
                     ));
@@ -97,14 +97,13 @@ if (!empty($campaign_id)) {
                        </td>
                       </tr>
                     </table>
-                  </div>
                 </td>
                 <td style="padding-bottom: 0px; width: 80%; font-size: 12px; font-family: Arial, sans-serif; color: #000000; padding-left: 15px; ">
                     <div style="font-weight: bold; color: #59595a"><?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?></div>
                     <div>
                       <?php
                       print l($title, url('node/' . $node->nid, array('absolute' => TRUE)), array(
-                        'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #003399; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;'),
+                        'attributes' => array('style' => 'font-family: Arial, sans-serif;padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;color:#003399;'),
                         'query' => $url_query,
                         'external' => TRUE,
                       ));
@@ -112,7 +111,7 @@ if (!empty($campaign_id)) {
                     </div>
                     <table style="height: 85px;">
                       <tr>
-                        <td style="padding-top: 8px;color:#000;font-size: 13px;line-height: 18px; olor:#59595a;height: 85px;">
+                        <td style="padding-top: 8px;color:#000;font-size: 13px;line-height: 18px; color:#59595a;height: 85px;">
                           <?php
                             $is_empty = FALSE;
                             $summary = render($elements['field_summary']);

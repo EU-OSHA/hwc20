@@ -86,21 +86,6 @@ th {
   padding: 20px 20px 20px 8px;
 }
 
-.header-banner > tbody > tr > td {
-  padding: 17px 20px 0px 20px;
-  line-height: 1.1;
-}
-
-.header-banner > tbody > tr.intro > td {
-  padding: 14px 20px 28px 20px;
-  line-height: 1.1;
-}
-
-.header-banner > tbody > tr.intro > td p {
-  padding: 0;
-  margin: 0;
-}
-
 .header-date {
   font-size: 24px;
 }
@@ -195,9 +180,9 @@ td.social {
   max-width: 100%;
 }
 .see-more {
-    border: 1px solid #b0b1b3;
+    border: 1px solid #b0b1b2;
     border-radius: 3px;
-    color: #b0b1b3;
+    color: #b0b1b2;
     text-transform: uppercase;
     padding: 2px 7px 2px 7px;
     font-size: 12px;
@@ -321,7 +306,7 @@ td.social {
   font-family: Arial, sans-serif;
 }
 p.tweet-author a {
-  color: #003399 !important;
+  color: #003399;
   font-family: Arial, sans-serif;
   font-weight: 600;
 }
@@ -346,20 +331,15 @@ p.tweet-contents {
 }
 .tweet-contents a,
 .tweet-link a {
-  color: #039de1 !important;
+  color: #039de1;
   max-width: 149px;
   word-break: break-all;
 }
 p.tweet-link a {
-  color: #353535 !important;
+  color: #353535;
   font-size: 12px;
   font-weight: 500;
 }
-
-.newsletter-item a {
-  color: #003399;
-}
-
 
 .newsletter-full-width-2-col-blocks-item > table td,
 .newsletter-full-width-2-col-blocks-item > .newsletter-item a {
