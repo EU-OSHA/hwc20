@@ -239,6 +239,10 @@ class OSHNewsletter {
       $icon = self::getConfiguration($entityCollection, 'field_icon', $variables['section']);
       $class = 'section-title';
       $image = '';
+      if ($variables['section']->name == 'Audiovisual') {
+        $class .= ' spotlight';
+        $image = 'spotlight';
+      }
       if ($variables['section']->name == 'Events') {
         $class .= ' events';
         $image = 'newsletter-events';
