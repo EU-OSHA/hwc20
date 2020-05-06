@@ -686,6 +686,7 @@ ul.time-and-counters{
 		.box-before.news{
 			margin-bottom: 2em;
 			padding-bottom: 2em;
+			height: 100%;
 			h3{
 				position: relative;
 				&:before{
@@ -9010,4 +9011,15 @@ body.video-page{
 
 .vjs-poster {
     background-position: inherit !important;
+}
+
+/*MDR-3683*/
+#block-views-news-splash{
+	> div{
+		> div.view-content{
+			> div:nth-child(2){
+				padding-top: 1.5em;
+			}
+		}
+	}
 }
