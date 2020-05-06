@@ -597,7 +597,7 @@ function hwc_practical_tools_get_exclude_fields($original_language) {
 
 function hwc_practical_tools_get_provider_name($original_language, $entity) {
   global $language;
-  if ($language->language == $original_language) {
+  if (($language->language == $original_language) && !empty($entity->field_msd_provider_name_o['und'][0]['value'])) {
     return $entity->field_msd_provider_name_o['und'][0]['value'];
   }
   return $entity->field_msd_provider_name['und'][0]['value'];
