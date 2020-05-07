@@ -60,6 +60,12 @@
   if (strpos($variables['classes'], 'toolkit-page') == TRUE) {
     $site_name = 'OSH campaign toolkit';
   }
+  elseif (strpos($variables['classes'], 'node-type-campaign-16') == TRUE) {
+    $site_name = 'Healthy Workplaces for All Ages 2016-17';
+  }
+  elseif (strpos($variables['classes'], 'node-type-campaign-18') == TRUE) {
+    $site_name = 'Healthy Workplaces Manage Dangerous Substances 2018-2019';
+  }
   else {
     $site_name = $head_title_array['name'];
   }
