@@ -209,7 +209,6 @@ td.social {
   text-transform: none;
   padding: 20px 0 0 0;
 }
-
 .newsletter-section .section-title.events {
   vertical-align: top;
   padding: 0;
@@ -445,4 +444,12 @@ p.tweet-link a {
     font-size: 12px;
     line-height: 25px;
     font-weight: bold;
+}
+
+.newsletter-full-width-list.newsletter-section.template-container > thead > tr .td-border{
+  border-top: 1px solid #749b00;
+}
+
+.newsletter-full-width-list.newsletter-section.template-container > thead > tr:last-child .td-border{
+  border-top: 0;
 }
