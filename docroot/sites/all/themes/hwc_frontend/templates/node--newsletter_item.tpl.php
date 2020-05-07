@@ -172,7 +172,7 @@ if (!empty($campaign_id)) {
                 </td>
             </tr>
             <tr>
-              <td colspan="2" style="border-top: 1px solid #749b00;line-height: 12px;">&nbsp;</td>
+              <td colspan="2" class="td-border" style="line-height: 12px;">&nbsp;</td>
             </tr>
           <?php
       }
