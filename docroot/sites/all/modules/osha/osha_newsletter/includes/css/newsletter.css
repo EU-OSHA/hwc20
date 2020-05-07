@@ -13,13 +13,14 @@
   max-width: 800px;
   width: 800px;
 }
+
 .content-container > td > table {
   max-width: 760px;
   width: 760px;
 }
 /* Gutter */
 .content-container > td {
-  padding: 0 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
 }
 
 .template-container.newsletter-half-width-list {
