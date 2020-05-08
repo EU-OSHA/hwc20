@@ -949,4 +949,13 @@ jQuery(document).ready(function($){
 	if ($(".hwc-partner-private-link-block-title .unpublish")[0]){
 		$( ".hwc-partner-private-link-block-title .unpublish" ).parent().addClass( "unpublish" );
 	}
+
+	//Add class when admin toolbar is hidden
+	if ($("body.logged-in .region-page-top #toolbar")[0]){
+		$( "body.logged-in .navbar-header .col-xs-12.col-sm-9" ).addClass( "toolbar-yes" );
+	}else{
+		$( "body.logged-in .navbar-header .col-xs-12.col-sm-9" ).addClass( "toolbar-no" );
+		
+	}
+
 });
