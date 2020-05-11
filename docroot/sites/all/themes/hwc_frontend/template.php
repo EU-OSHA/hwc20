@@ -607,7 +607,7 @@ function hwc_frontend_preprocess_page(&$vars) {
         $breadcrumb[] = l(t('Media centre'), 'media-centre');
         $breadcrumb[] = l(t('Newsletter'), 'media-centre/newsletter');
         if ($newsletter = hwc_frontend_get_newsletter_name($node->nid)) {
-          $breadcrumb[] = l($newsletter->title, 'media-centre/' . $newsletter->name);
+          $breadcrumb[] = l($newsletter->title, 'entity-collection/' . $newsletter->name);
         }
         $breadcrumb[] = $node->title;
         drupal_set_breadcrumb($breadcrumb);
@@ -620,7 +620,7 @@ function hwc_frontend_preprocess_page(&$vars) {
         $breadcrumb[] = l(t('Media centre'), 'media-centre');
         $breadcrumb[] = l(t('Newsletter'), 'media-centre/newsletter');
         if ($newsletter = hwc_frontend_get_newsletter_name($node->nid)) {
-          $breadcrumb[] = l($newsletter->title, 'media-centre/' . $newsletter->name);
+          $breadcrumb[] = l($newsletter->title, 'entity-collection/' . $newsletter->name);
         }
         $breadcrumb[] = $node->title;
         drupal_set_breadcrumb($breadcrumb);
