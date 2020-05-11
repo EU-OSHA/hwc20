@@ -62,6 +62,46 @@ function osha_newsletter_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'ds_extras_view_modes_spotlight';
+  $strongarm->value = array(
+    0 => 'default',
+    1 => 'teaser',
+    2 => 'title_body',
+    3 => 'body',
+    4 => 'priority_areas',
+    5 => 'hwc_teaser',
+    6 => 'osha_slideshow',
+    7 => 'highlights_item',
+    8 => 'newsletter_item',
+    9 => 'highlights_item_alternative',
+    10 => 'pub_teaser',
+    11 => 'osha_resources',
+  );
+  $export['ds_extras_view_modes_spotlight'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ds_extras_view_modes_spotlights';
+  $strongarm->value = array(
+    0 => 'default',
+    1 => 'teaser',
+    2 => 'title_body',
+    3 => 'body',
+    4 => 'priority_areas',
+    5 => 'hwc_teaser',
+    6 => 'osha_slideshow',
+    7 => 'highlights_item',
+    8 => 'newsletter_item',
+    9 => 'highlights_item_alternative',
+    10 => 'pub_teaser',
+    11 => 'osha_resources',
+  );
+  $export['ds_extras_view_modes_spotlights'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_entity_collection__newsletter_content_collection';
   $strongarm->value = array(
     'view_modes' => array(
@@ -236,6 +276,13 @@ function osha_newsletter_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'language_content_type_spotlights';
+  $strongarm->value = '4';
+  $export['language_content_type_spotlights'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_spotlight';
   $strongarm->value = array(
     0 => 'main-menu',
@@ -282,6 +329,16 @@ function osha_newsletter_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'node_options_spotlights';
+  $strongarm->value = array(
+    0 => 'moderation',
+    1 => 'revision',
+  );
+  $export['node_options_spotlights'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_spotlight';
   $strongarm->value = '0';
   $export['node_preview_spotlight'] = $strongarm;
@@ -292,6 +349,13 @@ function osha_newsletter_strongarm() {
   $strongarm->name = 'node_submitted_spotlight';
   $strongarm->value = 0;
   $export['node_submitted_spotlight'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_submitted_spotlights';
+  $strongarm->value = 0;
+  $export['node_submitted_spotlights'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
