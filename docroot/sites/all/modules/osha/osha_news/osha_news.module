@@ -9,6 +9,29 @@ include_once 'osha_news.features.inc';
 define('OSHA_NEWS_CONTENT_TYPE_NEWS', 'news');
 
 /**
+ * Implements hook_field_widget_form_alter().
+ *
+ * {@inheritdoc}
+ */
+function osha_news_field_widget_form_alter(&$element, &$form_state, $context) {
+  $instance = $context['instance'];
+  $settings = $instance['settings'];
+  $field = $context['field'];
+  if (isset($settings['image_field_caption']) && $field['type'] == 'image' && $settings['image_field_caption']) {
+    foreach (element_children($element) as $delta) {
+      // Add all extra functionality provided by the image widget.
+      $element[$delta]['#process'][] = 'osha_news_caption_widget_process';
+    }
+  }
+}
+
+function osha_news_caption_widget_process($element, &$form_state, $form) {
+  // Add the additional alt and title fields.
+  $element['image_field_caption']['#title'] = t('Caption (copy-right)');
+  return $element;
+}
+
+/**
  * Implements hook_post_features_enable_feature().
  *
  * {@inheritdoc}
@@ -61,6 +84,11 @@ function osha_news_form_news_node_form_alter(&$form, &$form_state) {
   if (!$is_admin) {
     $form['field_show_on']['#access'] = FALSE;
   }
+
+  if (count(array_intersect(array(HWC_ROLE_CAMPAIGN_PARTNER), $user->roles))) {
+    $form['field_image']['#access'] = FALSE;
+  }
+
   hwc_workflow_add_extra_fields($form, $form_state);
 }
 

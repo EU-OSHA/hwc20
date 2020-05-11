@@ -120,7 +120,6 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
       $row->field_related_publications[] = $this->handleSourceMigration('publications', $original_nid);
     }
     $row->field_tags = osha_migration_normalize_migrated_term_reference($row->field_tags, 'tax_tags');
-    $row->field_msd_priority_area = $row->field_msd_priority_areas;
     $row->field_msd_priority_area = osha_migration_normalize_migrated_term_reference($row->field_msd_priority_area, 'tax_msd_priority_area');
 
     $row->field_thesaurus = osha_migration_normalize_migrated_term_reference($row->field_thesaurus, 'tax_thesaurus');

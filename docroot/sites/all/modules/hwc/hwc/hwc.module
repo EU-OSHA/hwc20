@@ -1416,12 +1416,6 @@ function hwc_field_widget_form_alter(&$element, &$form_state, $context) {
         $placeholder = 'News title';
         $element['value']['#attributes']['placeholder'] = $placeholder;
         break;
-
-      case 'field_image_caption':
-        $placeholder = 'Image caption';
-        $element['value']['#attributes']['placeholder'] = $placeholder;
-        break;
-
     }
   }
 }

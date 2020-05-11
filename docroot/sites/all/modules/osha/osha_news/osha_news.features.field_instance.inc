@@ -819,99 +819,6 @@ function osha_news_field_default_field_instances() {
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'node-news-field_image_caption'.
-  $field_instances['node-news-field_image_caption'] = array(
-    'bundle' => 'news',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Please indicate the copyright in this field. If you do not provide this information, your organisation\'s logo will appear next to your news item',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'text_default',
-        'weight' => 6,
-      ),
-      'highlights_item' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 7,
-      ),
-      'highlights_item_alternative' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 9,
-      ),
-      'hwc_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'newsletter_item' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 15,
-      ),
-      'osha_resources' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 15,
-      ),
-      'priority_areas' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 18,
-      ),
-      'pub_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 28,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_image_caption',
-    'label' => 'Copyright',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'linkit' => array(
-        'button_text' => 'Search',
-        'enable' => 0,
-        'profile' => '',
-      ),
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'maxlength_js' => 0,
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 7,
-    ),
-    'workbench_access_field' => 0,
-  );
-
   // Exported field_instance: 'node-news-field_migration_path_alias'.
   $field_instances['node-news-field_migration_path_alias'] = array(
     'bundle' => 'news',
@@ -2234,7 +2141,6 @@ function osha_news_field_default_field_instances() {
   t('Body');
   t('Character count');
   t('Comments to be add to the notification');
-  t('Copyright');
   t('Disable notifications');
   t('First publication date');
   t('Image');
@@ -2243,7 +2149,6 @@ function osha_news_field_default_field_instances() {
   t('Modified by');
   t('Modified on');
   t('Page count');
-  t('Please indicate the copyright in this field. If you do not provide this information, your organisation\'s logo will appear next to your news item');
   t('Please introduce in this box the text of this section.');
   t('Publication date');
   t('Show in NCW');

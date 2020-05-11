@@ -659,13 +659,6 @@ function hwc_admin_reports_views_default_views() {
     'image_link' => '',
     'field_formatter_class' => '',
   );
-  /* Field: Content: Image Caption */
-  $handler->display->display_options['fields']['field_image_caption']['id'] = 'field_image_caption';
-  $handler->display->display_options['fields']['field_image_caption']['table'] = 'field_data_field_image_caption';
-  $handler->display->display_options['fields']['field_image_caption']['field'] = 'field_image_caption';
-  $handler->display->display_options['fields']['field_image_caption']['settings'] = array(
-    'field_formatter_class' => '',
-  );
   /* Field: Field: Publication date */
   $handler->display->display_options['fields']['field_publication_date']['id'] = 'field_publication_date';
   $handler->display->display_options['fields']['field_publication_date']['table'] = 'field_data_field_publication_date';
@@ -1127,7 +1120,7 @@ function hwc_admin_reports_views_default_views() {
   );
   $handler->display->display_options['fields']['field_schedule']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_schedule']['separator'] = '|';
-  /* Field: Content: Related documents */
+  /* Field: Content: Files */
   $handler->display->display_options['fields']['field_related_documents']['id'] = 'field_related_documents';
   $handler->display->display_options['fields']['field_related_documents']['table'] = 'field_data_field_related_documents';
   $handler->display->display_options['fields']['field_related_documents']['field'] = 'field_related_documents';
@@ -1139,7 +1132,7 @@ function hwc_admin_reports_views_default_views() {
   );
   $handler->display->display_options['fields']['field_related_documents']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_related_documents']['separator'] = '|';
-  /* Field: Content: Related documents */
+  /* Field: Content: Files */
   $handler->display->display_options['fields']['field_related_documents_1']['id'] = 'field_related_documents_1';
   $handler->display->display_options['fields']['field_related_documents_1']['table'] = 'field_data_field_related_documents';
   $handler->display->display_options['fields']['field_related_documents_1']['field'] = 'field_related_documents';
@@ -1385,7 +1378,6 @@ function hwc_admin_reports_views_default_views() {
     t('Export News'),
     t('Summary'),
     t('Image'),
-    t('Image Caption'),
     t('Body'),
     t('Tags'),
     t('Attachments (URL)'),
