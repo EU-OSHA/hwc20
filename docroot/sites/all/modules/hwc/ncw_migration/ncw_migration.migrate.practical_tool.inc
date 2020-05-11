@@ -21,7 +21,6 @@ class NCWMSDMigration extends AbstractNCWNodeMigration {
   function getTermReferenceFieldsMap() {
     return [
       'field_msd_priority_area' => 'msd_priority_area',
-      'field_sector_industry_covered' => 'nace_codes',
       'field_hazards' => 'hazards',
       'field_health_effects' => 'health_effects',
       'field_worker_groups_covered' => 'worker_groups_covered',
@@ -57,6 +56,7 @@ class NCWMSDMigration extends AbstractNCWNodeMigration {
     $map = array_keys($this->getTermReferenceFieldsMap());
     $map[] = 'field_msd_provider';
     $map[] = 'field_modified_date';
+    $map[] = 'field_sector_industry_covered';
     return $map;
   }
 
@@ -66,6 +66,16 @@ class NCWMSDMigration extends AbstractNCWNodeMigration {
   public function prepare($entity, stdClass $row) {
     parent::prepare($entity, $row);
     $this->new_providers = [];
+
+    if (!empty($row->field_nace_codes)) {
+      $row->field_sector_industry_covered = [];
+      foreach ($row->field_nace_codes as $nace_code) {
+        $tid = osha_taxonomies_get_term_by_nace_code($nace_code->tid);
+        if ($tid) {
+          $row->field_sector_industry_covered[] = $tid;
+        }
+      }
+    }
 
     // Language_field fix.
     if ($entity->field_available_in_languages) {

@@ -214,7 +214,168 @@ class NCWTaxonomyNaceCodesMigration extends AbstractNCWTaxonomyTermMigration {
   public function __construct($arguments) {
     parent::__construct($arguments, 'NaceCodesNCWTaxonomyTermSource', 'nace_codes');
     $this->description = 'Import taxonomy "nace_codes" from NCW';
+    $this->destination = new NaceCodeMigrateDestinationTerm('nace_codes', array('language' => 'en', 'allow_duplicate_terms' => true));
   }
+}
+
+class NaceCodeMigrateDestinationTerm extends MigrateDestinationTerm {
+  /**
+   * Import a single term.
+   *
+   * @param $term
+   *  Term object to build. Prefilled with any fields mapped in the Migration.
+   * @param $row
+   *  Raw source data object - passed through to prepare/complete handlers.
+   * @return array
+   *  Array of key fields (tid only in this case) of the term that was saved if
+   *  successful. FALSE on failure.
+   */
+  public function import(stdClass $term, stdClass $row) {
+    $migration = Migration::currentMigration();
+    // Updating previously-migrated content?
+    if (isset($row->migrate_map_destid1)) {
+      if (isset($term->tid)) {
+        if ($term->tid != $row->migrate_map_destid1) {
+          throw new MigrateException(t("Incoming tid !tid and map destination nid !destid1 don't match",
+            array('!tid' => $term->tid, '!destid1' => $row->migrate_map_destid1)));
+        }
+      }
+      else {
+        $term->tid = $row->migrate_map_destid1;
+      }
+    }
+
+    // Default to bundle if no vocabulary machine name provided
+    if (!isset($term->vocabulary_machine_name)) {
+      $term->vocabulary_machine_name = $this->bundle;
+    }
+
+    if ($migration->getSystemOfRecord() == Migration::DESTINATION) {
+      if (!isset($term->tid)) {
+        throw new MigrateException(t('System-of-record is DESTINATION, but no destination tid provided'));
+      }
+      $rawterm = $term;
+      $this->prepare($term, $row);
+      $old_term = taxonomy_term_load($term->tid);
+      if (empty($old_term)) {
+        throw new MigrateException(t('System-of-record is DESTINATION, but term !tid does not exist',
+          array('!tid' => $term->tid)));
+      }
+      foreach ($rawterm as $field => $value) {
+        $old_term->$field = $term->$field;
+      }
+      $term = $old_term;
+    }
+    else {
+      // vid is required
+      if (empty($term->vid)) {
+        static $vocab_map = array();
+        if (!isset($vocab_map[$term->vocabulary_machine_name])) {
+          // The keys of the returned array are vids
+          $vocabs = taxonomy_vocabulary_load_multiple(array(),
+            array('machine_name' => $term->vocabulary_machine_name));
+          $vids = array_keys($vocabs);
+          if (isset($vids[0])) {
+            $vocab_map[$term->vocabulary_machine_name] = $vids[0];
+          }
+          else {
+            $migration->saveMessage(t('No vocabulary found with machine_name !name',
+              array('!name' => $term->vocabulary_machine_name)));
+            return FALSE;
+          }
+        }
+        $term->vid = $vocab_map[$term->vocabulary_machine_name];
+      }
+
+      if (!isset($term->format)) {
+        $term->format = $this->textFormat;
+      }
+      if (!isset($term->language)) {
+        $term->language = $this->language;
+      }
+
+      $this->prepare($term, $row);
+
+      if (empty($term->name)) {
+        throw new MigrateException(t('Taxonomy term name is required.'));
+      }
+      $existing_term = $this->findMatchingTerm($term);
+      if ($existing_term) {
+        foreach ($existing_term as $field => $value) {
+          if (!isset($term->$field)) {
+            $term->$field = $existing_term->$field;
+          }
+        }
+      }
+    }
+
+    // Trying to update an existing term.
+    if ($migration->getSystemOfRecord() == Migration::DESTINATION) {
+      $existing_term = taxonomy_term_load($term->tid);
+      if ($existing_term) {
+        // Incoming data overrides existing data, so only copy non-existent fields
+        foreach ($existing_term as $field => $value) {
+          if (!isset($term->$field)) {
+            $term->$field = $existing_term->$field;
+          }
+        }
+      }
+    }
+
+    if (isset($term->tid)) {
+      $updating = TRUE;
+    }
+    else {
+      $updating = FALSE;
+    }
+
+    // Validate field data prior to saving.
+    MigrateDestinationEntity::fieldAttachValidate('taxonomy_term', $term);
+
+    migrate_instrument_start('taxonomy_term_save');
+    $status = taxonomy_term_save($term);
+    migrate_instrument_stop('taxonomy_term_save');
+    $this->complete($term, $row);
+    if (isset($term->tid)) {
+      if ($updating) {
+        $this->numUpdated++;
+      }
+      else {
+        $this->numCreated++;
+      }
+      $return = array($term->tid);
+    }
+    else {
+      $return = FALSE;
+    }
+    return $return;
+  }
+
+  /**
+   * Attempt to find a term that has the same name, vocabulary, and parents.
+   *
+   * @param object $term
+   *   A taxonomy term object with at least the name and vid properties defined.
+   *
+   * @return object
+   *   A matching taxonomy term object if found, otherwise FALSE.
+   */
+  public function findMatchingTerm($term) {
+    $nace_code = $term->field_nace_code['und'][0]['value'];
+    // See if the term, with the same parentage, already exists - if so,
+    // load it
+
+    $candidates = taxonomy_term_load_multiple(array(),
+      array('name' => trim($term->name), 'vid' => $term->vid));
+
+    foreach ($candidates as $candidate) {
+      if ($candidate->field_nace_code['und'][0]['value'] === $nace_code) {
+        return $candidate;
+      }
+    }
+    return FALSE;
+  }
+
 }
 
 class NCWTaxonomyHazmapCategoriesMigration extends AbstractNCWTaxonomyTermMigration {
