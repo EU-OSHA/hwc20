@@ -446,6 +446,17 @@ function _hwc_frontend_allow_title($active_trail) {
   return FALSE;
 }
 
+function hwc_frontend_get_newsletter_name($nid) {
+  $entities = entity_load_multiple_by_name('entity_collection', $names = FALSE, array('bundle' => 'newsletter_content_collection'));
+  foreach ($entities as $entity) {
+    $tree = $entity->getTree();
+    if ($tree->getChild('node:' . $nid)) {
+      return $entity;
+    }
+  }
+  return FALSE;
+}
+
 function hwc_frontend_preprocess_page(&$vars) {
   $vars['head_text'] = t('Healthy Workplaces Lighten the Load 2020-22');
   $vars['banner_title'] = '';
@@ -589,6 +600,30 @@ function hwc_frontend_preprocess_page(&$vars) {
           '#type' => 'item',
           '#markup' => theme('html_tag', $tag_vars),
         );
+        break;
+
+      case 'youtube':
+        $breadcrumb[] = l(t('Home'), '<front>');
+        $breadcrumb[] = l(t('Media centre'), 'media-centre');
+        $breadcrumb[] = l(t('Newsletter'), 'media-centre/newsletter');
+        if ($newsletter = hwc_frontend_get_newsletter_name($node->nid)) {
+          $breadcrumb[] = l($newsletter->title, 'media-centre/' . $newsletter->name);
+        }
+        $breadcrumb[] = $node->title;
+        drupal_set_breadcrumb($breadcrumb);
+        break;
+
+      case 'spotlight':
+
+        $breadcrumb = array();
+        $breadcrumb[] = l(t('Home'), '<front>');
+        $breadcrumb[] = l(t('Media centre'), 'media-centre');
+        $breadcrumb[] = l(t('Newsletter'), 'media-centre/newsletter');
+        if ($newsletter = hwc_frontend_get_newsletter_name($node->nid)) {
+          $breadcrumb[] = l($newsletter->title, 'media-centre/' . $newsletter->name);
+        }
+        $breadcrumb[] = $node->title;
+        drupal_set_breadcrumb($breadcrumb);
         break;
 
       case 'press_release':
