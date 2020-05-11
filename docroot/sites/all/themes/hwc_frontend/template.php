@@ -611,6 +611,7 @@ function hwc_frontend_preprocess_page(&$vars) {
         }
         $breadcrumb[] = $node->title;
         drupal_set_breadcrumb($breadcrumb);
+        drupal_set_title(t('Audiovisual'));
         break;
 
       case 'spotlight':
@@ -624,6 +625,7 @@ function hwc_frontend_preprocess_page(&$vars) {
         }
         $breadcrumb[] = $node->title;
         drupal_set_breadcrumb($breadcrumb);
+        drupal_set_title(t('In the spotlight'));
         break;
 
       case 'press_release':
