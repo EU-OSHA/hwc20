@@ -490,8 +490,8 @@ function osha_newsletter_field_default_field_instances() {
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'node-spotlight-field_city'.
-  $field_instances['node-spotlight-field_city'] = array(
+  // Exported field_instance: 'node-spotlight-body'.
+  $field_instances['node-spotlight-body'] = array(
     'bundle' => 'spotlight',
     'default_value' => NULL,
     'deleted' => 0,
@@ -509,8 +509,8 @@ function osha_newsletter_field_default_field_instances() {
         'settings' => array(
           'field_formatter_class' => '',
         ),
-        'type' => 'text_plain',
-        'weight' => 6,
+        'type' => 'text_default',
+        'weight' => 4,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -544,102 +544,35 @@ function osha_newsletter_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_city',
-    'label' => 'City',
+    'field_name' => 'body',
+    'label' => 'Body',
     'required' => 0,
     'settings' => array(
+      'display_summary' => 0,
       'entity_translation_sync' => FALSE,
       'linkit' => array(
         'button_text' => 'Search',
         'enable' => 0,
         'profile' => '',
       ),
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'maxlength_js' => 0,
+        'maxlength_js' => '',
+        'maxlength_js_enforce' => 0,
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'size' => 60,
+        'maxlength_js_label_summary' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_summary' => '',
+        'maxlength_js_truncate_html' => 0,
+        'rows' => 20,
+        'summary_rows' => 5,
       ),
-      'type' => 'text_textfield',
-      'weight' => 4,
-    ),
-    'workbench_access_field' => 0,
-  );
-
-  // Exported field_instance: 'node-spotlight-field_country'.
-  $field_instances['node-spotlight-field_country'] = array(
-    'bundle' => 'spotlight',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'body' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'i18n_taxonomy',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'i18n_taxonomy_term_reference_plain',
-        'weight' => 5,
-      ),
-      'highlights_item' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'highlights_item_alternative' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'newsletter_item' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'osha_slideshow' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_country',
-    'label' => 'Country',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_select',
-      'weight' => 5,
+      'type' => 'text_textarea_with_summary',
+      'weight' => 3,
     ),
     'workbench_access_field' => 0,
   );
@@ -838,7 +771,7 @@ function osha_newsletter_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_select',
-      'weight' => 3,
+      'weight' => 4,
     ),
     'workbench_access_field' => 0,
   );
@@ -955,7 +888,7 @@ function osha_newsletter_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 14,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1340,9 +1273,8 @@ function osha_newsletter_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Author');
   t('Background color');
+  t('Body');
   t('Campaign ID in Piwik');
-  t('City');
-  t('Country');
   t('Created');
   t('Default template');
   t('Description');

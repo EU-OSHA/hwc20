@@ -152,25 +152,25 @@ function osha_newsletter_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '10',
+          'weight' => '9',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '9',
+          'weight' => '8',
         ),
         'redirect' => array(
-          'weight' => '8',
+          'weight' => '7',
         ),
         'workbench_access' => array(
           'weight' => '5',
         ),
         'xmlsitemap' => array(
-          'weight' => '7',
+          'weight' => '6',
         ),
         'language' => array(
-          'weight' => '6',
+          'weight' => '5',
         ),
       ),
       'display' => array(),
