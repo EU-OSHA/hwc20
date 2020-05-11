@@ -505,9 +505,9 @@ function osha_resources_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'exclude_node_title_content_type_modes_youtube';
   $strongarm->value = array(
-    'full' => 'full',
     'teaser' => 'teaser',
     'osha_resources' => 'osha_resources',
+    'full' => 0,
     'rss' => 0,
     'search_index' => 0,
     'search_result' => 0,

@@ -47,16 +47,18 @@ function osha_resources_ds_layout_settings_info() {
         0 => 'back_to_list',
         1 => 'title_field',
         2 => 'field_youtube',
+        3 => 'body',
       ),
     ),
     'fields' => array(
       'back_to_list' => 'ds_content',
       'title_field' => 'ds_content',
       'field_youtube' => 'ds_content',
+      'body' => 'ds_content',
     ),
     'classes' => array(
       'layout_class' => array(
-        '' => '',
+        'container' => 'container',
       ),
     ),
     'wrappers' => array(

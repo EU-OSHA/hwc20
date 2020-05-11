@@ -1868,9 +1868,12 @@ function osha_resources_field_default_field_instances() {
         'weight' => 0,
       ),
       'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'hidden',
+        'module' => 'hwc',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'body_with_summary',
         'weight' => 14,
       ),
       'highlights_item' => array(
