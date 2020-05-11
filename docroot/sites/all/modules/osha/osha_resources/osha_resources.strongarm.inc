@@ -393,9 +393,9 @@ function osha_resources_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'exclude_node_title_content_type_modes_external_url';
   $strongarm->value = array(
+    'full' => 'full',
     'teaser' => 'teaser',
     'osha_resources' => 'osha_resources',
-    'full' => 0,
     'rss' => 0,
     'search_index' => 0,
     'search_result' => 0,
@@ -505,9 +505,9 @@ function osha_resources_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'exclude_node_title_content_type_modes_youtube';
   $strongarm->value = array(
+    'full' => 'full',
     'teaser' => 'teaser',
     'osha_resources' => 'osha_resources',
-    'full' => 0,
     'rss' => 0,
     'search_index' => 0,
     'search_result' => 0,
@@ -987,19 +987,19 @@ function osha_resources_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '40',
+          'weight' => '10',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '7',
         ),
         'redirect' => array(
-          'weight' => '30',
+          'weight' => '8',
         ),
         'language' => array(
           'weight' => '5',
         ),
         'xmlsitemap' => array(
-          'weight' => '30',
+          'weight' => '9',
         ),
       ),
       'display' => array(),
