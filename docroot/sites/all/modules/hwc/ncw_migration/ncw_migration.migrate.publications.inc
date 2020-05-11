@@ -127,7 +127,8 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
     $nace_codes = $row->field_nace_codes;
     $row->field_nace_codes = [];
     foreach ($nace_codes as $nace_code) {
-      $tid = osha_taxonomies_get_term_by_nace_code($nace_code[LANGUAGE_NONE]['value']);
+      $code = $nace_code->field_nace_code[LANGUAGE_NONE]['value'];
+      $tid = osha_taxonomies_get_term_by_nace_code($code);
       if ($tid) {
         $row->field_nace_codes[] = $tid;
       }
