@@ -55,7 +55,9 @@ function osha_events_ds_custom_fields_info() {
   $ds_field->ui_limit = 'events|*
 news|*
 flickr_gallery|*
-press_release|*';
+press_release|*
+spotlight|*
+youtube|*';
   $ds_field->properties = array();
   $export['back_to_list'] = $ds_field;
 

@@ -450,6 +450,25 @@ function osha_events_node_view($node, $view_mode, $langcode) {
       }
     }
   }
+  
+  if (($node->type == 'spotlight') || ($node->type == 'youtube')) {
+    if (!empty($node->preprocess_fields)) {
+      foreach ($node->preprocess_fields as $field_name) {
+        switch ($field_name) {
+          case 'back_to_list':
+            if ($newsletter = hwc_frontend_get_newsletter_name($node->nid)) {
+              $link_href = 'media-centre/' . $newsletter->name;
+              $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to newsletter') . '</span>';
+              $node->content[$field_name] = array(
+                '#markup' => '<div class="back-links">' . l($back_text, $link_href, ['html' => TRUE]) . '</div>',
+              );
+            }
+            break;
+        }
+      }
+    }
+  }
+
   if ($node->type == 'news') {
     if (!empty($node->preprocess_fields)) {
       foreach ($node->preprocess_fields as $field_name) {
