@@ -70,7 +70,8 @@ class NCWMSDMigration extends AbstractNCWNodeMigration {
     if (!empty($row->field_nace_codes)) {
       $row->field_sector_industry_covered = [];
       foreach ($row->field_nace_codes as $nace_code) {
-        $tid = osha_taxonomies_get_term_by_nace_code($nace_code->tid);
+        $code = $nace_code->field_nace_code[LANGUAGE_NONE]['value'];
+        $tid = osha_taxonomies_get_term_by_nace_code($code);
         if ($tid) {
           $row->field_sector_industry_covered[] = $tid;
         }

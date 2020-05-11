@@ -124,9 +124,11 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
 
     $row->field_thesaurus = osha_migration_normalize_migrated_term_reference($row->field_thesaurus, 'tax_thesaurus');
 
+    $nace_codes = $row->field_nace_codes;
     $row->field_nace_codes = [];
-    foreach ($row->field_nace_codes as $nace_code) {
-      $tid = osha_taxonomies_get_term_by_nace_code($nace_code->tid);
+    foreach ($nace_codes as $nace_code) {
+      $code = $nace_code->field_nace_code[LANGUAGE_NONE]['value'];
+      $tid = osha_taxonomies_get_term_by_nace_code($code);
       if ($tid) {
         $row->field_nace_codes[] = $tid;
       }
