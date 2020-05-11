@@ -277,3 +277,10 @@ function osha_newsletter_update_7014() {
 function osha_newsletter_update_7015() {
   features_revert_module('osha_newsletter');
 }
+
+/**
+ * HW20-733 Create a 'In the Spotlight' detail page for the section of the newsletter.
+ */
+function osha_newsletter_update_7016() {
+  features_revert_module('osha_newsletter');
+}
