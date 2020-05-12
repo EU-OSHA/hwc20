@@ -579,7 +579,7 @@ function hwc_frontend_preprocess_page(&$vars) {
         else {
           $tag_vars['element']['#value'] = t('Document');
         }
-        $vars['page']['above_title']['press-room-page-title'] = array(
+        $vars['page']['above_title']['title-document'] = array(
           '#type' => 'item',
           '#markup' => theme('html_tag', $tag_vars),
         );
