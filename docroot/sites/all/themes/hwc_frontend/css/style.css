@@ -15645,6 +15645,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 .view-id-partners_list .quicktabs-tabs {
   display: inline-block;
+  padding-left: 0;
 }
 .view-id-partners_list .quicktabs-tabs li {
   border: 1px dotted #749b00;
@@ -18712,10 +18713,10 @@ input#edit-field-image-und-0-upload::before {
 .page-national-focal-points #block-system-main .node-article .field-type-text-with-summary,
 .page-campaign-media-partners #block-system-main .node-article .field-type-text-with-summary,
 .page-campaign-partners-official-campaign-partners #block-system-main .node-article .field-type-text-with-summary {
-  padding-right: 15px;
-  padding-left: 15px;
-  width: 67%;
-  margin: 0 auto;
+  padding-right: 25px;
+  padding-left: 25px;
+  width: 100%;
+  margin: 0;
 }
 .page-enterprise-europe-network #block-system-main .node-article .field-type-text-with-summary p,
 .page-national-focal-points #block-system-main .node-article .field-type-text-with-summary p,
