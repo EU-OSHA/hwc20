@@ -14090,10 +14090,12 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   bottom: 1px;
   right: 0;
   pointer-events: none;
-  background: #003399 url("../images/content/arrow-down.png") no-repeat right center;
+  background: #003399 url("../images/content/arrow-down.png") no-repeat 2px 3px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .page-node-add-document .node-events-form .form-type-select select,
 .page-node-add-events .node-events-form .form-type-select select,
