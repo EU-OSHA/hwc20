@@ -24611,24 +24611,31 @@ body.front .homepage-slider blockquote.image-field-caption p {
   }
   /*end press room*/
   /*news*/
-  .page-news .main-container h1 {
+  .page-news .main-container h1,
+  .page-media-centre-press-room .main-container h1 {
     border-bottom: 1px dotted #749b00;
     padding-bottom: 0.7em;
   }
-  .page-news .view-news .views-row {
+  .page-news .view-news .views-row,
+  .page-media-centre-press-room .view-news .views-row {
     padding-left: 0px;
     padding-right: 0px;
   }
-  .page-news .view-news .views-row .field-name-field-image {
+  .page-news .view-news .views-row .field-name-field-image,
+  .page-media-centre-press-room .view-news .views-row .field-name-field-image {
     display: none;
   }
-  .page-news .view-news .views-row .more-link {
+  .page-news .view-news .views-row .more-link,
+  .page-media-centre-press-room .view-news .views-row .more-link {
     display: inline-block;
     padding-left: 0;
   }
   .page-news .view-news.view-display-id-oshnews_list.container .field-type-datetime,
+  .page-media-centre-press-room .view-news.view-display-id-oshnews_list.container .field-type-datetime,
   .page-news .view-news.view-display-id-oshnews_list.container .field-name-field-summary,
-  .page-news .view-news.view-display-id-oshnews_list.container .field-name-body {
+  .page-media-centre-press-room .view-news.view-display-id-oshnews_list.container .field-name-field-summary,
+  .page-news .view-news.view-display-id-oshnews_list.container .field-name-body,
+  .page-media-centre-press-room .view-news.view-display-id-oshnews_list.container .field-name-body {
     margin-left: 15px;
     margin-right: 15px;
   }
