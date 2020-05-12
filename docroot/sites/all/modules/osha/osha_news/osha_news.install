@@ -177,3 +177,10 @@ function osha_news_update_7025() {
   features_revert(array('osha_news' => array('views_view')));
   features_revert_module('osha_press_release');
 }
+
+/**
+ * HW20-512 Private zone - News item - copyright.
+ */
+function osha_news_update_7026() {
+  features_revert(array('osha_news' => array('field_base', 'field_instance', 'ds_layout_settings')));
+}

@@ -1744,11 +1744,22 @@ function hwc_workbench_access_node_element_alter(&$element, $form_state, $active
  * Implements hook_node_presave().
  */
 function hwc_node_presave($node) {
+  global $user, $language;
+
   // Set section to default one for the nodes that have section field hidden.
   $allow_section_field = _hwc_get_allowed_section_node_types();
   if (!in_array($node->type, $allow_section_field) && variable_get('workbench_access_node_type_' . $node->type, FALSE)) {
     if (empty($node->workbench_access)) {
       $node->workbench_access['section'] = 'section';
+    }
+  }
+
+  if ((in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) && ($node->type == 'news')) {
+    $p_account = hwc_partner_get_account_partner();
+    if ($p_account) {
+      $node->field_image[$language->language][0]['fid'] = $p_account->field_logo[LANGUAGE_NONE][0]['fid'];
+      $node->field_image[$language->language][0]['image_field_caption']['format'] = 'full_html';
+      $node->field_image[$language->language][0]['image_field_caption']['value'] = $node->field_pz_image_caption[LANGUAGE_NONE][0]['value'];
     }
   }
 }
