@@ -7735,6 +7735,14 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   float: left;
   margin-right: 1em;
 }
+body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text {
+  max-width: 320px !important;
+  padding-left: 1em;
+}
+body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text span {
+  display: block;
+  color: #ef0511;
+}
 .isMobile {
   float: right !important;
 }
