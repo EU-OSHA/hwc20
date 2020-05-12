@@ -15547,6 +15547,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   margin-right: 10px;
   display: inline-block;
   font-weight: 500;
+  border-radius: 5px;
 }
 .node-type-document .field-type-file,
 .node-type-publication .field-type-file {

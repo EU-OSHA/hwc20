@@ -7742,6 +7742,10 @@ body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text sp
   display: block;
   color: #ef0511;
 }
+button,
+.btn {
+  border-radius: 5px;
+}
 .isMobile {
   float: right !important;
 }
