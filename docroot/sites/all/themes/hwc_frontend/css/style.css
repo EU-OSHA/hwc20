@@ -24633,12 +24633,12 @@ body.front .homepage-slider blockquote.image-field-caption p {
     display: inline-block;
     padding-left: 0;
   }
-  .page-news .view-news.view-display-id-oshnews_list.container .field-type-datetime,
-  .page-media-centre-press-room .view-news.view-display-id-oshnews_list.container .field-type-datetime,
-  .page-news .view-news.view-display-id-oshnews_list.container .field-name-field-summary,
-  .page-media-centre-press-room .view-news.view-display-id-oshnews_list.container .field-name-field-summary,
-  .page-news .view-news.view-display-id-oshnews_list.container .field-name-body,
-  .page-media-centre-press-room .view-news.view-display-id-oshnews_list.container .field-name-body {
+  .page-news .view-news .views-row .field-type-datetime,
+  .page-media-centre-press-room .view-news .views-row .field-type-datetime,
+  .page-news .view-news .views-row .field.field-name-field-summary,
+  .page-media-centre-press-room .view-news .views-row .field.field-name-field-summary,
+  .page-news .view-news .views-row .field-name-body,
+  .page-media-centre-press-room .view-news .views-row .field-name-body {
     margin-left: 15px;
     margin-right: 15px;
   }
