@@ -229,6 +229,7 @@ function osha_nodequeue_query_nodequeue_api_autocomplete_alter(QueryAlterableInt
 
   if (!empty($show_on_map[$queue->name])) {
     $query->join('field_data_field_show_on', 's', 's.entity_id = n.nid');
+    $query->condition('n.status', 1);
     $query->condition('s.field_show_on_value', $show_on_map[$queue->name]);
   }
 }
