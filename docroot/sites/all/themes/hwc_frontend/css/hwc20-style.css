@@ -7750,7 +7750,7 @@ button,
   margin-bottom: 1em;
 }
 .page-node-add-document .back-to-publications a {
-  font-weight: 600;
+  font-weight: bold;
   padding-left: 0px;
 }
 .page-node-add-document .back-to-publications img {
