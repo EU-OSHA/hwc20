@@ -450,3 +450,11 @@ function osha_update_7038() {
  */
 function osha_update_7039() {
 }
+
+/**
+ * HW20-690 Campaign materials: Tools & publications should be in green.
+ */
+function osha_update_7040() {
+  variable_set('campaign_materials_exclude', [11667, 1120]);
+  variable_set('campaign_materials_include', [1372, 2495]);
+}
