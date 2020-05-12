@@ -67,9 +67,10 @@ class NCWMSDMigration extends AbstractNCWNodeMigration {
     parent::prepare($entity, $row);
     $this->new_providers = [];
 
-    if (!empty($row->field_nace_codes)) {
+    $sector_industry_covered = $row->field_sector_industry_covered;
+    if (!empty($sector_industry_covered)) {
       $row->field_sector_industry_covered = [];
-      foreach ($row->field_nace_codes as $nace_code) {
+      foreach ($sector_industry_covered as $nace_code) {
         $code = $nace_code['field_nace_code'][LANGUAGE_NONE][0]['value'];
         $tid = osha_taxonomies_get_term_by_nace_code($code);
         if ($tid) {
