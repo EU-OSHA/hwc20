@@ -833,7 +833,7 @@ function hwc_workflow_form_document_node_form_alter(&$form, &$form_state) {
     drupal_set_title(t('Upload Information'));
     $link_href = 'good-practice-exchange-platform';
     $link_title = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to the Good practice exchange platform') . '</span>';
-    $form['#prefix'] = '<div class="back-to-publications">' . l($link_title, $link_href, ['html' => TRUE]) . '</div>';
+    $form['#prefix'] = '<div class="back-to-publications container">' . l($link_title, $link_href, ['html' => TRUE]) . '</div>';
   }
   else {
     drupal_set_title(t('Upload Information') . $form['#node']->title);
