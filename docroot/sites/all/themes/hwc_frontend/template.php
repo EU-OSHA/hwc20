@@ -573,8 +573,16 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'document':
-//        $link_href = 'good-practice-exchange-platform';
-//        $link_title = t('Back to the Good practice exchange platform');
+        if (arg(2) == 'edit') {
+          $tag_vars['element']['#value'] = t('Upload information');
+        }
+        else {
+          $tag_vars['element']['#value'] = t('Document');
+        }
+        $vars['page']['above_title']['press-room-page-title'] = array(
+          '#type' => 'item',
+          '#markup' => theme('html_tag', $tag_vars),
+        );
         break;
 
       case 'publication':
