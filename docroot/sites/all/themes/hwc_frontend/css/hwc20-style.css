@@ -3173,7 +3173,6 @@ div.workbench-info-block {
 .page-official-campaign-partners article {
   margin-left: 0;
   margin-right: 0;
-  padding: 2em;
 }
 .view-id-partners_list {
   float: left;
@@ -7712,6 +7711,37 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
 #block-views-news-splash > div > div.view-content > div:nth-child(2) {
   padding-top: 1.5em;
 }
+.node-type-spotlight .back-links {
+  margin-bottom: 1em;
+}
+.node-type-spotlight .field-name-field-image img {
+  float: left;
+  margin-right: 1em;
+}
+.node-type-spotlight .field.field-name-field-publication-date {
+  padding-top: 0;
+  margin-bottom: 0em;
+  margin-top: 0;
+}
+.node-type-spotlight .field.field-name-field-summary {
+  margin-bottom: 1em;
+  margin-top: 0.5em;
+}
+.node-type-youtube .back-links {
+  margin-bottom: 1em;
+}
+.node-type-youtube .field-name-field-youtube {
+  float: left;
+  margin-right: 1em;
+}
+body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text {
+  max-width: 320px !important;
+  padding-left: 1em;
+}
+body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text span {
+  display: block;
+  color: #ef0511;
+}
 .isMobile {
   float: right !important;
 }
@@ -9082,6 +9112,24 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   }
   #block-hwc-page-share-widget-bottom .hwc-share-widget {
     padding-right: 1em;
+  }
+  .node-type-spotlight .field-name-field-image img {
+    float: none;
+    margin-right: 0;
+    margin-bottom: 1em;
+  }
+  .node-type-spotlight .field.field-name-field-summary {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .node-type-youtube .field-name-field-youtube {
+    float: none;
+    margin-right: 0;
+    margin-bottom: 1em;
+  }
+  .node-type-youtube .field.field-name-field-summary {
+    margin-right: 0;
+    margin-left: 0;
   }
 }
 @media (max-width: 767px) {
