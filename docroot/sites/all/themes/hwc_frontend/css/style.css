@@ -10643,19 +10643,22 @@ html:lang(no) .pane-node-field-provider .field-items,
   margin-right: 1em;
   margin-bottom: 1em;
 }
-.node-news h1 {
+.node-news h1,
+.node-press-release h1 {
   font-style: normal;
   font-weight: normal;
   color: #575757;
   font-size: 2.5em;
 }
-.node-news .field-name-field-image img {
+.node-news .field-name-field-image img,
+.node-press-release .field-name-field-image img {
   float: left;
   margin-top: 1.2em;
   margin-right: 1em;
   margin-bottom: 2px;
 }
-.node-news .group-left {
+.node-news .group-left,
+.node-press-release .group-left {
   padding-left: 0;
   padding-right: 30px;
 }
