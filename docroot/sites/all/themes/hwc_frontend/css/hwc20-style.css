@@ -7742,9 +7742,23 @@ body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text sp
   display: block;
   color: #ef0511;
 }
-button,
-.btn {
+body button,
+body .btn {
   border-radius: 5px;
+}
+body .form-control {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.page-node-add-document .back-to-publications {
+  margin-bottom: 1em;
+}
+.page-node-add-document .back-to-publications a {
+  font-weight: bold;
+  padding-left: 0px;
+}
+.page-node-add-document .back-to-publications img {
+  margin-right: 5px;
 }
 .isMobile {
   float: right !important;
