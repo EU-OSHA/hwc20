@@ -684,6 +684,7 @@ function osha_news_views_default_views() {
     'more_text' => 'Read more',
     'trim_options' => array(
       'text' => 0,
+      'use_field_summary' => 0,
     ),
     'trim_preserve_tags' => '',
     'field_formatter_class' => '',
@@ -705,8 +706,8 @@ function osha_news_views_default_views() {
     'more_text' => 'Read more',
     'summary_handler' => 'full',
     'trim_options' => array(
+      'text' => 'text',
       'use_field_summary' => 'use_field_summary',
-      'text' => 0,
     ),
     'trim_preserve_tags' => '',
     'field_formatter_class' => '',
@@ -717,7 +718,7 @@ function osha_news_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="pull-left">[field_image] </div>
-<div class="media-body">[field_publication_date] [title_field] [field_summary]</div>
+<div class="media-body">[field_publication_date] [title_field] [body]</div>
 ';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
@@ -926,8 +927,8 @@ function osha_news_views_default_views() {
     'more_text' => 'Read more',
     'summary_handler' => 'full',
     'trim_options' => array(
+      'text' => 'text',
       'use_field_summary' => 'use_field_summary',
-      'text' => 0,
     ),
     'trim_preserve_tags' => '',
     'field_formatter_class' => '',
@@ -938,7 +939,7 @@ function osha_news_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="pull-left">[field_image] </div>
-<div class="media-body">[field_publication_date] [title_field] [field_summary]</div>
+<div class="media-body">[field_publication_date] [title_field] [body]</div>
 ';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
@@ -1143,8 +1144,8 @@ function osha_news_views_default_views() {
     'more_text' => 'Read more',
     'summary_handler' => 'full',
     'trim_options' => array(
+      'text' => 'text',
       'use_field_summary' => 'use_field_summary',
-      'text' => 0,
     ),
     'trim_preserve_tags' => '',
     'field_formatter_class' => '',
@@ -1155,7 +1156,7 @@ function osha_news_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="pull-left">[field_image] </div>
-<div class="media-body">[field_publication_date] [title_field] [field_summary]</div>
+<div class="media-body">[field_publication_date] [title_field] [body]</div>
 ';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
@@ -1374,9 +1375,6 @@ function osha_news_views_default_views() {
 <div class="media-body">[field_publication_date] [title_field] [body]</div>
 '),
     t('Press room'),
-    t('<div class="pull-left">[field_image] </div>
-<div class="media-body">[field_publication_date] [title_field] [field_summary]</div>
-'),
     t('Press room news'),
     t('European Week'),
     t('European Week news'),
