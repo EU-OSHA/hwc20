@@ -14238,6 +14238,8 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-node-edit .node-document-form .field-type-datetime #edit-field-start-date-und-0-value .form-item-field-start-date-und-0-value-date .date-clear {
   background: url('../images/content/input-calendar.png') no-repeat right top;
   background-size: 28px 28px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .page-node-add-document .node-events-form .field-type-datetime #edit-field-start-date-und-0-value .form-item-field-start-date-und-0-value-time,
 .page-node-add-events .node-events-form .field-type-datetime #edit-field-start-date-und-0-value .form-item-field-start-date-und-0-value-time,
@@ -14283,6 +14285,8 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-node-edit .node-document-form .field-type-datetime #edit-field-start-date-und-0-value2 .form-item-field-start-date-und-0-value2-date .date-clear {
   background: url('../images/content/input-calendar.png') no-repeat right top;
   background-size: 28px 28px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .page-node-add-document .node-events-form .field-type-datetime #edit-field-start-date-und-0-value2 .form-item-field-start-date-und-0-value2-time,
 .page-node-add-events .node-events-form .field-type-datetime #edit-field-start-date-und-0-value2 .form-item-field-start-date-und-0-value2-time,
