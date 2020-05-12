@@ -330,10 +330,6 @@ body > div.main-container > div > aside > div > div:nth-child(2){
     padding-bottom: 2em;
 }
 
-.page-media-centre-news .main-container #block-system-main .view .views-row .field-name-field-summary{
-    font-weight: bold;
-}
-
 /* Drupal7 Admin menu links */
 .contextual-links{
     padding-top: 3px!important;
