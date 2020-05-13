@@ -357,7 +357,7 @@ function osha_press_release_strongarm() {
       'display' => array(
         'share_widget' => array(
           'default' => array(
-            'weight' => '0',
+            'weight' => '1',
             'visible' => TRUE,
           ),
           'teaser' => array(
@@ -367,7 +367,7 @@ function osha_press_release_strongarm() {
         ),
         'bottom_share_widget' => array(
           'default' => array(
-            'weight' => '18',
+            'weight' => '19',
             'visible' => FALSE,
           ),
           'teaser' => array(

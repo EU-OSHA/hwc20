@@ -458,3 +458,10 @@ function osha_update_7040() {
   variable_set('campaign_materials_exclude', [11667, 1120]);
   variable_set('campaign_materials_include', [1372, 2495]);
 }
+
+/**
+ * HW20-462 Press Room - Improve the page.
+ */
+function osha_update_7041() {
+  features_revert_module('osha_press_release');
+}
