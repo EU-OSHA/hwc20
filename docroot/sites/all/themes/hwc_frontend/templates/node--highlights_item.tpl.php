@@ -98,7 +98,7 @@ if (!empty($campaign_id)) {
                   </tbody>
                 </table>
               </th>
-              <th valign="top" style="color: #003399; padding-bottom: 10px; padding-left: 0px; padding-right: 0px;font-family: Arial, sans-serif;" class="template-column">
+              <th valign="top" style="color: #003399; padding-bottom: 7px; padding-left: 0px; padding-right: 0px;font-family: Arial, sans-serif;" class="template-column">
                 <?php
                 if (isset($node->field_publication_date[LANGUAGE_NONE][0]['value'])) {
                   $date = strtotime($node->field_publication_date[LANGUAGE_NONE][0]['value']);
@@ -162,7 +162,7 @@ if (!empty($campaign_id)) {
                   </tr>
                   <?php if(empty($node->old_newsletter)) { ?>
                     <tr>
-                      <td style="font-family: Arial, sans-serif; padding-top: 10px;">
+                      <td style="font-family: Arial, sans-serif; padding-top: 10px;padding-bottom: 10px;">
                         <?php
                           $more_link_class = 'see-more';
                           if ($node->type == 'publication') {
