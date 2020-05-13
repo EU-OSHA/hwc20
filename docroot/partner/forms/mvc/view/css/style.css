@@ -113,6 +113,10 @@ input[type=next], button {
     font-size        : 1vw;
 }
 
+button{
+    border-radius: 5px;  
+}
+
 .save_image {
     float : right;
 }

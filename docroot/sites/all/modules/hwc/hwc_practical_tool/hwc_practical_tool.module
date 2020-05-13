@@ -104,15 +104,17 @@ function hwc_practical_tool_search_api_solr_query_alter(array &$call_args, Searc
       }
       $call_args['params']['sort'] .= $sort_order;
     }
-
     foreach($call_args['params']['fq'] as &$fq) {
       if (strpos($fq, 'field_available_in_languages')) {
+        $key = variable_get('available_in_languages_solr_key', 'sm_field_available_in_languages\:value:');
+        $join = variable_get('available_in_languages_solr_join', ' OR ');
+        $prefix = variable_get('available_in_languages_solr_prefix', '{!tag=facet:field_available_in_languages:value}');
         $default = _hwc_store_practical_tool();
         if ($default) {
-          foreach($default as &$value) {
-            $value = '(sm_field_available_in_languages\:value:"' . $value . '")';
+          foreach ($default as &$value) {
+            $value = '('.$key.'"' . $value . '")';
           }
-          $fq = '(' . implode(' OR ', $default) . ')';
+          $fq = $prefix . '(' . implode($join, $default) . ')';
         }
       }
     }
@@ -595,7 +597,7 @@ function hwc_practical_tools_get_exclude_fields($original_language) {
 
 function hwc_practical_tools_get_provider_name($original_language, $entity) {
   global $language;
-  if ($language->language == $original_language) {
+  if (($language->language == $original_language) && !empty($entity->field_msd_provider_name_o['und'][0]['value'])) {
     return $entity->field_msd_provider_name_o['und'][0]['value'];
   }
   return $entity->field_msd_provider_name['und'][0]['value'];

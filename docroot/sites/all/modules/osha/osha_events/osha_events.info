@@ -25,6 +25,7 @@ dependencies[] = media
 dependencies[] = multiple_selects
 dependencies[] = number
 dependencies[] = options
+dependencies[] = osha
 dependencies[] = osha_events
 dependencies[] = osha_taxonomies
 dependencies[] = path_breadcrumbs

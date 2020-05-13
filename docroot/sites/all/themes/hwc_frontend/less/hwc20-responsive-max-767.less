@@ -81,8 +81,11 @@
 		margin-bottom: 1em;
 		margin-top: 1em;
 		.box-before.news{
-			width: 42%;
+			width: 100%;
     		margin-right: 1%;
+    		img{
+    			width: auto;
+    		}
 		}
 		.box-before.events{
 			width: 56%;
@@ -211,6 +214,32 @@
     		padding-right: 1em;
     	}
     }
+
+    .node-type-spotlight{
+    	.field-name-field-image{
+			img{
+				float: none;
+	    		margin-right: 0;
+	    		margin-bottom: 1em;
+			}
+		}
+		.field.field-name-field-summary{
+			margin-right: 0;
+    		margin-left: 0;
+		}
+	}
+
+	.node-type-youtube{
+		.field-name-field-youtube{
+			float: none;
+	    	margin-right: 0;
+	    	margin-bottom: 1em;
+		}
+		.field.field-name-field-summary{
+			margin-right: 0;
+    		margin-left: 0;
+		}
+	}
 
 }
 
@@ -364,8 +393,11 @@
 		flex-direction: row;
 		margin-bottom: 1em;
 		.box-before.news{
-			width: 42%;
+			width: 100%;
     		margin-right: 1%;
+    		img{
+    			width: auto;
+    		}
 		}
 		.box-before.events{
 			width: 56%;
@@ -482,6 +514,11 @@
 	}
 
 	.page-media-centre-news .main-container #block-system-main .view .views-row .more-link{
+		bottom: -15px;
+    	right: 0;
+	}
+
+	.page-media-centre-press-room .main-container #block-system-main .view .views-row .more-link{
 		bottom: -15px;
     	right: 0;
 	}
@@ -1023,7 +1060,7 @@
 		float: none;
 		clear: both;
 		margin-top: 20px;
-		width: 100%;
+		width: 150px;
 	}
 
 	.page-events .region-content #block-system-main .views-row > div{
@@ -1035,8 +1072,13 @@
 		min-height: auto;
 	}
 
+	span.add-to-my-calendar {
+    	margin-left: 0;
+    	float: right
+	}
+
 	.add-to-calendar{
-		margin-left: 108px;
+		margin-left: 0;
 		margin-top: -21px;
 	}
 

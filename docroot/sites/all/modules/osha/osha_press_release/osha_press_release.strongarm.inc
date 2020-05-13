@@ -221,6 +221,15 @@ function osha_press_release_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'priority_areas' => array(
+        'custom_settings' => TRUE,
+      ),
+      'hwc_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'highlights_item_alternative' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -241,9 +250,6 @@ function osha_press_release_strongarm() {
         ),
         'workbench_access' => array(
           'weight' => '0',
-        ),
-        'xmlsitemap' => array(
-          'weight' => '30',
         ),
       ),
       'display' => array(),
@@ -320,6 +326,15 @@ function osha_press_release_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'priority_areas' => array(
+        'custom_settings' => TRUE,
+      ),
+      'hwc_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'highlights_item_alternative' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -338,15 +353,26 @@ function osha_press_release_strongarm() {
         'workbench_access' => array(
           'weight' => '0',
         ),
-        'xmlsitemap' => array(
-          'weight' => '30',
-        ),
       ),
       'display' => array(
         'share_widget' => array(
           'default' => array(
-            'weight' => '2',
+            'weight' => '1',
             'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '14',
+            'visible' => FALSE,
+          ),
+        ),
+        'bottom_share_widget' => array(
+          'default' => array(
+            'weight' => '19',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
+            'weight' => '13',
+            'visible' => FALSE,
           ),
         ),
       ),

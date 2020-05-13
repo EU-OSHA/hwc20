@@ -257,7 +257,6 @@ function osha_newsletter_update_7012() {
   }
 }
 
-//todo enabled in release_2
 /**
  * HW20-213HWC20 Development of the complete HWC20 Newsletter.
  */
@@ -265,10 +264,37 @@ function osha_newsletter_update_7013() {
 //  features_revert_module('osha_newsletter');
 }
 
-
 /**
  * HW20-213HWC20 Development of the complete HWC20 Newsletter.
  */
 function osha_newsletter_update_7014() {
   features_revert_module('osha_newsletter');
+}
+
+/**
+ * HW20-459 Development of the Newsletter.
+ */
+function osha_newsletter_update_7015() {
+  features_revert_module('osha_newsletter');
+}
+
+/**
+ * HW20-733 Create a 'In the Spotlight' detail page for the section of the newsletter.
+ */
+function osha_newsletter_update_7016() {
+  features_revert_module('osha_newsletter');
+}
+
+/**
+ * HW20-733 Create a 'In the Spotlight' detail page for the section of the newsletter.
+ */
+function osha_newsletter_update_7017() {
+  variable_set('pathauto_node_spotlight_pattern', '');
+  variable_set('pathauto_node_youtube_pattern', '');
+  $term_mapping = variable_get('osha_newsletter_term_ct_map');
+  $term_mapping['spotlight'] = '4f57cadd-a3dd-406d-981a-dfea0853c54e';
+  $term_mapping['view_mode_spotlight'] = 'highlights_item';
+  $term_mapping['youtube'] = '518c7d80-ac2c-4cb2-b2a6-8ca7fdddbb6f';
+  $term_mapping['view_mode_youtube'] = 'highlights_item';
+  variable_set('osha_newsletter_term_ct_map', $term_mapping);
 }

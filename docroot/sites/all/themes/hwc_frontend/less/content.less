@@ -2842,7 +2842,7 @@ ul.tabs--primary.nav.nav-tabs{
 		}
 	}
 }
-.node-news{
+.node-news, .node-press-release{
 	h1{
 		font-style: normal;
 		font-weight: normal;
@@ -6007,10 +6007,12 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 				bottom: 1px;
 				right: 0;
 				pointer-events: none;
-				background: @bg-color-2 url("../images/content/arrow-down.png") no-repeat right center;
+				background: @bg-color-2 url("../images/content/arrow-down.png") no-repeat 2px 3px;
 				-moz-box-sizing: border-box;
 				-webkit-box-sizing: border-box;
 				box-sizing: border-box;
+				border-top-right-radius: 5px;
+    			border-bottom-right-radius: 5px;
 			}
 			select {
 				font-style: normal;
@@ -6061,6 +6063,8 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 					.date-clear{
 						background: url('../images/content/input-calendar.png') no-repeat right top;
 						background-size: 28px 28px;
+						border-top-right-radius: 5px;
+    					border-bottom-right-radius: 5px;
 					}
 				}
 				.form-item-field-start-date-und-0-value-time{
@@ -6075,6 +6079,8 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 					.date-clear{
 						background: url('../images/content/input-calendar.png') no-repeat right top;
 						background-size: 28px 28px;
+						border-top-right-radius: 5px;
+    					border-bottom-right-radius: 5px;
 					}
 				}
 				.form-item-field-start-date-und-0-value2-time{
@@ -6875,6 +6881,7 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 			margin-right: 10px;
 			display: inline-block;
 			font-weight: 500;
+			border-radius: 5px;
 		}
 	}
 	.field-type-file{
@@ -6974,6 +6981,7 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 	font-style: normal;
 	.quicktabs-tabs{
 		display: inline-block;
+		padding-left: 0;
 		li{
 			border: 1px dotted @color3;
 			float: left;
@@ -8111,7 +8119,7 @@ fieldset.captcha {
 	margin-left:  -@margin2;
 }
 
-.alert.alert-block.alert-danger, .alert.alert-block.alert-success{
+.alert.alert-block.alert-danger, .alert.alert-block.alert-success, .alert-warning.messages.warning{
 	clear: both;
 	margin-left: @margin1;
 	margin-right: @margin1;
@@ -8411,7 +8419,7 @@ input#edit-field-image-und-0-upload::before {
 						    width: 100%;
 						    height: 564px;
 						    background-color: black;
-						    //background-color: inherit !important;
+						    overflow: hidden;
 						}
 
 						.hwc-share-widget{
@@ -9585,10 +9593,10 @@ input#edit-field-image-und-0-upload::before {
 				left: 0px;
 			}
 			.field-type-text-with-summary{
-				padding-right: 15px;
-				padding-left: 15px;
-				width: 67%;
-				margin: 0 auto;
+				padding-right: 25px;
+				padding-left: 25px;
+				width: 100%;
+				margin: 0;
 				p{
 					text-align: left;
     				font-size: 1.2em;
@@ -11340,7 +11348,7 @@ blockquote.image-field-caption {
 	    width: 100%;
 	    margin: 0;
 	    padding: 0;
-	    font-size: 10px;
+	    font-size: 11.2px;
 	    color: #000;
 	    float: left;
     }

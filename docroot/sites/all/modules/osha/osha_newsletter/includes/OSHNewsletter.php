@@ -11,7 +11,7 @@ class OSHNewsletter {
       'newsletter_half_width_list' => 'Summary (half width)',
       'newsletter_half_image_left' => 'HWC (full width)',
       'newsletter_full_width_2_col_blocks' => 'Events (2 columns)',
-      'newsletter_half_width_twitter' => 'Tweets (half width)',
+      'newsletter_half_width_twitter' => 'Tweets (2 columns)',
     ];
   }
 
@@ -237,18 +237,38 @@ class OSHNewsletter {
     }
     if (!empty($variables['section']->name)) {
       $icon = self::getConfiguration($entityCollection, 'field_icon', $variables['section']);
+      $class = 'section-title';
+      $image = '';
+      if ($variables['section']->name == 'Audiovisual') {
+        $class .= ' spotlight';
+        $image = 'spotlight';
+      }
+      if ($variables['section']->name == 'Events') {
+        $class .= ' events';
+        $image = 'newsletter-events';
+      }
+      if ($variables['section']->name == 'Tweets') {
+        $class .= ' twitter';
+        $image = 'newsletter-twitter';
+      }
       if (!empty($icon)) {
 
         $cellContent = sprintf("<img src=\"%s\">", $icon);
         $content['#header'][0]['data'][] = ['data' => $cellContent, 'class' => ['section-icon']];
 
         $cellContent = sprintf("<span>%s</span>", $variables['section']->name);
-        $content['#header'][1]['data'][] = ['data' => $cellContent, 'class' => ['section-title']];
+        $content['#header'][1]['data'][] = ['data' => $cellContent, 'class' => [$class]];
 
       }
       else {
         $cellContent = sprintf("<span>%s</span>", $variables['section']->name);
-        $content['#header'][0]['data'][] = ['data' => $cellContent, 'class' => ['section-title']];
+        if ($image) {
+          $cellContent = theme('image', array(
+            'path' => drupal_get_path('module', 'osha_newsletter') . '/images/' . $image . '.png',
+            'attributes' => array('style' => 'border:0px;'),
+          )) . $cellContent;
+        }
+        $content['#header'][0]['data'][] = ['data' => $cellContent, 'class' => [$class]];
       }
       $cssClass = drupal_clean_css_identifier('section-' . strtolower($variables['section']->name));
       $content['#attributes']['class'][] = $cssClass;
@@ -292,13 +312,12 @@ class OSHNewsletter {
     }
     if ($variables['section']->name == 'Events') {
       $url = url('events', ['absolute' => TRUE, 'query' => $url_query]);
-      $content['#suffix'] .= '<table><tr><td align="center">
-        <div class="more-link-newsletter" style="background-color: #003399;display: table;margin: 0px auto;">
+      $content['#suffix'] .= '<table><tr><td align="center" style="padding-top:10px;">
+        <div class="more-link-newsletter" style="display: table;margin: 0px auto;">
         <table style="border: 0; margin: 0;">
-        <tr>
-          <td style="background-color: #003399; border: 0; color: #ffffff; padding: 0.5em 0 0.5em 0.5em;">&gt; </td>
-          <td style="background-color: #003399; border: 0; color: #ffffff; padding: 0.5em;"><a href="' . $url . '" style="
-          color: #ffffff; text-decoration: none;">' . t('View All') . '</a></td>
+         <tr>
+          <td><a href="' . $url . '" style="background-color: #FFF; border: 1px solid #acc700;border-radius: 5px; color: #ffffff; padding: 0.5em 1em;
+          color: #003399; text-decoration: none;text-transform: uppercase">' . t('View All') . '</a></td>
         </tr>
         </table>
         </div></td></tr></table>';
@@ -306,12 +325,11 @@ class OSHNewsletter {
     if ($variables['section']->name == 'Tweets') {
       $url = url('media-centre/social-media-centre', ['absolute' => TRUE, 'query' => $url_query]);
       $content['#suffix'] .= '<table><tr><td align="center">
-        <div class="more-link-newsletter" style="background-color: #003399;display: table;margin: 0px auto;">
+        <div class="more-link-newsletter" style="display: table;margin: 0px auto;">
         <table style="border: 0; margin: 0;">
         <tr>
-          <td style="background-color: #003399; border: 0; color: #ffffff; padding: 0.5em 0 0.5em 0.5em;">&gt; </td>
-          <td style="background-color: #003399; border: 0; color: #ffffff; padding: 0.5em;"><a href="' . $url . '" style="
-          color: #ffffff; text-decoration: none;">' . t('More Social media') . '</a></td>
+          <td><a href="' . $url . '" style="background-color: #FFF; border: 1px solid #acc700;border-radius: 5px; color: #ffffff; padding: 0.5em 1em;
+          color: #003399; text-decoration: none;text-transform: uppercase">' . t('More Social media') . '</a></td>
         </tr>
         </table>
         </div></td></tr></table>';
@@ -343,20 +361,36 @@ class OSHNewsletter {
             'style' => 'padding-top: 0; padding-bottom: 20px;font-size: 0px; line-height: 0px; mso-line-height-rule: exactly;',
           ];
         }
+        $last = FALSE;
+        $before_spotlight = FALSE;
+        $spotlight_found = FALSE;
+        foreach ($variables['nodes'] as $node) {
+          if ($node['node']->type == 'spotlight') {
+            $spotlight_found = TRUE;
+          }
+          if (!$spotlight_found) {
+            $before_spotlight = $node['node']->nid;
+          }
+          $last = $node['node']->nid;
+        }
         foreach ($variables['nodes'] as $node) {
           $cellContent = self::getCellContent($template, $node);
+          $class = ['newsletter-row', drupal_clean_css_identifier("{$template}-row")];
+          if (($node['node']->nid === $last) || ($before_spotlight === $node['node']->nid)) {
+            $class[] = 'last';
+          }
           $content['#rows'][] = [
             'data' => [$cellContent],
-            'class' => ['newsletter-row', drupal_clean_css_identifier("{$template}-row")],
+            'class' => $class,
             'no_striping' => TRUE,
           ];
         }
         if ($template !== 'newsletter_full_width_details') {
-          $content['#rows'][]['data'][] = [
-            'data' => '&nbsp;',
-            'colspan' => 1,
-            'style' => 'padding-top: 0; padding-bottom: 20px;font-size: 0px; line-height: 0px; mso-line-height-rule: exactly;',
-          ];
+//          $content['#rows'][]['data'][] = [
+//            'data' => '&nbsp;',
+//            'colspan' => 1,
+//            'style' => 'padding-top: 0; padding-bottom: 20px;font-size: 0px; line-height: 0px; mso-line-height-rule: exactly;',
+//          ];
         }
         break;
 
@@ -416,8 +450,8 @@ class OSHNewsletter {
         foreach ($variables['nodes'] as $node) {
           $cellContent = self::getCellContent($template, $node);
           $cellWidth = 378;
-          $cellContent['width'] = $cellWidth; // half - 2px of margin.
-          // $cellContent['height'] = '100%';
+          // Half - 2px of margin.
+          $cellContent['width'] = $cellWidth;
           $cellContent['align'] = 'left';
           $cellContent['valign'] = 'top';
           $cellStyle = sprintf('max-width:%spx;background-color: #749b00;', $cellWidth);
@@ -435,29 +469,29 @@ class OSHNewsletter {
               'class' => ['newsletter-row', drupal_clean_css_identifier("{$template}-row")],
               'no_striping' => TRUE,
             ];
-            $content['#rows'][$currentRow]['data'][] = ['data' => '&nbsp;', 'style' => 'padding-bottom: 4px; min-width:4px; padding-top: 0; width: 4px; margin:0;font-size: 0px; line-height: 0px; mso-line-height-rule: exactly;', 'class' => ['template-column', 'template-separator']];
+            $content['#rows'][$currentRow]['data'][] = ['data' => '&nbsp;', 'style' => 'padding-bottom: 4px; min-width:20px; padding-top: 0; width: 20px; margin:0;font-size: 0px; line-height: 0px; mso-line-height-rule: exactly;', 'class' => ['template-column', 'template-separator']];
           }
           else {
             $content['#rows'][$currentRow++]['data'][] = $cellContent;
-            $content['#rows'][$currentRow++]['data'][] = ['data' => '&nbsp;', 'style' => 'padding: 0px; height:4px; font-size: 0px; line-height: 0px; mso-line-height-rule: exactly;', 'colspan' => '3', 'class' => ['template-column', 'template-separator'] ];
+            $content['#rows'][$currentRow++]['data'][] = ['data' => '&nbsp;', 'style' => 'padding: 0px; height:20px; font-size: 0px; line-height: 0px; mso-line-height-rule: exactly;', 'colspan' => '3', 'class' => ['template-column', 'template-separator'] ];
             $currentCol = 0;
           }
         }
-        $content['#rows'][++$currentRow]['no_striping'] = TRUE;
-        $content['#rows'][$currentRow]['data'][] = [
-          'data' => '&nbsp;',
-          'colspan' => '3',
-          'style' => 'padding-top: 0; padding-bottom: 20px;font-size: 0px; line-height: 0px; mso-line-height-rule: exactly;',
-        ];
+//        $content['#rows'][++$currentRow]['no_striping'] = TRUE;
+//        $content['#rows'][$currentRow]['data'][] = [
+//          'data' => '&nbsp;',
+//          'colspan' => '3',
+//          'style' => 'padding-top: 0; padding-bottom: 20px;font-size: 0px; line-height: 0px; mso-line-height-rule: exactly;',
+//        ];
         break;
 
       case 'newsletter_half_width_twitter':
-        $content['#header'][0]['data'][0]['colspan'] = '2';
+        $content['#header'][0]['data'][0]['colspan'] = '3';
 
         global $base_url;
         $image_path = "{$base_url}/sites/all/modules/osha/osha_newsletter/images/twitter-gray.png";
 
-        $content['#header'][0]['data'][0]['data'] .= '&nbsp;<img height="20" style="vertical-align:middle;height:20px!important;" src="' . $image_path . '"/>';
+        $content['#header'][0]['data'][0]['data'] .= '&nbsp;';
         $currentRow = $currentCol = 0;
 
         $content['#rows'][$currentRow]['no_striping'] = TRUE;
@@ -487,9 +521,11 @@ class OSHNewsletter {
               'class' => ['newsletter-row', drupal_clean_css_identifier("{$template}-row")],
               'no_striping' => TRUE,
             ];
+             $content['#rows'][$currentRow]['data'][] = ['data' => '&nbsp;', 'style' => 'padding-bottom: 4px; min-width:20px; padding-top: 0; width: 20px; margin:0;font-size: 0px; line-height: 0px; mso-line-height-rule: exactly;', 'class' => ['template-column', 'template-separator']];
           }
           else {
             $content['#rows'][$currentRow++]['data'][] = $cellContent;
+            $content['#rows'][$currentRow++]['data'][] = ['data' => '&nbsp;', 'style' => 'padding: 0px; height:20px; font-size: 0px; line-height: 0px; mso-line-height-rule: exactly;', 'colspan' => '3', 'class' => ['template-column', 'template-separator'] ];
             $currentCol = 0;
           }
         }
@@ -689,9 +725,9 @@ class OSHNewsletter {
       'newsletter_title' => $source->title,
       'newsletter_id' => $source->eid,
       'newsletter_date' =>
-        !empty($source->field_publication_date)
-          ? $source->field_publication_date[LANGUAGE_NONE][0]['value']
-          : $source->field_created[LANGUAGE_NONE][0]['value'],
+      !empty($source->field_publication_date)
+      ? $source->field_publication_date[LANGUAGE_NONE][0]['value']
+      : $source->field_created[LANGUAGE_NONE][0]['value'],
       'newsletter_intro' => $newsletter_intro,
       'campaign_id' => $campaign_id,
 
@@ -703,7 +739,7 @@ class OSHNewsletter {
 
     $newsletterClasses = [
       'newsletter-container',
-      empty($osha_newsletter_send_mail) ? 'web-version' : ''
+      empty($osha_newsletter_send_mail) ? 'web-version' : '',
     ];
     $fullNewsletter = [
       '#theme' => 'table',
@@ -725,7 +761,12 @@ class OSHNewsletter {
           'class' => 'footer-container',
         ],
       ],
-      '#attributes' => ['class' => $newsletterClasses, 'border' => '0', 'cellpadding' => '0', 'width' => '800'],
+      '#attributes' => [
+        'class' => $newsletterClasses,
+        'border' => '0',
+        'cellpadding' => '0',
+        'width' => '800',
+      ],
       '#printed' => FALSE,
       '#sticky' => FALSE,
       '#children' => [],
@@ -740,7 +781,6 @@ class OSHNewsletter {
     $stylesheet_path = drupal_get_path('module', 'osha_newsletter') . '/includes/css/newsletter.css';
     $fullNewsletter = self::cssToInlineStyles($fullNewsletter, $stylesheet_path);
     $fullNewsletter = self::appendFontInHead($fullNewsletter);
-
     return $fullNewsletter;
   }
 

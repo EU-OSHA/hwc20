@@ -186,7 +186,7 @@ article .hwc-share-widget ul{
 
 .hwc-share-widget ul .share-this-article{
     color: #333;
-    font-size: 1.3rem;
+    font-size: 0.95em;
     font-weight: normal;
 }
 
@@ -328,10 +328,6 @@ body > div.main-container > div > aside > div > div:nth-child(2){
 
 .page-node .node-news .field-name-body{
     padding-bottom: 2em;
-}
-
-.page-media-centre-news .main-container #block-system-main .view .views-row .field-name-field-summary{
-    font-weight: bold;
 }
 
 /* Drupal7 Admin menu links */

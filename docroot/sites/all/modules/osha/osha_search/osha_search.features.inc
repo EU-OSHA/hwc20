@@ -92,7 +92,6 @@ function osha_search_default_search_api_index() {
         "field_hazard_health_effects" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_hazards" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_health_effects" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_image_caption" : { "type" : "text" },
         "field_item_type" : { "type" : "string" },
         "field_location" : { "type" : "text" },
         "field_main_contact" : { "type" : "text" },
