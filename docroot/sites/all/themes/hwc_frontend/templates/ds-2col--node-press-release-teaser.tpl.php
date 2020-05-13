@@ -6,8 +6,8 @@
  */
 if (arg(2) == 'press-room-news') {
   $url = url('node/' . $nid);
-  $left = str_replace($url, $url . '?press-room-news', $left);
-  $right = str_replace($url, $url . '?press-room-news', $right);
+  $left = str_replace($url, $url . '?press-room', $left);
+  $right = str_replace($url, $url . '?press-room', $right);
 }
 $right = str_replace('field-name-body', 'field-name-field-summary field-type-text-long', $right);
 ?>
