@@ -104,7 +104,7 @@ if (!empty($campaign_id)) {
                   $date = strtotime($node->field_publication_date[LANGUAGE_NONE][0]['value']);
                 }
                 ?>
-                <div class="item-date" style="color: #59595a;font-family: Arial, sans-serif;font-size: 12px;line-height: 25px;font-weight: bold;"><?php print format_date($date, 'custom', 'd/m/Y');?></div>
+                <div class="item-date" style="color: #59595a;font-family: Arial, sans-serif;font-size: 12px;line-height: 12px;padding-bottom: 10px;font-weight: bold;"><?php print format_date($date, 'custom', 'd/m/Y');?></div>
                 <?php
                 if ($node->type == 'publication') {
                   print l($title, url('node/' . $node->nid . '/view', array('absolute' => TRUE)), array(
