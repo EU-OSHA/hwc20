@@ -386,11 +386,11 @@ class OSHNewsletter {
           ];
         }
         if ($template !== 'newsletter_full_width_details') {
-          $content['#rows'][]['data'][] = [
-            'data' => '&nbsp;',
-            'colspan' => 1,
-            'style' => 'padding-top: 0; padding-bottom: 20px;font-size: 0px; line-height: 0px; mso-line-height-rule: exactly;',
-          ];
+//          $content['#rows'][]['data'][] = [
+//            'data' => '&nbsp;',
+//            'colspan' => 1,
+//            'style' => 'padding-top: 0; padding-bottom: 20px;font-size: 0px; line-height: 0px; mso-line-height-rule: exactly;',
+//          ];
         }
         break;
 
