@@ -117,7 +117,8 @@
       "label": "Telephone number",
       "placeholder": "0000 0000",
       "section": "PRIMARY_CONTACT",
-      "type": "text"
+      "type": "text",
+      "validator": "not_null"
     },
     "contact_osh_prefixmaincontactphone": {
           "name": "contact_osh_prefixmaincontactphone",
@@ -125,7 +126,8 @@
           "helpText": "Select your prefix from the drop-down",
           "placeholder": "+00",
           "section": "PRIMARY_CONTACT",
-          "type": "dropdown"
+          "type": "dropdown",
+          "validator": "not_null"
     },
     "contact_osh_mainphone_clone": {
       "name": "contact_osh_mainphone_clone",

@@ -30,7 +30,7 @@
 
     <div class="separatorFieldSet">&nbsp;</div>
 
-    {if preg_match('/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/', $session_id)}
+    {if (preg_match('/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/', $session_id) && $HelpMessage != "print")}
     <div>
         {$attributes.contact_osh_maincontactchange}
     </div>
@@ -68,8 +68,14 @@
         <div class="float-right">
             <!--{$attributes.contact_osh_mainphone} -->
             {$attributes.contact_osh_positionmaincontactperson}
+            {if $mf || $partner_type == "current" || $locked || $NewFromURL}
+                <div class="disabledDiv">
+            {/if}
             {$attributes.contact_osh_mainemail}
-            {if !$mf && $partner_type != "current" && !$locked}
+            {if $mf || $partner_type == "current" || $locked || $NewFromURL}
+                </div>
+            {/if}
+            {if !$mf && $partner_type != "current" && !$locked && $HelpMessage != "print" && !$NewFromURL}
                 {$attributes.contact_osh_confirm_mainemail}
             {/if}
         </div>

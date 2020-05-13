@@ -20,7 +20,7 @@
     <div class="separatorFieldSet">&nbsp;</div>
     
      <!--  {if !mf && $partner_type == "current"}<div>{$attributes.contact_osh_maincontactchange}</div>{/if}-->
- {if (preg_match('/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/', $session_id))}
+ {if (preg_match('/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/', $session_id) && $HelpMessage != "print")}
     <div>
         {$attributes.contact_osh_maincontactchange}
     </div>
@@ -57,22 +57,26 @@
 
         </div>
         <div class="float-right" {if $HelpMessage != "print"}style="margin-top: 2%"{/if}>
+
+          
+
             {$attributes.contact_osh_prefixmaincontactphone}
             {$attributes.contact_osh_mainphone}
-            {if $mf || $partner_type == "current" || $locked}
+            {if $mf || $partner_type == "current" || $locked|| $NewFromURL}
                 <div class="disabledDiv">
             {/if}
             {$attributes.contact_osh_mainemail}
-            {if $mf || $partner_type == "current" || $locked}
+            {if $mf || $partner_type == "current" || $locked || $NewFromURL}
                 </div>
             {/if}
-            {if !$mf && $partner_type != "current" && !$locked}
+             
+            {if !$mf && $partner_type != "current" && !$locked && !$NewFromURL && $HelpMessage != "print"}
                 {$attributes.contact_osh_confirm_mainemail}
             {/if}
         </div>
     </div>
         <div class="float-left">
-            {if !$mf && $partner_type != "current" && !$locked && $HelpMessage != "print"}
+            {if !$mf && $partner_type != "current" && !$locked && $HelpMessage != "print" && !$NewFromURL}
             {$attributes.contact_osh_captcha}
             {/if}
         </div>

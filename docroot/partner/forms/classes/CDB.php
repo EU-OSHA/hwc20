@@ -6,7 +6,6 @@
  * @author  Eduardo Martos (eduardo.martos.gomez@everis.com)
  * @version 2.0
  */
-
 final class CDB
 {
     /** @var CDB Host */
@@ -47,7 +46,7 @@ final class CDB
     public static function getInstance($cdbMap, $sessionId = '', $loadFromCDB = false)
     {   
         
-file_put_contents("/tmp/curl.log", "1".PHP_EOL, FILE_APPEND | LOCK_EX);
+////file_put_contents("/tmp/curl.log", "1".PHP_EOL, FILE_APPEND | LOCK_EX);
         static $inst = null;
         if ($inst === null) {
             $class = __CLASS__;
@@ -75,7 +74,7 @@ file_put_contents("/tmp/curl.log", "1".PHP_EOL, FILE_APPEND | LOCK_EX);
     /** Initialize the instance */
     private function initialize()
     {
-file_put_contents("/tmp/curl.log", "2".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "2".PHP_EOL, FILE_APPEND | LOCK_EX);
         $params = Parameters::getInstance();
         $cdb    = $params->get('cdb');
         if ($cdb['debug'] == 'true') {
@@ -91,7 +90,7 @@ file_put_contents("/tmp/curl.log", "2".PHP_EOL, FILE_APPEND | LOCK_EX);
 
     private function initializeSession($sessionId)
     {
-file_put_contents("/tmp/curl.log", "3".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "3".PHP_EOL, FILE_APPEND | LOCK_EX);
         $this->sessionID = $sessionId;
         // Set the context
         $this->setContext();
@@ -112,7 +111,7 @@ file_put_contents("/tmp/curl.log", "3".PHP_EOL, FILE_APPEND | LOCK_EX);
      */
     public function get($key)
     {
-file_put_contents("/tmp/curl.log", "4".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "4".PHP_EOL, FILE_APPEND | LOCK_EX);
         $value = (! empty($key) && isset($this->fields[$key])) ? $this->fields[$key] : null;
 
         return $value;
@@ -127,7 +126,7 @@ file_put_contents("/tmp/curl.log", "4".PHP_EOL, FILE_APPEND | LOCK_EX);
      */
     public function getDropdown($key)
     {
-file_put_contents("/tmp/curl.log", "5".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "5".PHP_EOL, FILE_APPEND | LOCK_EX);
         $value = (! empty($key) && isset($this->dropdowns[$key])) ? $this->dropdowns[$key] : null;
 
         return $value;
@@ -143,7 +142,7 @@ file_put_contents("/tmp/curl.log", "5".PHP_EOL, FILE_APPEND | LOCK_EX);
     public function getImage($key)
     {
    
-file_put_contents("/tmp/curl.log", "6".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "6".PHP_EOL, FILE_APPEND | LOCK_EX);
         $ret  = false;
         $data = (! empty($key) && isset($this->fields[$key])) ? $this->fields[$key] : null;
         if ($data) {
@@ -171,7 +170,7 @@ file_put_contents("/tmp/curl.log", "6".PHP_EOL, FILE_APPEND | LOCK_EX);
      */
     public function set($key, $value)
     {
-file_put_contents("/tmp/curl.log", "7".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "7".PHP_EOL, FILE_APPEND | LOCK_EX);
         if (isset($this->fields[$key])) {
             $this->fields[$key] = $value;
         }
@@ -184,7 +183,7 @@ file_put_contents("/tmp/curl.log", "7".PHP_EOL, FILE_APPEND | LOCK_EX);
      */
     private function getSessionData()
     {
-file_put_contents("/tmp/curl.log", "8".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "8".PHP_EOL, FILE_APPEND | LOCK_EX);
 
         $readMethod   = $this->getMethod('read', 'read_mf');
         $url          = $this->buildUrl($readMethod);
@@ -196,7 +195,7 @@ file_put_contents("/tmp/curl.log", "8".PHP_EOL, FILE_APPEND | LOCK_EX);
 
 
 
-file_put_contents("/tmp/curl.log", "8.0 ".implode(",",$responseData).PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "8.0 ".implode(",",$responseData).PHP_EOL, FILE_APPEND | LOCK_EX);
         if(isset($responseData['returnContacts'])){
             $response2    = $responseData['returnContacts'];
         
@@ -205,14 +204,14 @@ file_put_contents("/tmp/curl.log", "8.0 ".implode(",",$responseData).PHP_EOL, FI
 		if (!is_array($response))
 		{
                 	$response = json_decode($response, true);
-file_put_contents("/tmp/curl.log", "8.0.0: ".$params->getUrlParamValue('maintenance_mode').PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "8.0.0: ".$params->getUrlParamValue('maintenance_mode').PHP_EOL, FILE_APPEND | LOCK_EX);
 			if ($params->getUrlParamValue('maintenance_mode'))
 			{
 				$arrayToMerge = array();
 				foreach($response as $keyPar=> $valuePar)
 				{
 					$arrayToMerge = array_merge($arrayToMerge, $valuePar);
-file_put_contents("/tmp/curl.log", "8.0.1: ".$keyPar.", ".$valuePar.PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "8.0.1: ".$keyPar.", ".$valuePar.PHP_EOL, FILE_APPEND | LOCK_EX);
 				}
 				$response = array();
 				$response[0] = $arrayToMerge;
@@ -235,10 +234,10 @@ file_put_contents("/tmp/curl.log", "8.0.1: ".$keyPar.", ".$valuePar.PHP_EOL, FIL
 
         // Filter the response to clean the prefixes
         foreach ($response as $key => $value) {
-//file_put_contents("/tmp/curl.log", "8.1: ".$key.", ".$value.PHP_EOL, FILE_APPEND | LOCK_EX);
+////file_put_contents("/tmp/curl.log", "8.1: ".$key.", ".$value.PHP_EOL, FILE_APPEND | LOCK_EX);
 //foreach($value as $keyPar=> $valuePar)
 //{
-//	file_put_contents("/tmp/curl.log", "8.1.1: ".$keyPar.", ".$valuePar.PHP_EOL, FILE_APPEND | LOCK_EX);
+//	//file_put_contents("/tmp/curl.log", "8.1.1: ".$keyPar.", ".$valuePar.PHP_EOL, FILE_APPEND | LOCK_EX);
 //}
             if (strpos($key, '.') !== false) {
                 $key = explode('.', $key)[1];
@@ -249,19 +248,19 @@ file_put_contents("/tmp/curl.log", "8.0.1: ".$keyPar.", ".$valuePar.PHP_EOL, FIL
                 }
             }
             $responseFixed[$key] = $value;
-file_put_contents("/tmp/curl.log", "8.2: ".$responseFixed[$key].PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "8.2: ".$responseFixed[$key].PHP_EOL, FILE_APPEND | LOCK_EX);
 foreach($responseFixed as $keyPar=> $valuePar)
 {
-	file_put_contents("/tmp/curl.log", "8.2.1: ".$keyPar.", ".$valuePar.PHP_EOL, FILE_APPEND | LOCK_EX);
+	//file_put_contents("/tmp/curl.log", "8.2.1: ".$keyPar.", ".$valuePar.PHP_EOL, FILE_APPEND | LOCK_EX);
 }
 foreach($responseFixed[$key] as $keyPar => $valuePar)
 {
-	file_put_contents("/tmp/curl.log", "8.2.2: ".$keyPar.", ".$valuePar.PHP_EOL, FILE_APPEND | LOCK_EX);
+	//file_put_contents("/tmp/curl.log", "8.2.2: ".$keyPar.", ".$valuePar.PHP_EOL, FILE_APPEND | LOCK_EX);
 	if(isset($responseFixed[$key]['Fields']))
 	{
 		foreach($responseFixed[$key]['Fields'] as $keyPar2=> $valuePar2)
 		{
-			file_put_contents("/tmp/curl.log", "8.2.2.1: ".$keyPar2.", ".$valuePar2.PHP_EOL, FILE_APPEND | LOCK_EX);
+			//file_put_contents("/tmp/curl.log", "8.2.2.1: ".$keyPar2.", ".$valuePar2.PHP_EOL, FILE_APPEND | LOCK_EX);
 		}
 	}
 }
@@ -286,7 +285,7 @@ foreach($responseFixed[$key] as $keyPar => $valuePar)
      */
     private function getSessionDataAppForm($response, $countries)
     {
-file_put_contents("/tmp/curl.log", "9".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "9".PHP_EOL, FILE_APPEND | LOCK_EX);
         $params      = Parameters::getInstance();
         $partnerType = $params->get('osh_category');
         $formType    = $params->get('osh_leads');
@@ -364,7 +363,7 @@ file_put_contents("/tmp/curl.log", "9".PHP_EOL, FILE_APPEND | LOCK_EX);
      */
     private function getSessionDataMF($response, $countries, $response2)
     {
-file_put_contents("/tmp/curl.log", "10".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "10".PHP_EOL, FILE_APPEND | LOCK_EX);
         //Workaround para resolver la response en caso de que un mismo user tenga varios roles. 
         //En este caso, envío información duplicada errónea, por lo que comprobamos que es esta casuística
         // (envío una response con 3 arrauys en vez de 2), y en ese caso nos quedamos con la que se debe.
@@ -379,15 +378,15 @@ file_put_contents("/tmp/curl.log", "10".PHP_EOL, FILE_APPEND | LOCK_EX);
         
         // Filter the response to clean the prefixes
         foreach ($response as $key => $value) {
-file_put_contents("/tmp/curl.log", "10.1".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "10.1".PHP_EOL, FILE_APPEND | LOCK_EX);
             if (strpos($key, '.') !== false) {
-file_put_contents("/tmp/curl.log", "10.2".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "10.2".PHP_EOL, FILE_APPEND | LOCK_EX);
                 $key = explode('.', $key)[1];
                 if($key == "osh_campaignpledge" && $value['Value'] != ""){
-file_put_contents("/tmp/curl.log", "10.3".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "10.3".PHP_EOL, FILE_APPEND | LOCK_EX);
                     $this->savePledgeData($value['Value']);
                 }else if($key == "osh_quoteonhwc" && $value['Value'] != ""){
-file_put_contents("/tmp/curl.log", "10.4".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "10.4".PHP_EOL, FILE_APPEND | LOCK_EX);
                     $this->saveQuoteData($value['Value']);
                 }
 //                
@@ -403,7 +402,7 @@ file_put_contents("/tmp/curl.log", "10.4".PHP_EOL, FILE_APPEND | LOCK_EX);
 		
         foreach($response2 as $key => $value){
             foreach($value['Fields'] as $key2 => $value2){
-file_put_contents("/tmp/curl.log", "10.4.1: ".$key2.", ".$value2.PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "10.4.1: ".$key2.", ".$value2.PHP_EOL, FILE_APPEND | LOCK_EX);
                 if(isset($value['Fields']['osh_campaigncontacttype']) && $value['Fields']['osh_campaigncontacttype'] == 2){
                     $keyValue = $this->setUserRepresentativeFields($value, $key2, $value2);
                 } else if(isset($value['Fields']['osh_campaigncontacttype']) && ($value['Fields']['osh_campaigncontacttype'] == 3 )){
@@ -423,9 +422,9 @@ file_put_contents("/tmp/curl.log", "10.4.1: ".$key2.", ".$value2.PHP_EOL, FILE_A
         $response                 = $responseFixed;
         $response['returnPaises'] = $countries;
         foreach ($this->cdbMap as $htmlName => $cdbName) {
-file_put_contents("/tmp/curl.log", "10.5".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "10.5".PHP_EOL, FILE_APPEND | LOCK_EX);
             if (isset ($response[$cdbName])) {
-file_put_contents("/tmp/curl.log", "10.6: ".$cdbName. ", ".$response[$cdbName].PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "10.6: ".$cdbName. ", ".$response[$cdbName].PHP_EOL, FILE_APPEND | LOCK_EX);
                 if  (is_array($response[$cdbName]) && isset($response[$cdbName]['Value'])&& isset($response[$cdbName]['Value']['Value'])) {
                     $this->fields[$htmlName] = $response[$cdbName]['Value']['Value'];
                 } else if (is_array($response[$cdbName]) && isset($response[$cdbName]['Value'])&& isset($response[$cdbName]['Value']['Name'])) {
@@ -440,7 +439,7 @@ file_put_contents("/tmp/curl.log", "10.6: ".$cdbName. ", ".$response[$cdbName].P
     }
     
     public function setOtherUsersField($key, $value, $key2, $value2){
-file_put_contents("/tmp/curl.log", "11".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "11".PHP_EOL, FILE_APPEND | LOCK_EX);
         $otherUserId = substr($key, -1)+1;
         if($key2 == "firstname"){
             $value2 = $value2 . " " . $value['Fields']['lastname'];
@@ -471,7 +470,7 @@ file_put_contents("/tmp/curl.log", "11".PHP_EOL, FILE_APPEND | LOCK_EX);
     }
     public function setCeoFields($value, $key2, $value2){
            
-file_put_contents("/tmp/curl.log", "12".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "12".PHP_EOL, FILE_APPEND | LOCK_EX);
         if($key2 == "firstname"){
             $key = "osh_ceofirstname";
             $value = $value2;
@@ -491,7 +490,7 @@ file_put_contents("/tmp/curl.log", "12".PHP_EOL, FILE_APPEND | LOCK_EX);
         }
     }
       public function setUserRepresentativeFields($value, $key2, $value2){
-file_put_contents("/tmp/curl.log", "13".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "13".PHP_EOL, FILE_APPEND | LOCK_EX);
         if($key2 == "firstname"){
             $key = "osh_representativefirstname";
             $value = $value2;
@@ -516,7 +515,7 @@ file_put_contents("/tmp/curl.log", "13".PHP_EOL, FILE_APPEND | LOCK_EX);
         
     }
     public function setUserCOMRepresentativeFields($value, $key2, $value2){
-file_put_contents("/tmp/curl.log", "14".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "14".PHP_EOL, FILE_APPEND | LOCK_EX);
         if($key2 == "firstname"){
             $key = "osh_mediaproshfirstname";
             $value = $value2;
@@ -541,14 +540,14 @@ file_put_contents("/tmp/curl.log", "14".PHP_EOL, FILE_APPEND | LOCK_EX);
     }
     function after ($a, $inthat)
     {
-file_put_contents("/tmp/curl.log", "15".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "15".PHP_EOL, FILE_APPEND | LOCK_EX);
         if (!is_bool(strpos($inthat, $a)))
         return substr($inthat, strpos($inthat,$a)+strlen($a));
     }
 
     function before ($a, $inthat)
     {
-file_put_contents("/tmp/curl.log", "16".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "16".PHP_EOL, FILE_APPEND | LOCK_EX);
         return substr($inthat, 0, strpos($inthat, $a));
     }
 
@@ -566,7 +565,7 @@ file_put_contents("/tmp/curl.log", "16".PHP_EOL, FILE_APPEND | LOCK_EX);
      */
     private function setContext()
     {
-file_put_contents("/tmp/curl.log", "17".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "17".PHP_EOL, FILE_APPEND | LOCK_EX);
         $params = Parameters::getInstance();
         if ($this->debug) {
             $params->setUrlParamValue('entity', $params->get('entity') ? $params->get('entity') : $params->get('defaultEntity'));
@@ -605,12 +604,16 @@ file_put_contents("/tmp/curl.log", "17".PHP_EOL, FILE_APPEND | LOCK_EX);
      */
     private function setContextForAppForm($response)
     {
-file_put_contents("/tmp/curl.log", "18".PHP_EOL, FILE_APPEND | LOCK_EX);
+
+//file_put_contents("/tmp/curl.log", "18".PHP_EOL, FILE_APPEND | LOCK_EX);
         $params      = Parameters::getInstance();
         $categoryKey = $params->getUrlParam('entity');
+        
+        $params->set('NewFromURL', true);
         if (! isset($response[$categoryKey]['Name']) || ! isset($params->get('cdb')['category'])) {
             throw new CDBException("no_partner_type", 500);
         } else {
+            
             $category    = $response[$categoryKey]['Name'];
             $categoryMap = $params->get('cdb')['category'];
             $locked      = $params->get('cdb')['locked'];
@@ -635,6 +638,7 @@ file_put_contents("/tmp/curl.log", "18".PHP_EOL, FILE_APPEND | LOCK_EX);
                         //$params->setUrlParamValue('maintenance_mode', 'mf');
                     } elseif ($categoryTranslated === 'pcp') {
                         $params->setUrlParamValue('partner_type', 'new');
+
                         $params->setUrlParamValue('locked', false);
                         $params->setUrlParamValue('potential', true);
                         $params->setUrlParamValue('maintenance_mode', false);
@@ -657,7 +661,7 @@ file_put_contents("/tmp/curl.log", "18".PHP_EOL, FILE_APPEND | LOCK_EX);
      */
     private function setContextForMaintenanceForm($response)
     {
-file_put_contents("/tmp/curl.log", "19".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "19".PHP_EOL, FILE_APPEND | LOCK_EX);
         $params      = Parameters::getInstance();
         $categoryKey = $params->getUrlParam('entity_mf');
         if (isset($response[0]['Fields'])) {
@@ -696,7 +700,7 @@ file_put_contents("/tmp/curl.log", "19".PHP_EOL, FILE_APPEND | LOCK_EX);
                 $params->setUrlParamValue('locked', true);
             }
         }
-file_put_contents("/tmp/curl.log", "19.10".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "19.10".PHP_EOL, FILE_APPEND | LOCK_EX);
     }
 
     /**
@@ -707,7 +711,7 @@ file_put_contents("/tmp/curl.log", "19.10".PHP_EOL, FILE_APPEND | LOCK_EX);
      */
     private function getMethod($key, $keyMf)
     {
-file_put_contents("/tmp/curl.log", "20".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "20".PHP_EOL, FILE_APPEND | LOCK_EX);
         $params = Parameters::getInstance();
         $readMethod = null;
         if ($key == 'update' || $keyMf == 'update_mf' ||$key == 'satisfaction' || $keyMf == 'satisfaction_mf' ||$key == 'question' || $keyMf == 'question_mf'
@@ -750,14 +754,14 @@ file_put_contents("/tmp/curl.log", "20".PHP_EOL, FILE_APPEND | LOCK_EX);
      */
     private function buildUrl($method)
     {
-file_put_contents("/tmp/curl.log", "21".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "21".PHP_EOL, FILE_APPEND | LOCK_EX);
 
         if ($this->debug) {
             $url = $method['name'];
         } else {
             $url = (! empty($this->sessionID)) ? $method['name'] . '?' . $method['idParam'] . '=' . $this->sessionID : '';
         }
-file_put_contents("/tmp/curl.log", $url.PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", $url.PHP_EOL, FILE_APPEND | LOCK_EX);
         return $url;
     }
 
@@ -766,7 +770,7 @@ file_put_contents("/tmp/curl.log", $url.PHP_EOL, FILE_APPEND | LOCK_EX);
      */
     private function loadDropdownsData()
     {
-file_put_contents("/tmp/curl.log", "22".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "22".PHP_EOL, FILE_APPEND | LOCK_EX);
         $params          = Parameters::getInstance();
         $dropDownMethods = $params->get('cdb')['dropdown_methods'];
         foreach ($dropDownMethods as $method) {
@@ -783,7 +787,7 @@ file_put_contents("/tmp/curl.log", "22".PHP_EOL, FILE_APPEND | LOCK_EX);
      */
     private function getDropdownData($method)
     {
-file_put_contents("/tmp/curl.log", "23".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "23".PHP_EOL, FILE_APPEND | LOCK_EX);
         if ($response = $this->getData($method['method'])) {
             $response = $response[$method['data']];
             if (! is_array($response)) {
@@ -806,7 +810,7 @@ file_put_contents("/tmp/curl.log", "23".PHP_EOL, FILE_APPEND | LOCK_EX);
      */
     private function getCombinedDropdown($response)
     {
-file_put_contents("/tmp/curl.log", "24".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "24".PHP_EOL, FILE_APPEND | LOCK_EX);
         foreach ($response as $field) {
             if (($key = array_search($field['Name'], $this->cdbMap)) !== false) {
                 $values = $field['Values'];
@@ -826,7 +830,7 @@ file_put_contents("/tmp/curl.log", "24".PHP_EOL, FILE_APPEND | LOCK_EX);
      */
     private function getSingleDropdown($method, $response)
     {
-file_put_contents("/tmp/curl.log", "25".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "25".PHP_EOL, FILE_APPEND | LOCK_EX);
         $fieldNameArray = $method['fields'];
         $values         = $response;
 file_put_contents("/tmp/curl.log", "fields INIT".PHP_EOL, FILE_APPEND | LOCK_EX);
@@ -835,11 +839,11 @@ file_put_contents("/tmp/curl.log", "fields INIT".PHP_EOL, FILE_APPEND | LOCK_EX)
 //file_put_contents("/tmp/curl.log", "Field: ".$incomingField.PHP_EOL, FILE_APPEND | LOCK_EX);
 //file_put_contents("/tmp/curl.log", key($incomingField).PHP_EOL, FILE_APPEND | LOCK_EX);
 //}
-file_put_contents("/tmp/curl.log", "fields END".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "fields END".PHP_EOL, FILE_APPEND | LOCK_EX);
         foreach ($fieldNameArray as $fieldName) {
-file_put_contents("/tmp/curl.log", "25"." ".$fieldName.PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "25"." ".$fieldName.PHP_EOL, FILE_APPEND | LOCK_EX);
             if (isset($this->fields[$fieldName])) {
-file_put_contents("/tmp/curl.log", "25"." ".$fieldName.PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "25"." ".$fieldName.PHP_EOL, FILE_APPEND | LOCK_EX);
                 $this->dropdowns[$fieldName]['selected'] = $this->fields[$fieldName];
             }
             $this->dropdowns[$fieldName]['values'] = $values;
@@ -857,9 +861,10 @@ file_put_contents("/tmp/curl.log", "25"." ".$fieldName.PHP_EOL, FILE_APPEND | LO
      */
     private function getData($url)
     {
-file_put_contents("/tmp/curl.log", "26".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "26".PHP_EOL, FILE_APPEND | LOCK_EX);
         $resource = $this->host . $this->port . $this->resource . $url;
-file_put_contents("/tmp/curl.log", "26 resource: ".$resource.PHP_EOL, FILE_APPEND | LOCK_EX);
+
+//file_put_contents("/tmp/curl.log", "26 resource: ".$resource.PHP_EOL, FILE_APPEND | LOCK_EX);
         error_log("Eve_CSM_GetData_" . var_export($resource, true));
         $response = null;
 //        $time_pre = microtime(true);
@@ -871,10 +876,10 @@ file_put_contents("/tmp/curl.log", "26 resource: ".$resource.PHP_EOL, FILE_APPEN
             if (! $this->debug && intval($response['returnCode']) !== 1) {
                 if(intval($response['returnCode']) === -69){
                     $_SESSION['fieldsValidatingDialog'] = true;
-file_put_contents("/tmp/curl.log", "26.1".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "26.1".PHP_EOL, FILE_APPEND | LOCK_EX);
                 }else{
-file_put_contents("/tmp/curl.log", "26.2".PHP_EOL, FILE_APPEND | LOCK_EX);
-file_put_contents("/tmp/curl.log", $response['returnMessage'].PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "26.2".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", $response['returnMessage'].PHP_EOL, FILE_APPEND | LOCK_EX);
                     throw new CDBException($response['returnMessage'], $response['returnCode']);
                 }
             }
@@ -883,7 +888,7 @@ file_put_contents("/tmp/curl.log", $response['returnMessage'].PHP_EOL, FILE_APPE
         }
 foreach ($response as $value)
 { 
-	file_put_contents("/tmp/curl.log", $value.PHP_EOL, FILE_APPEND | LOCK_EX);
+	//file_put_contents("/tmp/curl.log", $value.PHP_EOL, FILE_APPEND | LOCK_EX);
 } 
 
         return $response;
@@ -896,26 +901,26 @@ foreach ($response as $value)
      */
     public function updateData($data)
     {
-file_put_contents("/tmp/curl.log", "27".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "27".PHP_EOL, FILE_APPEND | LOCK_EX);
         $this->setDataPost($data);
     }
 
 
     public function submitSatisfaction($id, $satisfaction)
     {
-file_put_contents("/tmp/curl.log", "28".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "28".PHP_EOL, FILE_APPEND | LOCK_EX);
         $this->updateSatisfaction($id, $satisfaction);
     }
 
     public function updateRequirements($id, $requirements)
     {
-file_put_contents("/tmp/curl.log", "29".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "29".PHP_EOL, FILE_APPEND | LOCK_EX);
         $this->submitRequirements($id, $requirements);
     }
 
     public function submitQuestion($id, $title, $message, $email)
     {
-file_put_contents("/tmp/curl.log", "30".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "30".PHP_EOL, FILE_APPEND | LOCK_EX);
         $this->updateQuestion($id, $title, $message, $email);
     }
 
@@ -945,7 +950,7 @@ file_put_contents("/tmp/curl.log", "30".PHP_EOL, FILE_APPEND | LOCK_EX);
      */
     private function setDataPost($parameters)
     {
-file_put_contents("/tmp/curl.log", "31".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "31".PHP_EOL, FILE_APPEND | LOCK_EX);
         error_log(var_export($parameters, true));
 
        if(isset($parameters['id'])){
@@ -1019,6 +1024,7 @@ file_put_contents("/tmp/curl.log", "31".PHP_EOL, FILE_APPEND | LOCK_EX);
             $url = $urlBase . "?" . $otherusers . "&" . $paises . "&auth=" . $auth;
         }
         $url = $url. "&option=" .$parameters['option'];
+
         $ch = curl_init();
         error_log("URL: " .$url);
         curl_setopt($ch, CURLOPT_URL,$url);
@@ -1034,16 +1040,16 @@ file_put_contents("/tmp/curl.log", "31".PHP_EOL, FILE_APPEND | LOCK_EX);
         
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $server_output = curl_exec ($ch);
-file_put_contents("/tmp/curl.log", $ch.PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", $ch.PHP_EOL, FILE_APPEND | LOCK_EX);
         if($server_output === false)
         {
             error_log('Curl error: ' . curl_error($ch));
-file_put_contents("/tmp/curl.log", $ch.PHP_EOL, FILE_APPEND | LOCK_EX);
-file_put_contents("/tmp/curl.log", curl_error($ch).PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", $ch.PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", curl_error($ch).PHP_EOL, FILE_APPEND | LOCK_EX);
         }
         else
         {
-file_put_contents("/tmp/curl.log", $ch.PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", $ch.PHP_EOL, FILE_APPEND | LOCK_EX);
             echo 'Operación completada sin errores';
         }
 
@@ -1065,7 +1071,7 @@ file_put_contents("/tmp/curl.log", $ch.PHP_EOL, FILE_APPEND | LOCK_EX);
      * @param $response
      */
     private function processResponse($response) {
-file_put_contents("/tmp/curl.log", "32".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "32".PHP_EOL, FILE_APPEND | LOCK_EX);
         if ($processedResponse = json_decode($response, true)) {
             $params = Parameters::getInstance();
             if($processedResponse['returnCode'] != 1){
@@ -1086,7 +1092,7 @@ file_put_contents("/tmp/curl.log", "32".PHP_EOL, FILE_APPEND | LOCK_EX);
     }
 
     private function updateSatisfaction($id, $satisfaction){
-file_put_contents("/tmp/curl.log", "33".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "33".PHP_EOL, FILE_APPEND | LOCK_EX);
         $satisfactionMethod = $this->getMethod('satisfaction', 'satisfaction_mf');
         $urlBase          = $this->host . $this->port . $this->resource . $satisfactionMethod;
         $url = $urlBase . "?id=" . $id ."&satisfaction=" .$satisfaction;
@@ -1114,7 +1120,7 @@ file_put_contents("/tmp/curl.log", "33".PHP_EOL, FILE_APPEND | LOCK_EX);
     }
 
     private function submitRequirements($id, $requirements){
-file_put_contents("/tmp/curl.log", "34".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "34".PHP_EOL, FILE_APPEND | LOCK_EX);
         $requirementsMethod = $this->getMethod('requirements', 'requirements_mf');
         $urlBase          = $this->host . $this->port . $this->resource . $requirementsMethod;
         $url = $urlBase . "?id=" . $id ."&requirements=" .$requirements;
@@ -1141,7 +1147,7 @@ file_put_contents("/tmp/curl.log", "34".PHP_EOL, FILE_APPEND | LOCK_EX);
         error_log("Respuesta: " .  print_r($server_output,1));
     }
     private function updateQuestion($id, $title, $message, $email){
-file_put_contents("/tmp/curl.log", "35".PHP_EOL, FILE_APPEND | LOCK_EX);
+//file_put_contents("/tmp/curl.log", "35".PHP_EOL, FILE_APPEND | LOCK_EX);
         $questionMethod = $this->getMethod('question', 'question_mf');
         $urlBase          = $this->host . $this->port . $this->resource . $questionMethod;
         $url = $urlBase . "?id=" . $id ."&title=" .urlencode($title)."&message=" .urlencode($message) . "&email=". urlencode($email);

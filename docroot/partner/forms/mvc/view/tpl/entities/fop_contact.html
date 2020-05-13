@@ -30,7 +30,13 @@
         <div class="float-right">
             {$attributes.contact_osh_prefixmaincontactphone}
             {$attributes.contact_osh_mainphone}
+            {if $mf || $partner_type == "current" || $locked}
+                <div class="disabledDiv">
+            {/if}
             {$attributes.contact_osh_mainemail}
+            {if $mf || $partner_type == "current" || $locked}
+                </div>
+            {/if}
             <!--{$attributes.contact_osh_confirm_mainemail}-->
         </div>
     </div>
