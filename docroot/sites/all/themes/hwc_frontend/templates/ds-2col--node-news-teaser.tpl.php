@@ -4,7 +4,7 @@
  * @file
  * Display Suite 2 column template.
  */
-if (arg(1) == 'press-room-news') {
+if (arg(2) == 'press-room-news') {
   $url = url('node/' . $nid);
   $left = str_replace($url, $url . '?press-room', $left);
   $right = str_replace($url, $url . '?press-room', $right);
