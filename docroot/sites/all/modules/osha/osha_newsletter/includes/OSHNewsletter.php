@@ -361,11 +361,27 @@ class OSHNewsletter {
             'style' => 'padding-top: 0; padding-bottom: 20px;font-size: 0px; line-height: 0px; mso-line-height-rule: exactly;',
           ];
         }
+        $last = FALSE;
+        $before_spotlight = FALSE;
+        $spotlight_found = FALSE;
+        foreach ($variables['nodes'] as $node) {
+          if ($node['node']->type == 'spotlight') {
+            $spotlight_found = TRUE;
+          }
+          if (!$spotlight_found) {
+            $before_spotlight = $node['node']->nid;
+          }
+          $last = $node['node']->nid;
+        }
         foreach ($variables['nodes'] as $node) {
           $cellContent = self::getCellContent($template, $node);
+          $class = ['newsletter-row', drupal_clean_css_identifier("{$template}-row")];
+          if (($node['node']->nid === $last) || ($before_spotlight === $node['node']->nid)) {
+            $class[] = 'last';
+          }
           $content['#rows'][] = [
             'data' => [$cellContent],
-            'class' => ['newsletter-row', drupal_clean_css_identifier("{$template}-row")],
+            'class' => $class,
             'no_striping' => TRUE,
           ];
         }

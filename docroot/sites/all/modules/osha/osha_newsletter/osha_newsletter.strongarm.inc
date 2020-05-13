@@ -525,8 +525,10 @@ function osha_newsletter_strongarm() {
     'view_mode_twitter_user_profile' => 'newsletter_item',
     'webform' => '',
     'view_mode_webform' => 'newsletter_item',
-    'youtube' => '',
-    'view_mode_youtube' => '',
+    'youtube' => '518c7d80-ac2c-4cb2-b2a6-8ca7fdddbb6f',
+    'view_mode_youtube' => 'newsletter_item',
+    'spotlight' => '4f57cadd-a3dd-406d-981a-dfea0853c54e',
+    'view_mode_spotlight' => 'highlights_item',
   );
   $export['osha_newsletter_term_ct_map'] = $strongarm;
 
