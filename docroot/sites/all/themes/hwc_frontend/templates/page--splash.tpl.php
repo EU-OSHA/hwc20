@@ -103,7 +103,7 @@ if ($language->language=="en"){
                             <?php print '<img class="pull-left" alt="'.t("EU-OSHA logo").'" src="'.base_path() . path_to_theme() .$logo_Osha .'">'; ?>
                         </a>
                         <img class="pull-left" src="/<?php print $theme_dir . '/logo-eu.png'; ?>" alt="<?php print t('EU logo'); ?>" />
-                        <div class="header-text"><?php echo $head_text; ?><span><?php print t('Coming soon') ?></span></div>
+                        <div class="header-text"><?php echo $head_text; ?></div>
                     </div>
                     <div class="col-xs-12 col-sm-3 xs-menu">
                         <div class="header_top_bar">
