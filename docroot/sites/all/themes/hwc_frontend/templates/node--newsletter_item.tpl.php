@@ -99,19 +99,27 @@ if (!empty($campaign_id)) {
                     </table>
                 </td>
                 <td style="padding-bottom: 0px; width: 80%; font-size: 12px; font-family: Arial, sans-serif; color: #000000; padding-left: 15px; ">
-                    <div style="font-weight: bold; color: #59595a"><?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?></div>
-                    <div>
-                      <?php
-                      print l($title, url('node/' . $node->nid, array('absolute' => TRUE)), array(
-                        'attributes' => array('style' => 'font-family: Arial, sans-serif;padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;color:#003399;'),
-                        'query' => $url_query,
-                        'external' => TRUE,
-                      ));
-                      ?>
-                    </div>
-                    <table style="height: 85px;">
+                    <table>
                       <tr>
-                        <td style="padding-top: 8px;color:#000;font-size: 13px;line-height: 18px; color:#59595a;height: 85px;">
+                        <td style="font-weight: bold;color: #59595a;line-height: 12px;font-size: 12px;">
+                          <?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding-top: 5px;padding-bottom: 5px;">
+                          <?php
+                            print l($title, url('node/' . $node->nid, array('absolute' => TRUE)), array(
+                              'attributes' => array('style' => 'font-family: Arial, sans-serif;padding-bottom: 0; padding-left: 0; padding-right: 0; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;color:#003399;line-height: 18px;'),
+                              'query' => $url_query,
+                              'external' => TRUE,
+                            ));
+                            ?>
+                        </td>
+                      </tr>
+                    </table>
+                    <table style="height: 81px;">
+                      <tr>
+                        <td style="color:#000;font-size: 13px;line-height: auto; color:#59595a;height: 81px;">
                           <?php
                             $is_empty = FALSE;
                             $summary = render($elements['field_summary']);
@@ -356,7 +364,7 @@ if (!empty($campaign_id)) {
               url('node/' . $node->nid, array('absolute' => TRUE)),
               array('html' => TRUE, 'external' => TRUE, 'query' => $url_query));
            ?>
-            <span style="padding-top: 5px;display: block;font-weight: bold;"><?php echo t(strtoupper($calendar_month)); ?></span>
+            <div style="padding-top: 5px;display: block;font-weight: bold;"><?php echo t(strtoupper($calendar_month)); ?></div>
           </td>
           <td colspan="2" class="cs2">
             <span class="item-date"><?php
