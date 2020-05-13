@@ -5104,6 +5104,9 @@ body.press-room .field-name-body {
 body.press-room .related-resources-title {
   padding-top: 1em;
 }
+body.press-room #block-osha-press-release-osha-press-contacts {
+  padding-top: 4px;
+}
 body.press-room #block-osha-press-release-osha-press-contacts h2 {
   font-size: 1.6em;
 }
