@@ -138,9 +138,6 @@ if (!empty($campaign_id)) {
                         $body_text = field_view_field('node', $node, 'body', 'highlights_item');
                       }
                       $body_text = render($body_text);
-                      if ($type == 'youtube') {
-                        $body_text = $body['en'][0]['value'];
-                      }
                       if (!empty($body_text)) {
                         if (!empty($campaign_id)) {
                           // CW-1896 Add pk_campaign to links inside the body text.
