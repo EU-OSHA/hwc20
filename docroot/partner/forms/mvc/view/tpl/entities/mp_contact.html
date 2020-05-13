@@ -30,7 +30,7 @@
 
     <div class="separatorFieldSet">&nbsp;</div>
 
-    {if preg_match('/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/', $session_id)}
+    {if (preg_match('/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/', $session_id) && $HelpMessage != "print")}
     <div>
         {$attributes.contact_osh_maincontactchange}
     </div>
@@ -68,8 +68,14 @@
         <div class="float-right">
             <!--{$attributes.contact_osh_mainphone} -->
             {$attributes.contact_osh_positionmaincontactperson}
+            {if $mf || $partner_type == "current" || $locked || $NewFromURL}
+                <div class="disabledDiv">
+            {/if}
             {$attributes.contact_osh_mainemail}
-            {if !$mf && $partner_type != "current" && !$locked}
+            {if $mf || $partner_type == "current" || $locked || $NewFromURL}
+                </div>
+            {/if}
+            {if !$mf && $partner_type != "current" && !$locked && $HelpMessage != "print" && !$NewFromURL}
                 {$attributes.contact_osh_confirm_mainemail}
             {/if}
         </div>
@@ -201,27 +207,27 @@
                                         </td>
                                         <td style="vertical-align:top;border:0;padding:5px 20px 5px 20px;width:60px;text-align:center;padding-top:5px">
                                            <a href="https://twitter.com/eu_osha" style="color:#0074bd;text-decoration:none;display:inline-block;vertical-align:middle" target="_blank" data-saferedirecturl="https://twitter.com/eu_osha&amp;source=gmail&amp;ust=1581508467712000&amp;usg=AFQjCNEjD-bso_INECdN2hSssHEjnJUtMA">
-                                              <img style="display:inline;vertical-align:middle;border:0px;height:25px;max-height:25px;width:31px;max-width:31px" src="https://hwc20.healthy-workplaces.eu/sites/all/themes/hwc_frontend/images/imghwccrm/twitter.jpg" width="31" height="25" alt="Twitter" class="CToWUd">
+                                              <img style="display:inline;vertical-align:middle;border:0px;height:25px;max-height:25px;width:31px;max-width:31px" src="https://healthy-workplaces.eu/sites/all/themes/hwc_frontend/images/imghwccrm/twitter.jpg" width="31" height="25" alt="Twitter" class="CToWUd">
                                            </a>
                                         </td>
                                         <td style="vertical-align:top;border:0;padding:5px 20px 5px 20px;width:60px;text-align:center;padding-top:5px">
                                            <a href="https://www.facebook.com/EuropeanAgencyforSafetyandHealthatWork" style="color:#0074bd;text-decoration:none;display:inline-block;vertical-align:middle" target="_blank" data-saferedirecturl="https://www.facebook.com/EuropeanAgencyforSafetyandHealthatWork&amp;source=gmail&amp;ust=1581508467712000&amp;usg=AFQjCNE8B4kEJTEXOwpWLsxNQLlY3qVc8A">
-                                              <img style="display:inline;vertical-align:middle;border:0px;height:25px;max-height:25px;width:25px;max-width:25px" src="https://hwc20.healthy-workplaces.eu/sites/all/themes/hwc_frontend/images/imghwccrm/facebook.jpg" width="25" height="25" alt="Facebook" class="CToWUd">
+                                              <img style="display:inline;vertical-align:middle;border:0px;height:25px;max-height:25px;width:25px;max-width:25px" src="https://healthy-workplaces.eu/sites/all/themes/hwc_frontend/images/imghwccrm/facebook.jpg" width="25" height="25" alt="Facebook" class="CToWUd">
                                            </a>
                                         </td>
                                         <td style="vertical-align:top;border:0;padding:5px 20px 5px 20px;width:60px;text-align:center;padding-top:5px">
                                            <a href="https://www.linkedin.com/company/european-agency-for-safety-and-health-at-work" style="color:#0074bd;text-decoration:none;display:inline-block;vertical-align:middle" target="_blank" data-saferedirecturl="https://www.linkedin.com/company/european-agency-for-safety-and-health-at-work&amp;source=gmail&amp;ust=1581508467712000&amp;usg=AFQjCNECEeZnqSz65ut3caY8dHk2QulewA">
-                                              <img style="display:inline;vertical-align:middle;border:0px;height:25px;max-height:25px;width:25px;max-width:25px" src="https://hwc20.healthy-workplaces.eu/sites/all/themes/hwc_frontend/images/imghwccrm/linkedin.jpg" width="25" height="25" alt="LinkedIn" class="CToWUd">
+                                              <img style="display:inline;vertical-align:middle;border:0px;height:25px;max-height:25px;width:25px;max-width:25px" src="https://healthy-workplaces.eu/sites/all/themes/hwc_frontend/images/imghwccrm/linkedin.jpg" width="25" height="25" alt="LinkedIn" class="CToWUd">
                                            </a>
                                         </td>
                                         <td style="vertical-align:top;border:0;padding:5px 20px 5px 20px;width:60px;text-align:center;padding-top:5px">
                                            <a href="https://www.youtube.com/user/EUOSHA" style="color:#0074bd;text-decoration:none;display:inline-block;vertical-align:middle" target="_blank" data-saferedirecturl="https://www.youtube.com/user/EUOSHA&amp;source=gmail&amp;ust=1581508467712000&amp;usg=AFQjCNF2DU3gB_j1-A3zLqUuB5pY10OCZQ">
-                                              <img style="display:inline;vertical-align:middle;border:0px;height:25px;max-height:25px;width:35px;max-width:35px" src="https://hwc20.healthy-workplaces.eu/sites/all/themes/hwc_frontend/images/imghwccrm/youtube.jpg" width="35" height="25" alt="Youtube" class="CToWUd">
+                                              <img style="display:inline;vertical-align:middle;border:0px;height:25px;max-height:25px;width:35px;max-width:35px" src="https://healthy-workplaces.eu/sites/all/themes/hwc_frontend/images/imghwccrm/youtube.jpg" width="35" height="25" alt="Youtube" class="CToWUd">
                                            </a>
                                         </td>
                                         <td style="vertical-align:top;border:0;padding:5px 20px 5px 20px;width:60px;text-align:center;padding-top:5px">
                                            <a href="https://www.flickr.com/photos/euosha/albums" style="color:#0074bd;text-decoration:none;display:inline-block;vertical-align:middle" target="_blank" data-saferedirecturl="https://www.flickr.com/photos/euosha/albums&amp;source=gmail&amp;ust=1581508467712000&amp;usg=AFQjCNHzz7YT4uQIFOXGOqk5lcjUCxlaeg">
-                                              <img style="display:inline;vertical-align:middle;border:0px;height:25px;max-height:25px;width:31px;max-width:31px" src="https://hwc20.healthy-workplaces.eu/sites/all/themes/hwc_frontend/images/imghwccrm/flickr.jpg" width="31" height="25" alt="Flickr" class="CToWUd">
+                                              <img style="display:inline;vertical-align:middle;border:0px;height:25px;max-height:25px;width:31px;max-width:31px" src="https://healthy-workplaces.eu/sites/all/themes/hwc_frontend/images/imghwccrm/flickr.jpg" width="31" height="25" alt="Flickr" class="CToWUd">
                                            </a>
                                         </td>
                                         <td style="vertical-align:top;border:0;padding:5px 20px 5px 20px;width:150px">

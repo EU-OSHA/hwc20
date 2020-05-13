@@ -221,10 +221,18 @@ function hwc_practical_tool_strongarm() {
             'weight' => '0',
             'visible' => TRUE,
           ),
+          'priority_areas' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
         ),
         'bottom_share_widget' => array(
           'default' => array(
             'weight' => '11',
+            'visible' => TRUE,
+          ),
+          'priority_areas' => array(
+            'weight' => '2',
             'visible' => TRUE,
           ),
         ),

@@ -185,3 +185,10 @@ function hwc_homepage_update_7024() {
 function hwc_homepage_update_7025() {
   features_revert(array('hwc_homepage' => ['views_view']));
 }
+
+/**
+ * HW20-463 Home Page: Include the functionality “Select style to crop” in the banners of the HWC20 website.
+ */
+function hwc_homepage_update_7026() {
+  features_revert(array('hwc_homepage' => ['field_instance', 'views_view']));
+}

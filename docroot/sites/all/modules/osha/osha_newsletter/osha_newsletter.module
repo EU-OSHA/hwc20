@@ -664,6 +664,7 @@ function osha_newsletter_add_to_newsletter_action($node, $context) {
         }
 
         entity_collection_append_item($collection, $item);
+        osha_newsletter_update_newsletter_node_alias($node, $collection);
       }
     }
   }
@@ -1424,4 +1425,31 @@ function substrwords($text, $maxchar, $end = '...') {
     $output = $text;
   }
   return $output;
+}
+
+function osha_newsletter_update_newsletter_node_alias($node, $newsletter) {
+  if (!in_array($node->type, ['spotlight', 'youtube'])) {
+    return;
+  }
+  module_load_include('inc', 'pathauto');
+  $pattern = "media-centre/healthy-workplaces-newsletter/[entity_collection:label]/[node:title]";
+  $alias = token_replace($pattern, array('node' => $node, 'entity_collection' => $newsletter), array(
+    'sanitize' => FALSE,
+    'clear' => TRUE,
+    'callback' => 'pathauto_clean_token_values',
+    'language' => (object) array('language' => LANGUAGE_NONE),
+    'pathauto' => TRUE,
+  ));
+  $alias = pathauto_clean_alias($alias);
+  $uri = entity_uri('node', $node);
+  $existing_alias = _pathauto_existing_alias_data($uri['path']);
+  if (!$existing_alias) {
+    $existing_alias = NULL;
+  }
+  $path = array(
+    'source' => $uri['path'],
+    'alias' => $alias,
+    'language' => LANGUAGE_NONE,
+  );
+  _pathauto_set_alias($path, $existing_alias);
 }

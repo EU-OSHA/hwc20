@@ -288,6 +288,24 @@ function hwc_homepage_fe_nodequeue_export_fields() {
 function hwc_homepage_image_default_styles() {
   $styles = array();
 
+  // Exported image style: banner_1.
+  $styles['banner_1'] = array(
+    'label' => 'Banner',
+    'effects' => array(
+      13 => array(
+        'name' => 'manualcrop_crop',
+        'data' => array(
+          'width' => '',
+          'height' => '',
+          'keepproportions' => 0,
+          'reuse_crop_style' => '',
+          'style_name' => 'banner_1',
+        ),
+        'weight' => 0,
+      ),
+    ),
+  );
+
   // Exported image style: partner_logo_front.
   $styles['partner_logo_front'] = array(
     'label' => 'partner_logo_front',

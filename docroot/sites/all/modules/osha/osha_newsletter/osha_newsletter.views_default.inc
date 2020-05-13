@@ -250,7 +250,9 @@ function osha_newsletter_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'events' => 'events',
     'news' => 'news',
+    'spotlight' => 'spotlight',
     'twitter_tweet_feed' => 'twitter_tweet_feed',
+    'youtube' => 'youtube',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['filters']['type']['exposed'] = TRUE;
@@ -277,6 +279,9 @@ function osha_newsletter_views_default_views() {
     16 => 0,
     14 => 0,
     15 => 0,
+    17 => 0,
+    18 => 0,
+    19 => 0,
   );
   $handler->display->display_options['filters']['type']['expose']['reduce'] = TRUE;
   /* Filter criterion: Content: Nid */

@@ -402,9 +402,12 @@ function osha_resources_strongarm() {
     'diff_standard' => 0,
     'title_body' => 0,
     'body' => 0,
+    'priority_areas' => 0,
+    'hwc_teaser' => 0,
     'osha_slideshow' => 0,
     'highlights_item' => 0,
     'newsletter_item' => 0,
+    'highlights_item_alternative' => 0,
     'pub_teaser' => 0,
     'print' => 0,
     'token' => 0,
@@ -418,18 +421,21 @@ function osha_resources_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'exclude_node_title_content_type_modes_file';
   $strongarm->value = array(
-    'full' => 'full',
     'teaser' => 'teaser',
     'osha_resources' => 'osha_resources',
+    'full' => 0,
     'rss' => 0,
     'search_index' => 0,
     'search_result' => 0,
     'diff_standard' => 0,
     'title_body' => 0,
     'body' => 0,
+    'priority_areas' => 0,
+    'hwc_teaser' => 0,
     'osha_slideshow' => 0,
     'highlights_item' => 0,
     'newsletter_item' => 0,
+    'highlights_item_alternative' => 0,
     'pub_teaser' => 0,
     'print' => 0,
     'token' => 0,
@@ -443,18 +449,21 @@ function osha_resources_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'exclude_node_title_content_type_modes_flickr';
   $strongarm->value = array(
-    'full' => 'full',
     'teaser' => 'teaser',
     'osha_resources' => 'osha_resources',
+    'full' => 0,
     'rss' => 0,
     'search_index' => 0,
     'search_result' => 0,
     'diff_standard' => 0,
     'title_body' => 0,
     'body' => 0,
+    'priority_areas' => 0,
+    'hwc_teaser' => 0,
     'osha_slideshow' => 0,
     'highlights_item' => 0,
     'newsletter_item' => 0,
+    'highlights_item_alternative' => 0,
     'pub_teaser' => 0,
     'print' => 0,
     'token' => 0,
@@ -468,18 +477,21 @@ function osha_resources_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'exclude_node_title_content_type_modes_slideshare';
   $strongarm->value = array(
-    'full' => 'full',
     'teaser' => 'teaser',
     'osha_resources' => 'osha_resources',
+    'full' => 0,
     'rss' => 0,
     'search_index' => 0,
     'search_result' => 0,
     'diff_standard' => 0,
     'title_body' => 0,
     'body' => 0,
+    'priority_areas' => 0,
+    'hwc_teaser' => 0,
     'osha_slideshow' => 0,
     'highlights_item' => 0,
     'newsletter_item' => 0,
+    'highlights_item_alternative' => 0,
     'pub_teaser' => 0,
     'print' => 0,
     'token' => 0,
@@ -493,18 +505,21 @@ function osha_resources_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'exclude_node_title_content_type_modes_youtube';
   $strongarm->value = array(
-    'full' => 'full',
     'teaser' => 'teaser',
     'osha_resources' => 'osha_resources',
+    'full' => 0,
     'rss' => 0,
     'search_index' => 0,
     'search_result' => 0,
     'diff_standard' => 0,
     'title_body' => 0,
     'body' => 0,
+    'priority_areas' => 0,
+    'hwc_teaser' => 0,
     'osha_slideshow' => 0,
     'highlights_item' => 0,
     'newsletter_item' => 0,
+    'highlights_item_alternative' => 0,
     'pub_teaser' => 0,
     'print' => 0,
     'token' => 0,
@@ -915,7 +930,7 @@ function osha_resources_strongarm() {
         'custom_settings' => FALSE,
       ),
       'newsletter_item' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'osha_wiki' => array(
         'custom_settings' => FALSE,
@@ -944,20 +959,47 @@ function osha_resources_strongarm() {
       'osha_resources' => array(
         'custom_settings' => TRUE,
       ),
+      'title_body' => array(
+        'custom_settings' => TRUE,
+      ),
+      'body' => array(
+        'custom_settings' => TRUE,
+      ),
+      'priority_areas' => array(
+        'custom_settings' => TRUE,
+      ),
+      'hwc_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'highlights_item' => array(
+        'custom_settings' => TRUE,
+      ),
+      'highlights_item_alternative' => array(
+        'custom_settings' => TRUE,
+      ),
+      'pub_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'revision' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '40',
+          'weight' => '10',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '7',
         ),
         'redirect' => array(
-          'weight' => '30',
+          'weight' => '8',
         ),
         'language' => array(
           'weight' => '5',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '9',
         ),
       ),
       'display' => array(),

@@ -54,11 +54,11 @@ if (!empty($campaign_id)) {
           ?>
           <tr>
               <td style="padding-left: 10px;padding-top: 10px; width: 100%; font-size: 12px; font-family: Arial, sans-serif; color: #000000;">
-                  <div><?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?></div>
+                  <div style="color:#59595a"><?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?></div>
                   <div>
                     <?php
                     print l($title, url($node->url, array('absolute' => TRUE)), array(
-                      'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #003399; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: top; text-decoration: none;'),
+                      'attributes' => array('style' => 'font-family: Arial, sans-serif; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: top; text-decoration: none;color:#003399;'),
                       'query' => $url_query,
                       'external' => TRUE,
                     ));
@@ -71,10 +71,10 @@ if (!empty($campaign_id)) {
         else {
           ?>
             <tr>
-                <td style="width: 220px; font-size: 12px; font-family: Arial, sans-serif; color: #000000; vertical-align: middle; padding: 0; margin: 0;">
+                <td style="width: 220px; font-size: 12px; font-family: Arial, sans-serif; color: #000000; vertical-align: top; padding: 0; margin: 0;padding-bottom: 25px;">
                   <table>
                     <tr>
-                      <td style="border: 1px solid #efefef;margin:0;padding: 0;">
+                      <td style="border: 0;margin:0;padding: 0;vertical-align: top">
                         <?php
                           if (isset($field_image)) {
                               print l(theme('image_style', array(
@@ -83,7 +83,7 @@ if (!empty($campaign_id)) {
                                 'width' => 220,
                                 'alt' => (isset($field_image) && !empty($field_image)) ? $field_image['alt'] : '',
                                 'attributes' => array(
-                                  'style' => 'vertical-align:middle;max-width: initial!important;',
+                                  'style' => 'vertical-align:middle;max-width: initial!important; border-radius: 15px;',
                                   'align' => 'left',
                                 ),
                               )), url('node/' . $node->nid, array('absolute' => TRUE)), array(
@@ -97,22 +97,29 @@ if (!empty($campaign_id)) {
                        </td>
                       </tr>
                     </table>
-                  </div>
                 </td>
                 <td style="padding-bottom: 0px; width: 80%; font-size: 12px; font-family: Arial, sans-serif; color: #000000; padding-left: 15px; ">
-                    <div style="font-weight: bold;"><?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?></div>
-                    <div>
-                      <?php
-                      print l($title, url('node/' . $node->nid, array('absolute' => TRUE)), array(
-                        'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #003399; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;'),
-                        'query' => $url_query,
-                        'external' => TRUE,
-                      ));
-                      ?>
-                    </div>
                     <table>
                       <tr>
-                        <td style="padding-top: 8px;color:#000;font-size: 13px;line-height: 18px;">
+                        <td style="font-weight: bold;color: #59595a;line-height: 12px;font-size: 12px;">
+                          <?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding-top: 5px;padding-bottom: 5px;">
+                          <?php
+                            print l($title, url('node/' . $node->nid, array('absolute' => TRUE)), array(
+                              'attributes' => array('style' => 'font-family: Arial, sans-serif;padding-bottom: 0; padding-left: 0; padding-right: 0; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;color:#003399;line-height: 18px;'),
+                              'query' => $url_query,
+                              'external' => TRUE,
+                            ));
+                            ?>
+                        </td>
+                      </tr>
+                    </table>
+                    <table style="height: 81px;">
+                      <tr>
+                        <td style="color:#000;font-size: 13px;line-height: auto; color:#59595a;height: 81px;">
                           <?php
                             $is_empty = FALSE;
                             $summary = render($elements['field_summary']);
@@ -137,65 +144,167 @@ if (!empty($campaign_id)) {
                       </td>
                     </tr>
                   </table>
-                
+
+                  <table style="height: 45px;">
+                    <tr>
+                        <td style="padding-top: 0px;" width="505">
+                          <?php
+                          print '<div>';
+                          $node_url = url('node/' . $node->nid, array('absolute' => TRUE));
+                          print l(t('See more'), $node_url, array(
+                            'attributes' => array('class' => ['see-more']),
+                            'query' => $url_query,
+                            'external' => TRUE,
+                          ));
+                          print '</div>';
+                          ?>
+                        </td>
+                        <td align="right" valign="middle" style="padding-top: 0px;" width="20">
+                          <?php
+                          print l(theme('image', array(
+                            'path' => $directory . '/images/' . 'share-icon.png',
+                            'width' => '20',
+                            'height' => '20',
+                            'attributes' => array('style' => 'border:0px;width:20px;height:20px;'),
+                          )), $node_url, array(
+                            'html' => TRUE,
+                            'query' => $url_query + ['action' => 'share'],
+                            'external' => TRUE,
+                          ));
+                          ?>
+
+                        </td>
+                    </tr>
+                  </table>
+
                 </td>
             </tr>
             <tr>
-                <td style="padding-bottom: 10px; ">&nbsp;</td>
-                <td style="padding-bottom: 10px;padding-left: 15px">
-                    <table>
-                        <tr>
-                            <td style="padding-top: 0px;" width="505">
-                              <?php
-
-                              print '<div class="see-more">';
-                              $node_url = url('node/' . $node->nid, array('absolute' => TRUE));
-                              print l(t('See more'), $node_url, array(
-                                'attributes' => array('class' => ['see-more']),
-                                'query' => $url_query,
-                                'external' => TRUE,
-                              ));
-
-                              print l(theme('image', array(
-                                'path' => $directory . '/images/' . 'green-arrow.png',
-                                'width' => '19',
-                                'height' => '11',
-                                'attributes' => array('style' => 'border:0px;width:19px;height:11px;'),
-                              )), $node_url, array(
-                                'html' => TRUE,
-                                'query' => $url_query,
-                                'external' => TRUE,
-                              ));
-
-                              print '</div>';
-                              ?>
-
-                            </td>
-                            <td align="right" valign="middle" style="padding-top: 0px;" width="20">
-                              <?php
-                              print l(theme('image', array(
-                                'path' => $directory . '/images/' . 'share-icon.png',
-                                'width' => '20',
-                                'height' => '20',
-                                'attributes' => array('style' => 'border:0px;width:20px;height:20px;'),
-                              )), $node_url, array(
-                                'html' => TRUE,
-                                'query' => $url_query + ['action' => 'share'],
-                                'external' => TRUE,
-                              ));
-                              ?>
-
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-              <td colspan="2" style="border-top: 1px dotted #749b00;line-height: 12px;">&nbsp;</td>
+              <td colspan="2" class="td-border" style="line-height: 12px;">&nbsp;</td>
             </tr>
           <?php
       }
       ?>
+      <?php
+    }
+    if ($node->type == 'spotlight') {
+      $w = entity_metadata_wrapper('node', $node);
+      if (!empty($node->field_image)) {
+        $field_image = $w->field_image->value();
+        if (!$field_image) {
+          $field_image = $node->field_image[0];
+        }
+      }
+      $field_publication_date = '';
+      if (!empty($node->field_publication_date)) {
+        if (isset($node->field_publication_date[0])) {
+          $node->field_publication_date = [LANGUAGE_NONE => $node->field_publication_date];
+        }
+        $field_publication_date = $w->field_publication_date->value();
+      }
+    ?>
+      <tr>
+        <td colspan="2" style="font-size:20px; border-bottom: 2px solid #003399; margin-bottom: 10px;">
+          <table>
+            <tr>
+              <td style="width: 25px;vertical-align: middle;">
+                 <?php
+                   $img_spotlight = theme('image', array(
+                      'path' => drupal_get_path('module', 'osha_newsletter') . '/images/' . 'spotlight.png',
+                      'width' => '25',
+                      'height' => '15',
+                      'attributes' => array('style' => 'border:0px;width:25px;height:15px;'),
+                    ));
+                   print_r($img_spotlight);
+                  ?>
+              </td>
+              <td style="vertical-align: top;padding: 0;border: 0;color: #003399;font-size: 19px;height: 20px;">
+                 <?php
+                  // todo spotlight styles here.
+                  echo t(variable_get('in_spotlight_text', 'In the spotlight'));
+                  ?>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          &nbsp;
+        </td>
+      </tr>
+      <tr>
+        <td style="width: 220px;background: #a6be1d;border-top-left-radius: 15px;border-bottom-left-radius: 15px">
+          <table">
+            <tr>
+              <td style="padding-top: 25px;padding-bottom: 25px;padding-left: 25px;">
+                <?php
+                if (isset($field_image)) {
+                  print l(theme('image_style', array(
+                    'style_name' => 'spotlight',
+                    'path' => (isset($field_image) && !empty($field_image)) ? $field_image['uri'] : '',
+                    'width' => 260,
+                    'alt' => (isset($field_image) && !empty($field_image)) ? $field_image['alt'] : '',
+                    'attributes' => array(
+                      'style' => 'vertical-align:top;max-width: initial!important;border-radius:15px',
+                      'align' => 'left',
+                    ),
+                  )), url('node/' . $node->nid, array('absolute' => TRUE)), array(
+                    'html' => TRUE,
+                    'external' => TRUE,
+                    'query' => $url_query,
+                    'attributes' => array('style' => ''),
+                  ));
+                }
+                ?>
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td style="background: #a6be1d;width: 540px;border-top-right-radius: 15px;border-bottom-right-radius: 15px">
+          <table>
+            <tr>
+              <td style="font-weight: normal; color:#FFF;padding-top: 25px;padding-bottom: 0;padding-left: 25px;">
+                <?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-left: 25px;">
+                <?php
+                  print l($title, url('node/' . $node->nid, array('absolute' => TRUE)), array(
+                    'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #FFF; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;'),
+                    'query' => $url_query,
+                    'external' => TRUE,
+                  ));
+                  ?>
+              </td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td style="padding-top: 8px;color:#FFF;font-size: 13px;line-height: 18px;padding-left: 25px;">
+                <?php
+                $is_empty = FALSE;
+                // todo city country.
+                $summary = render($elements['field_summary']);
+                if (!trim(strip_tags($summary))) {
+                  $is_empty = TRUE;
+                }
+                else {
+                  $clear = strip_tags($summary);
+                  print substrwords($clear, 300);
+                }
+                $directory = drupal_get_path('module', 'osha_newsletter');
+                ?>
+              </td>
+            </tr>
+          </table>
+
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="border-top: 0px solid #749b00;line-height: 24px;">&nbsp;</td>
+      </tr>
       <?php
     }
     if ($node->type == 'twitter_tweet_feed') {
@@ -232,26 +341,30 @@ if (!empty($campaign_id)) {
     if ($node->type == 'events') {
       global $base_url;
       $date = (isset($field_start_date) && !empty($field_start_date)) ? strtotime($field_start_date[0]['value']) : '';
+      $city = $node->field_city[LANGUAGE_NONE][0]['value'];
+      $country_code = $node->field_country_code[LANGUAGE_NONE][0]['value'];
+      $info = field_info_field('field_country_code');
+      $country_codes = $info['settings']['allowed_values'];
       ?>
       <tr>
-          <td class="rs2" rowspan="2">
+          <td class="rs2" rowspan="2" style="text-align: center;">
             <?php
+            $calendar_month = date('D', $date);
 
             $calendar_img = 'calendar-' . date('d', $date);
             $calendar_img = !empty($node->arrow_color) ? "{$calendar_img}-{$node->arrow_color}.png" : "{$calendar_img}.png";
             $calendar_img_path = "{$base_url}/sites/all/modules/osha/osha_newsletter/images/calendars/{$calendar_img}";
 
-            $style = 'border: 0px;height:35px!important;width:40px!important;max-height:35px!important;max-width:40px!important;display:block;';
+            $style = 'border: 0px;display:block;';
             print l(theme('image', array(
               'path' => $calendar_img_path,
-              'width' => 40,
-              'height' => 36,
               'alt' => 'calendar',
               'attributes' => array('style' => $style),
             )),
               url('node/' . $node->nid, array('absolute' => TRUE)),
               array('html' => TRUE, 'external' => TRUE, 'query' => $url_query));
            ?>
+            <div style="padding-top: 5px;display: block;font-weight: bold;"><?php echo t(strtoupper($calendar_month)); ?></div>
           </td>
           <td colspan="2" class="cs2">
             <span class="item-date"><?php
@@ -262,12 +375,18 @@ if (!empty($campaign_id)) {
                 'external' => TRUE,
               ));
            ?></span>
+            <div class="content-date-country">
+                <?php if ($country_code) { ?>
+                <span class="city">
+                  <?php echo $country_codes[$country_code] . ', ';?><?php } ?>    
+                </span>
+                <span class="country">
+                  <?php echo $city; ?>
+                </span>
+              </div>
           </td>
       </tr>
       <tr class="tr_h">
-          <td class="td_h">
-              <span> > </span>
-          </td>
           <td class="ar"><?php
             print l($node->title, url($link, array('absolute' => TRUE)), array(
               'attributes' => array('style' => 'text-decoration: none; font-family:Arial, sans-serif; font-size: 13px; font-weight: bold;'),

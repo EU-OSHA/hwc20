@@ -282,6 +282,12 @@ function hwc_partner_block_view($delta = '') {
           $url = 'good-practice-exchange-platform';
           $url_options = [];
         }
+        if ($it < 2 || $it == 3) {
+          if (!$node->status) {
+            $url_options['attributes']['class'] = ['unpublish'];
+          }
+        }
+
         $block['content'] = theme('hwc_partner_private_link_' . $it,
           array(
             'hwc_partner_private_link_title' => l(variable_get('hwc_partner_private_link_' . $it . '_title'), $url, $url_options),
@@ -366,8 +372,27 @@ function hwc_partner_block_view($delta = '') {
       arg(0) != 'good-practice-exchange-platform') {
       $block['content'] = theme('hwc_partner_my_private_workbench', array('content' => ''));
     }
+    elseif (
+      user_access('access my private workbench')  &&
+      arg(0) != 'private_workbench' &&
+      arg(0) != 'good-practice-exchange-platform') {
+      $block['content'] = theme('hwc_partner_my_private_workbench', array('content' => ''));
+    }
   }
   return $block;
+}
+
+/**
+ * Implements hook_permission().
+ *
+ * @return array
+ */
+function hwc_partner_permission() {
+  return array(
+    'access my private workbench' => array(
+      'title' => t('access my private workbench page'),
+    ),
+  );
 }
 
 function hwc_partner_hide_name($name, $flag) {
@@ -590,6 +615,9 @@ function hwc_partner_form_masquerade_redirect($form, $form_state) {
       $sections = array_keys($account->workbench_access);
       foreach ($sections as $id_section) {
         if ($partner = hwc_partner_by_section_id_load($id_section)) {
+          if (!$partner->status) {
+            drupal_set_message(t('This is an unpublish partner the only actions available are: Update your profile and Partner Resources.'), 'warning');
+          }
           $_SERVER['HTTP_REFERER'] = 'node/' . $partner->nid;
           break;
         }
@@ -796,6 +824,7 @@ function hwc_partner_node_access($node, $op, $account) {
       !in_array(HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR, $account->roles) &&
       !in_array(HWC_ROLE_ADMIN, $account->roles) &&
       !in_array(HWC_ROLE_WEBSITE_MANAGERS, $account->roles) &&
+      !in_array(HWC_ROLE_GPE_PLATFORM_EDITORS, $account->roles) &&
       !in_array(HWC_ROLE_EEN_REVIEW_MANAGER, $account->roles) &&
       !in_array(HWC_ROLE_HWC_STAFF_REVIEWERS, $account->roles) &&
       !in_array(HWC_ROLE_SUPERADMIN, $account->roles)

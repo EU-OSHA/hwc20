@@ -694,6 +694,7 @@ function hwc_workflow_node_access($node, $op, $account) {
   // Review Managers have access based on perm.
   // skip additional validations..
   if (
+    in_array(HWC_ROLE_GPE_PLATFORM_EDITORS, $account->roles) ||
     in_array(HWC_ROLE_WEBSITE_MANAGERS, $account->roles) ||
     in_array(HWC_ROLE_HWC_STAFF_REVIEWERS, $account->roles) ||
     in_array(HWC_ROLE_EEN_REVIEW_MANAGER, $account->roles)
@@ -830,6 +831,9 @@ function hwc_workflow_form_document_node_form_alter(&$form, &$form_state) {
 
   if (arg(1) == 'add') {
     drupal_set_title(t('Upload Information'));
+    $link_href = 'good-practice-exchange-platform';
+    $link_title = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to the Good practice exchange platform') . '</span>';
+    $form['#prefix'] = '<div class="back-to-publications container">' . l($link_title, $link_href, ['html' => TRUE]) . '</div>';
   }
   else {
     drupal_set_title(t('Upload Information') . $form['#node']->title);
