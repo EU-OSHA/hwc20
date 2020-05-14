@@ -76,7 +76,8 @@ function theme_youtube_video($variables) {
   // Domain changes based on settings.
   $domain = ($privacy) ? 'youtube-nocookie.com' : 'youtube.com';
 
-  $path = $protocol . '://www.' . $domain . '/embed/' . $id;
+  //$path = $protocol . '://www.' . $domain . '/embed/' . $id;
+  $path = '//www.' . $domain . '/embed/' . $id;
   $src = url($path, array('query' => $query));
 
   $output = '<iframe id="' . drupal_html_id($player_class) . '" class="' . $player_class . '"
