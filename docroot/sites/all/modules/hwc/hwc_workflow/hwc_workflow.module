@@ -836,7 +836,7 @@ function hwc_workflow_form_document_node_form_alter(&$form, &$form_state) {
     $form['#prefix'] = '<div class="back-to-publications container">' . l($link_title, $link_href, ['html' => TRUE]) . '</div>';
   }
   else {
-    drupal_set_title(t('Upload Information') . $form['#node']->title);
+    drupal_set_title('');
   }
   if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
     $form['field_share_partner_type']['#access'] = FALSE;
