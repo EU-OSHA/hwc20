@@ -1764,7 +1764,13 @@ function hwc_node_presave($node) {
       }
     }
     else {
-      if (empty($node->field_image[$language->language][0]['image_field_caption']['value'])) {
+      if (
+        empty($node->field_image[$language->language][0]['image_field_caption']['value'])
+        &&
+        !empty($node->field_pz_image_caption[LANGUAGE_NONE][0]['value'])
+        &&
+        !empty($node->field_image[$language->language][0]['fid'])
+      ) {
         $node->field_image[$language->language][0]['image_field_caption']['value'] = $node->field_pz_image_caption[LANGUAGE_NONE][0]['value'];
       }
     }
