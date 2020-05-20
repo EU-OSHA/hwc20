@@ -23,8 +23,9 @@
             {/foreach}
             
             
-            {if $mf != "mf"}
+            {if $mf != "mf" && $mf !=1}
             <li id="sidebar-bottom" class="menu-list saveAndPrintButtons">
+
                 {if !$locked}
                 <button id="save" name="save" {if $graceperiod}class="hidden"{/if}>Save a draft</button>
                 {/if}
@@ -56,13 +57,13 @@
 
             <?php $realCategory = strtolower($_SESSION['categoryReal']); ?>
 
-            {if $mf != "mf"}
+            {if $mf != "mf" && $mf != "1"}
                 {if $category == 'ocp'}
                 <li class="export-pdf"><a href="mvc/view/pdf/campaign-partnership-offer.pdf" target="_blank">> See Campaign partnership offer</a></li>
                 {elseif $category == 'mp'}
-                <li class="export-pdf"><a href="mvc/view/pdf/HWC_2018-19_media_partnership_offer.pdf" target="_blank">> See Campaign partnership offer</a></li>
+                <li class="export-pdf"><a href="mvc/view/pdf/media_partnership_offer.pdf" target="_blank">> See Campaign partnership offer</a></li>
                 {elseif $category == 'fop'}
-                <li class="export-pdf"><a href="mvc/view/pdf/HWC_2018-19_Official_campaign_partnership_offer.pdf" target="_blank">> See Campaign partnership offer</a></li>
+                <!--<li class="export-pdf"><a href="mvc/view/pdf/HWC_2018-19_Official_campaign_partnership_offer.pdf" target="_blank">> See Campaign partnership offer</a></li>-->
                 {/if}
             {/if}
            <!-- {if $mf != "mf"}
