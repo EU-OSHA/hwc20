@@ -440,6 +440,17 @@ function _hwc_frontend_allow_title($active_trail) {
   return FALSE;
 }
 
+function hwc_frontend_get_newsletter_name($nid) {
+  $entities = entity_load_multiple_by_name('entity_collection', $names = FALSE, array('bundle' => 'newsletter_content_collection'));
+  foreach ($entities as $entity) {
+    $tree = $entity->getTree();
+    if ($tree->getChild('node:' . $nid)) {
+      return $entity;
+    }
+  }
+  return FALSE;
+}
+
 function hwc_frontend_preprocess_page(&$vars) {
   $vars['head_text'] = t('Healthy Workplaces Lighten the Load 2020-22');
   $vars['banner_title'] = '';
@@ -585,11 +596,42 @@ function hwc_frontend_preprocess_page(&$vars) {
         );
         break;
 
+      case 'youtube':
+        $breadcrumb[] = l(t('Home'), '<front>');
+        $breadcrumb[] = l(t('Media centre'), 'media-centre');
+        $breadcrumb[] = l(t('Newsletter'), 'media-centre/newsletter');
+        if ($newsletter = hwc_frontend_get_newsletter_name($node->nid)) {
+          $breadcrumb[] = l($newsletter->title, 'entity-collection/' . $newsletter->name);
+        }
+        $breadcrumb[] = $node->title;
+        drupal_set_breadcrumb($breadcrumb);
+        drupal_set_title(t('Audiovisual'));
+        break;
+
+      case 'spotlight':
+
+        $breadcrumb = array();
+        $breadcrumb[] = l(t('Home'), '<front>');
+        $breadcrumb[] = l(t('Media centre'), 'media-centre');
+        $breadcrumb[] = l(t('Newsletter'), 'media-centre/newsletter');
+        if ($newsletter = hwc_frontend_get_newsletter_name($node->nid)) {
+          $breadcrumb[] = l($newsletter->title, 'entity-collection/' . $newsletter->name);
+        }
+        $breadcrumb[] = $node->title;
+        drupal_set_breadcrumb($breadcrumb);
+        drupal_set_title(t('In the spotlight'));
+        break;
+
       case 'press_release':
-        $link_title = t('Back to press releases list');
-        $link_href = 'media-centre/press-room';
+        $breadcrumb = array();
+        $breadcrumb[] = l(t('Home'), '<front>');
+        $breadcrumb[] = l(t('Media centre'), 'media-centre');
+        $breadcrumb[] = l(t('Press room'), 'media-centre/press-room');
+        $breadcrumb[] = l(t('Press room news'), 'media-centre/press-room/press-room-news');
+        $breadcrumb[] = $node->title;
+        drupal_set_breadcrumb($breadcrumb);
         $tag_vars['element']['#value'] = t('Press releases');
-        $vars['page']['above_title']['title-alternative'] = array(
+        $vars['page']['above_title']['press-room-page-title'] = array(
           '#type' => 'item',
           '#markup' => theme('html_tag', $tag_vars),
         );
@@ -614,16 +656,6 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'practical_tool':
-//        $link_title = t('Back to practical tools list');
-//        $link_href = 'tools-and-publications/practical-tools';
-//        if (isset($_REQUEST['destination'])) {
-//          $destination = drupal_get_destination();
-//          $vars['page']['below_title']['back-to-link'] = array(
-//            '#type' => 'item',
-//            '#markup' => '<a class="back-to-link pull-right" href="' . strip_tags($destination['destination']) . '">' . $link_title . '</a>',
-//          );
-//          unset($link_title);
-//        }
         $tag_vars['element']['#value'] = t('Practical tools and guidance');
         $vars['page']['above_title']['title-alternative'] = array(
           '#type' => 'item',
@@ -648,9 +680,6 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'events':
-        $date = new DateTime($node->field_start_date['und'][0]['value']);
-        $now = new DateTime('today');
-
         $breadcrumb = array();
         $breadcrumb[] = l(t('Home'), '<front>');
         $breadcrumb[] = l(t('Media centre'), 'media-centre');

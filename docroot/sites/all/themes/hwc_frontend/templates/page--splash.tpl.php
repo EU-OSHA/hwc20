@@ -103,7 +103,7 @@ if ($language->language=="en"){
                             <?php print '<img class="pull-left" alt="'.t("EU-OSHA logo").'" src="'.base_path() . path_to_theme() .$logo_Osha .'">'; ?>
                         </a>
                         <img class="pull-left" src="/<?php print $theme_dir . '/logo-eu.png'; ?>" alt="<?php print t('EU logo'); ?>" />
-                        <div class="header-text"><?php echo $head_text; ?></div>
+                        <div class="header-text"><?php echo $head_text; ?><span><?php print t('Coming soon') ?></span></div>
                     </div>
                     <div class="col-xs-12 col-sm-3 xs-menu">
                         <div class="header_top_bar">
@@ -147,7 +147,7 @@ if ($language->language=="en"){
                 <p><?php print t("European Agency for Safety and Health at Work | an agency of the European Union"); ?></p>
             </div>
         </div>
-        <div class="on-the-web"><span><?php print('Follow us:'); ?></span>
+        <div class="on-the-web"><span><?php print t('Follow us:'); ?></span>
           <?php $my_block = module_invoke('on_the_web', 'block_view', 'on_the_web'); print render($my_block['content']); ?>
         </div>
     </div>
