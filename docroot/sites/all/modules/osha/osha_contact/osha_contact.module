@@ -113,10 +113,10 @@ function contact_form_send($form, &$form_state) {
   You can stay up to date with new developments to our website by visiting our
   “<a href="@link1">What’s new</a>” pages
   and subscribing to our electronic
-  <a href="@link2" target="_blank">Healthy Workplaces Newsletter</a>.',
+  <a href="@link2">Healthy Workplaces Newsletter</a> newsletter.',
     array(
-      '@link1' => 'https://healthy-workplaces.eu/en/media-centre/events',
-      '@link2' => 'https://osha.europa.eu/en/oshmail-newsletter',
+      '@link1' => $base_url . '/news-events',
+      '@link2' => $base_url . '/healthy-workplaces-newsletter',
     )));
 }
 
