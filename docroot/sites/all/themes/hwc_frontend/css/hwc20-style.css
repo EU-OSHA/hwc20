@@ -7702,6 +7702,9 @@ body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text sp
   display: block;
   color: #ef0511;
 }
+body.rel1 .sticky-menu .col-sm-9 .header-text {
+  padding-top: 0!important;
+}
 body button,
 body .btn {
   border-radius: 5px;
