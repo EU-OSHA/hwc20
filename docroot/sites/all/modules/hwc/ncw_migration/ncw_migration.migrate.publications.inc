@@ -120,11 +120,19 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
       $row->field_related_publications[] = $this->handleSourceMigration('publications', $original_nid);
     }
     $row->field_tags = osha_migration_normalize_migrated_term_reference($row->field_tags, 'tax_tags');
-    $row->field_msd_priority_area = $row->field_msd_priority_areas;
     $row->field_msd_priority_area = osha_migration_normalize_migrated_term_reference($row->field_msd_priority_area, 'tax_msd_priority_area');
 
     $row->field_thesaurus = osha_migration_normalize_migrated_term_reference($row->field_thesaurus, 'tax_thesaurus');
-    $row->field_nace_codes = osha_migration_normalize_migrated_term_reference($row->field_nace_codes, 'tax_nace_codes');
+
+    $nace_codes = $row->field_nace_codes;
+    $row->field_nace_codes = [];
+    foreach ($nace_codes as $nace_code) {
+      $code = $nace_code['field_nace_code'][LANGUAGE_NONE][0]['value'];
+      $tid = osha_taxonomies_get_term_by_nace_code($code);
+      if ($tid) {
+        $row->field_nace_codes[] = $tid;
+      }
+    }
     $row->field_activity = osha_migration_normalize_migrated_term_reference($row->field_activity, 'tax_activity');
     if (empty($row->field_publication_type)) {
       watchdog(
