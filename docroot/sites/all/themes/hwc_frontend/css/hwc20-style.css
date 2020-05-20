@@ -2792,7 +2792,7 @@ body.good-practice-exchange .footer {
 .page-search .main-container #block-system-main .view .views-row .field-name-field-summary,
 .page-media-centre-press-room .main-container #block-system-main .view .views-row .field-name-field-summary,
 .page-media-centre-press-room .main-container #block-system-main .view .views-row .field-name-field-summary {
-  font-weight: normal;
+  font-weight: normal !important;
   margin-top: 0;
   padding-bottom: 2em;
 }
@@ -3691,143 +3691,13 @@ body.ocp .box-type-partner .pane-node-field-quote {
   clear: both;
   padding-left: 10px;
 }
+body.ocp .panels-flexible-row-partner_detail-16-inside .panels-flexible-region-first,
 body.mp .panels-flexible-row-partner_detail-16-inside .panels-flexible-region-first {
   float: right;
   padding-right: 0;
 }
+body.ocp .pane-node-field-orgtype .pane-title,
 body.mp .pane-node-field-orgtype .pane-title {
-  float: left;
-  text-transform: uppercase;
-  border: 2px solid #d9e996;
-  border-radius: 5px;
-  padding: 3px 8px;
-  color: #003399;
-  font-weight: 600;
-  margin-right: 10px;
-}
-body.mp .pane-node-field-orgtype .pane-content {
-  float: left;
-  color: #333;
-}
-body.mp .pane-node-field-orgtype .pane-content .field-name-field-orgtype {
-  padding-top: 4px;
-  font-weight: normal;
-}
-body.mp .pane-node-field-bussines-sector {
-  float: right;
-  padding-top: 0 !important;
-  margin-right: 2em;
-  clear: none;
-}
-body.mp .pane-node-field-bussines-sector .pane-title {
-  float: left;
-  text-transform: uppercase;
-  border: 2px solid #d9e996;
-  border-radius: 5px;
-  padding: 3px 8px;
-  color: #003399;
-  font-weight: 600;
-  margin-right: 10px;
-}
-body.mp .pane-node-field-bussines-sector .pane-content {
-  float: left;
-  color: #333;
-}
-body.mp .pane-node-field-bussines-sector .pane-content .field-type-taxonomy-term-reference {
-  padding-top: 4px;
-  font-weight: normal;
-}
-body.mp .panels-flexible-column-first .pane-node-field-country {
-  float: left;
-}
-body.mp .panels-flexible-column-first .pane-node-field-country.profile-inline-field {
-  float: left;
-  min-height: 11rem;
-  padding-top: 2.2rem;
-}
-body.mp .panels-flexible-column-first .pane-node-field-country.profile-inline-field .field-name-field-country img {
-  border: 0;
-  border: 1px solid #eaeaea;
-}
-body.mp .panels-flexible-column-first .pane-node-field-country .field-item {
-  font-size: 2rem;
-  font-weight: 600;
-}
-body.mp .panels-flexible-column-first .pane-node-field-website {
-  float: left;
-  width: 70%;
-}
-body.mp .panels-flexible-column-first .pane-node-field-website a {
-  font-style: normal;
-  width: auto;
-}
-body.mp .panels-flexible-column-first .pane-node-field-website a[target="_blank"]:after {
-  background-image: url(../images/target-blank.png);
-  background-size: 1rem 1rem;
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  content: "";
-  left: 0.5rem;
-  position: relative;
-}
-body.mp .panels-flexible-column-first .pane-node-field-ceo {
-  float: left;
-  width: 70%;
-  display: flex;
-  justify-content: flex-start;
-}
-body.mp .panels-flexible-column-first .pane-node-field-ceo .pane-title {
-  padding-right: 1.5rem;
-  font-weight: bold;
-}
-body.mp .panels-flexible-column-first .pane-node-field-mission-statement,
-body.mp .panels-flexible-column-first .pane-node-field-pledge {
-  background: transparent;
-  background-size: initial;
-  margin-top: 1em;
-  border-radius: 15px;
-  margin-bottom: 1em;
-}
-body.mp .panels-flexible-column-first .pane-node-field-mission-statement .pane-title,
-body.mp .panels-flexible-column-first .pane-node-field-pledge .pane-title {
-  float: none;
-  color: #003399;
-  font-weight: 500;
-  font-size: 1.5em;
-  padding: 0 0 10px 0;
-}
-body.mp .panels-flexible-column-first .pane-node-field-mission-statement .pane-content,
-body.mp .panels-flexible-column-first .pane-node-field-pledge .pane-content {
-  padding: 1em;
-  padding-left: 1em;
-  padding-right: 1em;
-  font-style: normal;
-  color: #000;
-  padding: 0;
-}
-body.mp .panels-flexible-column-first .pane-node-field-mission-statement {
-  margin: 2rem 0 2rem;
-}
-body.mp .panels-flexible-column-last .pane-node-field-country {
-  padding: 1rem 0;
-  display: flex;
-  font-weight: 600;
-}
-body.mp .panels-flexible-column-last .pane-node-field-general-phone {
-  padding: 0.5rem 0;
-}
-body.mp .panels-flexible-column-last .pane-custom {
-  padding-top: 3rem;
-}
-body.mp .panels-flexible-column-last .field-type-link-field {
-  margin-bottom: 0.5rem;
-}
-body.ocp .panels-flexible-row-partner_detail-16-inside .panels-flexible-region-first {
-  float: right;
-  padding-right: 0;
-}
-body.ocp .pane-node-field-orgtype .pane-title {
   float: left;
   text-transform: uppercase;
   border: 2px solid #d9e996;
@@ -3838,15 +3708,18 @@ body.ocp .pane-node-field-orgtype .pane-title {
   margin-right: 10px;
   margin-bottom: 10px;
 }
-body.ocp .pane-node-field-orgtype .pane-content {
+body.ocp .pane-node-field-orgtype .pane-content,
+body.mp .pane-node-field-orgtype .pane-content {
   float: left;
   color: #333;
 }
-body.ocp .pane-node-field-orgtype .pane-content .field-name-field-orgtype {
+body.ocp .pane-node-field-orgtype .pane-content .field-name-field-orgtype,
+body.mp .pane-node-field-orgtype .pane-content .field-name-field-orgtype {
   padding-top: 4px;
   font-weight: normal;
 }
-body.ocp .pane-node-field-bussines-sector {
+body.ocp .pane-node-field-bussines-sector,
+body.mp .pane-node-field-bussines-sector {
   float: right;
   padding-top: 0 !important;
   margin-right: 2em;
@@ -3854,7 +3727,8 @@ body.ocp .pane-node-field-bussines-sector {
   display: flex;
   flex-wrap: nowrap;
 }
-body.ocp .pane-node-field-bussines-sector .pane-title {
+body.ocp .pane-node-field-bussines-sector .pane-title,
+body.mp .pane-node-field-bussines-sector .pane-title {
   float: left;
   text-transform: uppercase;
   border: 2px solid #d9e996;
@@ -3866,20 +3740,25 @@ body.ocp .pane-node-field-bussines-sector .pane-title {
   display: flex;
   align-items: center;
 }
-body.ocp .pane-node-field-bussines-sector .pane-content {
+body.ocp .pane-node-field-bussines-sector .pane-content,
+body.mp .pane-node-field-bussines-sector .pane-content {
   float: left;
   color: #333;
 }
-body.ocp .pane-node-field-bussines-sector .pane-content .field-type-taxonomy-term-reference {
+body.ocp .pane-node-field-bussines-sector .pane-content .field-type-taxonomy-term-reference,
+body.mp .pane-node-field-bussines-sector .pane-content .field-type-taxonomy-term-reference {
   padding-top: 4px;
   font-weight: normal;
 }
-body.ocp .panels-flexible-column-first .field-name-field-country img {
+body.ocp .panels-flexible-column-first .field-name-field-country img,
+body.mp .panels-flexible-column-first .field-name-field-country img {
   border: 0;
   outline: 1px solid #eaeaea;
 }
 body.ocp .panels-flexible-column-first .pane-node-field-mission-statement,
-body.ocp .panels-flexible-column-first .pane-node-field-pledge {
+body.mp .panels-flexible-column-first .pane-node-field-mission-statement,
+body.ocp .panels-flexible-column-first .pane-node-field-pledge,
+body.mp .panels-flexible-column-first .pane-node-field-pledge {
   background: transparent;
   background-size: initial;
   margin-top: 1em;
@@ -3887,7 +3766,9 @@ body.ocp .panels-flexible-column-first .pane-node-field-pledge {
   margin-bottom: 1em;
 }
 body.ocp .panels-flexible-column-first .pane-node-field-mission-statement .pane-title,
-body.ocp .panels-flexible-column-first .pane-node-field-pledge .pane-title {
+body.mp .panels-flexible-column-first .pane-node-field-mission-statement .pane-title,
+body.ocp .panels-flexible-column-first .pane-node-field-pledge .pane-title,
+body.mp .panels-flexible-column-first .pane-node-field-pledge .pane-title {
   float: none;
   color: #003399;
   font-weight: 500;
@@ -3895,7 +3776,9 @@ body.ocp .panels-flexible-column-first .pane-node-field-pledge .pane-title {
   padding: 0 0 10px 0;
 }
 body.ocp .panels-flexible-column-first .pane-node-field-mission-statement .pane-content,
-body.ocp .panels-flexible-column-first .pane-node-field-pledge .pane-content {
+body.mp .panels-flexible-column-first .pane-node-field-mission-statement .pane-content,
+body.ocp .panels-flexible-column-first .pane-node-field-pledge .pane-content,
+body.mp .panels-flexible-column-first .pane-node-field-pledge .pane-content {
   padding: 1em;
   padding-left: 1em;
   padding-right: 1em;
@@ -3903,21 +3786,26 @@ body.ocp .panels-flexible-column-first .pane-node-field-pledge .pane-content {
   color: #000;
   padding: 0;
 }
-body.ocp .panels-flexible-column-first .pane-node-field-mission-statement {
+body.ocp .panels-flexible-column-first .pane-node-field-mission-statement,
+body.mp .panels-flexible-column-first .pane-node-field-mission-statement {
   margin: 2rem 0 2rem;
 }
-body.ocp .panels-flexible-column-last .pane-node-field-country {
+body.ocp .panels-flexible-column-last .pane-node-field-country,
+body.mp .panels-flexible-column-last .pane-node-field-country {
   padding: 1rem 0;
   display: flex;
 }
-body.ocp .panels-flexible-column-last .pane-node-field-website .field-type-link-field {
-  padding: 0 0 1rem 0;
+body.ocp .panels-flexible-column-last .pane-node-field-website .field-type-link-field,
+body.mp .panels-flexible-column-last .pane-node-field-website .field-type-link-field {
+  padding: 1em 0 1rem 0;
 }
-body.ocp .panels-flexible-column-last .pane-node-field-website .field-type-link-field a {
+body.ocp .panels-flexible-column-last .pane-node-field-website .field-type-link-field a,
+body.mp .panels-flexible-column-last .pane-node-field-website .field-type-link-field a {
   font-style: normal;
   width: auto;
 }
-body.ocp .panels-flexible-column-last .pane-node-field-website .field-type-link-field a[target="_blank"]:after {
+body.ocp .panels-flexible-column-last .pane-node-field-website .field-type-link-field a[target="_blank"]:after,
+body.mp .panels-flexible-column-last .pane-node-field-website .field-type-link-field a[target="_blank"]:after {
   background-image: url(../images/target-blank.png);
   background-size: 1rem 1rem;
   display: inline-block;
@@ -3927,34 +3815,45 @@ body.ocp .panels-flexible-column-last .pane-node-field-website .field-type-link-
   left: 0.5rem;
   position: relative;
 }
-body.ocp .panels-flexible-column-last .field-type-link-field {
+body.ocp .panels-flexible-column-last .field-type-link-field,
+body.mp .panels-flexible-column-last .field-type-link-field {
   margin-bottom: 0.5rem;
 }
-body.ocp .panels-flexible-column-last .pane-node-title-field {
+body.ocp .panels-flexible-column-last .pane-node-title-field,
+body.mp .panels-flexible-column-last .pane-node-title-field,
+body.ocp .panels-flexible-column-last .pane-node-title,
+body.mp .panels-flexible-column-last .pane-node-title {
   margin-top: 1.8rem;
 }
-body.ocp .panels-flexible-column-last .pane-node-field-general-phone {
+body.ocp .panels-flexible-column-last .pane-node-field-general-phone,
+body.mp .panels-flexible-column-last .pane-node-field-general-phone {
   padding: 0;
 }
-body.ocp .panels-flexible-column-last .pane-node-field-general-phone .pane-title {
+body.ocp .panels-flexible-column-last .pane-node-field-general-phone .pane-title,
+body.mp .panels-flexible-column-last .pane-node-field-general-phone .pane-title {
   float: none;
   padding: 0;
   font-weight: normal;
 }
-body.ocp .panels-flexible-column-last .pane-node-field-general-phone .pane-content {
+body.ocp .panels-flexible-column-last .pane-node-field-general-phone .pane-content,
+body.mp .panels-flexible-column-last .pane-node-field-general-phone .pane-content {
   float: none;
   padding: 0;
 }
-body.ocp .panels-flexible-column-last .field-name-title-field {
+body.ocp .panels-flexible-column-last .field-name-title-field,
+body.mp .panels-flexible-column-last .field-name-title-field {
   font-weight: normal;
 }
-body.ocp .panels-flexible-column-last .pane-node-field-ph-address {
+body.ocp .panels-flexible-column-last .pane-node-field-ph-address,
+body.mp .panels-flexible-column-last .pane-node-field-ph-address {
   padding-top: 0;
 }
-body.ocp .panels-flexible-column-last .pane-node-field-country {
+body.ocp .panels-flexible-column-last .pane-node-field-country,
+body.mp .panels-flexible-column-last .pane-node-field-country {
   padding: 0;
 }
-body.ocp .panels-flexible-column-last .pane-node-field-country .field-name-field-country {
+body.ocp .panels-flexible-column-last .pane-node-field-country .field-name-field-country,
+body.mp .panels-flexible-column-last .pane-node-field-country .field-name-field-country {
   padding: 0;
   font-size: 1.4rem;
   color: #000;
