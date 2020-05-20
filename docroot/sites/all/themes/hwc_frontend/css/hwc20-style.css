@@ -2792,7 +2792,7 @@ body.good-practice-exchange .footer {
 .page-search .main-container #block-system-main .view .views-row .field-name-field-summary,
 .page-media-centre-press-room .main-container #block-system-main .view .views-row .field-name-field-summary,
 .page-media-centre-press-room .main-container #block-system-main .view .views-row .field-name-field-summary {
-  font-weight: normal;
+  font-weight: normal !important;
   margin-top: 0;
   padding-bottom: 2em;
 }
