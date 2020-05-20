@@ -1058,10 +1058,11 @@ function osha_newsletter_file_get_contents($url) {
 }
 
 function osha_newsletter_crm_subscribe($email) {
-  $type = variable_get('crm_subscribe_type', 'CAMPAIGN');
-  $port = variable_get('crm_subscribe_port', '8081'); // 8082
-  $url = 'https://jira.osha.europa.eu:' . $port . '/OSHAService/ServiceApp.svc/subscriber?email=' . $email . '&type=' . $type;
-  $result = osha_newsletter_file_get_contents($url);
+  $type = variable_get('crm_subscribe_type', 1);
+  $port = variable_get('crm_subscribe_port', '8083'); // prod 8084. staging 8083
+  $path = variable_get('crm_subscribe_path', '/OshaService/OSHAService.svc/subscriber');
+  $url = 'https://jira.osha.europa.eu:' . $port . $path . '?email=' . $email . '&type=' . $type;
+  osha_newsletter_file_get_contents($url);
   drupal_set_message(t('You should receive a confirmation email in your inbox in the coming minutes. Otherwise, please check your spam folder. Thanks a lot for subscribing.'));
 }
 
