@@ -5,12 +5,14 @@ include_once 'hwc.features.inc';
 define('HWC_ROLE_ADMIN', 'administrator');
 // Website Managers - Editorial Team.
 define('HWC_ROLE_WEBSITE_MANAGERS', 'Website Managers');
+define('HWC_ROLE_READ_ONLY', 'Read only');
+define('HWC_ROLE_GPE_PLATFORM_EDITORS', 'GPE Platform Editors');
 define('HWC_ROLE_EEN_REVIEW_MANAGER', 'EU-OSHA EEN Reviewers');
 define('HWC_ROLE_HWC_STAFF_REVIEWERS', 'HWC Staff - Reviewers');
 
 define('HWC_ROLE_CAMPAIGN_PARTNER', 'campaign partner');
 // Mostra = supervisor.
-define('HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR', 'External Provider - Supervisor');
+define('HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR', 'External Provider');
 define('HWC_ROLE_SUPERADMIN', 'Superadministrators');
 
 define('HWC_SOLR_SEARCH_INDEX', 'default_multilingual_node_index');
@@ -65,6 +67,12 @@ function hwc_cron() {
  * hook_views_query_alter
  */
 function hwc_views_query_alter(&$view, &$query) {
+  if (($view->name == 'news') && (in_array($view->current_display, ['page_1', 'press_room']))) {
+    if (!empty($query->table_queue['field_data_field_show_on'])) {
+      $query->table_queue['field_data_field_show_on']['join']->type = "LEFT";
+    }
+  }
+
   if ($view->name == 'first_publication_date_update') {
     $view->query->table_queue['node_revision']['join']->left_field = 'nid';
     $view->query->table_queue['node_revision']['join']->field = 'nid';
@@ -256,7 +264,7 @@ function hwc_menu() {
     'title' => 'Toggle splash mode',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('hwc_splash_mode_form'),
-    'access arguments' => array('configure hwc website'),
+    'access arguments' => array('administer site configuration'),
     'file' => 'hwc_admin.pages.inc',
     'type' => MENU_NORMAL_ITEM,
   );
@@ -1741,6 +1749,8 @@ function hwc_workbench_access_node_element_alter(&$element, $form_state, $active
  * Implements hook_node_presave().
  */
 function hwc_node_presave($node) {
+  global $user, $language;
+
   // Set section to default one for the nodes that have section field hidden.
   $allow_section_field = _hwc_get_allowed_section_node_types();
   if (!in_array($node->type, $allow_section_field) && variable_get('workbench_access_node_type_' . $node->type, FALSE)) {

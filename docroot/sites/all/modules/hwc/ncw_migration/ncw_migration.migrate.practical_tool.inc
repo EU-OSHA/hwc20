@@ -57,6 +57,7 @@ class NCWMSDMigration extends AbstractNCWNodeMigration {
     $map = array_keys($this->getTermReferenceFieldsMap());
     $map[] = 'field_msd_provider';
     $map[] = 'field_modified_date';
+//    $map[] = 'field_sector_industry_covered';
     return $map;
   }
 
@@ -66,6 +67,7 @@ class NCWMSDMigration extends AbstractNCWNodeMigration {
   public function prepare($entity, stdClass $row) {
     parent::prepare($entity, $row);
     $this->new_providers = [];
+
 
     // Language_field fix.
     if ($entity->field_available_in_languages) {
@@ -149,6 +151,9 @@ class NCWMSDMigration extends AbstractNCWNodeMigration {
     // Disable NCW alias.
     $row->path = NULL;
     foreach ($this->getTermReferenceFieldsMap() as $taxonomy => $vocabulary) {
+      if ($taxonomy == 'field_sector_industry_covered') {
+        continue;
+      }
       if ($row->{$taxonomy}) {
         $orig_taxonomies = $row->{$taxonomy};
         $row->{$taxonomy} = osha_migration_normalize_migrated_term_reference($row->{$taxonomy}, 'tax_' . $vocabulary);
@@ -156,6 +161,17 @@ class NCWMSDMigration extends AbstractNCWNodeMigration {
           foreach ($orig_taxonomies as $orig_taxonomy) {
             watchdog('ncw_migration', "[BUG]Cannot find taxonomy '" . serialize($orig_taxonomy) . "', for $vocabulary", array(), WATCHDOG_ERROR);
           }
+        }
+      }
+    }
+    $sector_industry_covered = $row->field_sector_industry_covered;
+    if (!empty($sector_industry_covered)) {
+      $row->field_sector_industry_covered = [];
+      foreach ($sector_industry_covered as $nace_code) {
+        $code = $nace_code['field_nace_code'][LANGUAGE_NONE][0]['value'];
+        $tid = osha_taxonomies_get_term_by_nace_code($code);
+        if ($tid) {
+          $row->field_sector_industry_covered[] = $tid;
         }
       }
     }
