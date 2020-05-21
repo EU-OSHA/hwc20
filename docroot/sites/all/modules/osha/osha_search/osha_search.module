@@ -213,7 +213,7 @@ function osha_search_get_exclude_search_articles() {
     FROM {node} n
     JOIN {field_data_field_article_type} t on (t.entity_id = n.nid) and (t.field_article_type_tid = :tid)
     WHERE n.type = :type AND n.status = 1';
-  $result = db_query($query, array(':type' => 'article', ':tid' => 74));
+  $result = db_query($query, array(':type' => 'article', ':tid' => variable_get('exclude_article_type_tid', 74)));
   foreach ($result as $row) {
     $article_nids[$row->nid] = '(is_nid:"' . $row->nid . '")';
   }
