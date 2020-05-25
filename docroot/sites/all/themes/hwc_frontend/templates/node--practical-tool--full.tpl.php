@@ -95,10 +95,11 @@ if (!empty($content['body'])) {
 if (!empty($content['field_body_original'])) {
   $content['field_body_original']['#title'] = t('Description');
 }
+$original_languages = [];
 if ($node->field_original_desc_language && $node->field_original_desc_language['und'][0]['value']) {
-  $original_language = $node->field_original_desc_language['und'][0]['value'];
+  $original_languages = $node->field_original_desc_language['und'];
 }
-$exclude_fields = hwc_practical_tools_get_exclude_fields($original_language);
+$exclude_fields = hwc_practical_tools_get_exclude_fields($original_languages);
 $map = [
   'title_field' => 'field_title_original',
   'field_title_original' => 'title_field',
