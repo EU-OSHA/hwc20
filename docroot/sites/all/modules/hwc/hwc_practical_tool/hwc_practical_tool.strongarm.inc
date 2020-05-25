@@ -221,18 +221,10 @@ function hwc_practical_tool_strongarm() {
             'weight' => '0',
             'visible' => TRUE,
           ),
-          'priority_areas' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
         ),
         'bottom_share_widget' => array(
           'default' => array(
             'weight' => '11',
-            'visible' => TRUE,
-          ),
-          'priority_areas' => array(
-            'weight' => '2',
             'visible' => TRUE,
           ),
         ),
@@ -294,6 +286,16 @@ function hwc_practical_tool_strongarm() {
   $strongarm->name = 'pathauto_node_practical_tool_pattern';
   $strongarm->value = 'tools-and-publications/practical-tools/[node:title]';
   $export['pathauto_node_practical_tool_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'xmlsitemap_settings_node_practical_tool';
+  $strongarm->value = array(
+    'status' => '1',
+    'priority' => '0.5',
+  );
+  $export['xmlsitemap_settings_node_practical_tool'] = $strongarm;
 
   return $export;
 }
