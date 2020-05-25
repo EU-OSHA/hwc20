@@ -128,6 +128,12 @@ function hwc_menu_alter(&$items) {
 
   $items['user/password']['title'] = t('Create / Forgot password');
   $items['user/password']['weight'] = 10;
+
+  // Remove pages from access administration pages permission.
+  $items['admin/structure']['access arguments'] = array('hwc access administration pages');
+  $items['admin/config']['access arguments'] = array('hwc access administration pages');
+  $items['admin/content/newsletter']['access arguments'] = array('hwc access administration pages');
+  $items['admin/content/partners']['access arguments'] = array('hwc access administration pages');
 }
 
 function hwc_disable_taxonomy_term_feed() {
@@ -146,6 +152,9 @@ function hwc_permission() {
     'configure hwc website' => array(
       'title' => t('Configure campaigns website'),
       'description' => t('Access the HCW configuration screen'),
+    ),
+    'hwc access administration pages' => array(
+      'title' => t('HWC Use the administration pages and help'),
     ),
   );
 }
