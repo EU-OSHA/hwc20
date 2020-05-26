@@ -4571,8 +4571,7 @@ body.een .box-type-partner {
 }
 span.add-to-my-calendar {
   display: block;
-  float: left;
-  margin-left: 400px;
+  float: right;
 }
 .group-right2 span.add-to-my-calendar {
   float: none;
@@ -7746,10 +7745,6 @@ body .form-control {
   }
 }
 @media (max-width: 1200px) {
-  /*Events calendar*/
-  span.add-to-my-calendar {
-    margin-left: 166px;
-  }
   .intro-splash-20 .views-row-first h1 {
     padding-top: 0.5em;
   }
@@ -7949,6 +7944,11 @@ body .form-control {
   }
   .page_title h1 {
     width: 65%;
+  }
+  .page-media-centre-events .view-events-search span.add-to-my-calendar {
+    display: block;
+    float: left;
+    margin-left: 400px;
   }
 }
 @media (max-width: 1465px) {
