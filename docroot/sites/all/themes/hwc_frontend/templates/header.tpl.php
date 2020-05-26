@@ -14,7 +14,7 @@ if ($language->language=="en"){
 $theme_dir = drupal_get_path('theme', 'hwc_frontend');
 $coming_soon = '';
 if (variable_get('splash_mode', FALSE)) {
-  $coming_soon = t('Coming soon');
+  $coming_soon = '<span>' . t('Coming soon') . '</span>';
 }
 ?>
 <?php if (!empty($page['above_header'])): ?>
@@ -32,7 +32,7 @@ if (variable_get('splash_mode', FALSE)) {
               <?php print '<img class="pull-left" alt="'.t("EU-OSHA logo").'" src="'.base_path() . path_to_theme() .$logo_osha .'">'; ?>
             </a>
             <img class="pull-left" src="/<?php print $theme_dir . '/logo-eu.png'; ?>" alt="<?php print t('EU logo'); ?>" />
-              <div class="header-text"><?php echo $head_text; ?><span><?php print $coming_soon; ?></span></div>
+              <div class="header-text"><?php echo $head_text; ?><?php print $coming_soon; ?></div>
           </div>
           <div class="col-xs-12 col-sm-3 xs-menu">
             <div class="header_top_bar">
