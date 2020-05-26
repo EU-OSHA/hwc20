@@ -3343,10 +3343,13 @@ div.workbench-info-block {
 }
 .page-campaign-partners .hwc-share-widget {
   float: right;
-  padding-right: 1em;
+  padding-right: 25px;
 }
 .page-campaign-partners .field-name-body {
   clear: both;
+}
+.page-campaign-partners .share-this-article {
+  float: none !important;
 }
 .profile-title-type-container {
   margin-bottom: 0em !important;
