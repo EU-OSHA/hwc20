@@ -7940,6 +7940,14 @@ body .form-control {
   body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .views-exposed-widget {
     width: 31.1%!important;
   }
+  .page-events .region-content #block-system-main .views-exposed-widgets #edit_field_country_code_chosen,
+  .page-events .region-content #block-system-main .views-exposed-widgets #edit_years_chosen {
+    width: 196px!important;
+    height: auto;
+    min-height: 33px;
+    margin-top: 2px;
+    cursor: inherit;
+  }
 }
 @media (min-width: 1480px) {
   .start-browsing .content-boxes {
@@ -8477,15 +8485,9 @@ body .form-control {
   .page-events .region.region-content #block-system-main .views-exposed-widgets .form-control {
     width: 299px!important;
     border-radius: 5px;
-    background: url(../images/green-select.png) no-repeat scroll 94% center #ffffff !important;
   }
   .page-events .region.region-content #block-system-main .views-exposed-widgets #edit-years {
     width: 299px!important;
-  }
-  .page-events .region.region-content #block-system-main .views-exposed-widgets #edit-submit-events-search {
-    left: 0px;
-    top: 73px;
-    position: absolute;
   }
   .page-events .col-md-9 {
     clear: both;
@@ -8832,7 +8834,7 @@ body .form-control {
     margin-top: 2em;
   }
   .page-events .region.region-content #block-system-main .views-exposed-widgets .form-control {
-    width: 152px!important;
+    width: 200px!important;
   }
   #block-osha-events-osha-events-dates {
     margin-left: 15px;
@@ -8849,10 +8851,6 @@ body .form-control {
     width: auto !important;
     margin-top: 1em;
     margin-right: 0.5em;
-  }
-  .page-events .region.region-content #block-system-main .views-exposed-widgets #edit-submit-events-search {
-    left: 169px;
-    top: 24px;
   }
   .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node {
     position: relative;
