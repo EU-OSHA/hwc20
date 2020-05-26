@@ -5378,6 +5378,10 @@ body.european-week .more-link {
   display: block;
   clear: both;
 }
+/* HW20-785 */
+body.press-room .media-body {
+  padding-bottom: 2em;
+}
 body.european-week #european_week_date {
   color: #FFF;
   font-size: 2.2em;
