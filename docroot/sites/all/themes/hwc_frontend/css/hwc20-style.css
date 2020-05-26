@@ -7215,6 +7215,9 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   float: left;
   padding-right: 1em;
 }
+.page-about-topic-glossary-list #glossary-letters span a {
+  font-weight: 700;
+}
 .page-about-topic-glossary-list .content-term .glossary_letter {
   color: #003399;
   font-size: 2rem;
