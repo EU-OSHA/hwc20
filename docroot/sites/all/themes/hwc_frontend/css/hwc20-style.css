@@ -8552,8 +8552,12 @@ body .form-control {
     margin-right: 0 !important;
   }
   body.press-room .related-resources-boxes div {
-    width: 25%;
+    width: 30%;
     margin-right: 0em;
+  }
+  body.press-room .related-resources-boxes div .recommended-tool span {
+    text-align: right;
+    padding-right: 10px;
   }
   body.press-room #block-hwc-page-share-widget .hwc-share-widget {
     display: none;
