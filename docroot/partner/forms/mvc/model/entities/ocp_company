@@ -530,6 +530,7 @@
     "comrep_osh_mediaproshlastname" : "osh_mediaproshlastname",
     "comrep_osh_prefixmediaprphone" : "osh_prefixmediaprphone",
     "comrep_osh_emailmediapr" : "osh_emailmediapr",
-    "comrep_osh_phonemediapr" : "osh_phonemediapr"
+    "comrep_osh_phonemediapr" : "osh_phonemediapr",
+    "company_osh_dedicatedsite": "osh_dedicatedsite"
   }
 }
