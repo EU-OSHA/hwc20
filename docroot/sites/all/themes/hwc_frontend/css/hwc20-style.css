@@ -101,6 +101,9 @@ body.logged-in .navbar-header .col-xs-12.col-sm-9.toolbar-no {
 body.logged-in.ocp .navbar-header .col-xs-12.col-sm-9 {
   padding-top: 0;
 }
+body.logged-in.ocp.act-as-partner .navbar-header .col-xs-12.col-sm-9 {
+  padding-top: 15px;
+}
 .date {
   display: block;
   width: 100%;
@@ -1420,13 +1423,13 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   border: 0;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
   height: 125px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  padding-bottom: 25px;
+  padding-bottom: 20px;
 }
 .content {
   margin-top: 3em;
@@ -3343,10 +3346,13 @@ div.workbench-info-block {
 }
 .page-campaign-partners .hwc-share-widget {
   float: right;
-  padding-right: 1em;
+  padding-right: 25px;
 }
 .page-campaign-partners .field-name-body {
   clear: both;
+}
+.page-campaign-partners .share-this-article {
+  float: none !important;
 }
 .profile-title-type-container {
   margin-bottom: 0em !important;
@@ -4568,8 +4574,7 @@ body.een .box-type-partner {
 }
 span.add-to-my-calendar {
   display: block;
-  float: left;
-  margin-left: 400px;
+  float: right;
 }
 .group-right2 span.add-to-my-calendar {
   float: none;
@@ -5375,6 +5380,10 @@ body.press-room .more-link,
 body.european-week .more-link {
   display: block;
   clear: both;
+}
+/* HW20-785 */
+body.press-room .media-body {
+  padding-bottom: 2em;
 }
 body.european-week #european_week_date {
   color: #FFF;
@@ -7213,6 +7222,9 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   float: left;
   padding-right: 1em;
 }
+.page-about-topic-glossary-list #glossary-letters span a {
+  font-weight: 700;
+}
 .page-about-topic-glossary-list .content-term .glossary_letter {
   color: #003399;
   font-size: 2rem;
@@ -7597,10 +7609,13 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
 .page-partners-documents .region.region-content .view-search .view-content .views-row .views-field-field-document-files {
   margin-top: 0;
 }
-.node-type-pa-highlights .node-pa-highlights .field-name-field-image {
+.node-type-pa-highlights .main-container .node-pa-highlights h2 {
+  padding-top: 1em;
+}
+.node-type-pa-highlights .main-container .node-pa-highlights .field-name-field-image {
   float: left;
 }
-.node-type-pa-highlights .node-pa-highlights .field-name-field-image img {
+.node-type-pa-highlights .main-container .node-pa-highlights .field-name-field-image img {
   margin-top: 0.3em;
   margin-bottom: 0em;
   margin-right: 1em;
@@ -7740,10 +7755,6 @@ body .form-control {
   }
 }
 @media (max-width: 1200px) {
-  /*Events calendar*/
-  span.add-to-my-calendar {
-    margin-left: 166px;
-  }
   .intro-splash-20 .views-row-first h1 {
     padding-top: 0.5em;
   }
@@ -7936,10 +7947,26 @@ body .form-control {
   body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .views-exposed-widget {
     width: 31.1%!important;
   }
+  .page-events .region-content #block-system-main .views-exposed-widgets #edit_field_country_code_chosen,
+  .page-events .region-content #block-system-main .views-exposed-widgets #edit_years_chosen {
+    width: 172px!important;
+    height: auto;
+    min-height: 33px;
+    margin-top: 2px;
+    cursor: inherit;
+  }
 }
 @media (min-width: 1480px) {
   .start-browsing .content-boxes {
     width: 72%;
+  }
+  .page_title h1 {
+    width: 65%;
+  }
+  .page-media-centre-events .view-events-search span.add-to-my-calendar {
+    display: block;
+    float: left;
+    margin-left: 400px;
   }
 }
 @media (max-width: 1465px) {
@@ -8158,8 +8185,10 @@ body .form-control {
   }
   .page_title h1 {
     font-size: 2.6em;
-    width: 480px;
-    padding-bottom: 0.5em;
+    width: 100%;
+    display: flex;
+    padding-bottom: 0;
+    align-items: center;
   }
   #block-text-resize-0,
   #block-hwc-hwc-print-friendly {
@@ -8463,15 +8492,9 @@ body .form-control {
   .page-events .region.region-content #block-system-main .views-exposed-widgets .form-control {
     width: 299px!important;
     border-radius: 5px;
-    background: url(../images/green-select.png) no-repeat scroll 94% center #ffffff !important;
   }
   .page-events .region.region-content #block-system-main .views-exposed-widgets #edit-years {
     width: 299px!important;
-  }
-  .page-events .region.region-content #block-system-main .views-exposed-widgets #edit-submit-events-search {
-    left: 0px;
-    top: 73px;
-    position: absolute;
   }
   .page-events .col-md-9 {
     clear: both;
@@ -8532,8 +8555,12 @@ body .form-control {
     margin-right: 0 !important;
   }
   body.press-room .related-resources-boxes div {
-    width: 25%;
+    width: 30%;
     margin-right: 0em;
+  }
+  body.press-room .related-resources-boxes div .recommended-tool span {
+    text-align: right;
+    padding-right: 10px;
   }
   body.press-room #block-hwc-page-share-widget .hwc-share-widget {
     display: none;
@@ -8818,7 +8845,7 @@ body .form-control {
     margin-top: 2em;
   }
   .page-events .region.region-content #block-system-main .views-exposed-widgets .form-control {
-    width: 152px!important;
+    width: 200px!important;
   }
   #block-osha-events-osha-events-dates {
     margin-left: 15px;
@@ -8835,10 +8862,6 @@ body .form-control {
     width: auto !important;
     margin-top: 1em;
     margin-right: 0.5em;
-  }
-  .page-events .region.region-content #block-system-main .views-exposed-widgets #edit-submit-events-search {
-    left: 169px;
-    top: 24px;
   }
   .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node {
     position: relative;

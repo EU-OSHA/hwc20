@@ -198,8 +198,10 @@
 
 	.page_title h1{
 		font-size: 2.6em;
-	    width: 480px;
-	    padding-bottom: 0.5em;
+	    width: 100%;
+	    display: flex;
+	    padding-bottom: 0;
+    	align-items: center;
 	}
 
 	#block-text-resize-0, #block-hwc-hwc-print-friendly{
@@ -593,15 +595,9 @@
 					.form-control{
 						width: 299px!important;
 						border-radius: 5px;
-						background: url(../images/green-select.png) no-repeat scroll 94% center #ffffff !important;
 					}
 					#edit-years{
 						width: 299px!important;
-					}
-					#edit-submit-events-search {
-					    left: 0px;
-					    top: 73px;
-					    position: absolute;
 					}
 				}
 			} 
@@ -686,8 +682,14 @@
 		}
 
 		.related-resources-boxes div{
-			width: 25%;
+			width: 30%;
 			margin-right: 0em;
+			.recommended-tool{
+				span{
+					text-align: right;
+					padding-right: 10px;
+				}
+			}
 		}
 
 		#block-hwc-page-share-widget{
@@ -1065,7 +1067,7 @@
 	}
 
 	.page-events .region.region-content #block-system-main .views-exposed-widgets .form-control {
-    	width: 152px!important;
+    	width: 200px!important;
 	}
 
 	#block-osha-events-osha-events-dates{
@@ -1084,11 +1086,6 @@
 	    width: auto !important;
 	    margin-top: 1em;
 	    margin-right: 0.5em;
-	}
-
-	.page-events .region.region-content #block-system-main .views-exposed-widgets #edit-submit-events-search {
-	    left: 169px;
-	    top: 24px;
 	}
 
 	.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node {

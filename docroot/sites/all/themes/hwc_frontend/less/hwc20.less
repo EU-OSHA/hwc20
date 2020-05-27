@@ -124,7 +124,10 @@ body.logged-in .navbar-header .col-xs-12.col-sm-9.toolbar-no{
 
 body.logged-in.ocp .navbar-header .col-xs-12.col-sm-9{
 	padding-top: 0;
+}
 
+body.logged-in.ocp.act-as-partner .navbar-header .col-xs-12.col-sm-9{
+	padding-top: 15px;
 }
 
 
@@ -1622,7 +1625,6 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 	margin-bottom: 2em;
 	float: left;
 	width: 100%;
-
 	h1{
 		color: #FFF;
 		font-size: 3.2em;
@@ -1630,13 +1632,13 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 		border:0;
 		margin-top: 0 !important;
 		margin-bottom: 0 !important;
-	    width: 100%;
+	    width: 80%;
 	    margin: 0 auto;
 	    height: 125px;
     	display: flex;
-    	align-items: flex-end;
+    	align-items: center;
     	justify-content: center;
-   	 	padding-bottom: 25px;
+   	 	padding-bottom: 20px;
 	}
 }
 
@@ -3814,10 +3816,13 @@ div.workbench-info-block{
 .page-campaign-partners{
 	.hwc-share-widget{
 		float: right;
-		padding-right: 1em;
+		padding-right: 25px;
 	}
 	.field-name-body{
 		clear: both;
+	}
+	.share-this-article{
+		float: none !important;
 	}
 }
 
@@ -5217,8 +5222,7 @@ body{
 
 span.add-to-my-calendar{
 	display: block;
-	float: left;
-	margin-left: 400px;
+	float: right;
 }
 
 .group-right2 span.add-to-my-calendar{
@@ -6062,6 +6066,11 @@ body.press-room, body.european-week{
 		display: block;
 		clear: both;
 	}
+}
+
+/* HW20-785 */
+body.press-room .media-body{
+    padding-bottom: 2em;
 }
 
 body.european-week{
@@ -8280,6 +8289,9 @@ body.page-tools-and-publications-practical-tools{
 			display: block;
 			float: left;
 			padding-right: 1em;
+			a{
+				font-weight: 700;
+			}
     	}
 	}
 
@@ -8773,15 +8785,20 @@ body.video-page{
 }
 
 .node-type-pa-highlights{
-	.node-pa-highlights{
-		.field-name-field-image{
-		float: left;
-			img{
-				margin-top: 0.3em;
-				margin-bottom: 0em;
-				margin-right: 1em;
+	.main-container{
+		.node-pa-highlights{
+			h2{
+				padding-top: 1em;
 			}
+			.field-name-field-image{
+			float: left;
+				img{
+					margin-top: 0.3em;
+					margin-bottom: 0em;
+					margin-right: 1em;
+				}
 
+			}
 		}
 	}
 }
