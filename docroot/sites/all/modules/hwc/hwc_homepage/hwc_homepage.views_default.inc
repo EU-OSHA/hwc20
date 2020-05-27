@@ -1368,7 +1368,7 @@ function hwc_homepage_views_default_views() {
   $handler->display->display_options['fields']['field_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'image_style' => '',
+    'image_style' => 'banner_1',
     'image_link' => '',
     'field_formatter_class' => '',
   );
@@ -1607,7 +1607,7 @@ function hwc_homepage_views_default_views() {
   $handler->display->display_options['title'] = 'Partners';
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['access']['perm'] = 'view the administration theme';
+  $handler->display->display_options['access']['perm'] = 'hwc access administration pages';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '25';
