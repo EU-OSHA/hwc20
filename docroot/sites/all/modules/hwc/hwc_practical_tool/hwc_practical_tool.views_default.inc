@@ -555,7 +555,8 @@ function hwc_practical_tool_views_default_views() {
     'more_link' => '1',
     'more_text' => 'Read more',
     'trim_options' => array(
-      'text' => 0,
+      'text' => 'text',
+      'use_field_summary' => 0,
     ),
     'trim_preserve_tags' => '',
     'field_formatter_class' => '',

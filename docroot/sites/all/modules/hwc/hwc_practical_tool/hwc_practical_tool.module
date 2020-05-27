@@ -104,6 +104,7 @@ function hwc_practical_tool_search_api_solr_query_alter(array &$call_args, Searc
       }
       $call_args['params']['sort'] .= $sort_order;
     }
+    $call_args['params']['sort'] .= ', sort_title2 asc';
     foreach($call_args['params']['fq'] as &$fq) {
       if (strpos($fq, 'field_available_in_languages')) {
         $key = variable_get('available_in_languages_solr_key', 'sm_field_available_in_languages\:value:');
