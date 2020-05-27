@@ -124,7 +124,10 @@ body.logged-in .navbar-header .col-xs-12.col-sm-9.toolbar-no{
 
 body.logged-in.ocp .navbar-header .col-xs-12.col-sm-9{
 	padding-top: 0;
+}
 
+body.logged-in.ocp.act-as-partner .navbar-header .col-xs-12.col-sm-9{
+	padding-top: 15px;
 }
 
 
@@ -1622,7 +1625,6 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 	margin-bottom: 2em;
 	float: left;
 	width: 100%;
-
 	h1{
 		color: #FFF;
 		font-size: 3.2em;
@@ -1630,13 +1632,13 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 		border:0;
 		margin-top: 0 !important;
 		margin-bottom: 0 !important;
-	    width: 100%;
+	    width: 80%;
 	    margin: 0 auto;
 	    height: 125px;
     	display: flex;
-    	align-items: flex-end;
+    	align-items: center;
     	justify-content: center;
-   	 	padding-bottom: 25px;
+   	 	padding-bottom: 20px;
 	}
 }
 
@@ -3814,10 +3816,13 @@ div.workbench-info-block{
 .page-campaign-partners{
 	.hwc-share-widget{
 		float: right;
-		padding-right: 1em;
+		padding-right: 25px;
 	}
 	.field-name-body{
 		clear: both;
+	}
+	.share-this-article{
+		float: none !important;
 	}
 }
 
@@ -5217,8 +5222,7 @@ body{
 
 span.add-to-my-calendar{
 	display: block;
-	float: left;
-	margin-left: 400px;
+	float: right;
 }
 
 .group-right2 span.add-to-my-calendar{
@@ -6062,6 +6066,11 @@ body.press-room, body.european-week{
 		display: block;
 		clear: both;
 	}
+}
+
+/* HW20-785 */
+body.press-room .media-body{
+    padding-bottom: 2em;
 }
 
 body.european-week{
@@ -8280,6 +8289,9 @@ body.page-tools-and-publications-practical-tools{
 			display: block;
 			float: left;
 			padding-right: 1em;
+			a{
+				font-weight: 700;
+			}
     	}
 	}
 
@@ -8773,15 +8785,20 @@ body.video-page{
 }
 
 .node-type-pa-highlights{
-	.node-pa-highlights{
-		.field-name-field-image{
-		float: left;
-			img{
-				margin-top: 0.3em;
-				margin-bottom: 0em;
-				margin-right: 1em;
+	.main-container{
+		.node-pa-highlights{
+			h2{
+				padding-top: 1em;
 			}
+			.field-name-field-image{
+			float: left;
+				img{
+					margin-top: 0.3em;
+					margin-bottom: 0em;
+					margin-right: 1em;
+				}
 
+			}
 		}
 	}
 }
@@ -8944,6 +8961,138 @@ body{
 		}
 		img{
 			margin-right: 5px;
+		}
+	}
+}
+
+
+/* MHWC-28 - Homogeneise */
+body.mp{
+	.panels-flexible-row-partner_detail-16-inside .panels-flexible-region-first {
+		float: right;
+		padding-right: 0;
+	}
+
+	.pane-node-field-orgtype{
+		.pane-title{
+			float: left;
+			text-transform: uppercase;
+			border: 2px solid #d9e996;
+			border-radius: 5px;
+			padding: 3px 8px;
+			color: #003399;
+			font-weight: 600;
+			margin-right: 10px;
+		}
+		.pane-content{
+			float: left;
+			color: #333;
+			.field-name-field-orgtype{
+				padding-top: 4px;
+				font-weight: normal;
+			}
+		}
+	}
+
+	.pane-node-field-bussines-sector{
+		float: right;
+		padding-top: 0 !important;
+		margin-right: 2em;
+		clear: none;
+		.pane-title{
+			float: left;
+			text-transform: uppercase;
+			border: 2px solid #d9e996;
+			border-radius: 5px;
+			padding: 3px 8px;
+			color: #003399;
+			font-weight: 600;
+			margin-right: 10px;
+		}
+		.pane-content{
+			float: left;
+			color: #333;
+			.field-type-taxonomy-term-reference{
+				padding-top: 4px;
+				font-weight: normal;
+			}
+		}
+	}
+
+	.panels-flexible-column-first{
+		.pane-node-field-country{
+			float: left;
+			&.profile-inline-field{
+				float: left;
+				min-height: 11rem;
+				padding-top: 2.2rem;
+				.field-name-field-country{					
+					img{
+						border: 0;
+						border: 1px solid #eaeaea;
+					}
+				}				
+			}
+			.field-item{
+			    font-size: 2rem;
+			    font-weight: 600;
+			}
+
+		}
+		.pane-node-field-website{
+			float: left;
+    		width: 70%;
+			a{
+			    font-style: normal;
+			    width: auto;
+			    &[target="_blank"]:after{
+			    	background-image: url(../images/target-blank.png);
+				    background-size: 1rem 1rem;
+				    display: inline-block;
+				    width: 1rem; 
+				    height: 1rem;
+				    content:"";
+				    left: 0.5rem;
+				    position: relative;
+			    }
+			}
+		}
+		.pane-node-field-ceo{
+			float: left;
+    		width: 70%;
+    		display: flex;
+    		justify-content: flex-start;
+    		.pane-title{
+				padding-right: 1.5rem;
+				font-weight: bold;
+    		}
+		 }
+		.pane-node-field-mission-statement, 
+		.pane-node-field-pledge{
+			background: transparent;
+			background-size: initial;
+			margin-top: 1em;
+			border-radius: 15px;
+			margin-bottom: 1em;
+			.pane-title{
+				float: none;
+				color: #003399;
+				font-weight: 600;
+				font-size: 1.5em;
+				padding: 0 0 10px 0;
+			}
+
+			.pane-content{
+				padding: 1em;
+				padding-left: 1em;
+				padding-right: 1em;
+				font-style: normal;
+				color: #000;
+				padding: 0;
+			}
+		}
+		.pane-node-field-mission-statement{
+			margin: 2rem 0 2rem;
 		}
 	}
 }
