@@ -115,19 +115,19 @@ class Sidebar extends Controller implements IController
 
             foreach ($attributes as $name => &$attribute) {
 
-                if($params->getUrlParamValue('partner_type') != 'current'){  
-
+                
+                
+                 /*if($params->getUrlParamValue('partner_type') == 'current' && 2==3){
                   if($name=="contact_osh_mainemail" && $attribute->getValue()){
                     $mcemail = $attribute->getValue();
                   }
-                if($name=="contact_osh_maincontactpersonfirstname" && $attribute->getValue()){
+                 if($name=="contact_osh_maincontactpersonfirstname" && $attribute->getValue()){
                     $mcname = $attribute->getValue();
                   }
-                if($name=="contact_osh_maincontactpersonlastname" && $attribute->getValue()){
+                   if($name=="contact_osh_maincontactpersonlastname" && $attribute->getValue()){
                     $mcsurname = $attribute->getValue();
                   }
-                } 
-
+                 }*/
 
                 if($params->getUrlParamValue('partner_type') == 'current'){
                     if($name == "osh_primarycontactsection" && $attribute->getValue()){
@@ -235,8 +235,8 @@ class Sidebar extends Controller implements IController
         $params->set('route', $originalRoute);
         error_log("EVE_CSM_5_" . var_export($sections, true));
 
-        if($mcsurname!="" && $mcsurname!="" && $mcemail!=""){
-            $sections["PRIMARY_CONTACT"] = true;
+        if ($primarycontactsection == true){
+            $sections["PRIMARY_CONTACT"] = 1;
         }
 
         return $sections;
