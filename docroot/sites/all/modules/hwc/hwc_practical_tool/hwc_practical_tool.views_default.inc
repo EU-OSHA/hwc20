@@ -187,7 +187,7 @@ function hwc_practical_tool_views_default_views() {
   $handler->display->display_options['fields']['field_material_country']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['field_material_country']['view_mode'] = 'full';
   $handler->display->display_options['fields']['field_material_country']['bypass_access'] = 0;
-  /* Field: Indexed Multilingual Content: Languages */
+  /* Field: Indexed Multilingual Content: Available in languages */
   $handler->display->display_options['fields']['field_available_in_languages']['id'] = 'field_available_in_languages';
   $handler->display->display_options['fields']['field_available_in_languages']['table'] = 'search_api_index_default_multilingual_node_index';
   $handler->display->display_options['fields']['field_available_in_languages']['field'] = 'field_available_in_languages';
@@ -262,7 +262,7 @@ function hwc_practical_tool_views_default_views() {
     'trim_preserve_tags' => '',
     'field_formatter_class' => '',
   );
-  /* Field: Indexed Multilingual Content: Description (original language) */
+  /* Field: Indexed Multilingual Content: Content (original language) */
   $handler->display->display_options['fields']['field_body_original']['id'] = 'field_body_original';
   $handler->display->display_options['fields']['field_body_original']['table'] = 'search_api_index_default_multilingual_node_index';
   $handler->display->display_options['fields']['field_body_original']['field'] = 'field_body_original';
@@ -283,7 +283,7 @@ function hwc_practical_tool_views_default_views() {
     'trim_preserve_tags' => '',
     'field_formatter_class' => '',
   );
-  /* Sort criterion: Indexed Multilingual Content: Date of Publication / Year  */
+  /* Sort criterion: Indexed Multilingual Content: Year of publication */
   $handler->display->display_options['sorts']['field_publication_year']['id'] = 'field_publication_year';
   $handler->display->display_options['sorts']['field_publication_year']['table'] = 'search_api_index_default_multilingual_node_index';
   $handler->display->display_options['sorts']['field_publication_year']['field'] = 'field_publication_year';
@@ -296,6 +296,10 @@ function hwc_practical_tool_views_default_views() {
   $handler->display->display_options['sorts']['search_api_relevance']['field'] = 'search_api_relevance';
   $handler->display->display_options['sorts']['search_api_relevance']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['search_api_relevance']['expose']['label'] = 'Relevance';
+  /* Sort criterion: Indexed Multilingual Content: Title #2 */
+  $handler->display->display_options['sorts']['title2']['id'] = 'title2';
+  $handler->display->display_options['sorts']['title2']['table'] = 'search_api_index_default_multilingual_node_index';
+  $handler->display->display_options['sorts']['title2']['field'] = 'title2';
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
     2 => 'OR',
@@ -366,7 +370,7 @@ function hwc_practical_tool_views_default_views() {
     'current' => 'current',
   );
   $handler->display->display_options['filters']['search_api_language_1']['group'] = 2;
-  /* Filter criterion: Languages: ISO 639 code (indexed) */
+  /* Filter criterion: Available in languages: ISO 639 code (indexed) */
   $handler->display->display_options['filters']['field_available_in_languages_value']['id'] = 'field_available_in_languages_value';
   $handler->display->display_options['filters']['field_available_in_languages_value']['table'] = 'search_api_index_default_multilingual_node_index';
   $handler->display->display_options['filters']['field_available_in_languages_value']['field'] = 'field_available_in_languages_value';
@@ -464,7 +468,7 @@ function hwc_practical_tool_views_default_views() {
   $handler->display->display_options['fields']['field_material_country']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['field_material_country']['view_mode'] = 'full';
   $handler->display->display_options['fields']['field_material_country']['bypass_access'] = 0;
-  /* Field: Indexed Multilingual Content: Languages */
+  /* Field: Indexed Multilingual Content: Available in languages */
   $handler->display->display_options['fields']['field_available_in_languages']['id'] = 'field_available_in_languages';
   $handler->display->display_options['fields']['field_available_in_languages']['table'] = 'search_api_index_default_multilingual_node_index';
   $handler->display->display_options['fields']['field_available_in_languages']['field'] = 'field_available_in_languages';
@@ -539,7 +543,7 @@ function hwc_practical_tool_views_default_views() {
     'trim_preserve_tags' => '',
     'field_formatter_class' => '',
   );
-  /* Field: Indexed Multilingual Content: Description (original language) */
+  /* Field: Indexed Multilingual Content: Content (original language) */
   $handler->display->display_options['fields']['field_body_original']['id'] = 'field_body_original';
   $handler->display->display_options['fields']['field_body_original']['table'] = 'search_api_index_default_multilingual_node_index';
   $handler->display->display_options['fields']['field_body_original']['field'] = 'field_body_original';
