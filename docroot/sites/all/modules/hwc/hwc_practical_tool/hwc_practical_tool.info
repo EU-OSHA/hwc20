@@ -3,6 +3,7 @@ core = 7.x
 package = HWC
 version = 7.x-1.19
 project = hwc_practical_tool
+dependencies[] = better_exposed_filters
 dependencies[] = field_collection
 dependencies[] = field_group
 dependencies[] = hwc_audio_visual
