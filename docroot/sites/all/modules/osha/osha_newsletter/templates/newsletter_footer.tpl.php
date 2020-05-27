@@ -17,7 +17,7 @@ if (!empty($campaign_id)) {
 global $language;
 global $base_url;
 
-$unsubscribe_text = variable_get('unsubscribe_campaign_news_text', 'To unsubscribe from the CMPAIGN-NEWS list, click the following link:');
+$unsubscribe_text = variable_get('unsubscribe_campaign_news_text', 'To unsubscribe from the CAMPAIGN-NEWS list, click the following link:');
 $unsubscribe_url = variable_get('unsubscribe_campaign_news_url', 'http://list.osha.eu/scripts/wa.exe?SUBED1=CAMPAIGN-NEWS&A=1');
 $bottom_text = variable_get('hwc_mail_bottom_text', '');
 
