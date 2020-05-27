@@ -3209,7 +3209,7 @@ body.good-practice-exchange{
 					    }
 					}
 					.field-name-field-summary{
-						font-weight: normal;
+						font-weight: normal !important;
 						margin-top: 0;
 						padding-bottom: 2em;
 					}
@@ -4225,156 +4225,7 @@ body.ocp .box-type-partner{
 	}
 }
 
-body.mp{
-	.panels-flexible-row-partner_detail-16-inside .panels-flexible-region-first {
-		float: right;
-		padding-right: 0;
-	}
-
-	.pane-node-field-orgtype{
-		.pane-title{
-			float: left;
-			text-transform: uppercase;
-			border: 2px solid #d9e996;
-			border-radius: 5px;
-			padding: 3px 8px;
-			color: #003399;
-			font-weight: 600;
-			margin-right: 10px;
-		}
-		.pane-content{
-			float: left;
-			color: #333;
-			.field-name-field-orgtype{
-				padding-top: 4px;
-				font-weight: normal;
-			}
-		}
-	}
-
-	.pane-node-field-bussines-sector{
-		float: right;
-		padding-top: 0 !important;
-		margin-right: 2em;
-		clear: none;
-		.pane-title{
-			float: left;
-			text-transform: uppercase;
-			border: 2px solid #d9e996;
-			border-radius: 5px;
-			padding: 3px 8px;
-			color: #003399;
-			font-weight: 600;
-			margin-right: 10px;
-		}
-		.pane-content{
-			float: left;
-			color: #333;
-			.field-type-taxonomy-term-reference{
-				padding-top: 4px;
-				font-weight: normal;
-			}
-		}
-	}
-
-	.panels-flexible-column-first{
-		.pane-node-field-country{
-			float: left;
-			&.profile-inline-field{
-				float: left;
-				min-height: 11rem;
-				padding-top: 2.2rem;
-				.field-name-field-country{					
-					img{
-						border: 0;
-						border: 1px solid #eaeaea;
-					}
-				}				
-			}
-			.field-item{
-			    font-size: 2rem;
-			    font-weight: 600;
-			}
-
-		}
-		.pane-node-field-website{
-			float: left;
-    		width: 70%;
-			a{
-			    font-style: normal;
-			    width: auto;
-			    &[target="_blank"]:after{
-			    	background-image: url(../images/target-blank.png);
-				    background-size: 1rem 1rem;
-				    display: inline-block;
-				    width: 1rem; 
-				    height: 1rem;
-				    content:"";
-				    left: 0.5rem;
-				    position: relative;
-			    }
-			}
-		}
-		.pane-node-field-ceo{
-			float: left;
-    		width: 70%;
-    		display: flex;
-    		justify-content: flex-start;
-    		.pane-title{
-				padding-right: 1.5rem;
-				font-weight: bold;
-    		}
-		 }
-		.pane-node-field-mission-statement, 
-		.pane-node-field-pledge{
-			background: transparent;
-			background-size: initial;
-			margin-top: 1em;
-			border-radius: 15px;
-			margin-bottom: 1em;
-			.pane-title{
-				float: none;
-				color: #003399;
-				font-weight: 500;
-				font-size: 1.5em;
-				padding: 0 0 10px 0;
-			}
-
-			.pane-content{
-				padding: 1em;
-				padding-left: 1em;
-				padding-right: 1em;
-				font-style: normal;
-				color: #000;
-				padding: 0;
-			}
-		}
-		.pane-node-field-mission-statement{
-			margin: 2rem 0 2rem;
-		}
-	}
-	.panels-flexible-column-last{
-		.pane-node-field-country{
-			padding: 1rem 0;
-			display: flex;
-			font-weight: 600;
-		}
-		.pane-node-field-general-phone{
-			padding: 0.5rem 0;
-		}
-		.pane-custom{
-			padding-top: 3rem;
-		}
-		.field-type-link-field {
-			margin-bottom: 0.5rem;
-
-		}
-
-	}
-}
-
-
-body.ocp{
+body.ocp, body.mp{
 	.panels-flexible-row-partner_detail-16-inside .panels-flexible-region-first {
 		float: right;
 		padding-right: 0;
@@ -4471,7 +4322,7 @@ body.ocp{
 		}
 		.pane-node-field-website{
 			.field-type-link-field{
-				padding: 0 0 1rem 0;
+				padding: 1em 0 1rem 0;
 				a{
 				    font-style: normal;
 				    width: auto;
@@ -4491,7 +4342,7 @@ body.ocp{
 		.field-type-link-field {
 			margin-bottom: 0.5rem;
 		}
-		.pane-node-title-field{
+		.pane-node-title-field, .pane-node-title{
 			margin-top: 1.8rem;
 		}
 		.pane-node-field-general-phone{
@@ -9066,6 +8917,10 @@ body.rel1{
 	    	display: block;
 	    	color: #ef0511;
 	    }
+	}
+
+	.sticky-menu .col-sm-9 .header-text{
+		padding-top: 0!important;
 	}	
 }
 

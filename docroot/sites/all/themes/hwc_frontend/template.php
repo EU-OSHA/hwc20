@@ -670,7 +670,19 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'pa_highlights':
-        $tag_vars['element']['#value'] = t(variable_get('pa_highlights_title', 'News'));
+        $breadcrumb[] = l(t('Home'), '<front>');
+        $breadcrumb[] = l(t('About the topic'), 'about-topic');
+        $breadcrumb[] = l(t('Priority areas'), 'about-topic/priority-areas');
+        $pa = hwc_priority_areas_pa_highlights_pa_title($node->nid);
+        if ($pa) {
+          $breadcrumb[] = l($pa->title, 'node/' . $pa->nid);
+          $breadcrumb[] = $node->title;
+          drupal_set_breadcrumb($breadcrumb);
+          $tag_vars['element']['#value'] = $pa->title;
+        }
+        else {
+          $tag_vars['element']['#value'] = t(variable_get('pa_highlights_title', 'News'));
+        }
         $vars['page']['above_title']['news-page-title'] = array(
           '#type' => 'item',
           '#markup' => theme('html_tag', $tag_vars),

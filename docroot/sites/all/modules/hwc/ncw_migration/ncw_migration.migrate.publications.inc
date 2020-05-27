@@ -215,6 +215,7 @@ class NCWPublicationsSource extends AbstractNCWNodeSource {
       'body_summary',
       'body_format',
       'field_archived',
+      'field_booklet',
       'field_banner_publications_office',
       'field_author',
       'field_author_language',

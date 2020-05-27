@@ -1193,7 +1193,7 @@ function osha_newsletter_send_email($key, $to, $from, $form_values, $message) {
 }
 
 /**
- * Implements hook_menu_alter().
+ * Implements hook_mail_alter().
  */
 function osha_newsletter_mail_alter(&$message) {
   if ($message['id'] == 'osha_newsletter_subscribe_email' ||

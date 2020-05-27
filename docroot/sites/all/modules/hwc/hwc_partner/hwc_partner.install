@@ -353,3 +353,10 @@ function hwc_partner_update_7044() {
 function hwc_partner_update_7045() {
   features_revert(array('hwc_partner' => array('page_manager_handlers')));
 }
+
+/**
+ * MHWC-28 Homogeneise - MPs Main contact information with OCP Main contact information
+ */
+function hwc_partner_update_7046() {
+  features_revert(array('hwc_partner' => array('page_manager_handlers')));
+}
