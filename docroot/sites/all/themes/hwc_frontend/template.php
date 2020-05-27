@@ -261,6 +261,10 @@ function hwc_frontend_preprocess_html(&$vars) {
     $vars['classes_array'][] = 'rel1';
   }
 
+  if (isset($_SESSION['masquerading'])) {
+    $vars['classes_array'][] = 'act-as-partner';
+  }
+
   $vars['menu_title'] = '';
   $active_trail = menu_get_active_trail();
   if (count($active_trail) > 2) {
