@@ -91,7 +91,7 @@ function hwc_practical_tool_entity_info_alter(&$entity_info) {
 function hwc_practical_tool_search_api_solr_query_alter(array &$call_args, SearchApiQueryInterface $query) {
   global $language;
   if ((arg(0) == 'practical-tools') || (arg(1) == 'practical-tools')) {
-    $call_args['params']['sort'] = 'score desc';
+    $call_args['params']['sort'] = 'ds_field_publication_year desc';
     $sort_order = strtolower(@$_REQUEST['sort_order']);
     $sort_by = strtolower(@$_REQUEST['sort_by']);
     if ($sort_by) {
