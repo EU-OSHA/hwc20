@@ -91,7 +91,7 @@ function hwc_practical_tool_entity_info_alter(&$entity_info) {
 function hwc_practical_tool_search_api_solr_query_alter(array &$call_args, SearchApiQueryInterface $query) {
   global $language;
   if ((arg(0) == 'practical-tools') || (arg(1) == 'practical-tools')) {
-    $call_args['params']['sort'] = 'score desc';
+    $call_args['params']['sort'] = 'ds_field_publication_year desc';
     $sort_order = strtolower(@$_REQUEST['sort_order']);
     $sort_by = strtolower(@$_REQUEST['sort_by']);
     if ($sort_by) {
@@ -104,6 +104,7 @@ function hwc_practical_tool_search_api_solr_query_alter(array &$call_args, Searc
       }
       $call_args['params']['sort'] .= $sort_order;
     }
+    $call_args['params']['sort'] .= ', sort_title2 asc';
     foreach($call_args['params']['fq'] as &$fq) {
       if (strpos($fq, 'field_available_in_languages')) {
         $key = variable_get('available_in_languages_solr_key', 'sm_field_available_in_languages\:value:');
@@ -587,10 +588,15 @@ function hwc_practical_tool_node_view($node, $view_mode, $langcode) {
   }
 }
 
-function hwc_practical_tools_get_exclude_fields($original_language) {
+function hwc_practical_tools_get_exclude_fields($original_languages) {
   global $language;
-  if ($language->language == $original_language) {
+  foreach ($original_languages as $original_language) {
+    if ($original_language['value'] == 'en') {
+      continue;
+    }
+    if ($language->language == $original_language['value']) {
     return ['title_field', 'body'];
+  }
   }
   return ['field_title_original', 'field_body_original'];
 }
