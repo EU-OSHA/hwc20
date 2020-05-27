@@ -4393,7 +4393,7 @@ function osha_search_facetapi_default_facet_settings() {
       'format' => 'full_html',
     ),
     'submit_realm' => 'Save and go back to realm settings',
-    'exclude' => '957,1735,1292,1557,1126,966,988',
+    'exclude' => '',
     'regex' => 0,
     'show_minimum_items' => 2,
     'rewrite_items' => 1,
