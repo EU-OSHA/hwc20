@@ -16,6 +16,7 @@ function hwc_good_practice_exchange_user_default_permissions() {
     'roles' => array(
       'EU-OSHA EEN Reviewers' => 'EU-OSHA EEN Reviewers',
       'External Provider - Supervisor' => 'External Provider - Supervisor',
+      'GPE Platform Editors' => 'GPE Platform Editors',
       'HWC Staff - Reviewers' => 'HWC Staff - Reviewers',
       'Website Managers' => 'Website Managers',
       'administrator' => 'administrator',
@@ -43,6 +44,7 @@ function hwc_good_practice_exchange_user_default_permissions() {
     'roles' => array(
       'EU-OSHA EEN Reviewers' => 'EU-OSHA EEN Reviewers',
       'External Provider - Supervisor' => 'External Provider - Supervisor',
+      'GPE Platform Editors' => 'GPE Platform Editors',
       'HWC Staff - Reviewers' => 'HWC Staff - Reviewers',
       'Website Managers' => 'Website Managers',
       'administrator' => 'administrator',
@@ -64,6 +66,7 @@ function hwc_good_practice_exchange_user_default_permissions() {
     'roles' => array(
       'EU-OSHA EEN Reviewers' => 'EU-OSHA EEN Reviewers',
       'External Provider - Supervisor' => 'External Provider - Supervisor',
+      'GPE Platform Editors' => 'GPE Platform Editors',
       'HWC Staff - Reviewers' => 'HWC Staff - Reviewers',
       'administrator' => 'administrator',
       'campaign partner' => 'campaign partner',
@@ -77,6 +80,7 @@ function hwc_good_practice_exchange_user_default_permissions() {
     'roles' => array(
       'EU-OSHA EEN Reviewers' => 'EU-OSHA EEN Reviewers',
       'External Provider - Supervisor' => 'External Provider - Supervisor',
+      'GPE Platform Editors' => 'GPE Platform Editors',
       'HWC Staff - Reviewers' => 'HWC Staff - Reviewers',
       'Website Managers' => 'Website Managers',
       'administrator' => 'administrator',

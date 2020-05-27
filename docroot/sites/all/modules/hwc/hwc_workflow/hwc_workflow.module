@@ -694,6 +694,7 @@ function hwc_workflow_node_access($node, $op, $account) {
   // Review Managers have access based on perm.
   // skip additional validations..
   if (
+    in_array(HWC_ROLE_GPE_PLATFORM_EDITORS, $account->roles) ||
     in_array(HWC_ROLE_WEBSITE_MANAGERS, $account->roles) ||
     in_array(HWC_ROLE_HWC_STAFF_REVIEWERS, $account->roles) ||
     in_array(HWC_ROLE_EEN_REVIEW_MANAGER, $account->roles)

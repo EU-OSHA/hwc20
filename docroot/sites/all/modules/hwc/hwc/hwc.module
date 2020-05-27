@@ -147,6 +147,9 @@ function hwc_permission() {
       'title' => t('Configure campaigns website'),
       'description' => t('Access the HCW configuration screen'),
     ),
+    'hwc access administration pages' => array(
+      'title' => t('HWC Use the administration pages and help'),
+    ),
   );
 }
 
@@ -564,6 +567,7 @@ function hwc_user_login(&$edit, $account) {
     // Role based login redirect.
     if (
       (in_array(HWC_ROLE_WEBSITE_MANAGERS, $account->roles)) ||
+      (in_array(HWC_ROLE_GPE_PLATFORM_EDITORS, $account->roles)) ||
       (in_array(HWC_ROLE_EEN_REVIEW_MANAGER, $account->roles)) ||
       (in_array(HWC_ROLE_HWC_STAFF_REVIEWERS, $account->roles)) ||
       (in_array(HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR, $account->roles))
