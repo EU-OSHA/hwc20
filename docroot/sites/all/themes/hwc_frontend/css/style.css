@@ -8817,16 +8817,6 @@ table tr.error.form-type-select:after {
 .node-press-release .field-name-body.field-type-text-with-summary p {
   margin: 0em 0em 1em;
 }
-.node-press-release .more-link {
-  color: #003399;
-  background-color: transparent;
-  font-weight: bold;
-  font-style: normal;
-  padding-right: 20px;
-}
-.node-press-release .more-link:before {
-  content: "";
-}
 /* Node-XXX */
 div[class*='node-'] h1 {
   text-align: center;
@@ -8838,12 +8828,6 @@ div[class*='node-'] h1 {
 }
 div[class*='node-'] .field-name-field-summary {
   font-weight: bold;
-}
-div[class*='node-'] .more-link {
-  color: #003399;
-  background-color: transparent;
-  font-weight: bold;
-  font-style: normal;
 }
 div[class*='view-'] h1 {
   text-align: center;
@@ -8995,22 +8979,6 @@ div[class*='view-'] .field-name-field-summary {
   content: ">";
   padding-right: 0.35em;
 }
-#block-views-news-oshnews-latest .more-link,
-.panels-flexible-column-new-1 .more-link {
-  display: inline-table;
-  margin-top: 1em;
-}
-#block-views-news-oshnews-latest .more-link a,
-.panels-flexible-column-new-1 .more-link a {
-  color: #ffffff;
-  font-style: normal;
-  font-weight: normal;
-}
-#block-views-news-oshnews-latest .more-link a:before,
-.panels-flexible-column-new-1 .more-link a:before {
-  content: "";
-  padding-right: 0.35em;
-}
 #block-views-news-oshnews-latest .date-display-single,
 .panels-flexible-column-new-1 .date-display-single {
   font-size: 0.85714em;
@@ -9041,12 +9009,6 @@ div[class*='view-'] .field-name-field-summary {
 .panels-flexible-column-new-1 div div {
   padding-left: 0px;
   padding-right: 0px;
-}
-#block-views-news-oshnews-latest div div.more-link,
-.panels-flexible-column-new-1 div div.more-link {
-  padding-left: 15px;
-  padding-right: 15px;
-  font-size: 14px;
 }
 .panels-flexible-column-new-1 h2 {
   background: url("../images/content/news.png") no-repeat center top;
@@ -9158,19 +9120,6 @@ div[class*='view-'] .field-name-field-summary {
   content: ">";
   padding-right: 0.35em;
 }
-#block-views-frontpage-events-block .more-link {
-  display: inline-table;
-  margin-top: 1em;
-}
-#block-views-frontpage-events-block .more-link a {
-  color: #ffffff;
-  font-style: normal;
-  font-weight: normal;
-}
-#block-views-frontpage-events-block .more-link a:before {
-  content: "";
-  padding-right: 0.35em;
-}
 #block-views-frontpage-events-block .view-content {
   overflow: hidden;
 }
@@ -9185,11 +9134,6 @@ div[class*='view-'] .field-name-field-summary {
 #block-views-frontpage-events-block div div {
   padding-left: 0px;
   padding-right: 0px;
-}
-#block-views-frontpage-events-block div div.more-link {
-  padding-left: 15px;
-  padding-right: 15px;
-  font-size: 14px;
 }
 .view-frontpage-events .views-row {
   padding-bottom: 1em;
@@ -9461,13 +9405,6 @@ div[class*='view-'] .field-name-field-summary {
 #block-views-publications-slideshow-slidehow #publications_slideshow .jssorb03 .prototype:hover,
 #block-system-main #publications_slideshow .jssorb03 .prototype:hover {
   background-position: -20px center;
-}
-#block-views-publications-slideshow-slidehow .more-link,
-#block-system-main .more-link {
-  color: #003399;
-  background-color: transparent;
-  font-weight: bold;
-  font-style: normal;
 }
 .col #block-views-publications-slideshow-slidehow #publications_slideshow,
 .col #block-system-main #publications_slideshow {
@@ -9784,7 +9721,6 @@ div[class*='view-'] .field-name-field-summary {
 .publication-item .field-name-field-cover-image img {
   border: 1px solid #CCC;
 }
-.publication-item .more-link,
 .publication-item ul li a {
   color: #003399;
   background-color: transparent;
@@ -10623,15 +10559,6 @@ html:lang(no) .pane-node-field-provider .field-items,
 }
 .view-news .views-row .field-type-text-with-summary {
   margin-bottom: 1em;
-}
-.view-news .views-row .field-type-text-with-summary .more-link {
-  background-color: transparent;
-  color: #003399;
-  font-weight: bold;
-  font-style: normal;
-}
-.view-news .views-row .field-type-text-with-summary .more-link:before {
-  content: "> ";
 }
 .view-news .views-row .left-column {
   min-height: 250px;
@@ -15755,14 +15682,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 #block-system-main .view-partners .views-exposed-form .views-exposed-widget button {
   margin-top: 1.7em;
 }
-.view-partners .more-link,
-#block-system-main .view-partners .more-link {
-  color: #ffffff;
-  clear: both;
-  display: block;
-  width: 100%;
-  margin-top: 2em;
-}
 /* End view-partners */
 /*pag Newsletter*/
 .page-node-129 hr {
@@ -17089,20 +17008,6 @@ fieldset.captcha div {
 .panels-flexible-region-container-additional_resources .node-publication .field-name-body {
   clear: both;
 }
-.field-name-field-recommended-resources .node-infographic .more-link,
-.field-name-field-recommended-articles .node-infographic .more-link,
-.field.field-name-field-aditional-resources .node-infographic .more-link,
-.panels-flexible-region-container-additional_resources .node-infographic .more-link,
-.field-name-field-recommended-resources .node-news .more-link,
-.field-name-field-recommended-articles .node-news .more-link,
-.field.field-name-field-aditional-resources .node-news .more-link,
-.panels-flexible-region-container-additional_resources .node-news .more-link,
-.field-name-field-recommended-resources .node-publication .more-link,
-.field-name-field-recommended-articles .node-publication .more-link,
-.field.field-name-field-aditional-resources .node-publication .more-link,
-.panels-flexible-region-container-additional_resources .node-publication .more-link {
-  font-size: 14px;
-}
 .field-name-field-recommended-resources .node-infographic .group-left,
 .field-name-field-recommended-articles .node-infographic .group-left,
 .field.field-name-field-aditional-resources .node-infographic .group-left,
@@ -17455,9 +17360,6 @@ span.date-display-single {
   border-right: 1px dotted #749b00;
   margin-top: 1em;
 }
-.more-link {
-  border-bottom: 0px!important;
-}
 .page-user-login .block-system form {
   float: left;
   padding-left: 3em;
@@ -17745,22 +17647,6 @@ input#edit-field-image-und-0-upload::before {
 }
 .page-node-160 article .field-type-text-with-summary {
   text-align: center;
-}
-.page-node-160 article .field-type-text-with-summary .more-link {
-  padding: 8px 20px 8px 20px;
-  margin-top: 15px;
-  display: inline-block;
-  margin-bottom: 40px;
-}
-.page-node-160 article .field-type-text-with-summary .more-link:before {
-  content: "> ";
-  color: white;
-}
-.page-node-160 article .field-type-text-with-summary .more-link a {
-  color: white;
-  border: none;
-  width: auto;
-  font-style: normal;
 }
 /*end napo film*/
 /*Page introduction tools and publications*/
@@ -18337,17 +18223,6 @@ input#edit-field-image-und-0-upload::before {
 .page-good-practice-exchange .pane-hwc-good-practice-exchange-gpe-tools-publications .pane-content ul li a:before {
   content: "> ";
 }
-.page-good-practice-exchange .pane-hwc-good-practice-exchange-gpe-tools-publications .pane-content .more-link {
-  color: white !important;
-  background-color: #003399 !important;
-  border-radius: 0;
-  border: none;
-  width: auto;
-  font-weight: normal !important;
-  font-style: normal !important;
-  display: inline;
-  padding: 0.5em;
-}
 .page-good-practice-exchange .pane-osha-newsletter-osha-newsletter-image {
   clear: both;
   min-height: 275px;
@@ -18522,26 +18397,6 @@ input#edit-field-image-und-0-upload::before {
 .page-social-media-centre .view-id-social_dashboard .view-footer {
   margin-top: 30px;
   margin-bottom: 30px;
-}
-.page-social-media-centre .view-id-social_dashboard .view-footer .more-link {
-  text-align: center;
-  background-color: #003399 !important;
-  color: white !important;
-  max-width: 220px !important;
-  margin: 0 auto !important;
-  display: block;
-  font-style: normal !important;
-  font-weight: normal !important;
-}
-.page-social-media-centre .view-id-social_dashboard .view-footer .more-link:before {
-  content: "" !important;
-}
-.page-social-media-centre .view-id-social_dashboard .view-footer .more-link:after {
-  content: "\e164";
-  font-family: "Glyphicons Halflings";
-  font-weight: lighter;
-  margin-left: 3px;
-  vertical-align: text-bottom;
 }
 .page-social-media-centre .facebook-column {
   margin-top: 30px;

@@ -1135,29 +1135,6 @@ ul.time-and-counters{
 	}
 }
 
-.news-see-more-button, .view-events-search .views-field-view-node .field-content a{
-	border: 1px solid #b0b1b3;
-	border-radius: 3px;
-	color:#b0b1b3;
-	text-transform: uppercase;
-	padding: 2px 7px 2px 7px;
-	font-size: 12px;
-	transition: 300ms;
-	background-position: 110%;
-	&:hover{
-		text-decoration: none;
-		color:#58595b;
-		border: 1px solid #58595b;
-		border-top-left-radius: 3px;
-		border-bottom-left-radius: 3px;
-		border-top-right-radius: 15px;
-		border-bottom-right-radius: 15px;
-		background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
-		padding-right: 2em;
-		transition: 300ms;
-	}
-}
-
 .news-see-more-button a{
 	color:#b0b1b3;
 	&:hover{
@@ -2637,6 +2614,7 @@ span.pages{
 	bottom: 0;
     position: absolute;
     margin-bottom: 16px;
+    width: 174px;
 }
 
 .content-fluid{
@@ -2979,40 +2957,6 @@ body.good-practice-exchange{
 					    position: absolute;
 					    bottom: -36px;
 					    left: 5%;
-					}
-					.more-link{
-						border: 1px solid #b0b1b3;
-						border-bottom: 1px solid #b0b1b3 !important;
-					    border-radius: 3px;
-					    color: #b0b1b3;
-					    text-transform: uppercase;
-					    padding: 2px 7px 2px 7px;
-					    font-size: 12px;
-					    font-weight: normal;
-					    font-style: normal;
-					    display: block;
-					    float: left;
-					    position: absolute;
-					    bottom: 0;
-					    margin-left: 0;
-					    transition: 300ms;
-					   	background-position: 110%;
-					    &:hover{
-							text-decoration: none;
-							color: #58595b;
-							border: 1px solid #58595b;
-							border-bottom: 1px solid #58595b !important;
-							border-top-left-radius: 3px;
-							border-bottom-left-radius: 3px;
-							border-top-right-radius: 15px;
-							border-bottom-right-radius: 15px;
-							background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
-							padding-right: 2em;
-					    }
-					    &:before{
-					    	content: '';
-					    	display: none;
-					    }
 					}
 					.field-name-field-summary{
 						font-weight: normal !important;
@@ -4382,6 +4326,7 @@ body{
 				margin-top: auto;
 				display: flex;
     			justify-content: center;
+    			background: transparent;
     			a{
     				font-size: 0.9em;
     				padding-bottom: 5px;
@@ -4907,7 +4852,11 @@ body{
 							margin-left: 230px;
 							float: left;
 							clear: both;
-							margin-top: -2em;
+							margin-top: 0;
+							span{
+								display: block;
+								width: 300px;
+							}
 						}
 
 						.views-field-field-start-date{
@@ -4960,7 +4909,7 @@ span.add-to-my-calendar{
     width: 200px;
     text-align: left;
     padding-top: 0px;
-    margin-top: -2em;
+    margin-top: -22px;
     input[type=checkbox]{
     	display: none;
     }
@@ -5746,38 +5695,15 @@ body.press-room, body.european-week{
 		}
 
 		a.more-link{
-			border: 1px solid #b0b1b3;
-			border-bottom: 1px solid #b0b1b3 !important;
-		    border-radius: 3px;
-		    color: #b0b1b3;
-		    text-transform: uppercase;
-		    padding: 2px 7px 2px 7px;
-		    font-size: 12px;
-		    font-weight: normal;
-		    font-style: normal;
-		    display: block;
 		    float: left;
 		    position: absolute;
 		    bottom: 0;
 		    margin-left: 0;
 		    transition: 300ms;
-		   	background-position: 110%;
 		   	background-color: transparent;
-		    &:hover{
-				text-decoration: none;
-				color: #58595b;
-				border: 1px solid #58595b;
-				border-bottom: 1px solid #58595b !important;
-				border-top-left-radius: 3px;
-				border-bottom-left-radius: 3px;
-				border-top-right-radius: 15px;
-				border-bottom-right-radius: 15px;
-				background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
-				padding-right: 2em;
-		    }
 	    	&:before{
-	    	content: '';
-	    	display: none;
+		    	content: '';
+		    	display: none;
 	    	}
 		}
 	}
@@ -7055,43 +6981,6 @@ body.front-page{
 												position: relative;
 												padding-bottom: 4em;
 											}
-											a.more-link{
-												clear: both;
-												-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-												line-height: 1.42857143;
-												font-family: 'Open Sans';
-												box-sizing: border-box;
-												background-color: transparent;
-												text-decoration: none;
-												border: 1px solid #b0b1b3;
-												border-bottom: 1px solid #b0b1b3 !important;
-												border-radius: 3px;
-												color: #b0b1b3;
-												text-transform: uppercase;
-												padding: 2px 7px 2px 7px;
-												font-size: 12px;
-												transition: 300ms;
-												background-position: 110%;
-												position: absolute;
-												left: 15px;
-												bottom: 0;												
-												&:hover{
-													text-decoration: none;
-													color: #58595b;
-													border: 1px solid #58595b;
-													border-bottom: 1px solid #58595b !important;
-													border-top-left-radius: 3px;
-													border-bottom-left-radius: 3px;
-													border-top-right-radius: 15px;
-													border-bottom-right-radius: 15px;
-													background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
-													padding-right: 2em;
-											    }
-											    &:before{
-											    	content: '';
-											    	display: none;
-											    }
-											}
 										}
 									}
 									> div:nth-child(2){
@@ -8198,38 +8087,20 @@ body.page-tools-and-publications-practical-tools{
 			}
 
 			a.more-link{
-				border: 1px solid #b0b1b3;
-				border-bottom: 1px solid #b0b1b3 !important;
-			    border-radius: 3px;
-			    color: #b0b1b3;
-			    text-transform: uppercase;
-			    padding: 2px 7px 2px 7px;
-			    font-size: 12px;
-			    font-weight: normal;
-			    font-style: normal;
 			    display: block;
 			    float: left;
 			    position: absolute;
 			    bottom: 0;
 			    margin-left: 0;
-			    transition: 300ms;
-			   	background-position: 110%;
 			   	background-color: transparent;
 			    &:hover{
 					text-decoration: none;
-					color: #58595b;
-					border: 1px solid #58595b;
-					border-bottom: 1px solid #58595b !important;
-					border-top-left-radius: 3px;
-					border-bottom-left-radius: 3px;
-					border-top-right-radius: 15px;
-					border-bottom-right-radius: 15px;
 					background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
 					padding-right: 2em;
 			    }
 		    	&:before{
-		    	content: '';
-		    	display: none;
+			    	content: '';
+			    	display: none;
 		    	}
 			}
 		}
@@ -9221,5 +9092,63 @@ aside.col-md-3{
 		}
 	}
 }
+
+
+/*See more new style*/
+body{
+	a.more-link, .news-see-more-button, .view-events-search .views-field-view-node .field-content a{
+		color: #003399;
+		font-size: 1.2rem !important;
+	    border: 1px solid #003399;
+	    border-top-left-radius: 3px;
+		border-bottom-left-radius: 3px;
+		border-top-right-radius: 15px;
+		border-bottom-right-radius: 15px;
+	    text-transform: uppercase;
+	    padding: 2px 7px 2px 7px;
+	    /*rewrite others see more*/
+	    padding-top: 2px !important;
+	    padding-bottom: 2px !important;
+	    /* end rewrite others see more*/
+	    font-size: 12px;
+	    font-weight: bold;
+	    font-style: normal;
+	    display: block;
+	    float: left;
+	    position: absolute;
+	    bottom: 0;
+	    margin-left: 0;
+	    transition: 300ms;
+	   	background-position: 110%;
+	   	text-decoration: none;
+	   	background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
+	    background-color: transparent;
+	   	padding-right: 2em;
+	    &:hover{
+	    	color: #9cca00;
+			border: 1px solid #9cca00;
+			background-color: transparent;
+	    }
+	    &:before{
+	    	content: '';
+	    	display: none;
+	    }
+	}
+}
+
+/* See more other style */
+#block-views-publications-slideshow-slidehow .more-link,
+.node-type-priority-area .region-content .block-hwc-priority-areas ul li .more-link {
+    color: #003399;
+    background-color: transparent;
+    font-weight: bold;
+    font-style: normal;
+    border: 0;
+    background: transparent;
+    position: relative;
+    float: none;
+    text-transform: none;
+    padding-left: 0;
+}	
 
 /* END MHWC-39 - For UX next step */
