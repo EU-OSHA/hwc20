@@ -138,6 +138,13 @@ body.logged-in.ocp.act-as-partner .navbar-header .col-xs-12.col-sm-9{
 }
 
 
+.main-container h1, .main-container .title-alt{
+    border-bottom: 0;
+    color: #FFF;
+    font-size: 3.2em;
+}
+
+
 body{
 	color:#59595A;
 
@@ -9096,7 +9103,9 @@ aside.col-md-3{
 
 /*See more new style*/
 body{
-	a.more-link, .news-see-more-button, .view-events-search .views-field-view-node .field-content a{
+	a.more-link, .news-see-more-button, 
+	.view-events-search .views-field-view-node .field-content a, 
+	.views-field-search-api-relevance a{
 		color: #003399;
 		font-size: 1.2rem !important;
 	    border: 1px solid #003399;
@@ -9133,6 +9142,13 @@ body{
 	    	content: '';
 	    	display: none;
 	    }
+	}
+	/* Private Zone */
+	.views-field-search-api-relevance{
+		margin-top: 12px;
+		a{
+		position: relative;
+		}
 	}
 }
 

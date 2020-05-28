@@ -109,6 +109,12 @@ body.logged-in.ocp.act-as-partner .navbar-header .col-xs-12.col-sm-9 {
   width: 100%;
   font-weight: 600;
 }
+.main-container h1,
+.main-container .title-alt {
+  border-bottom: 0;
+  color: #FFF;
+  font-size: 3.2em;
+}
 body {
   color: #59595A;
 }
@@ -7817,9 +7823,13 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
   margin-bottom: 1em;
 }
 /*See more new style*/
+body {
+  /* Private Zone */
+}
 body a.more-link,
 body .news-see-more-button,
-body .view-events-search .views-field-view-node .field-content a {
+body .view-events-search .views-field-view-node .field-content a,
+body .views-field-search-api-relevance a {
   color: #003399;
   font-size: 1.2rem !important;
   border: 1px solid #003399;
@@ -7850,16 +7860,24 @@ body .view-events-search .views-field-view-node .field-content a {
 }
 body a.more-link:hover,
 body .news-see-more-button:hover,
-body .view-events-search .views-field-view-node .field-content a:hover {
+body .view-events-search .views-field-view-node .field-content a:hover,
+body .views-field-search-api-relevance a:hover {
   color: #9cca00;
   border: 1px solid #9cca00;
   background-color: transparent;
 }
 body a.more-link:before,
 body .news-see-more-button:before,
-body .view-events-search .views-field-view-node .field-content a:before {
+body .view-events-search .views-field-view-node .field-content a:before,
+body .views-field-search-api-relevance a:before {
   content: '';
   display: none;
+}
+body .views-field-search-api-relevance {
+  margin-top: 12px;
+}
+body .views-field-search-api-relevance a {
+  position: relative;
 }
 /* See more other style */
 #block-views-publications-slideshow-slidehow .more-link,
