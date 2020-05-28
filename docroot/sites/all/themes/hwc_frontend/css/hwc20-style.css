@@ -7857,6 +7857,17 @@ body.mp .panels-flexible-column-first .pane-node-field-pledge .pane-content {
 body.mp .panels-flexible-column-first .pane-node-field-mission-statement {
   margin: 2rem 0 2rem;
 }
+/* MHWC-39 - For UX next step */
+.view-practical-tools .clear_filters {
+  padding-bottom: 0em;
+  padding-top: 0.5em;
+}
+.view-practical-tools .clear_filters a {
+  background: #003399;
+  color: #FFF;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
 .isMobile {
   float: right !important;
 }
