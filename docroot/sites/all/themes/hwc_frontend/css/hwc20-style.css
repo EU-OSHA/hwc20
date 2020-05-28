@@ -7868,6 +7868,21 @@ body.mp .panels-flexible-column-first .pane-node-field-mission-statement {
   padding: 5px 10px;
   border-radius: 5px;
 }
+.node-type-practical-tool .group-details h3 {
+  padding-bottom: 0;
+  margin-bottom: 5px;
+}
+.node-type-practical-tool .group-details .field-label {
+  padding-top: 10px;
+  width: auto;
+}
+.node-type-practical-tool .group-details div:nth-child(2) > div.field-label {
+  padding-top: 0;
+}
+.node-type-practical-tool .group-details .field-label-inline .field-label,
+.node-type-practical-tool .group-details .field-label-inline .field-items {
+  float: none;
+}
 .isMobile {
   float: right !important;
 }
