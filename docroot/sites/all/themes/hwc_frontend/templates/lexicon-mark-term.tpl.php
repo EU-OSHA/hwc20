@@ -38,6 +38,6 @@
     'data' => "", //antes ponía safe_description pero debido a que meten HTML esto es lo que necesitan, a pesar de lo que indican los comentarios de este módulo más arriba
     'class' => array($term["term_class"]),
   ),
-  'fragment' => $term["fragment"],
+  'fragment' => @$term["fragment"],
   'absolute' => $term["absolute_link"],
 ));?>
