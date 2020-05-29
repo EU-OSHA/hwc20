@@ -5677,10 +5677,10 @@ body.newsletter .hwc-share-widget {
   float: right;
 }
 .node-type-gpa .main-container .field-name-field-introductory-text {
-  float: left;
-  width: 70%;
-  padding: 1em 1em 0 0;
-  margin-top: 1em;
+  float: none;
+  width: 100%;
+  padding: 0;
+  margin-top: 0;
 }
 .node-type-gpa .main-container .field-name-field-introductory-text a {
   font-weight: bold;
@@ -5740,10 +5740,13 @@ body.newsletter .hwc-share-widget {
   height: 200px;
   margin: auto;
   position: relative;
+  display: flex;
 }
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .multicarousel--block--inner {
   transition: 1s ease all;
   float: left;
+  display: flex;
+  justify-content: center;
 }
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .multicarousel--block--inner .item {
   float: left;
@@ -5805,6 +5808,9 @@ body.newsletter .hwc-share-widget {
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary:hover img {
   opacity: 0.8;
 }
+.node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .btn-primary.no-slider {
+  display: none;
+}
 .node-type-gpa .main-container .slider--video--section .btn:active,
 .node-type-gpa .main-container .slider--video--section .btn.active {
   box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.125);
@@ -5833,6 +5839,9 @@ body.newsletter .hwc-share-widget {
 .node-type-gpa .main-container ol.multicarousel-indicators li.active {
   background: #ACC700;
 }
+.node-type-gpa .main-container ol.multicarousel-indicators.no-slider {
+  display: none !important;
+}
 .node-type-gpa .main-container .group-participate {
   width: 100%;
   background: url(../images/gpa-how-to-participate-background.png) no-repeat;
@@ -5841,6 +5850,7 @@ body.newsletter .hwc-share-widget {
   color: #FFF;
   float: left;
   margin-bottom: 3em;
+  margin-top: 2em;
 }
 .node-type-gpa .main-container .group-participate h2 {
   color: #FFF;
@@ -5887,7 +5897,9 @@ body.newsletter .hwc-share-widget {
   border-bottom: 0;
 }
 .node-type-gpa .group-faq {
-  width: 75%;
+  width: 100%;
+  padding-left: 2em;
+  padding-right: 2em;
   clear: both;
   margin: 0 auto;
 }
