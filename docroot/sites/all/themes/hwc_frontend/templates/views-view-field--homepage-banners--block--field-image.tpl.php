@@ -23,7 +23,7 @@
  */
 ?>
 <?php
-$type = $row->field_field_type_of_the_banner[0]['raw']['value'];
+$type = @$row->field_field_type_of_the_banner[0]['raw']['value'];
 if ($type != 'video') {
   print $output;
 }
