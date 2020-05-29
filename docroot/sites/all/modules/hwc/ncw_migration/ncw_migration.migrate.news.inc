@@ -92,8 +92,6 @@ class NCWNewsSource extends AbstractNCWNodeSource {
       'body_language',
       'body_summary',
       'body_format',
-//      'field_image_caption',
-//      'field_image_caption_language',
       'field_summary',
       'field_summary_format',
       'field_summary_language',
