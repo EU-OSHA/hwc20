@@ -109,6 +109,12 @@ body.logged-in.ocp.act-as-partner .navbar-header .col-xs-12.col-sm-9 {
   width: 100%;
   font-weight: 600;
 }
+.main-container h1,
+.main-container .title-alt {
+  border-bottom: 0;
+  color: #FFF;
+  font-size: 3.2em;
+}
 body {
   color: #59595A;
 }
@@ -983,30 +989,6 @@ ul.time-and-counters li .counter-label {
 .news-item .news-item-content .summary-news {
   margin-bottom: 1em;
 }
-.news-see-more-button,
-.view-events-search .views-field-view-node .field-content a {
-  border: 1px solid #b0b1b3;
-  border-radius: 3px;
-  color: #b0b1b3;
-  text-transform: uppercase;
-  padding: 2px 7px 2px 7px;
-  font-size: 12px;
-  transition: 300ms;
-  background-position: 110%;
-}
-.news-see-more-button:hover,
-.view-events-search .views-field-view-node .field-content a:hover {
-  text-decoration: none;
-  color: #58595b;
-  border: 1px solid #58595b;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
-  padding-right: 2em;
-  transition: 300ms;
-}
 .news-see-more-button a {
   color: #b0b1b3;
 }
@@ -1445,174 +1427,6 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   border: 0;
   box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.05);
   padding-top: 5px;
-}
-#block-menu-block-4,
-#block-menu-block-6 {
-  width: 100%;
-  margin-top: 49px !important;
-}
-aside.col-md-3 .region.region-sidebar-first.well {
-  padding: 0;
-}
-aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.block-title {
-  font-size: 1.4rem;
-  padding: 10px 15px !important;
-  display: block;
-  margin-bottom: 15px;
-  border-radius: 3px;
-  text-decoration: none;
-  cursor: pointer;
-  color: white;
-  font-weight: bold;
-  background-color: #0030a0;
-  border-radius: 25px;
-  padding: 0.5em 0.5em;
-  margin-bottom: 0.5em;
-  padding-left: 1em;
-  padding-right: 30px;
-  position: relative;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.block-title a {
-  color: #FFF;
-}
-.left-menu ul {
-  list-style: none;
-}
-.left-menu ul li {
-  background-color: #ecf4cb;
-  border-top-right-radius: 18px;
-  border-bottom-right-radius: 18px;
-  border-top-left-radius: 18px;
-  border-bottom-left-radius: 18px;
-  padding: 0.5em 0.8em 0.5em 1.5em;
-  margin-bottom: 1em;
-  width: 100%;
-}
-.left-menu ul li a {
-  text-decoration: none;
-  padding: 0 20px 0 0;
-}
-.left-menu ul li:hover {
-  background-color: #0030a0;
-}
-.left-menu ul li:hover a {
-  color: #FFFFFF;
-  background: transparent;
-}
-.left-menu ul li ul li:hover a {
-  color: white;
-  background-color: #0030a0;
-}
-.left-menu ul .active {
-  background-color: #daea96;
-  position: relative;
-}
-.left-menu ul .active a {
-  color: #003399;
-  display: block;
-  width: 100%;
-}
-.left-menu ul .active a:before {
-  content: '';
-  width: 15px;
-  height: 15px;
-  border-radius: 10px;
-  background: #0030a0;
-  position: absolute;
-  right: 0;
-  top: 10%;
-}
-.left-menu ul li.expanded {
-  background-color: transparent;
-  padding: 0;
-  margin-bottom: 0;
-}
-.left-menu ul li.expanded a {
-  background: #ecf4cb;
-  border-radius: 25px;
-  padding: 8px 23px;
-  color: #003399;
-  margin-bottom: 15px;
-}
-.left-menu ul li.expanded a:before {
-  content: "\e252";
-  font-family: "Glyphicons Halflings";
-  float: right;
-  vertical-align: middle;
-  color: #003399;
-  background-color: transparent;
-  top: 10px;
-  right: 13px;
-}
-.left-menu ul li.expanded a:hover {
-  background: #003399;
-  color: #FFFFFF;
-}
-.left-menu ul li.expanded a:hover:before {
-  color: #FFFFFF;
-}
-.left-menu ul li.expanded a.active {
-  background: #daea96;
-}
-.left-menu ul li.expanded ul.menu li {
-  padding: 0;
-  background-color: transparent;
-}
-.left-menu ul li.expanded ul.menu li a {
-  width: 92%;
-  margin-left: 15px;
-  margin-bottom: 0;
-  padding-right: 30px;
-}
-.left-menu ul li.expanded ul.menu li a:before {
-  content: none;
-}
-.left-menu ul li.expanded.active a.active-trail {
-  background: #daea96;
-  font-weight: 600;
-}
-.left-menu ul li.expanded.active a.active-trail:before {
-  display: block;
-  content: ' ';
-  width: 15px;
-  height: 15px;
-  border-radius: 10px;
-  background: #003399;
-  position: absolute;
-  right: 14px;
-  top: 10px;
-}
-.left-menu ul li.expanded.active a.active-trail:hover {
-  background: #0030a0;
-  color: #FFF;
-}
-.left-menu ul li.expanded.active a.active-trail:hover:before {
-  color: #FFF;
-}
-.left-menu ul li.active ul li a:before {
-  content: none;
-}
-.left-menu ul li.active ul li.active a:before {
-  content: '';
-  width: 15px;
-  height: 15px;
-  border-radius: 10px;
-  background: #003399;
-  position: absolute;
-  right: 14px;
-  top: 10px;
-}
-.left-menu ul li.expanded.active-trail.active > a:before {
-  content: "\e252";
-  font-family: "Glyphicons Halflings";
-  float: right;
-  vertical-align: middle;
-  color: #003399;
-  background-color: transparent;
-  top: 10px;
-  right: 13px;
 }
 #block-menu-block-5 ul a:before {
   content: none;
@@ -2448,6 +2262,7 @@ span.pages {
   bottom: 0;
   position: absolute;
   margin-bottom: 16px;
+  width: 174px;
 }
 .content-fluid h2 {
   color: #003399;
@@ -2748,49 +2563,6 @@ body.good-practice-exchange .footer {
   bottom: -36px;
   left: 5%;
 }
-.page-media-centre-news .main-container #block-system-main .view .views-row .more-link,
-.page-search .main-container #block-system-main .view .views-row .more-link,
-.page-media-centre-press-room .main-container #block-system-main .view .views-row .more-link,
-.page-media-centre-press-room .main-container #block-system-main .view .views-row .more-link {
-  border: 1px solid #b0b1b3;
-  border-bottom: 1px solid #b0b1b3 !important;
-  border-radius: 3px;
-  color: #b0b1b3;
-  text-transform: uppercase;
-  padding: 2px 7px 2px 7px;
-  font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  display: block;
-  float: left;
-  position: absolute;
-  bottom: 0;
-  margin-left: 0;
-  transition: 300ms;
-  background-position: 110%;
-}
-.page-media-centre-news .main-container #block-system-main .view .views-row .more-link:hover,
-.page-search .main-container #block-system-main .view .views-row .more-link:hover,
-.page-media-centre-press-room .main-container #block-system-main .view .views-row .more-link:hover,
-.page-media-centre-press-room .main-container #block-system-main .view .views-row .more-link:hover {
-  text-decoration: none;
-  color: #58595b;
-  border: 1px solid #58595b;
-  border-bottom: 1px solid #58595b !important;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
-  padding-right: 2em;
-}
-.page-media-centre-news .main-container #block-system-main .view .views-row .more-link:before,
-.page-search .main-container #block-system-main .view .views-row .more-link:before,
-.page-media-centre-press-room .main-container #block-system-main .view .views-row .more-link:before,
-.page-media-centre-press-room .main-container #block-system-main .view .views-row .more-link:before {
-  content: '';
-  display: none;
-}
 .page-media-centre-news .main-container #block-system-main .view .views-row .field-name-field-summary,
 .page-search .main-container #block-system-main .view .views-row .field-name-field-summary,
 .page-media-centre-press-room .main-container #block-system-main .view .views-row .field-name-field-summary,
@@ -3074,68 +2846,6 @@ div.workbench-info-block {
   float: right;
   vertical-align: middle;
   color: #FFF;
-}
-.left-menu.accordion-menu ul.menu > li.expanded ul.menu {
-  display: none;
-}
-.left-menu.accordion-menu ul.menu > li.expanded.active ul.menu {
-  display: block;
-}
-.left-menu.accordion-menu ul > li.expanded > ul > li.expanded > ul {
-  margin-top: 10px;
-}
-.left-menu.accordion-menu ul > li.expanded > ul > li.expanded > ul li {
-  margin-left: 10px;
-  width: 94%;
-}
-.left-menu.accordion-menu .external-menu-item {
-  background: url('../images/target-blank-blue.png') 90% no-repeat #ecf4cb;
-  padding-right: 45px !important;
-}
-.left-menu.accordion-menu ul li ul li:hover a {
-  background: #ecf4cb;
-  color: #003399;
-}
-.left-menu.accordion-menu ul li ul li ul li:hover a {
-  background: #0030a0;
-  color: #FFF;
-}
-.accordion-menu.left-menu ul li.expanded a.external-menu-item:hover {
-  background: url('../images/target-blank-white-12.png') 90% no-repeat #0030a0;
-}
-.accordion-menu.left-menu ul li.expanded a:hover {
-  background: #003399;
-  color: #FFFFFF;
-}
-.accordion-menu.left-menu ul li a.active-trail:after {
-  content: '';
-  width: 15px;
-  height: 15px;
-  border-radius: 10px;
-  background: #003399;
-  position: absolute;
-  right: 15px;
-  top: 28%;
-}
-.accordion-menu.left-menu > div > ul > li.expanded > ul > li.expanded > a:after {
-  content: "\e252";
-  font-family: "Glyphicons Halflings";
-  float: right;
-  vertical-align: middle;
-  color: #003399;
-  background-color: transparent;
-  top: 10px;
-  right: 13px;
-}
-.accordion-menu.left-menu > div > ul > li.expanded > ul > li.expanded:hover > a:after {
-  color: #FFFFFF;
-}
-#block-hwc-homepage-previous-campaign-nav {
-  clear: both;
-}
-.accordion-menu {
-  float: left;
-  margin-top: 47px;
 }
 .main-container .node-campaign-18 .body-summary,
 .main-container .node-campaign-16 .body-summary {
@@ -4109,6 +3819,7 @@ body.een .box-type-partner {
   margin-top: auto;
   display: flex;
   justify-content: center;
+  background: transparent;
 }
 .node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col .more-link a {
   font-size: 0.9em;
@@ -4553,7 +4264,11 @@ body.een .box-type-partner {
   margin-left: 230px;
   float: left;
   clear: both;
-  margin-top: -2em;
+  margin-top: 0;
+}
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-view-node span {
+  display: block;
+  width: 300px;
 }
 .page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .event_country {
   width: 180px;
@@ -4590,7 +4305,7 @@ span.add-to-my-calendar {
   width: 200px;
   text-align: left;
   padding-top: 0px;
-  margin-top: -2em;
+  margin-top: -22px;
 }
 .add-to-calendar input[type=checkbox] {
   display: none;
@@ -5340,36 +5055,12 @@ body.european-week .media-body p {
 }
 body.press-room .media-body a.more-link,
 body.european-week .media-body a.more-link {
-  border: 1px solid #b0b1b3;
-  border-bottom: 1px solid #b0b1b3 !important;
-  border-radius: 3px;
-  color: #b0b1b3;
-  text-transform: uppercase;
-  padding: 2px 7px 2px 7px;
-  font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  display: block;
   float: left;
   position: absolute;
   bottom: 0;
   margin-left: 0;
   transition: 300ms;
-  background-position: 110%;
   background-color: transparent;
-}
-body.press-room .media-body a.more-link:hover,
-body.european-week .media-body a.more-link:hover {
-  text-decoration: none;
-  color: #58595b;
-  border: 1px solid #58595b;
-  border-bottom: 1px solid #58595b !important;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
-  padding-right: 2em;
 }
 body.press-room .media-body a.more-link:before,
 body.european-week .media-body a.more-link:before {
@@ -6457,43 +6148,6 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .be
   position: relative;
   padding-bottom: 4em;
 }
-body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news .view-news .view-content > div .media-body a.more-link {
-  clear: both;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  line-height: 1.42857143;
-  font-family: 'Open Sans';
-  box-sizing: border-box;
-  background-color: transparent;
-  text-decoration: none;
-  border: 1px solid #b0b1b3;
-  border-bottom: 1px solid #b0b1b3 !important;
-  border-radius: 3px;
-  color: #b0b1b3;
-  text-transform: uppercase;
-  padding: 2px 7px 2px 7px;
-  font-size: 12px;
-  transition: 300ms;
-  background-position: 110%;
-  position: absolute;
-  left: 15px;
-  bottom: 0;
-}
-body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news .view-news .view-content > div .media-body a.more-link:hover {
-  text-decoration: none;
-  color: #58595b;
-  border: 1px solid #58595b;
-  border-bottom: 1px solid #58595b !important;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
-  padding-right: 2em;
-}
-body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news .view-news .view-content > div .media-body a.more-link:before {
-  content: '';
-  display: none;
-}
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news .view-news .view-content > div:nth-child(2) {
   border-bottom: 0;
   padding-bottom: 12px;
@@ -7387,33 +7041,15 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   padding-top: 1em;
 }
 #block-hwc-good-practice-exchange-gpe-news-events .view-news .media-body a.more-link {
-  border: 1px solid #b0b1b3;
-  border-bottom: 1px solid #b0b1b3 !important;
-  border-radius: 3px;
-  color: #b0b1b3;
-  text-transform: uppercase;
-  padding: 2px 7px 2px 7px;
-  font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
   display: block;
   float: left;
   position: absolute;
   bottom: 0;
   margin-left: 0;
-  transition: 300ms;
-  background-position: 110%;
   background-color: transparent;
 }
 #block-hwc-good-practice-exchange-gpe-news-events .view-news .media-body a.more-link:hover {
   text-decoration: none;
-  color: #58595b;
-  border: 1px solid #58595b;
-  border-bottom: 1px solid #58595b !important;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
   background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
   padding-right: 2em;
 }
@@ -7856,6 +7492,406 @@ body.mp .panels-flexible-column-first .pane-node-field-pledge .pane-content {
 }
 body.mp .panels-flexible-column-first .pane-node-field-mission-statement {
   margin: 2rem 0 2rem;
+}
+/* MHWC-39 - For UX next step */
+.view-practical-tools .clear_filters {
+  padding-bottom: 0em;
+  padding-top: 0.5em;
+}
+.view-practical-tools .clear_filters a {
+  background: #003399;
+  color: #FFF;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.node-type-practical-tool .group-details h3 {
+  padding-bottom: 0;
+  margin-bottom: 5px;
+}
+.node-type-practical-tool .group-details .field-label {
+  padding-top: 10px;
+  width: auto;
+}
+.node-type-practical-tool .group-details div:nth-child(2) > div.field-label {
+  padding-top: 0;
+}
+.node-type-practical-tool .group-details .field-label-inline .field-label,
+.node-type-practical-tool .group-details .field-label-inline .field-items {
+  float: none;
+}
+aside.col-md-3 .region.region-sidebar-first.well {
+  padding: 0;
+}
+aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.block-title {
+  color: #003399;
+  font-size: 1.6em;
+}
+#block-menu-block-4,
+#block-menu-block-6 {
+  width: 100%;
+  margin-top: 49px !important;
+  margin-bottom: 2em;
+}
+.left-menu ul {
+  list-style: none;
+}
+.left-menu ul li {
+  background-color: transparent;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 8px 0.8em 8px 0;
+  margin-bottom: 0;
+  width: 100%;
+  border-bottom: 1px solid #bcd75b;
+}
+.left-menu ul li a {
+  text-decoration: none;
+  padding: 0 20px 0 0;
+}
+.left-menu ul li:hover {
+  background-color: transparent;
+}
+.left-menu ul li:hover a {
+  color: #5bb108;
+  background: transparent;
+  font-weight: bold;
+}
+.left-menu ul li ul li:hover a {
+  color: #5bb108;
+  background-color: transparent;
+  font-weight: bold;
+}
+.left-menu ul .active {
+  background-color: transparent;
+  position: relative;
+}
+.left-menu ul .active a {
+  color: #003399;
+  display: block;
+  width: 100%;
+  font-weight: bold;
+}
+.left-menu ul .active a:before {
+  content: none;
+}
+.left-menu ul li.expanded {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+.left-menu ul li.expanded a {
+  background: transparent;
+  border-radius: 25px;
+  padding: 8px 0;
+  color: #003399;
+  margin-bottom: 0;
+}
+.left-menu ul li.expanded a:before {
+  content: none;
+}
+.left-menu ul li.expanded a:hover {
+  background: transparent;
+  color: #5bb108;
+  font-weight: bold !important;
+}
+.left-menu ul li.expanded a:hover:before {
+  color: #bcd75b;
+}
+.left-menu ul li.expanded a.active {
+  background: transparent;
+}
+.left-menu ul li.expanded ul.menu {
+  margin-left: 1em;
+}
+.left-menu ul li.expanded ul.menu li {
+  padding: 0;
+  background-color: transparent;
+}
+.left-menu ul li.expanded ul.menu li a {
+  width: 92%;
+  margin-left: 8px;
+  margin-bottom: 0;
+  padding-right: 30px;
+  font-weight: normal;
+  border-bottom: 0 !important;
+}
+.left-menu ul li.expanded ul.menu li a:before {
+  content: none;
+}
+.left-menu ul li.expanded.active a.active-trail {
+  background: transparent;
+  font-weight: bold;
+  border-bottom: 1px solid #bcd75b;
+  border-radius: 0;
+}
+.left-menu ul li.expanded.active a.active-trail:before {
+  content: none;
+}
+.left-menu ul li.expanded.active a.active-trail:hover {
+  background: transparent;
+  color: #bcd75b;
+}
+.left-menu ul li.active ul li a:before {
+  content: none;
+}
+.left-menu ul li.active ul li.active a:before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  border-radius: 10px;
+  background: #003399;
+  position: absolute;
+  right: 14px;
+  top: 10px;
+}
+.left-menu ul li.expanded.active-trail.active > a:before {
+  content: none;
+}
+.left-menu.accordion-menu {
+  max-width: 265px;
+  float: right;
+  padding-right: 1em;
+}
+.left-menu.accordion-menu ul .active {
+  background: transparent;
+}
+.left-menu.accordion-menu .left-menu ul li:hover {
+  background-color: transparent;
+}
+.left-menu.accordion-menu .menu-level-2 ul li {
+  border: 0;
+}
+.left-menu.accordion-menu .menu-level-2 ul li ul li {
+  border-bottom: 1px solid #bcd75b;
+}
+.left-menu.accordion-menu .menu-level-2 ul li ul li ul {
+  margin-left: 10px;
+}
+.left-menu.accordion-menu .menu-level-2 ul li ul li ul li {
+  border: 0;
+  margin-left: 0;
+}
+.left-menu.accordion-menu .menu-level-2 ul li ul li ul li a {
+  border-bottom: 1px solid #bcd75b !important;
+  border-radius: 0;
+  margin-bottom: 0;
+  padding-right: 0px;
+  width: 100%;
+  padding-left: 8px;
+}
+.left-menu.accordion-menu .menu-level-2 ul li ul li.expanded {
+  border: 0;
+  margin-left: 0;
+}
+.left-menu.accordion-menu .menu-level-2 ul li ul li.expanded a {
+  border-bottom: 1px solid #bcd75b !important;
+  border-radius: 0;
+  margin-bottom: 0;
+  padding-right: 0px;
+  width: 100%;
+}
+.left-menu.accordion-menu .menu-level-2 ul li .nolink {
+  padding: 10px 15px;
+  display: block;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  text-decoration: none;
+  cursor: pointer;
+  color: #003399;
+  font-weight: bold;
+  background-color: transparent;
+  border-radius: 12px;
+  padding: 0.5em 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 30px;
+  position: relative;
+  border: 1px solid #003399;
+}
+.left-menu.accordion-menu .menu-level-2 ul li .nolink:after {
+  content: "\e250";
+  font-family: "Glyphicons Halflings";
+  float: right;
+  vertical-align: middle;
+  color: #003399;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.left-menu.accordion-menu .menu-level-2 ul li .active-trail.nolink:after {
+  content: "\e252";
+  font-family: "Glyphicons Halflings";
+  float: right;
+  vertical-align: middle;
+  color: #bcd75b;
+}
+.left-menu.accordion-menu .menu-level-2 ul li .up-arrow:after {
+  content: "\e252";
+  font-family: "Glyphicons Halflings";
+  float: right;
+  vertical-align: middle;
+  color: #bcd75b;
+}
+.left-menu.accordion-menu .menu-level-2 ul li .active-trail.nolink.closed-down-arrow:after {
+  content: "\e250";
+  font-family: "Glyphicons Halflings";
+  float: right;
+  vertical-align: middle;
+  color: #003399;
+}
+.left-menu.accordion-menu ul.menu > li.expanded ul.menu {
+  display: none;
+}
+.left-menu.accordion-menu ul.menu > li.expanded.active ul.menu {
+  display: block;
+}
+.left-menu.accordion-menu ul.menu > li.expanded.active ul.menu a {
+  width: 100%;
+  padding-right: 0;
+}
+.left-menu.accordion-menu ul > li.expanded > ul > li.expanded > ul {
+  margin-top: 10px;
+}
+.left-menu.accordion-menu ul > li.expanded > ul > li.expanded > ul li {
+  margin-left: 0;
+  width: 100%;
+}
+.left-menu.accordion-menu .external-menu-item:after {
+  content: ' ';
+  background: url('../images/target-blank-blue.png') no-repeat transparent;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-left: 10px;
+}
+.left-menu.accordion-menu ul li ul li:hover a {
+  background: transparent;
+  color: #003399;
+}
+.left-menu.accordion-menu ul li ul li ul li:hover a {
+  background: #0030a0;
+  color: #FFF;
+}
+.accordion-menu.left-menu ul li.expanded a.external-menu-item:hover {
+  color: #5bb108;
+  font-weight: bold;
+}
+.accordion-menu.left-menu ul li.expanded a.external-menu-item:hover:after {
+  content: ' ';
+  background: url('../images/target-blank-green-hover.png') 90% no-repeat transparent;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-left: 10px;
+}
+.accordion-menu.left-menu ul li.expanded a:hover {
+  background: transparent;
+  color: #5bb108;
+}
+.accordion-menu.left-menu ul li a.active-trail:after {
+  content: none;
+}
+.accordion-menu.left-menu > div > ul > li.expanded > ul > li.expanded > a:after {
+  content: none;
+}
+.accordion-menu.left-menu > div > ul > li.expanded > ul > li.expanded:hover > a:after {
+  color: #5bb108;
+}
+.left-menu.accordion-menu ul > li.expanded > ul > li.expanded > ul {
+  margin-top: 0;
+}
+#block-menu-block-5 > div > ul > li > ul > li.expanded {
+  border-bottom: 0;
+}
+#block-hwc-homepage-previous-campaign-nav {
+  clear: both;
+}
+.accordion-menu {
+  float: left;
+  margin-top: 47px;
+}
+#block-menu-block-5 > div > ul li.last.expanded {
+  margin-top: 1em;
+}
+#block-menu-block-5 > div > ul li.last {
+  margin-bottom: 1em;
+}
+/*See more new style*/
+body {
+  /* Private Zone */
+}
+body a.more-link,
+body .news-see-more-button,
+body .view-events-search .views-field-view-node .field-content a,
+body .views-field-search-api-relevance a {
+  color: #003399;
+  font-size: 1.2rem !important;
+  border: 1px solid #003399;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  text-transform: uppercase;
+  padding: 2px 7px 2px 7px;
+  /*rewrite others see more*/
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+  /* end rewrite others see more*/
+  font-size: 12px;
+  font-weight: bold;
+  font-style: normal;
+  display: block;
+  float: left;
+  position: absolute;
+  bottom: 0;
+  margin-left: 0;
+  transition: 300ms;
+  background-position: 110%;
+  text-decoration: none;
+  background: url(../images/ico-plus-green.png) no-repeat 91% 4px;
+  background-color: transparent;
+  padding-right: 2em;
+}
+body a.more-link:hover,
+body .news-see-more-button:hover,
+body .view-events-search .views-field-view-node .field-content a:hover,
+body .views-field-search-api-relevance a:hover {
+  color: #9cca00;
+  border: 1px solid #9cca00;
+  background-color: transparent;
+}
+body a.more-link:before,
+body .news-see-more-button:before,
+body .view-events-search .views-field-view-node .field-content a:before,
+body .views-field-search-api-relevance a:before {
+  content: '';
+  display: none;
+}
+body .views-field-search-api-relevance {
+  margin-top: 12px;
+}
+body .views-field-search-api-relevance a {
+  position: relative;
+}
+/* See more other style */
+#block-views-publications-slideshow-slidehow .more-link,
+.node-type-priority-area .region-content .block-hwc-priority-areas ul li .more-link {
+  color: #003399;
+  background-color: transparent;
+  font-weight: bold;
+  font-style: normal;
+  border: 0;
+  background: transparent;
+  position: relative;
+  float: none;
+  text-transform: none;
+  padding-left: 0;
 }
 .isMobile {
   float: right !important;
@@ -8644,7 +8680,7 @@ body.mp .panels-flexible-column-first .pane-node-field-mission-statement {
     margin-left: 230px;
     float: left;
     clear: both;
-    margin-top: -2em;
+    margin-top: 0;
   }
   .page-events .region-content #block-system-main .views-row > div {
     margin-left: 0;
@@ -8929,10 +8965,6 @@ body.mp .panels-flexible-column-first .pane-node-field-mission-statement {
   .timeline > div:nth-child(3) {
     position: absolute;
     right: 178px;
-  }
-  .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node,
-  .add-to-calendar {
-    margin-top: auto;
   }
   .page-events #osha-events-dates-form {
     width: 157px;
