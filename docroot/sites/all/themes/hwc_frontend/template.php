@@ -158,8 +158,8 @@ function hwc_frontend_menu_link(array $variables) {
   }
 
   if (arg(1) == 'campaign-materials') {
-    $exclude = variable_get('campaign_materials_exclude', []);
-    $include = variable_get('campaign_materials_include', []);
+    $exclude = variable_get('campaign_materials_exclude', [11667, 1120]);
+    $include = variable_get('campaign_materials_include', [1372, 2495]);
     if (in_array($element['#original_link']['mlid'], $exclude)) {
       $element['#attributes']['class'] = [];
     }
