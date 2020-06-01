@@ -9184,6 +9184,7 @@ body{
 /*Home page*/
 .front-page{
 	.go-to-anchor{
+		cursor: pointer;
 		&:before{
 		    content: '';
 		    position: fixed;
@@ -9194,11 +9195,129 @@ body{
 		    border-radius: 30px;
 		    bottom: 0;
 		    left: 48.4%;
-		    cursor: pointer;
 		    display: none;
 		    border: 4px solid #FFF;
 		}
 	}
+
+	.slider--video--section{
+		clear: both;
+		padding-top: 2em;
+	}
+
+	.slider--video--block{
+		.slider--video--items{
+			.view-header{
+		    	h2{
+		    		display: none;
+		    	}
+		    	p{
+		    		text-align: center;
+				    width: 80%;
+				    margin: 0 auto;
+		    	}
+		    }
+			.multicarousel--block{
+				overflow: hidden;
+				padding: 0 3.5rem;
+				width: 100%;
+				height: 200px;
+				margin: auto;
+				position: relative;
+				display: flex;
+				.multicarousel--block--inner{
+				    transition: 1s ease all;
+				    float: left;
+				    display: flex;
+				    justify-content: center;
+				    .item {
+					    img{
+					    	width: 65%;
+					    	margin: 0 auto;
+					    }
+					    .views-field{
+					    	border-right: 1px solid #CCC;
+						    height: 140px;
+						    display: flex;
+						    justify-content: center;
+						    align-items: center;
+					    }
+					    > .slider-item{
+						    text-align: center;
+						    padding: 0 0 0 1rem;
+						    margin: 1rem;
+						    color: #666;
+						    overflow: hidden;
+						    position: relative;
+						}
+						p{
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							border: 2px solid #DEE999;
+							padding: 1.2em;
+							margin: 0 1em;
+							font-weight: 700;
+							text-align: center;
+							font-size: 0.85em;
+							min-height: 150px;
+							background: #FFF;
+							border-radius: 7px;
+							text-transform: uppercase;
+							letter-spacing: -0.5px;
+							&:hover{
+								border: 2px solid #c9da60;
+							}
+						}
+					}
+				}
+
+				.leftLst.over, .rightLst.over{
+				    pointer-events: none;
+				    img {
+					    opacity: 0.4;
+					}
+				}
+
+				.rightLst.over{
+    				pointer-events: none;
+  				}
+
+  				.leftLst{
+					position: absolute;
+					top: -19px;
+					left: -4px;
+				}
+
+				.rightLst{
+					position: absolute;
+					top: -19px;
+					right: 0;
+				}
+
+				.btn-primary{
+					background: #FFF;
+					height: 100%;
+    				cursor: pointer;
+    				border: 0;
+    				&:hover{
+				    	img{
+				    		opacity: 0.8;
+				    	}
+				    }
+				}
+
+				.btn-primary.no-slider{
+					display: none
+				}
+			}
+		}
+	}
+
+	.footer{
+		margin-top: 0;
+	}
+
 }
 
 

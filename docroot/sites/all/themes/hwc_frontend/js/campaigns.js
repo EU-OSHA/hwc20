@@ -735,6 +735,10 @@ jQuery(document).ready(function () {
       if (bodyWidth >= 1200) {
         incno = itemsSplit[3];
         itemWidth = sampwidth / incno;
+        if (jQuery("body.front-page")[0]){
+        	incno = itemsSplit[4];
+        	itemWidth = sampwidth / incno;
+        }
       }
       else if (bodyWidth >= 992) {
         incno = itemsSplit[2];
@@ -847,13 +851,21 @@ jQuery(document).ready(function () {
 
 jQuery(document).ready(function(){
   if (jQuery(window).width() >= 1200) {
-    jQuery(".multicarousel--block").attr("data-slide","4");
+  	if (jQuery("body.front-page")[0]){
+		jQuery("body.front-page .multicarousel--block").attr("data-slide","5");
+  	}else{
+  		jQuery(".multicarousel--block").attr("data-slide","4");
+  	}    
   }
 });
 
 jQuery(window).resize(function () {
   if (jQuery(window).width() >= 1200) {
-    jQuery(".multicarousel--block").attr("data-slide","4");
+  	if (jQuery("body.front-page")[0]){
+		jQuery("body.front-page .multicarousel--block").attr("data-slide","5");
+  	}else{
+  		jQuery(".multicarousel--block").attr("data-slide","4");
+  	}    
   }
 });
 
