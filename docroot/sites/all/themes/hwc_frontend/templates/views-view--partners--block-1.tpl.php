@@ -8,8 +8,8 @@
       <div class="multicarousel--block--inner">
         <?php print $rows; ?>
       </div>
-      <ol class="multicarousel-indicators">
-      </ol>
+<!--      <ol class="multicarousel-indicators">-->
+<!--      </ol>-->
   <?php elseif ($empty): ?>
       <div class="view-empty">
         <?php print $empty; ?>
