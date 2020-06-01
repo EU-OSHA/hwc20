@@ -1,4 +1,4 @@
-<div class="multicarousel--block" id="multicarouselBlock1" data-items="1,2,3,4" data-slide="3" data-interval="1000">
+<div class="multicarousel--block" id="multicarouselBlock1" data-items="1,2,3,4,5" data-slide="5" data-interval="1000">
   <?php if ($rows): ?>
       <div class="multicarousel--block--inner">
         <?php print $rows; ?>
