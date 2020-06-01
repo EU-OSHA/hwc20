@@ -6831,6 +6831,7 @@ body.front-page{
 					float: left;
 					text-align: center;
 					padding-bottom: 0;
+					height: 385px;
 					h1{
 						padding-top: 1.5em;
 					    border-bottom: 0;
@@ -9180,4 +9181,26 @@ body{
     padding-left: 0;
 }	
 
+/*Home page*/
+.front-page{
+	.go-to-anchor{
+		&:before{
+		    content: '';
+		    position: fixed;
+		    z-index: 9999999;
+		    width: 60px;
+		    height: 60px;
+		    background: url(../images/front-arrow-down.png) no-repeat 12px 21px #003399;
+		    border-radius: 30px;
+		    bottom: 0;
+		    left: 48.4%;
+		    cursor: pointer;
+		    display: none;
+		    border: 4px solid #FFF;
+		}
+	}
+}
+
+
 /* END MHWC-39 - For UX next step */
+

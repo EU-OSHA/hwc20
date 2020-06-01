@@ -968,4 +968,31 @@ jQuery(document).ready(function($){
 		$( ".node-type-gpa .multicarousel--block ol" ).addClass( "no-slider" );
 	}
 
+	//Scroll to anchor Home page
+	$( ".go-to-anchor" ).click(function() {
+	  $([document.documentElement, document.body]).animate({
+        scrollTop: $("#block-hwc-homepage-hwc-homepage-news-events").offset().top
+    	}, 1500);
+	});
+
+	$(window).scroll(function() {
+	    var height = $(window).scrollTop();
+	    console.log(height);
+	    if(height == 0) {
+	       	$( ".go-to-anchor" ).show();
+	    }
+	});
+
+
+	var lastScrollTop = 0;
+	$(window).scroll(function(event){
+	   var st = $(this).scrollTop();
+	   if (st > lastScrollTop){
+	       $( ".go-to-anchor" ).hide();
+	   }
+	   lastScrollTop = st;
+	});
+
+	
+
 });
