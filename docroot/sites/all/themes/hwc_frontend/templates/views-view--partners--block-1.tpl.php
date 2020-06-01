@@ -1,3 +1,8 @@
+<?php if ($header): ?>
+    <div class="view-header">
+      <?php print $header; ?>
+    </div>
+<?php endif; ?>
 <div class="multicarousel--block" id="multicarouselBlock1" data-items="1,2,3,4,5" data-slide="5" data-interval="1000">
   <?php if ($rows): ?>
       <div class="multicarousel--block--inner">
