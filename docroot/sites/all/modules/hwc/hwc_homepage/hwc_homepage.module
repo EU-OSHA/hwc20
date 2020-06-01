@@ -370,7 +370,6 @@ function hwc_homepage_block_view($delta = '') {
     foreach ($result as $row) {
       $map[$row->taxonomy_term_data_field_data_field_msd_priority_area_tid] = $row->nid;;
     }
-    $allowed = variable_get('priority_area_allowed', []);
     $voc = taxonomy_vocabulary_machine_name_load('msd_priority_area');
     $tree = taxonomy_get_tree($voc->vid, 0, NULL, TRUE);
     $items = [];
@@ -390,10 +389,9 @@ function hwc_homepage_block_view($delta = '') {
     $block['content']['menu']['#markup'] .= '<div class="priority_area">';
     $block['content']['menu']['#markup'] .= theme('item_list', array('items' => $items, 'attributes' => array('class' => 'menu nav')));
     $block['content']['menu']['#markup'] .= '</div>';
-    $block['content']['menu']['#markup'] .= l(
-      t('See all partners'),
-      variable_get('hwc_homepage_topics_know_more_link', ['attributes' => ['class' => 'see-more-button-20']])
-      );
+    $block['content']['menu']['#markup'] .= l(t('See all priority areas'), variable_get('hwc_homepage_topics_know_more_link', ''),
+      ['attributes' => ['class' => 'see-more-button-20']]
+    );
   }
   return $block;
 }

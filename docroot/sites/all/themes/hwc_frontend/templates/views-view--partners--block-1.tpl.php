@@ -8,8 +8,6 @@
       <div class="multicarousel--block--inner">
         <?php print $rows; ?>
       </div>
-<!--      <ol class="multicarousel-indicators">-->
-<!--      </ol>-->
   <?php elseif ($empty): ?>
       <div class="view-empty">
         <?php print $empty; ?>
@@ -18,3 +16,7 @@
     <button class="btn btn-primary leftLst over"><img src="/sites/all/themes/hwc_frontend/images/slider-left.png" title="show more"></button>
     <button class="btn btn-primary rightLst"><img src="/sites/all/themes/hwc_frontend/images/slider-right.png" title="show more"></button>
 </div>
+<?php
+echo l(t('See all partners'), variable_get('hwc_homepage_partners_see_more_link', 'campaign-partners/official-campaign-partners'),
+  ['attributes' => ['class' => 'see-more-button-20']]
+);
