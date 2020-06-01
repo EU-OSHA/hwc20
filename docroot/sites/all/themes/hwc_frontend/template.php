@@ -407,6 +407,9 @@ function hwc_frontend_preprocess_block(&$vars) {
   if ($block->delta == '-exp-documents-gpep') {
     $vars['theme_hook_suggestions'][] = 'block__gpep';
   }
+  if ($block->delta == 'hwc_homepage_topics') {
+    $vars['theme_hook_suggestions'][] = 'block__priority_area';
+  }
 
   if ($block->delta == 'partners-block_1') {
     $vars['theme_hook_suggestions'][] = 'block__partners';
