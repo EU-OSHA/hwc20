@@ -389,6 +389,10 @@ function hwc_homepage_block_view($delta = '') {
     $block['content']['menu']['#markup'] .= theme('item_list', array('items' => $items, 'attributes' => array('class' => 'menu nav')));
     $block['content']['menu']['#markup'] .= '</div>';
     $block['subject'] = '<span>' . l(t('Priority areas'), variable_get('hwc_homepage_topics_know_more_link')) . '</span>';
+    $block['content']['menu']['#markup'] = l(
+      t('See all partners'),
+      variable_get('hwc_homepage_topics_know_more_link', ['attributes' => ['class' => 'see-more-button-20']])
+      );
   }
   return $block;
 }

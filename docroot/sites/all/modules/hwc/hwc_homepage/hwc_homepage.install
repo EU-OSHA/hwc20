@@ -192,3 +192,30 @@ function hwc_homepage_update_7025() {
 function hwc_homepage_update_7026() {
   features_revert(array('hwc_homepage' => ['field_instance', 'views_view']));
 }
+
+/**
+ * MHWC-47 UX II recommendations home page
+ */
+function hwc_homepage_update_7027() {
+  $reorder = [
+    'hwc_homepage_topics' => 8,
+    'partners-block_1' => 10,
+    'hwc_homepage_newsletter_social' => 14
+  ];
+
+  foreach ($reorder as $delta => $weight) {
+    db_update('block')
+      ->fields(['weight' => $weight])
+      ->condition('delta', $delta)
+      ->condition('theme', 'hwc_frontend')
+
+      ->execute();
+  }
+
+  db_update('block')
+    ->fields(['title' => 'Official Campaign partners'])
+    ->condition('delta', 'partners-block_1')
+    ->condition('theme', 'hwc_frontend')
+    ->execute();
+
+}
