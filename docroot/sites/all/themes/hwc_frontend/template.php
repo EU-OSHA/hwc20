@@ -410,7 +410,12 @@ function hwc_frontend_preprocess_block(&$vars) {
   if ($block->delta == 'hwc_homepage_topics') {
     $vars['theme_hook_suggestions'][] = 'block__priority_area';
   }
-
+  if ($block->delta == 'hwc_practical_tool_less') {
+    $vars['theme_hook_suggestions'][] = 'block__show_less';
+  }
+  if ($block->delta == 'hwc_practical_tool_more') {
+    $vars['theme_hook_suggestions'][] = 'block__show_more';
+  }
   if ($block->delta == 'partners-block_1') {
     $vars['theme_hook_suggestions'][] = 'block__partners';
   }
