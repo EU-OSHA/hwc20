@@ -412,9 +412,9 @@ function hwc_homepage_block_view($delta = '') {
             }
             $text .= '</blockquote>';
           }
-          $text .= '<h2>' . $name . '</h2>';
+          $text .= '<h3>' . $name . '</h3>';
         }
-        $data = l($text . $name, 'node/' . $map[$term->tid], ['html' => TRUE]);
+        $data = l($text, 'node/' . $map[$term->tid], ['html' => TRUE]);
 
         $items[] = [
           'data' => $data,
