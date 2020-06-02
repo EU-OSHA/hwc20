@@ -1004,6 +1004,18 @@ jQuery(document).ready(function($){
 	   lastScrollTop = st;
 	});
 
-	
+	//Add anchor to view when user checked a filter
+	if ($(".view-practical-tools.view-search")[0]){
+		if ($(".region-sidebar-first .block.block-facetapi input[type='checkbox']").is(':checked')) {
+			console.log("checked");
+			$([document.documentElement, document.body]).animate({
+	        scrollTop: $(".region.region-content").offset().top
+	    	}, 1500);
+	    	$( ".nblock-title" ).removeClass( "area-shown" );
+	    	$( ".region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links" ).hide();
+	    	
+		}
+		
+	}
 
 });
