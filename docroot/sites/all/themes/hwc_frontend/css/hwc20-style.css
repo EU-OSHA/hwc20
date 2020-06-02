@@ -9449,6 +9449,12 @@ body.front-page .footer {
     margin-right: 0;
     margin-left: 0;
   }
+  .left-menu.accordion-menu {
+    float: left;
+  }
+  .region-sidebar-second {
+    padding-top: 2em;
+  }
 }
 @media (max-width: 767px) {
   body.front-page .newsletter-social-media .newsletter {
