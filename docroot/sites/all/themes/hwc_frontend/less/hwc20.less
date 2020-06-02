@@ -7324,68 +7324,6 @@ body.front-page{
 			}
 
 		}
-
-
-		/* Priority Area */
-		#block-hwc-homepage-hwc-homepage-topics{
-			clear: both;
-			padding-top: 2em;
-
-		
-			h2.block-title{
-				position: relative;
-    			background: url(../images/grey-h3-line.png) repeat-x 50% 75%;
-    			margin-bottom: 1em;
-				span{
-					padding-left: 0;
-					padding-right: 0.7em;
-					background: #FFF
-				}
-			}
-	
-			.priority_area{
-				ul{
-					display: flex;
-				    flex-wrap: wrap;
-				    width: 100%;
-				    justify-content: center;
-				    li{
-				    	display: flex;
-					    width: 25%;
-					    margin-right: 2em;
-					    margin-bottom: 1em;
-					    width: 257px;
-					    min-height: 100px;
-	    				margin-top: 0.5em;
-	    				border: 2px solid #bcd75b;
-	    				border-radius: 12px;
-	    				a{
-	    					font-weight: 600;
-	    					font-size: 1.8rem;
-						    font-weight: 600;
-						    width: 100%;
-						    text-align: center;
-						    justify-content: center;
-						    align-items: center;
-						    display: flex;
-						    border-radius: 12px;
-	    				}
-	    				&:hover{
-	    					background: #00309d;
-					    	text-decoration: none;
-					    	border: 2px solid #00309d;
-					    	border-radius: 12px;
-					    	a{
-					    		color:#FFF;
-					    	}
-	    				}
-				    }
-				}
-			}
-		}
-
-
-
 	}
 }
 
@@ -9201,11 +9139,90 @@ body.front-page{
 	}
 
 	.main-container{
+		/* Priority Area */
+
+		.content-fluid.green-background{
+			padding-bottom: 2em;
+		}
+
 		#block-hwc-homepage-hwc-homepage-topics{
+			clear: both;
+			padding-top: 2em;
+
+		
 			h2.block-title{
+				position: relative;
+    			background: url(../images/grey-h3-line.png) repeat-x 50% 75%;
+    			margin-bottom: 0;
 				span{
+					padding-left: 0;
+					padding-right: 0.7em;
 					background: #daea96;
 				}
+			}
+
+			.priority_area_info{
+				text-align: center;
+			    width: 80%;
+			    margin: 0.5em auto;
+			}
+	
+			.priority_area{
+				padding-bottom: 1em;
+				ul{
+					display: flex;
+				    flex-wrap: wrap;
+				    width: 100%;
+				    justify-content: center;
+				    li{
+					    margin-right: 2em;
+					    margin-bottom: 1em;
+					    width: 263px;
+					    min-height: 100px;
+	    				margin-top: 0.5em;
+	    				border-radius: 12px;
+
+	    				img{
+							border: 2px solid #bcd75b;
+							border-radius: 7px;
+	    				}
+
+	    				a{
+	    					font-weight: 600;
+	    					font-size: 1.8rem;
+						    font-weight: 600;
+						    width: 100%;
+						    text-align: center;			   
+						    border-radius: 12px;
+						    padding: 0;
+						    h3{
+								font-size: 1.7rem;
+								padding-top: 0;
+								margin-top: 10px;
+								text-align: left;
+								font-weight: 600;
+						    }
+
+						    &:hover {
+							    opacity: 0.8;
+							}
+	    				}
+
+	    				blockquote.image-field-caption{
+	    					text-align: left;
+	    				}
+
+				    }
+
+				    li:nth-child(4){
+				    	margin-right: 0;
+				    }
+				}
+			}
+
+			a.see-more-button-20:hover {
+			    background: url(../images/ico-next-20-hover.png) no-repeat 99% 2px #ffffff;
+			    color: #ACC700;
 			}
 		}	
 	}

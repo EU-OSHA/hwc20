@@ -989,7 +989,6 @@ jQuery(document).ready(function($){
 
 	$(window).scroll(function() {
 	    var height = $(window).scrollTop();
-	    console.log(height);
 	    if(height == 0) {
 	       	$( ".go-to-anchor" ).show();
 	    }
