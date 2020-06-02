@@ -9182,7 +9182,7 @@ body{
 }	
 
 /*Home page*/
-.front-page{
+body.front-page{
 	.go-to-anchor{
 		cursor: pointer;
 		&:before{
@@ -9200,6 +9200,16 @@ body{
 		}
 	}
 
+	.main-container{
+		#block-hwc-homepage-hwc-homepage-topics{
+			h2.block-title{
+				span{
+					background: #daea96;
+				}
+			}
+		}	
+	}
+
 	.slider--video--section{
 		clear: both;
 		padding-top: 2em;
@@ -9207,6 +9217,7 @@ body{
 
 	.slider--video--block{
 		.slider--video--items{
+			padding-bottom: 2em;
 			.view-header{
 		    	h2{
 		    		display: none;
@@ -9221,10 +9232,11 @@ body{
 				overflow: hidden;
 				padding: 0 3.5rem;
 				width: 100%;
-				height: 200px;
+				height: 180px;
 				margin: auto;
 				position: relative;
 				display: flex;
+				padding-bottom: 2em;
 				.multicarousel--block--inner{
 				    transition: 1s ease all;
 				    float: left;
