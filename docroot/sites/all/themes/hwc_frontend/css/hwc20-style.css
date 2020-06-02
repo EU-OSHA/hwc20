@@ -5750,6 +5750,7 @@ body.newsletter .hwc-share-widget {
   float: left;
   display: flex;
   justify-content: center;
+  margin: 0 auto;
 }
 .node-type-gpa .main-container .slider--video--section .slider--video--block .slider--video--items .multicarousel--block .multicarousel--block--inner .item {
   float: left;
@@ -9523,6 +9524,11 @@ body.front-page .footer {
   }
   body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news .view-news .view-content > div .media-body {
     padding-left: 0;
+  }
+  .node-type-gpa .main-container .field-name-field-contact-details {
+    width: 85%;
+    margin-bottom: 2em;
+    margin-top: 2em;
   }
 }
 @media (max-width: 767px) {
