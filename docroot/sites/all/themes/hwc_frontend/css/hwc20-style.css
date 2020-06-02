@@ -2714,6 +2714,9 @@ body.good-practice-exchange .footer {
 .page-search .region-sidebar-first .block.block-facetapi:first-child {
   margin-top: 44px!important;
 }
+.page-search .region-sidebar-first #more-filters-block .block.block-facetapi:first-child {
+  margin-top: 15px!important;
+}
 .page-search .views-row img {
   border: 0;
 }
@@ -7466,31 +7469,6 @@ body.mp .panels-flexible-column-first .pane-node-field-mission-statement {
   margin: 2rem 0 2rem;
 }
 /* MHWC-39 - For UX next step */
-.view-practical-tools .clear_filters {
-  padding-bottom: 0em;
-  padding-top: 0.5em;
-}
-.view-practical-tools .clear_filters a {
-  background: #003399;
-  color: #FFF;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-.node-type-practical-tool .group-details h3 {
-  padding-bottom: 0;
-  margin-bottom: 5px;
-}
-.node-type-practical-tool .group-details .field-label {
-  padding-top: 10px;
-  width: auto;
-}
-.node-type-practical-tool .group-details div:nth-child(2) > div.field-label {
-  padding-top: 0;
-}
-.node-type-practical-tool .group-details .field-label-inline .field-label,
-.node-type-practical-tool .group-details .field-label-inline .field-items {
-  float: none;
-}
 aside.col-md-3 .region.region-sidebar-first.well {
   padding: 0;
 }
@@ -8064,6 +8042,61 @@ body.front-page .slider--video--block .slider--video--items .multicarousel--bloc
 }
 body.front-page .footer {
   margin-top: 0;
+}
+/* Practical tools list  */
+.page-tools-and-publications-practical-tools #more-filters-block {
+  clear: both;
+  display: block;
+  float: left;
+  width: 100%;
+}
+.page-tools-and-publications-practical-tools #practical-tool-more-link,
+.page-tools-and-publications-practical-tools #practical-tool-less-link {
+  display: block;
+  float: left;
+  clear: both;
+  padding-top: 15px;
+  font-weight: 600;
+  padding-left: 0.8em;
+}
+.page-tools-and-publications-practical-tools #practical-tool-more-link:after,
+.page-tools-and-publications-practical-tools #practical-tool-less-link:after {
+  content: '';
+  background: url(../images/show-more.png) no-repeat 8px 7px;
+  display: block;
+  width: 22px;
+  height: 15px;
+  float: right;
+  padding-top: 5px;
+}
+.page-tools-and-publications-practical-tools #practical-tool-less-link:after {
+  background: url(../images/show-less.png) no-repeat 8px 7px;
+}
+.page-tools-and-publications-practical-tools .view-practical-tools .clear_filters {
+  padding-bottom: 0em;
+  padding-top: 0.5em;
+}
+.page-tools-and-publications-practical-tools .view-practical-tools .clear_filters a {
+  background: #003399;
+  color: #FFF;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+/* Practical tools detail  */
+.node-type-practical-tool .group-details h3 {
+  padding-bottom: 0;
+  margin-bottom: 5px;
+}
+.node-type-practical-tool .group-details .field-label {
+  padding-top: 10px;
+  width: auto;
+}
+.node-type-practical-tool .group-details div:nth-child(2) > div.field-label {
+  padding-top: 0;
+}
+.node-type-practical-tool .group-details .field-label-inline .field-label,
+.node-type-practical-tool .group-details .field-label-inline .field-items {
+  float: none;
 }
 .isMobile {
   float: right !important;
