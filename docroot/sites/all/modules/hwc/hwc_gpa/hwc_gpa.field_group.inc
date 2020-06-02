@@ -21,7 +21,7 @@ function hwc_gpa_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'faq',
-    'weight' => '18',
+    'weight' => '6',
     'children' => array(
       0 => 'field_faq',
     ),
@@ -52,7 +52,7 @@ function hwc_gpa_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'How to participate	',
-    'weight' => '5',
+    'weight' => '4',
     'children' => array(
       0 => 'field_gpa_links',
       1 => 'field_participate_date',

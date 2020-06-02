@@ -1047,3 +1047,52 @@ function hwc_update_7068() {
 function hwc_update_7069() {
   variable_set('homepage_social_media_intro', 'Follow us on social media and get the latest information');
 }
+
+/*
+ * MHWC-50 UX II recommendations GPA page.
+ */
+function hwc_update_7070() {
+  features_revert_module('hwc_gpa');
+}
+
+/*
+ * HW20-740 Translations - To be updated manually.
+ */
+function hwc_update_7071() {
+  $voc = taxonomy_vocabulary_machine_name_load('related_resources');
+  $tree = taxonomy_get_tree($voc->vid, 0, NULL, TRUE);
+  $translated = [];
+  foreach ($tree as $term) {
+    if (count($term->name_field) > 1) {
+      $names = $term->name_field;
+      unset($names['en']);
+      $translated[$term->name_field['en'][0]['value']] = $names;
+    }
+  }
+  foreach ($tree as $term) {
+    if (count($term->name_field) > 1) {
+      continue;
+    }
+    $en_name = $term->name_field['en'][0]['value'];
+    if (empty($translated[$en_name])) {
+      continue;
+    }
+    $term_names = $translated[$en_name];
+    $translation_handler = entity_translation_get_handler('taxonomy_term', $term);
+    $term->translations = $translation_handler->getTranslations();
+    foreach ($term_names as $lang => $name) {
+      if (!isset($term->translations->data[$lang])) {
+        $translation_handler->setTranslation(array(
+          'translate' => 0,
+          'status' => 1,
+          'uid' => 1,
+          'language' => $lang,
+          'source' => 'en',
+        ));
+      }
+      $term->name_field[$lang] = $name;
+    }
+    taxonomy_term_save($term);
+  }
+
+}
