@@ -8,7 +8,7 @@
 
     Drupal.behaviors.search_sort = {
         attach: function(context, settings) {
-            jQuery('.page-practical-tools .region-sidebar-first a').click(function () {
+            jQuery('.page-practical-tools .region-sidebar-first .block-facetapi a').click(function () {
                     jQuery('.view-content .loader').remove();
                     jQuery('.view-content').prepend('<div class="loader"><img id="tmgmt-4" src="/sites/all/themes/hwc_frontend/images/hwc_clock.png" alt=""><p id="tmgmt-5">' + Drupal.settings.loader_text + '</p></div>');
                 }
