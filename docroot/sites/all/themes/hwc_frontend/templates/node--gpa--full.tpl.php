@@ -53,6 +53,7 @@
   $contact_details = '';
   if (!empty($content['field_contact_details'])) {
     $contact_details = render($content['field_contact_details']);
+    unset($content['field_contact_details']);
   }
 
   foreach($content as $field => $row) {
