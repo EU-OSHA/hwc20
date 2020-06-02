@@ -5994,6 +5994,7 @@ body.front-page .main-container #block-views-homepage-banners-block .view-homepa
 body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-even .img-right-column,
 body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-odd .img-right-column {
   height: 100%;
+  min-height: 340px;
   display: flex;
   align-items: center;
 }
@@ -8415,9 +8416,9 @@ body.front-page .footer {
     margin-bottom: 2em;
   }
 }
-@media (min-width: 1919px) {
-  .front-page .go-to-anchor:before {
-    display: block;
+@media (max-width: 1919px) {
+  .front-page .go-to-anchor {
+    display: none !important;
   }
 }
 @media (max-width: 992px) {
@@ -9501,6 +9502,9 @@ body.front-page .footer {
   }
   .region-sidebar-second {
     padding-top: 2em;
+  }
+  body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news .view-news .view-content > div .media-body {
+    padding-left: 0;
   }
 }
 @media (max-width: 767px) {
