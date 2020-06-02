@@ -975,7 +975,7 @@ jQuery(document).ready(function($){
 	}
 
 	//Hide arrows and dots in the GPA slider when the slider has 3 items. Only Desktop
-	if ($('.node-type-gpa .multicarousel--block .item').length <= 3 && $(window).width() >= 992 ){
+	if ($('.node-type-gpa .multicarousel--block .item').length <= 4 && $(window).width() >= 1199 ){
 		$( ".node-type-gpa .multicarousel--block button" ).addClass( "no-slider" );
 		$( ".node-type-gpa .multicarousel--block ol" ).addClass( "no-slider" );
 	}
