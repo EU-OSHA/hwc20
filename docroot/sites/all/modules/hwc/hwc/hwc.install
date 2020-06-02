@@ -1047,3 +1047,10 @@ function hwc_update_7068() {
 function hwc_update_7069() {
   variable_set('homepage_social_media_intro', 'Follow us on social media and get the latest information');
 }
+
+/*
+ * MHWC-50 UX II recommendations GPA page.
+ */
+function hwc_update_7070() {
+  features_revert_module('hwc_gpa');
+}
