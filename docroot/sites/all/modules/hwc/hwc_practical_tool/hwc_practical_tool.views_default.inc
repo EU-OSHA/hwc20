@@ -587,7 +587,7 @@ function hwc_practical_tool_views_default_views() {
     t('last »'),
     t('@total'),
     t('<div class="pager-total"><span>@start - @end / @total</span></div>'),
-    t('No results'),
+    t('No results found'),
     t('Multilingual ID'),
     t('Language of original language description	'),
     t('<span class="views-label">Country </span><span>[field_material_country]</span>'),
