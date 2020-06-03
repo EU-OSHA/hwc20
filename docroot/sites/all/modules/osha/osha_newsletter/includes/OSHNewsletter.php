@@ -314,7 +314,7 @@ class OSHNewsletter {
       $url = url('events', ['absolute' => TRUE, 'query' => $url_query]);
       $content['#suffix'] .= '<table><tr><td align="center" style="padding-top:10px;">
         <div class="more-link-newsletter" style="display: table;margin: 0px auto;">
-        <table style="border: 0; margin: 0;">
+        <table style="border: 0; margin: 0; padding-top:15px;">
          <tr>
           <td><a href="' . $url . '" style="background-color: #FFF; border: 1px solid #acc700;border-radius: 5px; color: #ffffff; padding: 0.5em 1em;
           color: #003399; text-decoration: none;text-transform: uppercase">' . t('View All') . '</a></td>
