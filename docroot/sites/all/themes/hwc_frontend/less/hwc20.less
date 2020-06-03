@@ -6709,8 +6709,6 @@ body.newsletter{
 			padding: 1em;
 			a{
 				font-weight: 600;
-				background: url(../images/target-blank-blue.png) no-repeat 100% 64%; 
-			 	padding-right: 1.5em;
 			}
 		}
 
@@ -6742,6 +6740,7 @@ body.newsletter{
 
 					a{
 						color: #003399;
+						line-height: normal;
 						&:before{
 							content: "\e253";
 							font-family: "Glyphicons Halflings";
@@ -9383,19 +9382,28 @@ body.front-page{
 		}
 	}
 
-	.view-practical-tools{
-		.clear_filters{
-			padding-bottom: 0em;
-	    	padding-top: 0.5em;
-			a{
-				background: #003399;
-				color: #FFF;
-				padding: 5px 10px;
-				border-radius: 5px;
+	.region.region-content{
+		.view-practical-tools{
+			.clear_filters{
+				padding-bottom: 0em;
+		    	padding-top: 0.5em;
+				a{
+					background: #003399;
+					color: #FFF;
+					padding: 5px 10px;
+					border-radius: 5px;
+					&:hover{
+						text-decoration: none;
+						opacity: 0.8;
+					}
+				}
+			}
+
+			.view-empty{
+				margin-top: 2em;
 			}
 		}
 	}
-
 }
 
 /* Practical tools detail  */

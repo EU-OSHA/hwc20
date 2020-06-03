@@ -5911,8 +5911,6 @@ body.newsletter .hwc-share-widget {
 }
 .node-type-gpa .main-container .field-name-field-contact-details a {
   font-weight: 600;
-  background: url(../images/target-blank-blue.png) no-repeat 100% 64%;
-  padding-right: 1.5em;
 }
 .node-type-gpa .group-faq {
   width: 100%;
@@ -5940,6 +5938,7 @@ body.newsletter .hwc-share-widget {
 }
 .node-type-gpa #faq .panel-default > .panel-heading h3 a {
   color: #003399;
+  line-height: normal;
 }
 .node-type-gpa #faq .panel-default > .panel-heading h3 a:before {
   content: "\e253";
@@ -8092,15 +8091,22 @@ body.front-page .footer {
 .page-tools-and-publications-practical-tools #practical-tool-less-link:after {
   background: url(../images/show-less.png) no-repeat 8px 7px;
 }
-.page-tools-and-publications-practical-tools .view-practical-tools .clear_filters {
+.page-tools-and-publications-practical-tools .region.region-content .view-practical-tools .clear_filters {
   padding-bottom: 0em;
   padding-top: 0.5em;
 }
-.page-tools-and-publications-practical-tools .view-practical-tools .clear_filters a {
+.page-tools-and-publications-practical-tools .region.region-content .view-practical-tools .clear_filters a {
   background: #003399;
   color: #FFF;
   padding: 5px 10px;
   border-radius: 5px;
+}
+.page-tools-and-publications-practical-tools .region.region-content .view-practical-tools .clear_filters a:hover {
+  text-decoration: none;
+  opacity: 0.8;
+}
+.page-tools-and-publications-practical-tools .region.region-content .view-practical-tools .view-empty {
+  margin-top: 2em;
 }
 /* Practical tools detail  */
 .node-type-practical-tool .group-details h3 {

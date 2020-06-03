@@ -659,7 +659,7 @@ jQuery(document).ready(function($) {
     }
   });
 
-  $(".page-tools-and-publications-practical-tools .region-sidebar-first .content-filters h2.block-title").addClass('area-shown');
+   $(".page-tools-and-publications-practical-tools .region-sidebar-first .content-filters h2.block-title").addClass('area-shown');
 
 
    if (jQuery(window).width() < 1200) {
@@ -974,8 +974,14 @@ jQuery(document).ready(function($){
 		
 	}
 
-	//Hide arrows and dots in the GPA slider when the slider has 3 items. Only Desktop
+	//Hide arrows and dots in the GPA slider when the slider has 4 items. Only Desktop
 	if ($('.node-type-gpa .multicarousel--block .item').length <= 4 && $(window).width() >= 1199 ){
+		$( ".node-type-gpa .multicarousel--block button" ).addClass( "no-slider" );
+		$( ".node-type-gpa .multicarousel--block ol" ).addClass( "no-slider" );
+	}
+
+	//Hide arrows and dots in the GPA slider when the slider has 3 items. Only Desktop
+	if ($('.node-type-gpa .multicarousel--block .item').length <= 3 && $(window).width() >= 992 ){
 		$( ".node-type-gpa .multicarousel--block button" ).addClass( "no-slider" );
 		$( ".node-type-gpa .multicarousel--block ol" ).addClass( "no-slider" );
 	}
@@ -1004,6 +1010,26 @@ jQuery(document).ready(function($){
 	   lastScrollTop = st;
 	});
 
-	
+	//Add anchor to view when user checked a filter
+	if ($(".view-practical-tools.view-search")[0]){
+		if ($(".region-sidebar-first .block.block-facetapi input[type='checkbox']").is(':checked')) {
+			$([document.documentElement, document.body]).animate({
+	        scrollTop: $(".region.region-content").offset().top
+	    	}, 1500);
+	    	//$( ".block-title" ).removeClass( "area-shown" );
+	    	//$( ".region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links" ).hide();
+		}
+	}
+
+	//Change icon when the filter is visible and has input:checked - area-showm ico
+	if ($(".region-sidebar-first .block.block-facetapi input[type='checkbox']").is(':checked')) {
+		$(".region-sidebar-first .block.block-facetapi input:checked").parent().parent().parent().children().addClass('area-shown');
+	}
+
+	//Remove links show more when results noy found
+	if ($(".view-practical-tools.view-search .view-empty")[0]){
+		$( "#practical-tool-more-link" ).hide();
+		$( "#practical-tool-less-link" ).hide();
+	}
 
 });
