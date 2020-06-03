@@ -659,7 +659,7 @@ jQuery(document).ready(function($) {
     }
   });
 
-  $(".page-tools-and-publications-practical-tools .region-sidebar-first .content-filters h2.block-title").addClass('area-shown');
+   $(".page-tools-and-publications-practical-tools .region-sidebar-first .content-filters h2.block-title").addClass('area-shown');
 
 
    if (jQuery(window).width() < 1200) {
@@ -1016,10 +1016,20 @@ jQuery(document).ready(function($){
 			$([document.documentElement, document.body]).animate({
 	        scrollTop: $(".region.region-content").offset().top
 	    	}, 1500);
-	    	//$( ".nblock-title" ).removeClass( "area-shown" );
+	    	//$( ".block-title" ).removeClass( "area-shown" );
 	    	//$( ".region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links" ).hide();
 		}
-		
+	}
+
+	//Change icon when the filter is visible and has input:checked - area-showm ico
+	if ($(".region-sidebar-first .block.block-facetapi input[type='checkbox']").is(':checked')) {
+		$(".region-sidebar-first .block.block-facetapi input:checked").parent().parent().parent().children().addClass('area-shown');
+	}
+
+	//Remove links show more when results noy found
+	if ($(".view-practical-tools.view-search .view-empty")[0]){
+		$( "#practical-tool-more-link" ).hide();
+		$( "#practical-tool-less-link" ).hide();
 	}
 
 });
