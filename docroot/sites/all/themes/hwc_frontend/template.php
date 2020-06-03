@@ -157,26 +157,20 @@ function hwc_frontend_menu_link(array $variables) {
     }
   }
 
-//  if (arg(1) == 'campaign-materials') {
-//    $exclude = variable_get('campaign_materials_exclude', []);
-//    $include = variable_get('campaign_materials_include', []);
-//    if (in_array($element['#href'], $exclude)) {
-//      $element['#attributes']['class'] = [];
-//    }
-//    if (in_array($element['#href'], $include)) {
-//      if (!empty($element['#localized_options']['attributes'])) {
-//        $element['#attributes']['class'] = [];
-//      }
-//      else {
-//        $element['#attributes']['class'] = [
-//          'expanded',
-//          'active-trail',
-//          'active',
-//        ];
-//      }
-//    }
-//  }
-
+  if (arg(1) == 'campaign-materials') {
+    $exclude = variable_get('campaign_materials_exclude', []);
+    $include = variable_get('campaign_materials_include', []);
+    if (in_array($element['#original_link']['mlid'], $exclude)) {
+      $element['#attributes']['class'] = [];
+    }
+    if (in_array($element['#original_link']['mlid'], $include)) {
+      $element['#attributes']['class'] = [
+        'expanded',
+        'active-trail',
+        'active',
+      ];
+    }
+  }
   $sub_menu = '';
   if ($element['#below']) {
     // Prevent dropdown functions from being added to management menu so it
@@ -265,6 +259,10 @@ function hwc_frontend_preprocess_html(&$vars) {
 
   if (variable_get('splash_mode', FALSE) || arg(0) == 'splash-page') {
     $vars['classes_array'][] = 'rel1';
+  }
+
+  if (isset($_SESSION['masquerading'])) {
+    $vars['classes_array'][] = 'act-as-partner';
   }
 
   $vars['menu_title'] = '';
@@ -664,7 +662,19 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'pa_highlights':
+        $breadcrumb[] = l(t('Home'), '<front>');
+        $breadcrumb[] = l(t('About the topic'), 'about-topic');
+        $breadcrumb[] = l(t('Priority areas'), 'about-topic/priority-areas');
+        $pa = hwc_priority_areas_pa_highlights_pa_title($node->nid);
+        if ($pa) {
+          $breadcrumb[] = l($pa->title, 'node/' . $pa->nid);
+          $breadcrumb[] = $node->title;
+          drupal_set_breadcrumb($breadcrumb);
+          $tag_vars['element']['#value'] = $pa->title;
+        }
+        else {
         $tag_vars['element']['#value'] = t(variable_get('pa_highlights_title', 'News'));
+        }
         $vars['page']['above_title']['news-page-title'] = array(
           '#type' => 'item',
           '#markup' => theme('html_tag', $tag_vars),

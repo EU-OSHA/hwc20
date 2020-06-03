@@ -11447,7 +11447,7 @@ article .hwc-share-widget ul {
 }
 .page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date-1,
 .page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date-1 {
-  font-size: 1em;
+  font-size: 1.4rem;
   margin-bottom: 0.5em;
   font-weight: 600;
   color: #57575a;
@@ -15641,11 +15641,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 /*End publications detail*/
 /*official campaign partners list*/
-.node-145 .field-type-text-with-summary {
-  text-align: center;
-  font-size: 1.1em;
-  margin-top: 40px;
-}
 .view-id-partners_list {
   margin: 0 25px 25px 25px;
   color: #003399;

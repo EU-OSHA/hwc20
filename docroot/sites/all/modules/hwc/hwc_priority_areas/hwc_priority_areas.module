@@ -17,6 +17,28 @@ function hwc_priority_areas_ctools_plugin_directory($module, $plugin) {
   }
 }
 
+function hwc_priority_areas_pa_highlights_pa_title($target_id) {
+  global $language;
+  static $pa = [];
+  if ($pa) {
+    return $pa;
+  }
+  $query = '
+    SELECT n.nid, n.title
+    FROM {node} n
+    JOIN {field_data_field_pa_recommended_resources} t on (t.entity_id = n.nid) and (t.field_pa_recommended_resources_target_id = :target_id)
+    WHERE n.status = 1';
+  $result = db_query($query, [':target_id' => $target_id]);
+  $pa = $result->fetchObject();
+  if ($pa) {
+    $wrapper = entity_metadata_wrapper('node', $pa->nid);
+    $pa->title = $wrapper->language($language->language)->title_field->value();
+    return $pa;
+  }
+  return [$pa];
+}
+
+
 /**
  * Implements hook_node_view().
  */
