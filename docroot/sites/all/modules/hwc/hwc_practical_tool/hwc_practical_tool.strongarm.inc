@@ -236,6 +236,363 @@ function hwc_practical_tool_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_audio_visual_url';
+  $strongarm->value = '/export/audio_visual';
+  $export['hwc_migration_audio_visual_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_dangerous_substances_url';
+  $strongarm->value = '';
+  $export['hwc_migration_dangerous_substances_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_events_url';
+  $strongarm->value = '/export/event/list';
+  $export['hwc_migration_events_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_gallery_url';
+  $strongarm->value = '/export/gallery';
+  $export['hwc_migration_gallery_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_highlights_add_res_url';
+  $strongarm->value = '/export/list-additional-resources/campaign_2020-2022';
+  $export['hwc_migration_highlights_add_res_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_highlights_url';
+  $strongarm->value = '/export/list/highlight/campaign_2020-2022';
+  $export['hwc_migration_highlights_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_infographics_url';
+  $strongarm->value = '/export/list/infographic/campaign_2020-2022';
+  $export['hwc_migration_infographics_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_msd_url';
+  $strongarm->value = '';
+  $export['hwc_migration_msd_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_news_add_res_url';
+  $strongarm->value = '/export/list-additional-resources/campaign_2020-2022';
+  $export['hwc_migration_news_add_res_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_news_url';
+  $strongarm->value = '/export/news/list';
+  $export['hwc_migration_news_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_notes_to_editor_url';
+  $strongarm->value = '/export/notetoeditor';
+  $export['hwc_migration_notes_to_editor_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_practical_tool_url';
+  $strongarm->value = '/export/msd';
+  $export['hwc_migration_practical_tool_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_press_contacts_url';
+  $strongarm->value = '/export/presscontact';
+  $export['hwc_migration_press_contacts_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_press_releases_add_res_url';
+  $strongarm->value = '/export/list-additional-resources/campaign_2020-2022';
+  $export['hwc_migration_press_releases_add_res_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_press_releases_url';
+  $strongarm->value = '/export/list/press_release/campaign_2020-2022';
+  $export['hwc_migration_press_releases_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_publications_add_res_url';
+  $strongarm->value = '';
+  $export['hwc_migration_publications_add_res_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_publications_url';
+  $strongarm->value = '/export/list/publication/campaign_2020-2022';
+  $export['hwc_migration_publications_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_root_url';
+  $strongarm->value = 'https://test.osha.europa.eu';
+  $export['hwc_migration_root_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_activity_url';
+  $strongarm->value = '/export/taxonomy/activity';
+  $export['hwc_migration_tax_activity_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_biological_hazard_url';
+  $strongarm->value = '/export/taxonomy/biological_hazard';
+  $export['hwc_migration_tax_biological_hazard_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_country_status_url';
+  $strongarm->value = '/export/taxonomy/country_status';
+  $export['hwc_migration_tax_country_status_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_country_url';
+  $strongarm->value = '/export/taxonomy/country';
+  $export['hwc_migration_tax_country_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_evaluation_url';
+  $strongarm->value = '/export/taxonomy/evaluation';
+  $export['hwc_migration_tax_evaluation_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_exposure_route_url';
+  $strongarm->value = '/export/taxonomy/exposure_route';
+  $export['hwc_migration_tax_exposure_route_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_fop_link_sections_url';
+  $strongarm->value = '/export/taxonomy/fop_link_sections';
+  $export['hwc_migration_tax_fop_link_sections_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_hazards_url';
+  $strongarm->value = '/export/taxonomy/hazards';
+  $export['hwc_migration_tax_hazards_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_hazard_health_effects_url';
+  $strongarm->value = '/export/taxonomy/hazard_health_effects';
+  $export['hwc_migration_tax_hazard_health_effects_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_hazard_physical_state_url';
+  $strongarm->value = '/export/taxonomy/hazard_physical_state';
+  $export['hwc_migration_tax_hazard_physical_state_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_hazmap_categories_url';
+  $strongarm->value = '/export/taxonomy/hazmap_categories';
+  $export['hwc_migration_tax_hazmap_categories_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_health_effects_url';
+  $strongarm->value = '/export/taxonomy/health_effects';
+  $export['hwc_migration_tax_health_effects_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_material_objective_url';
+  $strongarm->value = '/export/taxonomy/material_objective';
+  $export['hwc_migration_tax_material_objective_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_material_purpose_url';
+  $strongarm->value = '/export/taxonomy/material_purpose';
+  $export['hwc_migration_tax_material_purpose_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_msd_glossary_url';
+  $strongarm->value = '/export/taxonomy/msds_glossary';
+  $export['hwc_migration_tax_msd_glossary_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_msd_priority_area_url';
+  $strongarm->value = '/export/taxonomy/msd_priority_area';
+  $export['hwc_migration_tax_msd_priority_area_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_msd_url';
+  $strongarm->value = '/export/msd';
+  $export['hwc_migration_tax_msd_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_nace_codes_url';
+  $strongarm->value = '/export/taxonomy/nace_codes';
+  $export['hwc_migration_tax_nace_codes_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_newsletter_sections_url';
+  $strongarm->value = '/export/taxonomy/newsletter_sections';
+  $export['hwc_migration_tax_newsletter_sections_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_prevention_measures_msd_url';
+  $strongarm->value = '/export/taxonomy/prevention_measures_msd';
+  $export['hwc_migration_tax_prevention_measures_msd_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_prevention_measures_url';
+  $strongarm->value = '/export/taxonomy/prevention_measures';
+  $export['hwc_migration_tax_prevention_measures_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_priority_area_url';
+  $strongarm->value = '/export/taxonomy/priority_area';
+  $export['hwc_migration_tax_priority_area_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_provider_type_url';
+  $strongarm->value = '/export/taxonomy/provider_type';
+  $export['hwc_migration_tax_provider_type_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_publication_types_url';
+  $strongarm->value = '/export/taxonomy/publication_types';
+  $export['hwc_migration_tax_publication_types_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_purpose_of_material_url';
+  $strongarm->value = '/export/taxonomy/purpose_of_material';
+  $export['hwc_migration_tax_purpose_of_material_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_resource_type_url';
+  $strongarm->value = '/export/taxonomy/resource_type';
+  $export['hwc_migration_tax_resource_type_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_segment_url';
+  $strongarm->value = '/export/taxonomy/relevant_for';
+  $export['hwc_migration_tax_segment_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_tags_url';
+  $strongarm->value = '/export/taxonomy/tags';
+  $export['hwc_migration_tax_tags_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_target_audience_url';
+  $strongarm->value = '/export/taxonomy/target_audience';
+  $export['hwc_migration_tax_target_audience_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_target_group_url';
+  $strongarm->value = '/export/taxonomy/target_group';
+  $export['hwc_migration_tax_target_group_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_thesaurus_url';
+  $strongarm->value = '/export/taxonomy/thesaurus';
+  $export['hwc_migration_tax_thesaurus_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_worker_groups_covered_url';
+  $strongarm->value = '/export/taxonomy/worker_groups_covered';
+  $export['hwc_migration_tax_worker_groups_covered_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_worker_groups_url';
+  $strongarm->value = '/export/taxonomy/worker_groups';
+  $export['hwc_migration_tax_worker_groups_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_practical_tool';
   $strongarm->value = '4';
   $export['language_content_type_practical_tool'] = $strongarm;
