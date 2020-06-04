@@ -224,7 +224,7 @@ function hwc_practical_tool_strongarm() {
         ),
         'bottom_share_widget' => array(
           'default' => array(
-            'weight' => '11',
+            'weight' => '27',
             'visible' => TRUE,
           ),
         ),
