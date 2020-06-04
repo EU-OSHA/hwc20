@@ -2624,6 +2624,7 @@ body.good-practice-exchange .footer {
   font-weight: normal;
   padding-top: 0.6em;
   display: block;
+  line-height: normal;
 }
 .page-media-centre-news .main-container #block-system-main .view .views-row .views-field-search-api-excerpt a,
 .page-search .main-container #block-system-main .view .views-row .views-field-search-api-excerpt a,
