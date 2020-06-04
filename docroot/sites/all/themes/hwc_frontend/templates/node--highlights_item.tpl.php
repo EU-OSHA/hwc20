@@ -30,21 +30,15 @@ if (!empty($campaign_id)) {
         <table border="0" cellpadding="0" cellspacing="0" class="item-thumbnail-and-title" width="100%">
           <thead>
             <tr>
-            <?php
-              $old_width = 100;
-              $new_width = 300;
-              $highlight_img_width = $node->old_newsletter ? $old_width : $new_width;
-            ?>
               <th rowspan=<?php print($node->old_newsletter ? '1' : '2'); ?>
-                  width="<?php print($highlight_img_width);?>"
-                  style="padding-bottom:10px; vertical-align: top; padding-top:0; padding-right: 40px; text-align:center; width: <?php print($highlight_img_width);?>px; max-width:<?php print($highlight_img_width);?>px;"
+                  width="220"
                   <?php if(!$node->old_newsletter) { ?>
                     class="template-column template-image"
                   <?php } ?> >
                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                   <tbody>
                     <tr>
-                      <td align="center" width="<?php print($highlight_img_width);?>" style="width: <?php print($highlight_img_width);?>px; max-width:<?php print($highlight_img_width);?>px;">
+                      <td align="center" width="border: 0; width: 220px; font-size: 12px; font-family: Arial, sans-serif; color: #000000; vertical-align: top; padding: 0; margin: 0; padding-bottom: 25px;">
                         <?php
                           if ($node->type == 'youtube') {
                             if (!empty($node->field_youtube[LANGUAGE_NONE][0]['video_id'])) {
@@ -58,16 +52,12 @@ if (!empty($campaign_id)) {
                                   print l(theme('image', array(
                                     'style_name' => ($node->old_newsletter ? 'thumbnail' : 'newsletter_highlight'),
                                     'path' => sprintf("https://img.youtube.com/vi/%s/hqdefault.jpg", $video_id),
-                                    'width' => ($node->old_newsletter ? '100%' : $highlight_img_width),
                                     'alt' => $title,
-                                    'attributes' => array('style' => 'border: 0px;width: ' . ($node->old_newsletter ? '100%' : $highlight_img_width . 'px') . ';max-width: ' . ($node->old_newsletter ? '100%' : $highlight_img_width . 'px') . ';height:auto;background-color: #ffffff;vertical-align:middle;'),
+                                    'attributes' => array('style' => 'border-radius: 15px;'),
                                   )), url('node/' . $node->nid, array('absolute' => TRUE)), array(
                                     'html' => TRUE,
                                     'query' => $url_query,
                                     'external' => TRUE,
-                                    'attributes' => array(
-                                      'style' => 'display:block;border:1px solid #efefef;',
-                                    ),
                                   ));
                                 }
                                 else {
@@ -79,17 +69,14 @@ if (!empty($campaign_id)) {
                           else {
                             print l(theme('image_style', array(
                               'style_name' => ($node->old_newsletter ? 'thumbnail' : 'newsletter_highlight'),
-                              'path' => (isset($field_image) && !empty($field_image)) ? $field_image[0]['uri'] : '',
-                              'width' => ($node->old_newsletter ? '100%' : ''),
+                              'path' => (isset($field_image) && !empty($field_image)) ? $field_image[0]['uri'] : '',                              
                               'alt' => (isset($field_image) && !empty($field_image)) ? $field_image[0]['alt'] : '',
-                              'attributes' => array('style' => 'border: 0px;max-width: 100%;height:auto;background-color: #ffffff;vertical-align:middle;'),
+                              'attributes' => array('style' => ''),
+                              'attributes' => array('style' => 'border-radius: 15px;'),
                             )), url('node/' . $node->nid, array('absolute' => TRUE)), array(
                               'html' => TRUE,
                               'query' => $url_query,
-                              'external' => TRUE,
-                              'attributes' => array(
-                                'style' => 'display:block;border:1px solid #efefef;',
-                              ),
+                              'external' => TRUE,                              
                             ));
                           }
                         ?>
@@ -98,7 +85,7 @@ if (!empty($campaign_id)) {
                   </tbody>
                 </table>
               </th>
-              <th valign="top" style="color: #003399; padding-bottom: 7px; padding-left: 0px; padding-right: 0px;font-family: Arial, sans-serif;" class="template-column">
+              <th valign="top" style="color: #003399; padding-bottom: 7px; padding-left: 15px; padding-right: 0px;font-family: Arial, sans-serif;" class="template-column">
                 <?php
                 if (isset($node->field_publication_date[LANGUAGE_NONE][0]['value'])) {
                   $date = strtotime($node->field_publication_date[LANGUAGE_NONE][0]['value']);
@@ -124,7 +111,7 @@ if (!empty($campaign_id)) {
                 ?>
               </th>
             </tr>
-            <tr><th <?php if ($node->old_newsletter) { ?> colspan="2"<?php } ?> >
+            <tr><th <?php if ($node->old_newsletter) { ?> colspan="2"<?php } ?> style="padding-left: 15px;">
               <table border="0" cellpadding="0" cellspacing="0" class="item-summary" width="100%">
                 <tbody>
                   <tr>

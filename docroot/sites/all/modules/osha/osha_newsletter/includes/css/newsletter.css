@@ -209,6 +209,7 @@ td.social {
   text-align: left;
   text-transform: none;
   padding: 20px 0 0 0;
+  line-height: 25px;
 }
 .newsletter-section .section-title.events {
   vertical-align: top;
@@ -217,6 +218,7 @@ td.social {
   font-size: 19px;
   height: 20px;
   padding-top: 40px;
+  line-height: 25px;
 }
 
 .newsletter-section .section-title.twitter {
@@ -225,6 +227,7 @@ td.social {
   color: #003399;
   font-size: 19px;
   height: 20px;
+  line-height: 25px;
 }
 
 .newsletter-section.section-audiovisual thead tr th span{
