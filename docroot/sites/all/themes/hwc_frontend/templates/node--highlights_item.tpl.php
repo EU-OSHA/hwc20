@@ -38,7 +38,7 @@ if (!empty($campaign_id)) {
                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                   <tbody>
                     <tr>
-                      <td align="center" width="border: 0; width: 220px; font-size: 12px; font-family: Arial, sans-serif; color: #000000; vertical-align: top; padding: 0; margin: 0; padding-bottom: 25px;">
+                      <td align="left" width="width: 220px;" style="padding: 0 0 25px 0!important;">
                         <?php
                           if ($node->type == 'youtube') {
                             if (!empty($node->field_youtube[LANGUAGE_NONE][0]['video_id'])) {
@@ -111,11 +111,11 @@ if (!empty($campaign_id)) {
                 ?>
               </th>
             </tr>
-            <tr><th <?php if ($node->old_newsletter) { ?> colspan="2"<?php } ?> style="padding-left: 15px;">
+            <tr><th <?php if ($node->old_newsletter) { ?> colspan="2"<?php } ?> class="body-responsive" style="padding-left: 15px;">
               <table border="0" cellpadding="0" cellspacing="0" class="item-summary" width="100%">
                 <tbody>
                   <tr>
-                    <td colspan="2" style="width: 100%; font-size: 13px; font-family: Arial, sans-serif; color: #000000;">
+                    <td colspan="2" style="width: 100%; font-size: 13px; font-family: Arial, sans-serif; color: #59595a;">
                       <?php
                       $body_text = '';
                       if (isset($field_summary) && is_array($field_summary) && !empty($field_summary)) {
