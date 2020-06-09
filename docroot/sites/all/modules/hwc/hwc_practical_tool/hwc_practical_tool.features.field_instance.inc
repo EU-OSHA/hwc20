@@ -3583,7 +3583,7 @@ please take this into consideration when you are writing the first paragraph.',
     ),
     'entity_type' => 'node',
     'field_name' => 'field_sector_industry_covered',
-    'label' => 'Sector / Industry covered',
+    'label' => 'Sector',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -4206,7 +4206,7 @@ please take this into consideration when you are writing the first paragraph.',
     ),
     'entity_type' => 'node',
     'field_name' => 'field_worker_groups_covered',
-    'label' => 'Worker groups covered (vulnerable groups etc.)',
+    'label' => 'Worker groups covered',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -6960,7 +6960,7 @@ please take this into consideration when you are writing the first paragraph.');
   t('Purpose of the material');
   t('Purpose of the material other');
   t('Recommended for EU-OSHA pictogram guide');
-  t('Sector / Industry covered');
+  t('Sector');
   t('Target audience');
   t('Target audiences other');
   t('Thesaurus code');
@@ -6971,7 +6971,7 @@ please take this into consideration when you are writing the first paragraph.');
   t('Type of visual resource');
   t('Type of visual resource other');
   t('URL');
-  t('Worker groups covered (vulnerable groups etc.)');
+  t('Worker groups covered');
   t('Worker groups covered other');
   t('available');
 
