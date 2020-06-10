@@ -161,3 +161,26 @@ function osha_news_update_7022() {
 function osha_news_update_7023() {
   features_revert_module('osha_news');
 }
+
+/**
+ * HW20-462 Press Room - Improve the page.
+ */
+function osha_news_update_7024() {
+  features_revert(array('osha_news' => array('views_view')));
+  features_revert(array('osha_press_release' => array('fe_block_settings')));
+}
+
+/**
+ * HW20-462 Press Room - Improve the page.
+ */
+function osha_news_update_7025() {
+  features_revert(array('osha_news' => array('views_view')));
+  features_revert_module('osha_press_release');
+}
+
+/**
+ * HW20-512 Private zone - News item - copyright.
+ */
+function osha_news_update_7026() {
+  features_revert(array('osha_news' => array('field_base', 'field_instance', 'ds_layout_settings')));
+}

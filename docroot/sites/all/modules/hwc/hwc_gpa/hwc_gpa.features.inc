@@ -44,6 +44,8 @@ function hwc_gpa_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
+    'unique_entries' => 0,
+    'insert_at_front' => NULL,
     'subqueues' => 1,
     'types' => array(
       0 => 'publication',

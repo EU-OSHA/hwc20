@@ -126,7 +126,11 @@ function osha_events_field_formatter_view($entity_type, $entity, $field, $instan
 function osha_events_form_events_node_form_alter(&$form, &$form_state) {
   global $user;
 
-  $is_admin = count(array_intersect(array(HWC_ROLE_ADMIN, HWC_ROLE_WEBSITE_MANAGERS, HWC_ROLE_EEN_REVIEW_MANAGER, HWC_ROLE_HWC_STAFF_REVIEWERS), $user->roles));
+  $is_admin = count(array_intersect(array(
+    HWC_ROLE_ADMIN,
+  HWC_ROLE_WEBSITE_MANAGERS, 
+  HWC_ROLE_EEN_REVIEW_MANAGER, 
+  HWC_ROLE_HWC_STAFF_REVIEWERS), $user->roles));
 
   hwc_workflow_add_extra_fields($form, $form_state);
   if ($is_admin) {

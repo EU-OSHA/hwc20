@@ -43,9 +43,25 @@
   else {
     unset($content['group_participate']['field_participate_upcoming_descr']);
   }
+
+  $group_participate = render($content['group_participate']);
+  unset($content['group_participate']);
+
+  $gpe = render($content['gpe']);
+  unset($content['gpe']);
+
+  $contact_details = '';
+  if (!empty($content['field_contact_details'])) {
+    $contact_details = render($content['field_contact_details']);
+    unset($content['field_contact_details']);
+  }
+
   foreach($content as $field => $row) {
     print render($row);
   }
+  print $group_participate;
+  print $gpe;
   print $group_faq;
+  print $contact_details;
   ?>
 </article>

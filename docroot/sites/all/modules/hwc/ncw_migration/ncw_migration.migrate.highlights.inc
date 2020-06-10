@@ -56,8 +56,8 @@ class NCWHighlightMigration extends AbstractNCWNodeMigration {
   public function prepareRow($row) {
     parent::prepareRow($row);
     $row->field_migration_path_alias = $row->path;
-    $row->field_image_caption = $row->field_image_image_captions;
-    $row->field_image_caption_language = $row->field_image_image_captions_language;
+//    $row->field_image_caption = $row->field_image_image_captions;
+//    $row->field_image_caption_language = $row->field_image_image_captions_language;
     // Disable NCW alias.
     $row->path = NULL;
     $row->field_tags = osha_migration_normalize_migrated_term_reference($row->field_tags, 'tax_tags');
@@ -87,8 +87,8 @@ class NCWHighlightSource extends AbstractNCWNodeSource {
       'body_language',
       'body_summary',
       'body_format',
-      'field_image_caption',
-      'field_image_caption_language',
+//      'field_image_caption',
+//      'field_image_caption_language',
       'field_image',
       'field_image_language',
       'field_publication_date',

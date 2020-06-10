@@ -128,6 +128,12 @@ function hwc_menu_alter(&$items) {
 
   $items['user/password']['title'] = t('Create / Forgot password');
   $items['user/password']['weight'] = 10;
+
+  // Remove pages from access administration pages permission.
+  $items['admin/structure']['access arguments'] = array('hwc access administration pages');
+  $items['admin/config']['access arguments'] = array('hwc access administration pages');
+  $items['admin/content/newsletter']['access arguments'] = array('hwc access administration pages');
+  $items['admin/content/partners']['access arguments'] = array('hwc access administration pages');
 }
 
 function hwc_disable_taxonomy_term_feed() {
@@ -1419,12 +1425,6 @@ function hwc_field_widget_form_alter(&$element, &$form_state, $context) {
         $placeholder = 'News title';
         $element['value']['#attributes']['placeholder'] = $placeholder;
         break;
-
-      case 'field_image_caption':
-        $placeholder = 'Image caption';
-        $element['value']['#attributes']['placeholder'] = $placeholder;
-        break;
-
     }
   }
 }
@@ -1760,6 +1760,28 @@ function hwc_node_presave($node) {
   if (!in_array($node->type, $allow_section_field) && variable_get('workbench_access_node_type_' . $node->type, FALSE)) {
     if (empty($node->workbench_access)) {
       $node->workbench_access['section'] = 'section';
+    }
+  }
+
+  if ($node->type == 'news') {
+    if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
+      $p_account = hwc_partner_get_account_partner();
+      if ($p_account) {
+        $node->field_image[$language->language][0]['fid'] = $p_account->field_logo[LANGUAGE_NONE][0]['fid'];
+        $node->field_image[$language->language][0]['image_field_caption']['format'] = 'full_html';
+        $node->field_image[$language->language][0]['image_field_caption']['value'] = $node->field_pz_image_caption[LANGUAGE_NONE][0]['value'];
+      }
+    }
+    else {
+      if (
+        empty($node->field_image[$language->language][0]['image_field_caption']['value'])
+        &&
+        !empty($node->field_pz_image_caption[LANGUAGE_NONE][0]['value'])
+        &&
+        !empty($node->field_image[$language->language][0]['fid'])
+      ) {
+        $node->field_image[$language->language][0]['image_field_caption']['value'] = $node->field_pz_image_caption[LANGUAGE_NONE][0]['value'];
+      }
     }
   }
 }

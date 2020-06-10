@@ -31,6 +31,27 @@ function hwc_gpa_field_default_field_bases() {
     'type' => 'text_long',
   );
 
+  // Exported field_base: 'field_contact_details'.
+  $field_bases['field_contact_details'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_contact_details',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 1,
+    'type' => 'text_long',
+  );
+
   // Exported field_base: 'field_faq'.
   $field_bases['field_faq'] = array(
     'active' => 1,
