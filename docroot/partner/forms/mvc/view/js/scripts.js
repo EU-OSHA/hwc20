@@ -2189,6 +2189,13 @@ $(document).ready(function () {
             //RRL Only show contact change clone when main contact checkbox is checked
             if($(this).attr("id")== "contact_osh_maincontactchange"){
                 $(".main-contact-change-clone").show();
+                if ($(".main-contact-change .help-block").length == 1){
+                    $(".main-contact-change .float-right .help-block").hide()
+                }else{
+                    $(".main-contact-change .float-right .help-block:eq(1)").hide()
+                
+                }
+                
                 $("#contact_osh_maincontactpersonfirstname").focus()
             }
 //            $(contactBackup).appendTo(".main-contact-change");
@@ -2212,6 +2219,12 @@ $(document).ready(function () {
             
             if($(this).attr("id")== "contact_osh_maincontactchange"){
                 $(".main-contact-change-clone").hide();
+                if ($(".main-contact-change .help-block").length == 1){
+                    $(".main-contact-change .float-right .help-block").show()
+                }else{
+                    $(".main-contact-change .float-right .help-block:eq(1)").show()
+                
+                }
             }
 //            $(".main-contact-change").remove(".main-contact-change-backup");
             $('.main-contact-change-checkbox').val('false');
@@ -2220,6 +2233,12 @@ $(document).ready(function () {
 
     $(".main-contact-change-clone :input").attr('disabled', 'disabled');
     $(".main-contact-change-clone").hide();
+        if ($(".main-contact-change .help-block").length == 1){
+            $(".main-contact-change .float-right .help-block").show()
+        }else{
+            $(".main-contact-change .float-right .help-block:eq(1)").show()
+        
+        }
 
 
 
