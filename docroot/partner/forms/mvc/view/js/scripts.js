@@ -260,7 +260,8 @@ window.onload = function () {
     console.log('15');
 }
 function checkSectionsByCDB(dataSection){
-    debugger;
+    //debugger;
+//alert(dataSection);
 //    setCheckSectionAttributte(dataSection,true);
     $('#form form :input[data-section="' + dataSection + '"]').prop("onlyread", "onlyread");
 //                $('#form form :input[data-section="' + dataSection + '"]').css({
@@ -268,6 +269,7 @@ function checkSectionsByCDB(dataSection){
 //                    'background-color': '#E3E3E4'
 //                });
     $('#form form :input[data-section="' + dataSection + '"]').each(function (id, item) {
+        //alert(item);
         $(item).css({
             'pointer-events': 'none'
         });
@@ -322,6 +324,8 @@ function checkSectionsByCDB(dataSection){
             'pointer-events': 'none'
         });
     }
+    //RRL added in order to validate sections when navigate from the left menu
+    checkSections();
 }
 function stopRKey(evt) {
     var evt = (evt) ? evt : ((event) ? event : null);
@@ -392,6 +396,7 @@ function setErrorImagesRequired(id,error) {
 }
 
 function checkSections() {
+    //alert("checkSections");
     //Workaound error displaying field IE
     /*if($("#company_osh_orgname").length > 0){
      $("#company_osh_orgname").val($("#company_osh_orgname").val());
@@ -400,11 +405,13 @@ function checkSections() {
      $("#contact_osh_maincontactpersonfirstname").val($("#contact_osh_maincontactpersonfirstname").val());
      }*/
     var ret = false;
+
     $("#sidebar-top .section").each(function (id, item) {
         var elemId = $(item).attr("data-section");
         var validateElement = $("#"+ elemId).parent().next().find(">div.validation");
         if ($("#" + elemId).length) {
             // console.log(elemId + ".length: " +$("#" + elemId).length);
+            
             $("." + elemId).addClass("sidebar-error");
             //hace validaciones
 
@@ -426,10 +433,12 @@ function checkSections() {
                     //Comprobamos que estÃƒÂ© presionado
                     if(validateElement.hasClass("validation-pressed"))
                     {
+                        
                         $("." + elemId).removeClass("sidebar-error");//Se pone en verde
                     }
                 }else
                 {//Si no estÃƒÂ¡ visible el check verde
+                   
                     $("." + elemId).removeClass("sidebar-error");//Se pone en verde
                 }
 
@@ -437,7 +446,6 @@ function checkSections() {
             else
             {
                 //Falla
-
                 $("." + elemId).addClass("sidebar-error");//Si estÃƒÂ¡ mal se pone con el aspa
 
             }
@@ -458,9 +466,10 @@ function checkSectionsforValidation(elemId) {
     return ret;
 }
 
-checkSections();
+
 
 $(document).ready(function () {
+    checkSections();
     mandatoryEmails();
 
     $("#divtoshow").hide();
@@ -777,11 +786,13 @@ $(document).ready(function () {
         }
     }
     function validateSingleSection(elemId){
+       
         if (!checkSingleSection(elemId)){
-            $("." + elemId).addClass("sidebar-error");
+           // $("." + elemId).addClass("sidebar-error");
             ret = false;
         } else
         {
+            alert(4);
             $("." + elemId).removeClass("sidebar-error");
         }
     }
@@ -958,7 +969,7 @@ $(document).ready(function () {
 //            validateConfirmEmail(this);
 //        }
 //    });
-    //RRL control de copy paste on the textareas
+    //RRL control the copy paste on the textareas
     jQuery("#company_osh_quoteonhwc").on('change', function(e){ 
       var pasteText = jQuery("#company_osh_quoteonhwc").val();
       while (pasteText.indexOf("\\n") !== -1) {
@@ -982,15 +993,6 @@ $(document).ready(function () {
         }
       jQuery("#company_osh_yourmissionstatement").val(pasteText);
     });
-
-
-
-
-    
-    
-
-
-
 
     $("#company_osh_generalemail").on({
         change: function () {
@@ -1271,9 +1273,11 @@ $(document).ready(function () {
                     $('#unconfirmedSectionName').text(unconfirmedSectionName);
                     $('#unconfirmedSectionDiv').removeClass('hidden');
                     //$('#unconfirmedSectionDiv').focus();
-                    $('html,body').animate({scrollTop: 0}, 300, function() {
+                    //rlr Animate is not working because we have an Iframe so we have found another way to show the message
+                    document.getElementById('form').scrollIntoView();
+                    /*$('html,body').animate({scrollTop: 0}, 300, function() {
                         $('#unconfirmedSectionDiv').focus();
-                    });
+                    });*/
                     try{ e.preventDefault();}
                     catch(e) {}
                 } else{
@@ -1382,10 +1386,13 @@ $(document).ready(function () {
             var unconfirmedSectionName = $('.validation').not('.validation-pressed').first().parent().prev().children('legend').text().trim();
             $('#unconfirmedSectionName').text(unconfirmedSectionName);
             $('#unconfirmedSectionDiv').removeClass('hidden');
+            //rlr Animate is not working because we have an Iframe so we have found another way to show the message
+            document.getElementById('form').scrollIntoView();
+            
             //$('#unconfirmedSectionDiv').focus();
-            $('html,body').animate({scrollTop: 0}, 300, function() {
+            /*$('html,body').animate({scrollTop: 0}, 300, function() {
                 $('#unconfirmedSectionDiv').focus();
-            });
+            });*/
 
             try{
                 e.preventDefault();
@@ -1962,7 +1969,7 @@ $(document).ready(function () {
             var newVal = "save";
             var newAction = url.replace(tmpRegex, '$1' + newVal);
             console.log = newAction;
-            //validamos que los campos orgname y mainemail estÃƒÂ©n relleno antes de hacer el save.
+            //validamos que los campos orgname y mainemail estan relleno antes de hacer el save.
             if($("#company_osh_orgnameAux").val() == '' ||
                 $("#contact_osh_mainemailAux").val() == '' ||
                 $("#contact_osh_maincontactpersonfirstnameAux").val() == '' ||
@@ -2182,6 +2189,13 @@ $(document).ready(function () {
             //RRL Only show contact change clone when main contact checkbox is checked
             if($(this).attr("id")== "contact_osh_maincontactchange"){
                 $(".main-contact-change-clone").show();
+                if ($(".main-contact-change .help-block").length == 1){
+                    $(".main-contact-change .float-right .help-block").hide()
+                }else{
+                    $(".main-contact-change .float-right .help-block:eq(1)").hide()
+                
+                }
+                
                 $("#contact_osh_maincontactpersonfirstname").focus()
             }
 //            $(contactBackup).appendTo(".main-contact-change");
@@ -2205,6 +2219,12 @@ $(document).ready(function () {
             
             if($(this).attr("id")== "contact_osh_maincontactchange"){
                 $(".main-contact-change-clone").hide();
+                if ($(".main-contact-change .help-block").length == 1){
+                    $(".main-contact-change .float-right .help-block").show()
+                }else{
+                    $(".main-contact-change .float-right .help-block:eq(1)").show()
+                
+                }
             }
 //            $(".main-contact-change").remove(".main-contact-change-backup");
             $('.main-contact-change-checkbox').val('false');
@@ -2213,6 +2233,12 @@ $(document).ready(function () {
 
     $(".main-contact-change-clone :input").attr('disabled', 'disabled');
     $(".main-contact-change-clone").hide();
+        if ($(".main-contact-change .help-block").length == 1){
+            $(".main-contact-change .float-right .help-block").show()
+        }else{
+            $(".main-contact-change .float-right .help-block:eq(1)").show()
+        
+        }
 
 
 
@@ -2406,10 +2432,16 @@ $(document).ready(function () {
      * */
     for(rs in rrss)
     {
+        //RRL avoid js error in partner type that no rrss are displayed
+        if($("#company_osh_facebookprofile").length==0){
+            break;    
+        }
+        
         idElement = rrss[rs];
         var e = $("#"+idElement);//hidden element
 
         var data = [];
+
         referencedOption = $("option[value='"+idElement+"'");
         var typeSN = referencedOption.data("sn");
         if(e.val()!= "" && referencedOption)

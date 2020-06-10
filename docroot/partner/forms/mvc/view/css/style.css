@@ -1171,3 +1171,12 @@ img.congrats_rad{ /* IMAGE STYLES */
     border: 1px solid grey;
     border-radius: 5px;
 }
+.mcchigh{
+    background-color: rgb(171,198,0);
+    padding: 10px;
+}
+
+.mcchigh #contact_osh_maincontactchange{
+    position: relative;
+    top: 2px;
+}
