@@ -112,12 +112,9 @@ class Sidebar extends Controller implements IController
             $primarycontactsection = false;
             $startsection = isset($_SESSION['basicRequirements']) && $_SESSION['basicRequirements'];
 
-
             foreach ($attributes as $name => &$attribute) {
-
                 
-                
-                 /*if($params->getUrlParamValue('partner_type') == 'current' && 2==3){
+                 /*if($params->getUrlParamValue('partner_type') == 'new' ){
                   if($name=="contact_osh_mainemail" && $attribute->getValue()){
                     $mcemail = $attribute->getValue();
                   }
@@ -128,6 +125,11 @@ class Sidebar extends Controller implements IController
                     $mcsurname = $attribute->getValue();
                   }
                  }*/
+                if($params->getUrlParamValue('partner_type') == 'new' ){
+                    if($name == "contact_osh_mainemail" && $attribute->getValue()){
+                        $primarycontactsection = true;
+                    }
+                } 
 
                 if($params->getUrlParamValue('partner_type') == 'current'){
                     if($name == "osh_primarycontactsection" && $attribute->getValue()){
