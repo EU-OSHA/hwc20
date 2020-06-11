@@ -1464,7 +1464,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 }
 .related-resources {
   padding-bottom: 1em;
-  width: 200px;
+  width: 264px;
 }
 .related-resources-title {
   color: #003399;
@@ -1905,6 +1905,9 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 .content-languages-download button {
   display: none;
 }
+html:lang(de) .content-languages-download label {
+  font-size: 0.8em;
+}
 span.title-download {
   color: #003399;
   font-weight: bold;
@@ -2120,6 +2123,7 @@ div.publications-detail-right-column > a.download {
 #edit-field-msd-priority-area > div > label {
   font-size: 1.8rem;
   color: #003399 !important;
+  padding-right: 20px;
 }
 #edit-field-publication-type .form-checkboxes,
 #edit-main-tags .form-checkboxes,
@@ -3826,7 +3830,7 @@ body.een .box-type-partner {
   background: transparent;
 }
 .node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col .more-link a {
-  font-size: 0.9em;
+  font-size: 0.85em;
   padding-bottom: 5px;
   padding-top: 5px;
 }
@@ -3861,19 +3865,18 @@ body.een .box-type-partner {
   padding-right: 10px;
 }
 .how-to-apply .boxes .box div .btn-become-partner-download {
-  width: 178px;
+  width: auto;
   min-height: 36px;
-  background: url(../images/timeline-button-active.png) repeat-y;
+  background: url(../images/timeline-button-active.png) repeat #65b44b;
   text-align: left;
   color: #FFF;
-  padding-top: 7px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 7px 30px 7px 10px;
   border-radius: 3px;
   text-decoration: none;
   display: inline-block;
   position: absolute;
   left: 8px;
+  right: 8px;
   bottom: 10px;
 }
 .how-to-apply .boxes .box div .btn-become-partner-download:after {
@@ -3890,9 +3893,9 @@ body.een .box-type-partner {
   opacity: 0.8;
 }
 .how-to-apply .boxes .box div .btn-become-partner-register {
-  width: 178px;
+  width: auto;
   min-height: 36px;
-  background: url(../images/timeline-button-active.png) repeat-y;
+  background: url(../images/timeline-button-active.png) repeat;
   text-align: left;
   color: #FFF;
   padding-top: 7px;
@@ -3903,6 +3906,7 @@ body.een .box-type-partner {
   display: inline-block;
   position: absolute;
   left: 8px;
+  right: 8px;
   bottom: 10px;
 }
 .how-to-apply .boxes .box div .btn-become-partner-register:after {
@@ -3926,8 +3930,8 @@ body.een .box-type-partner {
 			}*/
 }
 .how-to-apply .boxes .box.inactive div .btn-become-partner-register {
-  background: url(../images/timeline-button-no-active.png) repeat-y;
-  width: 179px;
+  background: url(../images/timeline-button-no-active.png) repeat;
+  width: auto;
   min-height: 36px;
   text-align: left;
   color: #b3bccc;
@@ -3941,6 +3945,7 @@ body.een .box-type-partner {
   cursor: pointer;
   position: absolute;
   left: 8px;
+  right: 8px;
   bottom: 10px;
 }
 .how-to-apply .boxes .box.inactive div .btn-become-partner-register:after {
@@ -3992,6 +3997,18 @@ body.een .box-type-partner {
   right: 12%;
   top: 73px;
 }
+html:lang(de) .how-to-apply .box {
+  width: 267px;
+}
+html:lang(de) .how-to-apply > div.boxes > div:nth-child(1) {
+  left: 12%;
+}
+html:lang(de) .how-to-apply > div.boxes > div:nth-child(2) {
+  left: 38.5%;
+}
+html:lang(de) .how-to-apply > div.boxes > div:nth-child(3) {
+  right: 8.5%;
+}
 .timeline {
   width: 100%;
   text-align: center;
@@ -4036,7 +4053,7 @@ body.een .box-type-partner {
 }
 .timeline > div:nth-child(3) {
   position: absolute;
-  right: 205px;
+  right: 203px;
   top: 9px;
   font-weight: bold;
 }
@@ -4306,7 +4323,7 @@ span.add-to-my-calendar {
   text-decoration: underline;
   background: url(../images/green-calendar.png) no-repeat 0 1px;
   cursor: default;
-  width: 200px;
+  width: auto;
   text-align: left;
   padding-top: 0px;
   margin-top: -22px;
@@ -4696,6 +4713,12 @@ ul[data-sa-theme="basic-green"].ui-menu {
   text-align: center;
   padding-left: 0;
 }
+html:lang(de) #block-osha-newsletter-osha-newsletter-events-subscribe label {
+  font-size: 0.95rem;
+}
+html:lang(de) #block-osha-newsletter-osha-newsletter-events-subscribe label a {
+  font-size: 0.95rem;
+}
 .node-article .field-name-body {
   clear: both;
 }
@@ -4995,10 +5018,6 @@ body.european-week .region-sidebar-second #block-views-frontpage-events-press-ro
   background: url(../images/events-h3-ico.png) -5px -3px no-repeat #ffffff;
   padding-top: 0;
   padding-left: 45px;
-}
-body.press-room .region-sidebar-second .related-resources,
-body.european-week .region-sidebar-second .related-resources {
-  width: auto;
 }
 body.press-room .view-frontpage-events .city,
 body.european-week .view-frontpage-events .city,
@@ -6457,6 +6476,7 @@ body.page-tools-and-publications-publications .slider--video--section h2.block-t
   padding-bottom: 0;
   padding-left: 25px;
   margin-bottom: 0;
+  line-height: initial;
 }
 body.page-tools-and-publications-publications .slider--video--section .slider--video--block .slider--video--items .multicarousel--block {
   overflow: hidden;
@@ -7340,6 +7360,19 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
   float: left;
   margin-right: 1em;
 }
+header.navbar-default .campaigns-header .navbar-header div.col-xs-12.col-sm-9 {
+  display: flex;
+  align-items: center;
+}
+header.navbar-default.sticky-menu .campaigns-header .navbar-header div.col-xs-12.col-sm-9 {
+  display: block;
+}
+header.navbar-default.sticky-menu .campaigns-header .navbar-header div.col-xs-12.col-sm-9 .header-text {
+  border-left: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
 body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text {
   max-width: 320px !important;
   padding-left: 1em;
@@ -7350,6 +7383,12 @@ body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text sp
 }
 body.rel1 .sticky-menu .col-sm-9 .header-text {
   padding-top: 0!important;
+}
+.sticky-menu .col-sm-9 .header-text {
+  padding-top: 0!important;
+}
+html:lang(es) body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text {
+  max-width: 368px !important;
 }
 body button,
 body .btn {
@@ -8363,7 +8402,7 @@ body.front-page .footer {
   .page-media-centre-events .view-events-search span.add-to-my-calendar {
     display: block;
     float: left;
-    margin-left: 400px;
+    margin-left: 500px;
   }
 }
 @media (max-width: 1465px) {

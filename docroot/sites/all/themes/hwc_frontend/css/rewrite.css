@@ -11,11 +11,6 @@ header.navbar-default .campaigns-header .navbar-header .header-text {
     padding-left: 1em;
 }
 
-header.navbar-default.sticky-menu .campaigns-header .navbar-header .header-text{
-    border-left: 0;
-    height: auto;
-}
-
 header.navbar-default .campaigns-header #block-menu-menu-header-login a {
     background: #003399 url(../images/header/login.png) no-repeat 7px center;
     border-radius: 5px;
