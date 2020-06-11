@@ -17,13 +17,6 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
   padding-left: 0.5em;
 }
 /* Styles for only REL1 */
-.rel1 #block-menu-menu-header-login,
-.rel1 #block-lang-dropdown-language {
-  display: none;
-}
-.rel1 header.navbar-default .campaigns-header .navbar-header .header_top_bar .region-above-header {
-  padding-top: 1.3em;
-}
 /*HW20-489*/
 .rel1 .related-resources-boxes {
   justify-content: flex-start;
