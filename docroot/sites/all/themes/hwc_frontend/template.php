@@ -158,8 +158,8 @@ function hwc_frontend_menu_link(array $variables) {
   }
 
   if (arg(1) == 'campaign-materials') {
-    $exclude = variable_get('campaign_materials_exclude', []);
-    $include = variable_get('campaign_materials_include', []);
+    $exclude = variable_get('campaign_materials_exclude', [11667, 1120]);
+    $include = variable_get('campaign_materials_include', [1372, 2495]);
     if (in_array($element['#original_link']['mlid'], $exclude)) {
       $element['#attributes']['class'] = [];
     }
@@ -407,7 +407,15 @@ function hwc_frontend_preprocess_block(&$vars) {
   if ($block->delta == '-exp-documents-gpep') {
     $vars['theme_hook_suggestions'][] = 'block__gpep';
   }
-
+  if ($block->delta == 'hwc_homepage_topics') {
+    $vars['theme_hook_suggestions'][] = 'block__priority_area';
+  }
+  if ($block->delta == 'hwc_practical_tool_less') {
+    $vars['theme_hook_suggestions'][] = 'block__show_less';
+  }
+  if ($block->delta == 'hwc_practical_tool_more') {
+    $vars['theme_hook_suggestions'][] = 'block__show_more';
+  }
   if ($block->delta == 'partners-block_1') {
     $vars['theme_hook_suggestions'][] = 'block__partners';
   }

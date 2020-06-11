@@ -57,7 +57,8 @@ news|*
 flickr_gallery|*
 press_release|*
 spotlight|*
-youtube|*';
+youtube|*
+pa_highlights|*';
   $ds_field->properties = array();
   $export['back_to_list'] = $ds_field;
 

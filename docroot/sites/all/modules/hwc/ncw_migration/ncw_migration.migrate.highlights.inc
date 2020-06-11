@@ -51,13 +51,24 @@ class NCWHighlightMigration extends AbstractNCWNodeMigration {
   }
 
   /**
+   * Implements Migration::prepare()
+   */
+  public function prepare($entity, stdClass $row) {
+    parent::prepare($entity, $row);
+    if ($row->field_image_image_captions_language) {
+      foreach ($row->field_image_image_captions_language as $i => $lang) {
+        $entity->field_image[$lang][$i]['image_field_caption']['value'] = $row->field_image_image_captions[$i];
+        $entity->field_image[$lang][$i]['image_field_caption']['format'] = 'full_html';
+      }
+    }
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function prepareRow($row) {
     parent::prepareRow($row);
     $row->field_migration_path_alias = $row->path;
-//    $row->field_image_caption = $row->field_image_image_captions;
-//    $row->field_image_caption_language = $row->field_image_image_captions_language;
     // Disable NCW alias.
     $row->path = NULL;
     $row->field_tags = osha_migration_normalize_migrated_term_reference($row->field_tags, 'tax_tags');
@@ -71,6 +82,7 @@ class NCWHighlightMigration extends AbstractNCWNodeMigration {
       }
     }
   }
+
 }
 
 
@@ -87,8 +99,6 @@ class NCWHighlightSource extends AbstractNCWNodeSource {
       'body_language',
       'body_summary',
       'body_format',
-//      'field_image_caption',
-//      'field_image_caption_language',
       'field_image',
       'field_image_language',
       'field_publication_date',

@@ -894,6 +894,32 @@ function hwc_partner_node_access($node, $op, $account) {
         return hwc_check_reviewer_node_access($tid, $account->roles);
       }
     }
+    // Partner General Public.
+    else if (!in_array(HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR, $account->roles)) {
+
+      $map = hwc_good_practice_exchange_get_document_partner_types_map();
+      $een_share_partner_type_id = $map[HWC_PARTNER_TYPE_EEN_OSH_AMBASSADOR];
+      if (($type == 'document') && ($op != 'create')) {
+        // Not allowed to edit documents without share_partner_type.
+        if (empty($node->field_share_partner_type[LANGUAGE_NONE])) {
+          return NODE_ACCESS_DENY;
+        }
+
+        foreach ($node->field_share_partner_type[LANGUAGE_NONE] as $share_partner_type) {
+          if ($share_partner_type['tid'] == $een_share_partner_type_id) {
+            if (in_array(HWC_ROLE_EEN_REVIEW_MANAGER, $account->roles)) {
+              return NODE_ACCESS_IGNORE;
+            }
+          }
+          else {
+            if (in_array(HWC_ROLE_HWC_STAFF_REVIEWERS, $account->roles)) {
+              return NODE_ACCESS_IGNORE;
+            }
+          }
+        }
+        return NODE_ACCESS_DENY;
+      }
+    }
   }
   return NODE_ACCESS_IGNORE;
 }

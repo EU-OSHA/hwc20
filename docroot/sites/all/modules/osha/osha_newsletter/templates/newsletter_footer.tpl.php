@@ -22,7 +22,7 @@ $unsubscribe_url = variable_get('unsubscribe_campaign_news_url', 'http://list.os
 $bottom_text = variable_get('hwc_mail_bottom_text', '');
 
 ?>
-<table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-family:Arial,sans-serif;font-size:14px;border:0;margin:0;border-collapse:collapse;border-spacing:0;background-color:#ffffff;table-layout:fixed;max-width:800px;width:800px">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-family:Arial,sans-serif;font-size:14px;border:0;margin:0;border-collapse:collapse;border-spacing:0;background-color:#ffffff;table-layout:fixed;max-width:100%;width:100%">
   <tbody>
   <tr style="border:0;background-color:transparent">
     <td style="vertical-align:top;border:0;padding-top: 40px;">
@@ -71,7 +71,7 @@ $bottom_text = variable_get('hwc_mail_bottom_text', '');
         </tr>
         </tbody>
       </table>
-      <table style="font-family:Arial,sans-serif;font-size:14px;border:0;margin:0;border-collapse:collapse;border-spacing:0;padding-top:15px;width:800px;margin-left:0">
+      <table style="font-family:Arial,sans-serif;font-size:14px;border:0;margin:0;border-collapse:collapse;border-spacing:0;padding-top:15px;width:100%;margin-left:0">
         <tbody>
         <tr style="border:0;background-color:transparent">
           <td style="vertical-align:top;border:0;padding:20px 20px 5px 20px;padding-bottom:20px;font-size:10px;font-family:verdana;color:#666666;text-align:center">

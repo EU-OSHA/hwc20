@@ -30,6 +30,7 @@ function osha_events_views_default_views() {
     10 => '10',
     7 => '7',
     9 => '9',
+    13 => '13',
     8 => '8',
     14 => '14',
   );
@@ -3002,7 +3003,7 @@ function osha_events_views_default_views() {
   $handler->display->display_options['fields']['search_api_et_id']['id'] = 'search_api_et_id';
   $handler->display->display_options['fields']['search_api_et_id']['table'] = 'search_api_index_default_multilingual_node_index';
   $handler->display->display_options['fields']['search_api_et_id']['field'] = 'search_api_et_id';
-  /* Sort criterion: Indexed Multilingual Content: Youtube date */
+  /* Sort criterion: Indexed Multilingual Content: Publication date */
   $handler->display->display_options['sorts']['field_publication_date']['id'] = 'field_publication_date';
   $handler->display->display_options['sorts']['field_publication_date']['table'] = 'search_api_index_default_multilingual_node_index';
   $handler->display->display_options['sorts']['field_publication_date']['field'] = 'field_publication_date';
@@ -3252,14 +3253,14 @@ function osha_events_views_default_views() {
     11 => 0,
     12 => 0,
   );
-  /* Filter criterion: Indexed Multilingual Content: Youtube date */
+  /* Filter criterion: Indexed Multilingual Content: Publication date */
   $handler->display->display_options['filters']['field_publication_date']['id'] = 'field_publication_date';
   $handler->display->display_options['filters']['field_publication_date']['table'] = 'search_api_index_default_multilingual_node_index';
   $handler->display->display_options['filters']['field_publication_date']['field'] = 'field_publication_date';
   $handler->display->display_options['filters']['field_publication_date']['operator'] = '<=';
   $handler->display->display_options['filters']['field_publication_date']['value'] = 'now';
   $handler->display->display_options['filters']['field_publication_date']['group'] = 2;
-  /* Filter criterion: Indexed Multilingual Content: Youtube date */
+  /* Filter criterion: Indexed Multilingual Content: Publication date */
   $handler->display->display_options['filters']['field_publication_date_1']['id'] = 'field_publication_date_1';
   $handler->display->display_options['filters']['field_publication_date_1']['table'] = 'search_api_index_default_multilingual_node_index';
   $handler->display->display_options['filters']['field_publication_date_1']['field'] = 'field_publication_date';

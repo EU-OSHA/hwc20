@@ -29,7 +29,7 @@ if ($video_id) {
 ?>
 <div class="youtube-video">
   <div class="video">
-    <?php echo render($row->field_field_image); ?>
+    <?php echo render($row->field_field_image[0]['rendered']); ?>
     <img id="hp-btn<?php print $i; ?>" class="icon-play" alt="play" src="/sites/all/themes/hwc_frontend/images/icon-play.png">
   </div>
   <div id="hp-modal<?php print $i; ?>" class="hp-modal">

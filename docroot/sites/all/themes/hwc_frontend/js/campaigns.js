@@ -659,7 +659,7 @@ jQuery(document).ready(function($) {
     }
   });
 
-  $(".page-tools-and-publications-practical-tools .region-sidebar-first .content-filters h2.block-title").addClass('area-shown');
+   $(".page-tools-and-publications-practical-tools .region-sidebar-first .content-filters h2.block-title").addClass('area-shown');
 
 
    if (jQuery(window).width() < 1200) {
@@ -735,6 +735,10 @@ jQuery(document).ready(function () {
       if (bodyWidth >= 1200) {
         incno = itemsSplit[3];
         itemWidth = sampwidth / incno;
+        if (jQuery("body.front-page")[0]){
+        	incno = itemsSplit[4];
+        	itemWidth = sampwidth / incno;
+        }
       }
       else if (bodyWidth >= 992) {
         incno = itemsSplit[2];
@@ -847,13 +851,21 @@ jQuery(document).ready(function () {
 
 jQuery(document).ready(function(){
   if (jQuery(window).width() >= 1200) {
-    jQuery(".multicarousel--block").attr("data-slide","4");
+  	if (jQuery("body.front-page")[0]){
+		jQuery("body.front-page .multicarousel--block").attr("data-slide","5");
+  	}else{
+  		jQuery(".multicarousel--block").attr("data-slide","4");
+  	}    
   }
 });
 
 jQuery(window).resize(function () {
   if (jQuery(window).width() >= 1200) {
-    jQuery(".multicarousel--block").attr("data-slide","4");
+  	if (jQuery("body.front-page")[0]){
+		jQuery("body.front-page .multicarousel--block").attr("data-slide","5");
+  	}else{
+  		jQuery(".multicarousel--block").attr("data-slide","4");
+  	}    
   }
 });
 
@@ -960,6 +972,69 @@ jQuery(document).ready(function($){
 	}else{
 		$( "body.logged-in .navbar-header .col-xs-12.col-sm-9" ).addClass( "toolbar-no" );
 		
+	}
+
+	//Hide arrows and dots in the GPA slider when the slider has 4 items. Only Desktop
+	if ($('.node-type-gpa .multicarousel--block .item').length <= 4 && $(window).width() >= 1199 ){
+		$( ".node-type-gpa .multicarousel--block button" ).addClass( "no-slider" );
+		$( ".node-type-gpa .multicarousel--block ol" ).addClass( "no-slider" );
+	}
+
+	//Hide arrows and dots in the GPA slider when the slider has 3 items. Only Desktop
+	if ($('.node-type-gpa .multicarousel--block .item').length <= 3 && $(window).width() >= 992 ){
+		$( ".node-type-gpa .multicarousel--block button" ).addClass( "no-slider" );
+		$( ".node-type-gpa .multicarousel--block ol" ).addClass( "no-slider" );
+	}
+
+	//Scroll to anchor Home page
+	$( ".go-to-anchor" ).click(function() {
+	  $([document.documentElement, document.body]).animate({
+        scrollTop: $("#block-hwc-homepage-hwc-homepage-news-events").offset().top
+    	}, 1500);
+	});
+
+	$(window).scroll(function() {
+	    var height = $(window).scrollTop();
+	    if(height == 0) {
+	       	$( ".go-to-anchor" ).show();
+	    }
+	});
+
+
+	var lastScrollTop = 0;
+	$(window).scroll(function(event){
+	   var st = $(this).scrollTop();
+	   if (st > lastScrollTop){
+	       $( ".go-to-anchor" ).hide();
+	   }
+	   lastScrollTop = st;
+	});
+
+	//Add anchor to view when user checked a filter
+	if ($(".view-practical-tools.view-search")[0]){
+		if ($(".region-sidebar-first .block.block-facetapi input[type='checkbox']").is(':checked')) {
+			$([document.documentElement, document.body]).animate({
+	        scrollTop: $(".region.region-content").offset().top
+	    	}, 1500);
+	    	//$( ".block-title" ).removeClass( "area-shown" );
+	    	//$( ".region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links" ).hide();
+		}
+	}
+
+	//Change icon when the filter is visible and has input:checked - area-showm ico
+	if ($(".region-sidebar-first .block.block-facetapi input[type='checkbox']").is(':checked')) {
+		$(".region-sidebar-first .block.block-facetapi input:checked").parent().parent().parent().children().addClass('area-shown');
+	}
+
+	//Remove links show more when results noy found
+	if ($(".view-practical-tools.view-search .view-empty")[0]){
+		$( "#practical-tool-more-link" ).hide();
+		$( "#practical-tool-less-link" ).hide();
+	}
+
+	//Remove table responsive in Newsletter
+	if ($("body.page-entity-collection div.table-responsive")[0]){
+		$( "body.page-entity-collection div.table-responsive" ).removeClass('table-responsive');
 	}
 
 });
