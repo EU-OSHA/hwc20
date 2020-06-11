@@ -1032,4 +1032,9 @@ jQuery(document).ready(function($){
 		$( "#practical-tool-less-link" ).hide();
 	}
 
+	//Remove table responsive in Newsletter
+	if ($("body.page-entity-collection div.table-responsive")[0]){
+		$( "body.page-entity-collection div.table-responsive" ).removeClass('table-responsive');
+	}
+
 });

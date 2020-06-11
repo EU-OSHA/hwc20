@@ -59,6 +59,24 @@ a[x-apple-data-detectors] {
     display: block !important;
     text-align: left !important;
   }
+
+  .to-responsive{
+    display: table-row !important;
+    text-align: left !important;
+    padding-bottom: 10px;
+    float: left;
+    padding-left: 0 !important;
+    width: 100% !important;
+  }
+
+  .body-responsive{
+    padding-left: 0 !important;
+  }
+
+  tr.content-container{
+    float: left;
+  }
+
   img {
     max-width: 100% !important;
     width: auto;

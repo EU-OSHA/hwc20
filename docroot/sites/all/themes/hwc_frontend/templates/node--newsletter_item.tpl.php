@@ -71,7 +71,7 @@ if (!empty($campaign_id)) {
         else {
           ?>
             <tr>
-                <td style="width: 220px; font-size: 12px; font-family: Arial, sans-serif; color: #000000; vertical-align: top; padding: 0; margin: 0;padding-bottom: 25px;">
+                <td class="to-responsive" style="width: 220px; font-size: 12px; font-family: Arial, sans-serif; color: #000000; vertical-align: top; padding: 0; margin: 0;padding-bottom: 25px;">
                   <table>
                     <tr>
                       <td style="border: 0;margin:0;padding: 0;vertical-align: top">
@@ -98,7 +98,7 @@ if (!empty($campaign_id)) {
                       </tr>
                     </table>
                 </td>
-                <td style="padding-bottom: 0px; width: 80%; font-size: 12px; font-family: Arial, sans-serif; color: #000000; padding-left: 15px; ">
+                <td class="to-responsive" style="padding-bottom: 0px; width: 80%; font-size: 12px; font-family: Arial, sans-serif; color: #000000; padding-left: 15px; ">
                     <table>
                       <tr>
                         <td style="font-weight: bold;color: #59595a;line-height: 12px;font-size: 12px;">
@@ -119,7 +119,7 @@ if (!empty($campaign_id)) {
                     </table>
                     <table style="height: 81px;">
                       <tr>
-                        <td style="color:#000;font-size: 13px;line-height: auto; color:#59595a;height: 81px;">
+                        <td style="color:#000;font-size: 13px;line-height: auto; color:#59595a;height: auto; padding-bottom: 10px;">
                           <?php
                             $is_empty = FALSE;
                             $summary = render($elements['field_summary']);
@@ -147,7 +147,7 @@ if (!empty($campaign_id)) {
 
                   <table style="height: 45px;">
                     <tr>
-                        <td style="padding-top: 0px;" width="505">
+                        <td style="padding-top: 0px;">
                           <?php
                           print '<div>';
                           $node_url = url('node/' . $node->nid, array('absolute' => TRUE));
@@ -204,8 +204,8 @@ if (!empty($campaign_id)) {
       }
     ?>
       <tr>
-        <td colspan="2" style="font-size:20px; border-bottom: 2px solid #003399; margin-bottom: 10px;">
-          <table>
+        <td colspan="2" style="font-size:20px; border-bottom: 2px solid #003399; margin-bottom: 10px;width: 100%;">
+          <table style="width: 100%;">
             <tr>
               <td style="width: 25px;vertical-align: middle;">
                  <?php
@@ -234,7 +234,7 @@ if (!empty($campaign_id)) {
         </td>
       </tr>
       <tr>
-        <td style="width: 220px;background: #a6be1d;border-top-left-radius: 15px;border-bottom-left-radius: 15px">
+        <td class="to-responsive" style="width: 220px;background: #a6be1d;border-top-left-radius: 15px;border-bottom-left-radius: 15px">
           <table">
             <tr>
               <td style="padding-top: 25px;padding-bottom: 25px;padding-left: 25px;">
@@ -261,7 +261,7 @@ if (!empty($campaign_id)) {
             </tr>
           </table>
         </td>
-        <td style="background: #a6be1d;width: 540px;border-top-right-radius: 15px;border-bottom-right-radius: 15px">
+        <td class="to-responsive" style="background: #a6be1d;width: 100%;border-top-right-radius: 15px;border-bottom-right-radius: 15px">
           <table>
             <tr>
               <td style="font-weight: normal; color:#FFF;padding-top: 25px;padding-bottom: 0;padding-left: 25px;">

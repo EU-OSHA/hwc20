@@ -7276,9 +7276,7 @@ header.navbar-default .campaigns-header .navbar-header img:nth-child(1) {
   margin-left: 30px;
 }
 header.navbar-default .campaigns-header .navbar-header a img.pull-left {
-  width: 190px;
   height: auto;
-  margin-top: 23px;
   margin-left: 0px;
 }
 header.navbar-default .campaigns-header .navbar-header img:nth-child(3) {
@@ -8909,6 +8907,7 @@ div[class*='view-'] .field-name-field-summary {
   font-family: "Glyphicons Halflings";
   margin-left: 10px;
   float: right;
+  margin-right: -20px;
 }
 .form-item-main-tags > label.active:after,
 .form-item-field-publication-type > label.active:after,
@@ -8922,6 +8921,7 @@ div[class*='view-'] .field-name-field-summary {
   font-family: "Glyphicons Halflings";
   margin-left: 10px;
   float: right;
+  margin-right: -20px;
 }
 .page-node .node-news .field.field-name-field-image {
   margin-right: 1em;

@@ -15,8 +15,8 @@
 }
 
 .content-container > td > table {
-  max-width: 760px;
-  width: 760px;
+  max-width: 100%;
+  width: 100%;
 }
 /* Gutter */
 .content-container > td {
@@ -73,6 +73,10 @@ th {
   text-align: left;
   text-transform: none;
   padding: 0px;
+}
+
+body iframe{
+  border: 0;
 }
 
 /* Header */

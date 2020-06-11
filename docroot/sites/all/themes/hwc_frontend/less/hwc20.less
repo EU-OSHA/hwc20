@@ -26,15 +26,9 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
 
 /* Styles for only REL1 */
 	.rel1{
-		#block-menu-menu-header-login, #block-lang-dropdown-language{
-			display: none;
+		#block-menu-menu-header-login{
+			visibility: hidden;
 		}
-	}
-
-	.rel1{
-		header.navbar-default .campaigns-header .navbar-header .header_top_bar .region-above-header{
-			padding-top: 1.3em;
-		}	
 	}
 
 	/*HW20-489*/
@@ -1703,7 +1697,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 
 .related-resources{
 	padding-bottom: 1em;
-	width: 200px;
+	width: 264px;
 }
 
 .related-resources-title{
@@ -2190,6 +2184,16 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
     }
 }
 
+
+html:lang(de){
+	.content-languages-download{
+		 label{
+		 	font-size: 0.8em;
+		 }
+	}
+}
+
+
 span.title-download {
     color: #003399;
     font-weight: bold;
@@ -2447,6 +2451,7 @@ div.publications-detail-right-column > a.download{
 	> div > label{
 		font-size: 1.8rem;
   		color: #003399 !important;
+  		padding-right: 20px;
 	}
 	.form-checkboxes{
 		padding-top: 10px;
@@ -3003,6 +3008,7 @@ body.good-practice-exchange{
 							    font-weight: normal;
 							    padding-top: 0.6em;
 							    display: block;
+							    line-height: normal;
 							}
 						}
 					}
@@ -4339,7 +4345,7 @@ body{
     			justify-content: center;
     			background: transparent;
     			a{
-    				font-size: 0.9em;
+    				font-size: 0.85em;
     				padding-bottom: 5px;
     				padding-top: 5px;
     			}
@@ -4377,19 +4383,18 @@ body{
 				padding-left: 10px;
 				padding-right: 10px;
 				.btn-become-partner-download{
-					width: 178px;
+					width: auto;
 					min-height: 36px;
-					background: url(../images/timeline-button-active.png) repeat-y;
+					background: url(../images/timeline-button-active.png) repeat #65b44b;
 					text-align: left;
 					color: #FFF;
-					padding-top: 7px;
-					padding-left: 10px;
-    				padding-right: 10px;
+					padding: 7px 30px 7px 10px;
 					border-radius: 3px;
 					text-decoration: none;
 					display: inline-block;
 					position: absolute;
 					left: 8px;
+					right: 8px;
 					bottom: 10px;
 					&:after{
 						content:'';
@@ -4407,9 +4412,9 @@ body{
 				}
 
 				.btn-become-partner-register{
-					width: 178px;
+					width: auto;
 					min-height: 36px;
-					background: url(../images/timeline-button-active.png) repeat-y;
+					background: url(../images/timeline-button-active.png) repeat;
 					text-align: left;
 					color: #FFF;
 					padding-top: 7px;
@@ -4420,6 +4425,7 @@ body{
 					display: inline-block;
 					position: absolute;
 					left: 8px;
+					right: 8px;
 					bottom: 10px;
 					&:after{
 						content:'';
@@ -4447,8 +4453,8 @@ body{
 			}*/
 			div{
 				.btn-become-partner-register{
-					background: url(../images/timeline-button-no-active.png) repeat-y;					
-					width: 179px;
+					background: url(../images/timeline-button-no-active.png) repeat;					
+					width: auto;
 					min-height: 36px;
 					text-align: left;
 					color: #b3bccc;
@@ -4462,6 +4468,7 @@ body{
 					cursor: pointer;
 					position: absolute;
 					left: 8px;
+					right: 8px;
 					bottom: 10px;
 					&:after{
 						content:'';
@@ -4522,7 +4529,26 @@ body{
 		right: 12%;
 		top: 73px;
 	}
-	
+}
+
+html:lang(de){
+	.how-to-apply{
+		.box{
+			width: 267px;
+		}
+
+		> div.boxes > div:nth-child(1){
+			left: 12%;
+		}
+
+		> div.boxes > div:nth-child(2){
+			left: 38.5%;
+		}
+
+		> div.boxes > div:nth-child(3) {
+			right: 8.5%;
+		}
+	}
 }
 
 .timeline{
@@ -4573,7 +4599,7 @@ body{
 
     > div:nth-child(3){
 		position: absolute;
-    	right: 205px;
+    	right: 203px;
     	top: 9px;
     	font-weight: bold;
 		&:after{
@@ -4917,7 +4943,7 @@ span.add-to-my-calendar{
     text-decoration: underline;
     background: url(../images/green-calendar.png) no-repeat 0 1px;
     cursor: default;
-    width: 200px;
+    width: auto;
     text-align: left;
     padding-top: 0px;
     margin-top: -22px;
@@ -5341,6 +5367,17 @@ ul[data-sa-theme="basic-green"].ui-menu{
 	}
 }
 
+html:lang(de){
+	#block-osha-newsletter-osha-newsletter-events-subscribe {
+		label{
+			font-size: 0.95rem;
+			a{
+				font-size: 0.95rem;
+			}
+		}
+	}
+}
+
 .node-article{
 	.field-name-body{
 		clear: both;
@@ -5647,10 +5684,6 @@ body.press-room, body.european-week{
 			    padding-top: 0;
 			    padding-left: 45px;
 			}
-		}
-
-		.related-resources{
-			width: auto;
 		}
 	}
 
@@ -7376,6 +7409,7 @@ body.page-tools-and-publications-publications{
 			padding-bottom: 0;
 			padding-left: 25px;
 			margin-bottom: 0;
+			line-height: initial;
 		}
 
 		.slider--video--block{
@@ -8509,10 +8543,38 @@ body.video-page{
 	}
 }
 
+
+header.navbar-default{
+	.campaigns-header{
+		.navbar-header{
+			div.col-xs-12.col-sm-9{
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
+}
+
+header.navbar-default.sticky-menu{
+	.campaigns-header{
+		.navbar-header{
+			div.col-xs-12.col-sm-9{
+				display: block;
+				.header-text {
+				    border-left: 0;
+				    height: 80px;
+				    display: flex;
+				    align-items: center;
+				}
+			}
+		}
+	}
+}
+
 body.rel1{
-	header.navbar-default .campaigns-header .navbar-header .header-text {
+	header.navbar-default .campaigns-header .navbar-header .header-text{
 		max-width: 320px !important;
-	    padding-left: 1em;
+		padding-left: 1em;
 	    span{
 	    	display: block;
 	    	color: #ef0511;
@@ -8522,6 +8584,16 @@ body.rel1{
 	.sticky-menu .col-sm-9 .header-text{
 		padding-top: 0!important;
 	}	
+}
+
+.sticky-menu .col-sm-9 .header-text{
+	padding-top: 0!important;
+}
+
+html:lang(es){
+	body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text {
+	    max-width: 368px !important;
+	}
 }
 
 body{
