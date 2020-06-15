@@ -1556,7 +1556,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   margin-left: 1em;
 }
 .previous-text span {
-  width: 160px;
+  width: auto;
 }
 .next {
   display: flex;
@@ -1580,7 +1580,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 }
 .next-text span {
   text-align: end;
-  width: 160px;
+  width: auto;
 }
 /* PUBLICATIONS */
 /* Latest Publications */
@@ -3830,6 +3830,9 @@ body.een .box-type-partner {
   padding-bottom: 5px;
   padding-top: 5px;
 }
+html:lang(de) .node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col .more-link a {
+  font-size: 0.75em;
+}
 .how-to-apply {
   background: url('../images/background-timeline.png') no-repeat;
   color: #FFF;
@@ -4004,6 +4007,15 @@ html:lang(de) .how-to-apply > div.boxes > div:nth-child(2) {
 }
 html:lang(de) .how-to-apply > div.boxes > div:nth-child(3) {
   right: 8.5%;
+}
+html:lang(de) .boxes .box div .btn-become-partner-download,
+html:lang(de) .box.inactive div .btn-become-partner-register,
+html:lang(de) .boxes .box div .btn-become-partner-register {
+  font-size: 0.9em;
+  padding: 9px 30px 7px 10px;
+}
+html:lang(de) .boxes .box.inactive div .btn-become-partner-register {
+  padding-top: 10px;
 }
 .timeline {
   width: 100%;
@@ -4709,11 +4721,47 @@ ul[data-sa-theme="basic-green"].ui-menu {
   text-align: center;
   padding-left: 0;
 }
-html:lang(de) #block-osha-newsletter-osha-newsletter-events-subscribe label {
+html:lang(de) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(bg) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(cs) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(da) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(el) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(fr) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(is) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(pl) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(pt) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(ro) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(sk) #block-osha-newsletter-osha-newsletter-events-subscribe {
+  padding: 1.4em;
+}
+html:lang(de) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(bg) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(cs) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(da) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(el) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(fr) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(is) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(pl) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(pt) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(ro) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(sk) #block-osha-newsletter-osha-newsletter-events-subscribe label {
   font-size: 0.95rem;
 }
-html:lang(de) #block-osha-newsletter-osha-newsletter-events-subscribe label a {
+html:lang(de) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(bg) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(cs) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(da) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(el) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(fr) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(is) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(pl) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(pt) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(ro) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(sk) #block-osha-newsletter-osha-newsletter-events-subscribe label a {
   font-size: 0.95rem;
+}
+html:lang(pt) #block-osha-newsletter-osha-newsletter-events-subscribe {
+  padding: 1.5em;
 }
 .node-article .field-name-body {
   clear: both;
@@ -7821,6 +7869,10 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
   float: left;
   margin-top: 47px;
 }
+html:lang(de) .left-menu.accordion-menu {
+  padding-left: 0;
+  padding-right: 0;
+}
 #block-menu-block-5 > div > ul li.last.expanded {
   margin-top: 1em;
 }
@@ -9411,6 +9463,32 @@ body.front-page .footer {
     width: 22px;
     height: 28px;
     background-size: contain;
+  }
+}
+@media (min-width: 990px) {
+  html:lang(de) .page-media-centre-events #edit-search-api-views-fulltext,
+  html:lang(el) .page-media-centre-events #edit-search-api-views-fulltext {
+    width: 250px !important;
+  }
+  html:lang(de) .page-events .region-content #block-system-main .views-exposed-widgets select,
+  html:lang(el) .page-events .region-content #block-system-main .views-exposed-widgets select {
+    width: 200px!important;
+  }
+  html:lang(de) .page-events .region-content #block-system-main .views-exposed-widgets #edit_years_chosen,
+  html:lang(el) .page-events .region-content #block-system-main .views-exposed-widgets #edit_years_chosen {
+    width: 150px!important;
+  }
+  html:lang(fr) .page-media-centre-events #edit-search-api-views-fulltext,
+  html:lang(pt) .page-media-centre-events #edit-search-api-views-fulltext {
+    width: 270px !important;
+  }
+  html:lang(fr) .page-events .region-content #block-system-main .views-exposed-widgets select,
+  html:lang(pt) .page-events .region-content #block-system-main .views-exposed-widgets select {
+    width: 180px!important;
+  }
+  html:lang(fr) .page-events .region-content #block-system-main .views-exposed-widgets #edit_years_chosen,
+  html:lang(pt) .page-events .region-content #block-system-main .views-exposed-widgets #edit_years_chosen {
+    width: 130px!important;
   }
 }
 @media (max-width: 768px) {
