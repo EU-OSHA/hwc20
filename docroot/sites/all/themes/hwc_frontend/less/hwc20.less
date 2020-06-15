@@ -1805,7 +1805,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 	flex-direction: column;
 	margin-left: 1em;
 	span{
-		width: 160px;
+		width: auto;
 	}
 }
 
@@ -1832,7 +1832,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 	flex-direction: column;
 	span{
 		text-align: end;
-		width: 160px;
+		width: auto;
 	}
 }
 
@@ -4356,6 +4356,21 @@ body{
 
 }
 
+html:lang(de){
+	.node-type-article article .field-name-body.field-type-text-with-summary{
+		.become-partner{
+			.coments .col{
+				.more-link{
+					a{
+						font-size: 0.75em;
+					}
+				}    
+
+			}
+		}
+	}
+}
+
 .how-to-apply{
 	background: url('../images/background-timeline.png') no-repeat;
 	color:#FFF;
@@ -4549,6 +4564,21 @@ html:lang(de){
 			right: 8.5%;
 		}
 	}
+
+	.boxes .box div .btn-become-partner-download,
+	.box.inactive div .btn-become-partner-register,
+	.boxes .box div .btn-become-partner-register{
+		font-size: 0.9em;
+		padding: 9px 30px 7px 10px;
+	}
+
+	.boxes{
+		.box.inactive div .btn-become-partner-register{
+			padding-top: 10px;
+		}
+	}
+	
+	
 }
 
 .timeline{
@@ -5367,14 +5397,21 @@ ul[data-sa-theme="basic-green"].ui-menu{
 	}
 }
 
-html:lang(de){
+html:lang(de), html:lang(bg), html:lang(cs), html:lang(da), html:lang(el), html:lang(fr), html:lang(is), html:lang(pl), html:lang(pt), html:lang(ro), html:lang(sk){
 	#block-osha-newsletter-osha-newsletter-events-subscribe {
+		padding: 1.4em;
 		label{
 			font-size: 0.95rem;
 			a{
 				font-size: 0.95rem;
 			}
 		}
+	}
+}
+
+html:lang(pt){
+	#block-osha-newsletter-osha-newsletter-events-subscribe {
+		padding: 1.5em;
 	}
 }
 
@@ -9111,6 +9148,13 @@ aside.col-md-3{
 	margin-top: 47px;
 }
 
+html:lang(de){
+	.left-menu.accordion-menu{
+	    padding-left: 0;
+	    padding-right: 0;
+	}
+
+}
 
 #block-menu-block-5 {
 	> div {
@@ -9507,3 +9551,21 @@ body.front-page{
 
 /* END MHWC-39 - For UX next step */
 
+.block-hwc-partner{
+	.breadcrumb{
+		span{
+			a{
+				background: url(../images/pag-back.png) no-repeat 1px 4px;
+			    color: #003399;
+			    margin-left: 0;
+			    font-weight: bold;
+			    text-decoration: none !important;
+			    padding-left: 1.2em;
+
+    			&:hover{
+    				text-decoration: underline !important;
+    			}
+			}
+		}
+	}
+}
