@@ -8222,6 +8222,18 @@ body.front-page .footer {
 .node-type-practical-tool .group-details .field-label-inline .field-items {
   float: none;
 }
+/* END MHWC-39 - For UX next step */
+.block-hwc-partner .breadcrumb span a {
+  background: url(../images/pag-back.png) no-repeat 1px 4px;
+  color: #003399;
+  margin-left: 0;
+  font-weight: bold;
+  text-decoration: none !important;
+  padding-left: 1.2em;
+}
+.block-hwc-partner .breadcrumb span a:hover {
+  text-decoration: underline !important;
+}
 .isMobile {
   float: right !important;
 }
