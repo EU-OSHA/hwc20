@@ -335,6 +335,15 @@ function hwc_partner_block_view($delta = '') {
   }
   elseif ($delta == 'hwc_partner_back_to_private_zone') {
     $link = NULL;
+    $args = arg(0) . '/' . arg(2);
+    $allowed_private_zone_pages = variable_get('back_to_private_zone_pages', [
+      'node/news',
+      'node/events',
+      'private/',
+    ]);
+    if (!in_array($args, $allowed_private_zone_pages) && arg(1) != 253) {
+      return [];
+    }
     // Sometimes the $user->workbench_access is empty, force a load of WBA data.
     if (empty($user->workbench_access)) {
       workbench_access_user_load_data($user);
