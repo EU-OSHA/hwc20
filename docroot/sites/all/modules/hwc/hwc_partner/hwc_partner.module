@@ -414,6 +414,23 @@ function hwc_partner_hide_name($name, $flag) {
  * Implements hook_views_pre_render().
  */
 function hwc_partner_views_pre_render(&$view) {
+  if ($view->name == 'osh_workflow_admin') {
+    $check = [];
+    foreach($view->result as $index => $v) {
+      $check[$v->nid][$v->workbench_moderation_node_history_stamp] = $index;
+    }
+    foreach ($check as $nid => $items) {
+      if (count($items) == 1) {
+        continue;
+      }
+      $last_stamp = max(array_keys($items));
+      unset($items[$last_stamp]);
+      foreach ($items as $history_stamp => $index) {
+        unset($view->result[$index]);
+      }
+    }
+  }
+
   // Alter the more link.
   if ($view->name == 'partner_content') {
     if ($view->current_display == 'latest_partner_news') {
