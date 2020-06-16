@@ -8170,6 +8170,41 @@ body.front-page .footer {
 .node-type-practical-tool .group-details .field-label-inline .field-items {
   float: none;
 }
+/* END MHWC-39 - For UX next step */
+.block-hwc-partner .breadcrumb span a {
+  background: url(../images/pag-back.png) no-repeat 1px 4px;
+  color: #003399;
+  margin-left: 0;
+  font-weight: bold;
+  text-decoration: none !important;
+  padding-left: 1.2em;
+}
+.block-hwc-partner .breadcrumb span a:hover {
+  text-decoration: underline !important;
+}
+.page-private.private-area .section-introduction .node-private-aria-article .content {
+  margin-top: 1em;
+}
+.page-private.private-area .section-introduction .node-private-aria-article .content .field-name-body {
+  width: 66%;
+  margin: 0 auto;
+  padding-bottom: 0em;
+}
+.page-private.private-area .section-introduction .node-private-aria-article .content .field-name-body p {
+  padding-top: 0 !important;
+}
+.page-private.private-area .section-introduction .node-private-aria-article .content .field-name-body ul {
+  padding-bottom: 2em !important;
+}
+.page-private.private-area .content {
+  margin-top: 1em;
+}
+.page-partners-documents .region.region-content .view-documents .view-content .views-row .views-field-field-document-files ul li .entity-field-collection-item .publication-teaser .publication-download-label {
+  margin-right: 0;
+}
+.page-partners-documents .region.region-content .view-documents .view-content .views-row .views-field-field-document-files ul li .entity-field-collection-item .publication-teaser ul {
+  padding-left: 0;
+}
 .isMobile {
   float: right !important;
 }

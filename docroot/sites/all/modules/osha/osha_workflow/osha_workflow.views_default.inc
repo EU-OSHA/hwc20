@@ -508,6 +508,15 @@ function osha_workflow_views_default_views() {
   $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
   $handler->display->display_options['fields']['delete_node']['label'] = '';
   $handler->display->display_options['fields']['delete_node']['element_label_colon'] = FALSE;
+  /* Field: Workbench Moderation: Timestamp */
+  $handler->display->display_options['fields']['stamp']['id'] = 'stamp';
+  $handler->display->display_options['fields']['stamp']['table'] = 'workbench_moderation_node_history';
+  $handler->display->display_options['fields']['stamp']['field'] = 'stamp';
+  $handler->display->display_options['fields']['stamp']['label'] = '';
+  $handler->display->display_options['fields']['stamp']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['stamp']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['stamp']['date_format'] = 'year';
+  $handler->display->display_options['fields']['stamp']['second_date_format'] = 'year';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['operator'] = 'OR';

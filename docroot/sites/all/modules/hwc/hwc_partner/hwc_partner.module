@@ -125,6 +125,14 @@ function hwc_partner_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['hwc_partner_back_to_private_zone'] = array(
+    'info' => t('Back to private zone'),
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+    'weight' => 50,
+  );
   $blocks['hwc_partner_back_to_profile'] = array(
     'info' => t('Back to profile link'),
     'status' => 1,
@@ -230,7 +238,7 @@ function hwc_partner_block_save($delta = '', $edit = array()) {
   }
 }
 
-function hwc_partner_back_to_private_zone($link = '') {
+function _hwc_partner_back_to_private_zone($link = '') {
   static $content;
   if ($link) {
     $content = '<div class="breadcrumb"><span class="inline odd first">' . $link . '</span></div>';
@@ -325,6 +333,36 @@ function hwc_partner_block_view($delta = '') {
     $block['title'] = '<none>';
     $block['content'] = l(t('Change password'), 'user/' . $user->uid . '/edit');
   }
+  elseif ($delta == 'hwc_partner_back_to_private_zone') {
+    $link = NULL;
+    $args = arg(0) . '/' . arg(2);
+    $allowed_private_zone_pages = variable_get('back_to_private_zone_pages', [
+      'node/news',
+      'node/events',
+      'private/',
+    ]);
+    if (!in_array($args, $allowed_private_zone_pages) && arg(1) != 253) {
+      return [];
+    }
+    // Sometimes the $user->workbench_access is empty, force a load of WBA data.
+    if (empty($user->workbench_access)) {
+      workbench_access_user_load_data($user);
+    }
+    if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles) && !empty($user->workbench_access)) {
+      $sections = array_keys($user->workbench_access);
+      foreach ($sections as $id_section) {
+        if ($partner = hwc_partner_by_section_id_load($id_section)) {
+          // Did this to use it in panels.
+          $link = _hwc_partner_back_to_private_zone(l(t('Back to Private Zone'), 'node/' . $partner->nid));
+          break;
+        }
+      }
+    }
+    else {
+      return [];
+    }
+    $block['content'] = $link;
+  }
   elseif ($delta == 'hwc_partner_back_to_profile') {
     // HCW-724 Remove 'Back to profile' link when partner is on its profile.
     $panel = panels_get_current_page_display();
@@ -343,7 +381,7 @@ function hwc_partner_block_view($delta = '') {
       foreach ($sections as $id_section) {
         if ($partner = hwc_partner_by_section_id_load($id_section)) {
           // Did this to use it in panels.
-          hwc_partner_back_to_private_zone(l(t('Back to Private Zone'), 'node/' . $partner->nid));
+          _hwc_partner_back_to_private_zone(l(t('Back to Private Zone'), 'node/' . $partner->nid));
           $block = [];
           break;
         }
@@ -414,6 +452,23 @@ function hwc_partner_hide_name($name, $flag) {
  * Implements hook_views_pre_render().
  */
 function hwc_partner_views_pre_render(&$view) {
+  if ($view->name == 'osh_workflow_admin') {
+    $check = [];
+    foreach($view->result as $index => $v) {
+      $check[$v->nid][$v->workbench_moderation_node_history_stamp] = $index;
+    }
+    foreach ($check as $nid => $items) {
+      if (count($items) == 1) {
+        continue;
+      }
+      $last_stamp = max(array_keys($items));
+      unset($items[$last_stamp]);
+      foreach ($items as $history_stamp => $index) {
+        unset($view->result[$index]);
+      }
+    }
+  }
+
   // Alter the more link.
   if ($view->name == 'partner_content') {
     if ($view->current_display == 'latest_partner_news') {

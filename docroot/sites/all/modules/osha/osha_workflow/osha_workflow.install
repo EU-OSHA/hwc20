@@ -466,3 +466,10 @@ function osha_workflow_update_7006() {
   );
   drupal_write_record('workbench_access_role', $role);
 }
+
+/**
+ * MHWC-91 The item created by the partner is shown in the different statuses and should only appear in the latest one.
+ */
+function osha_workflow_update_7007() {
+  features_revert(array('osha_workflow' => array('views_view')));
+}
