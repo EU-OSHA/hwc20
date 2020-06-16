@@ -139,7 +139,7 @@ function osha_publication_menu_campaign_materials_faceted_form($variables) {
 }
 
 function osha_publication_menu_campaign_materials_native_results($form_state, $response, $sort) {
-  global $language, $current_page;
+  global $language, $current_page, $user;
 
   $restrict = [];
   if (!empty($response['results'])) {
@@ -147,6 +147,11 @@ function osha_publication_menu_campaign_materials_native_results($form_state, $r
       list($lng, $nid) = explode('_', $result['id'], 2);
       $restrict[] = $nid;
     }
+  }
+  $is_admin = OshaWorkflowPermissions::userHasRole(HWC_ROLE_ADMIN, $user);
+  if (@$_REQUEST['krumo'] && $is_admin) {
+    has_krumo();
+    krumo($response, $restrict);
   }
   if (empty($restrict)) {
     return array(
@@ -173,6 +178,9 @@ function osha_publication_menu_campaign_materials_native_results($form_state, $r
     }
   }
   $nids = array_unique($nids);
+  if (@$_REQUEST['krumo'] && $is_admin) {
+    krumo($nids);
+  }
   if (empty($nids)) {
     return array();
   }
