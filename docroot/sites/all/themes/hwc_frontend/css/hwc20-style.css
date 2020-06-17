@@ -8257,6 +8257,10 @@ body.front-page .footer {
 .page-partners-documents .region.region-content .view-documents .view-content .views-row .views-field-field-document-files ul li .entity-field-collection-item .publication-teaser ul {
   padding-left: 0;
 }
+/* PZ - Update your profile */
+body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcrumb {
+  padding: 0px 1em 1.5em 0.8em;
+}
 .isMobile {
   float: right !important;
 }
@@ -8316,6 +8320,9 @@ body.front-page .footer {
     width: 30px;
     height: 28px;
     background-size: contain;
+  }
+  body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area ul li:nth-child(4) {
+    margin-right: 2em;
   }
   /*Slider Publications*/
   body.page-tools-and-publications-publications .slider--video--section {
@@ -8968,6 +8975,11 @@ body.front-page .footer {
     right: auto;
     position: relative;
     top: -6px;
+  }
+  .page-tools-and-publications-practical-tools.page-search .main-container #block-system-main .view .views-row .more-link {
+    bottom: 15px;
+    right: auto;
+    left: 15px;
   }
   /* Panels - National Focal Points, etc. */
   .panels-flexible-column-inside-first .profile-col-left-middle-2 {
