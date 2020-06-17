@@ -8317,6 +8317,9 @@ body.front-page .footer {
     height: 28px;
     background-size: contain;
   }
+  body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area ul li:nth-child(4) {
+    margin-right: 2em;
+  }
   /*Slider Publications*/
   body.page-tools-and-publications-publications .slider--video--section {
     height: auto;
