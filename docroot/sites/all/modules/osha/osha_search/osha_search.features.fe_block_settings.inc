@@ -258,7 +258,8 @@ tools-and-publications/practical-tools',
     'module' => 'facetapi',
     'node_types' => array(),
     'pages' => 'media-centre/events
-tools-and-publications/campaign-toolkit/search-toolkit-examples',
+tools-and-publications/campaign-toolkit/search-toolkit-examples
+good-practice-exchange-platform',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
