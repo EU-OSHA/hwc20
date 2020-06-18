@@ -1161,7 +1161,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   padding-left: 2em;
 }
 .newsletter-social-media .social-media h3 {
-  color: white;
+  color: #FFFFFF;
   margin-top: 0;
   margin-bottom: 20px;
   font-weight: 400;
@@ -1170,6 +1170,9 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 .newsletter-social-media .social-media h3 span {
   padding-right: 0.7em;
   padding-left: 5px;
+}
+.newsletter-social-media .social-media h3 span a {
+  color: #FFFFFF;
 }
 .newsletter-social-media p {
   color: #FFF;
