@@ -1512,3 +1512,43 @@ function hwc_frontend_top_anchor(&$vars) {
   );
   $vars['top_anchor'] = l('<img alt="Anchor to top" src="'.file_create_url(path_to_theme().'/images/anchor-top.png').'" />', '', $options);
 }
+
+
+
+// Create a theme function that can be overridden by other theme developers.
+function hwc_frontend_text_resize_block() {
+  // Add js, css, and library
+  $content = array(
+    '#attached' => array(
+      'js' => array(
+        array(
+          'data' => "var text_resize_scope = " . drupal_json_encode(variable_get('text_resize_scope', 'main')) . ";
+          var text_resize_minimum = " . drupal_json_encode(variable_get('text_resize_minimum', '12')) . ";
+          var text_resize_maximum = " . drupal_json_encode(variable_get('text_resize_maximum', '25')) . ";
+          var text_resize_line_height_allow = " . drupal_json_encode(variable_get('text_resize_line_height_allow', FALSE)) . ";
+          var text_resize_line_height_min = " . drupal_json_encode(variable_get('text_resize_line_height_min', 16)) . ";
+          var text_resize_line_height_max = " . drupal_json_encode(variable_get('text_resize_line_height_max', 36)) . ";",
+          'type' => 'inline',
+        ),
+        array(
+          'data' => drupal_get_path('module', 'text_resize') . '/text_resize.js',
+          'type' => 'file',
+        )
+      ),
+      'css' => array(
+        drupal_get_path('module', 'text_resize') . '/text_resize.css',
+      ),
+      'library' => array(
+        array('system', 'jquery.cookie')
+      ),
+    ),
+  );
+  if (variable_get('text_resize_reset_button', FALSE) == TRUE) {
+    $content['#markup'] = t('<a href="javascript:;" class="changer" title="Smaller text" id="text_resize_decrease"><sup>-</sup>A</a> <a href="javascript:;" class="changer" id="text_resize_reset">A</a> <a href="javascript:;" class="changer" title="Bigger text" id="text_resize_increase"><sup>+</sup>A</a><div id="text_resize_clear"></div>');
+  }
+  else {
+    $content['#markup'] = t('<a href="javascript:;" class="changer" title="Smaller text" id="text_resize_decrease"><sup>-</sup>A</a> <a href="javascript:;" class="changer" title="Bigger text" id="text_resize_increase"><sup>+</sup>A</a><div id="text_resize_clear"></div>');
+  }
+
+  return render($content);
+}
