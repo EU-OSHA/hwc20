@@ -8264,6 +8264,16 @@ body.front-page .footer {
 body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcrumb {
   padding: 0px 1em 1.5em 0.8em;
 }
+.content-pdf-guide {
+  float: right;
+  margin-top: -25px;
+}
+.content-pdf-guide a {
+  background: url(../images/download-timeline.png) no-repeat 100% 3px;
+  color: #003399;
+  padding-right: 1.5em;
+  font-weight: bold;
+}
 .isMobile {
   float: right !important;
 }
