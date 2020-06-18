@@ -348,6 +348,7 @@ function hwc_partner_block_view($delta = '') {
     if (empty($user->workbench_access)) {
       workbench_access_user_load_data($user);
     }
+    $link = '';
     if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles) && !empty($user->workbench_access)) {
       $sections = array_keys($user->workbench_access);
       foreach ($sections as $id_section) {
@@ -359,7 +360,19 @@ function hwc_partner_block_view($delta = '') {
       }
     }
     else {
-      return [];
+      if (count(array_intersect(array(
+        HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR,
+        HWC_ROLE_ADMIN,
+        HWC_ROLE_WEBSITE_MANAGERS,
+        HWC_ROLE_HWC_STAFF_REVIEWERS,
+        HWC_ROLE_EEN_REVIEW_MANAGER,
+        HWC_ROLE_GPE_PLATFORM_EDITORS,
+      ), $user->roles))) {
+        $link = _hwc_partner_back_to_private_zone(l(t('Back to Private Zone'), 'private_workbench'));
+      }
+      else {
+        return [];
+      }
     }
     $block['content'] = $link;
   }
