@@ -8600,6 +8600,12 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
 }
 @media (max-width: 992px) {
+  body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .view-content {
+    flex-direction: column;
+  }
+  body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .view-content > div:nth-child(3) {
+    order: 4;
+  }
   header.navbar-default.sticky-menu .campaigns-header .navbar-header .col-xs-12.col-sm-9 {
     display: flex;
   }
