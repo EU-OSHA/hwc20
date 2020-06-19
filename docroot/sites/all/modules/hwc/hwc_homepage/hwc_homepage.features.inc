@@ -44,8 +44,8 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
-    'unique_entries' => 0,
     'insert_at_front' => NULL,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'partner',
@@ -69,8 +69,8 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
-    'unique_entries' => 0,
     'insert_at_front' => NULL,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'events',
@@ -94,8 +94,8 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
-    'unique_entries' => 0,
     'insert_at_front' => NULL,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'article',
@@ -119,8 +119,8 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
-    'unique_entries' => 0,
     'insert_at_front' => NULL,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'frontpage_slider',
@@ -144,8 +144,8 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
-    'unique_entries' => 0,
     'insert_at_front' => NULL,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'home_page_sections',
@@ -169,8 +169,8 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
-    'unique_entries' => 0,
     'insert_at_front' => NULL,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'events',
@@ -194,8 +194,8 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
-    'unique_entries' => 0,
     'insert_at_front' => NULL,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'frontpage_slider',
@@ -219,8 +219,8 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
-    'unique_entries' => 0,
     'insert_at_front' => NULL,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'campaign_materials',
@@ -244,8 +244,8 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
-    'unique_entries' => 0,
     'insert_at_front' => NULL,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'events',
@@ -269,8 +269,8 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
-    'unique_entries' => 0,
     'insert_at_front' => NULL,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'news',
@@ -292,7 +292,7 @@ function hwc_homepage_image_default_styles() {
   $styles['banner_1'] = array(
     'label' => 'Banner',
     'effects' => array(
-      13 => array(
+      12 => array(
         'name' => 'manualcrop_crop',
         'data' => array(
           'width' => '',

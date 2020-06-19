@@ -1,11 +1,15 @@
 <?php
 $translated = osha_tmgmt_literal_get_translation($title);
 ?>
-<section class="slider--video--section container">
-    <div class="slider--video--block row">
-        <div class="slider--video--items">
-            <h2 class="block-title"><?php print l($translated, 'campaign-partners/official-campaign-partners'); ?></h2>
-          <?php print $content; ?>
+<div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
+    <section class="slider--video--section container">
+      <?php print render($title_prefix); ?>
+      <?php print render($title_suffix); ?>
+        <div class="slider--video--block row">
+            <div class="slider--video--items">
+                <h2 class="block-title"><?php print l($translated, 'campaign-partners/official-campaign-partners'); ?></h2>
+              <?php print $content; ?>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
