@@ -387,6 +387,26 @@ select {
 .intro-splash-20 .more-link {
   background: transparent;
 }
+html:lang(de) .intro-splash-20 h2,
+html:lang(el) .intro-splash-20 h2,
+html:lang(es) .intro-splash-20 h2,
+html:lang(fr) .intro-splash-20 h2,
+html:lang(hu) .intro-splash-20 h2,
+html:lang(pl) .intro-splash-20 h2,
+html:lang(pt) .intro-splash-20 h2,
+html:lang(ro) .intro-splash-20 h2 {
+  font-size: 1.8em;
+}
+html:lang(de) .intro-splash-20 .views-row-first > p:nth-child(3),
+html:lang(el) .intro-splash-20 .views-row-first > p:nth-child(3),
+html:lang(es) .intro-splash-20 .views-row-first > p:nth-child(3),
+html:lang(fr) .intro-splash-20 .views-row-first > p:nth-child(3),
+html:lang(hu) .intro-splash-20 .views-row-first > p:nth-child(3),
+html:lang(pl) .intro-splash-20 .views-row-first > p:nth-child(3),
+html:lang(pt) .intro-splash-20 .views-row-first > p:nth-child(3),
+html:lang(ro) .intro-splash-20 .views-row-first > p:nth-child(3) {
+  max-width: 525px;
+}
 /* Coming Soon */
 .comming-soon {
   background: #00309d;
@@ -8732,6 +8752,16 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
 }
 @media (max-width: 1280px) {
+  html:lang(de) .intro-splash-20 .views-row-first h1,
+  html:lang(el) .intro-splash-20 .views-row-first h1,
+  html:lang(es) .intro-splash-20 .views-row-first h1,
+  html:lang(fr) .intro-splash-20 .views-row-first h1,
+  html:lang(hu) .intro-splash-20 .views-row-first h1,
+  html:lang(pl) .intro-splash-20 .views-row-first h1,
+  html:lang(pt) .intro-splash-20 .views-row-first h1,
+  html:lang(ro) .intro-splash-20 .views-row-first h1 {
+    font-size: 2.3em;
+  }
   /* Events */
   .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row {
     min-height: auto;
