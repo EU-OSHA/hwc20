@@ -1883,8 +1883,9 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   float: right;
 }
 .content-languages-download {
+  width: 100%;
   color: #003399;
-  padding: 1em;
+  padding: 0.6em;
   background: #daea96;
   float: left;
   border-radius: 5px;
@@ -1904,7 +1905,8 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 .content-languages-download button {
   display: none;
 }
-html:lang(de) .content-languages-download label {
+html:lang(de) .content-languages-download label,
+html:lang(mt) .content-languages-download label {
   font-size: 0.8em;
 }
 span.title-download {
