@@ -1050,6 +1050,46 @@
     	}
 	} 
 
+	html:lang(bg), 
+	html:lang(cs), 
+	html:lang(et), 
+	html:lang(el), 
+	html:lang(de), 
+	html:lang(es),
+	html:lang(fr), 
+	html:lang(hr), 
+	html:lang(is), 
+	html:lang(lv), 
+	html:lang(lt), 
+	html:lang(hu), 
+	html:lang(nl), 
+	html:lang(pl),
+	html:lang(pt),
+	html:lang(ro),
+	html:lang(sk),
+	html:lang(sl),
+	html:lang(fi),
+	html:lang(sv)
+	{
+		.how-to-apply{
+			.box{
+				width: 269px;
+			}
+
+			> div.boxes > div:nth-child(1){
+				left: 33px;
+			}
+
+			> div.boxes > div:nth-child(2){
+				left: 35%;
+			}
+
+			> div.boxes > div:nth-child(3) {
+				right: 5px;
+			}
+		}
+	}
+
 	.page-events #osha-events-dates-form {
     	width: 157px;
 	}
@@ -1166,17 +1206,133 @@
 	.how-to-apply{
 		> div.boxes{
 			> div:nth-child(1) {
-	    		left: 44px;				
+	    		left: 44px ;				
 			}
 			> div:nth-child(2) {
-	   			left: 38%;
+	   			left: 38% ;
 			}
 			> div:nth-child(3) {
-	    		right: 8px;
+	    		right: 8px ;
 			}
 
 		}
 	}
+
+	/**/
+	html:lang(bg), 
+	html:lang(cs), 
+	html:lang(et), 
+	html:lang(el), 
+	html:lang(de), 
+	html:lang(es),
+	html:lang(fr), 
+	html:lang(hr), 
+	html:lang(is), 
+	html:lang(lv), 
+	html:lang(lt), 
+	html:lang(hu), 
+	html:lang(nl), 
+	html:lang(pl),
+	html:lang(pt),
+	html:lang(ro),
+	html:lang(sk),
+	html:lang(sl),
+	html:lang(fi),
+	html:lang(sv)
+	{	
+		.how-to-apply {
+		    background: url(../images/background-timeline-mobile.png) repeat-y;
+		    color: #FFF;
+		    text-align: center;
+		    float: left;
+		    width: 100%;
+		   	height: 868px;
+
+			> div.boxes > div:nth-child(1){
+				position: absolute;
+		    	left: 72px !important;
+		    	top: 68px;
+			}
+
+			> div.boxes > div:nth-child(2){
+				position: absolute;
+				left: 72px !important;
+	    		top: 310px;
+			}
+
+			> div.boxes > div:nth-child(3){
+				position: absolute;
+	    		left: 71px !important;
+	    		top: 546px;
+			}
+		}
+
+		.timeline{
+				width: 100%;
+				height: 654px;
+			    text-align: center;
+			    float: left;
+			    display: flex;
+			    flex-wrap: wrap;
+			    justify-content: center;
+			    background: none;
+			    padding-top: 70px;
+			    padding-bottom: 1em;
+			    position: relative;
+			    > div {
+					float: left;
+				}
+
+				> div:nth-child(1){
+					position: absolute;
+					left: 76px;
+		    		top: 37px;
+		    		&:after{
+		    			left: -67px;
+		    			top: 92px;
+		    		}
+			    }
+
+			    > div:nth-child(2){
+					position: absolute;
+			    	left: 74px;
+		    		top: 281px;
+			    	&:after{
+			    		left: -65px;
+		    			top: 101px;
+			    	}
+			    }
+
+			    > div:nth-child(3){
+					position: absolute;
+			    	left: 73px;
+		    		top: 518px;
+		    		right: initial;
+			    	&:after{
+			    		left: -64px;
+		    			top: 97px;
+			    	}
+			    }
+
+			    > div:nth-child(4){
+					position: absolute;
+			    	left: 101px;
+		    		top: 429px;
+		    		right: auto;
+			    	&:after{
+			    		left: -67px;
+		    			top: 3px;
+			    	}
+			    }
+
+			    > div:nth-child(5){
+					position: absolute;
+			    	left: 28px;
+		    		top: 535px;
+			    }
+			} 
+	}
+	/**/
 
 	.timeline{
 		> div:nth-child(1) {
