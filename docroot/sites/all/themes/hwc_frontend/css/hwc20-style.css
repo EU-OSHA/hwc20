@@ -8264,6 +8264,16 @@ body.front-page .footer {
 body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcrumb {
   padding: 0px 1em 1.5em 0.8em;
 }
+.content-pdf-guide {
+  float: right;
+  margin-top: -25px;
+}
+.content-pdf-guide a {
+  background: url(../images/target-blank-blue.png) no-repeat 100% 4px;
+  color: #003399;
+  padding-right: 1.5em;
+  font-weight: bold;
+}
 .isMobile {
   float: right !important;
 }
@@ -8590,6 +8600,12 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
 }
 @media (max-width: 992px) {
+  body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .view-content {
+    flex-direction: column;
+  }
+  body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .view-content > div:nth-child(3) {
+    order: 4;
+  }
   header.navbar-default.sticky-menu .campaigns-header .navbar-header .col-xs-12.col-sm-9 {
     display: flex;
   }
@@ -10465,10 +10481,10 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .form-select {
     max-height: 62px;
   }
-  .content-languages-download {
+  body.page-tools-and-publications-practical-tools .content-languages-download {
     width: 100%;
   }
-  .content-languages-download select.new-select-style {
+  body.page-tools-and-publications-practical-tools .content-languages-download select.new-select-style {
     height: 34px;
   }
 }
@@ -10505,6 +10521,11 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     margin: 1em 3em 0.5em 0;
   }
 }
+@media (max-width: 700px) {
+  body.page-tools-and-publications-practical-tools .region.region-content .view-content .views-row .views-field-body {
+    padding-bottom: 130px;
+  }
+}
 @media (max-width: 480px) {
   .page_title {
     margin-bottom: 1em;
@@ -10523,7 +10544,7 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     padding-bottom: 0;
   }
   body.page-tools-and-publications-practical-tools .region.region-content .view-content .views-row .views-field-body .more-link {
-    right: 15px !important;
+    bottom: 10px!important;
   }
   body.page-tools-and-publications-practical-tools .region.region-content .view-practical-tools .view-content .views-row .conten-tags {
     width: 100%;
