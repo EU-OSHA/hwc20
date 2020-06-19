@@ -4596,10 +4596,6 @@ span.add-to-my-calendar {
   display: list-item;
   margin-left: 2em;
 }
-.node-type-events .group-left2 .field-name-field-speaker .field-type-image,
-.node-type-events .group-footer .field-name-field-speaker .field-type-image {
-  display: none;
-}
 .node-type-events .group-left2 .field-name-field-organizer .field-item,
 .node-type-events .group-footer .field-name-field-organizer .field-item {
   color: #59595A;
@@ -4679,6 +4675,17 @@ span.add-to-my-calendar {
   margin-top: -10px;
   clear: both;
   margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: none;
+}
+.node-type-events .group-right2 .add-to-calendar label {
+  background: url(../images/green-calendar.png) no-repeat 0 1px;
+  padding-left: 1.5em;
+}
+.node-type-events .group-right2 .hwc-share-widget {
+  clear: both;
 }
 .node-type-events .group-right2 .field-name-field-start-date {
   color: #003399;
