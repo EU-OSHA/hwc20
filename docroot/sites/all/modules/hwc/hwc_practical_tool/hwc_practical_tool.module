@@ -271,8 +271,6 @@ function hwc_practical_tool_views_post_render(&$view, &$output, &$cache) {
     $form = drupal_get_form('hwc_practical_tool_sort_form');
     $order_html = '<div class="sort-container col-xs-3">' . drupal_render($form) . '</div><span class="count-container pull-right">';
     $output = trim(str_replace('@order', $order_html, $output)) . '</span>';
-    $loader_text = t('Dear partner: Please wait a few seconds. Your data is being retrieved.');
-    drupal_add_js(array('loader_text' => $loader_text), 'setting');
   }
 }
 
