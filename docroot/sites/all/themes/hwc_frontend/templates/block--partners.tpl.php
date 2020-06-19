@@ -7,7 +7,7 @@ $translated = osha_tmgmt_literal_get_translation($title);
       <?php print render($title_suffix); ?>
         <div class="slider--video--block row">
             <div class="slider--video--items">
-                <h2 class="block-title"><?php print l($translated, 'campaign-partners/official-campaign-partners'); ?></h2>
+                <h2 class="block-title"><span><?php print l($translated, 'campaign-partners/official-campaign-partners'); ?></span></h2>
               <?php print $content; ?>
             </div>
         </div>
