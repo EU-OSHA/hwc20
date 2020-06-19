@@ -7608,7 +7608,8 @@ body.rel1 .sticky-menu .col-sm-9 .header-text {
 .sticky-menu .col-sm-9 .header-text {
   padding-top: 0!important;
 }
-html:lang(es) body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text {
+html:lang(es) body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text,
+html:lang(mt) body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text {
   max-width: 368px !important;
 }
 body button,
