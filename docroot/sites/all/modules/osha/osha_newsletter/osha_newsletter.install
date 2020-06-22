@@ -295,7 +295,7 @@ function osha_newsletter_update_7017() {
   $term_mapping['spotlight'] = '4f57cadd-a3dd-406d-981a-dfea0853c54e';
   $term_mapping['view_mode_spotlight'] = 'highlights_item';
   $term_mapping['view_mode_youtube'] = 'highlights_item';
-  $term_mapping['youtube'] = '979857c2-d783-4bf9-8899-88259bc04a86';
+//  $term_mapping['youtube'] = '979857c2-d783-4bf9-8899-88259bc04a86';
   variable_set('osha_newsletter_term_ct_map', $term_mapping);
 }
 
@@ -304,4 +304,12 @@ function osha_newsletter_update_7017() {
  */
 function osha_newsletter_update_7018() {
   features_revert(array('osha_newsletter' => array('field_instance')));
+}
+
+/**
+ * HW20-819 Newsletter Unsubscribe: the link should be embedded.
+ */
+function osha_newsletter_update_7019() {
+  variable_set('unsubscribe_campaign_news_text', '');
+  variable_set('unsubscribe_campaign_news_url', '');
 }

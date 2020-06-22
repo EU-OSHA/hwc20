@@ -80,9 +80,15 @@ $bottom_text = variable_get('hwc_mail_bottom_text', '');
         </tr>
         <tr>
           <td style="vertical-align:top;border-top:2px solid #666666;padding:5px 20px 5px 20px;padding-bottom:20px;padding-top:20px;font-size:10px;font-family:verdana;color:#666666;text-align:center">
-            <?php echo $unsubscribe_text; ?>
-            <br>
-            <a href="<?php echo $unsubscribe_url; ?>"><?php echo $unsubscribe_url; ?></a>
+            <?php
+            echo $unsubscribe_text;
+            if ($unsubscribe_url) {
+              ?>
+                <br>
+                <a href="<?php echo $unsubscribe_url; ?>"><?php echo $unsubscribe_url; ?></a>
+              <?php
+            }
+            ?>
           </td>
         </tr>
         </tbody>
