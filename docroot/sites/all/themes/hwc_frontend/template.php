@@ -560,6 +560,22 @@ function hwc_frontend_preprocess_page(&$vars) {
   );
   $vars['show_title'] = TRUE;
   // Add back to links (e.g. Back to news).
+
+  if ((arg(0) == 'node') && (arg(2) == 'news')) {
+    $tag_vars['element']['#value'] = t('News');
+    $vars['page']['above_title']['title-alternative'] = array(
+      '#type' => 'item',
+      '#markup' => theme('html_tag', $tag_vars),
+    );
+  }
+  if ((arg(0) == 'node') && (arg(2) == 'events')) {
+    $tag_vars['element']['#value'] = t('Events');
+    $vars['page']['above_title']['title-alternative'] = array(
+      '#type' => 'item',
+      '#markup' => theme('html_tag', $tag_vars),
+    );
+  }
+
   if (isset($vars['node'])) {
     $node = $vars['node'];
     switch ($node->type) {
