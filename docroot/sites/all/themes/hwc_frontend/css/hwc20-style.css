@@ -1784,6 +1784,10 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   padding-top: 0;
   padding-bottom: 0;
 }
+.page-publications .content-fluid .publications-right-column p,
+.page-tools-and-publications .content-fluid .publications-right-column p {
+  padding-bottom: 30px;
+}
 .page-publications .content-publication-info,
 .page-tools-and-publications .content-publication-info {
   display: flex;
@@ -2150,6 +2154,11 @@ div.publications-detail-right-column > a.download {
 #edit-main-tags .form-checkboxes,
 #edit-field-msd-priority-area .form-checkboxes {
   padding-top: 10px;
+}
+html:lang(de) #edit-field-publication-type > div > label,
+html:lang(de) #edit-main-tags > div > label,
+html:lang(de) #edit-field-msd-priority-area > div > label {
+  font-size: 1.5rem;
 }
 #edit-field-priority-area--2 {
   padding-top: 10px;
@@ -4445,6 +4454,9 @@ html:lang(sv) .boxes .box.inactive div .btn-become-partner-register {
 .page-events .region-content #block-system-main .views-exposed-widget #edit-submit-events-search:hover {
   background-color: #002266;
 }
+.page-events .region-content #block-system-main .views-exposed-widget #edit-submit-events-search span:before {
+  content: none;
+}
 .page-events .region-content #block-system-main .view-events-search .views-exposed-widgets #edit-search-api-views-fulltext-wrapper {
   margin-right: 0.5em;
 }
@@ -4834,6 +4846,7 @@ ul[data-sa-theme="basic-green"].ui-menu {
   border-bottom-right-radius: 5px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  min-width: 86px;
 }
 #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details input[type=checkbox] {
   display: none;
@@ -4905,6 +4918,30 @@ ul[data-sa-theme="basic-green"].ui-menu {
   text-align: center;
   padding-left: 0;
 }
+html:lang(bg) #block-osha-newsletter-osha-newsletter-events-subscribe input[type="text"],
+html:lang(cs) #block-osha-newsletter-osha-newsletter-events-subscribe input[type="text"],
+html:lang(el) #block-osha-newsletter-osha-newsletter-events-subscribe input[type="text"],
+html:lang(es) #block-osha-newsletter-osha-newsletter-events-subscribe input[type="text"],
+html:lang(fr) #block-osha-newsletter-osha-newsletter-events-subscribe input[type="text"],
+html:lang(lt) #block-osha-newsletter-osha-newsletter-events-subscribe input[type="text"],
+html:lang(pt) #block-osha-newsletter-osha-newsletter-events-subscribe input[type="text"],
+html:lang(sk) #block-osha-newsletter-osha-newsletter-events-subscribe input[type="text"] {
+  width: 100%;
+}
+html:lang(bg) #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit,
+html:lang(cs) #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit,
+html:lang(el) #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit,
+html:lang(es) #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit,
+html:lang(fr) #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit,
+html:lang(lt) #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit,
+html:lang(pt) #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit,
+html:lang(sk) #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit {
+  position: relative;
+  margin-bottom: 1em;
+  border: 1px solid #FFF;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
 html:lang(de) #block-osha-newsletter-osha-newsletter-events-subscribe,
 html:lang(bg) #block-osha-newsletter-osha-newsletter-events-subscribe,
 html:lang(cs) #block-osha-newsletter-osha-newsletter-events-subscribe,
@@ -4929,7 +4966,7 @@ html:lang(pl) #block-osha-newsletter-osha-newsletter-events-subscribe label,
 html:lang(pt) #block-osha-newsletter-osha-newsletter-events-subscribe label,
 html:lang(ro) #block-osha-newsletter-osha-newsletter-events-subscribe label,
 html:lang(sk) #block-osha-newsletter-osha-newsletter-events-subscribe label {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 html:lang(de) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
 html:lang(bg) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
@@ -4943,9 +4980,6 @@ html:lang(pt) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
 html:lang(ro) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
 html:lang(sk) #block-osha-newsletter-osha-newsletter-events-subscribe label a {
   font-size: 0.95rem;
-}
-html:lang(pt) #block-osha-newsletter-osha-newsletter-events-subscribe {
-  padding: 1.5em;
 }
 .node-article .field-name-body {
   clear: both;
@@ -7054,6 +7088,10 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   display: block;
   float: left;
 }
+html:lang(el) body.page-tools-and-publications-practical-tools .views-exposed-widgets .views-exposed-widget label {
+  font-size: 0.9em !important;
+  padding-top: 5px;
+}
 /* Practical tools detail */
 .node-type-practical-tool .field-name-field-type-of-item,
 .node-type-practical-tool .field-name-field-material-country,
@@ -7560,6 +7598,7 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
 }
 .vjs-poster {
   background-position: inherit !important;
+  background-size: cover;
 }
 /*MDR-3683*/
 #block-views-news-splash > div > div.view-content > div:nth-child(2) {
@@ -7600,6 +7639,10 @@ header.navbar-default.sticky-menu .campaigns-header .navbar-header div.col-xs-12
   height: 80px;
   display: flex;
   align-items: center;
+}
+html:lang(el) header.navbar-default.sticky-menu .campaigns-header .navbar-header div.col-xs-12.col-sm-9 .header-text,
+html:lang(pl) header.navbar-default.sticky-menu .campaigns-header .navbar-header div.col-xs-12.col-sm-9 .header-text {
+  max-width: 473px;
 }
 body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text {
   max-width: 320px !important;
@@ -8121,6 +8164,42 @@ body .views-field-search-api-relevance {
 body .views-field-search-api-relevance a {
   position: relative;
 }
+html:lang(es) body a.more-link,
+html:lang(is) body a.more-link,
+html:lang(it) body a.more-link,
+html:lang(nl) body a.more-link,
+html:lang(pl) body a.more-link,
+html:lang(ro) body a.more-link,
+html:lang(es) body .news-see-more-button,
+html:lang(is) body .news-see-more-button,
+html:lang(it) body .news-see-more-button,
+html:lang(nl) body .news-see-more-button,
+html:lang(pl) body .news-see-more-button,
+html:lang(ro) body .news-see-more-button,
+html:lang(es) body .view-events-search .views-field-view-node .field-content a,
+html:lang(is) body .view-events-search .views-field-view-node .field-content a,
+html:lang(it) body .view-events-search .views-field-view-node .field-content a,
+html:lang(nl) body .view-events-search .views-field-view-node .field-content a,
+html:lang(pl) body .view-events-search .views-field-view-node .field-content a,
+html:lang(ro) body .view-events-search .views-field-view-node .field-content a,
+html:lang(es) body .views-field-search-api-relevance a,
+html:lang(is) body .views-field-search-api-relevance a,
+html:lang(it) body .views-field-search-api-relevance a,
+html:lang(nl) body .views-field-search-api-relevance a,
+html:lang(pl) body .views-field-search-api-relevance a,
+html:lang(ro) body .views-field-search-api-relevance a {
+  background: url(../images/ico-plus-green.png) no-repeat 95% 4px;
+}
+html:lang(el) body a.more-link,
+html:lang(el) body .news-see-more-button,
+html:lang(el) body .view-events-search .views-field-view-node .field-content a,
+html:lang(el) body .views-field-search-api-relevance a {
+  font-size: 1rem !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+  background: url(../images/ico-plus-green.png) no-repeat 96% 5px;
+  width: 165px;
+}
 /* See more other style */
 #block-views-publications-slideshow-slidehow .more-link,
 .node-type-priority-area .region-content .block-hwc-priority-areas ul li .more-link {
@@ -8473,6 +8552,39 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
 }
 @media (max-width: 1200px) {
+  html:lang(bg) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(da) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(de) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(et) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(es) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(is) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(hu) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(mt) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(nl) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(no) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(pt) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(sk) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(fi) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(sv) header.navbar-default .navbar-collapse nav ul.menu > li {
+    font-size: 0.85em;
+  }
+  html:lang(bg) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(da) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(de) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(et) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(es) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(is) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(hu) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(mt) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(nl) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(no) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(pt) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(sk) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(fi) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(sv) header.navbar-default .navbar-collapse nav ul.menu > li a {
+    padding: 2px;
+    line-height: 15px;
+  }
   .intro-splash-20 .views-row-first h1 {
     padding-top: 0.5em;
   }
@@ -8544,6 +8656,8 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   header.navbar-default .navbar-collapse nav ul.menu > li {
     height: 70px;
     border-right: 1px solid #FFF;
+    display: flex;
+    align-items: center;
   }
   header.navbar-default .navbar-collapse nav ul.menu > li > a {
     border: none !important;
@@ -8691,6 +8805,18 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
 }
 @media (max-width: 1465px) {
+  header.navbar-default .navbar-collapse nav ul.menu > li {
+    height: 70px;
+    border-right: 1px solid #FFF;
+    display: flex;
+    align-items: center;
+  }
+  header.navbar-default .navbar-collapse nav ul.menu > li > a {
+    border: none !important;
+  }
+  header.navbar-default .navbar-collapse nav ul.menu > li > a .caret {
+    display: none;
+  }
   .intro-splash-20 .views-row-first > p:nth-child(4) {
     max-width: 500px;
   }
@@ -8789,6 +8915,59 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
 @media (max-width: 1919px) {
   .front-page .go-to-anchor {
     display: none !important;
+  }
+}
+@media (max-width: 1865px) {
+  html:lang(bg) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(da) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(de) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(et) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(es) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(is) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(hu) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(mt) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(nl) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(no) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(pt) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(sk) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(fi) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(sv) header.navbar-default .navbar-collapse nav ul.menu > li {
+    height: 70px;
+    border-right: 1px solid #FFF;
+    display: flex;
+    align-items: center;
+  }
+  html:lang(bg) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(da) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(de) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(et) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(es) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(is) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(hu) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(mt) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(nl) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(no) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(pt) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(sk) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(fi) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(sv) header.navbar-default .navbar-collapse nav ul.menu > li > a {
+    border: none !important;
+  }
+  html:lang(bg) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(da) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(de) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(et) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(es) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(is) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(hu) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(mt) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(nl) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(no) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(pt) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(sk) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(fi) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(sv) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret {
+    display: none;
   }
 }
 @media (max-width: 992px) {
@@ -9112,6 +9291,10 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     font-style: normal;
     font-size: 2.2rem;
   }
+  .page-publications .publications-right-column p,
+  .page-tools-and-publications-campaign-materials .publications-right-column p {
+    padding-bottom: 10px !important;
+  }
   .page-publications .box-latest-publications .right-column,
   .page-tools-and-publications-campaign-materials .box-latest-publications .right-column {
     width: 100%;
@@ -9397,6 +9580,39 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
 }
 @media (max-width: 1024px) {
+  html:lang(bg) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(da) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(de) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(et) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(es) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(is) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(hu) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(mt) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(nl) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(no) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(pt) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(sk) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(fi) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(sv) header.navbar-default .navbar-collapse nav ul.menu > li {
+    font-size: 0.65em;
+  }
+  html:lang(bg) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(da) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(de) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(et) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(es) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(is) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(hu) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(mt) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(nl) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(no) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(pt) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(sk) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(fi) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(sv) header.navbar-default .navbar-collapse nav ul.menu > li a {
+    padding: 2px;
+    line-height: 15px;
+  }
   .profile-2-cols-container-3 .panels-flexible-column-last .field-type-link-field a {
     white-space: nowrap;
     width: 188px;
@@ -9513,7 +9729,7 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
 }
 @media (max-width: 1200px) {
   .box-latest-publications {
-    min-height: 170px;
+    min-height: 190px;
   }
   .box-latest-publications .left-column {
     display: none !important;
@@ -10210,12 +10426,16 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .view-frontpage-events {
     background: none;
   }
+  body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events .view-frontpage-events .view-content .date {
+    width: 100%;
+    padding-bottom: 10px;
+  }
   body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events .view-frontpage-events .view-content > div {
     clear: both;
     float: none;
     width: 100%;
     height: auto;
-    min-height: 135px;
+    min-height: 160px;
     margin-right: 0;
   }
   body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events .view-frontpage-events .view-content > div:nth-child(3) {
@@ -10421,7 +10641,7 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     display: block !important;
     position: absolute;
     top: 1px;
-    right: 56px;
+    right: 59px;
   }
   header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language:after {
     background: url(../images/header/select-mobile.png) 5px 11px no-repeat #003399 !important;
@@ -10963,6 +11183,11 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   .page-events .view-events-search .view-content .view-content:nth-child(2) .views-row {
     padding: 1em 0;
   }
+  .page-events .view-events-search .view-content span.add-to-my-calendar {
+    clear: both;
+    float: left;
+    margin-top: 3em;
+  }
   .page-events .region.region-content {
     clear: both;
   }
@@ -10995,6 +11220,14 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   .page-events .region.region-content #block-system-main .views-exposed-widgets #edit-submit-events-search {
     left: 0px;
     top: 73px;
+    position: absolute;
+  }
+  .page-events .region.region-content #block-system-main .clear_filters {
+    padding-top: 2em;
+    padding-left: 1em;
+  }
+  .page-events .region.region-content #block-system-main #remove_filter {
+    padding-left: 1em;
   }
   .page-events #osha-events-dates-form {
     float: left;
@@ -11135,6 +11368,20 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
   body.page-tools-and-publications-practical-tools .content-languages-download select.new-select-style {
     height: 34px;
+  }
+  .page-publications .content-publication-info,
+  .page-tools-and-publications .content-publication-info {
+    display: block;
+  }
+  .page-publications .content-publication-info span:nth-child(1),
+  .page-tools-and-publications .content-publication-info span:nth-child(1) {
+    display: block;
+    width: 100%;
+    padding-bottom: 5px;
+  }
+  .page-publications .content-publication-info span.pages,
+  .page-tools-and-publications .content-publication-info span.pages {
+    float: right;
   }
 }
 @media (max-width: 600px) {

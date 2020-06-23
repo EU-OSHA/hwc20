@@ -443,6 +443,9 @@
 					font-size: 2.2rem;
 				}
 			} 
+			p{
+				padding-bottom: 10px !important;
+			}
 		}
 
 		.box-latest-publications .right-column{
@@ -853,6 +856,39 @@
 
 @media (max-width: 1024px){
 
+	html:lang(bg),
+	html:lang(da),
+	html:lang(de),
+	html:lang(et),
+	html:lang(es),
+	html:lang(is),
+	html:lang(hu),
+	html:lang(mt),
+	html:lang(nl),
+	html:lang(no),
+	html:lang(pt),
+	html:lang(sk),
+	html:lang(fi),
+	html:lang(sv)
+	{
+		header.navbar-default{
+			.navbar-collapse{
+				nav{
+					ul.menu{
+						> li{
+							font-size: 0.65em;
+							a{
+								padding: 2px;
+								line-height: 15px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
 	.profile-2-cols-container-3 .panels-flexible-column-last .field-type-link-field a{
 		white-space: nowrap; 
 		width: 188px; 
@@ -994,7 +1030,7 @@
 @media (max-width: 1200px){
 
 	.box-latest-publications{
-		min-height: 170px;
+		min-height: 190px;
 
 		.left-column{
 			display: none !important;

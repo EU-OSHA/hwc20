@@ -2049,6 +2049,9 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 			    padding-top: 0;
 			    padding-bottom: 0;
 			}
+			p{
+				padding-bottom: 30px;
+			}
 		}
 	}
 
@@ -2479,6 +2482,14 @@ div.publications-detail-right-column > a.download{
 	}
 	.form-checkboxes{
 		padding-top: 10px;
+	}
+}
+
+html:lang(de){
+	#edit-field-publication-type, #edit-main-tags, #edit-field-msd-priority-area{
+		> div > label{
+			font-size: 1.5rem;
+	  	}
 	}
 }
 
@@ -4926,6 +4937,9 @@ html:lang(sv)
 					&:hover{
 						background-color: #002266;
 					}
+					span:before{
+						content: none;
+					}
 				}
 			}
 
@@ -5366,6 +5380,7 @@ ul[data-sa-theme="basic-green"].ui-menu{
 		    border-bottom-right-radius: 5px;
 		    border-top-left-radius: 0;
 		    border-bottom-left-radius: 0;
+		    min-width: 86px;
     	}
 
     	input[type=checkbox] {
@@ -5449,21 +5464,33 @@ ul[data-sa-theme="basic-green"].ui-menu{
 	}
 }
 
-html:lang(de), html:lang(bg), html:lang(cs), html:lang(da), html:lang(el), html:lang(fr), html:lang(is), html:lang(pl), html:lang(pt), html:lang(ro), html:lang(sk){
+html:lang(bg), html:lang(cs), html:lang(el), html:lang(es), html:lang(fr), html:lang(lt), html:lang(pt), html:lang(sk){
 	#block-osha-newsletter-osha-newsletter-events-subscribe {
-		padding: 1.4em;
-		label{
-			font-size: 0.95rem;
-			a{
-				font-size: 0.95rem;
-			}
+		input[type="text"]{
+			width: 100%;
+		}
+
+		#edit-subscribe-details .form-submit{
+			position: relative;
+			margin-bottom: 1em;
+			border: 1px solid #FFF;
+			border-top-left-radius: 5px;
+    		border-bottom-left-radius: 5px;
 		}
 	}
 }
 
-html:lang(pt){
+
+html:lang(de), html:lang(bg), html:lang(cs), html:lang(da), html:lang(el), html:lang(fr), html:lang(is), html:lang(pl), html:lang(pt), html:lang(ro), html:lang(sk){
 	#block-osha-newsletter-osha-newsletter-events-subscribe {
-		padding: 1.5em;
+		padding: 1.4em;
+		label{
+			font-size: 0.85rem;
+			a{
+				font-size: 0.95rem;
+			}
+		}
+
 	}
 }
 
@@ -7940,6 +7967,15 @@ body.page-tools-and-publications-practical-tools{
 
 }
 
+html:lang(el){
+	body.page-tools-and-publications-practical-tools{
+		.views-exposed-widgets .views-exposed-widget label{
+			font-size: 0.9em !important;
+			padding-top: 5px;
+		}
+	}
+}
+
 /* Practical tools detail */
 .node-type-practical-tool{
 	.field-name-field-type-of-item,
@@ -8588,6 +8624,7 @@ body.video-page{
 
 .vjs-poster {
     background-position: inherit !important;
+    background-size: cover;
 }
 
 /*MDR-3683*/
@@ -8654,6 +8691,23 @@ header.navbar-default.sticky-menu{
 				    height: 80px;
 				    display: flex;
 				    align-items: center;
+				}
+			}
+		}
+	}
+}
+
+
+html:lang(el),
+html:lang(pl)
+{
+	header.navbar-default.sticky-menu{
+		.campaigns-header{
+			.navbar-header{
+				div.col-xs-12.col-sm-9{
+					.header-text {
+					    max-width: 473px;
+					}
 				}
 			}
 		}
@@ -9269,6 +9323,37 @@ body{
 		margin-top: 12px;
 		a{
 		position: relative;
+		}
+	}
+}
+
+html:lang(es),
+html:lang(is),
+html:lang(it),
+html:lang(nl),
+html:lang(pl),
+html:lang(ro)
+{
+	body{
+		a.more-link, .news-see-more-button, 
+		.view-events-search .views-field-view-node .field-content a, 
+		.views-field-search-api-relevance a{
+		   	background: url(../images/ico-plus-green.png) no-repeat 95% 4px;
+		}
+	}
+}
+
+html:lang(el)
+{
+	body{
+		a.more-link, .news-see-more-button, 
+		.view-events-search .views-field-view-node .field-content a, 
+		.views-field-search-api-relevance a{
+		   	font-size: 1rem !important;
+		   	padding-top: 4px !important;
+   			padding-bottom: 4px !important;
+   			background: url(../images/ico-plus-green.png) no-repeat 96% 5px;
+   			width: 165px;
 		}
 	}
 }
