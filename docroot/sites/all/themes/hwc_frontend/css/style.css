@@ -20746,12 +20746,21 @@ body.front .homepage-slider blockquote.image-field-caption p {
   }
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(bg),
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(el),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(da),
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(de),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(et),
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(hu),
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(mt),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(hr),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(is),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(it),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(lv),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(no),
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(pl),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(pt),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(fi),
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(ro) {
-    font-size: 1em;
+    font-size: 0.9em;
     padding-left: .5em;
   }
   header.navbar-default .campaigns-header .navbar-header .header_top_bar .region-above-header {
@@ -21617,8 +21626,8 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .page-communications .region-sidebar-first .block.block-facetapi,
   .page-partners-documents .region-sidebar-first .block.block-facetapi,
   .page-search .region-sidebar-first .block.block-facetapi {
-    padding-top: 0px;
-    padding-bottom: 10px;
+    padding-top: 0;
+    padding-bottom: 0;
     overflow: hidden;
   }
   .page-communications .region-sidebar-first .block.block-facetapi h2,
@@ -22757,7 +22766,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
     padding-right: 0px;
   }
   .navbar-header .header-text {
-    display: none;
+    display: none !important;
   }
   .navbar-header .region-header {
     clear: both;

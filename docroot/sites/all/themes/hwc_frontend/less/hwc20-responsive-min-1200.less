@@ -24,6 +24,39 @@
 
 @media (max-width: 1200px){
 
+	html:lang(bg),
+	html:lang(da),
+	html:lang(de),
+	html:lang(et),
+	html:lang(es),
+	html:lang(is),
+	html:lang(hu),
+	html:lang(mt),
+	html:lang(nl),
+	html:lang(no),
+	html:lang(pt),
+	html:lang(sk),
+	html:lang(fi),
+	html:lang(sv)
+	{
+		header.navbar-default{
+			.navbar-collapse{
+				nav{
+					ul.menu{
+						> li{
+							font-size: 0.85em;
+							a{
+								padding: 2px;
+								line-height: 15px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
 	.intro-splash-20{
 		.views-row-first{
 			 h1 {
@@ -144,6 +177,8 @@
 					> li{
 						height: 70px;
 						border-right: 1px solid #FFF;
+						display: flex;
+						align-items: center;
 						> a{
 					    border: none !important;
 					    .caret{
@@ -155,8 +190,7 @@
 			}
 		}
 	}
-
-
+	
 	.start-browsing {
     	background: url(../images/background-start-browsing.png) repeat-y;
 	}
@@ -355,6 +389,27 @@
 
 @media (max-width: 1465px) {
 
+	header.navbar-default{
+		.navbar-collapse{
+			nav{
+				ul.menu{
+					> li{
+						height: 70px;
+						border-right: 1px solid #FFF;
+						display: flex;
+						align-items: center;
+						> a{
+					    border: none !important;
+					    .caret{
+					    	display: none;
+					    }
+						}
+					}
+				}
+			}
+		}
+	}
+
 	.intro-splash-20{
 		.views-row-first{
 			> p:nth-child(4){
@@ -513,4 +568,44 @@
 		}
 	}
 
+}
+
+
+@media (max-width: 1865px) {
+
+	html:lang(bg),
+	html:lang(da),
+	html:lang(de),
+	html:lang(et),
+	html:lang(es),
+	html:lang(is),
+	html:lang(hu),
+	html:lang(mt),
+	html:lang(nl),
+	html:lang(no),
+	html:lang(pt),
+	html:lang(sk),
+	html:lang(fi),
+	html:lang(sv){
+		header.navbar-default{
+			.navbar-collapse{
+				nav{
+					ul.menu{
+						> li{
+							height: 70px;
+							border-right: 1px solid #FFF;
+							display: flex;
+							align-items: center;
+							> a{
+						    border: none !important;
+						    .caret{
+						    	display: none;
+						    }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }

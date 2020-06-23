@@ -12,12 +12,16 @@
 							.box-before.events{
 								.view-frontpage-events{
 									.view-content{
+										.date{
+											width: 100%;
+    										padding-bottom: 10px;
+										}
 										> div{
 										    clear: both;
 										    float: none;
 										    width: 100%;
 										    height: auto;
-										    min-height: 135px;
+										    min-height: 160px;
 										    margin-right: 0;
 										}
 
@@ -357,7 +361,7 @@
 		display: block !important;
     	position: absolute;
     	top: 1px;
-    	right: 56px;
+    	right: 59px;
 	}
 	
 	header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language:after{
@@ -440,7 +444,7 @@
 		}
 		.box-before.events{
 			width: 56%;
-  		margin-right: 0;
+  			margin-right: 0;
 		}
 
 	}
@@ -1040,6 +1044,11 @@
 						padding: 1em 0;
 					}
 				}
+				span.add-to-my-calendar{
+					clear: both;
+					float: left;
+					margin-top: 3em;
+				}
 			}
 		}
 
@@ -1074,7 +1083,17 @@
 					#edit-submit-events-search {
 					    left: 0px;
 					    top: 73px;
+					    position: absolute;
 					}
+				}
+
+				.clear_filters{
+					padding-top: 2em;
+					padding-left: 1em;
+				}
+
+				#remove_filter{
+					padding-left: 1em;
 				}
 			} 
 		}
@@ -1265,6 +1284,20 @@
 			}
 		}
 	}
+
+
+	.page-publications .content-publication-info, .page-tools-and-publications .content-publication-info {
+	    display: block;
+	    span:nth-child(1){
+	    	display: block;
+	    	width: 100%;
+	    	padding-bottom: 5px;
+	    }
+	    span.pages{
+	    	float: right;
+	    }
+	}
+
 }
 
 
