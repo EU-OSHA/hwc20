@@ -112,9 +112,15 @@ global $base_url;
             <?php echo $bottom_text; ?>
           </td>
           <td style="vertical-align:top;border:0;padding:5px 20px 5px 20px;padding-bottom:20px;font-size:10px;font-family:verdana;color:#666666;text-align:center">
-            <?php echo $unsubscribe_text; ?>
-            <br>
-            <a href="<?php echo $unsubscribe_url; ?>"><?php echo $unsubscribe_url; ?></a>
+            <?php
+            echo $unsubscribe_text;
+            if ($unsubscribe_url) {
+              ?>
+                <br>
+                <a href="<?php echo $unsubscribe_url; ?>"><?php echo $unsubscribe_url; ?></a>
+              <?php
+            }
+            ?>
           </td>
         </tr>
         </tbody>

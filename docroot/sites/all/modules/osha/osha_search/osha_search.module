@@ -41,9 +41,9 @@ function osha_search_facet_items_alter(&$build, &$settings) {
         $facet_items[] = l($filter_label, $path, array('query' => $query, 'html' => TRUE));
       }
     }
-    if ($facet_items) {
-      drupal_add_js(array('facet_items' => [$settings->facet => $facet_items]), 'setting');
-    }
+//    if ($facet_items) {
+//      drupal_add_js(array('facet_items' => [$settings->facet => $facet_items]), 'setting');
+//    }
   }
   if (($settings->facet == 'field_country_code') && ($path == 'media-centre/events')) {
     $facet_items = [];

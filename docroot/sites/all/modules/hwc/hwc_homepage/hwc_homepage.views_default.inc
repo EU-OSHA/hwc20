@@ -330,6 +330,21 @@ function hwc_homepage_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '4';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Nodequeue: In queue */
+  $handler->display->display_options['sorts']['in_queue']['id'] = 'in_queue';
+  $handler->display->display_options['sorts']['in_queue']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['in_queue']['field'] = 'in_queue';
+  $handler->display->display_options['sorts']['in_queue']['relationship'] = 'nodequeue_rel';
+  /* Sort criterion: Nodequeue: Position */
+  $handler->display->display_options['sorts']['position']['id'] = 'position';
+  $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['position']['field'] = 'position';
+  $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
+  /* Sort criterion: Content: Starting date -  start date (field_start_date) */
+  $handler->display->display_options['sorts']['field_start_date_value']['id'] = 'field_start_date_value';
+  $handler->display->display_options['sorts']['field_start_date_value']['table'] = 'field_data_field_start_date';
+  $handler->display->display_options['sorts']['field_start_date_value']['field'] = 'field_start_date_value';
 
   /* Display: Splash Events */
   $handler = $view->new_display('block', 'Splash Events', 'splash');
@@ -677,6 +692,11 @@ function hwc_homepage_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="titlte-news-events">[title_field]</div></div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Nodequeue: In queue */
+  $handler->display->display_options['sorts']['in_queue']['id'] = 'in_queue';
+  $handler->display->display_options['sorts']['in_queue']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['in_queue']['field'] = 'in_queue';
+  $handler->display->display_options['sorts']['in_queue']['relationship'] = 'nodequeue_rel';
   /* Sort criterion: Nodequeue: Position */
   $handler->display->display_options['sorts']['position']['id'] = 'position';
   $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
@@ -741,6 +761,21 @@ function hwc_homepage_views_default_views() {
     'splash_events' => 0,
     'press_room_news' => 0,
   );
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Nodequeue: In queue */
+  $handler->display->display_options['sorts']['in_queue']['id'] = 'in_queue';
+  $handler->display->display_options['sorts']['in_queue']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['in_queue']['field'] = 'in_queue';
+  $handler->display->display_options['sorts']['in_queue']['relationship'] = 'nodequeue_rel';
+  /* Sort criterion: Nodequeue: Position */
+  $handler->display->display_options['sorts']['position']['id'] = 'position';
+  $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['position']['field'] = 'position';
+  $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
+  /* Sort criterion: Content: Starting date -  start date (field_start_date) */
+  $handler->display->display_options['sorts']['field_start_date_value']['id'] = 'field_start_date_value';
+  $handler->display->display_options['sorts']['field_start_date_value']['table'] = 'field_data_field_start_date';
+  $handler->display->display_options['sorts']['field_start_date_value']['field'] = 'field_start_date_value';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
@@ -817,6 +852,21 @@ function hwc_homepage_views_default_views() {
     'splash_events' => 0,
     'press_room_news' => 0,
   );
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Nodequeue: In queue */
+  $handler->display->display_options['sorts']['in_queue']['id'] = 'in_queue';
+  $handler->display->display_options['sorts']['in_queue']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['in_queue']['field'] = 'in_queue';
+  $handler->display->display_options['sorts']['in_queue']['relationship'] = 'nodequeue_rel';
+  /* Sort criterion: Nodequeue: Position */
+  $handler->display->display_options['sorts']['position']['id'] = 'position';
+  $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['position']['field'] = 'position';
+  $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
+  /* Sort criterion: Content: Starting date -  start date (field_start_date) */
+  $handler->display->display_options['sorts']['field_start_date_value']['id'] = 'field_start_date_value';
+  $handler->display->display_options['sorts']['field_start_date_value']['table'] = 'field_data_field_start_date';
+  $handler->display->display_options['sorts']['field_start_date_value']['field'] = 'field_start_date_value';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
@@ -897,6 +947,21 @@ function hwc_homepage_views_default_views() {
     'press_room_events' => 0,
     'european_week_news' => 0,
   );
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Nodequeue: In queue */
+  $handler->display->display_options['sorts']['in_queue']['id'] = 'in_queue';
+  $handler->display->display_options['sorts']['in_queue']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['in_queue']['field'] = 'in_queue';
+  $handler->display->display_options['sorts']['in_queue']['relationship'] = 'nodequeue_rel';
+  /* Sort criterion: Nodequeue: Position */
+  $handler->display->display_options['sorts']['position']['id'] = 'position';
+  $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['position']['field'] = 'position';
+  $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
+  /* Sort criterion: Content: Starting date -  start date (field_start_date) */
+  $handler->display->display_options['sorts']['field_start_date_value']['id'] = 'field_start_date_value';
+  $handler->display->display_options['sorts']['field_start_date_value']['table'] = 'field_data_field_start_date';
+  $handler->display->display_options['sorts']['field_start_date_value']['field'] = 'field_start_date_value';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
@@ -982,6 +1047,21 @@ function hwc_homepage_views_default_views() {
     'homepage_news' => 0,
     'case_studies_slideshow_' => 0,
   );
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Nodequeue: In queue */
+  $handler->display->display_options['sorts']['in_queue']['id'] = 'in_queue';
+  $handler->display->display_options['sorts']['in_queue']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['in_queue']['field'] = 'in_queue';
+  $handler->display->display_options['sorts']['in_queue']['relationship'] = 'nodequeue_rel';
+  /* Sort criterion: Nodequeue: Position */
+  $handler->display->display_options['sorts']['position']['id'] = 'position';
+  $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['position']['field'] = 'position';
+  $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
+  /* Sort criterion: Content: Starting date -  start date (field_start_date) */
+  $handler->display->display_options['sorts']['field_start_date_value']['id'] = 'field_start_date_value';
+  $handler->display->display_options['sorts']['field_start_date_value']['table'] = 'field_data_field_start_date';
+  $handler->display->display_options['sorts']['field_start_date_value']['field'] = 'field_start_date_value';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',

@@ -646,7 +646,7 @@ function osha_newsletter_field_default_field_instances() {
       'entity_translation_sync' => 0,
       'file_directory' => 'spotlight',
       'file_extensions' => 'png gif jpg jpeg',
-      'image_field_caption' => 0,
+      'image_field_caption' => 1,
       'max_filesize' => '',
       'max_resolution' => '',
       'min_resolution' => '',
