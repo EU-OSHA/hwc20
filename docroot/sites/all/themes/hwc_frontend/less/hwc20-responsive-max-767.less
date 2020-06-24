@@ -12,12 +12,16 @@
 							.box-before.events{
 								.view-frontpage-events{
 									.view-content{
+										.date{
+											width: 100%;
+    										padding-bottom: 10px;
+										}
 										> div{
 										    clear: both;
 										    float: none;
 										    width: 100%;
 										    height: auto;
-										    min-height: 135px;
+										    min-height: 160px;
 										    margin-right: 0;
 										}
 
@@ -357,7 +361,7 @@
 		display: block !important;
     	position: absolute;
     	top: 1px;
-    	right: 56px;
+    	right: 59px;
 	}
 	
 	header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language:after{
@@ -440,7 +444,7 @@
 		}
 		.box-before.events{
 			width: 56%;
-  		margin-right: 0;
+  			margin-right: 0;
 		}
 
 	}
@@ -898,19 +902,19 @@
 
 		> div.boxes > div:nth-child(1){
 			position: absolute;
-	    	left: 72px;
+	    	left: 72px !important;
 	    	top: 68px;
 		}
 
 		> div.boxes > div:nth-child(2){
 			position: absolute;
-			left: 72px;
+			left: 72px !important;
     		top: 310px;
 		}
 
 		> div.boxes > div:nth-child(3){
 			position: absolute;
-    		left: 71px;
+    		left: 71px !important;
     		top: 546px;
 		}
 	}
@@ -1040,6 +1044,11 @@
 						padding: 1em 0;
 					}
 				}
+				span.add-to-my-calendar{
+					clear: both;
+					float: left;
+					margin-top: 3em;
+				}
 			}
 		}
 
@@ -1074,7 +1083,17 @@
 					#edit-submit-events-search {
 					    left: 0px;
 					    top: 73px;
+					    position: absolute;
 					}
+				}
+
+				.clear_filters{
+					padding-top: 2em;
+					padding-left: 1em;
+				}
+
+				#remove_filter{
+					padding-left: 1em;
 				}
 			} 
 		}
@@ -1257,13 +1276,26 @@
 				}
 			}
 		}
+
+		.content-languages-download{
+			width: 100%;
+			select.new-select-style{
+				height: 34px;
+			}
+		}
 	}
 
-	.content-languages-download{
-		width: 100%;
-		select.new-select-style{
-			height: 34px;
-		}
+
+	.page-publications .content-publication-info, .page-tools-and-publications .content-publication-info {
+	    display: block;
+	    span:nth-child(1){
+	    	display: block;
+	    	width: 100%;
+	    	padding-bottom: 5px;
+	    }
+	    span.pages{
+	    	float: right;
+	    }
 	}
 
 }
@@ -1273,6 +1305,7 @@
 
 
 @media (max-width: 600px){
+
 	.before-the-campaign .content-box-before .two-box-column{
 		flex-direction: column;
 		margin-bottom: 0;
@@ -1297,7 +1330,7 @@
 
 
 @media (max-width: 669px) {
-	
+
 	/* Private Zone */
 	.profile-edit-links-container{
 		.panels-flexible-region-inside-first{
@@ -1311,5 +1344,12 @@
 			margin: 1em 3em 0.5em 0;
 		}
 	}
+}
 
+@media (max-width: 700px) {
+	body.page-tools-and-publications-practical-tools {
+		.region.region-content .view-content .views-row .views-field-body{
+			padding-bottom: 130px;
+		}
+	}
 }

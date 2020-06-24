@@ -4,6 +4,11 @@
   <?php print render($title_suffix['contextual_links']); ?>
 <?php endif; ?>
 <h2 class="node-edit-form-heading"><?php print 'General information'; ?></h2>
+<?php 
+global $base_url;
+$document_partner = $base_url .'/sites/all/themes/hwc_frontend/documents/HWC 20-22 Private Zone Partners Guidelines.pdf' ;
+?>
+<div class="content-pdf-guide"><a target="_blank" href="<?php print $document_partner;?>"><?php print t('Guidelines for the use of the private area'); ?></a></div>
 <div class="required-form-fields"><?php print 'Required fields'; ?> *</div>
 <<?php print $header_wrapper ?> class="group-header<?php print $header_classes; ?>">
 <?php print $header; ?>
