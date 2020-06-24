@@ -8528,6 +8528,8 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
 .content-pdf-guide {
   float: right;
   margin-top: -25px;
+  /*TO DO when approve the label to the link*/
+  display: none;
 }
 .content-pdf-guide a {
   background: url(../images/target-blank-blue.png) no-repeat 100% 4px;
