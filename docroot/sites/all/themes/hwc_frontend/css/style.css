@@ -7298,11 +7298,21 @@ header.navbar-default .campaigns-header .navbar-header .header-text {
   float: left;
 }
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(bg),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(da),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(el),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(de),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(et),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(fr),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(hr),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(is),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(it),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(lv),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(hu),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(mt),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(no),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(pl),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(pt),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(fi),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(ro) {
   font-size: 1.25em;
   padding-left: 1em;
@@ -20344,9 +20354,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   header.navbar-default .campaigns-header .navbar-header a.pull-left {
     padding-right: 1em;
     margin-right: 1em;
-  }
-  header.navbar-default .campaigns-header .navbar-header a.pull-left img {
-    width: 140px;
   }
   header.navbar-default .campaigns-header .navbar-header a img.pull-left {
     width: 150px;

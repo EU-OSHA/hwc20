@@ -387,6 +387,26 @@ select {
 .intro-splash-20 .more-link {
   background: transparent;
 }
+html:lang(de) .intro-splash-20 h2,
+html:lang(el) .intro-splash-20 h2,
+html:lang(es) .intro-splash-20 h2,
+html:lang(fr) .intro-splash-20 h2,
+html:lang(hu) .intro-splash-20 h2,
+html:lang(pl) .intro-splash-20 h2,
+html:lang(pt) .intro-splash-20 h2,
+html:lang(ro) .intro-splash-20 h2 {
+  font-size: 1.8em;
+}
+html:lang(de) .intro-splash-20 .views-row-first > p:nth-child(3),
+html:lang(el) .intro-splash-20 .views-row-first > p:nth-child(3),
+html:lang(es) .intro-splash-20 .views-row-first > p:nth-child(3),
+html:lang(fr) .intro-splash-20 .views-row-first > p:nth-child(3),
+html:lang(hu) .intro-splash-20 .views-row-first > p:nth-child(3),
+html:lang(pl) .intro-splash-20 .views-row-first > p:nth-child(3),
+html:lang(pt) .intro-splash-20 .views-row-first > p:nth-child(3),
+html:lang(ro) .intro-splash-20 .views-row-first > p:nth-child(3) {
+  max-width: 525px;
+}
 /* Coming Soon */
 .comming-soon {
   background: #00309d;
@@ -1161,7 +1181,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   padding-left: 2em;
 }
 .newsletter-social-media .social-media h3 {
-  color: white;
+  color: #FFFFFF;
   margin-top: 0;
   margin-bottom: 20px;
   font-weight: 400;
@@ -1170,6 +1190,9 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 .newsletter-social-media .social-media h3 span {
   padding-right: 0.7em;
   padding-left: 5px;
+}
+.newsletter-social-media .social-media h3 span a {
+  color: #FFFFFF;
 }
 .newsletter-social-media p {
   color: #FFF;
@@ -1556,7 +1579,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   margin-left: 1em;
 }
 .previous-text span {
-  width: 160px;
+  width: auto;
 }
 .next {
   display: flex;
@@ -1580,7 +1603,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 }
 .next-text span {
   text-align: end;
-  width: 160px;
+  width: auto;
 }
 /* PUBLICATIONS */
 /* Latest Publications */
@@ -1761,6 +1784,10 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   padding-top: 0;
   padding-bottom: 0;
 }
+.page-publications .content-fluid .publications-right-column p,
+.page-tools-and-publications .content-fluid .publications-right-column p {
+  padding-bottom: 30px;
+}
 .page-publications .content-publication-info,
 .page-tools-and-publications .content-publication-info {
   display: flex;
@@ -1880,8 +1907,9 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   float: right;
 }
 .content-languages-download {
+  width: 100%;
   color: #003399;
-  padding: 1em;
+  padding: 0.6em;
   background: #daea96;
   float: left;
   border-radius: 5px;
@@ -1901,7 +1929,8 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 .content-languages-download button {
   display: none;
 }
-html:lang(de) .content-languages-download label {
+html:lang(de) .content-languages-download label,
+html:lang(mt) .content-languages-download label {
   font-size: 0.8em;
 }
 span.title-download {
@@ -2125,6 +2154,11 @@ div.publications-detail-right-column > a.download {
 #edit-main-tags .form-checkboxes,
 #edit-field-msd-priority-area .form-checkboxes {
   padding-top: 10px;
+}
+html:lang(de) #edit-field-publication-type > div > label,
+html:lang(de) #edit-main-tags > div > label,
+html:lang(de) #edit-field-msd-priority-area > div > label {
+  font-size: 1.5rem;
 }
 #edit-field-priority-area--2 {
   padding-top: 10px;
@@ -3830,6 +3864,9 @@ body.een .box-type-partner {
   padding-bottom: 5px;
   padding-top: 5px;
 }
+html:lang(de) .node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col .more-link a {
+  font-size: 0.75em;
+}
 .how-to-apply {
   background: url('../images/background-timeline.png') no-repeat;
   color: #FFF;
@@ -3993,17 +4030,178 @@ body.een .box-type-partner {
   right: 12%;
   top: 73px;
 }
-html:lang(de) .how-to-apply .box {
-  width: 267px;
+html:lang(bg) .how-to-apply .box,
+html:lang(cs) .how-to-apply .box,
+html:lang(et) .how-to-apply .box,
+html:lang(el) .how-to-apply .box,
+html:lang(de) .how-to-apply .box,
+html:lang(es) .how-to-apply .box,
+html:lang(fr) .how-to-apply .box,
+html:lang(hr) .how-to-apply .box,
+html:lang(is) .how-to-apply .box,
+html:lang(lv) .how-to-apply .box,
+html:lang(lt) .how-to-apply .box,
+html:lang(hu) .how-to-apply .box,
+html:lang(nl) .how-to-apply .box,
+html:lang(pl) .how-to-apply .box,
+html:lang(pt) .how-to-apply .box,
+html:lang(ro) .how-to-apply .box,
+html:lang(sk) .how-to-apply .box,
+html:lang(sl) .how-to-apply .box,
+html:lang(fi) .how-to-apply .box,
+html:lang(sv) .how-to-apply .box {
+  width: 269px;
 }
-html:lang(de) .how-to-apply > div.boxes > div:nth-child(1) {
+html:lang(bg) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(cs) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(et) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(el) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(de) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(es) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(fr) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(hr) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(is) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(lv) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(lt) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(hu) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(nl) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(pl) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(pt) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(ro) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(sk) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(sl) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(fi) .how-to-apply > div.boxes > div:nth-child(1),
+html:lang(sv) .how-to-apply > div.boxes > div:nth-child(1) {
   left: 12%;
 }
-html:lang(de) .how-to-apply > div.boxes > div:nth-child(2) {
+html:lang(bg) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(cs) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(et) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(el) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(de) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(es) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(fr) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(hr) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(is) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(lv) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(lt) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(hu) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(nl) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(pl) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(pt) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(ro) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(sk) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(sl) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(fi) .how-to-apply > div.boxes > div:nth-child(2),
+html:lang(sv) .how-to-apply > div.boxes > div:nth-child(2) {
   left: 38.5%;
 }
-html:lang(de) .how-to-apply > div.boxes > div:nth-child(3) {
+html:lang(bg) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(cs) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(et) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(el) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(de) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(es) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(fr) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(hr) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(is) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(lv) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(lt) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(hu) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(nl) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(pl) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(pt) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(ro) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(sk) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(sl) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(fi) .how-to-apply > div.boxes > div:nth-child(3),
+html:lang(sv) .how-to-apply > div.boxes > div:nth-child(3) {
   right: 8.5%;
+}
+html:lang(bg) .boxes .box div .btn-become-partner-download,
+html:lang(cs) .boxes .box div .btn-become-partner-download,
+html:lang(et) .boxes .box div .btn-become-partner-download,
+html:lang(el) .boxes .box div .btn-become-partner-download,
+html:lang(de) .boxes .box div .btn-become-partner-download,
+html:lang(es) .boxes .box div .btn-become-partner-download,
+html:lang(fr) .boxes .box div .btn-become-partner-download,
+html:lang(hr) .boxes .box div .btn-become-partner-download,
+html:lang(is) .boxes .box div .btn-become-partner-download,
+html:lang(lv) .boxes .box div .btn-become-partner-download,
+html:lang(lt) .boxes .box div .btn-become-partner-download,
+html:lang(hu) .boxes .box div .btn-become-partner-download,
+html:lang(nl) .boxes .box div .btn-become-partner-download,
+html:lang(pl) .boxes .box div .btn-become-partner-download,
+html:lang(pt) .boxes .box div .btn-become-partner-download,
+html:lang(ro) .boxes .box div .btn-become-partner-download,
+html:lang(sk) .boxes .box div .btn-become-partner-download,
+html:lang(sl) .boxes .box div .btn-become-partner-download,
+html:lang(fi) .boxes .box div .btn-become-partner-download,
+html:lang(sv) .boxes .box div .btn-become-partner-download,
+html:lang(bg) .box.inactive div .btn-become-partner-register,
+html:lang(cs) .box.inactive div .btn-become-partner-register,
+html:lang(et) .box.inactive div .btn-become-partner-register,
+html:lang(el) .box.inactive div .btn-become-partner-register,
+html:lang(de) .box.inactive div .btn-become-partner-register,
+html:lang(es) .box.inactive div .btn-become-partner-register,
+html:lang(fr) .box.inactive div .btn-become-partner-register,
+html:lang(hr) .box.inactive div .btn-become-partner-register,
+html:lang(is) .box.inactive div .btn-become-partner-register,
+html:lang(lv) .box.inactive div .btn-become-partner-register,
+html:lang(lt) .box.inactive div .btn-become-partner-register,
+html:lang(hu) .box.inactive div .btn-become-partner-register,
+html:lang(nl) .box.inactive div .btn-become-partner-register,
+html:lang(pl) .box.inactive div .btn-become-partner-register,
+html:lang(pt) .box.inactive div .btn-become-partner-register,
+html:lang(ro) .box.inactive div .btn-become-partner-register,
+html:lang(sk) .box.inactive div .btn-become-partner-register,
+html:lang(sl) .box.inactive div .btn-become-partner-register,
+html:lang(fi) .box.inactive div .btn-become-partner-register,
+html:lang(sv) .box.inactive div .btn-become-partner-register,
+html:lang(bg) .boxes .box div .btn-become-partner-register,
+html:lang(cs) .boxes .box div .btn-become-partner-register,
+html:lang(et) .boxes .box div .btn-become-partner-register,
+html:lang(el) .boxes .box div .btn-become-partner-register,
+html:lang(de) .boxes .box div .btn-become-partner-register,
+html:lang(es) .boxes .box div .btn-become-partner-register,
+html:lang(fr) .boxes .box div .btn-become-partner-register,
+html:lang(hr) .boxes .box div .btn-become-partner-register,
+html:lang(is) .boxes .box div .btn-become-partner-register,
+html:lang(lv) .boxes .box div .btn-become-partner-register,
+html:lang(lt) .boxes .box div .btn-become-partner-register,
+html:lang(hu) .boxes .box div .btn-become-partner-register,
+html:lang(nl) .boxes .box div .btn-become-partner-register,
+html:lang(pl) .boxes .box div .btn-become-partner-register,
+html:lang(pt) .boxes .box div .btn-become-partner-register,
+html:lang(ro) .boxes .box div .btn-become-partner-register,
+html:lang(sk) .boxes .box div .btn-become-partner-register,
+html:lang(sl) .boxes .box div .btn-become-partner-register,
+html:lang(fi) .boxes .box div .btn-become-partner-register,
+html:lang(sv) .boxes .box div .btn-become-partner-register {
+  font-size: 0.9em;
+  padding: 9px 30px 7px 10px;
+}
+html:lang(bg) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(cs) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(et) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(el) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(de) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(es) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(fr) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(hr) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(is) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(lv) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(lt) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(hu) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(nl) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(pl) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(pt) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(ro) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(sk) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(sl) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(fi) .boxes .box.inactive div .btn-become-partner-register,
+html:lang(sv) .boxes .box.inactive div .btn-become-partner-register {
+  padding-top: 10px;
 }
 .timeline {
   width: 100%;
@@ -4256,6 +4454,9 @@ html:lang(de) .how-to-apply > div.boxes > div:nth-child(3) {
 .page-events .region-content #block-system-main .views-exposed-widget #edit-submit-events-search:hover {
   background-color: #002266;
 }
+.page-events .region-content #block-system-main .views-exposed-widget #edit-submit-events-search span:before {
+  content: none;
+}
 .page-events .region-content #block-system-main .view-events-search .views-exposed-widgets #edit-search-api-views-fulltext-wrapper {
   margin-right: 0.5em;
 }
@@ -4407,10 +4608,6 @@ span.add-to-my-calendar {
   display: list-item;
   margin-left: 2em;
 }
-.node-type-events .group-left2 .field-name-field-speaker .field-type-image,
-.node-type-events .group-footer .field-name-field-speaker .field-type-image {
-  display: none;
-}
 .node-type-events .group-left2 .field-name-field-organizer .field-item,
 .node-type-events .group-footer .field-name-field-organizer .field-item {
   color: #59595A;
@@ -4490,6 +4687,17 @@ span.add-to-my-calendar {
   margin-top: -10px;
   clear: both;
   margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: none;
+}
+.node-type-events .group-right2 .add-to-calendar label {
+  background: url(../images/green-calendar.png) no-repeat 0 1px;
+  padding-left: 1.5em;
+}
+.node-type-events .group-right2 .hwc-share-widget {
+  clear: both;
 }
 .node-type-events .group-right2 .field-name-field-start-date {
   color: #003399;
@@ -4638,6 +4846,7 @@ ul[data-sa-theme="basic-green"].ui-menu {
   border-bottom-right-radius: 5px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  min-width: 86px;
 }
 #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details input[type=checkbox] {
   display: none;
@@ -4709,10 +4918,67 @@ ul[data-sa-theme="basic-green"].ui-menu {
   text-align: center;
   padding-left: 0;
 }
-html:lang(de) #block-osha-newsletter-osha-newsletter-events-subscribe label {
-  font-size: 0.95rem;
+html:lang(bg) #block-osha-newsletter-osha-newsletter-events-subscribe input[type="text"],
+html:lang(cs) #block-osha-newsletter-osha-newsletter-events-subscribe input[type="text"],
+html:lang(el) #block-osha-newsletter-osha-newsletter-events-subscribe input[type="text"],
+html:lang(es) #block-osha-newsletter-osha-newsletter-events-subscribe input[type="text"],
+html:lang(fr) #block-osha-newsletter-osha-newsletter-events-subscribe input[type="text"],
+html:lang(lt) #block-osha-newsletter-osha-newsletter-events-subscribe input[type="text"],
+html:lang(pt) #block-osha-newsletter-osha-newsletter-events-subscribe input[type="text"],
+html:lang(sk) #block-osha-newsletter-osha-newsletter-events-subscribe input[type="text"] {
+  width: 100%;
 }
-html:lang(de) #block-osha-newsletter-osha-newsletter-events-subscribe label a {
+html:lang(bg) #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit,
+html:lang(cs) #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit,
+html:lang(el) #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit,
+html:lang(es) #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit,
+html:lang(fr) #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit,
+html:lang(lt) #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit,
+html:lang(pt) #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit,
+html:lang(sk) #block-osha-newsletter-osha-newsletter-events-subscribe #edit-subscribe-details .form-submit {
+  position: relative;
+  margin-bottom: 1em;
+  border: 1px solid #FFF;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+html:lang(de) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(bg) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(cs) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(da) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(el) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(fr) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(is) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(pl) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(pt) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(ro) #block-osha-newsletter-osha-newsletter-events-subscribe,
+html:lang(sk) #block-osha-newsletter-osha-newsletter-events-subscribe {
+  padding: 1.4em;
+}
+html:lang(de) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(bg) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(cs) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(da) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(el) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(fr) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(is) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(pl) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(pt) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(ro) #block-osha-newsletter-osha-newsletter-events-subscribe label,
+html:lang(sk) #block-osha-newsletter-osha-newsletter-events-subscribe label {
+  font-size: 0.85rem;
+}
+html:lang(de) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(bg) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(cs) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(da) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(el) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(fr) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(is) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(pl) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(pt) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(ro) #block-osha-newsletter-osha-newsletter-events-subscribe label a,
+html:lang(sk) #block-osha-newsletter-osha-newsletter-events-subscribe label a {
   font-size: 0.95rem;
 }
 .node-article .field-name-body {
@@ -6822,6 +7088,10 @@ body.page-tools-and-publications-practical-tools .view-practical-tools .view-con
   display: block;
   float: left;
 }
+html:lang(el) body.page-tools-and-publications-practical-tools .views-exposed-widgets .views-exposed-widget label {
+  font-size: 0.9em !important;
+  padding-top: 5px;
+}
 /* Practical tools detail */
 .node-type-practical-tool .field-name-field-type-of-item,
 .node-type-practical-tool .field-name-field-material-country,
@@ -7328,6 +7598,7 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
 }
 .vjs-poster {
   background-position: inherit !important;
+  background-size: cover;
 }
 /*MDR-3683*/
 #block-views-news-splash > div > div.view-content > div:nth-child(2) {
@@ -7369,6 +7640,10 @@ header.navbar-default.sticky-menu .campaigns-header .navbar-header div.col-xs-12
   display: flex;
   align-items: center;
 }
+html:lang(el) header.navbar-default.sticky-menu .campaigns-header .navbar-header div.col-xs-12.col-sm-9 .header-text,
+html:lang(pl) header.navbar-default.sticky-menu .campaigns-header .navbar-header div.col-xs-12.col-sm-9 .header-text {
+  max-width: 473px;
+}
 body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text {
   max-width: 320px !important;
   padding-left: 1em;
@@ -7383,7 +7658,8 @@ body.rel1 .sticky-menu .col-sm-9 .header-text {
 .sticky-menu .col-sm-9 .header-text {
   padding-top: 0!important;
 }
-html:lang(es) body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text {
+html:lang(es) body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text,
+html:lang(mt) body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text {
   max-width: 368px !important;
 }
 body button,
@@ -7821,6 +8097,10 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
   float: left;
   margin-top: 47px;
 }
+html:lang(de) .left-menu.accordion-menu {
+  padding-left: 0;
+  padding-right: 0;
+}
 #block-menu-block-5 > div > ul li.last.expanded {
   margin-top: 1em;
 }
@@ -7883,6 +8163,42 @@ body .views-field-search-api-relevance {
 }
 body .views-field-search-api-relevance a {
   position: relative;
+}
+html:lang(es) body a.more-link,
+html:lang(is) body a.more-link,
+html:lang(it) body a.more-link,
+html:lang(nl) body a.more-link,
+html:lang(pl) body a.more-link,
+html:lang(ro) body a.more-link,
+html:lang(es) body .news-see-more-button,
+html:lang(is) body .news-see-more-button,
+html:lang(it) body .news-see-more-button,
+html:lang(nl) body .news-see-more-button,
+html:lang(pl) body .news-see-more-button,
+html:lang(ro) body .news-see-more-button,
+html:lang(es) body .view-events-search .views-field-view-node .field-content a,
+html:lang(is) body .view-events-search .views-field-view-node .field-content a,
+html:lang(it) body .view-events-search .views-field-view-node .field-content a,
+html:lang(nl) body .view-events-search .views-field-view-node .field-content a,
+html:lang(pl) body .view-events-search .views-field-view-node .field-content a,
+html:lang(ro) body .view-events-search .views-field-view-node .field-content a,
+html:lang(es) body .views-field-search-api-relevance a,
+html:lang(is) body .views-field-search-api-relevance a,
+html:lang(it) body .views-field-search-api-relevance a,
+html:lang(nl) body .views-field-search-api-relevance a,
+html:lang(pl) body .views-field-search-api-relevance a,
+html:lang(ro) body .views-field-search-api-relevance a {
+  background: url(../images/ico-plus-green.png) no-repeat 95% 4px;
+}
+html:lang(el) body a.more-link,
+html:lang(el) body .news-see-more-button,
+html:lang(el) body .view-events-search .views-field-view-node .field-content a,
+html:lang(el) body .views-field-search-api-relevance a {
+  font-size: 1rem !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+  background: url(../images/ico-plus-green.png) no-repeat 96% 5px;
+  width: 165px;
 }
 /* See more other style */
 #block-views-publications-slideshow-slidehow .more-link,
@@ -8205,6 +8521,22 @@ body.front-page .footer {
 .page-partners-documents .region.region-content .view-documents .view-content .views-row .views-field-field-document-files ul li .entity-field-collection-item .publication-teaser ul {
   padding-left: 0;
 }
+/* PZ - Update your profile */
+body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcrumb {
+  padding: 0px 1em 1.5em 0.8em;
+}
+.content-pdf-guide {
+  float: right;
+  margin-top: -25px;
+  /*TO DO when approve the label to the link*/
+  display: none;
+}
+.content-pdf-guide a {
+  background: url(../images/target-blank-blue.png) no-repeat 100% 4px;
+  color: #003399;
+  padding-right: 1.5em;
+  font-weight: bold;
+}
 .isMobile {
   float: right !important;
 }
@@ -8222,6 +8554,39 @@ body.front-page .footer {
   }
 }
 @media (max-width: 1200px) {
+  html:lang(bg) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(da) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(de) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(et) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(es) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(is) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(hu) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(mt) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(nl) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(no) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(pt) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(sk) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(fi) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(sv) header.navbar-default .navbar-collapse nav ul.menu > li {
+    font-size: 0.85em;
+  }
+  html:lang(bg) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(da) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(de) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(et) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(es) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(is) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(hu) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(mt) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(nl) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(no) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(pt) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(sk) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(fi) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(sv) header.navbar-default .navbar-collapse nav ul.menu > li a {
+    padding: 2px;
+    line-height: 15px;
+  }
   .intro-splash-20 .views-row-first h1 {
     padding-top: 0.5em;
   }
@@ -8265,6 +8630,9 @@ body.front-page .footer {
     height: 28px;
     background-size: contain;
   }
+  body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area ul li:nth-child(4) {
+    margin-right: 2em;
+  }
   /*Slider Publications*/
   body.page-tools-and-publications-publications .slider--video--section {
     height: auto;
@@ -8290,6 +8658,8 @@ body.front-page .footer {
   header.navbar-default .navbar-collapse nav ul.menu > li {
     height: 70px;
     border-right: 1px solid #FFF;
+    display: flex;
+    align-items: center;
   }
   header.navbar-default .navbar-collapse nav ul.menu > li > a {
     border: none !important;
@@ -8437,6 +8807,18 @@ body.front-page .footer {
   }
 }
 @media (max-width: 1465px) {
+  header.navbar-default .navbar-collapse nav ul.menu > li {
+    height: 70px;
+    border-right: 1px solid #FFF;
+    display: flex;
+    align-items: center;
+  }
+  header.navbar-default .navbar-collapse nav ul.menu > li > a {
+    border: none !important;
+  }
+  header.navbar-default .navbar-collapse nav ul.menu > li > a .caret {
+    display: none;
+  }
   .intro-splash-20 .views-row-first > p:nth-child(4) {
     max-width: 500px;
   }
@@ -8506,6 +8888,16 @@ body.front-page .footer {
   }
 }
 @media (max-width: 1280px) {
+  html:lang(de) .intro-splash-20 .views-row-first h1,
+  html:lang(el) .intro-splash-20 .views-row-first h1,
+  html:lang(es) .intro-splash-20 .views-row-first h1,
+  html:lang(fr) .intro-splash-20 .views-row-first h1,
+  html:lang(hu) .intro-splash-20 .views-row-first h1,
+  html:lang(pl) .intro-splash-20 .views-row-first h1,
+  html:lang(pt) .intro-splash-20 .views-row-first h1,
+  html:lang(ro) .intro-splash-20 .views-row-first h1 {
+    font-size: 2.3em;
+  }
   /* Events */
   .page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row {
     min-height: auto;
@@ -8527,7 +8919,66 @@ body.front-page .footer {
     display: none !important;
   }
 }
+@media (max-width: 1865px) {
+  html:lang(bg) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(da) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(de) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(et) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(es) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(is) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(hu) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(mt) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(nl) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(no) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(pt) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(sk) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(fi) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(sv) header.navbar-default .navbar-collapse nav ul.menu > li {
+    height: 70px;
+    border-right: 1px solid #FFF;
+    display: flex;
+    align-items: center;
+  }
+  html:lang(bg) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(da) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(de) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(et) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(es) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(is) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(hu) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(mt) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(nl) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(no) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(pt) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(sk) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(fi) header.navbar-default .navbar-collapse nav ul.menu > li > a,
+  html:lang(sv) header.navbar-default .navbar-collapse nav ul.menu > li > a {
+    border: none !important;
+  }
+  html:lang(bg) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(da) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(de) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(et) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(es) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(is) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(hu) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(mt) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(nl) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(no) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(pt) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(sk) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(fi) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
+  html:lang(sv) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret {
+    display: none;
+  }
+}
 @media (max-width: 992px) {
+  body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .view-content {
+    flex-direction: column;
+  }
+  body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .view-content > div:nth-child(3) {
+    order: 4;
+  }
   header.navbar-default.sticky-menu .campaigns-header .navbar-header .col-xs-12.col-sm-9 {
     display: flex;
   }
@@ -8842,6 +9293,10 @@ body.front-page .footer {
     font-style: normal;
     font-size: 2.2rem;
   }
+  .page-publications .publications-right-column p,
+  .page-tools-and-publications-campaign-materials .publications-right-column p {
+    padding-bottom: 10px !important;
+  }
   .page-publications .box-latest-publications .right-column,
   .page-tools-and-publications-campaign-materials .box-latest-publications .right-column {
     width: 100%;
@@ -8916,6 +9371,11 @@ body.front-page .footer {
     right: auto;
     position: relative;
     top: -6px;
+  }
+  .page-tools-and-publications-practical-tools.page-search .main-container #block-system-main .view .views-row .more-link {
+    bottom: 15px;
+    right: auto;
+    left: 15px;
   }
   /* Panels - National Focal Points, etc. */
   .panels-flexible-column-inside-first .profile-col-left-middle-2 {
@@ -9122,6 +9582,39 @@ body.front-page .footer {
   }
 }
 @media (max-width: 1024px) {
+  html:lang(bg) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(da) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(de) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(et) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(es) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(is) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(hu) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(mt) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(nl) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(no) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(pt) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(sk) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(fi) header.navbar-default .navbar-collapse nav ul.menu > li,
+  html:lang(sv) header.navbar-default .navbar-collapse nav ul.menu > li {
+    font-size: 0.65em;
+  }
+  html:lang(bg) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(da) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(de) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(et) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(es) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(is) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(hu) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(mt) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(nl) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(no) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(pt) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(sk) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(fi) header.navbar-default .navbar-collapse nav ul.menu > li a,
+  html:lang(sv) header.navbar-default .navbar-collapse nav ul.menu > li a {
+    padding: 2px;
+    line-height: 15px;
+  }
   .profile-2-cols-container-3 .panels-flexible-column-last .field-type-link-field a {
     white-space: nowrap;
     width: 188px;
@@ -9238,7 +9731,7 @@ body.front-page .footer {
 }
 @media (max-width: 1200px) {
   .box-latest-publications {
-    min-height: 170px;
+    min-height: 190px;
   }
   .box-latest-publications .left-column {
     display: none !important;
@@ -9282,6 +9775,94 @@ body.front-page .footer {
   .timeline > div:nth-child(3) {
     position: absolute;
     right: 178px;
+  }
+  html:lang(bg) .how-to-apply .box,
+  html:lang(cs) .how-to-apply .box,
+  html:lang(et) .how-to-apply .box,
+  html:lang(el) .how-to-apply .box,
+  html:lang(de) .how-to-apply .box,
+  html:lang(es) .how-to-apply .box,
+  html:lang(fr) .how-to-apply .box,
+  html:lang(hr) .how-to-apply .box,
+  html:lang(is) .how-to-apply .box,
+  html:lang(lv) .how-to-apply .box,
+  html:lang(lt) .how-to-apply .box,
+  html:lang(hu) .how-to-apply .box,
+  html:lang(nl) .how-to-apply .box,
+  html:lang(pl) .how-to-apply .box,
+  html:lang(pt) .how-to-apply .box,
+  html:lang(ro) .how-to-apply .box,
+  html:lang(sk) .how-to-apply .box,
+  html:lang(sl) .how-to-apply .box,
+  html:lang(fi) .how-to-apply .box,
+  html:lang(sv) .how-to-apply .box {
+    width: 269px;
+  }
+  html:lang(bg) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(cs) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(et) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(el) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(de) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(es) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(fr) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(hr) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(is) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(lv) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(lt) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(hu) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(nl) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(pl) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(pt) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(ro) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(sk) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(sl) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(fi) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(sv) .how-to-apply > div.boxes > div:nth-child(1) {
+    left: 33px;
+  }
+  html:lang(bg) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(cs) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(et) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(el) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(de) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(es) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(fr) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(hr) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(is) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(lv) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(lt) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(hu) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(nl) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(pl) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(pt) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(ro) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(sk) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(sl) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(fi) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(sv) .how-to-apply > div.boxes > div:nth-child(2) {
+    left: 35%;
+  }
+  html:lang(bg) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(cs) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(et) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(el) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(de) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(es) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(fr) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(hr) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(is) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(lv) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(lt) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(hu) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(nl) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(pl) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(pt) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(ro) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(sk) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(sl) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(fi) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(sv) .how-to-apply > div.boxes > div:nth-child(3) {
+    right: 5px;
   }
   .page-events #osha-events-dates-form {
     width: 157px;
@@ -9370,14 +9951,383 @@ body.front-page .footer {
   }
   /* Timeline */
   .how-to-apply > div.boxes > div:nth-child(1) {
-    left: 44px;
+    left: 44px ;
   }
   .how-to-apply > div.boxes > div:nth-child(2) {
-    left: 38%;
+    left: 38% ;
   }
   .how-to-apply > div.boxes > div:nth-child(3) {
-    right: 8px;
+    right: 8px ;
   }
+  /**/
+  html:lang(bg) .how-to-apply,
+  html:lang(cs) .how-to-apply,
+  html:lang(et) .how-to-apply,
+  html:lang(el) .how-to-apply,
+  html:lang(de) .how-to-apply,
+  html:lang(es) .how-to-apply,
+  html:lang(fr) .how-to-apply,
+  html:lang(hr) .how-to-apply,
+  html:lang(is) .how-to-apply,
+  html:lang(lv) .how-to-apply,
+  html:lang(lt) .how-to-apply,
+  html:lang(hu) .how-to-apply,
+  html:lang(nl) .how-to-apply,
+  html:lang(pl) .how-to-apply,
+  html:lang(pt) .how-to-apply,
+  html:lang(ro) .how-to-apply,
+  html:lang(sk) .how-to-apply,
+  html:lang(sl) .how-to-apply,
+  html:lang(fi) .how-to-apply,
+  html:lang(sv) .how-to-apply {
+    background: url(../images/background-timeline-mobile.png) repeat-y;
+    color: #FFF;
+    text-align: center;
+    float: left;
+    width: 100%;
+    height: 868px;
+  }
+  html:lang(bg) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(cs) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(et) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(el) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(de) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(es) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(fr) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(hr) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(is) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(lv) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(lt) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(hu) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(nl) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(pl) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(pt) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(ro) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(sk) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(sl) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(fi) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(sv) .how-to-apply > div.boxes > div:nth-child(1) {
+    position: absolute;
+    left: 72px !important;
+    top: 68px;
+  }
+  html:lang(bg) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(cs) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(et) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(el) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(de) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(es) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(fr) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(hr) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(is) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(lv) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(lt) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(hu) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(nl) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(pl) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(pt) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(ro) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(sk) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(sl) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(fi) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(sv) .how-to-apply > div.boxes > div:nth-child(2) {
+    position: absolute;
+    left: 72px !important;
+    top: 310px;
+  }
+  html:lang(bg) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(cs) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(et) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(el) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(de) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(es) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(fr) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(hr) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(is) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(lv) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(lt) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(hu) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(nl) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(pl) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(pt) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(ro) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(sk) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(sl) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(fi) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(sv) .how-to-apply > div.boxes > div:nth-child(3) {
+    position: absolute;
+    left: 71px !important;
+    top: 546px;
+  }
+  html:lang(bg) .timeline,
+  html:lang(cs) .timeline,
+  html:lang(et) .timeline,
+  html:lang(el) .timeline,
+  html:lang(de) .timeline,
+  html:lang(es) .timeline,
+  html:lang(fr) .timeline,
+  html:lang(hr) .timeline,
+  html:lang(is) .timeline,
+  html:lang(lv) .timeline,
+  html:lang(lt) .timeline,
+  html:lang(hu) .timeline,
+  html:lang(nl) .timeline,
+  html:lang(pl) .timeline,
+  html:lang(pt) .timeline,
+  html:lang(ro) .timeline,
+  html:lang(sk) .timeline,
+  html:lang(sl) .timeline,
+  html:lang(fi) .timeline,
+  html:lang(sv) .timeline {
+    width: 100%;
+    height: 654px;
+    text-align: center;
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: none;
+    padding-top: 70px;
+    padding-bottom: 1em;
+    position: relative;
+  }
+  html:lang(bg) .timeline > div,
+  html:lang(cs) .timeline > div,
+  html:lang(et) .timeline > div,
+  html:lang(el) .timeline > div,
+  html:lang(de) .timeline > div,
+  html:lang(es) .timeline > div,
+  html:lang(fr) .timeline > div,
+  html:lang(hr) .timeline > div,
+  html:lang(is) .timeline > div,
+  html:lang(lv) .timeline > div,
+  html:lang(lt) .timeline > div,
+  html:lang(hu) .timeline > div,
+  html:lang(nl) .timeline > div,
+  html:lang(pl) .timeline > div,
+  html:lang(pt) .timeline > div,
+  html:lang(ro) .timeline > div,
+  html:lang(sk) .timeline > div,
+  html:lang(sl) .timeline > div,
+  html:lang(fi) .timeline > div,
+  html:lang(sv) .timeline > div {
+    float: left;
+  }
+  html:lang(bg) .timeline > div:nth-child(1),
+  html:lang(cs) .timeline > div:nth-child(1),
+  html:lang(et) .timeline > div:nth-child(1),
+  html:lang(el) .timeline > div:nth-child(1),
+  html:lang(de) .timeline > div:nth-child(1),
+  html:lang(es) .timeline > div:nth-child(1),
+  html:lang(fr) .timeline > div:nth-child(1),
+  html:lang(hr) .timeline > div:nth-child(1),
+  html:lang(is) .timeline > div:nth-child(1),
+  html:lang(lv) .timeline > div:nth-child(1),
+  html:lang(lt) .timeline > div:nth-child(1),
+  html:lang(hu) .timeline > div:nth-child(1),
+  html:lang(nl) .timeline > div:nth-child(1),
+  html:lang(pl) .timeline > div:nth-child(1),
+  html:lang(pt) .timeline > div:nth-child(1),
+  html:lang(ro) .timeline > div:nth-child(1),
+  html:lang(sk) .timeline > div:nth-child(1),
+  html:lang(sl) .timeline > div:nth-child(1),
+  html:lang(fi) .timeline > div:nth-child(1),
+  html:lang(sv) .timeline > div:nth-child(1) {
+    position: absolute;
+    left: 76px;
+    top: 37px;
+  }
+  html:lang(bg) .timeline > div:nth-child(1):after,
+  html:lang(cs) .timeline > div:nth-child(1):after,
+  html:lang(et) .timeline > div:nth-child(1):after,
+  html:lang(el) .timeline > div:nth-child(1):after,
+  html:lang(de) .timeline > div:nth-child(1):after,
+  html:lang(es) .timeline > div:nth-child(1):after,
+  html:lang(fr) .timeline > div:nth-child(1):after,
+  html:lang(hr) .timeline > div:nth-child(1):after,
+  html:lang(is) .timeline > div:nth-child(1):after,
+  html:lang(lv) .timeline > div:nth-child(1):after,
+  html:lang(lt) .timeline > div:nth-child(1):after,
+  html:lang(hu) .timeline > div:nth-child(1):after,
+  html:lang(nl) .timeline > div:nth-child(1):after,
+  html:lang(pl) .timeline > div:nth-child(1):after,
+  html:lang(pt) .timeline > div:nth-child(1):after,
+  html:lang(ro) .timeline > div:nth-child(1):after,
+  html:lang(sk) .timeline > div:nth-child(1):after,
+  html:lang(sl) .timeline > div:nth-child(1):after,
+  html:lang(fi) .timeline > div:nth-child(1):after,
+  html:lang(sv) .timeline > div:nth-child(1):after {
+    left: -67px;
+    top: 92px;
+  }
+  html:lang(bg) .timeline > div:nth-child(2),
+  html:lang(cs) .timeline > div:nth-child(2),
+  html:lang(et) .timeline > div:nth-child(2),
+  html:lang(el) .timeline > div:nth-child(2),
+  html:lang(de) .timeline > div:nth-child(2),
+  html:lang(es) .timeline > div:nth-child(2),
+  html:lang(fr) .timeline > div:nth-child(2),
+  html:lang(hr) .timeline > div:nth-child(2),
+  html:lang(is) .timeline > div:nth-child(2),
+  html:lang(lv) .timeline > div:nth-child(2),
+  html:lang(lt) .timeline > div:nth-child(2),
+  html:lang(hu) .timeline > div:nth-child(2),
+  html:lang(nl) .timeline > div:nth-child(2),
+  html:lang(pl) .timeline > div:nth-child(2),
+  html:lang(pt) .timeline > div:nth-child(2),
+  html:lang(ro) .timeline > div:nth-child(2),
+  html:lang(sk) .timeline > div:nth-child(2),
+  html:lang(sl) .timeline > div:nth-child(2),
+  html:lang(fi) .timeline > div:nth-child(2),
+  html:lang(sv) .timeline > div:nth-child(2) {
+    position: absolute;
+    left: 74px;
+    top: 281px;
+  }
+  html:lang(bg) .timeline > div:nth-child(2):after,
+  html:lang(cs) .timeline > div:nth-child(2):after,
+  html:lang(et) .timeline > div:nth-child(2):after,
+  html:lang(el) .timeline > div:nth-child(2):after,
+  html:lang(de) .timeline > div:nth-child(2):after,
+  html:lang(es) .timeline > div:nth-child(2):after,
+  html:lang(fr) .timeline > div:nth-child(2):after,
+  html:lang(hr) .timeline > div:nth-child(2):after,
+  html:lang(is) .timeline > div:nth-child(2):after,
+  html:lang(lv) .timeline > div:nth-child(2):after,
+  html:lang(lt) .timeline > div:nth-child(2):after,
+  html:lang(hu) .timeline > div:nth-child(2):after,
+  html:lang(nl) .timeline > div:nth-child(2):after,
+  html:lang(pl) .timeline > div:nth-child(2):after,
+  html:lang(pt) .timeline > div:nth-child(2):after,
+  html:lang(ro) .timeline > div:nth-child(2):after,
+  html:lang(sk) .timeline > div:nth-child(2):after,
+  html:lang(sl) .timeline > div:nth-child(2):after,
+  html:lang(fi) .timeline > div:nth-child(2):after,
+  html:lang(sv) .timeline > div:nth-child(2):after {
+    left: -65px;
+    top: 101px;
+  }
+  html:lang(bg) .timeline > div:nth-child(3),
+  html:lang(cs) .timeline > div:nth-child(3),
+  html:lang(et) .timeline > div:nth-child(3),
+  html:lang(el) .timeline > div:nth-child(3),
+  html:lang(de) .timeline > div:nth-child(3),
+  html:lang(es) .timeline > div:nth-child(3),
+  html:lang(fr) .timeline > div:nth-child(3),
+  html:lang(hr) .timeline > div:nth-child(3),
+  html:lang(is) .timeline > div:nth-child(3),
+  html:lang(lv) .timeline > div:nth-child(3),
+  html:lang(lt) .timeline > div:nth-child(3),
+  html:lang(hu) .timeline > div:nth-child(3),
+  html:lang(nl) .timeline > div:nth-child(3),
+  html:lang(pl) .timeline > div:nth-child(3),
+  html:lang(pt) .timeline > div:nth-child(3),
+  html:lang(ro) .timeline > div:nth-child(3),
+  html:lang(sk) .timeline > div:nth-child(3),
+  html:lang(sl) .timeline > div:nth-child(3),
+  html:lang(fi) .timeline > div:nth-child(3),
+  html:lang(sv) .timeline > div:nth-child(3) {
+    position: absolute;
+    left: 73px;
+    top: 518px;
+    right: initial;
+  }
+  html:lang(bg) .timeline > div:nth-child(3):after,
+  html:lang(cs) .timeline > div:nth-child(3):after,
+  html:lang(et) .timeline > div:nth-child(3):after,
+  html:lang(el) .timeline > div:nth-child(3):after,
+  html:lang(de) .timeline > div:nth-child(3):after,
+  html:lang(es) .timeline > div:nth-child(3):after,
+  html:lang(fr) .timeline > div:nth-child(3):after,
+  html:lang(hr) .timeline > div:nth-child(3):after,
+  html:lang(is) .timeline > div:nth-child(3):after,
+  html:lang(lv) .timeline > div:nth-child(3):after,
+  html:lang(lt) .timeline > div:nth-child(3):after,
+  html:lang(hu) .timeline > div:nth-child(3):after,
+  html:lang(nl) .timeline > div:nth-child(3):after,
+  html:lang(pl) .timeline > div:nth-child(3):after,
+  html:lang(pt) .timeline > div:nth-child(3):after,
+  html:lang(ro) .timeline > div:nth-child(3):after,
+  html:lang(sk) .timeline > div:nth-child(3):after,
+  html:lang(sl) .timeline > div:nth-child(3):after,
+  html:lang(fi) .timeline > div:nth-child(3):after,
+  html:lang(sv) .timeline > div:nth-child(3):after {
+    left: -64px;
+    top: 97px;
+  }
+  html:lang(bg) .timeline > div:nth-child(4),
+  html:lang(cs) .timeline > div:nth-child(4),
+  html:lang(et) .timeline > div:nth-child(4),
+  html:lang(el) .timeline > div:nth-child(4),
+  html:lang(de) .timeline > div:nth-child(4),
+  html:lang(es) .timeline > div:nth-child(4),
+  html:lang(fr) .timeline > div:nth-child(4),
+  html:lang(hr) .timeline > div:nth-child(4),
+  html:lang(is) .timeline > div:nth-child(4),
+  html:lang(lv) .timeline > div:nth-child(4),
+  html:lang(lt) .timeline > div:nth-child(4),
+  html:lang(hu) .timeline > div:nth-child(4),
+  html:lang(nl) .timeline > div:nth-child(4),
+  html:lang(pl) .timeline > div:nth-child(4),
+  html:lang(pt) .timeline > div:nth-child(4),
+  html:lang(ro) .timeline > div:nth-child(4),
+  html:lang(sk) .timeline > div:nth-child(4),
+  html:lang(sl) .timeline > div:nth-child(4),
+  html:lang(fi) .timeline > div:nth-child(4),
+  html:lang(sv) .timeline > div:nth-child(4) {
+    position: absolute;
+    left: 101px;
+    top: 429px;
+    right: auto;
+  }
+  html:lang(bg) .timeline > div:nth-child(4):after,
+  html:lang(cs) .timeline > div:nth-child(4):after,
+  html:lang(et) .timeline > div:nth-child(4):after,
+  html:lang(el) .timeline > div:nth-child(4):after,
+  html:lang(de) .timeline > div:nth-child(4):after,
+  html:lang(es) .timeline > div:nth-child(4):after,
+  html:lang(fr) .timeline > div:nth-child(4):after,
+  html:lang(hr) .timeline > div:nth-child(4):after,
+  html:lang(is) .timeline > div:nth-child(4):after,
+  html:lang(lv) .timeline > div:nth-child(4):after,
+  html:lang(lt) .timeline > div:nth-child(4):after,
+  html:lang(hu) .timeline > div:nth-child(4):after,
+  html:lang(nl) .timeline > div:nth-child(4):after,
+  html:lang(pl) .timeline > div:nth-child(4):after,
+  html:lang(pt) .timeline > div:nth-child(4):after,
+  html:lang(ro) .timeline > div:nth-child(4):after,
+  html:lang(sk) .timeline > div:nth-child(4):after,
+  html:lang(sl) .timeline > div:nth-child(4):after,
+  html:lang(fi) .timeline > div:nth-child(4):after,
+  html:lang(sv) .timeline > div:nth-child(4):after {
+    left: -67px;
+    top: 3px;
+  }
+  html:lang(bg) .timeline > div:nth-child(5),
+  html:lang(cs) .timeline > div:nth-child(5),
+  html:lang(et) .timeline > div:nth-child(5),
+  html:lang(el) .timeline > div:nth-child(5),
+  html:lang(de) .timeline > div:nth-child(5),
+  html:lang(es) .timeline > div:nth-child(5),
+  html:lang(fr) .timeline > div:nth-child(5),
+  html:lang(hr) .timeline > div:nth-child(5),
+  html:lang(is) .timeline > div:nth-child(5),
+  html:lang(lv) .timeline > div:nth-child(5),
+  html:lang(lt) .timeline > div:nth-child(5),
+  html:lang(hu) .timeline > div:nth-child(5),
+  html:lang(nl) .timeline > div:nth-child(5),
+  html:lang(pl) .timeline > div:nth-child(5),
+  html:lang(pt) .timeline > div:nth-child(5),
+  html:lang(ro) .timeline > div:nth-child(5),
+  html:lang(sk) .timeline > div:nth-child(5),
+  html:lang(sl) .timeline > div:nth-child(5),
+  html:lang(fi) .timeline > div:nth-child(5),
+  html:lang(sv) .timeline > div:nth-child(5) {
+    position: absolute;
+    left: 28px;
+    top: 535px;
+  }
+  /**/
   .timeline > div:nth-child(1) {
     left: 104px;
   }
@@ -9448,16 +10398,46 @@ body.front-page .footer {
     background-size: contain;
   }
 }
+@media (min-width: 990px) {
+  html:lang(de) .page-media-centre-events #edit-search-api-views-fulltext,
+  html:lang(el) .page-media-centre-events #edit-search-api-views-fulltext {
+    width: 250px !important;
+  }
+  html:lang(de) .page-events .region-content #block-system-main .views-exposed-widgets select,
+  html:lang(el) .page-events .region-content #block-system-main .views-exposed-widgets select {
+    width: 200px!important;
+  }
+  html:lang(de) .page-events .region-content #block-system-main .views-exposed-widgets #edit_years_chosen,
+  html:lang(el) .page-events .region-content #block-system-main .views-exposed-widgets #edit_years_chosen {
+    width: 150px!important;
+  }
+  html:lang(fr) .page-media-centre-events #edit-search-api-views-fulltext,
+  html:lang(pt) .page-media-centre-events #edit-search-api-views-fulltext {
+    width: 270px !important;
+  }
+  html:lang(fr) .page-events .region-content #block-system-main .views-exposed-widgets select,
+  html:lang(pt) .page-events .region-content #block-system-main .views-exposed-widgets select {
+    width: 180px!important;
+  }
+  html:lang(fr) .page-events .region-content #block-system-main .views-exposed-widgets #edit_years_chosen,
+  html:lang(pt) .page-events .region-content #block-system-main .views-exposed-widgets #edit_years_chosen {
+    width: 130px!important;
+  }
+}
 @media (max-width: 768px) {
   body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .view-frontpage-events {
     background: none;
+  }
+  body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events .view-frontpage-events .view-content .date {
+    width: 100%;
+    padding-bottom: 10px;
   }
   body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events .view-frontpage-events .view-content > div {
     clear: both;
     float: none;
     width: 100%;
     height: auto;
-    min-height: 135px;
+    min-height: 160px;
     margin-right: 0;
   }
   body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events .view-frontpage-events .view-content > div:nth-child(3) {
@@ -9663,7 +10643,7 @@ body.front-page .footer {
     display: block !important;
     position: absolute;
     top: 1px;
-    right: 56px;
+    right: 59px;
   }
   header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-login ~ #block-lang-dropdown-language:after {
     background: url(../images/header/select-mobile.png) 5px 11px no-repeat #003399 !important;
@@ -10088,17 +11068,17 @@ body.front-page .footer {
   }
   .how-to-apply > div.boxes > div:nth-child(1) {
     position: absolute;
-    left: 72px;
+    left: 72px !important;
     top: 68px;
   }
   .how-to-apply > div.boxes > div:nth-child(2) {
     position: absolute;
-    left: 72px;
+    left: 72px !important;
     top: 310px;
   }
   .how-to-apply > div.boxes > div:nth-child(3) {
     position: absolute;
-    left: 71px;
+    left: 71px !important;
     top: 546px;
   }
   .timeline {
@@ -10205,6 +11185,11 @@ body.front-page .footer {
   .page-events .view-events-search .view-content .view-content:nth-child(2) .views-row {
     padding: 1em 0;
   }
+  .page-events .view-events-search .view-content span.add-to-my-calendar {
+    clear: both;
+    float: left;
+    margin-top: 3em;
+  }
   .page-events .region.region-content {
     clear: both;
   }
@@ -10237,6 +11222,14 @@ body.front-page .footer {
   .page-events .region.region-content #block-system-main .views-exposed-widgets #edit-submit-events-search {
     left: 0px;
     top: 73px;
+    position: absolute;
+  }
+  .page-events .region.region-content #block-system-main .clear_filters {
+    padding-top: 2em;
+    padding-left: 1em;
+  }
+  .page-events .region.region-content #block-system-main #remove_filter {
+    padding-left: 1em;
   }
   .page-events #osha-events-dates-form {
     float: left;
@@ -10372,11 +11365,25 @@ body.front-page .footer {
   body.page-tools-and-publications-practical-tools .view-practical-tools .view-filters .form-select {
     max-height: 62px;
   }
-  .content-languages-download {
+  body.page-tools-and-publications-practical-tools .content-languages-download {
     width: 100%;
   }
-  .content-languages-download select.new-select-style {
+  body.page-tools-and-publications-practical-tools .content-languages-download select.new-select-style {
     height: 34px;
+  }
+  .page-publications .content-publication-info,
+  .page-tools-and-publications .content-publication-info {
+    display: block;
+  }
+  .page-publications .content-publication-info span:nth-child(1),
+  .page-tools-and-publications .content-publication-info span:nth-child(1) {
+    display: block;
+    width: 100%;
+    padding-bottom: 5px;
+  }
+  .page-publications .content-publication-info span.pages,
+  .page-tools-and-publications .content-publication-info span.pages {
+    float: right;
   }
 }
 @media (max-width: 600px) {
@@ -10412,6 +11419,11 @@ body.front-page .footer {
     margin: 1em 3em 0.5em 0;
   }
 }
+@media (max-width: 700px) {
+  body.page-tools-and-publications-practical-tools .region.region-content .view-content .views-row .views-field-body {
+    padding-bottom: 130px;
+  }
+}
 @media (max-width: 480px) {
   .page_title {
     margin-bottom: 1em;
@@ -10430,7 +11442,7 @@ body.front-page .footer {
     padding-bottom: 0;
   }
   body.page-tools-and-publications-practical-tools .region.region-content .view-content .views-row .views-field-body .more-link {
-    right: 15px !important;
+    bottom: 10px!important;
   }
   body.page-tools-and-publications-practical-tools .region.region-content .view-practical-tools .view-content .views-row .conten-tags {
     width: 100%;

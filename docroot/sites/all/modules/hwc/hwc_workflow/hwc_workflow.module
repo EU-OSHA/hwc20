@@ -149,7 +149,7 @@ function hwc_workflow_get_mail_subject_text($node, $settings_type) {
  */
 function hwc_workflow_get_mail_body_text($message, $node, $settings_type) {
   $field = 'field_notification_comment';
-  if (variable_get('hwc_workflow_append_' . $settings_type, FALSE)) {
+  if (!variable_get('hwc_workflow_append_' . $settings_type, FALSE)) {
     return $message;
   }
   $value = $node->$field;
@@ -157,7 +157,7 @@ function hwc_workflow_get_mail_body_text($message, $node, $settings_type) {
     $message .= $value[LANGUAGE_NONE][0]['value'];
   }
   else {
-  $message = $value[LANGUAGE_NONE][0]['value'];
+    $message = $value[LANGUAGE_NONE][0]['value'];
 
   }
   return $message;
