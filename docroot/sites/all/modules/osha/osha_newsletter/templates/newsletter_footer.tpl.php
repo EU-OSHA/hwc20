@@ -25,17 +25,33 @@ $bottom_text = variable_get('hwc_mail_bottom_text', '');
 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-family:Arial,sans-serif;font-size:14px;border:0;margin:0;border-collapse:collapse;border-spacing:0;background-color:#ffffff;table-layout:fixed;max-width:100%;width:100%">
   <tbody>
   <tr style="border:0;background-color:transparent">
-    <td style="vertical-align:top;border:0;padding-top: 40px;">
+    <td style="vertical-align:top;border:0;padding-top: 25px;">
       <table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-family:Arial,sans-serif;font-size:14px;border:0;margin:0;border-collapse:collapse;border-spacing:0">
         <tbody>
-        <tr style="border:0;background-color:#a6be1d;height:100px">
-          <td style="vertical-align:middle;border:0;color:#ffffff;padding:0">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-family:Arial,sans-serif;font-size:14px;border:0;margin:0;border-collapse:collapse;border-spacing:0;width: 600px; margin: 0 auto;">
+        <tr style="border:0;background-color:#a5bd1f;height:135px">
+          <td style="width:350px;">
+            <?php
+            $footer_img = "{$base_url}/sites/all/modules/osha/osha_newsletter/images/newsletter-img-footer.png";
+
+            $style = 'border: 0px;display:block;';
+            print l(theme('image', array(
+              'path' => $footer_img,
+              'alt' => 'footer image',
+              'attributes' => array('style' => $style),
+            )),
+              url('node/' . $node->nid, array('absolute' => TRUE)),
+              array('html' => TRUE, 'external' => TRUE, 'query' => $url_query));
+           ?>
+          </td>
+          <td style="vertical-align:middle;border:0;color:#ffffff;padding:0;width: 400px;">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-family:Arial,sans-serif;font-size:14px;border:0;margin:0;border-collapse:collapse;border-spacing:0; margin: 0 auto;">
               <tbody>
               <tr style="border:0;background-color:transparent">
-                <td style="vertical-align: top;border: 0;padding: 5px 20px 5px 20px;width: 400px;text-align: right;font-size: 23px;color: #FFF;">
+                <td colspan="5" style="vertical-align: top;border: 0;padding: 5px 20px 15px 20px;width: 400px;text-align: center;font-size: 23px;color: #FFF;">
                   <?php print  t('Follow us on'); ?>
                 </td>
+              </tr>
+              <tr style="border:0;background-color:transparent">
                 <td style="vertical-align:top;border:0;padding:5px 20px 5px 20px;width:40px;text-align:center;padding-top:5px">
                   <a href="https://twitter.com/eu_osha" style="color:#0074bd;text-decoration:none;display:inline-block;vertical-align:middle" target="_blank" data-saferedirecturl="https://twitter.com/eu_osha&amp;source=gmail&amp;ust=1581508467712000&amp;usg=AFQjCNEjD-bso_INECdN2hSssHEjnJUtMA">
                     <img style="display:inline;vertical-align:middle;border:0px;height:25px;max-height:25px;width:31px;max-width:31px" src="https://healthy-workplaces.eu/sites/all/themes/hwc_frontend/images/imghwccrm/twitter.jpg" width="31" height="25" alt="Twitter" class="CToWUd">

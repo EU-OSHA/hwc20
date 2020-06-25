@@ -15,12 +15,12 @@
 }
 
 .content-container > td > table {
-  max-width: 100%;
+  max-width: 780px;
   width: 100%;
 }
 /* Gutter */
 .content-container > td {
-  padding: 20px 20px 20px 20px;
+  padding: 0 20px 20px 20px;
 }
 
 .template-container.newsletter-half-width-list {
@@ -43,6 +43,11 @@ p {
   margin: 10px 0 10px 0;
   font-size: 13px;
 }
+
+.field-name-field-summary p{
+  margin: 0;
+}
+
 table {
   font-family: Arial, sans-serif;
   font-size: 14px;
@@ -184,15 +189,27 @@ td.social {
   max-height: 50px;
   max-width: 100%;
 }
-.see-more {
-    border: 1px solid #b0b1b2;
-    border-radius: 3px;
-    color: #b0b1b2;
+.see-more{
+    color: #003399;
+    font-size: 0.7rem !important;
+    border: 1px solid #003399;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
     text-transform: uppercase;
     padding: 2px 7px 2px 7px;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
     font-size: 12px;
-    transition: 300ms;
-    background-position: 110%;
+    font-weight: bold;
+    font-style: normal;
+    display: block;
+    float: left;
+    position: relative;
+    text-decoration: none;
+    background: url(../../images/ico-plus-green.png) no-repeat 91% 4px #FFF;
+    padding-right: 2em;
 }
 
 .highlight-title {
@@ -253,7 +270,7 @@ td.social {
 }
 .newsletter-section + .view-all {
   border: 0;
-  border-top: 1px dotted #749b00;
+  border-top: 1px dotted #a5bd1d;
   width: 100%;
   display: block;
   text-align: right;
@@ -282,7 +299,7 @@ td.social {
   text-decoration: none;
 }
 .newsletter-full-width-details-row {
-  border-bottom: 1px dotted #749b00;
+  border-bottom: 1px dotted #a5bd1d;
 }
 .newsletter-full-width-details-row:last-child {
   border-bottom: none;
@@ -455,7 +472,7 @@ p.tweet-link a {
 }
 
 .newsletter-full-width-list.newsletter-section.template-container > thead > tr .td-border{
-  border-top: 1px solid #749b00;
+  border-top: 1px solid #a5bd1d;
 }
 
 table.newsletter-full-width-list.newsletter-section.template-container > thead > tr.last .td-border{

@@ -145,21 +145,25 @@ if (!empty($campaign_id)) {
                     </tr>
                   </table>
 
-                  <table style="height: 45px;">
+                  <table style="height: 45px;width: 100%">
                     <tr>
-                        <td style="padding-top: 0px;">
+                        <td style="padding-top: 0px;width:40px;">
                           <?php
-                          print '<div>';
                           $node_url = url('node/' . $node->nid, array('absolute' => TRUE));
-                          print l(t('See more'), $node_url, array(
-                            'attributes' => array('class' => ['see-more']),
-                            'query' => $url_query,
-                            'external' => TRUE,
-                          ));
-                          print '</div>';
+                          $directory = drupal_get_path('module', 'osha_newsletter');
+                          print l(theme('image', array(
+                            'path' => $directory . '/images/' . 'see-more-img.png',
+                            'width' => '92',
+                            'height' => '23',
+                            'attributes' => array('style' => 'border:0px;width:92px;height:23px;'),
+                          )), $node_url, array(
+                              'html' => TRUE,
+                              'query' => $url_query,
+                              'external' => TRUE,
+                            ));
                           ?>
                         </td>
-                        <td align="right" valign="middle" style="padding-top: 0px;" width="20">
+                        <td align="right" valign="middle" style="padding-top: 0px;width:40px;">
                           <?php
                           print l(theme('image', array(
                             'path' => $directory . '/images/' . 'share-icon.png',
@@ -234,7 +238,7 @@ if (!empty($campaign_id)) {
         </td>
       </tr>
       <tr>
-        <td class="to-responsive" style="width: 220px;background: #a6be1d;border-top-left-radius: 15px;border-bottom-left-radius: 15px">
+        <td class="to-responsive" style="width: 220px;background: #a5bd1f;border-top-left-radius: 15px;border-bottom-left-radius: 15px">
           <table">
             <tr>
               <td style="padding-top: 25px;padding-bottom: 25px;padding-left: 25px;">
@@ -243,7 +247,8 @@ if (!empty($campaign_id)) {
                   print l(theme('image_style', array(
                     'style_name' => 'spotlight',
                     'path' => (isset($field_image) && !empty($field_image)) ? $field_image['uri'] : '',
-                    'width' => 260,
+                    'width' => 220,
+                    'height' => 145,
                     'alt' => (isset($field_image) && !empty($field_image)) ? $field_image['alt'] : '',
                     'attributes' => array(
                       'style' => 'vertical-align:top;max-width: initial!important;border-radius:15px',
@@ -261,7 +266,7 @@ if (!empty($campaign_id)) {
             </tr>
           </table>
         </td>
-        <td class="to-responsive" style="background: #a6be1d;width: 100%;border-top-right-radius: 15px;border-bottom-right-radius: 15px">
+        <td class="to-responsive" style="background: #a5bd1f;width: 100%;border-top-right-radius: 15px;border-bottom-right-radius: 15px">
           <table>
             <tr>
               <td style="font-weight: normal; color:#FFF;padding-top: 25px;padding-bottom: 0;padding-left: 25px;">
@@ -269,7 +274,7 @@ if (!empty($campaign_id)) {
               </td>
             </tr>
             <tr>
-              <td style="padding-left: 25px;">
+              <td style="padding-left: 25px;padding-right: 25px;">
                 <?php
                   print l($title, url('node/' . $node->nid, array('absolute' => TRUE)), array(
                     'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #FFF; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;'),
@@ -282,7 +287,7 @@ if (!empty($campaign_id)) {
           </table>
           <table>
             <tr>
-              <td style="padding-top: 8px;color:#FFF;font-size: 13px;line-height: 18px;padding-left: 25px;">
+              <td style="padding-top: 8px;color:#FFF;font-size: 13px;line-height: 18px;padding-left: 25px;padding-right: 25px;">
                 <?php
                 $is_empty = FALSE;
                 // todo city country.
@@ -303,7 +308,7 @@ if (!empty($campaign_id)) {
         </td>
       </tr>
       <tr>
-        <td colspan="2" style="border-top: 0px solid #749b00;line-height: 24px;">&nbsp;</td>
+        <td colspan="2" style="border-top: 0px solid #a5bd1f;line-height: 24px;">&nbsp;</td>
       </tr>
       <?php
     }
