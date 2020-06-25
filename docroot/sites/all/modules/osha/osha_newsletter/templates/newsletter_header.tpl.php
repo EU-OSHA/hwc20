@@ -64,31 +64,23 @@ $directory = drupal_get_path('module','osha_newsletter');
 <table border="0" cellpadding="0" cellspacing="0" width="100%" height="140" class="template-container">
   <tbody>
     <tr>
-      <?php
-        global $base_url;
-        $bg_path = "{$base_url}/sites/all/modules/osha/osha_newsletter/images/header-banner-bg.png";
-      ?>
-      <td class="header-banner-container" background="<?php print $bg_path; ?>" valign="top" style="background-image: url(<?php print $bg_path; ?>); background-repeat: no-repeat; background-size: cover; padding-top: 0; padding-bottom: 0px;height:140px;">
-        <!--[if gte mso 9]>
-        <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width: 840px;">
-          <v:fill type="frame" src="<?php print $bg_path; ?>" color="#6ca638" />
-          <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
-        <![endif]-->
-        <div>
-          <table border="0" cellpadding="0" cellspacing="0" width="100%" height="140" class="header-banner">
-            <tbody>
-              <tr>
-                <td style="width: 70%;height:140px;text-align: center; font-size: 24px; font-weight: bold; color: #ffffff; font-family: Arial,sans-serif; vertical-align: middle;">
-                  <?php print t("Healthy Workplaces Campaign Newsletter");?>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-         </div>
-        <!--[if gte mso 9]>
-          </v:textbox>
-        </v:rect>
-        <![endif]-->
+      <td class="header-banner-container" valign="top">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" height="140" class="header-banner">
+          <tbody>
+            <tr>
+              <td style="width: 70%;height:140px;text-align: center; font-size: 24px; font-weight: bold; color: #ffffff; font-family: Arial,sans-serif; vertical-align: middle;">
+                 <?php
+                  $directory = drupal_get_path('module', 'osha_newsletter');
+                  print (theme('image', array(
+                    'path' => $directory . '/images/' . 'header-banner-bg.png',
+                    'width' => '840',
+                    'height' => '140',
+                  )));
+                  ?>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </td>
     </tr>
   </tbody>
