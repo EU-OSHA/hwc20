@@ -1096,3 +1096,10 @@ function hwc_update_7071() {
   }
 
 }
+
+/*
+ * MHWC-60 Nodequeues - help text.
+ */
+function hwc_update_7072() {
+  features_revert(array('hwc' => 'views_view', 'taxonomy', 'field_base', 'field_instance'));
+}
