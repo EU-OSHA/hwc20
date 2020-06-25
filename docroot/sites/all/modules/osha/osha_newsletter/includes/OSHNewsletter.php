@@ -316,7 +316,7 @@ class OSHNewsletter {
         <div class="more-link-newsletter" style="display: table;margin: 0px auto;">
         <table style="border: 0; margin: 0; padding-top:15px;">
          <tr>
-          <td><a href="' . $url . '" style="background-color: #FFF; border: 1px solid #acc700;border-radius: 5px; color: #ffffff; padding: 0.5em 1em;
+          <td style="padding-top:10px"><a href="' . $url . '" style="background-color: #FFF; border: 1px solid #acc700;border-radius: 5px; color: #ffffff; padding: 0.5em 1em;
           color: #003399; text-decoration: none;text-transform: uppercase">' . t('View All') . '</a></td>
         </tr>
         </table>
@@ -454,7 +454,7 @@ class OSHNewsletter {
           $cellContent['width'] = $cellWidth;
           $cellContent['align'] = 'left';
           $cellContent['valign'] = 'top';
-          $cellStyle = sprintf('max-width:%spx;background-color: #749b00;', $cellWidth);
+          $cellStyle = sprintf('max-width:%spx;background-color: #a5bd1f;', $cellWidth);
           if (empty($cellContent['style'])) {
             $cellContent['style'] = $cellStyle;
           }

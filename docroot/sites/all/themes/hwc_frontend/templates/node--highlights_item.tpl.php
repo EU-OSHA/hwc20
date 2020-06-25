@@ -68,7 +68,7 @@ if (!empty($campaign_id)) {
                           }
                           else {
                             print l(theme('image_style', array(
-                              'style_name' => ($node->old_newsletter ? 'thumbnail' : 'newsletter_highlight'),
+                              'style_name' => 'medium_newsletter_crop',
                               'path' => (isset($field_image) && !empty($field_image)) ? $field_image[0]['uri'] : '',                              
                               'alt' => (isset($field_image) && !empty($field_image)) ? $field_image[0]['alt'] : '',
                               'attributes' => array('style' => ''),
@@ -151,21 +151,24 @@ if (!empty($campaign_id)) {
                     <tr>
                       <td style="font-family: Arial, sans-serif; padding-top: 10px;padding-bottom: 10px;">
                         <?php
-                          $more_link_class = 'see-more';
                           if ($node->type == 'publication') {
                             $node_url = url('node/' . $node->nid . '/view', array('absolute' => TRUE));
                           }
                           else {
                             $node_url = url('node/' . $node->nid, array('absolute' => TRUE));
                           }
-                          print l(t('<span class="prefix-arrow visible-mobile"> > </span> See more'), $node_url, array(
-                            'html' => TRUE,
-                            'attributes' => array('class' => [$more_link_class]),
-                            'query' => $url_query,
-                            'external' => TRUE,
-                          ));
+                          $directory = drupal_get_path('module', 'osha_newsletter');
+                          print l(theme('image', array(
+                            'path' => $directory . '/images/' . 'see-more-img.png',
+                            'width' => '92',
+                            'height' => '23',
+                            'attributes' => array('style' => 'border:0px;width:92px;height:23px;'),
+                          )), $node_url, array(
+                              'html' => TRUE,
+                              'query' => $url_query,
+                              'external' => TRUE,
+                            ));
                         ?>
-
                       </td>
                       <td class="highlight-share hidden-mobile" align="right" valign="middle" style="font-family: Arial, sans-serif; padding-top: 10px;">
                         <?php
