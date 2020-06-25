@@ -269,12 +269,12 @@ if (!empty($campaign_id)) {
         <td class="to-responsive" style="background: #a5bd1f;width: 100%;border-top-right-radius: 15px;border-bottom-right-radius: 15px">
           <table>
             <tr>
-              <td style="font-weight: normal; color:#FFF;padding-top: 25px;padding-bottom: 0;padding-left: 25px;">
+              <td style="font-weight: normal; color:#FFF;padding-top: 25px;padding-bottom: 0;padding-left: 15px;">
                 <?php echo format_date($field_publication_date, 'custom', 'd/m/Y'); ?>
               </td>
             </tr>
             <tr>
-              <td style="padding-left: 25px;padding-right: 25px;">
+              <td style="padding-left: 15px;padding-right: 25px;">
                 <?php
                   print l($title, url('node/' . $node->nid, array('absolute' => TRUE)), array(
                     'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #FFF; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;'),
@@ -287,7 +287,7 @@ if (!empty($campaign_id)) {
           </table>
           <table>
             <tr>
-              <td style="padding-top: 8px;color:#FFF;font-size: 13px;line-height: 18px;padding-left: 25px;padding-right: 25px;">
+              <td style="padding-top: 8px;color:#FFF;font-size: 13px;line-height: 18px;padding-left: 15px;padding-right: 25px;">
                 <?php
                 $is_empty = FALSE;
                 // todo city country.
