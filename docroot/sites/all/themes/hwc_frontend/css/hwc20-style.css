@@ -8532,18 +8532,6 @@ body.front-page .footer {
 body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcrumb {
   padding: 0px 1em 1.5em 0.8em;
 }
-.content-pdf-guide {
-  float: right;
-  margin-top: -25px;
-  /*TO DO when approve the label to the link*/
-  display: none;
-}
-.content-pdf-guide a {
-  background: url(../images/target-blank-blue.png) no-repeat 100% 4px;
-  color: #003399;
-  padding-right: 1.5em;
-  font-weight: bold;
-}
 .isMobile {
   float: right !important;
 }
