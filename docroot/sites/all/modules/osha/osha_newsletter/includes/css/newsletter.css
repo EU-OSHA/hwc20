@@ -213,10 +213,16 @@ td.social {
 }
 
 .highlight-title {
-  font-family: Arial, sans-serif;
-  font-size: 20px;
-  color: #003399;
-  text-decoration: none;
+    display: inline;
+    font-family: Oswald, Arial, sans-serif;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 18px;
+    vertical-align: middle;
+    text-decoration: none;
+    color: #003399;
+    line-height: 18px;
 }
 
 .newsletter-section .section-title {
