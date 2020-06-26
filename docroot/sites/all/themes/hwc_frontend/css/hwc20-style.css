@@ -8532,6 +8532,9 @@ body.front-page .footer {
 body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcrumb {
   padding: 0px 1em 1.5em 0.8em;
 }
+.link-pz-guide {
+  font-weight: 600;
+}
 .isMobile {
   float: right !important;
 }
