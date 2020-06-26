@@ -67,6 +67,32 @@ a[x-apple-data-detectors] {
     float: left;
     padding-left: 0 !important;
     width: 100% !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+
+  .newsletter-item.spotlight .to-responsive table tr td{
+    padding-left: 18px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .newsletter-item.spotlight .to-responsive > table:nth-child(2) > tbody > tr > td{
+    padding-bottom: 18px !important;
+  }
+
+  #page{
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+  .to-responsive-footer1{
+    display: none;
+  }
+
+  .to-responsive-footer2{
+    width: 100% !important
   }
 
   .body-responsive{
@@ -207,15 +233,6 @@ a[x-apple-data-detectors] {
     font-size: 23px !important;
     padding-bottom: 20px !important;
     padding-top: 0 !important;
-  }
-  .section-title {
-    font-size: 27px !important;
-    height: 27px !important;
-    padding-top: 30px !important;
-  }
-  .highlight-title {
-    font-size: 27px !important;
-    line-height: 27px !important;
   }
   .item-date {
     font-size: 14px !important;
