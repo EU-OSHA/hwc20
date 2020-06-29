@@ -10743,12 +10743,12 @@ article .hwc-share-widget ul {
 .field.field-name-field-image {
   margin-bottom: 0;
 }
-.container .field.field-name-body p a {
+.container .field.field-name-body p a,
+.container .field.field-name-body li a {
   background-color: transparent;
   color: #003399;
   font-weight: bold;
   font-style: normal;
-  border-bottom: 1px solid #749b00;
 }
 .page-private .field.field-name-body p a {
   border-bottom: 0px solid #749b00;
