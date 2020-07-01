@@ -260,6 +260,9 @@ function hwc_frontend_preprocess_html(&$vars) {
   if (variable_get('splash_mode', FALSE) || arg(0) == 'splash-page') {
     $vars['classes_array'][] = 'rel1';
   }
+  if (variable_get('staging_mode', '')) {
+    $vars['classes_array'][] = variable_get('staging_mode', '');
+  }
 
   if (isset($_SESSION['masquerading'])) {
     $vars['classes_array'][] = 'act-as-partner';

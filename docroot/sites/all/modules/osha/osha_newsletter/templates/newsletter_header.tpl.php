@@ -27,7 +27,7 @@ $directory = drupal_get_path('module','osha_newsletter');
     print t($newsletter_ready_date);
   ?>
 </span>
-<table border="0" cellpadding="0" cellspacing="0" width="800" class="preheader template-container">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="preheader template-container">
   <tbody>
     <tr>
       <td height="6" style="background-color: #003399;"">
@@ -36,7 +36,7 @@ $directory = drupal_get_path('module','osha_newsletter');
   </tbody>
 </table>
 
-<table border="0" cellpadding="0" cellspacing="0" width="800" style="font-family: Arial,sans-serif; table-layout: fixed;" class="header template-container">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-family: Arial,sans-serif; table-layout: fixed;" class="header template-container">
   <tbody>
     <tr>
       <td style="padding-top: 10px;padding-bottom: 10px;">
@@ -61,39 +61,35 @@ $directory = drupal_get_path('module','osha_newsletter');
   </tbody>
 </table>
 
-<table border="0" cellpadding="0" cellspacing="0" width="800" height="140" class="template-container">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="140" class="template-container">
   <tbody>
     <tr>
-      <?php
-        global $base_url;
-        $bg_path = "{$base_url}/sites/all/modules/osha/osha_newsletter/images/header-banner-bg.png";
-      ?>
-      <td class="header-banner-container" background="<?php print $bg_path; ?>" bgcolor="#6ca638" valign="top" style="background-image: url(<?php print $bg_path; ?>); background-repeat: no-repeat; background-size: cover; padding-top: 0; padding-bottom: 0px;">
-        <!--[if gte mso 9]>
-        <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width: 800px;">
-          <v:fill type="frame" src="<?php print $bg_path; ?>" color="#6ca638" />
-          <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
-        <![endif]-->
-        <div>
-          <table border="0" cellpadding="0" cellspacing="0" width="800" class="header-banner">
-            <tbody>
-              <tr>
-                <td style="width: 70%; text-align: center; font-size: 24px; font-weight: bold; color: #ffffff; font-family: Arial,sans-serif;padding-top: 35px;" class="header-title responsive-column">
-                  <?php print t("Healthy Workplaces Campaign Newsletter");?>
-                </td>
-              </tr>
-              <tr>
-                <td style="width: 30%; text-align: center; font-size: 21px; font-weight: normal; color: #ffffff; font-family: Arial,sans-serif;padding-top: 17px;padding-bottom: 17px;" class="header-date hidden-print responsive-column">
-                  <?php print t($newsletter_ready_date); ?>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-         </div>
-        <!--[if gte mso 9]>
-          </v:textbox>
-        </v:rect>
-        <![endif]-->
+      <td class="header-banner-container" valign="top">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" height="140" class="header-banner">
+          <tbody>
+            <tr>
+              <td style="width: 70%;height:140px;text-align: center; font-size: 24px; font-weight: bold; color: #ffffff; font-family: Arial,sans-serif; vertical-align: middle;">
+                 <?php
+                  $directory = drupal_get_path('module', 'osha_newsletter');
+                  print (theme('image', array(
+                    'path' => $directory . '/images/' . 'header-banner-bg.png',
+                    'width' => '840',
+                    'height' => '140',
+                  )));
+                  ?>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="800" class="header-banner">
+  <tbody>
+    <tr>
+      <td style="width: 30%; text-align: left; font-size: 21px; font-weight: normal; color: #003399; font-family: Arial,sans-serif;padding-top: 20px;padding-bottom: 0;padding-left: 20px" class="header-date hidden-print responsive-column">
+        <?php print t($newsletter_ready_date); ?>
       </td>
     </tr>
   </tbody>
