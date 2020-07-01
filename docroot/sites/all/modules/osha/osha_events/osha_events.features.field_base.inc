@@ -281,6 +281,7 @@ function osha_events_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
+        'EU' => 'EU',
         'AL' => 'Albania',
         'AT' => 'Austria',
         'BE' => 'Belgium',
