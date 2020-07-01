@@ -13,7 +13,7 @@
         echo ' - ';
         echo t(gmdate('F', $registration_deadline)) . gmdate(' Y', $registration_deadline);
         ?></span></div>
-    <div><span><?php echo t(gmdate('F', $last_date)) . gmdate(' Y', $last_date); ?></span></div>
+    <div><span><?php echo gmdate(' Y', $last_date); ?></span></div>
   </div>
   <div class="boxes">
     <div class="box <?php echo $download_class; ?>">
