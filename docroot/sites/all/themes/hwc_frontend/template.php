@@ -158,8 +158,8 @@ function hwc_frontend_menu_link(array $variables) {
   }
 
   if (arg(1) == 'campaign-materials') {
-    $exclude = variable_get('campaign_materials_exclude', []);
-    $include = variable_get('campaign_materials_include', []);
+    $exclude = variable_get('campaign_materials_exclude', [11667, 1120]);
+    $include = variable_get('campaign_materials_include', [1372, 2495]);
     if (in_array($element['#original_link']['mlid'], $exclude)) {
       $element['#attributes']['class'] = [];
     }
@@ -259,6 +259,9 @@ function hwc_frontend_preprocess_html(&$vars) {
 
   if (variable_get('splash_mode', FALSE) || arg(0) == 'splash-page') {
     $vars['classes_array'][] = 'rel1';
+  }
+  if (variable_get('staging_mode', '')) {
+    $vars['classes_array'][] = variable_get('staging_mode', '');
   }
 
   if (isset($_SESSION['masquerading'])) {
@@ -407,7 +410,15 @@ function hwc_frontend_preprocess_block(&$vars) {
   if ($block->delta == '-exp-documents-gpep') {
     $vars['theme_hook_suggestions'][] = 'block__gpep';
   }
-
+  if ($block->delta == 'hwc_homepage_topics') {
+    $vars['theme_hook_suggestions'][] = 'block__priority_area';
+  }
+  if ($block->delta == 'hwc_practical_tool_less') {
+    $vars['theme_hook_suggestions'][] = 'block__show_less';
+  }
+  if ($block->delta == 'hwc_practical_tool_more') {
+    $vars['theme_hook_suggestions'][] = 'block__show_more';
+  }
   if ($block->delta == 'partners-block_1') {
     $vars['theme_hook_suggestions'][] = 'block__partners';
   }
@@ -552,6 +563,22 @@ function hwc_frontend_preprocess_page(&$vars) {
   );
   $vars['show_title'] = TRUE;
   // Add back to links (e.g. Back to news).
+
+  if ((arg(0) == 'node') && (arg(2) == 'news')) {
+    $tag_vars['element']['#value'] = t('News');
+    $vars['page']['above_title']['title-alternative'] = array(
+      '#type' => 'item',
+      '#markup' => theme('html_tag', $tag_vars),
+    );
+  }
+  if ((arg(0) == 'node') && (arg(2) == 'events')) {
+    $tag_vars['element']['#value'] = t('Events');
+    $vars['page']['above_title']['title-alternative'] = array(
+      '#type' => 'item',
+      '#markup' => theme('html_tag', $tag_vars),
+    );
+  }
+
   if (isset($vars['node'])) {
     $node = $vars['node'];
     switch ($node->type) {
@@ -1503,4 +1530,44 @@ function hwc_frontend_top_anchor(&$vars) {
     'html' => TRUE,
   );
   $vars['top_anchor'] = l('<img alt="Anchor to top" src="'.file_create_url(path_to_theme().'/images/anchor-top.png').'" />', '', $options);
+}
+
+
+
+// Create a theme function that can be overridden by other theme developers.
+function hwc_frontend_text_resize_block() {
+  // Add js, css, and library
+  $content = array(
+    '#attached' => array(
+      'js' => array(
+        array(
+          'data' => "var text_resize_scope = " . drupal_json_encode(variable_get('text_resize_scope', 'main')) . ";
+          var text_resize_minimum = " . drupal_json_encode(variable_get('text_resize_minimum', '12')) . ";
+          var text_resize_maximum = " . drupal_json_encode(variable_get('text_resize_maximum', '25')) . ";
+          var text_resize_line_height_allow = " . drupal_json_encode(variable_get('text_resize_line_height_allow', FALSE)) . ";
+          var text_resize_line_height_min = " . drupal_json_encode(variable_get('text_resize_line_height_min', 16)) . ";
+          var text_resize_line_height_max = " . drupal_json_encode(variable_get('text_resize_line_height_max', 36)) . ";",
+          'type' => 'inline',
+        ),
+        array(
+          'data' => drupal_get_path('module', 'text_resize') . '/text_resize.js',
+          'type' => 'file',
+        )
+      ),
+      'css' => array(
+        drupal_get_path('module', 'text_resize') . '/text_resize.css',
+      ),
+      'library' => array(
+        array('system', 'jquery.cookie')
+      ),
+    ),
+  );
+  if (variable_get('text_resize_reset_button', FALSE) == TRUE) {
+    $content['#markup'] = t('<a href="javascript:;" class="changer" title="Smaller text" id="text_resize_decrease"><sup>-</sup>A</a> <a href="javascript:;" class="changer" id="text_resize_reset">A</a> <a href="javascript:;" class="changer" title="Bigger text" id="text_resize_increase"><sup>+</sup>A</a><div id="text_resize_clear"></div>');
+  }
+  else {
+    $content['#markup'] = t('<a href="javascript:;" class="changer" title="Smaller text" id="text_resize_decrease"><sup>-</sup>A</a> <a href="javascript:;" class="changer" title="Bigger text" id="text_resize_increase"><sup>+</sup>A</a><div id="text_resize_clear"></div>');
+  }
+
+  return render($content);
 }

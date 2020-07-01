@@ -1,5 +1,20 @@
 @media (max-width: 992px) {
 
+	body.front-page{
+		.main-container{
+			#block-views-homepage-banners-block{
+				.view-homepage-banners {
+					.view-content{
+						flex-direction: column;
+						> div:nth-child(3){
+							order: 4;
+						}
+					}
+				}
+			}
+		}
+	}
+
 	header.navbar-default{
 		&.sticky-menu{
 			.campaigns-header{
@@ -428,6 +443,9 @@
 					font-size: 2.2rem;
 				}
 			} 
+			p{
+				padding-bottom: 10px !important;
+			}
 		}
 
 		.box-latest-publications .right-column{
@@ -522,7 +540,7 @@
 					.views-row{
 						.more-link{
 							bottom: 10px;
-					    right: 0;
+					    	right: 0;
 						}
 					}
 				}
@@ -535,6 +553,21 @@
 		}
 	}
 
+	.page-tools-and-publications-practical-tools.page-search{
+		.main-container{
+			#block-system-main{
+				.view{
+					.views-row{
+						.more-link{
+							bottom: 15px;
+					    	right: auto;
+					    	left: 15px;
+						}
+					}
+				}
+			}
+		}
+	}
 
 	/* Panels - National Focal Points, etc. */
 	.panels-flexible-column-inside-first .profile-col-left-middle-2{
@@ -640,7 +673,7 @@
 		margin-left: 230px;
 		float: left;
 		clear: both;
-		margin-top: -2em;  
+		margin-top: 0;  
     }
 
 	.page-events .region-content #block-system-main .views-row > div{
@@ -823,6 +856,39 @@
 
 @media (max-width: 1024px){
 
+	html:lang(bg),
+	html:lang(da),
+	html:lang(de),
+	html:lang(et),
+	html:lang(es),
+	html:lang(is),
+	html:lang(hu),
+	html:lang(mt),
+	html:lang(nl),
+	html:lang(no),
+	html:lang(pt),
+	html:lang(sk),
+	html:lang(fi),
+	html:lang(sv)
+	{
+		header.navbar-default{
+			.navbar-collapse{
+				nav{
+					ul.menu{
+						> li{
+							font-size: 0.65em;
+							a{
+								padding: 2px;
+								line-height: 15px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
 	.profile-2-cols-container-3 .panels-flexible-column-last .field-type-link-field a{
 		white-space: nowrap; 
 		width: 188px; 
@@ -964,7 +1030,7 @@
 @media (max-width: 1200px){
 
 	.box-latest-publications{
-		min-height: 170px;
+		min-height: 190px;
 
 		.left-column{
 			display: none !important;
@@ -1020,9 +1086,44 @@
     	}
 	} 
 
-	.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node,
-	.add-to-calendar{
-		margin-top: auto;
+	html:lang(bg), 
+	html:lang(cs), 
+	html:lang(et), 
+	html:lang(el), 
+	html:lang(de), 
+	html:lang(es),
+	html:lang(fr), 
+	html:lang(hr), 
+	html:lang(is), 
+	html:lang(lv), 
+	html:lang(lt), 
+	html:lang(hu), 
+	html:lang(nl), 
+	html:lang(pl),
+	html:lang(pt),
+	html:lang(ro),
+	html:lang(sk),
+	html:lang(sl),
+	html:lang(fi),
+	html:lang(sv)
+	{
+		.how-to-apply{
+			.box{
+				width: 269px;
+			}
+
+			> div.boxes > div:nth-child(1){
+				left: 33px;
+			}
+
+			> div.boxes > div:nth-child(2){
+				left: 35%;
+			}
+
+			> div.boxes > div:nth-child(3) {
+				right: 5px;
+			}
+		}
 	}
 
 	.page-events #osha-events-dates-form {
@@ -1141,17 +1242,133 @@
 	.how-to-apply{
 		> div.boxes{
 			> div:nth-child(1) {
-	    		left: 44px;				
+	    		left: 44px ;				
 			}
 			> div:nth-child(2) {
-	   			left: 38%;
+	   			left: 38% ;
 			}
 			> div:nth-child(3) {
-	    		right: 8px;
+	    		right: 8px ;
 			}
 
 		}
 	}
+
+	/**/
+	html:lang(bg), 
+	html:lang(cs), 
+	html:lang(et), 
+	html:lang(el), 
+	html:lang(de), 
+	html:lang(es),
+	html:lang(fr), 
+	html:lang(hr), 
+	html:lang(is), 
+	html:lang(lv), 
+	html:lang(lt), 
+	html:lang(hu), 
+	html:lang(nl), 
+	html:lang(pl),
+	html:lang(pt),
+	html:lang(ro),
+	html:lang(sk),
+	html:lang(sl),
+	html:lang(fi),
+	html:lang(sv)
+	{	
+		.how-to-apply {
+		    background: url(../images/background-timeline-mobile.png) repeat-y;
+		    color: #FFF;
+		    text-align: center;
+		    float: left;
+		    width: 100%;
+		   	height: 868px;
+
+			> div.boxes > div:nth-child(1){
+				position: absolute;
+		    	left: 72px !important;
+		    	top: 68px;
+			}
+
+			> div.boxes > div:nth-child(2){
+				position: absolute;
+				left: 72px !important;
+	    		top: 310px;
+			}
+
+			> div.boxes > div:nth-child(3){
+				position: absolute;
+	    		left: 71px !important;
+	    		top: 546px;
+			}
+		}
+
+		.timeline{
+				width: 100%;
+				height: 654px;
+			    text-align: center;
+			    float: left;
+			    display: flex;
+			    flex-wrap: wrap;
+			    justify-content: center;
+			    background: none;
+			    padding-top: 70px;
+			    padding-bottom: 1em;
+			    position: relative;
+			    > div {
+					float: left;
+				}
+
+				> div:nth-child(1){
+					position: absolute;
+					left: 76px;
+		    		top: 37px;
+		    		&:after{
+		    			left: -67px;
+		    			top: 92px;
+		    		}
+			    }
+
+			    > div:nth-child(2){
+					position: absolute;
+			    	left: 74px;
+		    		top: 281px;
+			    	&:after{
+			    		left: -65px;
+		    			top: 101px;
+			    	}
+			    }
+
+			    > div:nth-child(3){
+					position: absolute;
+			    	left: 73px;
+		    		top: 518px;
+		    		right: initial;
+			    	&:after{
+			    		left: -64px;
+		    			top: 97px;
+			    	}
+			    }
+
+			    > div:nth-child(4){
+					position: absolute;
+			    	left: 101px;
+		    		top: 429px;
+		    		right: auto;
+			    	&:after{
+			    		left: -67px;
+		    			top: 3px;
+			    	}
+			    }
+
+			    > div:nth-child(5){
+					position: absolute;
+			    	left: 28px;
+		    		top: 535px;
+			    }
+			} 
+	}
+	/**/
 
 	.timeline{
 		> div:nth-child(1) {
@@ -1264,3 +1481,34 @@
 
 }
 
+@media (min-width: 990px) {
+	html:lang(de), html:lang(el){
+		.page-media-centre-events{
+			#edit-search-api-views-fulltext {
+			    width: 250px !important;
+			}
+		}
+		.page-events .region-content #block-system-main .views-exposed-widgets select {
+    		width: 200px!important;
+		}
+
+		.page-events .region-content #block-system-main .views-exposed-widgets #edit_years_chosen {
+		    width: 150px!important;
+		}
+	}
+
+	html:lang(fr), html:lang(pt){
+		.page-media-centre-events{
+			#edit-search-api-views-fulltext {
+			    width: 270px !important;
+			}
+		}
+		.page-events .region-content #block-system-main .views-exposed-widgets select {
+    		width: 180px!important;
+		}
+
+		.page-events .region-content #block-system-main .views-exposed-widgets #edit_years_chosen {
+		    width: 130px!important;
+		}
+	}
+}

@@ -975,17 +975,6 @@ ul.tabs--primary.nav.nav-tabs{
 		.field-name-body.field-type-text-with-summary p{
 			margin:0em 0em 1em;
   		}
-
-		.more-link{
-			color: @btn-default-bg;
-			background-color: transparent;
-			font-weight: bold;
-			font-style: normal;
-			padding-right: 20px;
-			&:before{
-				content: "";
-			}
-		}
 	}
 	
 	/* Node-XXX */
@@ -1000,12 +989,6 @@ ul.tabs--primary.nav.nav-tabs{
 		}
 		.field-name-field-summary{
 			font-weight: bold;
-		}
-		.more-link{
-			color: @btn-default-bg;
-			background-color: transparent;
-			font-weight: bold;
-			font-style: normal;
 		}
 	}
 	div[class*='view-']{
@@ -1080,6 +1063,7 @@ ul.tabs--primary.nav.nav-tabs{
 			font-family: "Glyphicons Halflings";
 			margin-left: 10px;
 			float: right;
+			margin-right: -20px;
 		}
 	}
 	.form-item-main-tags > label.active,
@@ -1095,6 +1079,7 @@ ul.tabs--primary.nav.nav-tabs{
 			font-family: "Glyphicons Halflings";
 			margin-left: 10px;
 			float: right;
+			margin-right: -20px;
 		}
 	}
 	.page-node .node-news{
@@ -1153,19 +1138,6 @@ ul.tabs--primary.nav.nav-tabs{
 			content: ">";
 			padding-right: 0.35em;
 		}
-		.more-link{
-			display: inline-table;
-			margin-top: 1em;
-			a{
-				color: @color1;
-				font-style: normal;
-				font-weight: normal;
-				&:before{
-					content: "";
-					padding-right: 0.35em;
-				}
-			}
-		}
 		.date-display-single{
 			font-size: @size3;
 		}
@@ -1190,11 +1162,6 @@ ul.tabs--primary.nav.nav-tabs{
 			div{
 				padding-left: 0px;
 				padding-right: 0px;
-				&.more-link{
-					padding-left: 15px;
-					padding-right: 15px;
-					font-size: @size4;
-				}
 			}
 		}
 	}
@@ -1317,20 +1284,7 @@ ul.tabs--primary.nav.nav-tabs{
 			content: ">";
 			padding-right: 0.35em;
 		}
-		.more-link{
-			display: inline-table;
-			margin-top: 1em;
-			a{
-				color: @color1;
-				font-style: normal;
-				font-weight: normal;
-				&:before{
-					content: "";
-					padding-right: 0.35em;
-				}
-			}
-		}
-		
+			
 		.view-content{
 			overflow: hidden;
 			.views-row{
@@ -1344,11 +1298,6 @@ ul.tabs--primary.nav.nav-tabs{
 			div{
 				padding-left: 0px;
 				padding-right: 0px;
-				&.more-link{
-					padding-left: 15px;
-					padding-right: 15px;
-					font-size: @size4;
-				}
 			}
 		}
 	}
@@ -1360,8 +1309,6 @@ ul.tabs--primary.nav.nav-tabs{
 	#block-views-partners-block-1{
 		padding-top: 0em;
 		clear: both;
-		padding-left: @margin1;
-		padding-right: @margin1;
 		padding-bottom: 40px;
 		.views-field-field-logo{
 			padding-top: 1em;
@@ -1598,13 +1545,6 @@ ul.tabs--primary.nav.nav-tabs{
 					background-position: -20px center;
 				}
 			}
-		}
-		
-		.more-link{
-			color: @btn-default-bg;
-			background-color: transparent;
-			font-weight: bold;
-			font-style: normal;
 		}
 	}
 	
@@ -1951,7 +1891,7 @@ ul.tabs--primary.nav.nav-tabs{
 				border:1px solid #CCC;
 			}
 		}
-		.more-link, ul li a{
+		ul li a{
 			color: @btn-default-bg;
 			background-color: transparent;
 			font-weight: bold;
@@ -2819,15 +2759,6 @@ ul.tabs--primary.nav.nav-tabs{
 		}
 		.field-type-text-with-summary{
 			margin-bottom: 1em;
-			.more-link{
-				background-color: transparent;
-				color: @color2;
-				font-weight: bold;
-				font-style: normal;
-				&:before{
-					content: "> ";
-				}
-			}
 		}
 		.left-column{
 			//article images - news
@@ -5770,41 +5701,6 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 						}
 					}
 				}
-				.views-field-search-api-relevance{
-					a{
-						border: 1px solid #b0b1b3;
-						border-bottom: 1px solid #b0b1b3 !important;
-						border-radius: 3px;
-						color: #b0b1b3;
-						text-transform: uppercase;
-						padding: 2px 7px 2px 7px;
-						font-size: 12px;
-						font-weight: normal;
-						font-style: normal;
-						transition: 300ms;
-						background-position: 110%;
-						&:hover{
-							width: auto;
-							text-transform: uppercase;
-							padding: 2px 7px 2px 7px;
-							font-size: 12px;
-							font-weight: normal;
-							font-style: normal;
-							float: left;
-							transition: 300ms;
-							text-decoration: none;
-							color: #58595b;
-							border: 1px solid #58595b;
-							border-bottom: 1px solid #58595b !important;
-							border-top-left-radius: 3px;
-							border-bottom-left-radius: 3px;
-							border-top-right-radius: 15px;
-							border-bottom-right-radius: 15px;
-							background: url(../images/ico-plus-20-hover-plus.png) no-repeat 98% 0px;
-							padding-right: 2em;
-						}
-					}
-				}
 				strong{
 					color: @text-color-3;
 				}
@@ -7080,13 +6976,6 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 			margin-top: 1.7em;
 		}
 	}
-	.more-link{
-		color: @btn-default-color;
-		clear: both;
-		display: block;
-		width: 100%;
-		margin-top: 2em;
-	}
 }
 /* End view-partners */
 
@@ -7934,9 +7823,6 @@ fieldset.captcha {
 			.field.field-name-field-publication-date, .field-name-body{
 				clear:both;
 			}
-			.more-link{
-				font-size: @size4;
-			}
 			.group-left{
 				width: auto;
 				padding-right: 0;
@@ -8250,10 +8136,6 @@ span.date-display-single{
 	margin-top:1em;
 }
 
-.more-link{
-	border-bottom: 0px!important;
-}
-
 .page-user-login .block-system form{
 	float: left;
 	padding-left: 3em;
@@ -8553,23 +8435,6 @@ input#edit-field-image-und-0-upload::before {
 		}
 		.field-type-text-with-summary{
 			text-align: center;
-			
-			.more-link{			
-				padding: 8px 20px 8px 20px;
-				margin-top: 15px;
-				display: inline-block;
-				margin-bottom: 40px;
-				&:before{
-					content: "> ";
-					color: white;
-				}
-				a{
-					color: white;
-				    border: none;
-				    width: auto;
-				    font-style: normal;
-				}
-			}
 		}
 	}
 }
@@ -9168,17 +9033,6 @@ input#edit-field-image-und-0-upload::before {
 	    			}
 	    		}
 	    	}
-	    	.more-link{
-	    		color: white !important;
-			    background-color: @color2 !important;
-			    border-radius: 0;
-			    border: none;
-			    width: auto;
-			    font-weight: normal !important;
-			    font-style: normal !important;
-			    display: inline;
-			    padding: 0.5em;
-	    	}
 	    }
 
 	}
@@ -9368,29 +9222,6 @@ input#edit-field-image-und-0-upload::before {
 		.view-footer{
 			margin-top: 30px;
 			margin-bottom: 30px;
-			.more-link{
-				text-align: center;
-				background-color: @color2 !important;
-				color: white !important;
-				max-width: 220px !important;
-				margin: 0 auto !important;
-				display: block;
-				font-style: normal !important;
-				font-weight: normal !important;
-				a{
-					
-				}
-				&:before{
-						content: "" !important;
-					}
-				&:after{
-					content:"\e164";
-					font-family: "Glyphicons Halflings";
-					font-weight: lighter;
-					margin-left: 3px;
-					vertical-align: text-bottom;
-				}
-			}
 		}
 	}
 	.facebook-column{

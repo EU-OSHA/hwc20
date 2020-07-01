@@ -1,6 +1,7 @@
 .isMobile{
 	float: right !important;
 }
+
 @media (min-width: 1200px) {
 	/*Slider Publications*/
 	body.page-tools-and-publications-publications{
@@ -21,8 +22,40 @@
 	}
 }
 
-
 @media (max-width: 1200px){
+
+	html:lang(bg),
+	html:lang(da),
+	html:lang(de),
+	html:lang(et),
+	html:lang(es),
+	html:lang(is),
+	html:lang(hu),
+	html:lang(mt),
+	html:lang(nl),
+	html:lang(no),
+	html:lang(pt),
+	html:lang(sk),
+	html:lang(fi),
+	html:lang(sv)
+	{
+		header.navbar-default{
+			.navbar-collapse{
+				nav{
+					ul.menu{
+						> li{
+							font-size: 0.85em;
+							a{
+								padding: 2px;
+								line-height: 15px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
 
 	.intro-splash-20{
 		.views-row-first{
@@ -89,7 +122,20 @@
 				background-size: contain;
 			}
 		}
+	}
 
+	body.front-page{
+		.main-container{
+			#block-hwc-homepage-hwc-homepage-topics{
+				.priority_area{
+					ul{
+					    li:nth-child(4){
+					    	margin-right: 2em;
+					    }
+					}
+				}
+			}
+		}
 	}
 
 	/*Slider Publications*/
@@ -131,6 +177,8 @@
 					> li{
 						height: 70px;
 						border-right: 1px solid #FFF;
+						display: flex;
+						align-items: center;
 						> a{
 					    border: none !important;
 					    .caret{
@@ -142,8 +190,7 @@
 			}
 		}
 	}
-
-
+	
 	.start-browsing {
     	background: url(../images/background-start-browsing.png) repeat-y;
 	}
@@ -315,10 +362,7 @@
 	    cursor: inherit;
 	}
 
-
 }
-
-
 
 @media (min-width: 1480px) {
 
@@ -337,13 +381,34 @@
 			span.add-to-my-calendar {
 			    display: block;
 			    float: left;
-		    	margin-left: 400px;
+		    	margin-left: 500px;
 	    	}
 		}
 	}
 }
 
 @media (max-width: 1465px) {
+
+	header.navbar-default{
+		.navbar-collapse{
+			nav{
+				ul.menu{
+					> li{
+						height: 70px;
+						border-right: 1px solid #FFF;
+						display: flex;
+						align-items: center;
+						> a{
+					    border: none !important;
+					    .caret{
+					    	display: none;
+					    }
+						}
+					}
+				}
+			}
+		}
+	}
 
 	.intro-splash-20{
 		.views-row-first{
@@ -442,8 +507,26 @@
 
 }
 
-
 @media (max-width: 1280px) {
+
+
+	html:lang(de),
+	html:lang(el),
+	html:lang(es),
+	html:lang(fr),
+	html:lang(hu),
+	html:lang(pl),
+	html:lang(pt),
+	html:lang(ro)
+	{
+		.intro-splash-20{
+			.views-row-first{
+				h1{
+					font-size: 2.3em;
+				}
+			}
+		}
+	}
 
 	/* Events */
 	.page-events{
@@ -476,4 +559,53 @@
 		}
 	}
 
+}
+
+@media (max-width: 1919px) {
+	.front-page{
+		.go-to-anchor{
+			 display: none !important;
+		}
+	}
+
+}
+
+
+@media (max-width: 1865px) {
+
+	html:lang(bg),
+	html:lang(da),
+	html:lang(de),
+	html:lang(et),
+	html:lang(es),
+	html:lang(is),
+	html:lang(hu),
+	html:lang(mt),
+	html:lang(nl),
+	html:lang(no),
+	html:lang(pt),
+	html:lang(sk),
+	html:lang(fi),
+	html:lang(sv){
+		header.navbar-default{
+			.navbar-collapse{
+				nav{
+					ul.menu{
+						> li{
+							height: 70px;
+							border-right: 1px solid #FFF;
+							display: flex;
+							align-items: center;
+							> a{
+						    border: none !important;
+						    .caret{
+						    	display: none;
+						    }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
