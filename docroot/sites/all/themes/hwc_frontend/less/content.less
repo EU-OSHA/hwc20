@@ -2944,13 +2944,12 @@ article{
 }
 
 .container .field.field-name-body{
-	p{
+	p, li{
 		a{
 			background-color: @color0;
 			color: @color2;
 			font-weight: bold;
 			font-style: normal;
-			border-bottom: 1px solid @color3;
 		}
 	}
 }
@@ -11176,6 +11175,16 @@ blockquote.image-field-caption {
 	    color: #000;
 	    float: left;
     }
+}
+
+/*Caption news detail*/
+.node-type-news{
+	blockquote.image-field-caption {
+	    p{
+		    font-size: 13px;
+		    line-height: 16px;
+	    }
+	}
 }
 
 .view-publication-type .views-row:hover .views-field-field-image a{

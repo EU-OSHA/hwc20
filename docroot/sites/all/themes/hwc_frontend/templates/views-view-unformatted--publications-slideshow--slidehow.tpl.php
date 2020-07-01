@@ -19,8 +19,8 @@
           </div>
           <ol class="multicarousel-indicators">
           </ol>
-          <button class="btn btn-primary leftLst over"><img src="/sites/all/themes/hwc_frontend/images/slider-left.png" title="show more"></button>
-          <button class="btn btn-primary rightLst"><img src="/sites/all/themes/hwc_frontend/images/slider-right.png" title="show more"></button>
+          <button class="btn btn-primary leftLst over"><img alt="Slider left" src="/sites/all/themes/hwc_frontend/images/slider-left.png" title="show more"></button>
+          <button class="btn btn-primary rightLst"><img alt="Slider right" src="/sites/all/themes/hwc_frontend/images/slider-right.png" title="show more"></button>
         </div>
       </div>
     </div>
