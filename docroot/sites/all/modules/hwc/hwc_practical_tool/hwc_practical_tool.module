@@ -271,13 +271,6 @@ function hwc_practical_tool_views_post_render(&$view, &$output, &$cache) {
     $form = drupal_get_form('hwc_practical_tool_sort_form');
     $order_html = '<div class="sort-container col-xs-3">' . drupal_render($form) . '</div><span class="count-container pull-right">';
     $output = trim(str_replace('@order', $order_html, $output)) . '</span>';
-    $loader_text = t('Dear partner: Please wait a few seconds. Your data is being retrieved.');
-    drupal_add_js('jQuery(document).ready(function () {
-jQuery(\'.page-practical-tools .region-sidebar-first a\').click(divFunction);
-function divFunction(){
- jQuery(\'.view-content\').prepend(\'<div class="loader"><img id="tmgmt-4" src="/sites/all/themes/hwc_frontend/images/hwc_clock.png" alt=""><p id="tmgmt-5">' . $loader_text . '</p></div>\');
-}
-    });', 'inline');
   }
 }
 
@@ -307,6 +300,20 @@ function hwc_practical_tool_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'cache' => DRUPAL_NO_CACHE,
   );
+  $blocks['hwc_practical_tool_more'] = array(
+    'info' => t('Practical tools - show more filters'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['hwc_practical_tool_less'] = array(
+    'info' => t('Practical tools - show less filters'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   return $blocks;
 }
 
@@ -316,6 +323,14 @@ function hwc_practical_tool_block_info() {
 function hwc_practical_tool_block_view($delta = '') {
   global $language;
   $block = array();
+  if ($delta == 'hwc_practical_tool_more') {
+    $block['title'] = '<none>';
+    $block['content'] = '<a href="#" id="practical-tool-more-link">' . t('Show more filters') . '</a>';
+  }
+  if ($delta == 'hwc_practical_tool_less') {
+    $block['title'] = '<none>';
+    $block['content'] = '<a href="#" id="practical-tool-less-link">' . t('Show less filters') . '</a>';
+  }
   if ($delta == 'hwc_practical_tool_text') {
     $block['title'] = '<none>';
     $node = node_load(139);

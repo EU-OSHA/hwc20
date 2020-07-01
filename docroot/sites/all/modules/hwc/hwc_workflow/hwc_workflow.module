@@ -39,7 +39,8 @@ function hwc_workflow_node_submit($node, $form, &$form_state) {
       $accounts[] = user_load($uid);
     }
     if ($accounts) {
-      OshaWorkflowNotifications::sendEmail($accounts, array('node' => $node), 'hwc_workflow', 'hwc_workflow_personalize_reviewer_notification');
+// todo check if needed...
+// OshaWorkflowNotifications::sendEmail($accounts, array('node' => $node), 'hwc_workflow', 'hwc_workflow_personalize_reviewer_notification');
     }
     // Remove old HWC Staff - Reviewers.
     foreach ($old as $uid => $ep) {
@@ -55,11 +56,7 @@ function hwc_workflow_add_extra_fields(&$form, &$form_state) {
   global $user;
 
   $state = NULL;
-  $form['field_reviewer_body']['#access'] = FALSE;
-  $form['field_reviewer_subject']['#access'] = FALSE;
-
   if (!empty($form['nid']['#value'])) {
-    hwc_workflow_add_default_notification($form);
     $node = $form_state['node'];
     $state = $node->workbench_moderation['current']->state;
     if ($node->workbench_moderation['current']->state == OSHA_WORKFLOW_STATE_TO_BE_APPROVED) {
@@ -107,66 +104,61 @@ function hwc_workflow_menu_alter(&$items) {
  * Mail subject text.
  */
 function hwc_workflow_get_mail_subject_text($node, $settings_type) {
-  $field = 'field_approved_subject';
+  $transition = '';
+  $country = '';
+  if ($node->type == 'events') {
+    $country = $node->field_country_code[LANGUAGE_NONE][0]['value'];
+  }
+  if ($country) {
+    $country_field = field_info_field('field_country_code');
+    $allowed_values = list_allowed_values($country_field);
+    $country = ' - ' . $allowed_values[$country];
+  }
+
   switch ($settings_type) {
-    case 'approved':
-      $field = 'field_approved_subject';
-      $variable = 'hwc_workflow_approved_subject';
+    case 'approve_partner':
+      $transition = t('Please approve');
       break;
-
     case 'rejection':
-      $field = 'field_rejection_subject';
-      $variable = 'hwc_workflow_rejection_subject';
+      $transition = t('Please update');
       break;
-
-    case 'supervisor':
-      $field = 'field_supervisor_subject';
-      $variable = 'hwc_workflow_supervisor_subject';
+    case 'published':
+      $transition = t('Published');
       break;
-
     case 'reviewer':
-      $field = 'field_reviewer_subject';
-      $variable = 'hwc_workflow_reviewer_subject';
+      $transition = t('Please review');
       break;
+    case 'approve_mostra':
+      $transition = t('Please approve');
+      break;
+
   }
-  $value = $node->$field;
-  $subject = $value[LANGUAGE_NONE][0]['value'];
-  if (!$subject) {
-    $subject = variable_get($variable);
-  }
+  $subject = strtr("[HWC Website]CMW: (@nid) @transition@country - @title",
+    array(
+      '@nid' => $node->nid,
+      '@transition' => $transition,
+      '@country' => $country,
+      '@title' => $node->title,
+    )
+  );
   return $subject;
 }
 
 /**
  * Mail body text.
  */
-function hwc_workflow_get_mail_body_text($node, $settings_type) {
-  $field = 'field_approved_body';
-  switch ($settings_type) {
-    case 'approved':
-      $field = 'field_approved_body';
-      $variable = 'hwc_workflow_approved_body';
-      break;
-
-    case 'rejection':
-      $field = 'field_rejection_body';
-      $variable = 'hwc_workflow_rejection_body';
-      break;
-
-    case 'supervisor':
-      $field = 'field_supervisor_body';
-      $variable = 'hwc_workflow_supervisor_body';
-      break;
-
-    case 'reviewer':
-      $field = 'field_reviewer_body';
-      $variable = 'hwc_workflow_reviewer_body';
-      break;
+function hwc_workflow_get_mail_body_text($message, $node, $settings_type) {
+  $field = 'field_notification_comment';
+  if (!variable_get('hwc_workflow_append_' . $settings_type, FALSE)) {
+    return $message;
   }
   $value = $node->$field;
-  $message = $value[LANGUAGE_NONE][0]['value'];
-  if (!$message) {
-    $message = variable_get($variable);
+  if (variable_get('hwc_workflow_append_mail_body', TRUE)) {
+    $message .= $value[LANGUAGE_NONE][0]['value'];
+  }
+  else {
+    $message = $value[LANGUAGE_NONE][0]['value'];
+
   }
   return $message;
 }
@@ -176,8 +168,6 @@ function hwc_workflow_get_mail_body_text($node, $settings_type) {
  */
 function hwc_workflow_news_events_mail_fields_visibility(&$form, $state) {
   global  $user;
-  $access_rejection = FALSE;
-
   $access = FALSE;
   if (
     (
@@ -187,12 +177,7 @@ function hwc_workflow_news_events_mail_fields_visibility(&$form, $state) {
     ) && ($state == OSHA_WORKFLOW_STATE_TO_BE_APPROVED)
   ) {
     $access = TRUE;
-    $access_rejection = TRUE;
   }
-  $form['field_approved_subject']['#access'] = $access;
-  $form['field_approved_body']['#access'] = $access;
-
-  $access = FALSE;
   if (
     (
       in_array(HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR, $user->roles) ||
@@ -200,14 +185,8 @@ function hwc_workflow_news_events_mail_fields_visibility(&$form, $state) {
     ) && ($state == OSHA_WORKFLOW_STATE_TO_BE_REVIEWED)
   ) {
     $access = TRUE;
-    $access_rejection = TRUE;
   }
-  $form['field_supervisor_subject']['#access'] = $access;
-  $form['field_supervisor_body']['#access'] = $access;
-
-  $form['field_rejection_subject']['#access'] = $access_rejection;
-  $form['field_rejection_body']['#access'] = $access_rejection;
-
+  $form['field_notification_comment']['#access'] = $access;
 }
 /**
  * News and events visibility.
@@ -226,34 +205,6 @@ function hwc_workflow_news_events_reviewers_list_visibility(&$form) {
       $access = TRUE;
     }
     $form['reviewers_list']['#access'] = $access;
-    $form['field_reviewer_subject']['#access'] = $access;
-    $form['field_reviewer_body']['#access'] = $access;
-  }
-}
-
-/**
- * Add default notification subject and body for news and events.
- */
-function hwc_workflow_add_default_notification(&$form) {
-  $map = [
-    'field_approved_subject' => 'hwc_workflow_approved_subject',
-    'field_approved_body' => 'hwc_workflow_approved_body',
-
-    'field_rejection_subject' => 'hwc_workflow_rejection_subject',
-    'field_rejection_body' => 'hwc_workflow_rejection_body',
-
-    'field_supervisor_subject' => 'hwc_workflow_supervisor_subject',
-    'field_supervisor_body' => 'hwc_workflow_supervisor_body',
-
-    'field_reviewer_subject' => 'hwc_workflow_reviewer_subject',
-    'field_reviewer_body' => 'hwc_workflow_reviewer_body',
-  ];
-
-  foreach ($map as $field => $variable) {
-    $lang = $form[$field]['#language'];
-    if (empty($form[$field][$lang][0]['value']['#default_value'])) {
-      $form[$field][$lang][0]['value']['#default_value'] = variable_get($variable, '');
-    }
   }
 }
 
@@ -507,12 +458,6 @@ function hwc_workflow_permission() {
 function hwc_workflow_mail($key, &$message, $params) {
   $subject = str_replace(array("\r", "\n"), '', $params['subject']);
   $body = $params['message'];
-  if ($key == 'hwc_workflow_personalize_reviewer_notification') {
-    $node = $params['node'];
-    $type = 'reviewer';
-    $subject = hwc_workflow_get_mail_subject_text($node, $type);
-    $body = hwc_workflow_get_mail_body_text($node, $type);
-  }
   $message['subject'] = token_replace($subject, $params);
   $body = token_replace($body, $params);
   if (variable_get('hwc_workflow_mail_nl2br', TRUE)) {

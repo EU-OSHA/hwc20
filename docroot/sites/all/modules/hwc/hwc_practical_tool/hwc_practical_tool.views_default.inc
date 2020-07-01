@@ -121,7 +121,7 @@ function hwc_practical_tool_views_default_views() {
   $handler->display->display_options['empty']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['empty']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['empty']['area_text_custom']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area_text_custom']['content'] = 'No results';
+  $handler->display->display_options['empty']['area_text_custom']['content'] = 'No results found';
   /* Field: Indexed Multilingual Content: Multilingual ID */
   $handler->display->display_options['fields']['search_api_et_id']['id'] = 'search_api_et_id';
   $handler->display->display_options['fields']['search_api_et_id']['table'] = 'search_api_index_default_multilingual_node_index';
@@ -587,7 +587,7 @@ function hwc_practical_tool_views_default_views() {
     t('last »'),
     t('@total'),
     t('<div class="pager-total"><span>@start - @end / @total</span></div>'),
-    t('No results'),
+    t('No results found'),
     t('Multilingual ID'),
     t('Language of original language description	'),
     t('<span class="views-label">Country </span><span>[field_material_country]</span>'),

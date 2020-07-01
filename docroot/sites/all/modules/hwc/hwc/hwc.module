@@ -2088,7 +2088,7 @@ function hwc_page_alter(&$page) {
 
 function theme_hwc_print_friendly_block() {
   $content = array(
-    '#markup' => '<a href="javascript:if(window.print)window.print();" class="printfriendly" title="Print page"></a>'
+    '#markup' => t('<a href="javascript:if(window.print)window.print();" class="printfriendly" title="Print page"></a>')
   );
   return render($content);
 }

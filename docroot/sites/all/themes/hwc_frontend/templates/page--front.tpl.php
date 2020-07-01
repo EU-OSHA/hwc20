@@ -107,6 +107,7 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
       }
       print render($title_suffix);
       print $messages; ?>
+      <span class="go-to-anchor"></span>
       <div class="below_title">
         <?php print render($page['below_title']); ?>
       </div>

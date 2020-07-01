@@ -6,7 +6,7 @@
   </div>
   <div class="box-before col-md-5 col-sm-5 col-xs-12">
     <div class="box-before social-media">
-      <h3><span><?php print $data['social_media_title'];?></span></h3>
+      <h3><span><?php print l($data['social_media_title'], 'media-centre/social-media-centre');?></span></h3>
       <p><?php print $data['social_media_intro'];?></p>
       <?php print $data['social_media_icons']; ?>
       <?php print $data['social_media_see_all'];?>

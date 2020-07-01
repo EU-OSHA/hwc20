@@ -41,7 +41,8 @@ function hwc_workflow_default_rules_configuration() {
       "DO" : [
         { "hwc_custom_mail_to_users_of_partner" : {
             "node" : [ "node" ],
-            "settings_type" : { "value" : { "rejection" : "rejection" } }
+            "settings_type" : { "value" : { "rejection" : "rejection" } },
+            "message" : "\\u003Cp\\u003EDear Partner,\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThe [node:type] item that you submitted for publication on your organisation\\u2019s profile has been validated by EU-OSHA and has been rejected. Please update.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u003Ca href=\\u0022[node:url]\\u0022\\u003E[node:title]\\u003C\\/a\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E__SIGNATURE__\\u003C\\/p\\u003E"
           }
         }
       ]
@@ -66,7 +67,7 @@ function hwc_workflow_default_rules_configuration() {
         { "hwc_mail_to_users_of_partner" : {
             "node" : [ "node" ],
             "subject" : "HWC Workflow: New document added for your company",
-            "message" : "\\u003Cp\\u003EDear partner,\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EYour [node:type] is currently in the \\u201cpublish\\u201d status\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u003Ca href=\\u0022[node:url]\\u0022\\u003E[node:title]\\u003C\\/a\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you for your participation in the Healthy Workplaces Campaign 2018-2019 Manage Dangerous Substances campaign.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E__SIGNATURE__\\u003C\\/p\\u003E"
+            "message" : "\\u003Cp\\u003EDear partner,\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EYour [node:type] is currently in the \\u201cpublish\\u201d status\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u003Ca href=\\u0022[node:url]\\u0022\\u003E[node:title]\\u003C\\/a\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you for your participation in the Healthy Workplaces Campaign 2020-2022 Healthy Workplaces Lighten the Load campaign.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E__SIGNATURE__\\u003C\\/p\\u003E"
           }
         }
       ]
@@ -95,8 +96,9 @@ function hwc_workflow_default_rules_configuration() {
       "DO" : [
         { "hwc_mail_to_users_of_role" : {
             "node" : [ "node" ],
+            "settings_type" : { "value" : { "approve_mostra" : "approve_mostra" } },
             "roles" : { "value" : { "17" : "17" } },
-            "settings_type" : { "value" : { "supervisor" : "supervisor" } }
+            "message" : "\\u003Cp\\u003EDear [list_item:name],\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E[user:name] should approve this content \\u003Ca href=\\u0022[node:url]\\u0022\\u003E[node:title]\\u003C\\/a\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E__SIGNATURE__\\u003C\\/p\\u003E"
           }
         }
       ]
@@ -124,10 +126,11 @@ function hwc_workflow_default_rules_configuration() {
         { "NOT data_is" : { "data" : [ "previous-state" ], "value" : "needs_review" } }
       ],
       "DO" : [
-        { "mail_to_users_of_role" : {
+        { "hwc_mail_to_users_of_role" : {
+            "node" : [ "node" ],
+            "settings_type" : { "value" : { "approve_partner" : "approve_partner" } },
             "roles" : { "value" : { "17" : "17" } },
-            "subject" : "New news\\/events item uploaded by HWC partner",
-            "message" : "\\u003Cp\\u003EPlease go to the back-office of the HWC website at \\u003Ca href=\\u0022https:\\/\\/healthy-workplaces.eu\\/en\\/admin\\/content\\u0022\\u003Ehttps:\\/\\/healthy-workplaces.eu\\/en\\/admin\\/content\\u003C\\/a\\u003E and check the news\\/events item created by a HWC partner.\\u003C\\/p\\u003E\\r\\n"
+            "message" : "\\u003Cp\\u003E[node:author:name] ([node:author:mail]) has submitted a [node:type] item for approval. Please see the submitted update here: \\u003Ca href=\\u0022[node:url]\\u0022\\u003E[node:title]\\u003C\\/a\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E__SIGNATURE__\\u003C\\/p\\u003E"
           }
         }
       ]
@@ -156,8 +159,9 @@ function hwc_workflow_default_rules_configuration() {
       "DO" : [
         { "hwc_mail_to_users_of_role" : {
             "node" : [ "node" ],
+            "settings_type" : { "value" : { "approve_mostra" : "approve_mostra" } },
             "roles" : { "value" : { "15" : "15" } },
-            "settings_type" : { "value" : { "supervisor" : "supervisor" } }
+            "message" : "\\u003Cp\\u003E[node:author:name] ([node:author:mail]) has submitted a [node:type] item for approval. Please see the submitted update here: \\u003Ca href=\\u0022[node:url]\\u0022\\u003E[node:title]\\u003C\\/a\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E__SIGNATURE__\\u003C\\/p\\u003E"
           }
         }
       ]
@@ -185,10 +189,11 @@ function hwc_workflow_default_rules_configuration() {
         { "NOT data_is" : { "data" : [ "previous-state" ], "value" : "needs_review" } }
       ],
       "DO" : [
-        { "mail_to_users_of_role" : {
+        { "hwc_mail_to_users_of_role" : {
+            "node" : [ "node" ],
+            "settings_type" : { "value" : { "approve_partner" : "approve_partner" } },
             "roles" : { "value" : { "15" : "15" } },
-            "subject" : "New news\\/events item uploaded by HWC partner",
-            "message" : "\\u003Cp\\u003EPlease go to the back-office of the HWC website at \\u003Ca href=\\u0022https:\\/\\/healthy-workplaces.eu\\/en\\/admin\\/content\\u0022\\u003Ehttps:\\/\\/healthy-workplaces.eu\\/en\\/admin\\/content\\u003C\\/a\\u003E and check the news\\/events item created by a HWC partner.\\u003C\\/p\\u003E\\r\\n"
+            "message" : "\\u003Cp\\u003E[node:author:name] ([node:author:mail]) has submitted a [node:type] item for approval. Please see the submitted update here: \\u003Ca href=\\u0022[node:url]\\u0022\\u003E[node:title]\\u003C\\/a\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E__SIGNATURE__\\u003C\\/p\\u003E"
           }
         }
       ]
@@ -238,7 +243,7 @@ function hwc_workflow_default_rules_configuration() {
         { "hwc_mail_to_users_of_partner" : {
             "node" : [ "node" ],
             "subject" : "HWC Workflow: New content has been sent for validation",
-            "message" : "\\u003Cp\\u003EDear Partner,\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you for submitting a [node:type] item for publication on your organisation\\u2019s profile on the campaign website. Once validated by EU-OSHA, this update will be visible on your public profile. You will be informed when the update has been published.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u003Ca href=\\u0022[node:url]\\u0022\\u003E[node:title]\\u003C\\/a\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you for your participation in the Healthy Workplaces Campaign 2018-2019 Manage Dangerous Substances campaign.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E__SIGNATURE__\\u003C\\/p\\u003E\\r\\n"
+            "message" : "\\u003Cp\\u003EDear Partner,\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you for submitting a [node:type] item for publication on your organisation\\u2019s profile on the campaign website. Once validated by EU-OSHA, this update will be visible on your public profile. You will be informed when the update has been published.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u003Ca href=\\u0022[node:url]\\u0022\\u003E[node:title]\\u003C\\/a\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you for your participation in the Healthy Workplaces Campaign 2020-2022 Healthy Workplaces Lighten the Load campaign.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E__SIGNATURE__\\u003C\\/p\\u003E\\r\\n"
           }
         }
       ]
@@ -298,7 +303,7 @@ function hwc_workflow_default_rules_configuration() {
         { "hwc_mail_to_users_of_partner" : {
             "node" : [ "node" ],
             "subject" : "HWC Workflow: New content added for your company",
-            "message" : "\\u003Cp\\u003EDear partner,\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EYour [node:type] is currently in the \\u201csave-as-draft\\u201d status which means that you can still edit it before you decide to \\u201csubmit\\u201d it for validation\\u201d\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u003Ca href=\\u0022[node:url]\\u0022\\u003E[node:title]\\u003C\\/a\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you for your participation in the Healthy Workplaces Campaign 2018-2019 Manage Dangerous Substances campaign.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E__SIGNATURE__\\u003C\\/p\\u003E"
+            "message" : "\\u003Cp\\u003EDear partner,\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EYour [node:type] is currently in the \\u201csave-as-draft\\u201d status which means that you can still edit it before you decide to \\u201csubmit\\u201d it for validation\\u201d\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u003Ca href=\\u0022[node:url]\\u0022\\u003E[node:title]\\u003C\\/a\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you for your participation in the Healthy Workplaces Campaign 2020-2022 Healthy Workplaces Lighten the Load campaign.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E__SIGNATURE__\\u003C\\/p\\u003E"
           }
         }
       ]
@@ -323,7 +328,8 @@ function hwc_workflow_default_rules_configuration() {
       "DO" : [
         { "hwc_custom_mail_to_users_of_partner" : {
             "node" : [ "node" ],
-            "settings_type" : { "value" : { "approved" : "approved" } }
+            "settings_type" : { "value" : { "published" : "published" } },
+            "message" : "\\u003Cp\\u003EDear Partner,\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThe [node:type] item that you submitted for publication on your organisation\\u2019s profile has been validated by EU-OSHA and has now been published.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u003Ca href=\\u0022[node:url]\\u0022\\u003E[node:title]\\u003C\\/a\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you for your participation in the Healthy Workplaces Campaign 2020-2022 Healthy Workplaces Lighten the Load campaign.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E__SIGNATURE__\\u003C\\/p\\u003E"
           }
         }
       ]
@@ -374,8 +380,9 @@ function hwc_workflow_default_rules_configuration() {
       "DO" : [
         { "hwc_mail_to_users_of_role" : {
             "node" : [ "node" ],
+            "settings_type" : { "value" : { "reviewer" : "reviewer" } },
             "roles" : { "value" : { "13" : "13" } },
-            "settings_type" : { "value" : { "reviewer" : "reviewer" } }
+            "message" : "\\u003Cp\\u003E[node:author:name] ([node:author:mail]) has submitted a [node:type] item for review. Please see the submitted update here: \\u003Ca href=\\u0022[node:url]\\u0022\\u003E[node:title]\\u003C\\/a\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E__SIGNATURE__\\u003C\\/p\\u003E"
           }
         }
       ]
@@ -424,7 +431,7 @@ function hwc_workflow_default_rules_configuration() {
         { "hwc_mail_to_related_partners" : {
             "node" : [ "node" ],
             "subject" : "HWC Workflow: New document added for your company",
-            "message" : "\\u003Cp\\u003EDear partner,\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EYour [node:type] is currently in the \\u201cpublish\\u201d status\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u003Ca href=\\u0022[node:url]\\u0022\\u003E[node:title]\\u003C\\/a\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you for your participation in the Healthy Workplaces Campaign 2018-2019 Manage Dangerous Substances campaign.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E__SIGNATURE__\\u003C\\/p\\u003E"
+            "message" : "\\u003Cp\\u003EDear partner,\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EYour [node:type] is currently in the \\u201cpublish\\u201d status\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E\\u003Ca href=\\u0022[node:url]\\u0022\\u003E[node:title]\\u003C\\/a\\u003E\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003EThank you for your participation in the Healthy Workplaces Campaign 2020-2022 Healthy Workplaces Lighten the Load campaign.\\u003C\\/p\\u003E\\r\\n\\u003Cp\\u003E__SIGNATURE__\\u003C\\/p\\u003E"
           }
         }
       ]
