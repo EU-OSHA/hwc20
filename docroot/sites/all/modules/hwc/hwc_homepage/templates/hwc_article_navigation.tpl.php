@@ -6,7 +6,7 @@ if ($prev || $next) {
     <?php  if ($prev) { ?>
       <div class="previous">
         <a href="<?php print url($prev['link_path']); ?>">
-          <img src="/<?php print $theme_dir; ?>/images/previous.png">
+          <img alt="<?php print t('Previous');?>" src="/<?php print $theme_dir; ?>/images/previous.png">
           <span class="previous-text">
             <span><?php print t('Previous');?></span>
             <span><?php print $prev['title'] ?></span>
@@ -21,7 +21,7 @@ if ($prev || $next) {
             <span><?php print t('Next');?></span>
             <span><?php print $next['title'] ?></span>
           </span>
-          <img src="/<?php print $theme_dir; ?>/images/next.png"></a>
+          <img alt="<?php print t('Next');?>" src="/<?php print $theme_dir; ?>/images/next.png"></a>
       </div>
     <?php }?>
   </div>
