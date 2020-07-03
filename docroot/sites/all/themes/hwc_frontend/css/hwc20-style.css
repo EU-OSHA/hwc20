@@ -4593,7 +4593,7 @@ span.add-to-my-calendar {
   font-weight: 500;
 }
 .node-type-events .content-left-column {
-  width: 70%;
+  width: 65%;
   float: left;
   padding-top: 2em;
 }
@@ -4678,7 +4678,7 @@ span.add-to-my-calendar {
 }
 .node-type-events .group-right2 {
   float: right;
-  width: 22%;
+  width: 260px;
   padding-top: 2em;
 }
 .node-type-events .group-right2 .event_day_month {
@@ -8806,6 +8806,9 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
   .page_title h1 {
     width: 65%;
+  }
+  .node-type-events .content-left-column {
+    width: 70%;
   }
   .page-media-centre-events .view-events-search span.add-to-my-calendar {
     display: block;
