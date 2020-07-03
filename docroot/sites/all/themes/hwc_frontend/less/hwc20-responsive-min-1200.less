@@ -20,10 +20,29 @@
 		}
 
 	}
+
+	html:lang(de),
+	html:lang(el){
+		.intro-footer{
+			max-width: 615px;
+		}
+	}
+
+	
 }
 
 @media (max-width: 1200px){
 
+	html:lang(de),
+	html:lang(fi)
+	{
+		#block-hwc-homepage-footer-section{
+			.col-md-2{
+				padding-left: 3px;
+				padding-right: 3px;
+			}
+		}
+	}
 
 	.previous-next.two-arrows{
 		height: 114px;
@@ -33,6 +52,12 @@
 	.previous span:nth-child(2), .next span:nth-child(2) {
 	    width: 170px;
 	}
+
+	.intro-footer{
+		max-width: 460px;
+    	font-size: 12px;
+	}
+
 
 	html:lang(bg),
 	html:lang(da),
