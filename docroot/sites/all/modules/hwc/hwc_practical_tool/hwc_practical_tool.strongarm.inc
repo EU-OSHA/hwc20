@@ -224,7 +224,7 @@ function hwc_practical_tool_strongarm() {
         ),
         'bottom_share_widget' => array(
           'default' => array(
-            'weight' => '27',
+            'weight' => '11',
             'visible' => TRUE,
           ),
         ),
@@ -265,14 +265,14 @@ function hwc_practical_tool_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'hwc_migration_highlights_add_res_url';
-  $strongarm->value = '/export/list-additional-resources/campaign_2020-2022';
+  $strongarm->value = '/export/list-additional-resources/campaign_2020-2022c';
   $export['hwc_migration_highlights_add_res_url'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'hwc_migration_highlights_url';
-  $strongarm->value = '/export/list/highlight/campaign_2020-2022';
+  $strongarm->value = '/export/highlight/list/campaign_2020-2022';
   $export['hwc_migration_highlights_url'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -285,15 +285,8 @@ function hwc_practical_tool_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'hwc_migration_msd_url';
-  $strongarm->value = '';
-  $export['hwc_migration_msd_url'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'hwc_migration_news_add_res_url';
-  $strongarm->value = '/export/list-additional-resources/campaign_2020-2022';
+  $strongarm->value = '/export/list-additional-resources/campaign_2020-2022d';
   $export['hwc_migration_news_add_res_url'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -328,7 +321,7 @@ function hwc_practical_tool_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'hwc_migration_press_releases_add_res_url';
-  $strongarm->value = '/export/list-additional-resources/campaign_2020-2022';
+  $strongarm->value = '/export/list-additional-resources/campaign_2020-2022a';
   $export['hwc_migration_press_releases_add_res_url'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -342,21 +335,21 @@ function hwc_practical_tool_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'hwc_migration_publications_add_res_url';
-  $strongarm->value = '';
+  $strongarm->value = '/export/list-additional-resources/campaign_2020-2022b';
   $export['hwc_migration_publications_add_res_url'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'hwc_migration_publications_url';
-  $strongarm->value = '/export/list/publication/campaign_2020-2022';
+  $strongarm->value = '/export/list/publication_hwc20/campaign_2020-2022?2';
   $export['hwc_migration_publications_url'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'hwc_migration_root_url';
-  $strongarm->value = 'https://test.osha.europa.eu';
+  $strongarm->value = 'https://osha.europa.eu';
   $export['hwc_migration_root_url'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -503,7 +496,7 @@ function hwc_practical_tool_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'hwc_migration_tax_prevention_measures_url';
-  $strongarm->value = '/export/taxonomy/prevention_measures';
+  $strongarm->value = '/export/taxonomy/prevention_measures_msd';
   $export['hwc_migration_tax_prevention_measures_url'] = $strongarm;
 
   $strongarm = new stdClass();

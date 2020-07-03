@@ -206,7 +206,6 @@ features[variable][] = hwc_migration_gallery_url
 features[variable][] = hwc_migration_highlights_add_res_url
 features[variable][] = hwc_migration_highlights_url
 features[variable][] = hwc_migration_infographics_url
-features[variable][] = hwc_migration_msd_url
 features[variable][] = hwc_migration_news_add_res_url
 features[variable][] = hwc_migration_news_url
 features[variable][] = hwc_migration_notes_to_editor_url
