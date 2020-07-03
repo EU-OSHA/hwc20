@@ -8556,6 +8556,14 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
 }
 @media (max-width: 1200px) {
+  .previous-next.two-arrows {
+    height: 114px;
+    align-items: flex-start;
+  }
+  .previous span:nth-child(2),
+  .next span:nth-child(2) {
+    width: 170px;
+  }
   html:lang(bg) header.navbar-default .navbar-collapse nav ul.menu > li,
   html:lang(da) header.navbar-default .navbar-collapse nav ul.menu > li,
   html:lang(de) header.navbar-default .navbar-collapse nav ul.menu > li,
