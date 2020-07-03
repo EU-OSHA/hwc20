@@ -382,7 +382,7 @@
 
 	.page_title{
 		h1{
-		    width: 65%;
+		    width: 70%;
 		}
 	}
 
@@ -402,6 +402,13 @@
 }
 
 @media (max-width: 1465px) {
+
+	html:lang(de), html:lang(es),html:lang(bg) {
+		/*HW20-884*/
+		.page_title h1 {
+		    font-size: 2.6em;
+		}	
+	}
 
 	header.navbar-default{
 		.navbar-collapse{
