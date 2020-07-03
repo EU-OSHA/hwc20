@@ -3875,9 +3875,6 @@ body.een .box-type-partner {
   padding-bottom: 5px;
   padding-top: 5px;
 }
-html:lang(de) .node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col .more-link a {
-  font-size: 0.75em;
-}
 .how-to-apply {
   background: url('../images/background-timeline.png') no-repeat;
   color: #FFF;
