@@ -1455,11 +1455,8 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 .content {
   margin-top: 3em;
 }
-.introductory-page .field-name-body {
-  text-align: center;
-  font-size: 1.7rem;
-  padding-bottom: 2em;
-  color: #003399;
+#block-menu-block-7 {
+  padding-top: 0.5em;
 }
 .region.region-sidebar-first.well {
   background: transparent;
