@@ -6336,7 +6336,7 @@ body.front-page .main-container #block-views-homepage-banners-block .view-homepa
 }
 body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-first h1,
 body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last h1 {
-  padding-top: 1.5em;
+  padding-top: 1em;
   border-bottom: 0;
   font-size: 2em;
   font-style: normal;
@@ -6357,7 +6357,7 @@ body.front-page .main-container #block-views-homepage-banners-block .view-homepa
   color: #FFF;
   padding-top: 1em;
   padding-bottom: 2em;
-  max-width: 430px;
+  max-width: 540px;
   margin: 0 auto;
   font-size: 1.2em;
 }
@@ -6366,6 +6366,9 @@ body.front-page .main-container #block-views-homepage-banners-block .view-homepa
   display: flex;
   justify-content: center;
   align-items: center;
+}
+body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last p {
+  max-width: 600px;
 }
 body.front-page .main-container #block-views-partners-block-1 {
   margin-top: 2em;
