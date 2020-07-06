@@ -995,7 +995,7 @@ ul.time-and-counters li .counter-label {
   -webkit-filter: brightness(0) invert(1);
 }
 .container-recommended-tools .recommended-tool {
-  width: 95%;
+  width: 100%;
 }
 .news-events .box-news h3:before {
   content: ' ';
