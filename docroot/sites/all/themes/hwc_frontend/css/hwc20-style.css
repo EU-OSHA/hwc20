@@ -32,6 +32,18 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
 header.navbar-default .navbar-collapse nav ul.menu li {
   width: 15%;
 }
+html:lang(is) header.navbar-default .campaigns-header #block-menu-menu-header-login a {
+  width: 129px;
+}
+html:lang(pl) header.navbar-default .campaigns-header #block-menu-menu-header-login a {
+  width: 106px;
+}
+html:lang(pt) header.navbar-default .campaigns-header #block-menu-menu-header-login a {
+  width: 123px;
+}
+html:lang(fi) header.navbar-default .campaigns-header #block-menu-menu-header-login a {
+  width: 137px;
+}
 .region-above-header.region {
   margin-top: 0;
   padding-top: 0;
@@ -391,9 +403,11 @@ select {
 .intro-splash-20 .more-link {
   background: transparent;
 }
+html:lang(bg) .intro-splash-20 h2,
+html:lang(cs) .intro-splash-20 h2,
 html:lang(de) .intro-splash-20 h2,
+html:lang(et) .intro-splash-20 h2,
 html:lang(el) .intro-splash-20 h2,
-html:lang(es) .intro-splash-20 h2,
 html:lang(fr) .intro-splash-20 h2,
 html:lang(hu) .intro-splash-20 h2,
 html:lang(pl) .intro-splash-20 h2,
@@ -401,9 +415,11 @@ html:lang(pt) .intro-splash-20 h2,
 html:lang(ro) .intro-splash-20 h2 {
   font-size: 1.8em;
 }
+html:lang(bg) .intro-splash-20 .views-row-first > p:nth-child(3),
+html:lang(cs) .intro-splash-20 .views-row-first > p:nth-child(3),
 html:lang(de) .intro-splash-20 .views-row-first > p:nth-child(3),
+html:lang(et) .intro-splash-20 .views-row-first > p:nth-child(3),
 html:lang(el) .intro-splash-20 .views-row-first > p:nth-child(3),
-html:lang(es) .intro-splash-20 .views-row-first > p:nth-child(3),
 html:lang(fr) .intro-splash-20 .views-row-first > p:nth-child(3),
 html:lang(hu) .intro-splash-20 .views-row-first > p:nth-child(3),
 html:lang(pl) .intro-splash-20 .views-row-first > p:nth-child(3),
@@ -1439,11 +1455,8 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 .content {
   margin-top: 3em;
 }
-.introductory-page .field-name-body {
-  text-align: center;
-  font-size: 1.7rem;
-  padding-bottom: 2em;
-  color: #003399;
+#block-menu-block-7 {
+  padding-top: 0.5em;
 }
 .region.region-sidebar-first.well {
   background: transparent;
@@ -3875,7 +3888,7 @@ body.een .box-type-partner {
   padding-bottom: 5px;
   padding-top: 5px;
 }
-html:lang(de) .node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col .more-link a {
+html:lang(hr) .node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col .more-link a {
   font-size: 0.75em;
 }
 .how-to-apply {
@@ -4596,7 +4609,7 @@ span.add-to-my-calendar {
   font-weight: 500;
 }
 .node-type-events .content-left-column {
-  width: 70%;
+  width: 65%;
   float: left;
   padding-top: 2em;
 }
@@ -4681,7 +4694,7 @@ span.add-to-my-calendar {
 }
 .node-type-events .group-right2 {
   float: right;
-  width: 22%;
+  width: 260px;
   padding-top: 2em;
 }
 .node-type-events .group-right2 .event_day_month {
@@ -6323,7 +6336,7 @@ body.front-page .main-container #block-views-homepage-banners-block .view-homepa
 }
 body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-first h1,
 body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last h1 {
-  padding-top: 1.5em;
+  padding-top: 1em;
   border-bottom: 0;
   font-size: 2em;
   font-style: normal;
@@ -6344,7 +6357,7 @@ body.front-page .main-container #block-views-homepage-banners-block .view-homepa
   color: #FFF;
   padding-top: 1em;
   padding-bottom: 2em;
-  max-width: 430px;
+  max-width: 540px;
   margin: 0 auto;
   font-size: 1.2em;
 }
@@ -6353,6 +6366,9 @@ body.front-page .main-container #block-views-homepage-banners-block .view-homepa
   display: flex;
   justify-content: center;
   align-items: center;
+}
+body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last p {
+  max-width: 600px;
 }
 body.front-page .main-container #block-views-partners-block-1 {
   margin-top: 2em;
@@ -8554,8 +8570,29 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   body.page-tools-and-publications-publications ol.multicarousel-indicators {
     display: none;
   }
+  html:lang(de) .intro-footer,
+  html:lang(el) .intro-footer {
+    max-width: 615px;
+  }
 }
 @media (max-width: 1200px) {
+  html:lang(de) #block-hwc-homepage-footer-section .col-md-2,
+  html:lang(fi) #block-hwc-homepage-footer-section .col-md-2 {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  .previous-next.two-arrows {
+    height: 114px;
+    align-items: flex-start;
+  }
+  .previous span:nth-child(2),
+  .next span:nth-child(2) {
+    width: 170px;
+  }
+  .intro-footer {
+    max-width: 460px;
+    font-size: 12px;
+  }
   html:lang(bg) header.navbar-default .navbar-collapse nav ul.menu > li,
   html:lang(da) header.navbar-default .navbar-collapse nav ul.menu > li,
   html:lang(de) header.navbar-default .navbar-collapse nav ul.menu > li,
@@ -8800,7 +8837,10 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     width: 72%;
   }
   .page_title h1 {
-    width: 65%;
+    width: 70%;
+  }
+  .node-type-events .content-left-column {
+    width: 70%;
   }
   .page-media-centre-events .view-events-search span.add-to-my-calendar {
     display: block;
@@ -8809,6 +8849,16 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
 }
 @media (max-width: 1465px) {
+  html:lang(de),
+  html:lang(es),
+  html:lang(bg) {
+    /*HW20-884*/
+  }
+  html:lang(de) .page_title h1,
+  html:lang(es) .page_title h1,
+  html:lang(bg) .page_title h1 {
+    font-size: 2.6em;
+  }
   header.navbar-default .navbar-collapse nav ul.menu > li {
     height: 70px;
     border-right: 1px solid #FFF;
@@ -8980,6 +9030,9 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
   body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .view-content > div:nth-child(3) {
     order: 4;
+  }
+  .intro-footer {
+    max-width: 100%;
   }
   header.navbar-default.sticky-menu .campaigns-header .navbar-header .col-xs-12.col-sm-9 {
     display: flex;

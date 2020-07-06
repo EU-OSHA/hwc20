@@ -50,6 +50,54 @@ header.navbar-default .navbar-collapse nav ul.menu li {
 	width: 15%;
 }
 
+html:lang(is){
+	header.navbar-default{ 
+		.campaigns-header {
+			#block-menu-menu-header-login {
+				a{
+					width: 129px;
+				}
+			}
+		}
+	}
+}
+
+html:lang(pl){
+	header.navbar-default{ 
+		.campaigns-header {
+			#block-menu-menu-header-login {
+				a{
+					width: 106px;
+				}
+			}
+		}
+	}
+}
+
+html:lang(pt){
+	header.navbar-default{ 
+		.campaigns-header {
+			#block-menu-menu-header-login {
+				a{
+					width: 123px;
+				}
+			}
+		}
+	}
+}
+
+html:lang(fi){
+	header.navbar-default{ 
+		.campaigns-header {
+			#block-menu-menu-header-login {
+				a{
+					width: 137px;
+				}
+			}
+		}
+	}
+}
+
 .region-above-header.region {
   margin-top: 0;
   padding-top: 0;
@@ -463,9 +511,11 @@ select{
 	}
 }
 
+html:lang(bg),
+html:lang(cs),
 html:lang(de),
+html:lang(et),
 html:lang(el),
-html:lang(es),
 html:lang(fr),
 html:lang(hu),
 html:lang(pl),
@@ -1653,13 +1703,8 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 	margin-top: 3em;
 }
 
-.introductory-page{
-	.field-name-body{
-		text-align: center;
-	    font-size: 1.7rem;
-	    padding-bottom: 2em;
-	    color: #003399;
-	}
+#block-menu-block-7{
+	padding-top: 0.5em;
 }
 
 .region.region-sidebar-first.well{
@@ -4404,18 +4449,18 @@ body{
 
 		}
 	}
-
 }
 
-html:lang(de){
+html:lang(hr)
+{
 	.node-type-article article .field-name-body.field-type-text-with-summary{
 		.become-partner{
 			.coments .col{
 				.more-link{
-					a{
-						font-size: 0.75em;
-					}
-				}    
+	    			a{
+	    				font-size: 0.75em;
+	    			}
+	    		}    
 
 			}
 		}
@@ -5131,7 +5176,7 @@ span.add-to-my-calendar{
 	}
 
 	.content-left-column{
-		width: 70%;
+		width: 65%;
 		float: left;
 		padding-top: 2em;
 	}
@@ -5210,7 +5255,7 @@ span.add-to-my-calendar{
 
 	.group-right2{
 		float: right;
-	 	width: 22%;
+	 	width: 260px;
 	 	padding-top: 2em;
 	 	.event_day_month{
 	 		display: flex;
@@ -7022,7 +7067,7 @@ body.front-page{
 					padding-bottom: 0;
 					height: 385px;
 					h1{
-						padding-top: 1.5em;
+						padding-top: 1em;
 					    border-bottom: 0;
 					    font-size: 2em;
 					    font-style: normal;
@@ -7043,7 +7088,7 @@ body.front-page{
 						color: #FFF;
 					    padding-top: 1em;
 					    padding-bottom: 2em;
-					    max-width: 430px;
+					    max-width: 540px;
 					    margin: 0 auto;
 					    font-size: 1.2em;
 					}
@@ -7052,6 +7097,12 @@ body.front-page{
 						display: flex;
 			    		justify-content: center;
 			    		align-items: center;
+					}
+				}
+
+				.views-row-last{
+					p{
+					    max-width: 600px;
 					}
 				}
 			}
