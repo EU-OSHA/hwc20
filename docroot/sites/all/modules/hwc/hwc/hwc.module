@@ -67,6 +67,10 @@ function hwc_cron() {
  * hook_views_query_alter
  */
 function hwc_views_query_alter(&$view, &$query) {
+  if (($view->name == 'osh_workflow_admin') && (in_array($view->current_display, ['my_content']))) {
+    $view->query->where[2]['type'] = 'AND';
+  }
+
   if (($view->name == 'news') && (in_array($view->current_display, ['page_1', 'press_room']))) {
     if (!empty($query->table_queue['field_data_field_show_on'])) {
       $query->table_queue['field_data_field_show_on']['join']->type = "LEFT";
