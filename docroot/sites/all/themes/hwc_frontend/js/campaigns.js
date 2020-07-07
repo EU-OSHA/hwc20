@@ -1037,4 +1037,10 @@ jQuery(document).ready(function($){
 		$( "body.page-entity-collection div.table-responsive" ).removeClass('table-responsive');
 	}
 
+	/* Hide country and location if is empty */
+  	$("body.page-media-centre-events .views-field-field-country-code .field-content").filter(function() {
+    	return $(this).text() === "";
+	}).css("display", "none");
+	
+
 });
