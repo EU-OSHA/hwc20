@@ -235,6 +235,9 @@ class OSHNewsletter {
     if ($variables['section']->name == 'More news') {
       $variables['section']->name = '';
     }
+    if ($variables['section']->name == 'In the spotlight') {
+      $variables['section']->name = '';
+    }
     if (!empty($variables['section']->name)) {
       $icon = self::getConfiguration($entityCollection, 'field_icon', $variables['section']);
       $class = 'section-title';
