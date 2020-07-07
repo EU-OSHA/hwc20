@@ -1357,11 +1357,14 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   margin-top: 0;
   font-weight: 400;
   background: url(../images/grey-h3-line.png) repeat-x 50% 75%;
-  margin-bottom: 0.5em;
+  margin-bottom: 0;
 }
 #block-views-partners-block-1 h2 span {
   background: #FFF;
   padding-right: 0.7em;
+}
+#block-views-partners-block-1 .view-header .content {
+  margin-top: 0.5em;
 }
 .view-partners {
   padding: 1em 0;
@@ -8284,7 +8287,7 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics h2.block
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area_info {
   text-align: center;
-  width: 80%;
+  width: 85%;
   margin: 0.5em auto;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area {
