@@ -4,7 +4,7 @@
 /** @var timestamp $first_date */
 /** @var timestamp $last_date */
 ?>
-<div class="how-to-apply">
+<div class="how-to-apply<?php if (!variable_get('hwc_partner_registration_last_date_month', FALSE)) { echo ' year-only'; } ?>">
   <h3><?php print t('How to apply');?></h3>
   <div class="timeline">
     <div><span><?php
@@ -18,7 +18,7 @@
         echo ' - ';
         echo t(gmdate('F', $registration_deadline)) . gmdate(' Y', $registration_deadline);
         ?></span></div>
-    <div><span <?php if (!variable_get('hwc_partner_registration_last_date_month', FALSE)) { echo 'class="year-only"'; } ?>><?php
+    <div><span><?php
         if (variable_get('hwc_partner_registration_last_date_month', FALSE)) {
           echo t(gmdate('F', $last_date));
         }
