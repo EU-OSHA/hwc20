@@ -97,7 +97,27 @@ function osha_newsletter_menu() {
     'type' => MENU_CALLBACK,
     'access arguments' => array('access content'),
   );
+
+  $items['entity-collection/%entity_collection/devel'] = array(
+    'title' => 'Devel',
+    'page callback' => 'osha_newsletter_devel_load_object',
+    'page arguments' => array('entity_collection_edit_form', 1),
+    'access arguments' => array('access devel information'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 100,
+  );
+
   return $items;
+}
+
+/**
+ * Menu callback; prints the loaded structure of the current node/user.
+ */
+function osha_newsletter_devel_load_object($type, $collection, $name = NULL) {
+  if ($collection) {
+    $tree = $collection->getTree();
+  }
+  return kdevel_print_object($collection, '$'. $name .'->') . kdevel_print_object($tree);
 }
 
 /**
