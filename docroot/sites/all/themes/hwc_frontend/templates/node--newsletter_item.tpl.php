@@ -24,11 +24,6 @@ if (!empty($campaign_id)) {
 <?php if ($node->title != NULL) {?>
 <table id="node-<?php print $node->nid; ?>" class="newsletter-item <?php print drupal_clean_css_identifier($node->type); ?>">
     <tbody>
-  <?php if(!empty($node->old_newsletter)): ?>
-        <tr>
-            <td colspan="3" class="pt15"></td>
-        </tr>
-  <?php endif; ?>
   <?php
   if (isset($node->field_publication_date[LANGUAGE_NONE][0]['value']) && $node->type != 'newsletter_article') {
     $date = strtotime($node->field_publication_date[LANGUAGE_NONE][0]['value']);
@@ -411,11 +406,7 @@ if (!empty($campaign_id)) {
       </tr>
     <?php
   }
-  if(!empty($node->old_newsletter)): ?>
-      <tr>
-          <td colspan="3" class="pt15"></td>
-      </tr>
-  <?php endif; ?>
+  ?>
     </tbody>
     </table>
 <?php }

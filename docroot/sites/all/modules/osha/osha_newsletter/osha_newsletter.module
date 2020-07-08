@@ -624,6 +624,19 @@ function osha_newsletter_add_to_newsletter_action($node, $context) {
       }
       else {
         $children = $tree->getChildren();
+        $news_found = 0;
+        $more_news_key = 'taxonomy_term:' . variable_get('osha_newsletter_more_news_tid', '86');
+        foreach ($children as $k => $v) {
+          if ($k == $more_news_key) {
+            break;
+          }
+          if ($v->type == 'taxonomy_term') {
+            continue;
+          }
+          if ($v->content->type == 'news') {
+            $news_found++;
+          }
+        }
 
         // Mapping of term newsletter sections and content types.
         $term_mapping = variable_get('osha_newsletter_term_ct_map');
@@ -635,6 +648,10 @@ function osha_newsletter_add_to_newsletter_action($node, $context) {
         if (!empty($term_mapping[$node->type])) {
           $category_uuid = $term_mapping[$node->type];
           $category_view_mode = $term_mapping["view_mode_" . $node->type];
+        }
+        if ($node->type == 'news' && $news_found < 2) {
+          $category_uuid = variable_get('osha_newsletter_first_2_news_section', '884e6599-3e8f-4fa0-96af-2d30627a0cc8');
+          $category_view_mode = variable_get('osha_newsletter_first_2_news_view_mode', $term_mapping["view_mode_" . $node->type]);
         }
 
         foreach ($children as $child) {

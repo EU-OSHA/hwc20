@@ -30,11 +30,7 @@ if (!empty($campaign_id)) {
         <table border="0" cellpadding="0" cellspacing="0" class="item-thumbnail-and-title" width="100%">
           <thead>
             <tr>
-              <th rowspan=<?php print($node->old_newsletter ? '1' : '2'); ?>
-                  width="220"
-                  <?php if(!$node->old_newsletter) { ?>
-                    class="template-column template-image"
-                  <?php } ?> >
+              <th rowspan=2 width="220" class="template-column template-image">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                   <tbody>
                     <tr>
@@ -50,7 +46,7 @@ if (!empty($campaign_id)) {
                             if (!empty($video_id)) {
                                 if (!empty($osha_newsletter_send_mail)) {
                                   print l(theme('image', array(
-                                    'style_name' => ($node->old_newsletter ? 'thumbnail' : 'newsletter_highlight'),
+                                    'style_name' => 'newsletter_highlight',
                                     'path' => sprintf("https://img.youtube.com/vi/%s/hqdefault.jpg", $video_id),
                                     'alt' => $title,
                                     'attributes' => array('style' => 'border-radius: 15px;'),
@@ -111,7 +107,7 @@ if (!empty($campaign_id)) {
                 ?>
               </th>
             </tr>
-            <tr><th <?php if ($node->old_newsletter) { ?> colspan="2"<?php } ?> class="body-responsive" style="padding-left: 15px;">
+            <tr><th class="body-responsive" style="padding-left: 15px;">
               <table border="0" cellpadding="0" cellspacing="0" class="item-summary" width="100%">
                 <tbody>
                   <tr>
@@ -147,27 +143,26 @@ if (!empty($campaign_id)) {
                       ?>
                     </td>
                   </tr>
-                  <?php if(empty($node->old_newsletter)) { ?>
-                    <tr>
+                  <tr>
                       <td style="font-family: Arial, sans-serif; padding-top: 10px;padding-bottom: 10px;">
                         <?php
-                          if ($node->type == 'publication') {
-                            $node_url = url('node/' . $node->nid . '/view', array('absolute' => TRUE));
-                          }
-                          else {
-                            $node_url = url('node/' . $node->nid, array('absolute' => TRUE));
-                          }
-                          $directory = drupal_get_path('module', 'osha_newsletter');
-                          print l(theme('image', array(
-                            'path' => $directory . '/images/' . 'see-more-img.png',
-                            'width' => '92',
-                            'height' => '23',
-                            'attributes' => array('style' => 'border:0px;width:92px;height:23px;'),
-                          )), $node_url, array(
-                              'html' => TRUE,
-                              'query' => $url_query,
-                              'external' => TRUE,
-                            ));
+                        if ($node->type == 'publication') {
+                          $node_url = url('node/' . $node->nid . '/view', array('absolute' => TRUE));
+                        }
+                        else {
+                          $node_url = url('node/' . $node->nid, array('absolute' => TRUE));
+                        }
+                        $directory = drupal_get_path('module', 'osha_newsletter');
+                        print l(theme('image', array(
+                          'path' => $directory . '/images/' . 'see-more-img.png',
+                          'width' => '92',
+                          'height' => '23',
+                          'attributes' => array('style' => 'border:0px;width:92px;height:23px;'),
+                        )), $node_url, array(
+                          'html' => TRUE,
+                          'query' => $url_query,
+                          'external' => TRUE,
+                        ));
                         ?>
                       </td>
                       <td class="highlight-share hidden-mobile" align="right" valign="middle" style="font-family: Arial, sans-serif; padding-top: 10px;">
@@ -185,8 +180,7 @@ if (!empty($campaign_id)) {
                         ));
                         ?>
                       </td>
-                    </tr>
-                  <?php } ?>
+                  </tr>
                 </tbody>
               </table>
             </th></tr>
