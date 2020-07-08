@@ -63,8 +63,18 @@ if (!empty($campaign_id)) {
                             }
                           }
                           else {
+
+                            $w = entity_metadata_wrapper('node', $node);
+                            if (!empty($node->field_image_mail)) {
+                              $field_image_mail = $w->field_image_mail->value();
+                            }
+                            $image_style = 'medium_newsletter_crop';
+                            if (isset($field_image_mail)) {
+                              $field_image = [$field_image_mail];
+                              $image_style = 'medium_newsletter_mail_crop';
+                            }
                             print l(theme('image_style', array(
-                              'style_name' => 'medium_newsletter_crop',
+                              'style_name' => $image_style,
                               'path' => (isset($field_image) && !empty($field_image)) ? $field_image[0]['uri'] : '',                              
                               'alt' => (isset($field_image) && !empty($field_image)) ? $field_image[0]['alt'] : '',
                               'attributes' => array('style' => ''),
