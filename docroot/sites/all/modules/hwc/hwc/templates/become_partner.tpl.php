@@ -18,7 +18,7 @@
         echo ' - ';
         echo t(gmdate('F', $registration_deadline)) . gmdate(' Y', $registration_deadline);
         ?></span></div>
-    <div><span <?php if (variable_get('hwc_partner_registration_last_date_month', FALSE)) { echo 'class="date-month"'; } ?>><?php
+    <div><span <?php if (!variable_get('hwc_partner_registration_last_date_month', FALSE)) { echo 'class="year-only"'; } ?>><?php
         if (variable_get('hwc_partner_registration_last_date_month', FALSE)) {
           echo t(gmdate('F', $last_date));
         }
