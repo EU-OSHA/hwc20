@@ -97,7 +97,27 @@ function osha_newsletter_menu() {
     'type' => MENU_CALLBACK,
     'access arguments' => array('access content'),
   );
+
+  $items['entity-collection/%entity_collection/devel'] = array(
+    'title' => 'Devel',
+    'page callback' => 'osha_newsletter_devel_load_object',
+    'page arguments' => array('entity_collection_edit_form', 1),
+    'access arguments' => array('access devel information'),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 100,
+  );
+
   return $items;
+}
+
+/**
+ * Menu callback; prints the loaded structure of the current node/user.
+ */
+function osha_newsletter_devel_load_object($type, $collection, $name = NULL) {
+  if ($collection) {
+    $tree = $collection->getTree();
+  }
+  return kdevel_print_object($collection, '$'. $name .'->') . kdevel_print_object($tree);
 }
 
 /**
@@ -624,6 +644,19 @@ function osha_newsletter_add_to_newsletter_action($node, $context) {
       }
       else {
         $children = $tree->getChildren();
+        $news_found = 0;
+        $more_news_key = 'taxonomy_term:' . variable_get('osha_newsletter_more_news_tid', '86');
+        foreach ($children as $k => $v) {
+          if ($k == $more_news_key) {
+            break;
+          }
+          if ($v->type == 'taxonomy_term') {
+            continue;
+          }
+          if ($v->content->type == 'news') {
+            $news_found++;
+          }
+        }
 
         // Mapping of term newsletter sections and content types.
         $term_mapping = variable_get('osha_newsletter_term_ct_map');
@@ -635,6 +668,10 @@ function osha_newsletter_add_to_newsletter_action($node, $context) {
         if (!empty($term_mapping[$node->type])) {
           $category_uuid = $term_mapping[$node->type];
           $category_view_mode = $term_mapping["view_mode_" . $node->type];
+        }
+        if ($node->type == 'news' && $news_found < 2) {
+          $category_uuid = variable_get('osha_newsletter_first_2_news_section', '884e6599-3e8f-4fa0-96af-2d30627a0cc8');
+          $category_view_mode = variable_get('osha_newsletter_first_2_news_view_mode', $term_mapping["view_mode_" . $node->type]);
         }
 
         foreach ($children as $child) {
@@ -961,6 +998,7 @@ function osha_newsletter_entity_insert($entity_collection, $type) {
 
     // Mapping of term newsletter sections and content types.
     $term_ct_map = variable_get('osha_newsletter_term_ct_map');
+    $term_ct_map['news_highlights'] = variable_get('osha_newsletter_first_2_news_section', '884e6599-3e8f-4fa0-96af-2d30627a0cc8');
 
     if (!empty($term_ct_map['newsletter_article'])) {
       // Create 'Coming soon' node and append it at the end.
@@ -1017,19 +1055,30 @@ function osha_newsletter_entity_insert($entity_collection, $type) {
         $result = isset($events['node']) ? array_merge($result, array_keys($events['node'])) : $result;
       }
 
+      $new_added = 0;
       if (!empty($result)) {
         $nodes = node_load_multiple($result);
         foreach ($nodes as $nid => $node) {
+          $node_type = $node->type;
+          if ($node_type == 'news') {
+            $new_added++;
+          }
+          if ($new_added < 3) {
+            $node_type = 'news_highlights';
+          }
+
           // Don't add any more nodes if already max_nodes for section.
-          if (isset($term_ct_map[$node->type]) && isset($weights[$term_ct_map[$node->type]]) &&
-            $weights[$term_ct_map[$node->type]]['children'] <
-            $weights[$term_ct_map[$node->type]]['parent'] + $max_nodes) {
+          if (
+            isset($term_ct_map[$node_type]) &&
+            isset($weights[$term_ct_map[$node_type]]) &&
+            $weights[$term_ct_map[$node_type]]['children'] < $weights[$term_ct_map[$node_type]]['parent'] + $max_nodes
+          ) {
 
             // Increment weight for nodes of current section.
-            $weights[$term_ct_map[$node->type]]['children']++;
+            $weights[$term_ct_map[$node_type]]['children']++;
             $item = new EntityCollectionTreeNode('node', $nid, $node);
-            $item->position = $weights[$term_ct_map[$node->type]]['children'];
-            $item->style = (isset($term_ct_map['view_mode_' . $node->type])) ? $term_ct_map['view_mode_' . $node->type] : _init_node_view_mode($node->type);
+            $item->position = $weights[$term_ct_map[$node_type]]['children'];
+            $item->style = (isset($term_ct_map['view_mode_' . $node_type])) ? $term_ct_map['view_mode_' . $node_type] : _init_node_view_mode($node_type);
             entity_collection_append_item($entity_collection, $item);
           }
         }

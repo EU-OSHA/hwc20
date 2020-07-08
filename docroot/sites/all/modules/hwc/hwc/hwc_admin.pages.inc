@@ -280,7 +280,13 @@ function hwc_admin_config_form() {
     '#default_value' => variable_get('hwc_partner_registration_deadline', ''),
   );
 
-//  $form['hwc_partner_how_to_apply_last_date'] = array(
+  $form['hwc_partner_registration_last_date_month'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show last date month'),
+    '#default_value' => variable_get('hwc_partner_registration_last_date_month', FALSE),
+  );
+
+  //  $form['hwc_partner_how_to_apply_last_date'] = array(
 //    '#title' => 'How to apply last date',
 //    '#type' => 'date',
 //    '#default_value' => variable_get('hwc_partner_how_to_apply_last_date', ''),

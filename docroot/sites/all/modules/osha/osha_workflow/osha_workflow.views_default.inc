@@ -622,7 +622,7 @@ function osha_workflow_views_default_views() {
   $handler->display->display_options['filters']['belongs_partner']['field'] = 'belongs_partner';
   $handler->display->display_options['filters']['belongs_partner']['value'] = '1';
   $handler->display->display_options['filters']['belongs_partner']['group'] = 1;
-  $handler->display->display_options['path'] = 'admin/workbench/my-content';
+  $handler->display->display_options['path'] = 'admin/workbench';
   $handler->display->display_options['menu']['title'] = 'My content';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['context'] = 0;

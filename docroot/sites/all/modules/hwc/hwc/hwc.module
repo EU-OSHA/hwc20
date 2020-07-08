@@ -67,6 +67,10 @@ function hwc_cron() {
  * hook_views_query_alter
  */
 function hwc_views_query_alter(&$view, &$query) {
+  if (($view->name == 'osh_workflow_admin') && (in_array($view->current_display, ['my_content']))) {
+    $view->query->where[2]['type'] = 'AND';
+  }
+
   if (($view->name == 'news') && (in_array($view->current_display, ['page_1', 'press_room']))) {
     if (!empty($query->table_queue['field_data_field_show_on'])) {
       $query->table_queue['field_data_field_show_on']['join']->type = "LEFT";
@@ -106,7 +110,7 @@ function hwc_masquerade_switch_back_page() {
         '!masq_as' => theme('username', array('account' => $olduser)),
       )
     ));
-    if (in_array(ROLE_CAMPAIGN_PARTNER, $user->roles)) {
+    if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
       drupal_goto($_SERVER['HTTP_REFERER']);
     }
     else {
@@ -118,11 +122,161 @@ function hwc_masquerade_switch_back_page() {
   }
 }
 
+/*
+ * Implements hook_init().
+ */
+function hwc_init() {
+  global $user;
+  if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
+    if ('private_workbench' == arg(0)) {
+      workbench_access_user_load_data($user);
+      if (!empty($user->workbench_access)) {
+        $sections = array_keys($user->workbench_access);
+        foreach ($sections as $id_section) {
+          if ($partner = hwc_partner_by_section_id_load($id_section)) {
+            drupal_goto('node/' . $partner->nid);
+            break;
+          }
+        }
+      }
+    }
+  }
+}
+
+function hwc_nodequeue_view_queues() {
+  $output = '';
+
+  if (module_exists('advanced_help')) {
+    $output .= theme('advanced_help_topic', array(
+      'module' => 'nodequeue',
+      'topic' => 'about',
+    ));
+    $output .= '&nbsp;' . theme('advanced_help_topic', array(
+        'module' => 'nodequeue',
+        'topic' => 'about',
+        'type' => t('Click here for information about this module'),
+      ));
+    $output = '<p>' . $output . '</p>';
+  }
+
+  $voc = taxonomy_vocabulary_machine_name_load('nodequeue_help_text');
+  $terms = taxonomy_get_tree($voc->vid, 0,NULL, TRUE);
+  $map = [];
+  foreach ($terms as $term) {
+    $map[$term->field_nodequeue['und'][0]['value']] = $term->description;
+  }
+  // Fetch all of the queues.
+  $queues = nodequeue_load_queues(nodequeue_get_all_qids(25));
+
+  foreach ($queues as $queue) {
+    if (!nodequeue_queue_access($queue)) {
+      unset($queues[$queue->qid]);
+    }
+  }
+
+  if (empty($queues)) {
+    return $output . t('No queues exist.');
+  }
+
+  $header = array(
+    array('data' => t('Queue ID'), 'field' => 'qid'),
+    array('data' => t('Title'), 'field' => 'title', 'sort' => 'asc'),
+    array('data' => t('Help text')),
+    array('data' => t('Queue ID'), 'field' => 'qid'),
+    array('data' => t('Max nodes'), 'field' => 'size'),
+    array('data' => t('Subqueues'), 'field' => 'subqueues'),
+    array('data' => t('Operation')),
+  );
+  $table_sort = tablesort_init($header);
+
+  $qids = array();
+  $sort_primary = array();
+  $sort_secondary = array();
+  $sort_direction_regular = array('asc' => SORT_ASC, 'desc' => SORT_DESC);
+  $sort_direction_reverse = array('asc' => SORT_DESC, 'desc' => SORT_ASC);
+  foreach ($queues as $queue) {
+    // If a queue has only one subqueue, store the qid so we can display
+    // the number of nodes in the subqueue.
+    if ($queue->subqueues == 1) {
+      $qids[] = $queue->qid;
+    }
+    $sort_secondary[] = drupal_strtolower($queue->title);
+    switch ($table_sort['sql']) {
+      case 'title':
+      default:
+        $sort_primary[] = drupal_strtolower($queue->title);
+        $sort_direction = $sort_direction_regular;
+        break;
+      case 'size':
+        $sort_primary[] = $queue->size;
+        $sort_direction = $sort_direction_reverse;
+        break;
+      case 'subqueues':
+        $sort_primary[] = $queue->subqueues;
+        $sort_direction = $sort_direction_regular;
+        break;
+    }
+  }
+
+  $subqueues = nodequeue_load_subqueues_by_queue($qids);
+  // Relate all the subqueues we loaded back to our queues.
+  foreach ($subqueues as $subqueue) {
+    if (nodequeue_api_subqueue_access($subqueue, NULL, $queues[$subqueue->qid])) {
+      $queues[$subqueue->qid]->subqueue = $subqueue;
+    }
+  }
+
+  if (!empty($table_sort)) {
+    if (strtolower($table_sort['sort']) == 'desc') {
+      array_multisort($sort_primary, $sort_direction['desc'], $sort_secondary, $queues); // Re-indexes array keys; key no longer equals qid.
+    }
+    else {
+      array_multisort($sort_primary, $sort_direction['asc'], $sort_secondary, $queues); // Re-indexes array keys; key no longer equals qid.
+    }
+  }
+
+  $rows = array();
+  foreach ($queues as $queue) {
+    $operations = array();
+    $sub_text = $queue->subqueues;
+
+    // If only one subqueue link direclty to it.
+    if ($sub_text == 1) {
+      $sub_text .= " (" . nodequeue_subqueue_size_text($queue->size, $queue->subqueue->count) . ")";
+      $operations['view'] = l(t('View'), "admin/structure/nodequeue/$queue->qid/view/" . $queue->subqueue->sqid);
+    }
+    else {
+      $operations['view'] = l(t('List Subqueues'), "admin/structure/nodequeue/$queue->qid/view");
+    }
+
+    if (user_access('administer nodequeue')) {
+      $operations['edit'] = l(t('Edit'), "admin/structure/nodequeue/$queue->qid/edit");
+      $operations['delete'] = l(t('Delete'), "admin/structure/nodequeue/$queue->qid/delete");
+    }
+
+    $rows[] = array(
+      array('class' => array('nodequeue-id'), 'data' => $queue->qid),
+      array('class' => array('nodequeue-title'), 'data' => check_plain($queue->title)),
+      array('class' => array('nodequeue-help-text'), 'data' => $map[$queue->name]),
+      array('class' => array('nodequeue-id'), 'data' => $queue->qid),
+      array('class' => array('nodequeue-max-nodes'), 'data' => $queue->size == 0 ? t('Infinite') : $queue->size),
+      array('class' => array('nodequeue-subqueues'), 'data' => $sub_text),
+      array('class' => array('nodequeue-operation'), 'data' => implode(' | ', $operations)),
+    );
+  }
+
+  $output .= theme('table', array('header' => $header, 'rows' => $rows));
+  $output .= theme('pager', array('tags' => NULL));
+
+  return $output;
+}
 /**
  * Implements hook_menu_alter().
  */
 function hwc_menu_alter(&$items) {
 
+  $items['admin/structure/nodequeue']['page callback'] = 'hwc_nodequeue_view_queues';
+  
   $items['masquerade/unswitch']['page callback'] = 'hwc_masquerade_switch_back_page';
   $items['taxonomy/term/%taxonomy_term/feed']['page callback'] = 'hwc_disable_taxonomy_term_feed';
 
@@ -1126,7 +1280,7 @@ function hwc_form_node_form_alter(&$form, &$form_state, $form_id) {
   }
 
   $access = FALSE;
-  $is_admin = count(array_intersect(array(HWC_ROLE_ADMIN, HWC_ROLE_WEBSITE_MANAGERS, HWC_ROLE_EEN_REVIEW_MANAGER, HWC_ROLE_HWC_STAFF_REVIEWERS), $user->roles));
+  $is_admin = count(array_intersect(array(HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR, HWC_ROLE_ADMIN, HWC_ROLE_WEBSITE_MANAGERS, HWC_ROLE_EEN_REVIEW_MANAGER, HWC_ROLE_HWC_STAFF_REVIEWERS), $user->roles));
   if ($is_admin) {
     $access = TRUE;
   }
@@ -1484,11 +1638,11 @@ function hwc_node_view($node, $view_mode, $langcode) {
         'application_form_class' => $application_form_class,
         'see_results_class' => $see_results_class,
 
-        'download_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_download_deadline', ''),
-        'registration_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_registration_deadline', ''),
+        'download_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_download_deadline'),
+        'registration_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_registration_deadline'),
 
-        'first_date' => hwc_get_partner_deadline_mktime('hwc_partner_how_to_apply_first_date', ''),
-        'last_date' => hwc_get_partner_deadline_mktime('hwc_partner_how_to_apply_last_date', ''),
+        'first_date' => hwc_get_partner_deadline_mktime('hwc_partner_how_to_apply_first_date'),
+        'last_date' => hwc_get_partner_deadline_mktime('hwc_partner_how_to_apply_last_date'),
       );
       $registration_block = theme('become_campaign_partner', $variables);
     }
@@ -1513,11 +1667,11 @@ function hwc_node_view($node, $view_mode, $langcode) {
         'application_form_class' => $application_form_class,
         'see_results_class' => $see_results_class,
 
-        'download_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_download_deadline', ''),
-        'registration_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_registration_deadline', ''),
+        'download_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_download_deadline'),
+        'registration_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_registration_deadline'),
 
-        'first_date' => hwc_get_partner_deadline_mktime('hwc_partner_how_to_apply_first_date', ''),
-        'last_date' => hwc_get_partner_deadline_mktime('hwc_partner_how_to_apply_last_date', ''),
+        'first_date' => hwc_get_partner_deadline_mktime('hwc_partner_how_to_apply_first_date'),
+        'last_date' => hwc_get_partner_deadline_mktime('hwc_partner_how_to_apply_last_date'),
       );
       $registration_block = theme('become_partner', $variables);
     }
@@ -2398,6 +2552,16 @@ function hwc_update_main_menu_links($link, $alias, $aliases) {
 
 function hwc_menu_local_tasks_alter(&$data, $router_item, $root_path) {
   switch($root_path) {
+    case 'admin/content/nodequeues-help-text':
+      $item = menu_get_item('admin/structure/taxonomy/nodequeue_help_text/add');
+      $item['title'] = t('Add new nodequeues help text');
+      if ($item['access']) {
+        $data['actions']['output'][] = array(
+          '#theme' => 'menu_local_action',
+          '#link' => $item,
+        );
+      }
+      break;
     case 'admin/content/related-resources':
       $item = menu_get_item('admin/structure/taxonomy/related_resources/add');
       $item['title'] = t('Add new related resource');
