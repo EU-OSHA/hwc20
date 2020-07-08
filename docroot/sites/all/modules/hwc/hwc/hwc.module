@@ -1638,11 +1638,11 @@ function hwc_node_view($node, $view_mode, $langcode) {
         'application_form_class' => $application_form_class,
         'see_results_class' => $see_results_class,
 
-        'download_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_download_deadline', ''),
-        'registration_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_registration_deadline', ''),
+        'download_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_download_deadline'),
+        'registration_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_registration_deadline'),
 
-        'first_date' => hwc_get_partner_deadline_mktime('hwc_partner_how_to_apply_first_date', ''),
-        'last_date' => hwc_get_partner_deadline_mktime('hwc_partner_how_to_apply_last_date', ''),
+        'first_date' => hwc_get_partner_deadline_mktime('hwc_partner_how_to_apply_first_date'),
+        'last_date' => hwc_get_partner_deadline_mktime('hwc_partner_how_to_apply_last_date'),
       );
       $registration_block = theme('become_campaign_partner', $variables);
     }
@@ -1667,11 +1667,11 @@ function hwc_node_view($node, $view_mode, $langcode) {
         'application_form_class' => $application_form_class,
         'see_results_class' => $see_results_class,
 
-        'download_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_download_deadline', ''),
-        'registration_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_registration_deadline', ''),
+        'download_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_download_deadline'),
+        'registration_deadline' => hwc_get_partner_deadline_mktime('hwc_partner_registration_deadline'),
 
-        'first_date' => hwc_get_partner_deadline_mktime('hwc_partner_how_to_apply_first_date', ''),
-        'last_date' => hwc_get_partner_deadline_mktime('hwc_partner_how_to_apply_last_date', ''),
+        'first_date' => hwc_get_partner_deadline_mktime('hwc_partner_how_to_apply_first_date'),
+        'last_date' => hwc_get_partner_deadline_mktime('hwc_partner_how_to_apply_last_date'),
       );
       $registration_block = theme('become_partner', $variables);
     }
