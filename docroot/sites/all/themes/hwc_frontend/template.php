@@ -212,9 +212,9 @@ function hwc_frontend_preprocess_region(&$variables, $hook) {
 function hwc_frontend_preprocess_html(&$vars) {
   global $language;
 
-  $language_code = $language->language;
-
-  drupal_add_js(drupal_get_path('module', 'jquery_update') . '/replace/ui/ui/i18n/jquery.ui.datepicker-'. $language_code .'.js', array('group' => JS_THEME));
+  if ($language->language != 'en') {
+    drupal_add_js(drupal_get_path('module', 'jquery_update') . '/replace/ui/ui/i18n/jquery.ui.datepicker-'. $language->language .'.js', array('group' => JS_THEME));
+  }
 
   if (variable_get('add_tracking_code', FALSE)) {
     $script = [
