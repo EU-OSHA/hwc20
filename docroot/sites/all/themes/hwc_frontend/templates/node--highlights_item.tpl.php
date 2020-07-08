@@ -66,16 +66,9 @@ if (!empty($campaign_id)) {
 
                             $w = entity_metadata_wrapper('node', $node);
                             $image_style = 'medium_newsletter_crop';
-                            if (isset($_REQUEST['debug'])) {
-                              has_krumo();
-                              krumo($field_image);
-                            }
                             if (!empty($node->field_image_mail)) {
                               $field_image = [$w->field_image_mail->value()];
                               $image_style = 'medium_newsletter_mail_crop';
-                              if (isset($_REQUEST['debug'])) {
-                                krumo($field_image, $image_style, $node);
-                              }
                             }
                             print l(theme('image_style', array(
                               'style_name' => $image_style,
