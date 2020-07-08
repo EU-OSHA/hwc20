@@ -216,6 +216,11 @@ function hwc_frontend_preprocess_html(&$vars) {
     drupal_add_js(drupal_get_path('module', 'jquery_update') . '/replace/ui/ui/i18n/jquery.ui.datepicker-'. $language->language .'.js', array('group' => JS_THEME));
   }
 
+  if (!variable_get('hwc_partner_registration_last_date_month', FALSE)) {
+    if (arg(1) == 184)
+    $vars['classes_array'][] = 'year-only';
+  }
+
   if (variable_get('add_tracking_code', FALSE)) {
     $script = [
       '#tag' => 'script',

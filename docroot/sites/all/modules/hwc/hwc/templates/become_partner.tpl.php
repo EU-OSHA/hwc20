@@ -4,7 +4,7 @@
 /** @var timestamp $first_date */
 /** @var timestamp $last_date */
 ?>
-<div class="how-to-apply<?php if (!variable_get('hwc_partner_registration_last_date_month', FALSE)) { echo ' year-only'; } ?>">
+<div class="how-to-apply">
   <h3><?php print t('How to apply');?></h3>
   <div class="timeline">
     <div><span><?php
