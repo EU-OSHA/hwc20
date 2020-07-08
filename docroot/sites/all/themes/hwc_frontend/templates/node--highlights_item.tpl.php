@@ -65,13 +65,17 @@ if (!empty($campaign_id)) {
                           else {
 
                             $w = entity_metadata_wrapper('node', $node);
-                            if (!empty($node->field_image_mail)) {
-                              $field_image_mail = $w->field_image_mail->value();
-                            }
                             $image_style = 'medium_newsletter_crop';
-                            if (isset($field_image_mail)) {
-                              $field_image = [$field_image_mail];
+                            if (isset($_REQUEST['debug'])) {
+                              has_krumo();
+                              krumo($field_image);
+                            }
+                            if (!empty($node->field_image_mail)) {
+                              $field_image = [$w->field_image_mail->value()];
                               $image_style = 'medium_newsletter_mail_crop';
+                              if (isset($_REQUEST['debug'])) {
+                                krumo($field_image, $image_style, $node);
+                              }
                             }
                             print l(theme('image_style', array(
                               'style_name' => $image_style,
