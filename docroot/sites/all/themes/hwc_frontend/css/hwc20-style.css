@@ -17,12 +17,19 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
   padding-left: 0.5em;
 }
 /* Styles for only REL1 */
-.rel1 #block-menu-menu-header-login,
-.rel1 #block-lang-dropdown-language {
-  display: none;
+.rel1 {
+  /*
+		#block-menu-menu-header-login, #block-lang-dropdown-language{
+			display: none;
+		}
+		*/
+  /*STG rel 1*/
+}
+.rel1 #block-menu-menu-header-login {
+  visibility: hidden;
 }
 .rel1 header.navbar-default .campaigns-header .navbar-header .header_top_bar .region-above-header {
-  padding-top: 1.3em;
+  /*padding-top: 1.3em;*/
 }
 /*HW20-489*/
 .rel1 .related-resources-boxes {
@@ -995,7 +1002,7 @@ ul.time-and-counters li .counter-label {
   -webkit-filter: brightness(0) invert(1);
 }
 .container-recommended-tools .recommended-tool {
-  width: 95%;
+  width: 100%;
 }
 .news-events .box-news h3:before {
   content: ' ';
@@ -1357,11 +1364,14 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   margin-top: 0;
   font-weight: 400;
   background: url(../images/grey-h3-line.png) repeat-x 50% 75%;
-  margin-bottom: 0.5em;
+  margin-bottom: 0;
 }
 #block-views-partners-block-1 h2 span {
   background: #FFF;
   padding-right: 0.7em;
+}
+#block-views-partners-block-1 .view-header .content {
+  margin-top: 0.5em;
 }
 .view-partners {
   padding: 1em 0;
@@ -8284,7 +8294,7 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics h2.block
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area_info {
   text-align: center;
-  width: 80%;
+  width: 85%;
   margin: 0.5em auto;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area {
