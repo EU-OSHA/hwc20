@@ -359,56 +359,6 @@ function hwc_practical_tool_taxonomy_default_vocabularies() {
         ),
       ),
     ),
-    'priority_area' => array(
-      'name' => 'Priority area',
-      'machine_name' => 'priority_area',
-      'description' => '',
-      'hierarchy' => 0,
-      'module' => 'taxonomy',
-      'weight' => 0,
-      'language' => 'und',
-      'i18n_mode' => 1,
-      'rdf_mapping' => array(
-        'rdftype' => array(
-          0 => 'skos:ConceptScheme',
-        ),
-        'name' => array(
-          'predicates' => array(
-            0 => 'dc:title',
-          ),
-        ),
-        'description' => array(
-          'predicates' => array(
-            0 => 'rdfs:comment',
-          ),
-        ),
-      ),
-    ),
-    'provider_type' => array(
-      'name' => 'Type of provider',
-      'machine_name' => 'provider_type',
-      'description' => '',
-      'hierarchy' => 0,
-      'module' => 'taxonomy',
-      'weight' => 0,
-      'language' => 'und',
-      'i18n_mode' => 0,
-      'rdf_mapping' => array(
-        'rdftype' => array(
-          0 => 'skos:ConceptScheme',
-        ),
-        'name' => array(
-          'predicates' => array(
-            0 => 'dc:title',
-          ),
-        ),
-        'description' => array(
-          'predicates' => array(
-            0 => 'rdfs:comment',
-          ),
-        ),
-      ),
-    ),
     'purpose_of_material' => array(
       'name' => 'MSD Purpose of the material',
       'machine_name' => 'purpose_of_material',
@@ -487,31 +437,6 @@ function hwc_practical_tool_taxonomy_default_vocabularies() {
     'target_group' => array(
       'name' => 'Proposal for target groups',
       'machine_name' => 'target_group',
-      'description' => NULL,
-      'hierarchy' => 0,
-      'module' => 'taxonomy',
-      'weight' => 0,
-      'language' => 'und',
-      'i18n_mode' => 0,
-      'rdf_mapping' => array(
-        'rdftype' => array(
-          0 => 'skos:ConceptScheme',
-        ),
-        'name' => array(
-          'predicates' => array(
-            0 => 'dc:title',
-          ),
-        ),
-        'description' => array(
-          'predicates' => array(
-            0 => 'rdfs:comment',
-          ),
-        ),
-      ),
-    ),
-    'worker_groups' => array(
-      'name' => 'Type of workers',
-      'machine_name' => 'worker_groups',
       'description' => NULL,
       'hierarchy' => 0,
       'module' => 'taxonomy',
