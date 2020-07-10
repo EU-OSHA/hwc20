@@ -361,25 +361,6 @@ function osha_publication_cron() {
 function osha_publication_views_pre_render(&$view) {
   global $language;
 
-  if ($view->name == 'publication_type') {
-    drupal_add_css(drupal_get_path('module', 'osha_publication') . '/tools_and_publications.css');
-    foreach ($view->result as $k => $row) {
-      $view->result[$k]->field_field_tools_publications_link[0]['raw']['url'] =
-        str_replace(
-          'node/160', 'napo-film',
-          $view->result[$k]->field_field_tools_publications_link[0]['raw']['url']);
-
-      $view->result[$k]->field_field_tools_publications_link[0]['raw']['url'] =
-        str_replace(
-          '/case-studies', '/case-studies?language%5B' . $language->language . '%5D=' . $language->language . '&sort=date',
-          $view->result[$k]->field_field_tools_publications_link[0]['raw']['url']);
-
-      $view->result[$k]->field_field_tools_publications_link[0]['raw']['url'] =
-        str_replace(
-          '/publications', '/publications?language%5B' . $language->language . '%5D=' . $language->language . '&sort=date',
-          $view->result[$k]->field_field_tools_publications_link[0]['raw']['url']);
-    }
-  }
   if ($view->name == 'publications_slideshow') {
     osha_publication_result_count(count($view->result));
   }

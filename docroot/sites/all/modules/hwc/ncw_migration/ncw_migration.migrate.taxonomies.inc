@@ -63,7 +63,6 @@ class NCWTaxonomyPreventionMeasuresMSDMigration extends AbstractNCWTaxonomyTermM
   }
 }
 
-
 class NCWTaxonomyMSDGlossaryMigration extends AbstractNCWTaxonomyTermMigration {
 
   public function __construct($arguments) {
@@ -193,21 +192,6 @@ class NCWTaxonomyTagsMigration extends AbstractNCWTaxonomyTermMigration {
 
 }
 
-class NCWTaxonomyPriorityAreaMigration extends AbstractNCWTaxonomyTermMigration {
-
-  public function __construct($arguments) {
-    parent::__construct($arguments, 'SimpleNCWTaxonomyTermSource', 'priority_area');
-    $this->description = 'Import taxonomy "priority_area" from NCW';
-  }
-}
-
-class NCWTaxonomyProviderTypeMigration extends AbstractNCWTaxonomyTermMigration {
-
-  public function __construct($arguments) {
-    parent::__construct($arguments, 'ProviderTypeNCWTaxonomyTermSource', 'provider_type');
-    $this->description = 'Import taxonomy "provider_type" from NCW';
-  }
-}
 
 class NCWTaxonomyNaceCodesMigration extends AbstractNCWTaxonomyTermMigration {
 
@@ -378,94 +362,6 @@ class NaceCodeMigrateDestinationTerm extends MigrateDestinationTerm {
 
 }
 
-//class NCWTaxonomyHazmapCategoriesMigration extends AbstractNCWTaxonomyTermMigration {
-//
-//  public function __construct($arguments) {
-//    parent::__construct($arguments, 'HazmapCategoriesNCWTaxonomyTermSource', 'hazmap_categories');
-//    $this->description = 'Import taxonomy "hazmap_categories" from NCW';
-//  }
-//}
-
-//class NCWTaxonomyBiologicalHazardMigration extends AbstractNCWTaxonomyTermMigration {
-//
-//  public function __construct($arguments) {
-//    parent::__construct($arguments, 'BiologicalHazardNCWTaxonomyTermSource', 'biological_hazard');
-//    $this->description = 'Import taxonomy "biological_hazard" from NCW';
-//  }
-//}
-
-//class NCWTaxonomyHazardPhysicalStateMigration extends AbstractNCWTaxonomyTermMigration {
-//
-//  public function __construct($arguments) {
-//    parent::__construct($arguments, 'HazardPhysicalStateNCWTaxonomyTermSource', 'hazard_physical_state');
-//    $this->description = 'Import taxonomy "hazard_physical_state" from NCW';
-//  }
-//}
-
-//class NCWTaxonomyHazardHealthEffectsMigration extends AbstractNCWTaxonomyTermMigration {
-//
-//  public function __construct($arguments) {
-//    parent::__construct($arguments, 'HazardHealthEffectsNCWTaxonomyTermSource', 'hazard_health_effects');
-//    $this->description = 'Import taxonomy "hazard_health_effects" from NCW';
-//  }
-//}
-
-//class NCWTaxonomyExposureRouteMigration extends AbstractNCWTaxonomyTermMigration {
-//
-//  public function __construct($arguments) {
-//    parent::__construct($arguments, 'ExposureRouteNCWTaxonomyTermSource', 'exposure_route');
-//    $this->description = 'Import taxonomy "exposure_route" from NCW';
-//  }
-//}
-
-//class NCWTaxonomyWorkerGroupsMigration extends AbstractNCWTaxonomyTermMigration {
-//
-//  public function __construct($arguments) {
-//    parent::__construct($arguments, 'WorkerGroupsNCWTaxonomyTermSource', 'worker_groups');
-//    $this->description = 'Import taxonomy "worker_groups" from NCW';
-//  }
-//}
-
-//class NCWTaxonomyPreventionMeasuresMigration extends AbstractNCWTaxonomyTermMigration {
-//
-//  public function __construct($arguments) {
-//    parent::__construct($arguments, 'PreventionMeasuresNCWTaxonomyTermSource', 'prevention_measures');
-//    $this->description = 'Import taxonomy "prevention_measures" from NCW';
-//  }
-//}
-
-//class NCWTaxonomyMaterialPurposeMigration extends AbstractNCWTaxonomyTermMigration {
-//
-//  public function __construct($arguments) {
-//    parent::__construct($arguments, 'MaterialPurposeNCWTaxonomyTermSource', 'material_purpose');
-//    $this->description = 'Import taxonomy "material_purpose" from NCW';
-//  }
-//}
-
-//class NCWTaxonomyTargetGroupMigration extends AbstractNCWTaxonomyTermMigration {
-//
-//  public function __construct($arguments) {
-//    parent::__construct($arguments, 'TargetGroupNCWTaxonomyTermSource', 'target_group');
-//    $this->description = 'Import taxonomy "target_group" from NCW';
-//  }
-//}
-
-//class NCWTaxonomyEvaluationMigration extends AbstractNCWTaxonomyTermMigration {
-//
-//  public function __construct($arguments) {
-//    parent::__construct($arguments, 'EvaluationNCWTaxonomyTermSource', 'evaluation');
-//    $this->description = 'Import taxonomy "evaluation" from NCW';
-//  }
-//}
-
-//class NCWTaxonomyMaterialObjectiveMigration extends AbstractNCWTaxonomyTermMigration {
-//
-//  public function __construct($arguments) {
-//    parent::__construct($arguments, 'MaterialObjectiveNCWTaxonomyTermSource', 'material_objective');
-//    $this->description = 'Import taxonomy "material_objective" from NCW';
-//  }
-//}
-
 class SimpleNCWTaxonomyTermSource extends AbstractNCWTaxonomyTermSource {
 
   public function contentFields() {
@@ -505,15 +401,6 @@ class CountryNCWTaxonomyTermSource extends AbstractNCWTaxonomyTermSource {
       'field_iso2' => 'field_iso2',
       'field_flag' => 'field_flag',
       'field_country_status' => 'field_country_status',
-    );
-  }
-}
-
-class ProviderTypeNCWTaxonomyTermSource extends AbstractNCWTaxonomyTermSource {
-  public function contentFields() {
-    return array(
-      'field_provider_type_code' => 'field_provider_type_code',
-      'field_thesaurus_id' => 'field_thesaurus_id',
     );
   }
 }
@@ -593,36 +480,11 @@ class PreventionMeasuresNCWTaxonomyTermSource extends AbstractNCWTaxonomyTermSou
   }
 }
 
-class MaterialPurposeNCWTaxonomyTermSource extends AbstractNCWTaxonomyTermSource {
-  public function contentFields() {
-    return array(
-      'field_material_purpose_code' => 'field_material_purpose_code',
-      'field_thesaurus_id' => 'field_thesaurus_id',
-    );
-  }
-}
-
 class TargetGroupNCWTaxonomyTermSource extends AbstractNCWTaxonomyTermSource {
   public function contentFields() {
     return array(
       'field_target_group_code' => 'field_target_group_code',
       'field_thesaurus_id' => 'field_thesaurus_id',
-    );
-  }
-}
-
-class EvaluationNCWTaxonomyTermSource extends AbstractNCWTaxonomyTermSource {
-  public function contentFields() {
-    return array(
-      'field_evaluation_code' => 'field_evaluation_code',
-    );
-  }
-}
-
-class MaterialObjectiveNCWTaxonomyTermSource extends AbstractNCWTaxonomyTermSource {
-  public function contentFields() {
-    return array(
-      'field_material_objective_code' => 'field_material_objective_code',
     );
   }
 }

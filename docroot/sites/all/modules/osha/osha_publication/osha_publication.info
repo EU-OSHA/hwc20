@@ -134,7 +134,6 @@ features[variable][] = node_preview_publication
 features[variable][] = node_submitted_publication
 features[views_view][] = case_studies_slideshow
 features[views_view][] = publication_pages_count
-features[views_view][] = publication_type
 features[views_view][] = publications_slideshow
 features_exclude[dependencies][osha_publication] = osha_publication
 features_exclude[field_base][field_flickr_tags] = field_flickr_tags

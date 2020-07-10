@@ -86,16 +86,6 @@ function ncw_migration_migrate_api() {
         'dependencies' => array(),
         'class_name' => 'NCWTaxonomyWorkerGroupsCoveredMigration',
       ),
-      'tax_priority_area' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyPriorityAreaMigration',
-      ),
-      'tax_provider_type' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyProviderTypeMigration',
-      ),
       'tax_nace_codes' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),
@@ -126,35 +116,15 @@ function ncw_migration_migrate_api() {
         'dependencies' => array(),
         'class_name' => 'NCWTaxonomyExposureRouteMigration',
       ),
-      'tax_worker_groups' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyWorkerGroupsMigration',
-      ),
       'tax_prevention_measures' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),
         'class_name' => 'NCWTaxonomyPreventionMeasuresMigration',
       ),
-      'tax_material_purpose' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyMaterialPurposeMigration',
-      ),
       'tax_target_group' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),
         'class_name' => 'NCWTaxonomyTargetGroupMigration',
-      ),
-      'tax_evaluation' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyEvaluationMigration',
-      ),
-      'tax_material_objective' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyMaterialObjectiveMigration',
       ),
       'events' => array(
         'group_name' => 'ncw',
@@ -268,11 +238,6 @@ function ncw_migration_migrate_api() {
         'dependencies' => array(),
         'class_name' => 'NCWTaxonomyTagsMigration',
       ),
-//      'article' => array(
-//        'group_name' => 'ncw',
-//        'dependencies' => array(),
-//        'class_name' => 'NCWSingleArticleMigration',
-//      ),
     ),
   );
 }
