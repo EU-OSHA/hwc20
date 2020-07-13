@@ -2408,6 +2408,7 @@ span.pages {
 }
 .container .content-box-sub p {
   color: #333333;
+  font-size: 0.9em;
 }
 /* Publication detail */
 .publication-detail {
