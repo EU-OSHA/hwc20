@@ -601,7 +601,6 @@ jQuery(document).ready(function() {
 		var calculate_height = jQuery(".campaigns-header").height();
 		jQuery("body").css('padding-top', calculate_height);
 		jQuery("body.splash-page").css('padding-top', calculate_height);
-		jQuery("body.front-page").css('padding-top', calculate_height - 29);
 		jQuery("body.act-as-partner").css('padding-top', calculate_height - 31);
 		jQuery("body.ocp.act-as-partner").css('padding-top', calculate_height);
 
@@ -609,7 +608,6 @@ jQuery(document).ready(function() {
         	var calculate_height_resize = jQuery(".campaigns-header").height();
 			jQuery("body").css('padding-top', calculate_height_resize);
 			jQuery("body.splash-page").css('padding-top', calculate_height_resize);
-			jQuery("body.front-page").css('padding-top', calculate_height - 29);
 			jQuery("body.act-as-partner").css('padding-top', calculate_height_resize - 31);
 			jQuery("body.ocp.act-as-partner").css('padding-top', calculate_height);
     	});
