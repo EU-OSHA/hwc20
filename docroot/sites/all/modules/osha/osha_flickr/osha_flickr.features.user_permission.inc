@@ -14,6 +14,7 @@ function osha_flickr_user_default_permissions() {
   $permissions['create flickr_gallery content'] = array(
     'name' => 'create flickr_gallery content',
     'roles' => array(
+      'Website Managers' => 'Website Managers',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -23,6 +24,7 @@ function osha_flickr_user_default_permissions() {
   $permissions['delete any flickr_gallery content'] = array(
     'name' => 'delete any flickr_gallery content',
     'roles' => array(
+      'Website Managers' => 'Website Managers',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -32,6 +34,7 @@ function osha_flickr_user_default_permissions() {
   $permissions['delete own flickr_gallery content'] = array(
     'name' => 'delete own flickr_gallery content',
     'roles' => array(
+      'Website Managers' => 'Website Managers',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -41,6 +44,7 @@ function osha_flickr_user_default_permissions() {
   $permissions['edit any flickr_gallery content'] = array(
     'name' => 'edit any flickr_gallery content',
     'roles' => array(
+      'Website Managers' => 'Website Managers',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -50,6 +54,7 @@ function osha_flickr_user_default_permissions() {
   $permissions['edit own flickr_gallery content'] = array(
     'name' => 'edit own flickr_gallery content',
     'roles' => array(
+      'Website Managers' => 'Website Managers',
       'administrator' => 'administrator',
     ),
     'module' => 'node',

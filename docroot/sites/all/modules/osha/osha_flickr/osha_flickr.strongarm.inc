@@ -14,7 +14,7 @@ function osha_flickr_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_flickr_gallery';
-  $strongarm->value = 'edit-workflow';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_flickr_gallery'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -132,6 +132,9 @@ function osha_flickr_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'hwc_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -157,8 +160,14 @@ function osha_flickr_strongarm() {
       'display' => array(
         'share_widget' => array(
           'default' => array(
-            'weight' => '3',
+            'weight' => '4',
             'visible' => TRUE,
+          ),
+        ),
+        'bottom_share_widget' => array(
+          'default' => array(
+            'weight' => '12',
+            'visible' => FALSE,
           ),
         ),
       ),
