@@ -147,21 +147,3 @@ function hwc_gallery_image_default_styles() {
 
   return $styles;
 }
-
-/**
- * Implements hook_node_info().
- */
-function hwc_gallery_node_info() {
-  $items = array(
-    'hwc_gallery' => array(
-      'name' => 'Gallery',
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => 'Title',
-      'help' => '',
-    ),
-  );
-  drupal_alter('node_info', $items);
-  return $items;
-}
