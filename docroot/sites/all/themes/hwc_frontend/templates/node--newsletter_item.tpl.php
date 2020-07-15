@@ -283,6 +283,7 @@ if (!empty($campaign_id)) {
                       'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #FFF; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;'),
                       'query' => $url_query,
                       'external' => TRUE,
+                      'html' => TRUE,
                     ));
                     ?>
                   </td>

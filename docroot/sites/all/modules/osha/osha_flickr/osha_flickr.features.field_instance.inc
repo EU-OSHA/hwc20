@@ -24,7 +24,7 @@ function osha_flickr_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'album_cover',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -33,6 +33,12 @@ function osha_flickr_field_default_field_instances() {
         'weight' => 0,
       ),
       'highlights_item_alternative' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'hwc_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -107,7 +113,7 @@ function osha_flickr_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'album_detail',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -116,6 +122,12 @@ function osha_flickr_field_default_field_instances() {
         'weight' => 0,
       ),
       'highlights_item_alternative' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'hwc_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -195,7 +207,7 @@ function osha_flickr_field_default_field_instances() {
           'osha_date_theme' => '',
         ),
         'type' => 'date_default',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -204,6 +216,12 @@ function osha_flickr_field_default_field_instances() {
         'weight' => 0,
       ),
       'highlights_item_alternative' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'hwc_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -288,7 +306,7 @@ function osha_flickr_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 16,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -297,6 +315,12 @@ function osha_flickr_field_default_field_instances() {
         'weight' => 0,
       ),
       'highlights_item_alternative' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'hwc_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
@@ -376,7 +400,7 @@ function osha_flickr_field_default_field_instances() {
           'title_style' => 'h2',
         ),
         'type' => 'title_linked',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -385,6 +409,12 @@ function osha_flickr_field_default_field_instances() {
         'weight' => 0,
       ),
       'highlights_item_alternative' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'hwc_teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',

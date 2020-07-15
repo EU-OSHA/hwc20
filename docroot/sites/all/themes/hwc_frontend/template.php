@@ -212,7 +212,7 @@ function hwc_frontend_preprocess_region(&$variables, $hook) {
 function hwc_frontend_preprocess_html(&$vars) {
   global $language;
 
-  if ($language->language != 'en') {
+  if ($language->language != 'en' && (arg(0) == 'media-centre') && (arg(1) == 'events')) {
     drupal_add_js(drupal_get_path('module', 'jquery_update') . '/replace/ui/ui/i18n/jquery.ui.datepicker-'. $language->language .'.js', array('group' => JS_THEME));
   }
 

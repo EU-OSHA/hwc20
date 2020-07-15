@@ -1462,6 +1462,9 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   justify-content: center;
   padding-bottom: 20px;
 }
+.front .page_title {
+  margin-bottom: 0;
+}
 .content {
   margin-top: 3em;
 }
@@ -2408,6 +2411,7 @@ span.pages {
 }
 .container .content-box-sub p {
   color: #333333;
+  font-size: 0.9em;
 }
 /* Publication detail */
 .publication-detail {
@@ -4619,7 +4623,7 @@ span.add-to-my-calendar {
   font-weight: 500;
 }
 .node-type-events .content-left-column {
-  width: 65%;
+  width: 64%;
   float: left;
   padding-top: 2em;
 }

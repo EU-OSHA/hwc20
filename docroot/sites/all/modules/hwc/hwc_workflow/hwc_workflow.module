@@ -764,7 +764,7 @@ function hwc_workflow_form_alter(&$form, &$form_state, $form_id) {
   }
   if (!empty($form['workbench_access']['workbench_access']['#options']['section'])) {
     $form['workbench_access']['workbench_access']['#title'] = 'Partner';
-    $form['workbench_access']['workbench_access']['#options']['section'] = 'General Public';
+    $form['workbench_access']['workbench_access']['#options']['section'] = 'EU-OSHA';
   }
 }
 

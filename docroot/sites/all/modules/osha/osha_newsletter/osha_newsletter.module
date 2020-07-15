@@ -1108,7 +1108,7 @@ function osha_newsletter_file_get_contents($url) {
 }
 
 function osha_newsletter_crm_subscribe($email) {
-  $type = variable_get('crm_subscribe_type', 1);
+  $type = variable_get('crm_subscribe_type', 'CAMPAIGN');
   $port = variable_get('crm_subscribe_port', '8083'); // prod 8084. staging 8083
   $path = variable_get('crm_subscribe_path', '/OshaService/OSHAService.svc/subscriber');
   $url = 'https://jira.osha.europa.eu:' . $port . $path . '?email=' . $email . '&type=' . $type;
