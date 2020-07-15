@@ -1462,6 +1462,9 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   justify-content: center;
   padding-bottom: 20px;
 }
+.front .page_title {
+  margin-bottom: 0;
+}
 .content {
   margin-top: 3em;
 }
