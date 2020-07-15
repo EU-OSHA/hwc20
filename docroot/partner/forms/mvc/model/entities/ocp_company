@@ -100,9 +100,9 @@
     "company_osh_logoimage": {
       "name": "company_osh_logoimage",
       "label": "Organisation´s logo",
-      "helpText" : "Please upload your company logo in .png or .jpg file format. The file size must not exceed 1MB",
-      "helpTextImageLoaded" : "Please, if you want to change this logo, please upload a new one in png. or jpg. file format. The file must not exceed 1MB",
-      "placeholder": "Please upload your company logo in .png or .jpg file format. The file size must not exceed 1MB",
+      "helpText" : "Please upload your company logo in .png or .jpg format. The file size must not exceed 1MB. The minimum size for logos is 220x220px.",
+      "helpTextImageLoaded" : "Please upload your company logo in .png or .jpg format. The file size must not exceed 1MB. The minimum size for logos is 220x220px.",
+      "placeholder": "Please upload your company logo in .png or .jpg format. The file size must not exceed 1MB. The minimum size for logos is 220x220px.",
       "publicProfile": "publicProfile",
       "section": "ORGANISATION",
       "type": "image",
