@@ -69,6 +69,9 @@ function hwc_cron() {
 function hwc_views_query_alter(&$view, &$query) {
   if (($view->name == 'osh_workflow_admin') && (in_array($view->current_display, ['my_content']))) {
     $view->query->where[2]['type'] = 'AND';
+    if (!empty($_REQUEST['access_id'])) {
+      $view->query->group_operator = 'AND';
+    }
   }
 
   if (($view->name == 'news') && (in_array($view->current_display, ['page_1', 'press_room']))) {
