@@ -994,6 +994,20 @@ function osha_publication_osha_tmgmt_i18n_string_list() {
  * Implements hook_panels_pane_content_alter().
  */
 function osha_publication_panels_pane_content_alter(&$content, &$pane, $args, $context) {
+  if ('osha_publicatio_slideshow' === $content->delta) {
+    $content->admin_links[] = [
+      'title' => 'Edit queue',
+      'href' => 'admin/structure/nodequeue/1/view',
+    ];
+  }
+
+  if ('osha_case_studies_slideshow' === $content->delta) {
+    $content->admin_links[] = [
+      'title' => 'Edit queue',
+      'href' => 'admin/structure/nodequeue/24/view',
+    ];
+  }
+
   if (isset($pane->configuration['admin_title'])) {
     if ($pane->configuration['admin_title'] == 'publication_additional_resources_title') {
       $node = reset($context)->data;
