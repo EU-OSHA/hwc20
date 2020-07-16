@@ -84,15 +84,16 @@ function osha_news_form_news_node_form_alter(&$form, &$form_state) {
   if (!$is_admin) {
     $form['field_show_on']['#access'] = FALSE;
   }
-
-  if (count(array_intersect(array(HWC_ROLE_CAMPAIGN_PARTNER), $user->roles))) {
-    $form['field_image']['#access'] = FALSE;
-    $form['field_image_mail']['#access'] = FALSE;
+  // Hide pz image caption for campaign partner
+  //  if (count(array_intersect(array(HWC_ROLE_CAMPAIGN_PARTNER), $user->roles))) {
+  //    $form['field_image']['#access'] = FALSE;
+  //    $form['field_image_mail']['#access'] = FALSE;
+  //    $form['field_pz_image_caption']['#access'] = FALSE;
+  //  }
+  //  else {
+  //    $form['field_pz_image_caption']['#access'] = TRUE;
+  //  }
     $form['field_pz_image_caption']['#access'] = FALSE;
-  }
-  else {
-    $form['field_pz_image_caption']['#access'] = TRUE;
-  }
 
   hwc_workflow_add_extra_fields($form, $form_state);
 }

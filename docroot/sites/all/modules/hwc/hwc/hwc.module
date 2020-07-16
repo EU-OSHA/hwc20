@@ -1918,25 +1918,25 @@ function hwc_node_presave($node) {
   }
 
   if ($node->type == 'news') {
-    if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
-      $p_account = hwc_partner_get_account_partner();
-      if ($p_account) {
-        $node->field_image[$language->language][0]['fid'] = $p_account->field_logo[LANGUAGE_NONE][0]['fid'];
-        $node->field_image[$language->language][0]['image_field_caption']['format'] = 'full_html';
-        $node->field_image[$language->language][0]['image_field_caption']['value'] = $node->field_pz_image_caption[LANGUAGE_NONE][0]['value'];
-      }
-    }
-    else {
-      if (
-        empty($node->field_image[$language->language][0]['image_field_caption']['value'])
-        &&
-        !empty($node->field_pz_image_caption[LANGUAGE_NONE][0]['value'])
-        &&
-        !empty($node->field_image[$language->language][0]['fid'])
-      ) {
-        $node->field_image[$language->language][0]['image_field_caption']['value'] = $node->field_pz_image_caption[LANGUAGE_NONE][0]['value'];
-      }
-    }
+//    if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
+//      $p_account = hwc_partner_get_account_partner();
+//      if ($p_account) {
+//        $node->field_image[$language->language][0]['fid'] = $p_account->field_logo[LANGUAGE_NONE][0]['fid'];
+//        $node->field_image[$language->language][0]['image_field_caption']['format'] = 'full_html';
+//        $node->field_image[$language->language][0]['image_field_caption']['value'] = $node->field_pz_image_caption[LANGUAGE_NONE][0]['value'];
+//      }
+//    }
+//    else {
+//      if (
+//        empty($node->field_image[$language->language][0]['image_field_caption']['value'])
+//        &&
+//        !empty($node->field_pz_image_caption[LANGUAGE_NONE][0]['value'])
+//        &&
+//        !empty($node->field_image[$language->language][0]['fid'])
+//      ) {
+//        $node->field_image[$language->language][0]['image_field_caption']['value'] = $node->field_pz_image_caption[LANGUAGE_NONE][0]['value'];
+//      }
+//    }
   }
 }
 
