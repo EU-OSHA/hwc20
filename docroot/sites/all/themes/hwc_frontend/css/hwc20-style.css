@@ -18,18 +18,20 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
 }
 /* Styles for only REL1 */
 .rel1 {
+  /*PROD rel 1*/
+  /*STG rel 1*/
   /*
-		#block-menu-menu-header-login, #block-lang-dropdown-language{
-			display: none;
+		#block-menu-menu-header-login{
+			visibility: hidden;
 		}
 		*/
-  /*STG rel 1*/
 }
-.rel1 #block-menu-menu-header-login {
-  visibility: hidden;
+.rel1 #block-menu-menu-header-login,
+.rel1 #block-lang-dropdown-language {
+  display: none;
 }
 .rel1 header.navbar-default .campaigns-header .navbar-header .header_top_bar .region-above-header {
-  /*padding-top: 1.3em;*/
+  padding-top: 1.3em;
 }
 /*HW20-489*/
 .rel1 .related-resources-boxes {
@@ -8999,6 +9001,9 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   .front-page .go-to-anchor {
     display: none !important;
   }
+  html:lang(sl) .page-campaign-partners-enterprise-europe-network .page_title .page-header {
+    max-width: 600px;
+  }
 }
 @media (max-width: 1865px) {
   html:lang(bg) header.navbar-default .navbar-collapse nav ul.menu > li,
@@ -10536,6 +10541,9 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
   body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events .view-frontpage-events .view-content > div:last-child {
     border-bottom: 0;
+  }
+  html:lang(sl) .page-campaign-partners-enterprise-europe-network .page_title .page-header {
+    max-width: 100%;
   }
   .node-type-priority-area .region-content #block-hwc-priority-areas .node-pa-highlights .field.field-name-field-image,
   .node-type-priority-area .region-content #block-hwc-priority-areas .node-news .field.field-name-field-image {
