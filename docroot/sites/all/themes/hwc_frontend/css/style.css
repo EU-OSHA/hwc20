@@ -7272,9 +7272,6 @@ header.navbar-default .campaigns-header .navbar-header a.pull-left {
   margin-right: 1em;
   padding-bottom: 7px;
 }
-header.navbar-default .campaigns-header .navbar-header img:nth-child(1) {
-  margin-left: 30px;
-}
 header.navbar-default .campaigns-header .navbar-header a img.pull-left {
   height: auto;
   margin-left: 0px;
@@ -7720,7 +7717,6 @@ header.navbar-default .navbar-collapse nav ul.menu > li.first a:before {
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    background-image: url("/sites/all/themes/hwc_frontend/images/header/logo-sticky.png");
     display: inline-block;
     width: 100px;
     height: 77px;
@@ -7735,35 +7731,31 @@ header.navbar-default .navbar-collapse nav ul.menu > li.first a:before {
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    width: 100px !important;
-    height: 77px !important;
-    display: none;
+    height: 79px !important;
   }
-  .sticky-menu .col-sm-9 a[title*="EU-OSHA"] {
+  .sticky-menu .col-sm-9 a:nth-child(2) {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    background-image: url("/sites/all/themes/hwc_frontend/images/header/EU-OSHA-en.png");
     display: inline-block;
     width: 220px;
-    height: 70px;
+    height: 83px;
     float: left;
-    background-repeat: no-repeat;
-    background-size: 206px;
-    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
   }
-  .sticky-menu .col-sm-9 a[title*="EU-OSHA"] img.pull-left {
+  .sticky-menu .col-sm-9 a:nth-child(2) img.pull-left {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    width: 160px !important;
-    height: 95px !important;
+    width: 220px;
+    height: 70px !important;
     margin-top: 0px !important;
-    display: none;
   }
   .sticky-menu .col-sm-9 img[alt*="EU logo"] {
     -webkit-transition: all 0.3s;
