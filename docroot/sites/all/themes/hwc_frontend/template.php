@@ -33,7 +33,9 @@ function hwc_frontend_html_head_alter(&$head_elements) {
  * Implements theme_menu_link__menu_block().
  */
 function hwc_frontend_menu_link__menu_block($variables) {
+  global $language;
   $element = &$variables['element'];
+  $element['#href'] = str_replace('www.napofilm.net/en/','www.napofilm.net/' . $language->language . '/', $element['#href']);
   if (!empty($element['#localized_options']['attributes']['class']) && $class = $element['#localized_options']['attributes']['class']) {
     if (($class[0] == 'previous-campaigns') && ($element['#bid']['delta'] == 5)) {
       $element['#href'] = '<nolink>';
