@@ -1103,3 +1103,10 @@ function hwc_update_7071() {
 function hwc_update_7072() {
   features_revert(array('hwc' => 'views_view', 'taxonomy', 'field_base', 'field_instance'));
 }
+
+/*
+ * MHWC-171 GPA: In the 2nd FAQs an intro is missing.
+ */
+function hwc_update_7073() {
+  features_revert(array('hwc_gpa' => 'field_instance'));
+}
