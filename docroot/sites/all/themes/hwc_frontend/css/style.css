@@ -7597,6 +7597,9 @@ header.navbar-default .navbar-collapse nav ul.menu > li.first a:before {
   margin-bottom: 39px;
   background-position: center;
 }
+header.navbar-default .campaigns-header .navbar-header img:nth-child(1) {
+  margin-left: 30px;
+}
 #navbar > div > div:nth-child(1) {
   padding: 10px 20px 10px 70px;
 }
@@ -7732,6 +7735,7 @@ header.navbar-default .navbar-collapse nav ul.menu > li.first a:before {
     -o-transition: all 0.3s;
     transition: all 0.3s;
     height: 79px !important;
+    margin-left: 0 !important;
   }
   .sticky-menu .col-sm-9 a:nth-child(2) {
     -webkit-transition: all 0.3s;
