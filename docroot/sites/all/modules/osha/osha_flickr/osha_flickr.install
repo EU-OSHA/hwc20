@@ -34,3 +34,11 @@ function osha_flickr_update_7004() {
 function osha_flickr_update_7005() {
   features_revert(array('osha_flickr' => array('ds_layout_settings', 'variable')));
 }
+
+/**
+ * MHWC-187 Rename Flickr Gallery to Gallery and remove Gallery.
+ */
+function osha_flickr_update_7006() {
+  features_revert_module('hwc_gallery');
+  features_revert(array('osha_flickr' => array('views_view')));
+}
