@@ -20,9 +20,64 @@
 		}
 
 	}
+
+	html:lang(de),
+	html:lang(el){
+		.intro-footer{
+			max-width: 615px;
+		}
+	}
+	
+	/*MHWC-141 with year only style*/
+	.page-node-184.year-only{
+		.timeline{
+			> div:nth-child(3){
+				position: absolute;
+		    	right: 238px;
+		    	top: 9px;
+		    	font-weight: bold;
+				&:after{
+		    		position: absolute;
+				    left: 28%;
+				    top: 21px;
+				}
+				span{
+					padding-left: 6px;
+				}
+		    }
+		}
+	}
+
+	
 }
 
 @media (max-width: 1200px){
+
+	html:lang(de),
+	html:lang(fi)
+	{
+		#block-hwc-homepage-footer-section{
+			.col-md-2{
+				padding-left: 3px;
+				padding-right: 3px;
+			}
+		}
+	}
+
+	.previous-next.two-arrows{
+		height: 114px;
+    	align-items: flex-start;
+	}
+
+	.previous span:nth-child(2), .next span:nth-child(2) {
+	    width: 170px;
+	}
+
+	.intro-footer{
+		max-width: 460px;
+    	font-size: 12px;
+	}
+
 
 	html:lang(bg),
 	html:lang(da),
@@ -372,8 +427,12 @@
 
 	.page_title{
 		h1{
-		    width: 65%;
+		    width: 70%;
 		}
+	}
+
+	.node-type-events .content-left-column {
+	    width: 70%;
 	}
 
 	.page-media-centre-events{
@@ -388,6 +447,13 @@
 }
 
 @media (max-width: 1465px) {
+
+	html:lang(de), html:lang(es),html:lang(bg) {
+		/*HW20-884*/
+		.page_title h1 {
+		    font-size: 2.6em;
+		}	
+	}
 
 	header.navbar-default{
 		.navbar-collapse{

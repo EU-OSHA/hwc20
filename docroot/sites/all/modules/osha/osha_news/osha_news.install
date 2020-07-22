@@ -184,3 +184,10 @@ function osha_news_update_7025() {
 function osha_news_update_7026() {
   features_revert(array('osha_news' => array('field_base', 'field_instance', 'ds_layout_settings')));
 }
+
+/**
+ * MHWC-75 Newsletter: cropping option.
+ */
+function osha_news_update_7027() {
+  features_revert(array('osha_news' => array('field_base', 'field_instance')));
+}

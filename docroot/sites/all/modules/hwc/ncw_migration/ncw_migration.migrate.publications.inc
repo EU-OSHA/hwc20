@@ -45,10 +45,6 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
     $this->addFieldMapping('field_publication_type:create_term')->defaultValue(FALSE);
     $this->addFieldMapping('field_publication_type', 'field_publication_type');
 
-    $this->addFieldMapping('field_segment:source_type')->defaultValue('tid');
-    $this->addFieldMapping('field_segment:create_term')->defaultValue(FALSE);
-    $this->addFieldMapping('field_segment', 'field_relevant_for');
-
     $this->addFieldMapping('field_aditional_resources', 'field_aditional_resources');
 
     $this->addUnmigratedDestinations(array(

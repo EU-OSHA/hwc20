@@ -26,9 +26,21 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
 
 /* Styles for only REL1 */
 	.rel1{
+		/*
+		#block-menu-menu-header-login, #block-lang-dropdown-language{
+			display: none;
+		}
+		*/
+		/*STG rel 1*/
 		#block-menu-menu-header-login{
 			visibility: hidden;
 		}
+	}
+
+	.rel1{
+		header.navbar-default .campaigns-header .navbar-header .header_top_bar .region-above-header{
+			/*padding-top: 1.3em;*/
+		}	
 	}
 
 	/*HW20-489*/
@@ -42,6 +54,54 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
 
 header.navbar-default .navbar-collapse nav ul.menu li {
 	width: 15%;
+}
+
+html:lang(is){
+	header.navbar-default{ 
+		.campaigns-header {
+			#block-menu-menu-header-login {
+				a{
+					width: 129px;
+				}
+			}
+		}
+	}
+}
+
+html:lang(pl){
+	header.navbar-default{ 
+		.campaigns-header {
+			#block-menu-menu-header-login {
+				a{
+					width: 106px;
+				}
+			}
+		}
+	}
+}
+
+html:lang(pt){
+	header.navbar-default{ 
+		.campaigns-header {
+			#block-menu-menu-header-login {
+				a{
+					width: 123px;
+				}
+			}
+		}
+	}
+}
+
+html:lang(fi){
+	header.navbar-default{ 
+		.campaigns-header {
+			#block-menu-menu-header-login {
+				a{
+					width: 137px;
+				}
+			}
+		}
+	}
 }
 
 .region-above-header.region {
@@ -457,9 +517,11 @@ select{
 	}
 }
 
+html:lang(bg),
+html:lang(cs),
 html:lang(de),
+html:lang(et),
 html:lang(el),
-html:lang(es),
 html:lang(fr),
 html:lang(hu),
 html:lang(pl),
@@ -1116,7 +1178,7 @@ ul.time-and-counters{
 	  }
   	}	
   	.recommended-tool{
-    	width: 95%;
+    	width: 100%;
   	}
 }
 
@@ -1530,10 +1592,15 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 		margin-top: 0;
 		font-weight: 400;
 		background: url(../images/grey-h3-line.png) repeat-x 50% 75%;
-		margin-bottom: 0.5em;
+		margin-bottom: 0;
 		span{
 			background:#FFF;
 			padding-right: 0.7em;
+		}
+	}
+	.view-header{
+		.content{
+			margin-top: 0.5em;
 		}
 	}
 }
@@ -1643,17 +1710,18 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 	}
 }
 
+.front{
+	.page_title{
+		margin-bottom: 0;
+	}
+}
+
 .content{
 	margin-top: 3em;
 }
 
-.introductory-page{
-	.field-name-body{
-		text-align: center;
-	    font-size: 1.7rem;
-	    padding-bottom: 2em;
-	    color: #003399;
-	}
+#block-menu-block-7{
+	padding-top: 0.5em;
 }
 
 .region.region-sidebar-first.well{
@@ -2657,6 +2725,16 @@ span.pages{
 	margin-top: 2em;
 }
 
+.newsletter-container{
+	.field.field-name-field-summary{
+		margin-bottom: 0;
+		margin-top: 0;
+		p{
+			margin: 0;
+		}
+	}
+}
+
 .publication-see-more-bottom-container{
 	bottom: 0;
     position: absolute;
@@ -2756,6 +2834,7 @@ span.pages{
 		}
 		p{
 			color:#333333;
+			font-size: 0.9em;
 		}
 	}
 }
@@ -4388,18 +4467,18 @@ body{
 
 		}
 	}
-
 }
 
-html:lang(de){
+html:lang(hr)
+{
 	.node-type-article article .field-name-body.field-type-text-with-summary{
 		.become-partner{
 			.coments .col{
 				.more-link{
-					a{
-						font-size: 0.75em;
-					}
-				}    
+	    			a{
+	    				font-size: 0.75em;
+	    			}
+	    		}    
 
 			}
 		}
@@ -4730,7 +4809,8 @@ html:lang(sv)
     	right: 15%;
     	top: 29px;
     }
-} 
+}
+
 
 .page-node-184{
 	.related-resources{
@@ -5115,7 +5195,7 @@ span.add-to-my-calendar{
 	}
 
 	.content-left-column{
-		width: 70%;
+		width: 64%;
 		float: left;
 		padding-top: 2em;
 	}
@@ -5194,7 +5274,7 @@ span.add-to-my-calendar{
 
 	.group-right2{
 		float: right;
-	 	width: 22%;
+	 	width: 260px;
 	 	padding-top: 2em;
 	 	.event_day_month{
 	 		display: flex;
@@ -7006,7 +7086,7 @@ body.front-page{
 					padding-bottom: 0;
 					height: 385px;
 					h1{
-						padding-top: 1.5em;
+						padding-top: 1em;
 					    border-bottom: 0;
 					    font-size: 2em;
 					    font-style: normal;
@@ -7027,7 +7107,7 @@ body.front-page{
 						color: #FFF;
 					    padding-top: 1em;
 					    padding-bottom: 2em;
-					    max-width: 430px;
+					    max-width: 540px;
 					    margin: 0 auto;
 					    font-size: 1.2em;
 					}
@@ -7036,6 +7116,12 @@ body.front-page{
 						display: flex;
 			    		justify-content: center;
 			    		align-items: center;
+					}
+				}
+
+				.views-row-last{
+					p{
+					    max-width: 600px;
 					}
 				}
 			}
@@ -9420,7 +9506,7 @@ body.front-page{
 
 			.priority_area_info{
 				text-align: center;
-			    width: 80%;
+			    width: 85%;
 			    margin: 0.5em auto;
 			}
 	
@@ -9772,15 +9858,6 @@ body.page-node-253{
 	}
 }
 
-.content-pdf-guide{
-	float: right;
-	margin-top: -25px;
-	/*TO DO when approve the label to the link*/
-	display: none;
-	a{
-		background: url(../images/target-blank-blue.png) no-repeat 100% 4px;
-	    color: #003399;
-	    padding-right: 1.5em;
-	    font-weight: bold;
-	}
+.link-pz-guide{
+	font-weight: 600;
 }

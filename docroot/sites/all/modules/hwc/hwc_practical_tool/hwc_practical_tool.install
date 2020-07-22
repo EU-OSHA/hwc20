@@ -247,7 +247,6 @@ function hwc_practical_tool_update_7029() {
     'field_prevention_measure_type',
     'field_provider',
     'field_sector_industry_other',
-    'field_segment',
     'field_target_group',
     'field_tasks_covered',
     'field_tasks_other',

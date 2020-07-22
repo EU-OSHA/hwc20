@@ -19,14 +19,6 @@ function hwc_glossary_theme() {
     ),
     'path' => $path . '/templates',
   );
-  $theme['hwc_glossary_search_block'] = array(
-    'template' => 'hwc_glossary_search_block',
-    'variables' => array(
-      'items' => NULL,
-      'label' => NULL,
-    ),
-    'path' => $path . '/templates',
-  );
   return $theme;
 }
 
@@ -43,14 +35,6 @@ function hwc_glossary_block_info() {
     'cache' => DRUPAL_CACHE_GLOBAL,
     'pages' => "glossary\r\nglossary/*",
   );
-  $blocks['hwc_glossary_search'] = array(
-    'info' => t('HWC Glossary search'),
-    'status' => 1,
-    'region' => 'content',
-    'visibility' => BLOCK_VISIBILITY_LISTED,
-    'cache' => DRUPAL_CACHE_GLOBAL,
-    'pages' => "glossary-search\r\nglossary-search/*",
-  );
   return $blocks;
 }
 
@@ -59,10 +43,6 @@ function hwc_glossary_block_info() {
  */
 function hwc_glossary_block_view($delta = '') {
   $block = array();
-  if ($delta == 'hwc_glossary_search') {
-    $block['subject'] = '<none>';
-    $block['content'] = theme('hwc_glossary_search_block');
-  }
   if ($delta == 'hwc_glossary_page') {
     $block['subject'] = '<none>';
     $block['content'] = theme('hwc_glossary_page_block');

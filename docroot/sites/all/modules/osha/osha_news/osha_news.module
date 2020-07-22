@@ -87,6 +87,7 @@ function osha_news_form_news_node_form_alter(&$form, &$form_state) {
 
   if (count(array_intersect(array(HWC_ROLE_CAMPAIGN_PARTNER), $user->roles))) {
     $form['field_image']['#access'] = FALSE;
+    $form['field_image_mail']['#access'] = FALSE;
     $form['field_pz_image_caption']['#access'] = FALSE;
   }
   else {

@@ -235,6 +235,9 @@ class OSHNewsletter {
     if ($variables['section']->name == 'More news') {
       $variables['section']->name = '';
     }
+    if ($variables['section']->name == 'In the spotlight') {
+      $variables['section']->name = '';
+    }
     if (!empty($variables['section']->name)) {
       $icon = self::getConfiguration($entityCollection, 'field_icon', $variables['section']);
       $class = 'section-title';
@@ -553,17 +556,6 @@ class OSHNewsletter {
   }
 
   public static function render(EntityCollection $source) {
-    $isOldNewsletter = FALSE;
-    $oldNewsletter = [
-      'elements' => [],
-      'blogs' => [],
-      'news' => [],
-      'events' => [],
-    ];
-    if (!empty($source->field_publication_date)) {
-      $newsletterVersion2Date = variable_get('osha_newsletter_version_2_deployment_time', strtotime('1 March 2017'));
-      $isOldNewsletter = $newsletterVersion2Date > strtotime($source->field_publication_date[LANGUAGE_NONE][0]['value']);
-    }
 
     $newsletter_intro = NULL;
     if (isset($source->field_newsletter_intro_text[LANGUAGE_NONE][0])) {
@@ -607,29 +599,6 @@ class OSHNewsletter {
             }
           }*/
 
-          if ($isOldNewsletter) {
-            $section->old_newsletter = TRUE;
-            $term = taxonomy_term_view($section, 'token');
-            switch ($current_section) {
-              // News.
-              case '11':
-                $oldNewsletter['news'][] = $term;
-                break;
-
-              // Blog.
-              case '14':
-                $oldNewsletter['blogs'][] = $term;
-                break;
-
-              // Events.
-              case '15':
-                $oldNewsletter['events'][] = $term;
-                break;
-
-              default:
-                $oldNewsletter['elements'][] = $term;
-            }
-          }
           break;
 
         case 'node':
@@ -648,30 +617,6 @@ class OSHNewsletter {
             'node' => $node,
           ];
 
-          if ($isOldNewsletter) {
-            $node->old_newsletter = TRUE;
-            $node = node_view($node, $item->style);
-            $node['#campaign_id'] = $campaign_id;
-            switch ($current_section) {
-              // News.
-              case '11':
-                $oldNewsletter['news'][] = $node;
-                break;
-
-              // Blog.
-              case '14':
-                $oldNewsletter['blogs'][] = $node;
-                break;
-
-              // Events.
-              case '15':
-                $oldNewsletter['events'][] = $node;
-                break;
-
-              default:
-                $oldNewsletter['elements'][] = $node;
-            }
-          }
           break;
       }
     }
@@ -679,45 +624,34 @@ class OSHNewsletter {
     $languages = osha_language_list(TRUE);
 
     $renderedContent = '';
-    if (!$isOldNewsletter) {
-      foreach ($content as $section) {
-        if (empty($section['nodes'])) {
-          continue;
-        }
-        if (preg_match('/.*(half_width).*/', $section['#style'])) {
-          if (!empty($half_column)) {
-            // Found 2 half-width templates in a row.
-            $renderedContent .= self::renderTemplate($source, 'newsletter_multiple_columns', [$half_column, $section]);
-            $half_column = NULL;
-          }
-          else {
-            $half_column = $section;
-          }
+    foreach ($content as $section) {
+      if (empty($section['nodes'])) {
+        continue;
+      }
+      if (preg_match('/.*(half_width).*/', $section['#style'])) {
+        if (!empty($half_column)) {
+          // Found 2 half-width templates in a row.
+          $renderedContent .= self::renderTemplate($source, 'newsletter_multiple_columns', [$half_column, $section]);
+          $half_column = NULL;
         }
         else {
-          if (!empty($half_column)) {
-            // We couldn't find 2 half-width columns in a row, so we stick the only.
-            // one to the entire width.
-            $renderedContent .= self::renderTemplate($source, $half_column['#style'], $half_column);
-            $half_column = NULL;
-          }
-          $renderedContent .= self::renderTemplate($source, $section['#style'], $section);
+          $half_column = $section;
         }
       }
-
-      if (!empty($half_column)) {
-        $renderedContent .= self::renderTemplate($source, $half_column['#style'], $half_column);
-        $half_column = NULL;
+      else {
+        if (!empty($half_column)) {
+          // We couldn't find 2 half-width columns in a row, so we stick the only.
+          // one to the entire width.
+          $renderedContent .= self::renderTemplate($source, $half_column['#style'], $half_column);
+          $half_column = NULL;
+        }
+        $renderedContent .= self::renderTemplate($source, $section['#style'], $section);
       }
     }
-    else {
-      $renderedContent = theme('newsletter_body', array(
-        'items' => $oldNewsletter['elements'],
-        'blogs' => $oldNewsletter['blogs'],
-        'news' => $oldNewsletter['news'],
-        'events' => $oldNewsletter['events'],
-        'campaign_id' => $campaign_id,
-      ));
+
+    if (!empty($half_column)) {
+      $renderedContent .= self::renderTemplate($source, $half_column['#style'], $half_column);
+      $half_column = NULL;
     }
 
     $header = theme('newsletter_header', array(
@@ -771,10 +705,6 @@ class OSHNewsletter {
       '#sticky' => FALSE,
       '#children' => [],
     ];
-
-    if ($isOldNewsletter) {
-      $fullNewsletter['#attributes']['class'][] = 'old-newsletter';
-    }
 
     $fullNewsletter = drupal_render($fullNewsletter);
 

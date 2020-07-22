@@ -764,7 +764,7 @@ function hwc_workflow_form_alter(&$form, &$form_state, $form_id) {
   }
   if (!empty($form['workbench_access']['workbench_access']['#options']['section'])) {
     $form['workbench_access']['workbench_access']['#title'] = 'Partner';
-    $form['workbench_access']['workbench_access']['#options']['section'] = 'General Public';
+    $form['workbench_access']['workbench_access']['#options']['section'] = 'EU-OSHA';
   }
 }
 
@@ -921,6 +921,8 @@ function hwc_workflow_node_form_after_build_hide_hints($form, &$form_state) {
  */
 function _hwc_workflow_partner_node_form_alter(&$form, &$form_state) {
   global $user;
+  global $base_url;
+  $document_partner = $base_url .'/sites/all/themes/hwc_frontend/documents/HWC 20-22_News and Events revision workflow.pdf' ;
   $form['revision_information']['#access'] = FALSE;
   if (!empty($form['workbench_moderation_state_current']['#value']) && $form['workbench_moderation_state_current']['#value'] == 'draft') {
     $form['actions']['submit']['#access'] = FALSE;
@@ -931,9 +933,10 @@ function _hwc_workflow_partner_node_form_alter(&$form, &$form_state) {
     );
     $is_admin = count(array_intersect(array(HWC_ROLE_ADMIN), $user->roles));
     if (!$is_admin && in_array($form['type']['#value'], ['news', 'events'])) {
-      $text = t("Please note that your news /event items will be only published on the campaign website after revision by EU-OSHA.");
+      $text = t("Please note that your news /event items will be only published on the campaign website after ");
+      $text_link =  "revision by EU-OSHA.";
       $form['actions']['markup'] = array(
-        '#markup' => '<div class="text-advice container">' . $text . '</div>',
+        '#markup' => '<div class="text-advice container">' . $text . '<a target="_blank" class="link-pz-guide" href="'. $document_partner . '">' . $text_link . '</a></div>',
       );
     }
     $form['actions']['send_for_approval'] = array(

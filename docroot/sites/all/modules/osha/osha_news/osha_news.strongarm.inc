@@ -201,7 +201,7 @@ function osha_news_strongarm() {
           'weight' => '0',
         ),
         'xmlsitemap' => array(
-          'weight' => '23',
+          'weight' => '24',
         ),
       ),
       'display' => array(
