@@ -7682,6 +7682,11 @@ header.navbar-default.sticky-menu .campaigns-header .navbar-header div.col-xs-12
   height: 80px;
   display: flex;
   align-items: center;
+  max-width: 363px !important;
+  width: 363px !important;
+}
+header.navbar-default.sticky-menu .campaigns-header .navbar-header div.col-xs-12.col-sm-9 .header-text span {
+  padding-left: 1em;
 }
 html:lang(el) header.navbar-default.sticky-menu .campaigns-header .navbar-header div.col-xs-12.col-sm-9 .header-text,
 html:lang(pl) header.navbar-default.sticky-menu .campaigns-header .navbar-header div.col-xs-12.col-sm-9 .header-text {
@@ -8607,6 +8612,26 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
 }
 @media (max-width: 1200px) {
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(bg),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(da),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(el),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(de),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(et),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(fr),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(hr),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(is),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(it),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(lv),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(hu),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(mt),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(no),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(pl),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(pt),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(fi),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(ro) {
+    font-size: 1em !important;
+    width: 300px!important;
+  }
   html:lang(de) #block-hwc-homepage-footer-section .col-md-2,
   html:lang(fi) #block-hwc-homepage-footer-section .col-md-2 {
     padding-left: 3px;
@@ -8928,6 +8953,9 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
 }
 @media (max-width: 1391px) {
+  #navbar > div > div:nth-child(1) {
+    padding: 10px 20px 10px 0px;
+  }
   .page-search .view-footer {
     display: block;
     position: absolute;
@@ -9105,7 +9133,7 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     align-self: flex-start;
   }
   header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 a {
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
   header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 a.pull-left {
     margin: 2rem 1em 0 0;
@@ -9122,7 +9150,7 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 img:nth-child(3) {
     width: auto!important;
     padding: 0!important;
-    margin: 54px 0 0 7px;
+    margin: 15px 0 0 7px;
     height: 36px;
   }
   header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 .header-text {
@@ -10726,12 +10754,8 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 a {
     margin-top: 1rem !important;
   }
-  header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 a img.pull-left {
-    height: 48px !important;
-    margin-top: 18px !important;
-  }
   header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 img:nth-child(3) {
-    margin: 49px 0 0 5px!important;
+    margin: 10px 0 0 20px!important;
     height: 28px !important;
   }
   header.navbar-default .campaigns-header .navbar-header .region-header #block-lang-dropdown-language,
@@ -11530,6 +11554,27 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     padding-bottom: 130px;
   }
 }
+@media (max-width: 769px) {
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(bg),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(da),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(el),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(de),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(et),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(fr),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(hr),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(is),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(it),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(lv),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(hu),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(mt),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(no),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(pl),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(pt),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(fi),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(ro) {
+    font-size: 0.9em !important;
+  }
+}
 @media (max-width: 480px) {
   .page_title {
     margin-bottom: 1em;
@@ -11679,6 +11724,16 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
 }
 @media (max-width: 370px) {
+  header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 img:nth-child(3) {
+    position: absolute;
+    right: 5px;
+  }
+  header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 a.pull-left {
+    margin: 2rem 0em 0 0;
+  }
+  header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 a img.pull-left {
+    height: 55px;
+  }
   .how-to-apply > div.boxes > div:nth-child(1),
   .how-to-apply > div.boxes > div:nth-child(2),
   .how-to-apply > div.boxes > div:nth-child(3) {

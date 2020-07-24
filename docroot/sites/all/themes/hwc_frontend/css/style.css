@@ -7311,7 +7311,7 @@ header.navbar-default .campaigns-header .navbar-header .header-text:lang(pl),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(pt),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(fi),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(ro) {
-  font-size: 1.25em;
+  font-size: 1.25em !important;
   padding-left: 1em;
 }
 header.navbar-default .campaigns-header .navbar-header #block-lang-dropdown-language {
@@ -20356,15 +20356,12 @@ body.front .homepage-slider blockquote.image-field-caption p {
     padding-right: 1em;
     margin-right: 1em;
   }
-  header.navbar-default .campaigns-header .navbar-header a img.pull-left {
-    width: 150px;
-  }
   header.navbar-default .campaigns-header .navbar-header img:nth-child(3) {
     width: 70px;
     padding-right: 1em !important;
   }
   header.navbar-default .campaigns-header .navbar-header .header-text {
-    font-size: 20px;
+    font-size: 17px;
     width: 238px;
     padding-top: 1em;
     padding-left: 0.8em;
@@ -26049,7 +26046,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
     margin-right: .5em;
   }
   header.navbar-default .campaigns-header .navbar-header a.pull-left img {
-    margin-left: 15px;
+    margin-left: 5px;
     width: 95px;
   }
   header.navbar-default .campaigns-header .navbar-header a img.pull-left {
@@ -26367,7 +26364,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
     margin-right: .5em;
   }
   header.navbar-default .campaigns-header .navbar-header a.pull-left img {
-    margin-left: 15px;
+    margin-left: 5px;
     width: 90px;
   }
   header.navbar-default .campaigns-header .navbar-header a img.pull-left {
