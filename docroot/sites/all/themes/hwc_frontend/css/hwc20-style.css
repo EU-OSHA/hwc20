@@ -11761,7 +11761,402 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   .how-to-apply .timeline > div:nth-child(3):after {
     left: -25px;
   }
+  html:lang(bg) .how-to-apply h3,
+  html:lang(cs) .how-to-apply h3,
+  html:lang(et) .how-to-apply h3,
+  html:lang(el) .how-to-apply h3,
+  html:lang(de) .how-to-apply h3,
+  html:lang(es) .how-to-apply h3,
+  html:lang(fr) .how-to-apply h3,
+  html:lang(hr) .how-to-apply h3,
+  html:lang(is) .how-to-apply h3,
+  html:lang(lv) .how-to-apply h3,
+  html:lang(lt) .how-to-apply h3,
+  html:lang(hu) .how-to-apply h3,
+  html:lang(nl) .how-to-apply h3,
+  html:lang(pl) .how-to-apply h3,
+  html:lang(pt) .how-to-apply h3,
+  html:lang(ro) .how-to-apply h3,
+  html:lang(sk) .how-to-apply h3,
+  html:lang(sl) .how-to-apply h3,
+  html:lang(fi) .how-to-apply h3,
+  html:lang(sv) .how-to-apply h3 {
+    padding-bottom: 0;
+  }
+  html:lang(bg) .how-to-apply .box,
+  html:lang(cs) .how-to-apply .box,
+  html:lang(et) .how-to-apply .box,
+  html:lang(el) .how-to-apply .box,
+  html:lang(de) .how-to-apply .box,
+  html:lang(es) .how-to-apply .box,
+  html:lang(fr) .how-to-apply .box,
+  html:lang(hr) .how-to-apply .box,
+  html:lang(is) .how-to-apply .box,
+  html:lang(lv) .how-to-apply .box,
+  html:lang(lt) .how-to-apply .box,
+  html:lang(hu) .how-to-apply .box,
+  html:lang(nl) .how-to-apply .box,
+  html:lang(pl) .how-to-apply .box,
+  html:lang(pt) .how-to-apply .box,
+  html:lang(ro) .how-to-apply .box,
+  html:lang(sk) .how-to-apply .box,
+  html:lang(sl) .how-to-apply .box,
+  html:lang(fi) .how-to-apply .box,
+  html:lang(sv) .how-to-apply .box {
+    width: 232px;
+    min-height: 206px;
+  }
+  html:lang(bg) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(cs) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(et) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(el) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(de) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(es) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(fr) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(hr) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(is) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(lv) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(lt) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(hu) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(nl) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(pl) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(pt) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(ro) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(sk) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(sl) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(fi) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(sv) .how-to-apply > div.boxes > div:nth-child(1) {
+    left: 45px !important;
+  }
+  html:lang(bg) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(cs) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(et) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(el) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(de) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(es) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(fr) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(hr) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(is) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(lv) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(lt) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(hu) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(nl) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(pl) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(pt) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(ro) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(sk) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(sl) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(fi) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(sv) .how-to-apply > div.boxes > div:nth-child(2) {
+    left: 45px !important;
+  }
+  html:lang(bg) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(cs) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(et) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(el) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(de) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(es) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(fr) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(hr) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(is) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(lv) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(lt) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(hu) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(nl) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(pl) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(pt) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(ro) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(sk) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(sl) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(fi) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(sv) .how-to-apply > div.boxes > div:nth-child(3) {
+    left: 45px !important;
+  }
+  html:lang(bg) .timeline > div:nth-child(1),
+  html:lang(cs) .timeline > div:nth-child(1),
+  html:lang(et) .timeline > div:nth-child(1),
+  html:lang(el) .timeline > div:nth-child(1),
+  html:lang(de) .timeline > div:nth-child(1),
+  html:lang(es) .timeline > div:nth-child(1),
+  html:lang(fr) .timeline > div:nth-child(1),
+  html:lang(hr) .timeline > div:nth-child(1),
+  html:lang(is) .timeline > div:nth-child(1),
+  html:lang(lv) .timeline > div:nth-child(1),
+  html:lang(lt) .timeline > div:nth-child(1),
+  html:lang(hu) .timeline > div:nth-child(1),
+  html:lang(nl) .timeline > div:nth-child(1),
+  html:lang(pl) .timeline > div:nth-child(1),
+  html:lang(pt) .timeline > div:nth-child(1),
+  html:lang(ro) .timeline > div:nth-child(1),
+  html:lang(sk) .timeline > div:nth-child(1),
+  html:lang(sl) .timeline > div:nth-child(1),
+  html:lang(fi) .timeline > div:nth-child(1),
+  html:lang(sv) .timeline > div:nth-child(1) {
+    position: absolute;
+    left: 32px;
+    top: 37px;
+  }
+  html:lang(bg) .timeline > div:nth-child(1):after,
+  html:lang(cs) .timeline > div:nth-child(1):after,
+  html:lang(et) .timeline > div:nth-child(1):after,
+  html:lang(el) .timeline > div:nth-child(1):after,
+  html:lang(de) .timeline > div:nth-child(1):after,
+  html:lang(es) .timeline > div:nth-child(1):after,
+  html:lang(fr) .timeline > div:nth-child(1):after,
+  html:lang(hr) .timeline > div:nth-child(1):after,
+  html:lang(is) .timeline > div:nth-child(1):after,
+  html:lang(lv) .timeline > div:nth-child(1):after,
+  html:lang(lt) .timeline > div:nth-child(1):after,
+  html:lang(hu) .timeline > div:nth-child(1):after,
+  html:lang(nl) .timeline > div:nth-child(1):after,
+  html:lang(pl) .timeline > div:nth-child(1):after,
+  html:lang(pt) .timeline > div:nth-child(1):after,
+  html:lang(ro) .timeline > div:nth-child(1):after,
+  html:lang(sk) .timeline > div:nth-child(1):after,
+  html:lang(sl) .timeline > div:nth-child(1):after,
+  html:lang(fi) .timeline > div:nth-child(1):after,
+  html:lang(sv) .timeline > div:nth-child(1):after {
+    left: -23px;
+    top: 92px;
+  }
+  html:lang(bg) .timeline > div:nth-child(2),
+  html:lang(cs) .timeline > div:nth-child(2),
+  html:lang(et) .timeline > div:nth-child(2),
+  html:lang(el) .timeline > div:nth-child(2),
+  html:lang(de) .timeline > div:nth-child(2),
+  html:lang(es) .timeline > div:nth-child(2),
+  html:lang(fr) .timeline > div:nth-child(2),
+  html:lang(hr) .timeline > div:nth-child(2),
+  html:lang(is) .timeline > div:nth-child(2),
+  html:lang(lv) .timeline > div:nth-child(2),
+  html:lang(lt) .timeline > div:nth-child(2),
+  html:lang(hu) .timeline > div:nth-child(2),
+  html:lang(nl) .timeline > div:nth-child(2),
+  html:lang(pl) .timeline > div:nth-child(2),
+  html:lang(pt) .timeline > div:nth-child(2),
+  html:lang(ro) .timeline > div:nth-child(2),
+  html:lang(sk) .timeline > div:nth-child(2),
+  html:lang(sl) .timeline > div:nth-child(2),
+  html:lang(fi) .timeline > div:nth-child(2),
+  html:lang(sv) .timeline > div:nth-child(2) {
+    position: absolute;
+    left: 32px;
+    top: 281px;
+  }
+  html:lang(bg) .timeline > div:nth-child(2):after,
+  html:lang(cs) .timeline > div:nth-child(2):after,
+  html:lang(et) .timeline > div:nth-child(2):after,
+  html:lang(el) .timeline > div:nth-child(2):after,
+  html:lang(de) .timeline > div:nth-child(2):after,
+  html:lang(es) .timeline > div:nth-child(2):after,
+  html:lang(fr) .timeline > div:nth-child(2):after,
+  html:lang(hr) .timeline > div:nth-child(2):after,
+  html:lang(is) .timeline > div:nth-child(2):after,
+  html:lang(lv) .timeline > div:nth-child(2):after,
+  html:lang(lt) .timeline > div:nth-child(2):after,
+  html:lang(hu) .timeline > div:nth-child(2):after,
+  html:lang(nl) .timeline > div:nth-child(2):after,
+  html:lang(pl) .timeline > div:nth-child(2):after,
+  html:lang(pt) .timeline > div:nth-child(2):after,
+  html:lang(ro) .timeline > div:nth-child(2):after,
+  html:lang(sk) .timeline > div:nth-child(2):after,
+  html:lang(sl) .timeline > div:nth-child(2):after,
+  html:lang(fi) .timeline > div:nth-child(2):after,
+  html:lang(sv) .timeline > div:nth-child(2):after {
+    left: -23px;
+    top: 101px;
+  }
+  html:lang(bg) .timeline > div:nth-child(3),
+  html:lang(cs) .timeline > div:nth-child(3),
+  html:lang(et) .timeline > div:nth-child(3),
+  html:lang(el) .timeline > div:nth-child(3),
+  html:lang(de) .timeline > div:nth-child(3),
+  html:lang(es) .timeline > div:nth-child(3),
+  html:lang(fr) .timeline > div:nth-child(3),
+  html:lang(hr) .timeline > div:nth-child(3),
+  html:lang(is) .timeline > div:nth-child(3),
+  html:lang(lv) .timeline > div:nth-child(3),
+  html:lang(lt) .timeline > div:nth-child(3),
+  html:lang(hu) .timeline > div:nth-child(3),
+  html:lang(nl) .timeline > div:nth-child(3),
+  html:lang(pl) .timeline > div:nth-child(3),
+  html:lang(pt) .timeline > div:nth-child(3),
+  html:lang(ro) .timeline > div:nth-child(3),
+  html:lang(sk) .timeline > div:nth-child(3),
+  html:lang(sl) .timeline > div:nth-child(3),
+  html:lang(fi) .timeline > div:nth-child(3),
+  html:lang(sv) .timeline > div:nth-child(3) {
+    position: absolute;
+    left: 32px;
+    top: 518px;
+    right: initial;
+  }
+  html:lang(bg) .timeline > div:nth-child(3):after,
+  html:lang(cs) .timeline > div:nth-child(3):after,
+  html:lang(et) .timeline > div:nth-child(3):after,
+  html:lang(el) .timeline > div:nth-child(3):after,
+  html:lang(de) .timeline > div:nth-child(3):after,
+  html:lang(es) .timeline > div:nth-child(3):after,
+  html:lang(fr) .timeline > div:nth-child(3):after,
+  html:lang(hr) .timeline > div:nth-child(3):after,
+  html:lang(is) .timeline > div:nth-child(3):after,
+  html:lang(lv) .timeline > div:nth-child(3):after,
+  html:lang(lt) .timeline > div:nth-child(3):after,
+  html:lang(hu) .timeline > div:nth-child(3):after,
+  html:lang(nl) .timeline > div:nth-child(3):after,
+  html:lang(pl) .timeline > div:nth-child(3):after,
+  html:lang(pt) .timeline > div:nth-child(3):after,
+  html:lang(ro) .timeline > div:nth-child(3):after,
+  html:lang(sk) .timeline > div:nth-child(3):after,
+  html:lang(sl) .timeline > div:nth-child(3):after,
+  html:lang(fi) .timeline > div:nth-child(3):after,
+  html:lang(sv) .timeline > div:nth-child(3):after {
+    left: -23px;
+    top: 97px;
+  }
+  html:lang(bg) .timeline > div:nth-child(4),
+  html:lang(cs) .timeline > div:nth-child(4),
+  html:lang(et) .timeline > div:nth-child(4),
+  html:lang(el) .timeline > div:nth-child(4),
+  html:lang(de) .timeline > div:nth-child(4),
+  html:lang(es) .timeline > div:nth-child(4),
+  html:lang(fr) .timeline > div:nth-child(4),
+  html:lang(hr) .timeline > div:nth-child(4),
+  html:lang(is) .timeline > div:nth-child(4),
+  html:lang(lv) .timeline > div:nth-child(4),
+  html:lang(lt) .timeline > div:nth-child(4),
+  html:lang(hu) .timeline > div:nth-child(4),
+  html:lang(nl) .timeline > div:nth-child(4),
+  html:lang(pl) .timeline > div:nth-child(4),
+  html:lang(pt) .timeline > div:nth-child(4),
+  html:lang(ro) .timeline > div:nth-child(4),
+  html:lang(sk) .timeline > div:nth-child(4),
+  html:lang(sl) .timeline > div:nth-child(4),
+  html:lang(fi) .timeline > div:nth-child(4),
+  html:lang(sv) .timeline > div:nth-child(4) {
+    position: absolute;
+    left: 101px;
+    top: 429px;
+    right: auto;
+  }
+  html:lang(bg) .timeline > div:nth-child(4):after,
+  html:lang(cs) .timeline > div:nth-child(4):after,
+  html:lang(et) .timeline > div:nth-child(4):after,
+  html:lang(el) .timeline > div:nth-child(4):after,
+  html:lang(de) .timeline > div:nth-child(4):after,
+  html:lang(es) .timeline > div:nth-child(4):after,
+  html:lang(fr) .timeline > div:nth-child(4):after,
+  html:lang(hr) .timeline > div:nth-child(4):after,
+  html:lang(is) .timeline > div:nth-child(4):after,
+  html:lang(lv) .timeline > div:nth-child(4):after,
+  html:lang(lt) .timeline > div:nth-child(4):after,
+  html:lang(hu) .timeline > div:nth-child(4):after,
+  html:lang(nl) .timeline > div:nth-child(4):after,
+  html:lang(pl) .timeline > div:nth-child(4):after,
+  html:lang(pt) .timeline > div:nth-child(4):after,
+  html:lang(ro) .timeline > div:nth-child(4):after,
+  html:lang(sk) .timeline > div:nth-child(4):after,
+  html:lang(sl) .timeline > div:nth-child(4):after,
+  html:lang(fi) .timeline > div:nth-child(4):after,
+  html:lang(sv) .timeline > div:nth-child(4):after {
+    left: -67px;
+    top: 3px;
+  }
+  html:lang(bg) .timeline > div:nth-child(5),
+  html:lang(cs) .timeline > div:nth-child(5),
+  html:lang(et) .timeline > div:nth-child(5),
+  html:lang(el) .timeline > div:nth-child(5),
+  html:lang(de) .timeline > div:nth-child(5),
+  html:lang(es) .timeline > div:nth-child(5),
+  html:lang(fr) .timeline > div:nth-child(5),
+  html:lang(hr) .timeline > div:nth-child(5),
+  html:lang(is) .timeline > div:nth-child(5),
+  html:lang(lv) .timeline > div:nth-child(5),
+  html:lang(lt) .timeline > div:nth-child(5),
+  html:lang(hu) .timeline > div:nth-child(5),
+  html:lang(nl) .timeline > div:nth-child(5),
+  html:lang(pl) .timeline > div:nth-child(5),
+  html:lang(pt) .timeline > div:nth-child(5),
+  html:lang(ro) .timeline > div:nth-child(5),
+  html:lang(sk) .timeline > div:nth-child(5),
+  html:lang(sl) .timeline > div:nth-child(5),
+  html:lang(fi) .timeline > div:nth-child(5),
+  html:lang(sv) .timeline > div:nth-child(5) {
+    position: absolute;
+    left: 28px;
+    top: 535px;
+  }
+  /**/
   body.front-page .main-container .newsletter-social-media #block-osha-newsletter-osha-newsletter-image {
     padding: 0;
+  }
+  #block-views-partners-block-3 {
+    padding-left: 0;
+  }
+  /*EN and others languages*/
+  .how-to-apply h3 {
+    padding-bottom: 0;
+  }
+  .how-to-apply .box {
+    width: 232px!important;
+    min-height: 206px;
+  }
+  .how-to-apply > div.boxes > div:nth-child(1) {
+    left: 45px !important;
+  }
+  .how-to-apply > div.boxes > div:nth-child(2) {
+    left: 45px !important;
+  }
+  .how-to-apply > div.boxes > div:nth-child(3) {
+    left: 45px !important;
+  }
+  .timeline > div:nth-child(1) {
+    position: absolute;
+    left: 32px;
+    top: 37px;
+  }
+  .timeline > div:nth-child(1):after {
+    left: -23px;
+    top: 92px;
+  }
+  .timeline > div:nth-child(2) {
+    position: absolute;
+    left: 32px;
+    top: 281px;
+  }
+  .timeline > div:nth-child(2):after {
+    left: -23px;
+    top: 101px;
+  }
+  .timeline > div:nth-child(3) {
+    position: absolute;
+    left: 32px;
+    top: 518px;
+    right: initial;
+  }
+  .timeline > div:nth-child(3):after {
+    left: -23px;
+    top: 97px;
+  }
+  .timeline > div:nth-child(4) {
+    position: absolute;
+    left: 101px;
+    top: 429px;
+    right: auto;
+  }
+  .timeline > div:nth-child(4):after {
+    left: -67px;
+    top: 3px;
+  }
+  .timeline > div:nth-child(5) {
+    position: absolute;
+    left: 28px;
+    top: 535px;
+  }
+  html:lang(de) .page_title h1,
+  html:lang(es) .page_title h1,
+  html:lang(bg) .page_title h1 {
+    font-size: 1.8em;
+    padding: 0 1em;
   }
 }
