@@ -994,7 +994,14 @@ $(document).ready(function () {
       jQuery("#company_osh_yourmissionstatement").val(pasteText);
     });
 
-    $("#company_osh_generalemail").on({
+    $("#company_osh_emailaddress3").on({
+        change: function () {
+            validateEmail(this);
+        }, blur: function () {
+            validateEmail(this);
+        }
+    });
+     $("#company_osh_generalemail").on({
         change: function () {
             validateEmail(this);
         }, blur: function () {
