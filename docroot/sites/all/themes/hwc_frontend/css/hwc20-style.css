@@ -9088,7 +9088,11 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     display: flex;
   }
   header.navbar-default.sticky-menu .campaigns-header .navbar-header .col-xs-12.col-sm-9 a {
-    margin-top: 0.5em;
+    margin-top: 0;
+    height: 76px;
+    display: flex;
+    align-items: center;
+    float: left;
   }
   header.navbar-default.sticky-menu .campaigns-header .navbar-header .col-xs-12.col-sm-9 a.pull-left {
     margin: 0 1em 0 0;
@@ -9097,10 +9101,11 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     width: auto !important;
   }
   header.navbar-default.sticky-menu .campaigns-header .navbar-header .col-xs-12.col-sm-9 img:nth-child(3) {
-    width: auto !important;
+    width: 40px !important;
     padding: 0em !important;
     margin: auto 0 0 0;
-    height: 40px;
+    height: auto;
+    margin-top: 25px;
   }
   header.navbar-default.sticky-menu .campaigns-header .navbar-header .col-xs-12.col-sm-9 .header-text {
     margin-left: auto;
@@ -10558,6 +10563,9 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events .view-frontpage-events .view-content > div:last-child {
     border-bottom: 0;
   }
+  header.navbar-default.sticky-menu .campaigns-header .navbar-header .col-xs-12.col-sm-9 img:nth-child(3) {
+    margin-top: 24px !important;
+  }
   html:lang(sl) .page-campaign-partners-enterprise-europe-network .page_title .page-header {
     max-width: 100%;
   }
@@ -10729,6 +10737,10 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
   body.front-page #edit-agree-processing-personal-data {
     width: auto;
+  }
+  header.navbar-default.sticky-menu .campaigns-header .navbar-header .col-xs-12.col-sm-9 img:nth-child(3) {
+    width: 43px!important;
+    height: 28px !important;
   }
   header.navbar-default .campaigns-header {
     padding: 0rem !important;

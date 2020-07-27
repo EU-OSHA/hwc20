@@ -7309,9 +7309,12 @@ header.navbar-default .campaigns-header .navbar-header .header-text:lang(mt),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(no),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(pl),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(pt),
-header.navbar-default .campaigns-header .navbar-header .header-text:lang(fi),
-header.navbar-default .campaigns-header .navbar-header .header-text:lang(ro) {
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(fi) {
   font-size: 1.25em !important;
+  padding-left: 1em;
+}
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(ro) {
+  font-size: 1.2em !important;
   padding-left: 1em;
 }
 header.navbar-default .campaigns-header .navbar-header #block-lang-dropdown-language {
@@ -7749,7 +7752,7 @@ header.navbar-default .campaigns-header .navbar-header img:nth-child(1) {
     float: left;
     display: flex;
     align-items: center;
-    padding-top: 5px;
+    padding-top: 0;
   }
   .sticky-menu .col-sm-9 a:nth-child(2) img.pull-left {
     -webkit-transition: all 0.3s;
@@ -7767,7 +7770,7 @@ header.navbar-default .campaigns-header .navbar-header img:nth-child(1) {
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    padding-top: 42px !important;
+    padding-top: 27px !important;
     padding-bottom: 0px !important;
     padding-right: 0em !important;
     border-right: none !important;
@@ -20357,7 +20360,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
     margin-right: 1em;
   }
   header.navbar-default .campaigns-header .navbar-header img:nth-child(3) {
-    width: 70px;
+    width: 70px !important;
     padding-right: 1em !important;
   }
   header.navbar-default .campaigns-header .navbar-header .header-text {
