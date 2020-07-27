@@ -8953,6 +8953,10 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
 }
 @media (max-width: 1391px) {
+  html:lang(es) body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text,
+  html:lang(mt) body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text {
+    max-width: 316px !important;
+  }
   #navbar > div > div:nth-child(1) {
     padding: 10px 20px 10px 0px;
   }
