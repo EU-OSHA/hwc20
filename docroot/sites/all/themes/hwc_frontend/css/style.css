@@ -7738,7 +7738,7 @@ header.navbar-default .campaigns-header .navbar-header img:nth-child(1) {
     -o-transition: all 0.3s;
     transition: all 0.3s;
     height: 79px !important;
-    margin-left: 0 !important;
+    margin-left: 5px !important;
   }
   .sticky-menu .col-sm-9 a:nth-child(2) {
     -webkit-transition: all 0.3s;
