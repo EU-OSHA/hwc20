@@ -3888,7 +3888,8 @@ body.een .box-type-partner {
   padding-bottom: 5px;
   padding-top: 5px;
 }
-html:lang(hr) .node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col .more-link a {
+html:lang(hr) .page-node-165.node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col .more-link a,
+html:lang(de) .page-node-165.node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col .more-link a {
   font-size: 0.75em;
 }
 .how-to-apply {
