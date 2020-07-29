@@ -114,6 +114,14 @@
         {$attributes.company_osh_city}
         {$attributes.company_osh_country}
         {$attributes.company_osh_generalemail}
+        <?php
+        if ($_SESSION['categoryReal']=='National Focal Points'){
+        ?>
+            {$attributes.company_osh_emailaddress3}
+        <?php    
+        }
+        ?>
+        
         {$attributes.company_osh_prefixgeneralphone}
         {$attributes.company_osh_generalphone}
     </div>

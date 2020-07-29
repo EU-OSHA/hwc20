@@ -47,11 +47,37 @@
 		    }
 		}
 	}
-
 	
 }
 
 @media (max-width: 1200px){
+
+	header.navbar-default{
+		.campaigns-header{
+			.navbar-header{
+				.header-text:lang(bg),
+				.header-text:lang(da),
+				.header-text:lang(el),
+				.header-text:lang(de),
+				.header-text:lang(et),
+				.header-text:lang(fr),
+				.header-text:lang(hr),
+				.header-text:lang(is),
+				.header-text:lang(it),
+				.header-text:lang(lv),
+				.header-text:lang(hu),
+				.header-text:lang(mt),
+				.header-text:lang(no),
+				.header-text:lang(pl),
+				.header-text:lang(pt),
+				.header-text:lang(fi),
+				.header-text:lang(ro){
+					font-size: 1em !important;
+					width: 300px!important;
+				}
+			}
+		}
+	}
 
 	html:lang(de),
 	html:lang(fi)
@@ -512,6 +538,17 @@
 
 @media (max-width: 1391px) {
 
+	
+	html:lang(es), html:lang(mt){
+		body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text {
+		    max-width: 316px !important;
+		}
+	}
+
+	#navbar > div > div:nth-child(1){
+		padding: 10px 20px 10px 0px;
+	}
+
 	.page-search{
 		.view-footer {
 		    display: block;
@@ -634,8 +671,17 @@
 		}
 	}
 
-}
+	html:lang(sl){
+		.page-campaign-partners-enterprise-europe-network{
+			.page_title{
+				.page-header{
+					max-width: 600px;
+				}
+			}
+		}
+	}
 
+}
 
 @media (max-width: 1865px) {
 

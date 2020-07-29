@@ -25,24 +25,6 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
 }
 
 /* Styles for only REL1 */
-	.rel1{
-		/*
-		#block-menu-menu-header-login, #block-lang-dropdown-language{
-			display: none;
-		}
-		*/
-		/*STG rel 1*/
-		#block-menu-menu-header-login{
-			visibility: hidden;
-		}
-	}
-
-	.rel1{
-		header.navbar-default .campaigns-header .navbar-header .header_top_bar .region-above-header{
-			/*padding-top: 1.3em;*/
-		}	
-	}
-
 	/*HW20-489*/
 	.rel1{
 		.related-resources-boxes{
@@ -4469,9 +4451,10 @@ body{
 	}
 }
 
-html:lang(hr)
+html:lang(hr),
+html:lang(de)
 {
-	.node-type-article article .field-name-body.field-type-text-with-summary{
+	.page-node-165.node-type-article article .field-name-body.field-type-text-with-summary{
 		.become-partner{
 			.coments .col{
 				.more-link{
@@ -7084,7 +7067,7 @@ body.front-page{
 					float: left;
 					text-align: center;
 					padding-bottom: 0;
-					height: 385px;
+					height: 380px;
 					h1{
 						padding-top: 1em;
 					    border-bottom: 0;
@@ -8777,12 +8760,16 @@ header.navbar-default.sticky-menu{
 				    height: 80px;
 				    display: flex;
 				    align-items: center;
+				    max-width: 363px !important;
+    				width: 363px !important;
+    				span{
+    					padding-left: 1em;
+    				}
 				}
 			}
 		}
 	}
 }
-
 
 html:lang(el),
 html:lang(pl)

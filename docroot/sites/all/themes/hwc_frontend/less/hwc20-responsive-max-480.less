@@ -262,6 +262,21 @@
 }
 
 @media (max-width: 370px) { 
+
+	header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 img:nth-child(3) {
+	    position: absolute;
+    	right: 5px;
+	}
+
+	header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 a.pull-left {
+	    margin: 2rem 0em 0 0;
+	}
+
+	header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 a img.pull-left {
+	    height: 55px;
+	}
+
+
 	.how-to-apply{ 
 		> div.boxes{ 
 			> div:nth-child(1), > div:nth-child(2), > div:nth-child(3){
@@ -303,7 +318,187 @@
 		}
 	}
 
+	html:lang(bg), 
+	html:lang(cs), 
+	html:lang(et), 
+	html:lang(el), 
+	html:lang(de), 
+	html:lang(es),
+	html:lang(fr), 
+	html:lang(hr), 
+	html:lang(is), 
+	html:lang(lv), 
+	html:lang(lt), 
+	html:lang(hu), 
+	html:lang(nl), 
+	html:lang(pl),
+	html:lang(pt),
+	html:lang(ro),
+	html:lang(sk),
+	html:lang(sl),
+	html:lang(fi),
+	html:lang(sv)
+	{
+		.how-to-apply{
+			h3{
+				padding-bottom: 0;
+			}
+			.box{
+				width: 232px;
+				min-height: 206px;
+			}
+
+			> div.boxes > div:nth-child(1){
+				left: 45px !important;
+			}
+
+			> div.boxes > div:nth-child(2){
+				left: 45px !important;
+			}
+
+			> div.boxes > div:nth-child(3) {
+				left: 45px !important;
+			}
+		}
+	
+		.timeline{
+			> div:nth-child(1){
+				position: absolute;
+				left: 32px;
+	    		top: 37px;
+	    		&:after{
+	    			left: -23px;
+	    			top: 92px;
+	    		}
+		    }
+
+		    > div:nth-child(2){
+				position: absolute;
+		    	left: 32px;
+	    		top: 281px;
+		    	&:after{
+		    		left: -23px;
+	    			top: 101px;
+		    	}
+		    }
+
+		    > div:nth-child(3){
+				position: absolute;
+		    	left: 32px;
+	    		top: 518px;
+	    		right: initial;
+		    	&:after{
+		    		left: -23px;
+	    			top: 97px;
+		    	}
+		    }
+
+		    > div:nth-child(4){
+				position: absolute;
+		    	left: 101px;
+	    		top: 429px;
+	    		right: auto;
+		    	&:after{
+		    		left: -67px;
+	    			top: 3px;
+		    	}
+		    }
+
+		    > div:nth-child(5){
+				position: absolute;
+		    	left: 28px;
+	    		top: 535px;
+		    }
+		} 
+	}
+	/**/
+
 	body.front-page .main-container .newsletter-social-media #block-osha-newsletter-osha-newsletter-image{
 		padding: 0;
 	}
+
+
+	#block-views-partners-block-3 {
+    	padding-left: 0;
+	}
+
+	/*EN and others languages*/
+	.how-to-apply{
+		h3{
+			padding-bottom: 0;
+		}
+		.box{
+			width: 232px!important;
+			min-height: 206px;
+		}
+
+		> div.boxes > div:nth-child(1){
+			left: 45px !important;
+		}
+
+		> div.boxes > div:nth-child(2){
+			left: 45px !important;
+		}
+
+		> div.boxes > div:nth-child(3) {
+			left: 45px !important;
+		}
+	}
+	
+	.timeline{
+		> div:nth-child(1){
+			position: absolute;
+			left: 32px;
+    		top: 37px;
+    		&:after{
+    			left: -23px;
+    			top: 92px;
+    		}
+	    }
+
+	    > div:nth-child(2){
+			position: absolute;
+	    	left: 32px;
+    		top: 281px;
+	    	&:after{
+	    		left: -23px;
+    			top: 101px;
+	    	}
+	    }
+
+	    > div:nth-child(3){
+			position: absolute;
+	    	left: 32px;
+    		top: 518px;
+    		right: initial;
+	    	&:after{
+	    		left: -23px;
+    			top: 97px;
+	    	}
+	    }
+
+	    > div:nth-child(4){
+			position: absolute;
+	    	left: 101px;
+    		top: 429px;
+    		right: auto;
+	    	&:after{
+	    		left: -67px;
+    			top: 3px;
+	    	}
+	    }
+
+	    > div:nth-child(5){
+			position: absolute;
+	    	left: 28px;
+    		top: 535px;
+	    }
+	} 
+
+	html:lang(de) .page_title h1, html:lang(es) .page_title h1, html:lang(bg) .page_title h1 {
+	    font-size: 1.8em;
+	    padding: 0 1em;
+	}
+
+
 }
