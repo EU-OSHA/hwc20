@@ -42,6 +42,32 @@
 		}
 	}
 
+	header.navbar-default{
+		&.sticky-menu{
+			.campaigns-header{
+				.navbar-header{
+					.col-xs-12.col-sm-9{
+						img{
+							&:nth-child(3){
+							margin-top: 34px !important;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	html:lang(sl){
+		.page-campaign-partners-enterprise-europe-network{
+			.page_title{
+				.page-header{
+					max-width: 100%;
+				}
+			}
+		}
+	}
+
 	.node-type-priority-area .region-content{
 		#block-hwc-priority-areas{
 			.node-pa-highlights, .node-news {
@@ -323,6 +349,14 @@
 		&.sticky-menu{
 			.campaigns-header{
 				.navbar-header{
+					.col-xs-12.col-sm-9{
+					img{
+						&:nth-child(3){
+						    width: 43px!important;
+						    height: 28px !important;
+						}
+					}
+				}			
 				}
 			}			
 		}
@@ -336,16 +370,10 @@
 				.col-xs-12.col-sm-9{
 					a{
 						margin-top: 1rem !important;
-						img{
-							&.pull-left{
-								height:48px !important;
-								margin-top: 18px !important;
-							}
-						}
 					}
 					img{
 						&:nth-child(3){
-					    margin: 49px 0 0 5px!important;
+					    margin: 10px 0 0 20px!important;
 					    height: 28px !important;
 						}
 					}
@@ -1310,6 +1338,10 @@
 	    }
 	}
 
+	.page-node-160 #block-views-napo-film-carousel-slidehow #napo_films .napo_films .num_slides > div .napo-film-title{
+		display: none;
+	}
+
 }
 
 
@@ -1362,6 +1394,34 @@
 	body.page-tools-and-publications-practical-tools {
 		.region.region-content .view-content .views-row .views-field-body{
 			padding-bottom: 130px;
+		}
+	}
+}
+
+@media (max-width: 769px) {
+header.navbar-default{
+		.campaigns-header{
+			.navbar-header{
+				.header-text:lang(bg),
+				.header-text:lang(da),
+				.header-text:lang(el),
+				.header-text:lang(de),
+				.header-text:lang(et),
+				.header-text:lang(fr),
+				.header-text:lang(hr),
+				.header-text:lang(is),
+				.header-text:lang(it),
+				.header-text:lang(lv),
+				.header-text:lang(hu),
+				.header-text:lang(mt),
+				.header-text:lang(no),
+				.header-text:lang(pl),
+				.header-text:lang(pt),
+				.header-text:lang(fi),
+				.header-text:lang(ro){
+					font-size: 0.9em !important;
+				}
+			}
 		}
 	}
 }

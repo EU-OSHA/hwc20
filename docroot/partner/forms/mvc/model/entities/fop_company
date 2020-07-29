@@ -155,6 +155,17 @@
         "email"
       ]
     },
+    "company_osh_emailaddress3": {
+      "name": "company_osh_emailaddress3",
+      "label": "HWC website e-mail contact",
+      "publicProfile": "publicProfile",
+      "section": "GENERAL_INFORMATION",
+      "type": "text",
+      "validator": [
+        "not_null",
+        "email"
+      ]
+    },
     "company_osh_generalphone": {
       "name": "company_osh_generalphone",
       "label": "General telephone number",
@@ -274,7 +285,8 @@
     "company_osh_bussinessector": "osh_bussinessector",
     "company_osh_category": "osh_category",
     "company_osh_leads": "osh_leads",
-    "company_osh_dedicatedcampaignsite": "osh_dedicatedsite"
+    "company_osh_dedicatedcampaignsite": "osh_dedicatedsite",
+    "company_osh_emailaddress3":"osh_emailaddress3"
   },
   "map_mf": {
     "company_osh_orgname": "osh_companyorganisationname",
@@ -305,6 +317,7 @@
     "company_osh_category": "osh_category",
     "company_osh_leads": "osh_leads",
     "company_osh_prefixgeneralphone": "osh_prefixphone1",
-    "company_osh_dedicatedsite": "osh_dedicatedsite"
+    "company_osh_dedicatedsite": "osh_dedicatedsite",
+    "company_osh_emailaddress3":"emailaddress3"
   }
 }

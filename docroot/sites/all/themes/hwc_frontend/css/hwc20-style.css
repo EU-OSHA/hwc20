@@ -17,22 +17,6 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
   padding-left: 0.5em;
 }
 /* Styles for only REL1 */
-.rel1 {
-  /*PROD rel 1*/
-  /*STG rel 1*/
-  /*
-		#block-menu-menu-header-login{
-			visibility: hidden;
-		}
-		*/
-}
-.rel1 #block-menu-menu-header-login,
-.rel1 #block-lang-dropdown-language {
-  display: none;
-}
-.rel1 header.navbar-default .campaigns-header .navbar-header .header_top_bar .region-above-header {
-  padding-top: 1.3em;
-}
 /*HW20-489*/
 .rel1 .related-resources-boxes {
   justify-content: flex-start;
@@ -3904,7 +3888,8 @@ body.een .box-type-partner {
   padding-bottom: 5px;
   padding-top: 5px;
 }
-html:lang(hr) .node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col .more-link a {
+html:lang(hr) .page-node-165.node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col .more-link a,
+html:lang(de) .page-node-165.node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col .more-link a {
   font-size: 0.75em;
 }
 .how-to-apply {
@@ -6348,7 +6333,7 @@ body.front-page .main-container #block-views-homepage-banners-block .view-homepa
   float: left;
   text-align: center;
   padding-bottom: 0;
-  height: 385px;
+  height: 380px;
 }
 body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-first h1,
 body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last h1 {
@@ -7682,6 +7667,11 @@ header.navbar-default.sticky-menu .campaigns-header .navbar-header div.col-xs-12
   height: 80px;
   display: flex;
   align-items: center;
+  max-width: 363px !important;
+  width: 363px !important;
+}
+header.navbar-default.sticky-menu .campaigns-header .navbar-header div.col-xs-12.col-sm-9 .header-text span {
+  padding-left: 1em;
 }
 html:lang(el) header.navbar-default.sticky-menu .campaigns-header .navbar-header div.col-xs-12.col-sm-9 .header-text,
 html:lang(pl) header.navbar-default.sticky-menu .campaigns-header .navbar-header div.col-xs-12.col-sm-9 .header-text {
@@ -8607,6 +8597,26 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
 }
 @media (max-width: 1200px) {
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(bg),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(da),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(el),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(de),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(et),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(fr),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(hr),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(is),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(it),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(lv),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(hu),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(mt),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(no),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(pl),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(pt),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(fi),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(ro) {
+    font-size: 1em !important;
+    width: 300px!important;
+  }
   html:lang(de) #block-hwc-homepage-footer-section .col-md-2,
   html:lang(fi) #block-hwc-homepage-footer-section .col-md-2 {
     padding-left: 3px;
@@ -8928,6 +8938,13 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
 }
 @media (max-width: 1391px) {
+  html:lang(es) body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text,
+  html:lang(mt) body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text {
+    max-width: 316px !important;
+  }
+  #navbar > div > div:nth-child(1) {
+    padding: 10px 20px 10px 0px;
+  }
   .page-search .view-footer {
     display: block;
     position: absolute;
@@ -9072,7 +9089,11 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     display: flex;
   }
   header.navbar-default.sticky-menu .campaigns-header .navbar-header .col-xs-12.col-sm-9 a {
-    margin-top: 0.5em;
+    margin-top: 0;
+    height: 76px;
+    display: flex;
+    align-items: center;
+    float: left;
   }
   header.navbar-default.sticky-menu .campaigns-header .navbar-header .col-xs-12.col-sm-9 a.pull-left {
     margin: 0 1em 0 0;
@@ -9081,10 +9102,11 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     width: auto !important;
   }
   header.navbar-default.sticky-menu .campaigns-header .navbar-header .col-xs-12.col-sm-9 img:nth-child(3) {
-    width: auto !important;
+    width: 40px !important;
     padding: 0em !important;
     margin: auto 0 0 0;
-    height: 40px;
+    height: auto;
+    margin-top: 25px;
   }
   header.navbar-default.sticky-menu .campaigns-header .navbar-header .col-xs-12.col-sm-9 .header-text {
     margin-left: auto;
@@ -9105,7 +9127,7 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     align-self: flex-start;
   }
   header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 a {
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
   header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 a.pull-left {
     margin: 2rem 1em 0 0;
@@ -9122,7 +9144,7 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 img:nth-child(3) {
     width: auto!important;
     padding: 0!important;
-    margin: 54px 0 0 7px;
+    margin: 15px 0 0 7px;
     height: 36px;
   }
   header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 .header-text {
@@ -10542,6 +10564,9 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2) .box-before.events .view-frontpage-events .view-content > div:last-child {
     border-bottom: 0;
   }
+  header.navbar-default.sticky-menu .campaigns-header .navbar-header .col-xs-12.col-sm-9 img:nth-child(3) {
+    margin-top: 34px !important;
+  }
   html:lang(sl) .page-campaign-partners-enterprise-europe-network .page_title .page-header {
     max-width: 100%;
   }
@@ -10714,6 +10739,10 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   body.front-page #edit-agree-processing-personal-data {
     width: auto;
   }
+  header.navbar-default.sticky-menu .campaigns-header .navbar-header .col-xs-12.col-sm-9 img:nth-child(3) {
+    width: 43px!important;
+    height: 28px !important;
+  }
   header.navbar-default .campaigns-header {
     padding: 0rem !important;
   }
@@ -10726,12 +10755,8 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 a {
     margin-top: 1rem !important;
   }
-  header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 a img.pull-left {
-    height: 48px !important;
-    margin-top: 18px !important;
-  }
   header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 img:nth-child(3) {
-    margin: 49px 0 0 5px!important;
+    margin: 10px 0 0 20px!important;
     height: 28px !important;
   }
   header.navbar-default .campaigns-header .navbar-header .region-header #block-lang-dropdown-language,
@@ -11491,6 +11516,9 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   .page-tools-and-publications .content-publication-info span.pages {
     float: right;
   }
+  .page-node-160 #block-views-napo-film-carousel-slidehow #napo_films .napo_films .num_slides > div .napo-film-title {
+    display: none;
+  }
 }
 @media (max-width: 600px) {
   .before-the-campaign .content-box-before .two-box-column {
@@ -11528,6 +11556,27 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
 @media (max-width: 700px) {
   body.page-tools-and-publications-practical-tools .region.region-content .view-content .views-row .views-field-body {
     padding-bottom: 130px;
+  }
+}
+@media (max-width: 769px) {
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(bg),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(da),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(el),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(de),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(et),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(fr),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(hr),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(is),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(it),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(lv),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(hu),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(mt),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(no),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(pl),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(pt),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(fi),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(ro) {
+    font-size: 0.9em !important;
   }
 }
 @media (max-width: 480px) {
@@ -11679,6 +11728,16 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
 }
 @media (max-width: 370px) {
+  header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 img:nth-child(3) {
+    position: absolute;
+    right: 5px;
+  }
+  header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 a.pull-left {
+    margin: 2rem 0em 0 0;
+  }
+  header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 a img.pull-left {
+    height: 55px;
+  }
   .how-to-apply > div.boxes > div:nth-child(1),
   .how-to-apply > div.boxes > div:nth-child(2),
   .how-to-apply > div.boxes > div:nth-child(3) {
@@ -11706,7 +11765,402 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   .how-to-apply .timeline > div:nth-child(3):after {
     left: -25px;
   }
+  html:lang(bg) .how-to-apply h3,
+  html:lang(cs) .how-to-apply h3,
+  html:lang(et) .how-to-apply h3,
+  html:lang(el) .how-to-apply h3,
+  html:lang(de) .how-to-apply h3,
+  html:lang(es) .how-to-apply h3,
+  html:lang(fr) .how-to-apply h3,
+  html:lang(hr) .how-to-apply h3,
+  html:lang(is) .how-to-apply h3,
+  html:lang(lv) .how-to-apply h3,
+  html:lang(lt) .how-to-apply h3,
+  html:lang(hu) .how-to-apply h3,
+  html:lang(nl) .how-to-apply h3,
+  html:lang(pl) .how-to-apply h3,
+  html:lang(pt) .how-to-apply h3,
+  html:lang(ro) .how-to-apply h3,
+  html:lang(sk) .how-to-apply h3,
+  html:lang(sl) .how-to-apply h3,
+  html:lang(fi) .how-to-apply h3,
+  html:lang(sv) .how-to-apply h3 {
+    padding-bottom: 0;
+  }
+  html:lang(bg) .how-to-apply .box,
+  html:lang(cs) .how-to-apply .box,
+  html:lang(et) .how-to-apply .box,
+  html:lang(el) .how-to-apply .box,
+  html:lang(de) .how-to-apply .box,
+  html:lang(es) .how-to-apply .box,
+  html:lang(fr) .how-to-apply .box,
+  html:lang(hr) .how-to-apply .box,
+  html:lang(is) .how-to-apply .box,
+  html:lang(lv) .how-to-apply .box,
+  html:lang(lt) .how-to-apply .box,
+  html:lang(hu) .how-to-apply .box,
+  html:lang(nl) .how-to-apply .box,
+  html:lang(pl) .how-to-apply .box,
+  html:lang(pt) .how-to-apply .box,
+  html:lang(ro) .how-to-apply .box,
+  html:lang(sk) .how-to-apply .box,
+  html:lang(sl) .how-to-apply .box,
+  html:lang(fi) .how-to-apply .box,
+  html:lang(sv) .how-to-apply .box {
+    width: 232px;
+    min-height: 206px;
+  }
+  html:lang(bg) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(cs) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(et) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(el) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(de) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(es) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(fr) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(hr) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(is) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(lv) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(lt) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(hu) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(nl) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(pl) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(pt) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(ro) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(sk) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(sl) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(fi) .how-to-apply > div.boxes > div:nth-child(1),
+  html:lang(sv) .how-to-apply > div.boxes > div:nth-child(1) {
+    left: 45px !important;
+  }
+  html:lang(bg) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(cs) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(et) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(el) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(de) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(es) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(fr) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(hr) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(is) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(lv) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(lt) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(hu) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(nl) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(pl) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(pt) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(ro) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(sk) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(sl) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(fi) .how-to-apply > div.boxes > div:nth-child(2),
+  html:lang(sv) .how-to-apply > div.boxes > div:nth-child(2) {
+    left: 45px !important;
+  }
+  html:lang(bg) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(cs) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(et) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(el) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(de) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(es) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(fr) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(hr) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(is) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(lv) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(lt) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(hu) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(nl) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(pl) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(pt) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(ro) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(sk) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(sl) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(fi) .how-to-apply > div.boxes > div:nth-child(3),
+  html:lang(sv) .how-to-apply > div.boxes > div:nth-child(3) {
+    left: 45px !important;
+  }
+  html:lang(bg) .timeline > div:nth-child(1),
+  html:lang(cs) .timeline > div:nth-child(1),
+  html:lang(et) .timeline > div:nth-child(1),
+  html:lang(el) .timeline > div:nth-child(1),
+  html:lang(de) .timeline > div:nth-child(1),
+  html:lang(es) .timeline > div:nth-child(1),
+  html:lang(fr) .timeline > div:nth-child(1),
+  html:lang(hr) .timeline > div:nth-child(1),
+  html:lang(is) .timeline > div:nth-child(1),
+  html:lang(lv) .timeline > div:nth-child(1),
+  html:lang(lt) .timeline > div:nth-child(1),
+  html:lang(hu) .timeline > div:nth-child(1),
+  html:lang(nl) .timeline > div:nth-child(1),
+  html:lang(pl) .timeline > div:nth-child(1),
+  html:lang(pt) .timeline > div:nth-child(1),
+  html:lang(ro) .timeline > div:nth-child(1),
+  html:lang(sk) .timeline > div:nth-child(1),
+  html:lang(sl) .timeline > div:nth-child(1),
+  html:lang(fi) .timeline > div:nth-child(1),
+  html:lang(sv) .timeline > div:nth-child(1) {
+    position: absolute;
+    left: 32px;
+    top: 37px;
+  }
+  html:lang(bg) .timeline > div:nth-child(1):after,
+  html:lang(cs) .timeline > div:nth-child(1):after,
+  html:lang(et) .timeline > div:nth-child(1):after,
+  html:lang(el) .timeline > div:nth-child(1):after,
+  html:lang(de) .timeline > div:nth-child(1):after,
+  html:lang(es) .timeline > div:nth-child(1):after,
+  html:lang(fr) .timeline > div:nth-child(1):after,
+  html:lang(hr) .timeline > div:nth-child(1):after,
+  html:lang(is) .timeline > div:nth-child(1):after,
+  html:lang(lv) .timeline > div:nth-child(1):after,
+  html:lang(lt) .timeline > div:nth-child(1):after,
+  html:lang(hu) .timeline > div:nth-child(1):after,
+  html:lang(nl) .timeline > div:nth-child(1):after,
+  html:lang(pl) .timeline > div:nth-child(1):after,
+  html:lang(pt) .timeline > div:nth-child(1):after,
+  html:lang(ro) .timeline > div:nth-child(1):after,
+  html:lang(sk) .timeline > div:nth-child(1):after,
+  html:lang(sl) .timeline > div:nth-child(1):after,
+  html:lang(fi) .timeline > div:nth-child(1):after,
+  html:lang(sv) .timeline > div:nth-child(1):after {
+    left: -23px;
+    top: 92px;
+  }
+  html:lang(bg) .timeline > div:nth-child(2),
+  html:lang(cs) .timeline > div:nth-child(2),
+  html:lang(et) .timeline > div:nth-child(2),
+  html:lang(el) .timeline > div:nth-child(2),
+  html:lang(de) .timeline > div:nth-child(2),
+  html:lang(es) .timeline > div:nth-child(2),
+  html:lang(fr) .timeline > div:nth-child(2),
+  html:lang(hr) .timeline > div:nth-child(2),
+  html:lang(is) .timeline > div:nth-child(2),
+  html:lang(lv) .timeline > div:nth-child(2),
+  html:lang(lt) .timeline > div:nth-child(2),
+  html:lang(hu) .timeline > div:nth-child(2),
+  html:lang(nl) .timeline > div:nth-child(2),
+  html:lang(pl) .timeline > div:nth-child(2),
+  html:lang(pt) .timeline > div:nth-child(2),
+  html:lang(ro) .timeline > div:nth-child(2),
+  html:lang(sk) .timeline > div:nth-child(2),
+  html:lang(sl) .timeline > div:nth-child(2),
+  html:lang(fi) .timeline > div:nth-child(2),
+  html:lang(sv) .timeline > div:nth-child(2) {
+    position: absolute;
+    left: 32px;
+    top: 281px;
+  }
+  html:lang(bg) .timeline > div:nth-child(2):after,
+  html:lang(cs) .timeline > div:nth-child(2):after,
+  html:lang(et) .timeline > div:nth-child(2):after,
+  html:lang(el) .timeline > div:nth-child(2):after,
+  html:lang(de) .timeline > div:nth-child(2):after,
+  html:lang(es) .timeline > div:nth-child(2):after,
+  html:lang(fr) .timeline > div:nth-child(2):after,
+  html:lang(hr) .timeline > div:nth-child(2):after,
+  html:lang(is) .timeline > div:nth-child(2):after,
+  html:lang(lv) .timeline > div:nth-child(2):after,
+  html:lang(lt) .timeline > div:nth-child(2):after,
+  html:lang(hu) .timeline > div:nth-child(2):after,
+  html:lang(nl) .timeline > div:nth-child(2):after,
+  html:lang(pl) .timeline > div:nth-child(2):after,
+  html:lang(pt) .timeline > div:nth-child(2):after,
+  html:lang(ro) .timeline > div:nth-child(2):after,
+  html:lang(sk) .timeline > div:nth-child(2):after,
+  html:lang(sl) .timeline > div:nth-child(2):after,
+  html:lang(fi) .timeline > div:nth-child(2):after,
+  html:lang(sv) .timeline > div:nth-child(2):after {
+    left: -23px;
+    top: 101px;
+  }
+  html:lang(bg) .timeline > div:nth-child(3),
+  html:lang(cs) .timeline > div:nth-child(3),
+  html:lang(et) .timeline > div:nth-child(3),
+  html:lang(el) .timeline > div:nth-child(3),
+  html:lang(de) .timeline > div:nth-child(3),
+  html:lang(es) .timeline > div:nth-child(3),
+  html:lang(fr) .timeline > div:nth-child(3),
+  html:lang(hr) .timeline > div:nth-child(3),
+  html:lang(is) .timeline > div:nth-child(3),
+  html:lang(lv) .timeline > div:nth-child(3),
+  html:lang(lt) .timeline > div:nth-child(3),
+  html:lang(hu) .timeline > div:nth-child(3),
+  html:lang(nl) .timeline > div:nth-child(3),
+  html:lang(pl) .timeline > div:nth-child(3),
+  html:lang(pt) .timeline > div:nth-child(3),
+  html:lang(ro) .timeline > div:nth-child(3),
+  html:lang(sk) .timeline > div:nth-child(3),
+  html:lang(sl) .timeline > div:nth-child(3),
+  html:lang(fi) .timeline > div:nth-child(3),
+  html:lang(sv) .timeline > div:nth-child(3) {
+    position: absolute;
+    left: 32px;
+    top: 518px;
+    right: initial;
+  }
+  html:lang(bg) .timeline > div:nth-child(3):after,
+  html:lang(cs) .timeline > div:nth-child(3):after,
+  html:lang(et) .timeline > div:nth-child(3):after,
+  html:lang(el) .timeline > div:nth-child(3):after,
+  html:lang(de) .timeline > div:nth-child(3):after,
+  html:lang(es) .timeline > div:nth-child(3):after,
+  html:lang(fr) .timeline > div:nth-child(3):after,
+  html:lang(hr) .timeline > div:nth-child(3):after,
+  html:lang(is) .timeline > div:nth-child(3):after,
+  html:lang(lv) .timeline > div:nth-child(3):after,
+  html:lang(lt) .timeline > div:nth-child(3):after,
+  html:lang(hu) .timeline > div:nth-child(3):after,
+  html:lang(nl) .timeline > div:nth-child(3):after,
+  html:lang(pl) .timeline > div:nth-child(3):after,
+  html:lang(pt) .timeline > div:nth-child(3):after,
+  html:lang(ro) .timeline > div:nth-child(3):after,
+  html:lang(sk) .timeline > div:nth-child(3):after,
+  html:lang(sl) .timeline > div:nth-child(3):after,
+  html:lang(fi) .timeline > div:nth-child(3):after,
+  html:lang(sv) .timeline > div:nth-child(3):after {
+    left: -23px;
+    top: 97px;
+  }
+  html:lang(bg) .timeline > div:nth-child(4),
+  html:lang(cs) .timeline > div:nth-child(4),
+  html:lang(et) .timeline > div:nth-child(4),
+  html:lang(el) .timeline > div:nth-child(4),
+  html:lang(de) .timeline > div:nth-child(4),
+  html:lang(es) .timeline > div:nth-child(4),
+  html:lang(fr) .timeline > div:nth-child(4),
+  html:lang(hr) .timeline > div:nth-child(4),
+  html:lang(is) .timeline > div:nth-child(4),
+  html:lang(lv) .timeline > div:nth-child(4),
+  html:lang(lt) .timeline > div:nth-child(4),
+  html:lang(hu) .timeline > div:nth-child(4),
+  html:lang(nl) .timeline > div:nth-child(4),
+  html:lang(pl) .timeline > div:nth-child(4),
+  html:lang(pt) .timeline > div:nth-child(4),
+  html:lang(ro) .timeline > div:nth-child(4),
+  html:lang(sk) .timeline > div:nth-child(4),
+  html:lang(sl) .timeline > div:nth-child(4),
+  html:lang(fi) .timeline > div:nth-child(4),
+  html:lang(sv) .timeline > div:nth-child(4) {
+    position: absolute;
+    left: 101px;
+    top: 429px;
+    right: auto;
+  }
+  html:lang(bg) .timeline > div:nth-child(4):after,
+  html:lang(cs) .timeline > div:nth-child(4):after,
+  html:lang(et) .timeline > div:nth-child(4):after,
+  html:lang(el) .timeline > div:nth-child(4):after,
+  html:lang(de) .timeline > div:nth-child(4):after,
+  html:lang(es) .timeline > div:nth-child(4):after,
+  html:lang(fr) .timeline > div:nth-child(4):after,
+  html:lang(hr) .timeline > div:nth-child(4):after,
+  html:lang(is) .timeline > div:nth-child(4):after,
+  html:lang(lv) .timeline > div:nth-child(4):after,
+  html:lang(lt) .timeline > div:nth-child(4):after,
+  html:lang(hu) .timeline > div:nth-child(4):after,
+  html:lang(nl) .timeline > div:nth-child(4):after,
+  html:lang(pl) .timeline > div:nth-child(4):after,
+  html:lang(pt) .timeline > div:nth-child(4):after,
+  html:lang(ro) .timeline > div:nth-child(4):after,
+  html:lang(sk) .timeline > div:nth-child(4):after,
+  html:lang(sl) .timeline > div:nth-child(4):after,
+  html:lang(fi) .timeline > div:nth-child(4):after,
+  html:lang(sv) .timeline > div:nth-child(4):after {
+    left: -67px;
+    top: 3px;
+  }
+  html:lang(bg) .timeline > div:nth-child(5),
+  html:lang(cs) .timeline > div:nth-child(5),
+  html:lang(et) .timeline > div:nth-child(5),
+  html:lang(el) .timeline > div:nth-child(5),
+  html:lang(de) .timeline > div:nth-child(5),
+  html:lang(es) .timeline > div:nth-child(5),
+  html:lang(fr) .timeline > div:nth-child(5),
+  html:lang(hr) .timeline > div:nth-child(5),
+  html:lang(is) .timeline > div:nth-child(5),
+  html:lang(lv) .timeline > div:nth-child(5),
+  html:lang(lt) .timeline > div:nth-child(5),
+  html:lang(hu) .timeline > div:nth-child(5),
+  html:lang(nl) .timeline > div:nth-child(5),
+  html:lang(pl) .timeline > div:nth-child(5),
+  html:lang(pt) .timeline > div:nth-child(5),
+  html:lang(ro) .timeline > div:nth-child(5),
+  html:lang(sk) .timeline > div:nth-child(5),
+  html:lang(sl) .timeline > div:nth-child(5),
+  html:lang(fi) .timeline > div:nth-child(5),
+  html:lang(sv) .timeline > div:nth-child(5) {
+    position: absolute;
+    left: 28px;
+    top: 535px;
+  }
+  /**/
   body.front-page .main-container .newsletter-social-media #block-osha-newsletter-osha-newsletter-image {
     padding: 0;
+  }
+  #block-views-partners-block-3 {
+    padding-left: 0;
+  }
+  /*EN and others languages*/
+  .how-to-apply h3 {
+    padding-bottom: 0;
+  }
+  .how-to-apply .box {
+    width: 232px!important;
+    min-height: 206px;
+  }
+  .how-to-apply > div.boxes > div:nth-child(1) {
+    left: 45px !important;
+  }
+  .how-to-apply > div.boxes > div:nth-child(2) {
+    left: 45px !important;
+  }
+  .how-to-apply > div.boxes > div:nth-child(3) {
+    left: 45px !important;
+  }
+  .timeline > div:nth-child(1) {
+    position: absolute;
+    left: 32px;
+    top: 37px;
+  }
+  .timeline > div:nth-child(1):after {
+    left: -23px;
+    top: 92px;
+  }
+  .timeline > div:nth-child(2) {
+    position: absolute;
+    left: 32px;
+    top: 281px;
+  }
+  .timeline > div:nth-child(2):after {
+    left: -23px;
+    top: 101px;
+  }
+  .timeline > div:nth-child(3) {
+    position: absolute;
+    left: 32px;
+    top: 518px;
+    right: initial;
+  }
+  .timeline > div:nth-child(3):after {
+    left: -23px;
+    top: 97px;
+  }
+  .timeline > div:nth-child(4) {
+    position: absolute;
+    left: 101px;
+    top: 429px;
+    right: auto;
+  }
+  .timeline > div:nth-child(4):after {
+    left: -67px;
+    top: 3px;
+  }
+  .timeline > div:nth-child(5) {
+    position: absolute;
+    left: 28px;
+    top: 535px;
+  }
+  html:lang(de) .page_title h1,
+  html:lang(es) .page_title h1,
+  html:lang(bg) .page_title h1 {
+    font-size: 1.8em;
+    padding: 0 1em;
   }
 }
