@@ -283,7 +283,7 @@ function hwc_menu_alter(&$items) {
   $items['masquerade/unswitch']['page callback'] = 'hwc_masquerade_switch_back_page';
   $items['taxonomy/term/%taxonomy_term/feed']['page callback'] = 'hwc_disable_taxonomy_term_feed';
 
-  $items['user/password']['title'] = t('Create / Forgot password');
+  $items['user/password']['title'] = 'Create / Forgot password';
   $items['user/password']['weight'] = 10;
 
   // Remove pages from access administration pages permission.
