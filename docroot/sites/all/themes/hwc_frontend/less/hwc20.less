@@ -2315,37 +2315,39 @@ span.title-select{
 }
 
 .content-order-copy{
-    color: #003399;
-    padding: 1.5em 0 1em 1em;
-    border-top: 10px solid #FFF;
-    background: #daea96;
-    float: left;
-    width: 100%;
-    margin-bottom: 1em;
-    img{
-	    width: 120px;
-	    height: auto;
-	    float: right;
-	    margin-left: 1em;
+	color: #003399;
+	padding: 1.5em 0 1em 1em;
+	margin-top: 10px;
+	background: #daea96;
+	float: left;
+	width: 100%;
+	margin-bottom: 1em;
+	position: relative;
+	border-radius: 5px;
+	img{
+		width: 120px;
+		height: auto;
+		float: right;
+		margin-left: 1em;
+		position: absolute;
+		right: 10px;
+		top: 14px;
 	}
 	a{
-	    color:#003399;
-	    font-weight: bold;
-	    text-decoration: underline;
-	    font-size: 1.2rem;
-	    padding-right: 20px;
-	    float: left;
-	    &:hover{
-		    text-decoration: none;
-		    img{
-			    opacity: 0.8;
+		color:#003399;
+		font-weight: bold;
+		text-decoration: underline;
+		font-size: 1.2rem;
+		width: 135px;
+		padding-right: 0;
+		float: left;
+		&:hover{
+			text-decoration: none;
+			img{
+				opacity: 0.8;
 			}
 		}
 	}
-}
-
-.content-order-copy{
-	display: none;
 }
 
 div.publications-detail-right-column > a.download{
