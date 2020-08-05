@@ -1001,7 +1001,7 @@ $(document).ready(function () {
             validateEmail(this);
         }
     });
-    $("#company_osh_generalemail").on({
+     $("#company_osh_generalemail").on({
         change: function () {
             validateEmail(this);
         }, blur: function () {
