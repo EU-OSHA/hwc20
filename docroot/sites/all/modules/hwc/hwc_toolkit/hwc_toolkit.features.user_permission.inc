@@ -21,31 +21,9 @@ function hwc_toolkit_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'create tk_topic content'.
-  $permissions['create tk_topic content'] = array(
-    'name' => 'create tk_topic content',
-    'roles' => array(
-      'External Provider' => 'External Provider',
-      'Website Managers' => 'Website Managers',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any tk_example content'.
   $permissions['delete any tk_example content'] = array(
     'name' => 'delete any tk_example content',
-    'roles' => array(
-      'External Provider' => 'External Provider',
-      'Website Managers' => 'Website Managers',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete any tk_topic content'.
-  $permissions['delete any tk_topic content'] = array(
-    'name' => 'delete any tk_topic content',
     'roles' => array(
       'External Provider' => 'External Provider',
       'Website Managers' => 'Website Managers',
@@ -65,17 +43,6 @@ function hwc_toolkit_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete own tk_topic content'.
-  $permissions['delete own tk_topic content'] = array(
-    'name' => 'delete own tk_topic content',
-    'roles' => array(
-      'External Provider' => 'External Provider',
-      'Website Managers' => 'Website Managers',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit any tk_example content'.
   $permissions['edit any tk_example content'] = array(
     'name' => 'edit any tk_example content',
@@ -87,9 +54,9 @@ function hwc_toolkit_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any tk_topic content'.
-  $permissions['edit any tk_topic content'] = array(
-    'name' => 'edit any tk_topic content',
+  // Exported permission: 'edit any tk_tool content'.
+  $permissions['edit any tk_tool content'] = array(
+    'name' => 'edit any tk_tool content',
     'roles' => array(
       'External Provider' => 'External Provider',
       'Website Managers' => 'Website Managers',
@@ -109,9 +76,9 @@ function hwc_toolkit_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit own tk_topic content'.
-  $permissions['edit own tk_topic content'] = array(
-    'name' => 'edit own tk_topic content',
+  // Exported permission: 'edit own tk_tool content'.
+  $permissions['edit own tk_tool content'] = array(
+    'name' => 'edit own tk_tool content',
     'roles' => array(
       'External Provider' => 'External Provider',
       'Website Managers' => 'Website Managers',
