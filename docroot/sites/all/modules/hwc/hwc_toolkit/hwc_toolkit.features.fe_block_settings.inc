@@ -59,7 +59,7 @@ function hwc_toolkit_default_fe_block_settings() {
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 33,
+        'weight' => 34,
       ),
       'seven' => array(
         'region' => '',
@@ -92,7 +92,7 @@ function hwc_toolkit_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 25,
+        'weight' => 22,
       ),
       'seven' => array(
         'region' => '',
@@ -123,7 +123,7 @@ function hwc_toolkit_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 23,
+        'weight' => 20,
       ),
       'seven' => array(
         'region' => '',

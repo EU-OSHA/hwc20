@@ -11,7 +11,7 @@ $in = 'in';
     <?php foreach ($entities as $key => $entity) {
       //todo check lang...
       $question = $entity->field_question['und'][0]['safe_value'];
-      $answer = $entity->field_answer['und'][0]['safe_value'];
+      $answer = $entity->field_answer['und'][0]['value'];
       ?>
       <div class="panel panel-default">
         <div class="panel-heading">

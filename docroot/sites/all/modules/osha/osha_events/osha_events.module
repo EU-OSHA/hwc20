@@ -821,6 +821,9 @@ function theme_event_country_flag($vars) {
   if ($vars['show_eu_flag']) {
     $country_code = 'EU';
   }
+  if ($country_code == 'EUROPA') {
+    $country_code = 'EU';
+  }
   if (!empty($vars['country'])) {
     $output .= '<div class="event_day_month"><div class="event_country code_' . $country_code . '"> </div></div>';
   }

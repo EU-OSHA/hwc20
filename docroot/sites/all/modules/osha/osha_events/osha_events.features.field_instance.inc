@@ -3072,7 +3072,7 @@ Grey - Only web or not attendance',
     'bundle' => 'events',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Please indicate here the organisation responsible for the organisation of the event. If an acronym exists for the organisation, please include “acronym (UPPERCASE) ‘-‘complete name (sentence case)”: (i.e.. HSE – Health and Safety Executive)',
+    'description' => 'Please indicate here the organisation responsible for the organisation of the event. If an acronym exists for the organisation, please include “acronym (UPPERCASE) ‘-‘complete name (sentence case)”: (i.e.. EU-OSHA – European Agency for Safety and Health at Work)',
     'display' => array(
       'body' => array(
         'label' => 'above',
@@ -4923,7 +4923,7 @@ Grey - Only web or not attendance',
   t('Please add here the official title of the event. Please do not use ALL CAPS, but sentence case (i.e. Towards Better Work and Well-being)');
   t('Please choose the appropriate type of event.');
   t('Please download the publications request form and send it to the publications team at least 4 weeks before the event is taking place.');
-  t('Please indicate here the organisation responsible for the organisation of the event. If an acronym exists for the organisation, please include “acronym (UPPERCASE) ‘-‘complete name (sentence case)”: (i.e.. HSE – Health and Safety Executive)');
+  t('Please indicate here the organisation responsible for the organisation of the event. If an acronym exists for the organisation, please include “acronym (UPPERCASE) ‘-‘complete name (sentence case)”: (i.e.. EU-OSHA – European Agency for Safety and Health at Work)');
   t('Please indicate, if event’s item should be published on the website or not.');
   t('Please indicate, if the agenda of the event is available.');
   t('Please indicate, if this event is to be counted in the framework of the KPI monitoring framework.');

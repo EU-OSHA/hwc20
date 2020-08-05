@@ -16,7 +16,7 @@ define('HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR', 'External Provider');
 define('HWC_ROLE_SUPERADMIN', 'Superadministrators');
 
 define('HWC_SOLR_SEARCH_INDEX', 'default_multilingual_node_index');
-define('HWC_NAPO_WEBSITE', 'https://www.napofilm.net/');
+define('HWC_NAPO_WEBSITE', 'https://www.napofilm.net');
 
 define ('HWC_INTRODUCTION_ARTICLE', 73);
 
@@ -69,6 +69,9 @@ function hwc_cron() {
 function hwc_views_query_alter(&$view, &$query) {
   if (($view->name == 'osh_workflow_admin') && (in_array($view->current_display, ['my_content']))) {
     $view->query->where[2]['type'] = 'AND';
+    if (!empty($_REQUEST['access_id'])) {
+      $view->query->group_operator = 'AND';
+    }
   }
 
   if (($view->name == 'news') && (in_array($view->current_display, ['page_1', 'press_room']))) {
@@ -280,7 +283,7 @@ function hwc_menu_alter(&$items) {
   $items['masquerade/unswitch']['page callback'] = 'hwc_masquerade_switch_back_page';
   $items['taxonomy/term/%taxonomy_term/feed']['page callback'] = 'hwc_disable_taxonomy_term_feed';
 
-  $items['user/password']['title'] = t('Create / Forgot password');
+  $items['user/password']['title'] = 'Create / Forgot password';
   $items['user/password']['weight'] = 10;
 
   // Remove pages from access administration pages permission.
@@ -1587,7 +1590,7 @@ function hwc_field_widget_form_alter(&$element, &$form_state, $context) {
  * Implements hook_node_view().
  */
 function hwc_node_view($node, $view_mode, $langcode) {
-  global $user;
+  global $user, $language;
   if (($node->nid == 165 || $node->nid == 184) & !empty($node->content['body'][0]['#markup'])) {
     $registration_allowed = hwc_partner_registration_allowed();//time < registration date.
     $download_allowed = hwc_partner_download_allowed();//time < download date.
@@ -1784,7 +1787,7 @@ function hwc_node_view($node, $view_mode, $langcode) {
     $watch_other_link = HWC_NAPO_WEBSITE . '/en/napos-films/napo-%E2%80%A6-lungs-work';
     $napo_logo_link = HWC_NAPO_WEBSITE . '/';
     $about_napo_link = HWC_NAPO_WEBSITE . '/about-napo/the-napo-story';
-    $know_more_about_napo = HWC_NAPO_WEBSITE . '/en';
+    $know_more_about_napo = HWC_NAPO_WEBSITE . '/' . $language->language;
 
     $node->content['title_field'][0]['#markup'] =
       '<div class="watch-other-link"><a href="' . $watch_other_link . '" target="_blank">' .
@@ -1918,25 +1921,25 @@ function hwc_node_presave($node) {
   }
 
   if ($node->type == 'news') {
-    if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
-      $p_account = hwc_partner_get_account_partner();
-      if ($p_account) {
-        $node->field_image[$language->language][0]['fid'] = $p_account->field_logo[LANGUAGE_NONE][0]['fid'];
-        $node->field_image[$language->language][0]['image_field_caption']['format'] = 'full_html';
-        $node->field_image[$language->language][0]['image_field_caption']['value'] = $node->field_pz_image_caption[LANGUAGE_NONE][0]['value'];
-      }
-    }
-    else {
-      if (
-        empty($node->field_image[$language->language][0]['image_field_caption']['value'])
-        &&
-        !empty($node->field_pz_image_caption[LANGUAGE_NONE][0]['value'])
-        &&
-        !empty($node->field_image[$language->language][0]['fid'])
-      ) {
-        $node->field_image[$language->language][0]['image_field_caption']['value'] = $node->field_pz_image_caption[LANGUAGE_NONE][0]['value'];
-      }
-    }
+//    if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
+//      $p_account = hwc_partner_get_account_partner();
+//      if ($p_account) {
+//        $node->field_image[$language->language][0]['fid'] = $p_account->field_logo[LANGUAGE_NONE][0]['fid'];
+//        $node->field_image[$language->language][0]['image_field_caption']['format'] = 'full_html';
+//        $node->field_image[$language->language][0]['image_field_caption']['value'] = $node->field_pz_image_caption[LANGUAGE_NONE][0]['value'];
+//      }
+//    }
+//    else {
+//      if (
+//        empty($node->field_image[$language->language][0]['image_field_caption']['value'])
+//        &&
+//        !empty($node->field_pz_image_caption[LANGUAGE_NONE][0]['value'])
+//        &&
+//        !empty($node->field_image[$language->language][0]['fid'])
+//      ) {
+//        $node->field_image[$language->language][0]['image_field_caption']['value'] = $node->field_pz_image_caption[LANGUAGE_NONE][0]['value'];
+//      }
+//    }
   }
 }
 
