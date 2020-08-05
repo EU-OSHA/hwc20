@@ -158,6 +158,7 @@
     "company_osh_emailaddress3": {
       "name": "company_osh_emailaddress3",
       "label": "HWC website e-mail contact",
+      "helpText" :"Please put here the e-mail address that you wish to be displayed on your organisational profile",
       "publicProfile": "publicProfile",
       "section": "GENERAL_INFORMATION",
       "type": "text",

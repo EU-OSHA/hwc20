@@ -1987,24 +1987,30 @@ span.title-select {
 .content-order-copy {
   color: #003399;
   padding: 1.5em 0 1em 1em;
-  border-top: 10px solid #FFF;
+  margin-top: 10px;
   background: #daea96;
   float: left;
   width: 100%;
   margin-bottom: 1em;
+  position: relative;
+  border-radius: 5px;
 }
 .content-order-copy img {
   width: 120px;
   height: auto;
   float: right;
   margin-left: 1em;
+  position: absolute;
+  right: 10px;
+  top: 14px;
 }
 .content-order-copy a {
   color: #003399;
   font-weight: bold;
   text-decoration: underline;
   font-size: 1.2rem;
-  padding-right: 20px;
+  width: 135px;
+  padding-right: 0;
   float: left;
 }
 .content-order-copy a:hover {
@@ -2012,9 +2018,6 @@ span.title-select {
 }
 .content-order-copy a:hover img {
   opacity: 0.8;
-}
-.content-order-copy {
-  display: none;
 }
 div.publications-detail-right-column > a.download {
   margin-left: 3em;
@@ -5270,6 +5273,7 @@ body.european-week .view-news .media > .pull-left {
 body.press-room .view-news ul.media-list li.media,
 body.european-week .view-news ul.media-list li.media {
   border-bottom: 1px solid #ACC700;
+  position: relative;
   padding-bottom: 2em;
   padding-top: 1em;
 }
@@ -5356,8 +5360,8 @@ body.european-week .view-frontpage-events .content-event {
 }
 body.press-room .media-body,
 body.european-week .media-body {
-  height: 220px;
-  position: relative;
+  height: auto;
+  padding-bottom: 3em;
 }
 body.press-room .media-body p,
 body.european-week .media-body p {
@@ -5367,7 +5371,7 @@ body.press-room .media-body a.more-link,
 body.european-week .media-body a.more-link {
   float: left;
   position: absolute;
-  bottom: 0;
+  bottom: 2.4em;
   margin-left: 0;
   transition: 300ms;
   background-color: transparent;
@@ -5383,9 +5387,6 @@ body.european-week .more-link {
   clear: both;
 }
 /* HW20-785 */
-body.press-room .media-body {
-  padding-bottom: 2em;
-}
 body.european-week #european_week_date {
   color: #FFF;
   font-size: 2.2em;
@@ -5394,7 +5395,8 @@ body.european-week #european_week_date {
   font-weight: bold;
 }
 body.european-week .view-frontpage-events .views-row {
-  height: 128px;
+  min-height: 128px;
+  height: auto;
   padding-bottom: 5px;
   padding-top: 5px;
 }
@@ -5429,7 +5431,6 @@ body.european-week #block-views-news-european-week {
 }
 body.european-week #block-views-news-european-week ul > li:nth-child(2) {
   border-bottom: 0;
-  padding-bottom: 0;
 }
 .page-node-linguatools #block-system-main {
   padding: 3em;
@@ -8762,9 +8763,8 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     width: 84% !important;
   }
   .content-order-copy img {
-    float: none;
-    margin-left: 0;
-    margin-top: 1em;
+    width: 78px;
+    top: 22px;
   }
   .page-events #block-osha-newsletter-osha-newsletter-events-subscribe {
     display: none;
@@ -11518,6 +11518,10 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
   .page-node-160 #block-views-napo-film-carousel-slidehow #napo_films .napo_films .num_slides > div .napo-film-title {
     display: none;
+  }
+  .content-order-copy img {
+    width: 120px;
+    top: 14px;
   }
 }
 @media (max-width: 600px) {
