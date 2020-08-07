@@ -2475,7 +2475,7 @@ span.pages {
 }
 .footer div.on-the-web span:nth-child(1) {
   padding-top: 5px;
-  padding-right: 2em;
+  padding-right: 0.2em;
 }
 .footer div.on-the-web span {
   display: block;
@@ -2512,6 +2512,7 @@ span.pages {
 }
 .region-footer {
   clear: both;
+  margin-bottom: 1rem;
 }
 .footer {
   margin-top: 3em;
@@ -8577,9 +8578,17 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   body.page-tools-and-publications-publications ol.multicarousel-indicators {
     display: none;
   }
-  html:lang(de) .intro-footer,
+  html:lang(de) .intro-footer {
+    max-width: 785px;
+  }
+  html:lang(de) .intro-footer p:nth-child(2) {
+    letter-spacing: -0.25px;
+  }
   html:lang(el) .intro-footer {
-    max-width: 615px;
+    max-width: 785px;
+  }
+  html:lang(el) .intro-footer p:nth-child(1) {
+    letter-spacing: -0.69px;
   }
   /*MHWC-141 with year only style*/
   .page-node-184.year-only .timeline > div:nth-child(3) {
@@ -8632,8 +8641,17 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     width: 170px;
   }
   .intro-footer {
-    max-width: 460px;
-    font-size: 12px;
+    max-width: 600px;
+    font-size: 14px;
+  }
+  .footer div.on-the-web {
+    margin-top: 0;
+  }
+  .footer div.on-the-web span:nth-child(1) {
+    padding: 1rem 0;
+    padding: 0 0 0.5rem !important;
+    float: none;
+    text-align: left;
   }
   html:lang(bg) header.navbar-default .navbar-collapse nav ul.menu > li,
   html:lang(da) header.navbar-default .navbar-collapse nav ul.menu > li,
@@ -9654,6 +9672,22 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
   .page-node-165 .became-green-block {
     max-width: 75%;
+  }
+  .footer .content-second-footer {
+    display: block;
+    width: 100%;
+    margin: 1rem 0 2rem;
+  }
+  .footer div.on-the-web {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .footer div.on-the-web span:nth-child(1) {
+    padding: 0.5rem 0.5rem 0.5rem 0 !important;
+    float: left;
+    text-align: left;
   }
 }
 @media (max-width: 1395px) and (min-width: 696px) {
@@ -11103,28 +11137,34 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
   /*Footer*/
   .footer {
-    padding-left: 0;
-  }
-  .footer .on-the-web span:nth-child(1) {
-    width: auto;
+    padding: 0;
   }
   .footer div.container {
     padding-left: 15px;
     padding-right: 15px;
   }
-  .footer div.on-the-web {
-    margin-right: 0;
+  .footer .content-second-footer {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    float: none;
   }
-  .footer div.on-the-web a {
-    margin-left: 3px;
+  .footer div.on-the-web {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .footer div.on-the-web span:nth-child(1) {
+    width: auto;
   }
   .footer h2,
   .footer p {
     display: block;
   }
   .footer .intro-footer {
-    float: left;
-    padding-bottom: 2em;
+    float: none;
+    padding-bottom: 1em;
   }
   /* Previous campaign */
   .related-resources {

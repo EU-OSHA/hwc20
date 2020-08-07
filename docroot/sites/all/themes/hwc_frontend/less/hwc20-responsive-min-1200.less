@@ -21,13 +21,22 @@
 
 	}
 
-	html:lang(de),
-	html:lang(el){
+	html:lang(de){
 		.intro-footer{
-			max-width: 615px;
+	    max-width: 785px;	    
+	    p:nth-child(2){
+	    	letter-spacing: -0.25px;
+	    }
 		}
 	}
-	
+	html:lang(el){
+		.intro-footer{
+	    max-width: 785px;	    
+	    p:nth-child(1){
+	    	letter-spacing: -0.69px;
+	    }
+		}
+	}
 	/*MHWC-141 with year only style*/
 	.page-node-184.year-only{
 		.timeline{
@@ -100,9 +109,21 @@
 	}
 
 	.intro-footer{
-		max-width: 460px;
-    	font-size: 12px;
+		max-width: 600px;
+    font-size: 14px;
 	}
+	.footer{
+		div.on-the-web {
+			margin-top: 0;
+			span:nth-child(1) {
+				padding: 1rem 0;
+				padding: 0 0 0.5rem !important;
+				float: none;
+				text-align: left;
+			}		
+		}		
+	}
+
 
 
 	html:lang(bg),
@@ -155,10 +176,12 @@
 		    padding-right: 2em;
 		}
 		
-		.on-the-web a{
-			width: 45px;
-			padding-top: 29px;
-		}
+		.on-the-web{
+			a{
+				width: 45px;
+				padding-top: 29px;
+			}
+		} 
 
 
 		.otw-twitter{

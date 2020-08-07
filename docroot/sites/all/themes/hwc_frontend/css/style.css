@@ -20253,7 +20253,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
 .footer div.on-the-web {
   display: inline-block;
   float: right;
-  margin-right: 40px;
+  margin-right: 0px;
   text-align: right;
 }
 .footer div.on-the-web a {
@@ -20264,9 +20264,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
 }
 .footer div.on-the-web a img {
   display: none;
-}
-.footer div.on-the-web span:last-child {
-  margin-right: 40px;
 }
 .footer div.on-the-web .otw-twitter a {
   background: url("../images/footer/twitter.png") no-repeat;
