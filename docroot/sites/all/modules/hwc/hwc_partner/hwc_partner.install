@@ -360,3 +360,10 @@ function hwc_partner_update_7045() {
 function hwc_partner_update_7046() {
   features_revert(array('hwc_partner' => array('page_manager_handlers')));
 }
+
+/**
+ * MHWC-200 Drupal - Contacts - new field email for FOP partners.
+ */
+function hwc_partner_update_7047() {
+  features_revert(array('hwc_partner' => array('page_manager_handlers', 'field_base', 'field_instance')));
+}
