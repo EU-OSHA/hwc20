@@ -8,6 +8,32 @@ define('OSHA_ARTICLE_CONTENT_TYPE_ARTICLE', 'article');
 define('OSHA', 'OSHA');
 
 /**
+ * Implements hook_contextual_links_view_alter().
+ */
+function osha_contextual_links_view_alter(&$element, $items) {
+  // Bail if the user doesn't have access to edit nodequeues.
+  if (!user_access('manipulate queues')) {
+    return;
+  }
+
+  if (empty($element['#element']['#contextual_links']['views_ui'])) {
+    return;
+  }
+
+  if (!variable_get('nodequeue_show_contextual_links', TRUE)) {
+    return;
+  }
+
+  if (isset($items['views_ui-edit'])) {
+    foreach ($element['#links'] as $key => &$row) {
+      if ($row['title'] == 'Edit queue') {
+        unset($element['#links'][$key]['query']['destination']);
+      }
+    }
+  }
+}
+
+/**
  * Implements Elysia hook_cronapi().
  */
 function osha_cronapi() {
