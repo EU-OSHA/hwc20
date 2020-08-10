@@ -188,3 +188,10 @@ function hwc_toolkit_update_7026() {
   features_revert(array('hwc_toolkit' => array('field_instance')));
   features_revert(array('osha_news' => array('views_view')));
 }
+
+/**
+ * MHWC-227 Campaign toolkit examples coherence between maximum number in the front end and backend.
+ */
+function hwc_toolkit_update_7027() {
+  features_revert(array('hwc_toolkit' => array('views_view')));
+}
