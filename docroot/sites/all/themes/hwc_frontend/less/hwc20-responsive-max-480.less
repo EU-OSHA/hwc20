@@ -187,6 +187,12 @@
 		h2.block-title{
 			font-size: 2.15em!important;
 		}
+		.related-resources .related-resources-boxes div span {
+		    width: 205px;
+		    float: right;
+		    padding-left: 1em;
+		    padding-top: 8px;
+		}
 	}
 
 	.related-resources{
@@ -499,4 +505,18 @@
 	}
 
 
+}
+
+@media (max-width: 490px) {
+	body.press-room{
+		.related-resources .related-resources-boxes div span {
+		    width: 205px;
+		    float: right;
+		    padding-left: 1em;
+		    padding-top: 0;
+		    height: 54px;
+    		display: flex;
+    		align-items: center;
+		}
+	}
 }

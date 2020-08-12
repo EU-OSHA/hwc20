@@ -11756,6 +11756,12 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   body.press-room h2.block-title {
     font-size: 2.15em!important;
   }
+  body.press-room .related-resources .related-resources-boxes div span {
+    width: 205px;
+    float: right;
+    padding-left: 1em;
+    padding-top: 8px;
+  }
   .related-resources .related-resources-boxes div {
     width: 100%;
   }
@@ -12228,5 +12234,16 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   html:lang(bg) .page_title h1 {
     font-size: 1.8em;
     padding: 0 1em;
+  }
+}
+@media (max-width: 490px) {
+  body.press-room .related-resources .related-resources-boxes div span {
+    width: 205px;
+    float: right;
+    padding-left: 1em;
+    padding-top: 0;
+    height: 54px;
+    display: flex;
+    align-items: center;
   }
 }
