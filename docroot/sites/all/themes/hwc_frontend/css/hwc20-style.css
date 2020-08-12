@@ -10766,6 +10766,18 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
 }
 @media (max-width: 767px) {
+  body.front-page .main-container {
+    /* Intro Boxes */
+  }
+  body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-first,
+  body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last {
+    height: auto;
+  }
+  body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-first p,
+  body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last p {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
   body.front-page .newsletter-social-media .newsletter {
     border-right: 0;
     border-bottom: 1px dashed #FFF;
@@ -11658,9 +11670,6 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
   body.page-tools-and-publications-practical-tools .region.region-content .view-practical-tools .view-content .views-row .conten-tags span:nth-child(2) {
     max-width: 175px;
-  }
-  body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last p {
-    max-width: 280px;
   }
   body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news .view-news .view-content > div:nth-child(1) > div.pull-left {
     float: none !important;
