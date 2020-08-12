@@ -11771,6 +11771,10 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     border-bottom-right-radius: 0;
     padding-right: 1em;
   }
+  #block-views-news-press-room .more-link a {
+    font-size: 0.85em;
+    background: url(../images/ico-plus-20.png) no-repeat 99.5% 1px #0030a0;
+  }
 }
 @media (max-width: 370px) {
   header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 img:nth-child(3) {
