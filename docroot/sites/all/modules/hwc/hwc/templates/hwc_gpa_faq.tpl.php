@@ -9,9 +9,9 @@ $in = 'in';
 ?>
   <div class="panel-group" id="faq">
     <?php foreach ($entities as $key => $entity) {
-      //todo check lang...
-      $question = $entity->field_question['und'][0]['safe_value'];
-      $answer = $entity->field_answer['und'][0]['value'];
+      $wrapper = entity_metadata_wrapper('field_collection_item', $entity);
+      $question = $wrapper->language($language)->field_question->value();
+      $answer = $wrapper->language($language)->field_answer->value()['value'];
       ?>
       <div class="panel panel-default">
         <div class="panel-heading">
