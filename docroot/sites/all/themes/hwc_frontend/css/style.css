@@ -26146,10 +26146,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     display: block;
     width: 100%;
   }
-  #block-osha-newsletter-osha-newsletter-subscribe form input,
-  #block-osha-newsletter-osha-newsletter-image form input {
-    width: 100%;
-  }
   .front #campaigns-newsletter-subscribe-form .checkbox input[type=checkbox]:checked:before,
   .front #campaigns-newsletter-subscribe-captcha-form .checkbox input[type=checkbox]:checked:before {
     margin-right: 0;
