@@ -19135,32 +19135,56 @@ input#edit-field-image-und-0-upload::before {
 .toolkit-page .main-container .field-name-field-tk-topics .field-items .field-item .node-tk-topic .group-right .field-name-node-link a:hover {
   background-color: #595959;
 }
-.toolkit-page .main-container .view-tk-tools .views-row {
+.toolkit-page .main-container .view-tk-tools .h2.toolkit-h2 {
   padding-left: 15px;
-  padding-right: 15px;
-  margin-bottom: 30px;
-  max-width: 420px;
+}
+.toolkit-page .main-container .view-tk-tools .view-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.toolkit-page .main-container .view-tk-tools .views-row {
+  padding-left: 0;
+  padding-right: 30px;
+  margin-bottom: 0;
+  max-width: 23%;
 }
 .toolkit-page .main-container .view-tk-tools .views-row .views-field-field-image {
-  background-color: #ccc;
   width: 100%;
-  height: 250px;
-  overflow: hidden;
   position: relative;
 }
 .toolkit-page .main-container .view-tk-tools .views-row .views-field-field-image img {
   width: 100%;
   max-width: inherit;
+  border: 2px solid #bcd75b;
+  border-radius: 7px;
+}
+.toolkit-page .main-container .view-tk-tools .views-row blockquote.image-field-caption {
+  display: block;
+  background-color: #FFF;
+}
+.toolkit-page .main-container .view-tk-tools .views-row blockquote.image-field-caption p {
+  border-left: 0;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-size: 10px;
+  color: #57575a;
+}
+.toolkit-page .main-container .view-tk-tools .views-row .views-field-title h2 {
+  padding: 5px 0 10px 0;
+  clear: both;
 }
 .toolkit-page .main-container .view-tk-tools .views-row .views-field-title h2 a {
-  height: 75px;
-  background-color: #003399;
-  color: white;
-  font-weight: 600;
-  font-size: 1.5rem;
-  text-align: center;
-  display: block;
-  padding-top: 25px;
+  font-family: 'Open Sans', sans-serif;
+  color: #003399;
+  font-size: 0.85em;
+  margin: 0;
+  clear: both;
+  line-height: 20px;
+  font-weight: bold;
+  font-style: normal;
+  letter-spacing: 0;
 }
 .toolkit-page .main-container .view-tk-tools .views-row .views-field-title h2 a:before {
   content: "";
@@ -19168,43 +19192,47 @@ input#edit-field-image-und-0-upload::before {
 }
 @media (min-width: 1301px) and (max-width: 1665px) {
   .toolkit-page .main-container .view-tk-tools .views-row {
-    max-width: 420px;
+    max-width: 25%;
   }
   .toolkit-page .main-container .view-tk-tools .views-row .views-field-field-image {
-    height: 189px;
+    height: auto;
   }
 }
 @media (min-width: 992px) and (max-width: 1300px) {
   .toolkit-page .main-container .view-tk-tools .views-row {
-    min-width: 300px;
-    width: 50%;
+    max-width: 50%;
   }
   .toolkit-page .main-container .view-tk-tools .views-row .views-field-field-image {
-    height: 250px;
+    height: auto;
   }
 }
 @media (min-width: 993px) and (max-width: 1145px) {
   .toolkit-page .main-container .view-tk-tools .views-row {
-    min-width: 300px;
-    width: 50%;
+    max-width: 50%;
   }
   .toolkit-page .main-container .view-tk-tools .views-row .views-field-field-image {
-    height: 217px;
+    height: auto;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .toolkit-page .main-container .view-tk-tools .views-row {
-    min-width: 300px;
-    width: 50%;
-    max-width: inherit;
+    max-width: 33%;
   }
   .toolkit-page .main-container .view-tk-tools .views-row .views-field-field-image {
-    height: 217px;
+    height: auto;
   }
 }
 @media (min-width: 1px) and (max-width: 767px) {
   .toolkit-page .main-container .view-tk-tools .views-row {
-    min-width: 100px;
+    width: 50%;
+    max-width: inherit;
+  }
+  .toolkit-page .main-container .view-tk-tools .views-row .views-field-field-image {
+    height: inherit;
+  }
+}
+@media (min-width: 1px) and (max-width: 480px) {
+  .toolkit-page .main-container .view-tk-tools .views-row {
     width: 100%;
     max-width: inherit;
   }
@@ -25886,9 +25914,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   }
   .toolkit-page .main-container .view-tk-tools .views-row {
     margin-bottom: 15px;
-  }
-  .toolkit-page .main-container .view-tk-tools .views-row .views-field-field-image {
-    display: none;
   }
   .toolkit-page .main-container .node-tk-tool .field-name-field-benefits {
     padding: 30px 15px;
