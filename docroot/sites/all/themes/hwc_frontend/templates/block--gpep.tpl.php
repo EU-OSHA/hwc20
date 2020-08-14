@@ -29,3 +29,6 @@ echo '<div class="back-links">' . l($back_text, $link_href, ['html' => TRUE]) . 
   <?php print $content; ?>
 
 </div>
+<?php
+$back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to Private Zone') . '</span>';
+echo '<div class="back-links">' . l($back_text, $link_href, ['html' => TRUE]) . '</div>';

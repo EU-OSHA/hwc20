@@ -133,6 +133,14 @@ function hwc_partner_block_info() {
     'cache' => DRUPAL_NO_CACHE,
     'weight' => 50,
   );
+  $blocks['hwc_partner_private_zone_bottom'] = array(
+    'info' => t('Bottom Back to private zone'),
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+    'weight' => 50,
+  );
   $blocks['hwc_partner_back_to_profile'] = array(
     'info' => t('Back to profile link'),
     'status' => 1,
@@ -333,7 +341,11 @@ function hwc_partner_block_view($delta = '') {
     $block['title'] = '<none>';
     $block['content'] = l(t('Change password'), 'user/' . $user->uid . '/edit');
   }
-  elseif ($delta == 'hwc_partner_back_to_private_zone') {
+  elseif (
+    ($delta == 'hwc_partner_back_to_private_zone')
+  ||
+    ($delta == 'hwc_partner_private_zone_bottom')
+  ) {
     $link = NULL;
     $args = arg(0) . '/' . arg(2);
     $allowed_private_zone_pages = variable_get('back_to_private_zone_pages', [
