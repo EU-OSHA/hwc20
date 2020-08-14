@@ -304,7 +304,6 @@ function osha_news_views_default_views() {
   $handler->display->display_options['relationships']['nodequeue_rel']['id'] = 'nodequeue_rel';
   $handler->display->display_options['relationships']['nodequeue_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['nodequeue_rel']['field'] = 'nodequeue_rel';
-  $handler->display->display_options['relationships']['nodequeue_rel']['required'] = TRUE;
   $handler->display->display_options['relationships']['nodequeue_rel']['limit'] = 1;
   $handler->display->display_options['relationships']['nodequeue_rel']['names'] = array(
     'splash_news' => 'splash_news',
@@ -318,9 +317,20 @@ function osha_news_views_default_views() {
     'homepage_about_the_topic' => 0,
     'most_popular_tools_and_examples' => 0,
     'tools_and_examples' => 0,
-    'splash_campaign_material' => 0,
     'splash_banners' => 0,
+    'splash_campaign_material' => 0,
     'splash_events' => 0,
+    'homepage_events' => 0,
+    'press_room_news' => 0,
+    'press_room_events' => 0,
+    'european_week_events' => 0,
+    'european_week_news' => 0,
+    'case_studies_slideshow_' => 0,
+    'homepage_news' => 0,
+    'homepage_banners' => 0,
+    'homepage_recommended' => 0,
+    'good_practice_exchange_events' => 0,
+    'good_practice_examples' => 0,
   );
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Field: Publication date */
@@ -1181,6 +1191,22 @@ function osha_news_views_default_views() {
 <div class="media-body">[field_publication_date] [title_field] [body]</div>
 ';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Nodequeue: In queue */
+  $handler->display->display_options['sorts']['in_queue']['id'] = 'in_queue';
+  $handler->display->display_options['sorts']['in_queue']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['in_queue']['field'] = 'in_queue';
+  $handler->display->display_options['sorts']['in_queue']['relationship'] = 'nodequeue_rel';
+  /* Sort criterion: Nodequeue: Position */
+  $handler->display->display_options['sorts']['position']['id'] = 'position';
+  $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
+  $handler->display->display_options['sorts']['position']['field'] = 'position';
+  $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
+  /* Sort criterion: Field: Publication date (field_publication_date) */
+  $handler->display->display_options['sorts']['field_publication_date_value']['id'] = 'field_publication_date_value';
+  $handler->display->display_options['sorts']['field_publication_date_value']['table'] = 'field_data_field_publication_date';
+  $handler->display->display_options['sorts']['field_publication_date_value']['field'] = 'field_publication_date_value';
+  $handler->display->display_options['sorts']['field_publication_date_value']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
