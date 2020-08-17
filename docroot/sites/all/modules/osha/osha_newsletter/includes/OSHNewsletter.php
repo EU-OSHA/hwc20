@@ -232,25 +232,28 @@ class OSHNewsletter {
       '#sticky' => FALSE,
       '#children' => [],
     ];
-    if ($variables['section']->name == 'More news') {
+    if ($variables['section']->name == t('News')) {
       $variables['section']->name = '';
     }
-    if ($variables['section']->name == 'In the spotlight') {
+    if ($variables['section']->name == t('More news')) {
+      $variables['section']->name = '';
+    }
+    if ($variables['section']->name == t('In the spotlight')) {
       $variables['section']->name = '';
     }
     if (!empty($variables['section']->name)) {
       $icon = self::getConfiguration($entityCollection, 'field_icon', $variables['section']);
       $class = 'section-title';
       $image = '';
-      if ($variables['section']->name == 'Audiovisual') {
+      if ($variables['section']->name == t('Audiovisual')) {
         $class .= ' spotlight';
         $image = 'spotlight';
       }
-      if ($variables['section']->name == 'Events') {
+      if ($variables['section']->name == t('Events')) {
         $class .= ' events';
         $image = 'newsletter-events';
       }
-      if ($variables['section']->name == 'Tweets') {
+      if ($variables['section']->name == t('Tweets')) {
         $class .= ' twitter';
         $image = 'newsletter-twitter';
       }
@@ -313,7 +316,7 @@ class OSHNewsletter {
       ];
       $content['#suffix'] = render($view_all);
     }
-    if ($variables['section']->name == 'Events') {
+    if ($variables['section']->name == t('Events')) {
       $url = url('events', ['absolute' => TRUE, 'query' => $url_query]);
       $content['#suffix'] .= '<table><tr><td align="center" style="padding-top:10px;">
         <div class="more-link-newsletter" style="display: table;margin: 0px auto;">
@@ -325,7 +328,7 @@ class OSHNewsletter {
         </table>
         </div></td></tr></table>';
     }
-    if ($variables['section']->name == 'Tweets') {
+    if ($variables['section']->name == t('Tweets')) {
       $url = url('media-centre/social-media-centre', ['absolute' => TRUE, 'query' => $url_query]);
       $content['#suffix'] .= '<table><tr><td align="center">
         <div class="more-link-newsletter" style="display: table;margin: 0px auto;">
