@@ -4829,7 +4829,7 @@ ul[data-sa-theme="basic-green"].ui-menu {
   max-width: none;
 }
 .page-get-involved-get-your-certificate .pane-node-body {
-  width: 72%;
+  width: 79%;
   padding-left: 1em;
 }
 .page-get-involved-get-your-certificate .control-label {
@@ -8882,7 +8882,7 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
   /* Get your certificate */
   .page-get-involved-get-your-certificate .pane-node-body {
-    width: 55%;
+    width: 75%;
   }
   .page-get-involved-get-your-certificate form.webform-client-form .form-select {
     height: 34px;
@@ -9015,6 +9015,30 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
 }
 @media (max-width: 1280px) {
+  html:lang(hr) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-even,
+  html:lang(lt) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-even,
+  html:lang(hu) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-even,
+  html:lang(pl) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-even,
+  html:lang(sk) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-even,
+  html:lang(mt) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-even,
+  html:lang(hr) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-odd,
+  html:lang(lt) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-odd,
+  html:lang(hu) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-odd,
+  html:lang(pl) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-odd,
+  html:lang(sk) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-odd,
+  html:lang(mt) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-odd {
+    font-size: 0.9em;
+  }
+  html:lang(bg) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last,
+  html:lang(de) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last,
+  html:lang(lv) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last,
+  html:lang(nl) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last,
+  html:lang(no) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last,
+  html:lang(pt) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last,
+  html:lang(ro) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last,
+  html:lang(it) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last {
+    height: 430px;
+  }
   html:lang(de) .intro-splash-20 .views-row-first h1,
   html:lang(el) .intro-splash-20 .views-row-first h1,
   html:lang(es) .intro-splash-20 .views-row-first h1,
@@ -9109,8 +9133,22 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .view-content > div:nth-child(3) {
     order: 4;
   }
+  html:lang(bg) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last,
+  html:lang(de) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last,
+  html:lang(lv) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last,
+  html:lang(nl) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last,
+  html:lang(no) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last,
+  html:lang(pt) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last,
+  html:lang(ro) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last,
+  html:lang(it) body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last {
+    height: auto;
+  }
   .intro-footer {
     max-width: 100%;
+  }
+  /* Get your certificate */
+  .page-get-involved-get-your-certificate .pane-node-body {
+    width: 66%;
   }
   header.navbar-default.sticky-menu .campaigns-header .navbar-header .col-xs-12.col-sm-9 {
     display: flex;
