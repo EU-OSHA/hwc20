@@ -9,6 +9,7 @@
  * @see template_process()
  */
 global $osha_newsletter_send_mail;
+global $language;
 
 $campaign_id = '';
 if (!empty($variables['elements']['#campaign_id'])) {
@@ -161,10 +162,10 @@ if (!empty($campaign_id)) {
                         }
                         $directory = drupal_get_path('module', 'osha_newsletter');
                         print l(theme('image', array(
-                          'path' => $directory . '/images/' . 'see-more-img.png',
-                          'width' => '92',
-                          'height' => '23',
-                          'attributes' => array('style' => 'border:0px;width:92px;height:23px;'),
+                          'path' => $directory . '/images/' . 'see-more-img-' . $language->language . '.png',
+                          'width' => 'auto',
+                          'height' => 'auto',
+                          'attributes' => array('style' => 'border:0px;width:auto;height:auto;'),
                         )), $node_url, array(
                           'html' => TRUE,
                           'query' => $url_query,
