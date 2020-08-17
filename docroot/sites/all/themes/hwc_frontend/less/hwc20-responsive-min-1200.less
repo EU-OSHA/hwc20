@@ -635,6 +635,42 @@
 @media (max-width: 1280px) {
 
 
+	html:lang(hr),
+	html:lang(lt),
+	html:lang(hu),
+	html:lang(pl),
+	html:lang(sk),
+	html:lang(mt)
+	{
+		body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-even, 
+		body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-odd{
+			font-size: 0.9em;
+		}
+	}
+
+	html:lang(bg),
+	html:lang(de),
+	html:lang(lv),
+	html:lang(nl),
+	html:lang(no),
+	html:lang(pt),
+	html:lang(ro),
+	html:lang(it)
+	{
+		body.front-page {
+			.main-container {
+				#block-views-homepage-banners-block {
+					.view-homepage-banners {
+						.views-row-last {
+							height: 430px;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+
 	html:lang(de),
 	html:lang(el),
 	html:lang(es),
