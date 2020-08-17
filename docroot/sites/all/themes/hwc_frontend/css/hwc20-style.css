@@ -4829,7 +4829,7 @@ ul[data-sa-theme="basic-green"].ui-menu {
   max-width: none;
 }
 .page-get-involved-get-your-certificate .pane-node-body {
-  width: 72%;
+  width: 79%;
   padding-left: 1em;
 }
 .page-get-involved-get-your-certificate .control-label {
@@ -8882,7 +8882,7 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
   /* Get your certificate */
   .page-get-involved-get-your-certificate .pane-node-body {
-    width: 55%;
+    width: 75%;
   }
   .page-get-involved-get-your-certificate form.webform-client-form .form-select {
     height: 34px;
@@ -9111,6 +9111,10 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
   .intro-footer {
     max-width: 100%;
+  }
+  /* Get your certificate */
+  .page-get-involved-get-your-certificate .pane-node-body {
+    width: 66%;
   }
   header.navbar-default.sticky-menu .campaigns-header .navbar-header .col-xs-12.col-sm-9 {
     display: flex;
