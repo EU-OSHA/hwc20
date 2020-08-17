@@ -290,7 +290,7 @@ class OSHNewsletter {
         '#rows' => [
           0 => [
             [
-              'data' => l(t('View all') . $arrow, $url, [
+              'data' => l(t('view all') . $arrow, $url, [
                 'html' => TRUE,
                 'absolute' => TRUE,
                 'query' => $url_query,
@@ -320,7 +320,7 @@ class OSHNewsletter {
         <table style="border: 0; margin: 0; padding-top:15px;">
          <tr>
           <td style="padding-top:10px"><a href="' . $url . '" style="background-color: #FFF; border: 1px solid #acc700;border-radius: 5px; color: #ffffff; padding: 0.5em 1em;
-          color: #003399; text-decoration: none;text-transform: uppercase">' . t('View All') . '</a></td>
+          color: #003399; text-decoration: none;text-transform: uppercase">' . t('view all') . '</a></td>
         </tr>
         </table>
         </div></td></tr></table>';
