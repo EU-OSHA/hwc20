@@ -1936,7 +1936,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
     }
     .right-column{
       float: left;
-      width: 185px;
+      width: 200px;
       padding: 1em;
     }
     .publication-date{
@@ -2724,8 +2724,26 @@ span.pages{
 	bottom: 0;
     position: absolute;
     margin-bottom: 16px;
-    width: 174px;
+    width: 177px;
 }
+
+html:lang(hu){
+	.publication-see-more-bottom-container{
+		.news-see-more-button{
+			font-size: 1rem !important;
+		}
+	}
+}
+
+html:lang(pl){
+	.publication-see-more-bottom-container{
+		.news-see-more-button{
+			background: url(../images/ico-plus-green.png) no-repeat 95% 12px;
+		}
+	}
+}
+
+    
 
 .content-fluid{
 	h2{
@@ -9425,6 +9443,7 @@ html:lang(is),
 html:lang(it),
 html:lang(nl),
 html:lang(pl),
+html:lang(hu),
 html:lang(ro)
 {
 	body{
