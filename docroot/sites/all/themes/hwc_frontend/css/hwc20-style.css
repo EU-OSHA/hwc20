@@ -8257,6 +8257,7 @@ html:lang(el) body .views-field-search-api-relevance a {
   float: none;
   text-transform: none;
   padding-left: 0;
+  width: auto;
 }
 #block-views-publications-slideshow-slidehow .more-link:hover,
 .node-type-priority-area .region-content .block-hwc-priority-areas ul li .more-link:hover {
