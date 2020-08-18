@@ -2325,6 +2325,12 @@ span.pages {
   margin-bottom: 16px;
   width: 177px;
 }
+html:lang(hu) .publication-see-more-bottom-container .news-see-more-button {
+  font-size: 1rem !important;
+}
+html:lang(pl) .publication-see-more-bottom-container .news-see-more-button {
+  background: url(../images/ico-plus-green.png) no-repeat 95% 12px;
+}
 .content-fluid h2 {
   color: #003399;
 }
@@ -8213,24 +8219,28 @@ html:lang(is) body a.more-link,
 html:lang(it) body a.more-link,
 html:lang(nl) body a.more-link,
 html:lang(pl) body a.more-link,
+html:lang(hu) body a.more-link,
 html:lang(ro) body a.more-link,
 html:lang(es) body .news-see-more-button,
 html:lang(is) body .news-see-more-button,
 html:lang(it) body .news-see-more-button,
 html:lang(nl) body .news-see-more-button,
 html:lang(pl) body .news-see-more-button,
+html:lang(hu) body .news-see-more-button,
 html:lang(ro) body .news-see-more-button,
 html:lang(es) body .view-events-search .views-field-view-node .field-content a,
 html:lang(is) body .view-events-search .views-field-view-node .field-content a,
 html:lang(it) body .view-events-search .views-field-view-node .field-content a,
 html:lang(nl) body .view-events-search .views-field-view-node .field-content a,
 html:lang(pl) body .view-events-search .views-field-view-node .field-content a,
+html:lang(hu) body .view-events-search .views-field-view-node .field-content a,
 html:lang(ro) body .view-events-search .views-field-view-node .field-content a,
 html:lang(es) body .views-field-search-api-relevance a,
 html:lang(is) body .views-field-search-api-relevance a,
 html:lang(it) body .views-field-search-api-relevance a,
 html:lang(nl) body .views-field-search-api-relevance a,
 html:lang(pl) body .views-field-search-api-relevance a,
+html:lang(hu) body .views-field-search-api-relevance a,
 html:lang(ro) body .views-field-search-api-relevance a {
   background: url(../images/ico-plus-green.png) no-repeat 95% 4px;
 }
