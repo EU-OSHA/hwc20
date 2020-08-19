@@ -11852,7 +11852,9 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     top: 5px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    padding-right: 1em;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
   }
   #block-views-news-press-room .more-link a {
     font-size: 0.85em;
