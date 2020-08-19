@@ -1004,7 +1004,7 @@ function osha_publication_panels_pane_content_alter(&$content, &$pane, $args, $c
   if ('osha_case_studies_slideshow' === $content->delta) {
     $content->admin_links[] = [
       'title' => 'Edit queue',
-      'href' => 'admin/structure/nodequeue/24/view',
+      'href' => 'admin/structure/nodequeue/20/view',
     ];
   }
 

@@ -42,7 +42,7 @@
         $letters[$letter] = $letter;
       }
       ksort($letters);
-      echo '<div id="glossary-letters"><div class="container">';
+      echo '<div id="glossary-letters"><div>';
       foreach ($alphas as $letter) {
         if (!empty($letters[$letter])) {
           print '<span><a href="#glossary-' . $letter . '">' . $letter . '</a></span>';

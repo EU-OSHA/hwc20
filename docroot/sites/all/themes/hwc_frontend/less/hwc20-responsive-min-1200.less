@@ -21,13 +21,22 @@
 
 	}
 
-	html:lang(de),
-	html:lang(el){
+	html:lang(de){
 		.intro-footer{
-			max-width: 615px;
+	    max-width: 785px;	    
+	    p:nth-child(2){
+	    	letter-spacing: -0.25px;
+	    }
 		}
 	}
-	
+	html:lang(el){
+		.intro-footer{
+	    max-width: 785px;	    
+	    p:nth-child(1){
+	    	letter-spacing: -0.69px;
+	    }
+		}
+	}
 	/*MHWC-141 with year only style*/
 	.page-node-184.year-only{
 		.timeline{
@@ -100,9 +109,21 @@
 	}
 
 	.intro-footer{
-		max-width: 460px;
-    	font-size: 12px;
+		max-width: 600px;
+    font-size: 14px;
 	}
+	.footer{
+		div.on-the-web {
+			margin-top: 0;
+			span:nth-child(1) {
+				padding: 1rem 0;
+				padding: 0 0 0.5rem !important;
+				float: none;
+				text-align: left;
+			}		
+		}		
+	}
+
 
 
 	html:lang(bg),
@@ -155,10 +176,12 @@
 		    padding-right: 2em;
 		}
 		
-		.on-the-web a{
-			width: 45px;
-			padding-top: 29px;
-		}
+		.on-the-web{
+			a{
+				width: 45px;
+				padding-top: 29px;
+			}
+		} 
 
 
 		.otw-twitter{
@@ -413,7 +436,7 @@
 	/* Get your certificate */
 	.page-get-involved-get-your-certificate{
 		.pane-node-body{
-			width: 55%;
+			width: 75%;
 		}
 
 		form.webform-client-form .form-select{
@@ -611,6 +634,42 @@
 
 @media (max-width: 1280px) {
 
+
+	html:lang(hr),
+	html:lang(lt),
+	html:lang(hu),
+	html:lang(pl),
+	html:lang(sk),
+	html:lang(mt)
+	{
+		body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-even, 
+		body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-odd{
+			font-size: 0.9em;
+		}
+	}
+
+	html:lang(bg),
+	html:lang(de),
+	html:lang(lv),
+	html:lang(nl),
+	html:lang(no),
+	html:lang(pt),
+	html:lang(ro),
+	html:lang(it)
+	{
+		body.front-page {
+			.main-container {
+				#block-views-homepage-banners-block {
+					.view-homepage-banners {
+						.views-row-last {
+							height: 430px;
+						}
+					}
+				}
+			}
+		}
+	}
+	
 
 	html:lang(de),
 	html:lang(el),

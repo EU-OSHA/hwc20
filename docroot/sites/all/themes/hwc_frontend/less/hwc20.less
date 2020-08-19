@@ -284,7 +284,8 @@ select{
 
 .btn-background-transparent{
 	background: transparent;
-	width: 208px;
+	min-width: 208px;
+	width: auto;
     color: #FFF;
     border: 3px solid #FFF;
     padding: 0.6em 2.5em 0.6em 1.5em;
@@ -1935,7 +1936,7 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
     }
     .right-column{
       float: left;
-      width: 185px;
+      width: 200px;
       padding: 1em;
     }
     .publication-date{
@@ -2723,8 +2724,26 @@ span.pages{
 	bottom: 0;
     position: absolute;
     margin-bottom: 16px;
-    width: 174px;
+    width: 177px;
 }
+
+html:lang(hu){
+	.publication-see-more-bottom-container{
+		.news-see-more-button{
+			font-size: 1rem !important;
+		}
+	}
+}
+
+html:lang(pl){
+	.publication-see-more-bottom-container{
+		.news-see-more-button{
+			background: url(../images/ico-plus-green.png) no-repeat 95% 12px;
+		}
+	}
+}
+
+    
 
 .content-fluid{
 	h2{
@@ -2905,7 +2924,7 @@ span.pages{
 		margin-top: 15px;
 		span:nth-child(1){
 			padding-top: 5px;
-			padding-right: 2em;
+			padding-right: 0.2em;
 		}
 
 		span{
@@ -2959,6 +2978,7 @@ span.pages{
 
 .region-footer{
   clear: both;
+  margin-bottom: 1rem;
 }
 
 .footer{
@@ -5399,7 +5419,7 @@ ul[data-sa-theme="basic-green"].ui-menu{
 		max-width: none;
 	}
 	.pane-node-body{
-		width: 72%;
+		width: 79%;
 		padding-left: 1em;
 	}
 	.control-label{
@@ -7090,13 +7110,12 @@ body.front-page{
 					}
 
 					p{
-						display: flex;
 						flex-wrap: wrap;
 						justify-content: center;
 						color: #FFF;
 					    padding-top: 1em;
-					    padding-bottom: 2em;
-					    max-width: 540px;
+					    padding-bottom: 1.5em;
+					    max-width: 575px;
 					    margin: 0 auto;
 					    font-size: 1.2em;
 					}
@@ -7108,9 +7127,17 @@ body.front-page{
 					}
 				}
 
+				.views-row-first{
+					> p:nth-child(4){
+						max-width: 600px;
+					    display: flex;
+					}
+				} 
+
 				.views-row-last{
-					p{
+					p:nth-child(4){
 					    max-width: 600px;
+					    display: flex;
 					}
 				}
 			}
@@ -8464,11 +8491,12 @@ html:lang(el){
 	background: #FFF;
 	border: 2px solid #bcd75b;
     border-radius: 7px;
-    width: 215px;
+    width: 320px;
     padding: 1em;
     z-index: 9999999;
     position: absolute;
     margin-top: -1em;
+
 }
 
 .closePop{
@@ -8483,6 +8511,10 @@ html:lang(el){
 
 .contentPop{
 	padding-right: 15px;
+	p{
+		color:#59595A !important;
+		font-size: 14px !important;
+	}
 }
 
 /* Video */
@@ -9411,6 +9443,7 @@ html:lang(is),
 html:lang(it),
 html:lang(nl),
 html:lang(pl),
+html:lang(hu),
 html:lang(ro)
 {
 	body{
@@ -9450,6 +9483,7 @@ html:lang(el)
     float: none;
     text-transform: none;
     padding-left: 0;
+    width: auto;
     &:hover{
     	text-decoration: underline;
     }

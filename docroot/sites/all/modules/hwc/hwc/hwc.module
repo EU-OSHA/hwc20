@@ -964,6 +964,7 @@ function hwc_theme() {
       'variables' => array(
         'items' => NULL,
         'node' => NULL,
+        'language' => NULL
       ),
       'template' => 'templates/hwc_gpa_faq',
     ),
@@ -1110,6 +1111,7 @@ function hwc_entity_info_alter(&$entity_info) {
  * Implements hook_field_formatter_view().
  */
 function hwc_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  global $language;
   $element = array();
   switch ($display['type']) {
     case 'gpa_faq':
@@ -1117,6 +1119,7 @@ function hwc_field_formatter_view($entity_type, $entity, $field, $instance, $lan
         '#theme' => 'gpa_faq',
         '#items' => $items,
         '#node' => entity_metadata_wrapper('node', $entity),
+        '#language' => $language->language,
       );
       break;
 

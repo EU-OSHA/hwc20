@@ -30,6 +30,7 @@ class PartnerMigration extends HwcCrmMigration {
       'field_general_email',
       'field_general_phone',
       'field_website',
+      'field_website_email',
       'field_orgtype',
       'field_bussines_sector',
       'field_mission_statement',
@@ -226,7 +227,12 @@ class PartnerMigrateListXml extends AbstractCrmMigrateListXml {
         $data->field_guid_organisation = (string) $attributes['Table0_Details1'];
         $data->field_general_email = (string) $attributes['Textbox2'];
         $data->field_general_phone = (string) $attributes['Textbox3'];
-
+        // box40 = "HWC website e-mail contact"
+        // for compatibility lets display general_email if no website_email
+        $data->field_website_email = (string) $attributes['Textbox40'];
+        if (!$data->field_website_email) {
+          $data->field_website_email = $data->field_general_email;
+        }
         $prefix = trim((string) $attributes['Textbox39']);
         $parts = explode('(', $prefix);
         if (count($parts) == 2) {
