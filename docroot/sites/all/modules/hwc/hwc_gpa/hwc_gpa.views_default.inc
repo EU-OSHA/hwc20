@@ -94,16 +94,16 @@ function hwc_gpa_views_default_views() {
     'field_formatter_class' => '',
   );
   $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
-  /* Sort criterion: Content: Booklet (field_booklet) */
-  $handler->display->display_options['sorts']['field_booklet_value']['id'] = 'field_booklet_value';
-  $handler->display->display_options['sorts']['field_booklet_value']['table'] = 'field_data_field_booklet';
-  $handler->display->display_options['sorts']['field_booklet_value']['field'] = 'field_booklet_value';
-  $handler->display->display_options['sorts']['field_booklet_value']['order'] = 'DESC';
   /* Sort criterion: Nodequeue: In queue */
   $handler->display->display_options['sorts']['in_queue']['id'] = 'in_queue';
   $handler->display->display_options['sorts']['in_queue']['table'] = 'nodequeue_nodes';
   $handler->display->display_options['sorts']['in_queue']['field'] = 'in_queue';
   $handler->display->display_options['sorts']['in_queue']['relationship'] = 'nodequeue_rel';
+  /* Sort criterion: Content: Booklet (field_booklet) */
+  $handler->display->display_options['sorts']['field_booklet_value']['id'] = 'field_booklet_value';
+  $handler->display->display_options['sorts']['field_booklet_value']['table'] = 'field_data_field_booklet';
+  $handler->display->display_options['sorts']['field_booklet_value']['field'] = 'field_booklet_value';
+  $handler->display->display_options['sorts']['field_booklet_value']['order'] = 'DESC';
   /* Sort criterion: Nodequeue: Position */
   $handler->display->display_options['sorts']['position']['id'] = 'position';
   $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
