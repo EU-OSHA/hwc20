@@ -292,7 +292,7 @@
   "map_mf": {
     "company_osh_orgname": "osh_companyorganisationname",
     "company_osh_orgtype": "osh_orgtype",
-    "company_osh_generalemail":"generalemailaddress1",
+    "company_osh_generalemail": "generalemailaddress1",
     "company_osh_bussinessector": "osh_bussinessector",
     "company_osh_address": "osh_phaddress",
     "company_osh_city": "osh_phtown",

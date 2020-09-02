@@ -232,4 +232,7 @@ function osha_nodequeue_query_nodequeue_api_autocomplete_alter(QueryAlterableInt
     $query->condition('n.status', 1);
     $query->condition('s.field_show_on_value', $show_on_map[$queue->name]);
   }
+  else {
+    $query->condition('n.status', 1);
+  }
 }

@@ -92,7 +92,7 @@ function hwc_toolkit_field_default_field_instances() {
       ),
       'title_body' => array(
         'label' => 'hidden',
-        'module' => 'smart_trim',
+        'module' => 'osha',
         'settings' => array(
           'field_formatter_class' => '',
           'more_link' => FALSE,
@@ -970,7 +970,7 @@ function hwc_toolkit_field_default_field_instances() {
       ),
       'hwc_teaser' => array(
         'label' => 'hidden',
-        'module' => 'smart_trim',
+        'module' => 'osha',
         'settings' => array(
           'field_formatter_class' => '',
           'more_link' => 0,
@@ -1020,7 +1020,7 @@ function hwc_toolkit_field_default_field_instances() {
       ),
       'teaser' => array(
         'label' => 'above',
-        'module' => 'smart_trim',
+        'module' => 'osha',
         'settings' => array(
           'field_formatter_class' => '',
           'more_link' => 0,
@@ -3208,7 +3208,7 @@ function hwc_toolkit_field_default_field_instances() {
       ),
       'teaser' => array(
         'label' => 'hidden',
-        'module' => 'smart_trim',
+        'module' => 'osha',
         'settings' => array(
           'field_formatter_class' => '',
           'more_link' => 0,

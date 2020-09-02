@@ -21,7 +21,7 @@ function hwc_partner_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Category',
-    'weight' => '8',
+    'weight' => '9',
     'children' => array(
       0 => 'field_partner_type',
       1 => 'field_quote',
@@ -51,7 +51,7 @@ function hwc_partner_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'CEO',
-    'weight' => '7',
+    'weight' => '8',
     'children' => array(
       0 => 'field_ceo',
       1 => 'field_ceo_photo',
@@ -121,6 +121,7 @@ function hwc_partner_field_group_info() {
       7 => 'title_field',
       8 => 'field_bussines_sector',
       9 => 'field_orgtype',
+      10 => 'field_website_email',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

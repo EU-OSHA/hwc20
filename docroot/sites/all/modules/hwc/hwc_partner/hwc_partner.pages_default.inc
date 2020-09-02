@@ -4456,10 +4456,10 @@ campaign-partners/national-focal-points
   $display->content['new-249112dd-020c-473e-87b5-653d3edd5346'] = $pane;
   $display->panels['right_'][7] = 'new-249112dd-020c-473e-87b5-653d3edd5346';
   $pane = new stdClass();
-  $pane->pid = 'new-b4c58a13-6a77-4758-a4e7-522b788832e0';
+  $pane->pid = 'new-4700b6cb-4b54-465c-a00f-6a5f3a04d2e0';
   $pane->panel = 'right_';
   $pane->type = 'entity_field';
-  $pane->subtype = 'node:field_general_email';
+  $pane->subtype = 'node:field_website_email';
   $pane->shown = TRUE;
   $pane->access = array(
     'plugins' => array(

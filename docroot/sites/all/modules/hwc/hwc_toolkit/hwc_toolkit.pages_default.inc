@@ -122,13 +122,18 @@ function hwc_toolkit_default_page_manager_handlers() {
   $pane->access = array();
   $pane->configuration = array(
     'label' => 'hidden',
-    'formatter' => 'hwc_toolkit_term_title',
+    'formatter' => 'title_linked',
     'delta_limit' => 0,
     'delta_offset' => '0',
     'delta_reversed' => FALSE,
-    'formatter_settings' => array(),
+    'formatter_settings' => array(
+      'title_style' => 'h2',
+      'title_link' => '',
+      'title_class' => 'toolkit-h2 main',
+      'field_formatter_class' => 'h2',
+    ),
     'context' => 'argument_term_1',
-    'override_title' => 1,
+    'override_title' => 0,
     'override_title_text' => '%title',
     'override_title_heading' => 'h2',
   );
@@ -136,7 +141,10 @@ function hwc_toolkit_default_page_manager_handlers() {
   $pane->style = array(
     'settings' => NULL,
   );
-  $pane->css = array();
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'toolkit-h2',
+  );
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();

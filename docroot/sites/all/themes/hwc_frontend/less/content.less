@@ -10138,35 +10138,58 @@ input#edit-field-image-und-0-upload::before {
 
 		//tools & examples list page
 		.view-tk-tools{
-			.views-row{
+			.h2.toolkit-h2{
 				padding-left: 15px;
-				padding-right: 15px;
-				margin-bottom: 30px;
-				max-width: 420px;
+			}
+			.view-content{
+				display: flex;
+				flex-wrap: wrap;
+			}
+			.views-row{
+				padding-left: 0;
+				padding-right: 30px;
+				margin-bottom: 0;
+				max-width: 23%;
 				.views-field-field-image{
-					background-color: #ccc;
 					width: 100%;
-					height: 250px;
-					overflow: hidden;
 					position: relative;
 					img{
 						width: 100%;
 					    max-width: inherit;
+					   	border: 2px solid #bcd75b;
+    					border-radius: 7px;
 					}
 				}
+
+				blockquote.image-field-caption{
+					display: block;
+					background-color: #FFF;
+					p{
+						border-left: 0;
+						position: relative;
+						padding: 0;
+						margin: 0;
+						width: 100%;
+						font-size: 10px;
+						color: #57575a;
+					}
+				}
+
 				.views-field-title{
 					
 					h2{
-						
+						padding: 5px 0 10px 0;
+						clear: both;
 						a{
-							height: 75px;
-							background-color: @color-h2-toolkit;
-							color: white;
-							font-weight: 600;
-							font-size: 1.5rem;
-							text-align: center;
-							display: block;
-							padding-top: 25px;
+							font-family: 'Open Sans', sans-serif;
+						    color: #003399;
+						    font-size: 0.85em;
+						    margin: 0;
+						    clear: both;
+						    line-height: 20px;
+						    font-weight: bold;
+						    font-style: normal;
+						    letter-spacing: 0;
 							&:before{
 								content: "";
 								padding-right: 0;
@@ -10178,43 +10201,48 @@ input#edit-field-image-und-0-upload::before {
 			}
 			@media (min-width : 1301px) and (max-width : 1665px) {
 				.views-row{
-					max-width: 420px;
+					max-width: 25%;
 					.views-field-field-image{
-						height: 189px;
+						height: auto;
 					}
 				}
 			}
 			@media (min-width : 992px) and (max-width : 1300px) {
 				.views-row{
-					min-width: 300px;
-					width: 50%;
+					max-width: 50%;
 					.views-field-field-image{
-						height: 250px;
+						height: auto;
 					}
 				}
 			}
 			@media (min-width : 993px) and (max-width : 1145px) {
 				.views-row{
-					min-width: 300px;
-					width: 50%;
+					max-width: 50%;
 					.views-field-field-image{
-						height: 217px;
+						height: auto;
 					}
 				}
 			}
 			@media (min-width : 768px) and (max-width : 991px) {
 				.views-row{
-					min-width: 300px;
-					width: 50%;
-					max-width: inherit;
+					max-width: 33%;
 					.views-field-field-image{
-						height: 217px;
+						height: auto;
 					}
 				}
 			}
 			@media (min-width : 1px) and (max-width : 767px) {
 				.views-row{
-					min-width: 100px;
+					width: 50%;
+					max-width: inherit;
+					.views-field-field-image{
+						height: inherit;
+					}
+				}
+			}
+
+			@media (min-width : 1px) and (max-width : 480px) {
+				.views-row{
 					width: 100%;
 					max-width: inherit;
 					.views-field-field-image{
