@@ -235,4 +235,14 @@ function osha_nodequeue_query_nodequeue_api_autocomplete_alter(QueryAlterableInt
   else {
     $query->condition('n.status', 1);
   }
+
+  if ($queue->name == 'good_practice_examples' && variable_get('good_practice_exchange_events_type', 521)) {
+    $query->join('field_data_field_publication_type', 't', 't.entity_id = n.nid');
+    $query->condition('n.status', 1);
+    $query->condition('t.field_publication_type_tid', variable_get('good_practice_exchange_events_type', 521));
+
+    $query->join('field_data_field_show_on', 's', 's.entity_id = n.nid');
+    $query->condition('s.field_show_on_value', 'GP Awards');
+  }
+
 }
