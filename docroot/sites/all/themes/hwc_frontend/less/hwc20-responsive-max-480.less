@@ -54,15 +54,6 @@
 
 	body.front-page {
 		.main-container {
-			#block-views-homepage-banners-block {
-				.view-homepage-banners { 
-					.views-row-last {
-						p{
-							max-width: 280px;
-						}
-					}
-				}
-			}
 			#block-hwc-homepage-hwc-homepage-news-events {
 				.before-the-campaign {
 					.content-box-before {
@@ -196,6 +187,12 @@
 		h2.block-title{
 			font-size: 2.15em!important;
 		}
+		.related-resources .related-resources-boxes div span {
+		    width: 205px;
+		    float: right;
+		    padding-left: 1em;
+		    padding-top: 8px;
+		}
 	}
 
 	.related-resources{
@@ -251,11 +248,20 @@
 							top: 5px;
 							border-top-right-radius: 0;
 							border-bottom-right-radius: 0;
-							padding-right: 1em;
+							padding-left: 0;
+							padding-right: 0;
+							text-align: center;
 						}
 					}
 				}
 			}	
+		}
+	}
+
+	#block-views-news-press-room{
+		.more-link a{
+			font-size: 0.85em;
+			background: url(../images/ico-plus-20.png) no-repeat 99.5% 1px #0030a0;
 		}
 	}
 
@@ -501,4 +507,18 @@
 	}
 
 
+}
+
+@media (max-width: 490px) {
+	body.press-room{
+		.related-resources .related-resources-boxes div span {
+		    width: 205px;
+		    float: right;
+		    padding-left: 1em;
+		    padding-top: 0;
+		    height: 54px;
+    		display: flex;
+    		align-items: center;
+		}
+	}
 }

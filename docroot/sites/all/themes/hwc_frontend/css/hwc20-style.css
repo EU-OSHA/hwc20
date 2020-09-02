@@ -9655,6 +9655,22 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   .page-node-165 .became-green-block {
     max-width: 75%;
   }
+  .footer .content-second-footer {
+    display: block;
+    width: 100%;
+    margin: 1rem 0 2rem;
+  }
+  .footer div.on-the-web {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .footer div.on-the-web span:nth-child(1) {
+    padding: 0.5rem 0.5rem 0.5rem 0 !important;
+    float: left;
+    text-align: left;
+  }
 }
 @media (max-width: 1395px) and (min-width: 696px) {
   .box-before.previous {
@@ -10723,6 +10739,18 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
 }
 @media (max-width: 767px) {
+  body.front-page .main-container {
+    /* Intro Boxes */
+  }
+  body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-first,
+  body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last {
+    height: auto;
+  }
+  body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-first p,
+  body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last p {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
   body.front-page .newsletter-social-media .newsletter {
     border-right: 0;
     border-bottom: 1px dashed #FFF;
@@ -11103,28 +11131,34 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
   /*Footer*/
   .footer {
-    padding-left: 0;
-  }
-  .footer .on-the-web span:nth-child(1) {
-    width: auto;
+    padding: 0;
   }
   .footer div.container {
     padding-left: 15px;
     padding-right: 15px;
   }
-  .footer div.on-the-web {
-    margin-right: 0;
+  .footer .content-second-footer {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    float: none;
   }
-  .footer div.on-the-web a {
-    margin-left: 3px;
+  .footer div.on-the-web {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .footer div.on-the-web span:nth-child(1) {
+    width: auto;
   }
   .footer h2,
   .footer p {
     display: block;
   }
   .footer .intro-footer {
-    float: left;
-    padding-bottom: 2em;
+    float: none;
+    padding-bottom: 1em;
   }
   /* Previous campaign */
   .related-resources {
@@ -11427,26 +11461,37 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     margin-bottom: 0;
   }
   /* press room */
-  body.press-room .media-body,
-  body.european-week .media-body,
-  body.good-practice-exchange .media-body {
+  body.press-room .media-body {
     height: auto;
     padding-bottom: 3em;
   }
-  body.press-room .pull-left,
-  body.european-week .pull-left,
-  body.good-practice-exchange .pull-left {
+  body.press-room .media .pull-left {
     display: none;
   }
-  body.press-room #block-hwc-european-week-news-events,
-  body.european-week #block-hwc-european-week-news-events,
-  body.good-practice-exchange #block-hwc-european-week-news-events {
+  body.press-room #block-hwc-european-week-news-events {
     margin-left: -15px;
     margin-right: -15px;
   }
-  body.press-room .field-name-body,
-  body.european-week .field-name-body,
-  body.good-practice-exchange .field-name-body {
+  body.press-room .field-name-body {
+    width: 100%;
+    padding-left: 5px;
+  }
+  body.european-week .two-box-column .media-body,
+  body.good-practice-exchange .two-box-column .media-body {
+    height: auto;
+    padding-bottom: 3em;
+  }
+  body.european-week .two-box-column .pull-left,
+  body.good-practice-exchange .two-box-column .pull-left {
+    display: none;
+  }
+  body.european-week .two-box-column #block-hwc-european-week-news-events,
+  body.good-practice-exchange .two-box-column #block-hwc-european-week-news-events {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  body.european-week .two-box-column .field-name-body,
+  body.good-practice-exchange .two-box-column .field-name-body {
     width: 100%;
     padding-left: 5px;
   }
@@ -11518,6 +11563,10 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   }
   .page-node-160 #block-views-napo-film-carousel-slidehow #napo_films .napo_films .num_slides > div .napo-film-title {
     display: none;
+  }
+  .content-order-copy img {
+    width: 120px;
+    top: 14px;
   }
 }
 @media (max-width: 600px) {
@@ -11606,9 +11655,6 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   body.page-tools-and-publications-practical-tools .region.region-content .view-practical-tools .view-content .views-row .conten-tags span:nth-child(2) {
     max-width: 175px;
   }
-  body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-last p {
-    max-width: 280px;
-  }
   body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(1) .box-before.news .view-news .view-content > div:nth-child(1) > div.pull-left {
     float: none !important;
   }
@@ -11694,6 +11740,12 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   body.press-room h2.block-title {
     font-size: 2.15em!important;
   }
+  body.press-room .related-resources .related-resources-boxes div span {
+    width: 205px;
+    float: right;
+    padding-left: 1em;
+    padding-top: 8px;
+  }
   .related-resources .related-resources-boxes div {
     width: 100%;
   }
@@ -11724,7 +11776,13 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     top: 5px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    padding-right: 1em;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+  }
+  #block-views-news-press-room .more-link a {
+    font-size: 0.85em;
+    background: url(../images/ico-plus-20.png) no-repeat 99.5% 1px #0030a0;
   }
 }
 @media (max-width: 370px) {
@@ -12162,5 +12220,16 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   html:lang(bg) .page_title h1 {
     font-size: 1.8em;
     padding: 0 1em;
+  }
+}
+@media (max-width: 490px) {
+  body.press-room .related-resources .related-resources-boxes div span {
+    width: 205px;
+    float: right;
+    padding-left: 1em;
+    padding-top: 0;
+    height: 54px;
+    display: flex;
+    align-items: center;
   }
 }
