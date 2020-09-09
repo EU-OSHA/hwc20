@@ -1317,7 +1317,7 @@ function hwc_toolkit_field_default_field_instances() {
         'settings' => array(
           'field_formatter_class' => '',
         ),
-        'type' => 'external_url',
+        'type' => 'external_url_name_link',
         'weight' => 6,
       ),
       'highlights_item' => array(

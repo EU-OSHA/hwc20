@@ -2557,6 +2557,12 @@ function hwc_update_main_menu_links($link, $alias, $aliases) {
 }
 
 function hwc_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  global $user;
+  if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
+    if (in_array($root_path, ['node/%/edit', 'node/%'])) {
+      unset($data['tabs']);
+    }
+  }
   switch($root_path) {
     case 'admin/content/nodequeues-help-text':
       $item = menu_get_item('admin/structure/taxonomy/nodequeue_help_text/add');
