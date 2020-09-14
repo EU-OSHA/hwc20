@@ -273,11 +273,23 @@ function hwc_nodequeue_view_queues() {
 
   return $output;
 }
+
+function hwc_translate_interface_has_no_role_access_callback() {
+  global $user;
+  if (in_array(HWC_ROLE_WEBSITE_MANAGERS, $user->roles)) {
+    if (count($user->roles) <= 2) {
+      return FALSE;
+    }
+  }
+  return user_access('translate interface');
+}
+
 /**
  * Implements hook_menu_alter().
  */
 function hwc_menu_alter(&$items) {
 
+  $items['admin/config/regional/translate']['access callback'] = 'hwc_translate_interface_has_no_role_access_callback';
   $items['admin/structure/nodequeue']['page callback'] = 'hwc_nodequeue_view_queues';
   
   $items['masquerade/unswitch']['page callback'] = 'hwc_masquerade_switch_back_page';
