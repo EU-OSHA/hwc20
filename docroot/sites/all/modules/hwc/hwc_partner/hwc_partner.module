@@ -348,7 +348,7 @@ function hwc_partner_block_view($delta = '') {
   ) {
     $link = NULL;
     $args = arg(0) . '/' . arg(2);
-    $allowed_private_zone_pages = variable_set('back_to_private_zone_pages', [
+    $allowed_private_zone_pages = variable_get('back_to_private_zone_pages', [
       'node/edit',
       'node/news',
       'node/events',
