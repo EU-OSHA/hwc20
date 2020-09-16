@@ -283,6 +283,6 @@ function hwc_workflow_update_7017() {
   variable_set('hwc_workflow_append_approve_mostra', TRUE);
   variable_set('hwc_workflow_append_approve_partner', FALSE);
   variable_set('hwc_workflow_append_published', FALSE);
-  variable_set('hwc_workflow_append_rejection', FALSE);
+  variable_set('hwc_workflow_append_rejection', TRUE);
   variable_set('hwc_workflow_append_reviewer', TRUE);
 }
