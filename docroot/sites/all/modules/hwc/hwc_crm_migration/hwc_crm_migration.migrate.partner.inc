@@ -155,14 +155,16 @@ class PartnerMigration extends HwcCrmMigration {
         $is_oa = TRUE;
       }
     }
-    if ((!$is_fop && !$is_oa) && $row->field_appform_status != 863680005) {
-      $this->currentMigration()->displayMessage(
-        strtr('The partner profile "@partner" does not have app form status published; unpublishing...',
-          array('@partner' => $row->title)
-        ),
-        'warning'
-      );
-      $entity->status = 0;
+    if (!in_array($row->field_appform_status, [863680005, 863680013])) {
+      if ((!$is_fop && !$is_oa)) {
+        $this->currentMigration()->displayMessage(
+          strtr('The partner profile "@partner" does not have app form status published; unpublishing...',
+            array('@partner' => $row->title)
+          ),
+          'warning'
+        );
+        $entity->status = 0;
+      }
     }
     $entity->path['pathauto'] = TRUE;
     if (!empty($row->regenerate_alias) && !empty($entity->nid)) {
