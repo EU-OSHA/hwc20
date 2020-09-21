@@ -348,6 +348,12 @@ function hwc_partner_block_view($delta = '') {
   ) {
     $link = NULL;
     $args = arg(0) . '/' . arg(2);
+    if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
+      $item = menu_get_object();
+      if ($item && $item->type) {
+        $args = 'node/' . $item->type;
+      }
+    }
     $allowed_private_zone_pages = variable_get('back_to_private_zone_pages', [
       'node/edit',
       'node/news',
