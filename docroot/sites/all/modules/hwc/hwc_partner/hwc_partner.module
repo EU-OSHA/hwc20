@@ -141,6 +141,14 @@ function hwc_partner_block_info() {
     'cache' => DRUPAL_NO_CACHE,
     'weight' => 50,
   );
+  $blocks['hwc_partner_private_zone_gpep'] = array(
+    'info' => t('Bottom GPEP Back to private zone'),
+    'status' => 1,
+    'region' => 'sidebar_first',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+    'weight' => 50,
+  );
   $blocks['hwc_partner_back_to_profile'] = array(
     'info' => t('Back to profile link'),
     'status' => 1,
@@ -345,6 +353,8 @@ function hwc_partner_block_view($delta = '') {
     ($delta == 'hwc_partner_back_to_private_zone')
   ||
     ($delta == 'hwc_partner_private_zone_bottom')
+  ||
+    ($delta == 'hwc_partner_private_zone_gpep')
   ) {
     $link = NULL;
     $args = arg(0) . '/' . arg(2);
@@ -360,6 +370,9 @@ function hwc_partner_block_view($delta = '') {
       'node/events',
       'private/',
     ]);
+    if ($delta == 'hwc_partner_private_zone_gpep') {
+      $allowed_private_zone_pages[] = 'good-practice-exchange-platform/';
+    }
     if (!in_array($args, $allowed_private_zone_pages) && arg(1) != 253) {
       return [];
     }
