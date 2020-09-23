@@ -8936,12 +8936,15 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
 @media (max-width: 1465px) {
   html:lang(de),
   html:lang(es),
-  html:lang(bg) {
+  html:lang(bg),
+  html:lang(el) {
     /*HW20-884*/
+    /*MHWC-409*/
   }
   html:lang(de) .page_title h1,
   html:lang(es) .page_title h1,
-  html:lang(bg) .page_title h1 {
+  html:lang(bg) .page_title h1,
+  html:lang(el) .page_title h1 {
     font-size: 2.6em;
   }
   header.navbar-default .navbar-collapse nav ul.menu > li {
