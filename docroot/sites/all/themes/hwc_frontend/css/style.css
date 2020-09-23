@@ -20173,6 +20173,11 @@ blockquote.image-field-caption {
   font-size: 10px;
   color: #57575a;
 }
+blockquote.image-field-caption span.blockquote-copyright {
+  display: block;
+  clear: both;
+  height: 14px;
+}
 blockquote.image-field-caption p {
   z-index: 999;
   position: relative;
