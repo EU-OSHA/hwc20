@@ -421,6 +421,9 @@ html:lang(pt) .intro-splash-20 .views-row-first > p:nth-child(3),
 html:lang(ro) .intro-splash-20 .views-row-first > p:nth-child(3) {
   max-width: 525px;
 }
+html:lang(es) .intro-splash-20 .views-row-first > p:nth-child(3) {
+  max-width: 495px;
+}
 /* Coming Soon */
 .comming-soon {
   background: #00309d;
@@ -8652,6 +8655,9 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     padding-left: 3px;
     padding-right: 3px;
   }
+  html:lang(es) .intro-splash-20 .views-row-first > p:nth-child(3) {
+    font-size: 1em;
+  }
   .previous-next.two-arrows {
     height: 114px;
     align-items: flex-start;
@@ -9135,6 +9141,14 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   html:lang(fi) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret,
   html:lang(sv) header.navbar-default .navbar-collapse nav ul.menu > li > a .caret {
     display: none;
+  }
+}
+@media (max-width: 1340px) {
+  html:lang(es) .intro-splash-20 h2 {
+    font-size: 1.8em;
+  }
+  html:lang(es) .intro-splash-20 .views-row-first > p:nth-child(3) {
+    font-size: 1em;
   }
 }
 @media (max-width: 992px) {
