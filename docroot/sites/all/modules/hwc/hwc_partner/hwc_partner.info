@@ -1,7 +1,7 @@
 name = HWC Partner
 core = 7.x
 package = HWC
-version = 7.x-1.18
+version = 7.x-1.19
 project = hwc_partner
 dependencies[] = context
 dependencies[] = ctools

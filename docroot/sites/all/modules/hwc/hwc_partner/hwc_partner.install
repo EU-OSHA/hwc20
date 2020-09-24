@@ -367,3 +367,10 @@ function hwc_partner_update_7046() {
 function hwc_partner_update_7047() {
   features_revert(array('hwc_partner' => array('page_manager_handlers', 'field_base', 'field_instance')));
 }
+
+/**
+ * MHWC-383 Partners profile (OCPs, MPs, EEN, FoPs) - show the city.
+ */
+function hwc_partner_update_7048() {
+  features_revert(array('hwc_partner' => array('page_manager_handlers')));
+}
