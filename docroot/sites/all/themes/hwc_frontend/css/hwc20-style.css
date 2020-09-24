@@ -8586,6 +8586,12 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
 .link-pz-guide {
   font-weight: 600;
 }
+#block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb {
+  padding-left: 0;
+}
+#block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb span:before {
+  content: none;
+}
 .isMobile {
   float: right !important;
 }
@@ -10829,6 +10835,9 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     width: 85%;
     margin-bottom: 2em;
     margin-top: 2em;
+  }
+  #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb {
+    display: block;
   }
 }
 @media (max-width: 767px) {
