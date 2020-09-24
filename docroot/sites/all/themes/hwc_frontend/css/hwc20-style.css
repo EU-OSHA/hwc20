@@ -7001,6 +7001,10 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
   margin-bottom: 0em;
   margin-right: 1em;
 }
+.node-type-priority-area .region-content #block-hwc-priority-areas .node-news .field.field-name-field-image blockquote.image-field-caption,
+.node-type-priority-area .region-content #block-hwc-priority-areas .node-pa-highlights .field.field-name-field-image blockquote.image-field-caption {
+  display: none;
+}
 .node-type-priority-area .region-content #block-hwc-priority-areas .node-news .field-name-body ul,
 .node-type-priority-area .region-content #block-hwc-priority-areas .node-pa-highlights .field-name-body ul {
   list-style: inside;
