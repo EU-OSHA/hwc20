@@ -4456,7 +4456,7 @@ campaign-partners/national-focal-points
   $display->content['new-249112dd-020c-473e-87b5-653d3edd5346'] = $pane;
   $display->panels['right_'][7] = 'new-249112dd-020c-473e-87b5-653d3edd5346';
   $pane = new stdClass();
-  $pane->pid = 'new-4700b6cb-4b54-465c-a00f-6a5f3a04d2e0';
+  $pane->pid = 'new-b4c58a13-6a77-4758-a4e7-522b788832e0';
   $pane->panel = 'right_';
   $pane->type = 'entity_field';
   $pane->subtype = 'node:field_website_email';
@@ -6142,8 +6142,8 @@ campaign-partners/official-campaign-partners
       'field_formatter_class' => '',
     ),
     'context' => 'argument_entity_id:node_1',
-    'override_title' => 1,
-    'override_title_text' => 'Head of Safety',
+    'override_title' => 0,
+    'override_title_text' => '',
     'override_title_heading' => 'div',
   );
   $pane->cache = array();

@@ -23,7 +23,7 @@ function hwc_partner_path_breadcrumbs_settings_info() {
     ),
     'paths' => array(
       0 => '<none>',
-      1 => 'campaign-materials',
+      1 => 'tools-and-publications/campaign-materials',
       2 => '<none>',
     ),
     'home' => 1,
