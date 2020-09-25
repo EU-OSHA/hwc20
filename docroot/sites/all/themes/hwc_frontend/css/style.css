@@ -13228,10 +13228,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-communications .contextual-links-region .back-links {
   padding-left: 0;
 }
-.page-partners-documents .region-sidebar-first .contextual-links-region,
-.page-communications .region-sidebar-first .contextual-links-region {
-  margin-top: 0 !important;
-}
 .page-partners-documents h1,
 .page-communications h1 {
   border-bottom: none;
@@ -13252,8 +13248,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 .page-partners-documents .region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext,
 .page-communications .region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext {
-  margin-top: 18px;
-  margin-bottom: 16px;
+  margin-top: 8px;
 }
 .page-partners-documents #views-exposed-form-documents-page-1,
 .page-communications #views-exposed-form-documents-page-1,
@@ -20172,6 +20167,11 @@ blockquote.image-field-caption {
   width: 100%;
   font-size: 10px;
   color: #57575a;
+}
+blockquote.image-field-caption span.blockquote-copyright {
+  display: block;
+  clear: both;
+  height: 14px;
 }
 blockquote.image-field-caption p {
   z-index: 999;
