@@ -421,6 +421,9 @@ html:lang(pt) .intro-splash-20 .views-row-first > p:nth-child(3),
 html:lang(ro) .intro-splash-20 .views-row-first > p:nth-child(3) {
   max-width: 525px;
 }
+html:lang(es) .intro-splash-20 .views-row-first > p:nth-child(3) {
+  max-width: 495px;
+}
 /* Coming Soon */
 .comming-soon {
   background: #00309d;
@@ -6998,6 +7001,10 @@ body.page-tools-and-publications-publications ol.multicarousel-indicators li.act
   margin-bottom: 0em;
   margin-right: 1em;
 }
+.node-type-priority-area .region-content #block-hwc-priority-areas .node-news .field.field-name-field-image blockquote.image-field-caption,
+.node-type-priority-area .region-content #block-hwc-priority-areas .node-pa-highlights .field.field-name-field-image blockquote.image-field-caption {
+  display: none;
+}
 .node-type-priority-area .region-content #block-hwc-priority-areas .node-news .field-name-body ul,
 .node-type-priority-area .region-content #block-hwc-priority-areas .node-pa-highlights .field-name-body ul {
   list-style: inside;
@@ -8583,6 +8590,12 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
 .link-pz-guide {
   font-weight: 600;
 }
+#block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb {
+  padding-left: 0;
+}
+#block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb span:before {
+  content: none;
+}
 .isMobile {
   float: right !important;
 }
@@ -8651,6 +8664,9 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   html:lang(fi) #block-hwc-homepage-footer-section .col-md-2 {
     padding-left: 3px;
     padding-right: 3px;
+  }
+  html:lang(es) .intro-splash-20 .views-row-first > p:nth-child(3) {
+    font-size: 1em;
   }
   .previous-next.two-arrows {
     height: 114px;
@@ -8930,12 +8946,15 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
 @media (max-width: 1465px) {
   html:lang(de),
   html:lang(es),
-  html:lang(bg) {
+  html:lang(bg),
+  html:lang(el) {
     /*HW20-884*/
+    /*MHWC-409*/
   }
   html:lang(de) .page_title h1,
   html:lang(es) .page_title h1,
-  html:lang(bg) .page_title h1 {
+  html:lang(bg) .page_title h1,
+  html:lang(el) .page_title h1 {
     font-size: 2.6em;
   }
   header.navbar-default .navbar-collapse nav ul.menu > li {
@@ -9137,6 +9156,14 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     display: none;
   }
 }
+@media (max-width: 1340px) {
+  html:lang(es) .intro-splash-20 h2 {
+    font-size: 1.8em;
+  }
+  html:lang(es) .intro-splash-20 .views-row-first > p:nth-child(3) {
+    font-size: 1em;
+  }
+}
 @media (max-width: 992px) {
   body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .view-content {
     flex-direction: column;
@@ -9229,6 +9256,9 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     margin-top: 2rem;
     border-left: 1px solid;
     margin-left: 1em;
+  }
+  header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 .header-text:lang(de) {
+    padding: 1rem 2rem 0 1rem;
   }
   .breadcrumb {
     padding: 10px !important;
@@ -10812,6 +10842,9 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     width: 85%;
     margin-bottom: 2em;
     margin-top: 2em;
+  }
+  #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb {
+    display: block;
   }
 }
 @media (max-width: 767px) {

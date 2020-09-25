@@ -25,9 +25,11 @@ function osha_contextual_links_view_alter(&$element, $items) {
   }
 
   if (isset($items['views_ui-edit'])) {
-    foreach ($element['#links'] as $key => &$row) {
+    foreach ($element['#links'] as $key => $row) {
       if ($row['title'] == 'Edit queue') {
-        unset($element['#links'][$key]['query']['destination']);
+        if (variable_get('hwc_remove_queue_destination', FALSE)) {
+          unset($element['#links'][$key]['query']['destination']);
+        }
       }
     }
   }

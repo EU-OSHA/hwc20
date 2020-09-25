@@ -1,7 +1,7 @@
 name = HWC Partner
 core = 7.x
 package = HWC
-version = 7.x-1.17
+version = 7.x-1.20
 project = hwc_partner
 dependencies[] = context
 dependencies[] = ctools
@@ -194,6 +194,7 @@ features[variable][] = node_preview_private_aria_article
 features[variable][] = node_submitted_partner
 features[variable][] = node_submitted_private_aria_article
 features[variable][] = pathauto_node_partner_pattern
+features[variable][] = xmlsitemap_settings_node_private_aria_article
 features[views_view][] = partner_content
 features[views_view][] = partner_draft_content
 features[views_view][] = partners_list

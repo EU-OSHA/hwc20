@@ -169,22 +169,33 @@ function hwc_workflow_get_mail_body_text($message, $node, $settings_type) {
 function hwc_workflow_news_events_mail_fields_visibility(&$form, $state) {
   global  $user;
   $access = FALSE;
-  if (
-    (
-      in_array(HWC_ROLE_HWC_STAFF_REVIEWERS, $user->roles) ||
-      in_array(HWC_ROLE_EEN_REVIEW_MANAGER, $user->roles) ||
-      in_array(HWC_ROLE_ADMIN, $user->roles)
-    ) && ($state == OSHA_WORKFLOW_STATE_TO_BE_APPROVED)
-  ) {
-    $access = TRUE;
+  if ($state == OSHA_WORKFLOW_STATE_TO_BE_APPROVED) {
+    $roles = variable_get('to_be_approved_comment_access', [
+      HWC_ROLE_WEBSITE_MANAGERS,
+      HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR,
+      HWC_ROLE_HWC_STAFF_REVIEWERS,
+      HWC_ROLE_EEN_REVIEW_MANAGER,
+      HWC_ROLE_ADMIN
+    ]);
+    foreach ($roles as $role) {
+      if (in_array($role, $user->roles)) {
+        $access = TRUE;
+        break;
+      }
+    }
   }
-  if (
-    (
-      in_array(HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR, $user->roles) ||
-      in_array(HWC_ROLE_ADMIN, $user->roles)
-    ) && ($state == OSHA_WORKFLOW_STATE_TO_BE_REVIEWED)
-  ) {
-    $access = TRUE;
+  if ($state == OSHA_WORKFLOW_STATE_TO_BE_REVIEWED) {
+    $roles = variable_get('to_be_reviewed_comment_access', [
+      HWC_ROLE_WEBSITE_MANAGERS,
+      HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR,
+      HWC_ROLE_ADMIN
+    ]);
+    foreach ($roles as $role) {
+      if (in_array($role, $user->roles)) {
+        $access = TRUE;
+        break;
+      }
+    }
   }
   $form['field_notification_comment']['#access'] = $access;
 }
