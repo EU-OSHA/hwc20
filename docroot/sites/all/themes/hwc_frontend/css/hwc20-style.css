@@ -9257,6 +9257,9 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     border-left: 1px solid;
     margin-left: 1em;
   }
+  header.navbar-default .campaigns-header .navbar-header .col-xs-12.col-sm-9 .header-text:lang(de) {
+    padding: 1rem 2rem 0 1rem;
+  }
   .breadcrumb {
     padding: 10px !important;
   }

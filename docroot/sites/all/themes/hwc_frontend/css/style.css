@@ -7297,7 +7297,6 @@ header.navbar-default .campaigns-header .navbar-header .header-text {
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(bg),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(da),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(el),
-header.navbar-default .campaigns-header .navbar-header .header-text:lang(de),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(et),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(fr),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(hr),
@@ -7316,6 +7315,9 @@ header.navbar-default .campaigns-header .navbar-header .header-text:lang(fi) {
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(ro) {
   font-size: 1.2em !important;
   padding-left: 1em;
+}
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(de) {
+  max-width: 315px !important;
 }
 header.navbar-default .campaigns-header .navbar-header #block-lang-dropdown-language {
   float: right;
