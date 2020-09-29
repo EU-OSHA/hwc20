@@ -522,6 +522,16 @@ html:lang(ro)
 }
 
 
+html:lang(es)
+{
+	.intro-splash-20{
+		.views-row-first > p:nth-child(3){
+			max-width: 495px;
+		}
+	}
+}
+
+
 
 /* Coming Soon */
 
@@ -4396,15 +4406,6 @@ body{
 	}
 }
 
-/* HW20-513 - Display the HWC 18-19 OCP, MP, FOP and EEN without news and events */
-.rel1.ocp, .rel1.fop, .rel1.mp, .rel1.een{
-	.panels-flexible-row-partner_detail-3{
-		display: none;
-	}
-}
-
-
-
 /* Become a campaign partner */
 
 .become-partner-text{
@@ -7884,6 +7885,9 @@ body.page-tools-and-publications-publications{
 			    		margin-bottom: 0em;
 			    		margin-right: 1em;
 					}
+					blockquote.image-field-caption{
+						display: none;
+					}
 				}
 
 				.field-name-body{
@@ -9887,4 +9891,13 @@ body.page-node-253{
 
 .link-pz-guide{
 	font-weight: 600;
+}
+
+#block-hwc-partner-hwc-partner-private-zone-gpep{
+	.breadcrumb{
+		padding-left: 0;
+		span:before{
+			content: none;
+		}
+	}
 }

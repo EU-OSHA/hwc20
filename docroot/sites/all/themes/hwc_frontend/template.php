@@ -63,7 +63,6 @@ function hwc_frontend_menu_link__menu_block($variables) {
     }
     $text = '<span class="content-img"><img ' . drupal_attributes($attributes) . ' src="' . $image_url . '"/></span>';
   }
-  if (!empty($element['#localized_options']['copyright']['author']) || !empty($element['#localized_options']['copyright']['copyright'])) {
     $text .= '<blockquote class="image-field-caption">';
     if (!empty($element['#localized_options']['copyright']['author'])) {
       $text .= check_markup($element['#localized_options']['copyright']['author'], 'full_html');
@@ -71,11 +70,11 @@ function hwc_frontend_menu_link__menu_block($variables) {
     if (!empty($element['#localized_options']['copyright']['author']) && !empty($element['#localized_options']['copyright']['copyright'])) {
       $text .= '<span>&nbsp;/&nbsp;</span>';
     }
-    if (!empty($element['#localized_options']['copyright']['copyright'])) {
-      $text .= '<span class="blockquote-copyright">' . $element['#localized_options']['copyright']['copyright'] . '</span>';
-    }
+    
+    $text .= '<span class="blockquote-copyright">' . $element['#localized_options']['copyright']['copyright'] . '</span>';
+    
     $text .= '</blockquote>';
-  }
+  
   $text .= '<h2>' . $element['#title'] . '</h2><p>' . $description . '</p>';
   $output_link = l($text, $element['#href'], array('html' => TRUE));
   $element['#attributes']['class'][] = 'content-box-sub';

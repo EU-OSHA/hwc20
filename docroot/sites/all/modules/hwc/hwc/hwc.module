@@ -273,11 +273,23 @@ function hwc_nodequeue_view_queues() {
 
   return $output;
 }
+
+function hwc_translate_interface_has_no_role_access_callback() {
+  global $user;
+  if (in_array(HWC_ROLE_WEBSITE_MANAGERS, $user->roles)) {
+    if (count($user->roles) <= 2) {
+      return FALSE;
+    }
+  }
+  return user_access('translate interface');
+}
+
 /**
  * Implements hook_menu_alter().
  */
 function hwc_menu_alter(&$items) {
 
+  $items['admin/config/regional/translate']['access callback'] = 'hwc_translate_interface_has_no_role_access_callback';
   $items['admin/structure/nodequeue']['page callback'] = 'hwc_nodequeue_view_queues';
   
   $items['masquerade/unswitch']['page callback'] = 'hwc_masquerade_switch_back_page';
@@ -1924,15 +1936,15 @@ function hwc_node_presave($node) {
   }
 
   if ($node->type == 'news') {
-//    if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
-//      $p_account = hwc_partner_get_account_partner();
-//      if ($p_account) {
-//        $node->field_image[$language->language][0]['fid'] = $p_account->field_logo[LANGUAGE_NONE][0]['fid'];
+    if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
+      $p_account = hwc_partner_get_account_partner();
+      if ($p_account) {
+        $node->field_image[$language->language][0]['fid'] = $p_account->field_logo[LANGUAGE_NONE][0]['fid'];
 //        $node->field_image[$language->language][0]['image_field_caption']['format'] = 'full_html';
 //        $node->field_image[$language->language][0]['image_field_caption']['value'] = $node->field_pz_image_caption[LANGUAGE_NONE][0]['value'];
-//      }
-//    }
-//    else {
+      }
+    }
+    else {
 //      if (
 //        empty($node->field_image[$language->language][0]['image_field_caption']['value'])
 //        &&
@@ -1942,7 +1954,7 @@ function hwc_node_presave($node) {
 //      ) {
 //        $node->field_image[$language->language][0]['image_field_caption']['value'] = $node->field_pz_image_caption[LANGUAGE_NONE][0]['value'];
 //      }
-//    }
+    }
   }
 }
 
@@ -2584,5 +2596,16 @@ function hwc_menu_local_tasks_alter(&$data, $router_item, $root_path) {
         );
       }
       break;
+  }
+}
+
+function hwc_form_taxonomy_form_term_alter(&$form, &$form_state) {
+  $form['#submit'][] = 'hwc_taxonomy_form_term_submit';
+}
+
+function hwc_taxonomy_form_term_submit($form, &$form_state) {
+  if ($form['vocabulary_machine_name']['#value'] == 'related_resources') {
+    unset($_GET['destination']);
+    $form_state['redirect'] = 'admin/content/related-resources';
   }
 }

@@ -1110,3 +1110,10 @@ function hwc_update_7072() {
 function hwc_update_7073() {
   features_revert(array('hwc_gpa' => 'field_instance'));
 }
+
+/*
+ * MHWC-196 Nodequeues do not work.
+ */
+function hwc_update_7074() {
+  features_revert(array('hwc_gpa' => 'views_view'));
+}
