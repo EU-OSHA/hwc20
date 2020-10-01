@@ -127,15 +127,6 @@ class NCWTaxonomyFOPLinkSectionsMigration extends AbstractNCWTaxonomyTermMigrati
   }
 }
 
-class NCWTaxonomyNewsletterSectionsMigration extends AbstractNCWTaxonomyTermMigration {
-
-  public function __construct($arguments) {
-    parent::__construct($arguments, 'SimpleNCWTaxonomyTermSource', 'newsletter_sections');
-    $this->description = 'Import taxonomy "newsletter_sections" from NCW';
-  }
-
-}
-
 class NCWTaxonomyPublicationTypeMigration extends AbstractNCWTaxonomyTermMigration {
 
   public function __construct($arguments) {

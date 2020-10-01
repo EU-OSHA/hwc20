@@ -425,13 +425,6 @@ function hwc_practical_tool_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'hwc_migration_tax_hazmap_categories_url';
-  $strongarm->value = '/export/taxonomy/hazmap_categories';
-  $export['hwc_migration_tax_hazmap_categories_url'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'hwc_migration_tax_health_effects_url';
   $strongarm->value = '/export/taxonomy/health_effects';
   $export['hwc_migration_tax_health_effects_url'] = $strongarm;

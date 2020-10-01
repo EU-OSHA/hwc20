@@ -221,7 +221,6 @@ features[variable][] = hwc_migration_tax_fop_link_sections_url
 features[variable][] = hwc_migration_tax_hazard_health_effects_url
 features[variable][] = hwc_migration_tax_hazard_physical_state_url
 features[variable][] = hwc_migration_tax_hazards_url
-features[variable][] = hwc_migration_tax_hazmap_categories_url
 features[variable][] = hwc_migration_tax_health_effects_url
 features[variable][] = hwc_migration_tax_material_objective_url
 features[variable][] = hwc_migration_tax_material_purpose_url
