@@ -55,7 +55,7 @@ function social_dashboard_default_page_manager_pages() {
     'name' => 'panel',
     'panels_breadcrumbs_state' => 1,
     'panels_breadcrumbs_titles' => 'Media centre
-Social media centre',
+Social media',
     'panels_breadcrumbs_paths' => '<none>
 <none>',
     'panels_breadcrumbs_home' => 1,
@@ -170,7 +170,7 @@ Social media centre',
     ),
   );
   $display->cache = array();
-  $display->title = 'Social media centre';
+  $display->title = 'Social media';
   $display->uuid = '089aaecf-f766-459b-8a64-eafde9db10c9';
   $display->storage_type = 'page_manager';
   $display->storage_id = 'page_media_centre__panel';

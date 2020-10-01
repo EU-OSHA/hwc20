@@ -1,7 +1,7 @@
 name = Social Dashboard
 core = 7.x
 package = HWC
-version = 7.x-1.6
+version = 7.x-1.7
 dependencies[] = better_exposed_filters
 dependencies[] = elysia_cron
 dependencies[] = entityreference
