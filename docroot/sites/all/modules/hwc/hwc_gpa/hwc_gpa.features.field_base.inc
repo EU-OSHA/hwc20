@@ -75,7 +75,7 @@ function hwc_gpa_field_default_field_bases() {
       'hide_initial_item' => 0,
       'path' => '',
     ),
-    'translatable' => 0,
+    'translatable' => 1,
     'type' => 'field_collection',
   );
 
@@ -153,7 +153,7 @@ function hwc_gpa_field_default_field_bases() {
       'hide_initial_item' => 0,
       'path' => '',
     ),
-    'translatable' => 0,
+    'translatable' => 1,
     'type' => 'field_collection',
   );
 
