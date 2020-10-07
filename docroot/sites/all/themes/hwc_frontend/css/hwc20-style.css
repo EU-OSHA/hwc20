@@ -9177,6 +9177,16 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     width: 33%;
   }
 }
+/*MHWC-425 - My public profile: The boxes should be displayed in one line*/
+@media (min-width: 1531px) and (max-width: 1547px) {
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-0,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-1,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-2,
+  .profile-edit-links-container .pane-hwc-partner-hwc-partner-private-link-3,
+  .profile-edit-links-container .pane-node-profile-update-link {
+    width: 285px;
+  }
+}
 @media (max-width: 992px) {
   /* MHWC-449 - new social media page */
   .node-type-article #block-views-social-dashboard-twitter .view-social-dashboard .view-content {
