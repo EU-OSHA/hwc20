@@ -393,9 +393,9 @@ function osha_resources_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'exclude_node_title_content_type_modes_external_url';
   $strongarm->value = array(
-    'full' => 'full',
     'teaser' => 'teaser',
     'osha_resources' => 'osha_resources',
+    'full' => 0,
     'rss' => 0,
     'search_index' => 0,
     'search_result' => 0,
@@ -930,7 +930,7 @@ function osha_resources_strongarm() {
         'custom_settings' => FALSE,
       ),
       'newsletter_item' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
       'osha_wiki' => array(
         'custom_settings' => FALSE,
@@ -987,19 +987,16 @@ function osha_resources_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '10',
+          'weight' => '40',
         ),
         'path' => array(
-          'weight' => '7',
+          'weight' => '30',
         ),
         'redirect' => array(
-          'weight' => '8',
+          'weight' => '30',
         ),
         'language' => array(
           'weight' => '5',
-        ),
-        'xmlsitemap' => array(
-          'weight' => '9',
         ),
       ),
       'display' => array(),

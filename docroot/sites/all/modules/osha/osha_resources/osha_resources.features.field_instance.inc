@@ -564,94 +564,6 @@ function osha_resources_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-external_url-field_priority_area'.
-  $field_instances['node-external_url-field_priority_area'] = array(
-    'bundle' => 'external_url',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'body' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 6,
-      ),
-      'highlights_item' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'highlights_item_alternative' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'hwc_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'osha_resources' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'priority_areas' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'pub_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'title_body' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_priority_area',
-    'label' => 'Priority area',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_select',
-      'weight' => 52,
-    ),
-    'workbench_access_field' => 0,
-  );
-
   // Exported field_instance: 'node-external_url-title_field'.
   $field_instances['node-external_url-title_field'] = array(
     'bundle' => 'external_url',
@@ -1854,132 +1766,6 @@ function osha_resources_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-youtube-body'.
-  $field_instances['node-youtube-body'] = array(
-    'bundle' => 'youtube',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'body' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'hwc',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'body_with_summary',
-        'weight' => 14,
-      ),
-      'highlights_item' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'highlights_item_alternative' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'hwc_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'newsletter_item' => array(
-        'label' => 'hidden',
-        'module' => 'osha',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'more_link' => 0,
-          'more_text' => 'Read more',
-          'summary_handler' => 'full',
-          'trim_length' => 100,
-          'trim_link' => 0,
-          'trim_options' => array(
-            'text' => 0,
-            'use_field_summary' => 0,
-          ),
-          'trim_preserve_tags' => '',
-          'trim_suffix' => '...',
-          'trim_type' => 'chars',
-        ),
-        'type' => 'smart_trim_format',
-        'weight' => 3,
-      ),
-      'osha_resources' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'priority_areas' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'pub_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'title_body' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'body',
-    'label' => 'Body',
-    'required' => 0,
-    'settings' => array(
-      'display_summary' => 0,
-      'entity_translation_sync' => FALSE,
-      'linkit' => array(
-        'button_text' => 'Search',
-        'enable' => 0,
-        'profile' => '',
-      ),
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'maxlength_js' => '',
-        'maxlength_js_enforce' => 0,
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'maxlength_js_label_summary' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'maxlength_js_summary' => '',
-        'maxlength_js_truncate_html' => 0,
-        'rows' => 20,
-        'summary_rows' => 5,
-      ),
-      'type' => 'text_textarea_with_summary',
-      'weight' => 1,
-    ),
-    'workbench_access_field' => 0,
-  );
-
   // Exported field_instance: 'node-youtube-field_character_count'.
   $field_instances['node-youtube-field_character_count'] = array(
     'bundle' => 'youtube',
@@ -1997,7 +1783,7 @@ function osha_resources_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 2,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2016,12 +1802,6 @@ function osha_resources_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
-      ),
-      'newsletter_item' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 4,
       ),
       'osha_resources' => array(
         'label' => 'above',
@@ -2071,7 +1851,7 @@ function osha_resources_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 2,
+      'weight' => 44,
     ),
   );
 
@@ -2092,7 +1872,7 @@ function osha_resources_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 3,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2111,12 +1891,6 @@ function osha_resources_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
-      ),
-      'newsletter_item' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 5,
       ),
       'osha_resources' => array(
         'label' => 'above',
@@ -2166,212 +1940,8 @@ function osha_resources_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 4,
+      'weight' => 46,
     ),
-  );
-
-  // Exported field_instance: 'node-youtube-field_publication_date'.
-  $field_instances['node-youtube-field_publication_date'] = array(
-    'bundle' => 'youtube',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'body' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 13,
-      ),
-      'highlights_item' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'highlights_item_alternative' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'hwc_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'newsletter_item' => array(
-        'label' => 'hidden',
-        'module' => 'date',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-          'osha_date_theme' => '',
-        ),
-        'type' => 'date_default',
-        'weight' => 1,
-      ),
-      'osha_resources' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'priority_areas' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'pub_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'title_body' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_publication_date',
-    'label' => 'Youtube date',
-    'required' => 0,
-    'settings' => array(
-      'default_value' => 'now',
-      'default_value2' => 'same',
-      'default_value_code' => '',
-      'default_value_code2' => '',
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'date',
-      'settings' => array(
-        'date_single_day' => array(),
-        'increment' => 15,
-        'input_format' => 'd/m/Y - H:i:s',
-        'input_format_custom' => '',
-        'label_position' => 'above',
-        'text_parts' => array(),
-        'year_range' => '-3:+3',
-      ),
-      'type' => 'date_popup',
-      'weight' => 5,
-    ),
-    'workbench_access_field' => 0,
-  );
-
-  // Exported field_instance: 'node-youtube-field_video_length'.
-  $field_instances['node-youtube-field_video_length'] = array(
-    'bundle' => 'youtube',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'body' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 3,
-      ),
-      'highlights_item' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'highlights_item_alternative' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'hwc_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'newsletter_item' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'osha_resources' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'priority_areas' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'pub_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'title_body' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_video_length',
-    'label' => 'Length of the video',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'cck_time',
-      'settings' => array(),
-      'type' => 'cck_time_select',
-      'weight' => 6,
-    ),
-    'workbench_access_field' => 0,
   );
 
   // Exported field_instance: 'node-youtube-field_youtube'.
@@ -2402,7 +1972,7 @@ function osha_resources_field_default_field_instances() {
           'youtube_width' => NULL,
         ),
         'type' => 'youtube_video',
-        'weight' => 2,
+        'weight' => 1,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2423,20 +1993,9 @@ function osha_resources_field_default_field_instances() {
         'weight' => 0,
       ),
       'newsletter_item' => array(
-        'label' => 'hidden',
-        'module' => 'youtube',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'youtube_autohide' => FALSE,
-          'youtube_autoplay' => FALSE,
-          'youtube_controls' => FALSE,
-          'youtube_height' => NULL,
-          'youtube_iv_load_policy' => FALSE,
-          'youtube_showinfo' => FALSE,
-          'youtube_size' => '420x315',
-          'youtube_width' => NULL,
-        ),
-        'type' => 'youtube_video',
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'osha_resources' => array(
@@ -2500,7 +2059,7 @@ function osha_resources_field_default_field_instances() {
       'module' => 'youtube',
       'settings' => array(),
       'type' => 'youtube',
-      'weight' => 3,
+      'weight' => 42,
     ),
   );
 
@@ -2524,10 +2083,10 @@ function osha_resources_field_default_field_instances() {
           'field_formatter_class' => '',
           'title_class' => '',
           'title_link' => '',
-          'title_style' => 'h1',
+          'title_style' => 'h2',
         ),
         'type' => 'title_linked',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2548,16 +2107,10 @@ function osha_resources_field_default_field_instances() {
         'weight' => 0,
       ),
       'newsletter_item' => array(
-        'label' => 'hidden',
-        'module' => 'title',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'title_class' => '',
-          'title_link' => '',
-          'title_style' => '',
-        ),
-        'type' => 'title_linked',
-        'weight' => 2,
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'osha_resources' => array(
         'label' => 'hidden',
@@ -2633,7 +2186,7 @@ function osha_resources_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 0,
+      'weight' => -5,
     ),
   );
 
@@ -2645,13 +2198,10 @@ function osha_resources_field_default_field_instances() {
   t('File');
   t('Flickr');
   t('Image');
-  t('Length of the video');
   t('Page count');
-  t('Priority area');
   t('Slideshare');
   t('Title');
   t('Youtube');
-  t('Youtube date');
 
   return $field_instances;
 }
