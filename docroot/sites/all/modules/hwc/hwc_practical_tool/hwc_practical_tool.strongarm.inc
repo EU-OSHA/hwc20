@@ -221,10 +221,18 @@ function hwc_practical_tool_strongarm() {
             'weight' => '0',
             'visible' => TRUE,
           ),
+          'priority_areas' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
         ),
         'bottom_share_widget' => array(
           'default' => array(
             'weight' => '11',
+            'visible' => TRUE,
+          ),
+          'priority_areas' => array(
+            'weight' => '2',
             'visible' => TRUE,
           ),
         ),
@@ -342,7 +350,7 @@ function hwc_practical_tool_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'hwc_migration_publications_url';
-  $strongarm->value = '/export/list/publication_hwc20/campaign_2020-2022?2';
+  $strongarm->value = '/export/list/publication/campaign_2020-2022?3';
   $export['hwc_migration_publications_url'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -421,6 +429,13 @@ function hwc_practical_tool_strongarm() {
   $strongarm->name = 'hwc_migration_tax_hazard_physical_state_url';
   $strongarm->value = '/export/taxonomy/hazard_physical_state';
   $export['hwc_migration_tax_hazard_physical_state_url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'hwc_migration_tax_hazmap_categories_url';
+  $strongarm->value = '/export/taxonomy/hazmap_categories';
+  $export['hwc_migration_tax_hazmap_categories_url'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

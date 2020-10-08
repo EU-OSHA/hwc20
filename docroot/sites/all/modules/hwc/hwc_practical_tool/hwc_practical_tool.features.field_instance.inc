@@ -135,13 +135,13 @@ please take this into consideration when you are writing the first paragraph.',
         'weight' => 0,
       ),
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -214,7 +214,7 @@ please take this into consideration when you are writing the first paragraph.',
           'trim_length' => 300,
           'trim_link' => 0,
           'trim_options' => array(
-            'text' => 0,
+            'text' => 'text',
             'use_field_summary' => 0,
           ),
           'trim_preserve_tags' => '',
@@ -365,7 +365,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 26,
+        'weight' => 27,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -426,7 +426,7 @@ please take this into consideration when you are writing the first paragraph.',
         'weight' => 23,
       ),
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'inline',
         'module' => 'osha',
         'settings' => array(
           'field_formatter_class' => '',
@@ -441,7 +441,7 @@ please take this into consideration when you are writing the first paragraph.',
           'trim_type' => 'chars',
         ),
         'type' => 'smart_trim_format',
-        'weight' => 8,
+        'weight' => 9,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -502,14 +502,15 @@ please take this into consideration when you are writing the first paragraph.',
           'trim_length' => 300,
           'trim_link' => 0,
           'trim_options' => array(
-            'text' => 0,
+            'text' => 'text',
+            'use_field_summary' => 0,
           ),
           'trim_preserve_tags' => '',
           'trim_suffix' => '...',
           'trim_type' => 'chars',
         ),
         'type' => 'smart_trim_format',
-        'weight' => 1,
+        'weight' => 4,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -579,7 +580,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 36,
+        'weight' => 19,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -760,7 +761,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 23,
+        'weight' => 24,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -836,7 +837,7 @@ please take this into consideration when you are writing the first paragraph.',
           'field_formatter_class' => '',
         ),
         'type' => 'external_url',
-        'weight' => 9,
+        'weight' => 7,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -980,7 +981,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 35,
+        'weight' => 18,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1102,7 +1103,7 @@ please take this into consideration when you are writing the first paragraph.',
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 14,
+        'weight' => 15,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1156,7 +1157,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 24,
+        'weight' => 25,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -1229,7 +1230,7 @@ please take this into consideration when you are writing the first paragraph.',
           'field_formatter_class' => '',
         ),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 11,
+        'weight' => 12,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1283,7 +1284,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 22,
+        'weight' => 23,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -1350,7 +1351,7 @@ please take this into consideration when you are writing the first paragraph.',
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 12,
+        'weight' => 13,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1404,7 +1405,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 21,
+        'weight' => 22,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -1477,7 +1478,7 @@ please take this into consideration when you are writing the first paragraph.',
           'field_formatter_class' => '',
         ),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 13,
+        'weight' => 14,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1531,7 +1532,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 10,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -1652,7 +1653,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 25,
+        'weight' => 26,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -1761,7 +1762,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 11,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -1829,7 +1830,7 @@ please take this into consideration when you are writing the first paragraph.',
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 20,
+        'weight' => 21,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1940,7 +1941,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 33,
+        'weight' => 16,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1976,7 +1977,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 17,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -2040,7 +2041,7 @@ please take this into consideration when you are writing the first paragraph.',
           'field_formatter_class' => '',
         ),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 24,
+        'weight' => 25,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2094,7 +2095,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 12,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -2227,7 +2228,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 9,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -2292,7 +2293,7 @@ please take this into consideration when you are writing the first paragraph.',
           'field_formatter_class' => '',
         ),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 23,
+        'weight' => 24,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2346,7 +2347,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -2414,7 +2415,7 @@ please take this into consideration when you are writing the first paragraph.',
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 25,
+        'weight' => 27,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2468,7 +2469,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -2538,7 +2539,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 37,
+        'weight' => 20,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2592,7 +2593,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -2666,7 +2667,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 34,
+        'weight' => 17,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2723,7 +2724,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -2782,7 +2783,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 31,
+        'weight' => 14,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2824,7 +2825,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 13,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -2891,7 +2892,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 32,
+        'weight' => 15,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2933,7 +2934,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 14,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -3000,7 +3001,7 @@ please take this into consideration when you are writing the first paragraph.',
           'field_formatter_class' => '',
         ),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 15,
+        'weight' => 16,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -3054,7 +3055,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 19,
+        'weight' => 20,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -3122,7 +3123,7 @@ please take this into consideration when you are writing the first paragraph.',
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 16,
+        'weight' => 17,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -3264,7 +3265,7 @@ please take this into consideration when you are writing the first paragraph.',
           'osha_date_theme' => '',
         ),
         'type' => 'date_default',
-        'weight' => 26,
+        'weight' => 28,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -3396,7 +3397,7 @@ please take this into consideration when you are writing the first paragraph.',
           'field_formatter_class' => '',
         ),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 19,
+        'weight' => 20,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -3450,7 +3451,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 21,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -3521,7 +3522,7 @@ please take this into consideration when you are writing the first paragraph.',
           'field_formatter_class' => '',
         ),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 10,
+        'weight' => 11,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -3598,7 +3599,7 @@ please take this into consideration when you are writing the first paragraph.',
     ),
     'entity_type' => 'node',
     'field_name' => 'field_sector_industry_covered',
-    'label' => 'Sector',
+    'label' => 'Sector / Industry covered',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -3642,7 +3643,7 @@ please take this into consideration when you are writing the first paragraph.',
           'field_formatter_class' => '',
         ),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 21,
+        'weight' => 22,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -3696,7 +3697,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 19,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -3763,7 +3764,7 @@ please take this into consideration when you are writing the first paragraph.',
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 22,
+        'weight' => 23,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -3890,7 +3891,7 @@ please take this into consideration when you are writing the first paragraph.',
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 29,
+        'weight' => 13,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -3944,7 +3945,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 17,
+        'weight' => 18,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -4077,7 +4078,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 15,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -4144,7 +4145,7 @@ please take this into consideration when you are writing the first paragraph.',
           'field_formatter_class' => '',
         ),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 17,
+        'weight' => 18,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -4198,7 +4199,7 @@ please take this into consideration when you are writing the first paragraph.',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 16,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -4221,7 +4222,7 @@ please take this into consideration when you are writing the first paragraph.',
     ),
     'entity_type' => 'node',
     'field_name' => 'field_worker_groups_covered',
-    'label' => 'Worker groups covered',
+    'label' => 'Worker groups covered (vulnerable groups etc.)',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -4265,7 +4266,7 @@ please take this into consideration when you are writing the first paragraph.',
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 18,
+        'weight' => 19,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -4395,7 +4396,7 @@ please take this into consideration when you are writing the first paragraph.',
           'title_style' => '',
         ),
         'type' => 'title_linked',
-        'weight' => 28,
+        'weight' => 12,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -4463,7 +4464,7 @@ please take this into consideration when you are writing the first paragraph.',
           'title_style' => '',
         ),
         'type' => 'title_linked',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'pub_teaser' => array(
         'label' => 'above',
@@ -5059,138 +5060,6 @@ please take this into consideration when you are writing the first paragraph.',
       'type' => 'text_textfield',
       'weight' => -5,
     ),
-  );
-
-  // Exported field_instance:
-  // 'taxonomy_term-material_objective-field_material_objective_code'.
-  $field_instances['taxonomy_term-material_objective-field_material_objective_code'] = array(
-    'bundle' => 'material_objective',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'text_default',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'field_material_objective_code',
-    'label' => 'Code',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'linkit' => array(
-        'button_text' => 'Search',
-        'enable' => 0,
-        'profile' => '',
-      ),
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 41,
-    ),
-    'workbench_access_field' => 0,
-  );
-
-  // Exported field_instance:
-  // 'taxonomy_term-material_purpose-field_material_purpose_code'.
-  $field_instances['taxonomy_term-material_purpose-field_material_purpose_code'] = array(
-    'bundle' => 'material_purpose',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'text_default',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'field_material_purpose_code',
-    'label' => 'Code',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'linkit' => array(
-        'button_text' => 'Search',
-        'enable' => 0,
-        'profile' => '',
-      ),
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 41,
-    ),
-    'workbench_access_field' => 0,
-  );
-
-  // Exported field_instance:
-  // 'taxonomy_term-material_purpose-field_thesaurus_id'.
-  $field_instances['taxonomy_term-material_purpose-field_thesaurus_id'] = array(
-    'bundle' => 'material_purpose',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'text_default',
-        'weight' => 1,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'field_thesaurus_id',
-    'label' => 'Thesaurus code',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'linkit' => array(
-        'button_text' => 'Search',
-        'enable' => 0,
-        'profile' => '',
-      ),
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 43,
-    ),
-    'workbench_access_field' => 0,
   );
 
   // Exported field_instance:
@@ -6087,351 +5956,6 @@ please take this into consideration when you are writing the first paragraph.',
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-priority_area-description_field'.
-  $field_instances['taxonomy_term-priority_area-description_field'] = array(
-    'bundle' => 'priority_area',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 1,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'description_field',
-    'label' => 'Description',
-    'required' => FALSE,
-    'settings' => array(
-      'display_summary' => 0,
-      'entity_translation_sync' => FALSE,
-      'hide_label' => array(
-        'entity' => FALSE,
-        'page' => FALSE,
-      ),
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
-      ),
-      'type' => 'text_textarea_with_summary',
-      'weight' => 4,
-    ),
-  );
-
-  // Exported field_instance: 'taxonomy_term-priority_area-field_image'.
-  $field_instances['taxonomy_term-priority_area-field_image'] = array(
-    'bundle' => 'priority_area',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'field_image',
-    'label' => 'Image',
-    'required' => 0,
-    'settings' => array(
-      'alt_field' => 0,
-      'default_image' => 0,
-      'entity_translation_sync' => 0,
-      'file_directory' => 'priority_areas',
-      'file_extensions' => 'png gif jpg jpeg',
-      'image_field_caption' => 0,
-      'max_filesize' => '',
-      'max_resolution' => '',
-      'min_resolution' => '',
-      'title_field' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'media',
-      'settings' => array(
-        'allowed_schemes' => array(
-          'public' => 'public',
-        ),
-        'allowed_types' => array(
-          'audio' => 0,
-          'document' => 0,
-          'image' => 'image',
-          'video' => 0,
-        ),
-        'browser_plugins' => array(
-          'media_browser_osha--media_browser_osha' => 'media_browser_osha--media_browser_osha',
-          'media_browser_osha--media_browser_osha_my_files' => 'media_browser_osha--media_browser_osha_my_files',
-          'media_default--media_browser_1' => 0,
-          'media_default--media_browser_my_files' => 0,
-          'upload' => 'upload',
-        ),
-        'manualcrop_crop_info' => 1,
-        'manualcrop_default_crop_area' => 1,
-        'manualcrop_enable' => 0,
-        'manualcrop_inline_crop' => 0,
-        'manualcrop_instant_crop' => FALSE,
-        'manualcrop_instant_preview' => 1,
-        'manualcrop_keyboard' => 1,
-        'manualcrop_maximize_default_crop_area' => 0,
-        'manualcrop_require_cropping' => array(),
-        'manualcrop_styles_list' => array(),
-        'manualcrop_styles_mode' => 'include',
-        'manualcrop_thumblist' => 0,
-      ),
-      'type' => 'media_generic',
-      'weight' => 2,
-    ),
-    'workbench_access_field' => 0,
-  );
-
-  // Exported field_instance:
-  // 'taxonomy_term-priority_area-field_introduction_text'.
-  $field_instances['taxonomy_term-priority_area-field_introduction_text'] = array(
-    'bundle' => 'priority_area',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'text_default',
-        'weight' => 4,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'field_introduction_text',
-    'label' => 'Introduction text',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'linkit' => array(
-        'button_text' => 'Search',
-        'enable' => 0,
-        'profile' => '',
-      ),
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'maxlength_js' => '',
-        'maxlength_js_enforce' => 0,
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'maxlength_js_truncate_html' => 0,
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 1,
-    ),
-    'workbench_access_field' => 0,
-  );
-
-  // Exported field_instance: 'taxonomy_term-priority_area-field_thumbnail'.
-  $field_instances['taxonomy_term-priority_area-field_thumbnail'] = array(
-    'bundle' => 'priority_area',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 5,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'field_thumbnail',
-    'label' => 'Thumbnail',
-    'required' => 0,
-    'settings' => array(
-      'alt_field' => 0,
-      'default_image' => 0,
-      'entity_translation_sync' => 0,
-      'file_directory' => '',
-      'file_extensions' => 'png gif jpg jpeg',
-      'image_field_caption' => 0,
-      'max_filesize' => '',
-      'max_resolution' => '',
-      'min_resolution' => '',
-      'title_field' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'image',
-      'settings' => array(
-        'manualcrop_crop_info' => 1,
-        'manualcrop_default_crop_area' => 1,
-        'manualcrop_enable' => 0,
-        'manualcrop_inline_crop' => 0,
-        'manualcrop_instant_crop' => 0,
-        'manualcrop_instant_preview' => 1,
-        'manualcrop_keyboard' => 1,
-        'manualcrop_maximize_default_crop_area' => 0,
-        'manualcrop_require_cropping' => array(),
-        'manualcrop_styles_list' => array(),
-        'manualcrop_styles_mode' => 'include',
-        'manualcrop_thumblist' => 0,
-        'preview_image_style' => 'thumbnail',
-        'progress_indicator' => 'throbber',
-      ),
-      'type' => 'image_image',
-      'weight' => 3,
-    ),
-    'workbench_access_field' => 0,
-  );
-
-  // Exported field_instance: 'taxonomy_term-priority_area-name_field'.
-  $field_instances['taxonomy_term-priority_area-name_field'] = array(
-    'bundle' => 'priority_area',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 3,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'name_field',
-    'label' => 'Name',
-    'required' => TRUE,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'hide_label' => array(
-        'entity' => FALSE,
-        'page' => FALSE,
-      ),
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 0,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'taxonomy_term-provider_type-field_provider_type_code'.
-  $field_instances['taxonomy_term-provider_type-field_provider_type_code'] = array(
-    'bundle' => 'provider_type',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'text_default',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'field_provider_type_code',
-    'label' => 'Code',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'linkit' => array(
-        'button_text' => 'Search',
-        'enable' => 0,
-        'profile' => '',
-      ),
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 41,
-    ),
-    'workbench_access_field' => 0,
-  );
-
-  // Exported field_instance: 'taxonomy_term-provider_type-field_thesaurus_id'.
-  $field_instances['taxonomy_term-provider_type-field_thesaurus_id'] = array(
-    'bundle' => 'provider_type',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'text_default',
-        'weight' => 1,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'field_thesaurus_id',
-    'label' => 'Thesaurus code',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'linkit' => array(
-        'button_text' => 'Search',
-        'enable' => 0,
-        'profile' => '',
-      ),
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 43,
-    ),
-    'workbench_access_field' => 0,
-  );
-
   // Exported field_instance:
   // 'taxonomy_term-purpose_of_material-description_field'.
   $field_instances['taxonomy_term-purpose_of_material-description_field'] = array(
@@ -6748,93 +6272,6 @@ please take this into consideration when you are writing the first paragraph.',
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'taxonomy_term-worker_groups-field_thesaurus_id'.
-  $field_instances['taxonomy_term-worker_groups-field_thesaurus_id'] = array(
-    'bundle' => 'worker_groups',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'text_default',
-        'weight' => 1,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'field_thesaurus_id',
-    'label' => 'Thesaurus code',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'linkit' => array(
-        'button_text' => 'Search',
-        'enable' => 0,
-        'profile' => '',
-      ),
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 43,
-    ),
-    'workbench_access_field' => 0,
-  );
-
-  // Exported field_instance:
-  // 'taxonomy_term-worker_groups-field_worker_groups_code'.
-  $field_instances['taxonomy_term-worker_groups-field_worker_groups_code'] = array(
-    'bundle' => 'worker_groups',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'text_default',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'field_worker_groups_code',
-    'label' => 'Code',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'linkit' => array(
-        'button_text' => 'Search',
-        'enable' => 0,
-        'profile' => '',
-      ),
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 41,
-    ),
-    'workbench_access_field' => 0,
-  );
-
   // Exported field_instance:
   // 'taxonomy_term-worker_groups_covered-description_field'.
   $field_instances['taxonomy_term-worker_groups_covered-description_field'] = array(
@@ -6975,7 +6412,7 @@ please take this into consideration when you are writing the first paragraph.');
   t('Purpose of the material');
   t('Purpose of the material other');
   t('Recommended for EU-OSHA pictogram guide');
-  t('Sector');
+  t('Sector / Industry covered');
   t('Target audience');
   t('Target audiences other');
   t('Thesaurus code');
@@ -6986,7 +6423,7 @@ please take this into consideration when you are writing the first paragraph.');
   t('Type of visual resource');
   t('Type of visual resource other');
   t('URL');
-  t('Worker groups covered');
+  t('Worker groups covered (vulnerable groups etc.)');
   t('Worker groups covered other');
   t('available');
 
