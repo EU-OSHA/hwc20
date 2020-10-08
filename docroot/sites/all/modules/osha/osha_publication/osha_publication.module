@@ -796,10 +796,16 @@ function osha_publication_file_all_group_mimetype_formatter($items) {
             ),
           ]
         );
-        if ($links) {
-          $link = '<span class="slash">|</span>' . $link;
-        }
         $links[] = $link;
+      }
+    }
+
+    if (count($links) > 1) {
+      foreach ($links as $i => &$link) {
+        if ($i == (count($links) - 1)) {
+          continue;
+        }
+        $link = $link . '<span class="slash">|</span>';
       }
     }
 
