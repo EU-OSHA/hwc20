@@ -28,7 +28,7 @@ function osha_infographics_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => -58,
+        'weight' => 13,
       ),
       'seven' => array(
         'region' => '',
@@ -50,14 +50,15 @@ function osha_infographics_default_fe_block_settings() {
     'i18n_mode' => 0,
     'module' => 'views',
     'node_types' => array(),
-    'pages' => 'node/114',
+    'pages' => 'node/114
+node/1882',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => -61,
+        'weight' => 8,
       ),
       'seven' => array(
         'region' => '',
