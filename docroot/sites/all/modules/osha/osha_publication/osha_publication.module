@@ -798,11 +798,17 @@ function osha_publication_file_all_group_mimetype_formatter($items) {
         );
       }
     }
-    $title = t('Download !mime (!size) in:', array('!mime' => hwc_mime_friendly_acronym($mime), '!size' => $sizes[$mime]));
+
+    $icon_directory = drupal_get_path('theme', 'hwc_frontend') . '/images/file_icons';
+
+    $output = "<span class='label_publication_file'>" . t('Download') . " </span>";
+    $output .= theme('file_icon', array('file' => $file, 'icon_directory' => $icon_directory));
+    $output .= "<span class='label_publication_file'>" . t('in:') . "</span>";
+
     $render = array(
       'title' => array(
         '#type' => 'item',
-        '#markup' => '<span>' . $title . '</span>',
+        '#markup' => $output,
       ),
       'files' => array(
         '#type' => 'item',
