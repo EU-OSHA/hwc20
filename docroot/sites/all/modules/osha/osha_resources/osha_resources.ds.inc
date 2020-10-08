@@ -44,17 +44,13 @@ function osha_resources_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'back_to_list',
-        1 => 'title_field',
-        2 => 'field_youtube',
-        3 => 'body',
+        0 => 'title_field',
+        1 => 'field_youtube',
       ),
     ),
     'fields' => array(
-      'back_to_list' => 'ds_content',
       'title_field' => 'ds_content',
       'field_youtube' => 'ds_content',
-      'body' => 'ds_content',
     ),
     'classes' => array(
       'layout_class' => array(
