@@ -48,6 +48,7 @@ features[field_base][] = field_background_image
 features[field_base][] = field_campaign_id
 features[field_base][] = field_created
 features[field_base][] = field_icon
+features[field_base][] = field_images
 features[field_base][] = field_newsletter_author
 features[field_base][] = field_newsletter_configuration
 features[field_base][] = field_newsletter_content_after
