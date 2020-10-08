@@ -521,14 +521,14 @@ jQuery(document).ready(function() {
 				jQuery("#block-menu-menu-header-login, #block-lang-dropdown-language").toggleClass("visibility");
 			});
 
-			//Additional Resources Block
+			// Additional Resources Block.
 
 			jQuery(".field-name-field-aditional-resources h4.pane-title").click(function() {
 				jQuery(this).toggleClass("closeLabel");
 				jQuery(this).next("div").toggle();
 			});
 
-			//Press Room
+			// Press Room.
 
 			jQuery(".pane-osha-press-release-osha-press-rel-become-partner h2.pane-title").click(function() {
 				jQuery(this).toggleClass("closeLabel");
@@ -1040,5 +1040,10 @@ jQuery(document).ready(function($){
     	return $(this).text() === "";
 	}).css("display", "none");
 	
+	/* Remove aside padding if iframe is displayed */
+	if ($("#social-dashboard-column-1")[0]){
+		$( "aside.col-md-3 " ).addClass('no-padding-aside');
+		$( "aside.col-md-9 " ).addClass('no-padding-aside');
+	}
 
 });
