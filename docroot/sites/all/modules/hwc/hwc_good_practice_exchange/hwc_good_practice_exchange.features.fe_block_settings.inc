@@ -28,7 +28,7 @@ function hwc_good_practice_exchange_default_fe_block_settings() {
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 27,
+        'weight' => 28,
       ),
       'seven' => array(
         'region' => '',

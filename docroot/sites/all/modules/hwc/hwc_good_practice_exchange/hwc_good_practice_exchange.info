@@ -24,7 +24,6 @@ features[fe_block_settings][] = hwc_good_practice_exchange-gpe_news_events
 features[fe_block_settings][] = views--exp-documents-gpep
 features[fe_block_settings][] = views-frontpage_events-gpe
 features[fe_block_settings][] = views-news-gpe
-features[fe_nodequeue][] = good_practice_exchange_intro
 features[features_api][] = api:2
 features[field_base][] = field_document_file
 features[field_base][] = field_document_files
