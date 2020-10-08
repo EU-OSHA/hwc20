@@ -52,13 +52,12 @@ function hwc_glossary_views_default_views() {
     'field_formatter_class' => '',
   );
   $handler->display->display_options['fields']['description_field']['link_to_entity'] = 0;
-  /* Field: Taxonomy term: Type */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_glossary_type']['id'] = 'field_glossary_type';
   $handler->display->display_options['fields']['field_glossary_type']['table'] = 'field_data_field_glossary_type';
   $handler->display->display_options['fields']['field_glossary_type']['field'] = 'field_glossary_type';
   $handler->display->display_options['fields']['field_glossary_type']['label'] = '';
   $handler->display->display_options['fields']['field_glossary_type']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_glossary_type']['type'] = 'taxonomy_term_reference_plain';
   /* Sort criterion: Taxonomy term: Name (name_field) */
   $handler->display->display_options['sorts']['name_field_value']['id'] = 'name_field_value';
   $handler->display->display_options['sorts']['name_field_value']['table'] = 'field_data_name_field';
@@ -74,13 +73,11 @@ function hwc_glossary_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'msd_glossary' => 'msd_glossary',
   );
-  /* Filter criterion: Taxonomy term: Type (field_glossary_type) */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['field_glossary_type_tid']['id'] = 'field_glossary_type_tid';
   $handler->display->display_options['filters']['field_glossary_type_tid']['table'] = 'field_data_field_glossary_type';
   $handler->display->display_options['filters']['field_glossary_type_tid']['field'] = 'field_glossary_type_tid';
   $handler->display->display_options['filters']['field_glossary_type_tid']['relationship'] = 'field_glossary_type_tid';
-  $handler->display->display_options['filters']['field_glossary_type_tid']['value'] = '';
-  $handler->display->display_options['filters']['field_glossary_type_tid']['vocabulary'] = 'glossary_type';
   /* Filter criterion: Taxonomy term: Name (name_field:language) */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'field_data_name_field';
