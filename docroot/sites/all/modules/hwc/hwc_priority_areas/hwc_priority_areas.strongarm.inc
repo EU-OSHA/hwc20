@@ -148,7 +148,7 @@ function hwc_priority_areas_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'rss' => array(
         'custom_settings' => FALSE,
@@ -196,7 +196,28 @@ function hwc_priority_areas_strongarm() {
           'weight' => '6',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'share_widget' => array(
+          'priority_areas' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'full' => array(
+            'weight' => '0',
+            'visible' => FALSE,
+          ),
+        ),
+        'bottom_share_widget' => array(
+          'priority_areas' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'full' => array(
+            'weight' => '0',
+            'visible' => FALSE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__pa_highlights'] = $strongarm;
@@ -402,7 +423,7 @@ function hwc_priority_areas_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'xmlsitemap_settings_node_pa_highlights';
   $strongarm->value = array(
-    'status' => '0',
+    'status' => '1',
     'priority' => '0.5',
   );
   $export['xmlsitemap_settings_node_pa_highlights'] = $strongarm;

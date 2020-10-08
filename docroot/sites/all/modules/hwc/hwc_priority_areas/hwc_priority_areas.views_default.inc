@@ -171,7 +171,7 @@ function hwc_priority_areas_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Content: Priority area (field_priority_area) */
+  /* Contextual filter: Broken/missing handler */
   $handler->display->display_options['arguments']['field_priority_area_tid']['id'] = 'field_priority_area_tid';
   $handler->display->display_options['arguments']['field_priority_area_tid']['table'] = 'field_data_field_priority_area';
   $handler->display->display_options['arguments']['field_priority_area_tid']['field'] = 'field_priority_area_tid';
@@ -744,7 +744,7 @@ function hwc_priority_areas_views_default_views() {
   $handler->display->display_options['sorts']['delta']['table'] = 'field_data_field_highlights';
   $handler->display->display_options['sorts']['delta']['field'] = 'delta';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Priority area (field_priority_area) */
+  /* Contextual filter: Broken/missing handler */
   $handler->display->display_options['arguments']['field_priority_area_tid']['id'] = 'field_priority_area_tid';
   $handler->display->display_options['arguments']['field_priority_area_tid']['table'] = 'field_data_field_priority_area';
   $handler->display->display_options['arguments']['field_priority_area_tid']['field'] = 'field_priority_area_tid';
@@ -845,12 +845,12 @@ function hwc_priority_areas_views_default_views() {
     'field_formatter_class' => '',
   );
   $handler->display->display_options['fields']['title_field']['link_to_entity'] = 0;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['sorts']['title']['order'] = 'DESC';
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -914,6 +914,8 @@ function hwc_priority_areas_views_default_views() {
   $handler = $view->new_display('entityreference', 'Publications ER', 'entityreference_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '30';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'entityreference_style';
   $handler->display->display_options['style_options']['search_fields'] = array(
