@@ -25,7 +25,7 @@ function hwc_priority_areas_field_default_field_instances() {
       ),
       'default' => array(
         'label' => 'hidden',
-        'module' => 'smart_trim',
+        'module' => 'osha',
         'settings' => array(
           'field_formatter_class' => '',
           'more_link' => 1,
@@ -42,6 +42,15 @@ function hwc_priority_areas_field_default_field_instances() {
         ),
         'type' => 'smart_trim_format',
         'weight' => 1,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 2,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -81,16 +90,17 @@ function hwc_priority_areas_field_default_field_instances() {
       ),
       'priority_areas' => array(
         'label' => 'hidden',
-        'module' => 'smart_trim',
+        'module' => 'osha',
         'settings' => array(
           'field_formatter_class' => '',
           'more_link' => 1,
           'more_text' => 'See more',
           'summary_handler' => 'full',
-          'trim_length' => 150,
+          'trim_length' => 250,
           'trim_link' => 0,
           'trim_options' => array(
-            'text' => 0,
+            'text' => 'text',
+            'use_field_summary' => 0,
           ),
           'trim_preserve_tags' => '',
           'trim_suffix' => '...',
@@ -165,6 +175,17 @@ function hwc_priority_areas_field_default_field_instances() {
         ),
         'type' => 'image',
         'weight' => 2,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'image_link' => '',
+          'image_style' => 'medium',
+        ),
+        'type' => 'image',
+        'weight' => 1,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -302,6 +323,18 @@ function hwc_priority_areas_field_default_field_instances() {
         'weight' => 0,
       ),
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'title',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'title_class' => '',
+          'title_link' => 'content',
+          'title_style' => 'h2',
+        ),
+        'type' => 'title_linked',
+        'weight' => 0,
+      ),
+      'full' => array(
         'label' => 'hidden',
         'module' => 'title',
         'settings' => array(

@@ -30,7 +30,7 @@ function hwc_priority_areas_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 9,
+        'weight' => 15,
       ),
       'seven' => array(
         'region' => '',
@@ -61,7 +61,7 @@ function hwc_priority_areas_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 7,
+        'weight' => 10,
       ),
       'seven' => array(
         'region' => '',
@@ -92,7 +92,7 @@ function hwc_priority_areas_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'seven' => array(
         'region' => '',
