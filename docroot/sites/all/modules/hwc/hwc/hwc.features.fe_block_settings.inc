@@ -20,15 +20,27 @@ function hwc_default_fe_block_settings() {
     'i18n_block_language' => array(),
     'i18n_mode' => 0,
     'module' => 'hwc',
-    'node_types' => array(),
-    'pages' => 'node/184',
+    'node_types' => array(
+      0 => 'article',
+      1 => 'campaign_16',
+      2 => 'campaign_18',
+      3 => 'priority_area',
+    ),
+    'pages' => 'node/6867
+node/6866
+node/6865
+node/6864
+node/6863
+node/161
+node/6873
+node/184',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
         'region' => 'sidebar_second',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'seven' => array(
         'region' => '',
@@ -57,7 +69,7 @@ function hwc_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 29,
+        'weight' => 25,
       ),
       'seven' => array(
         'region' => 'content',
@@ -86,7 +98,7 @@ function hwc_default_fe_block_settings() {
         'region' => 'below_content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 26,
+        'weight' => 1,
       ),
       'seven' => array(
         'region' => '',
@@ -137,14 +149,19 @@ function hwc_default_fe_block_settings() {
     'i18n_mode' => 0,
     'module' => 'hwc',
     'node_types' => array(),
-    'pages' => 'node/179',
+    'pages' => 'node/179
+node/165
+node/184
+about-topic/glossary-list
+node/3298
+node/8454',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 28,
+        'weight' => 30,
       ),
       'seven' => array(
         'region' => '',
@@ -202,7 +219,7 @@ function hwc_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 11,
+        'weight' => 14,
       ),
       'seven' => array(
         'region' => '',
@@ -231,7 +248,7 @@ function hwc_default_fe_block_settings() {
         'region' => 'sidebar_second',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 2,
+        'weight' => 5,
       ),
       'seven' => array(
         'region' => '',
@@ -260,7 +277,7 @@ function hwc_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 25,
+        'weight' => 28,
       ),
       'seven' => array(
         'region' => '',

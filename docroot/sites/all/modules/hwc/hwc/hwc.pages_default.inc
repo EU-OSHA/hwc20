@@ -253,7 +253,7 @@ Get your certificate',
   $pane->panel = 'middle';
   $pane->type = 'entity_field';
   $pane->subtype = 'node:body';
-  $pane->shown = TRUE;
+  $pane->shown = FALSE;
   $pane->access = array();
   $pane->configuration = array(
     'label' => 'hidden',
