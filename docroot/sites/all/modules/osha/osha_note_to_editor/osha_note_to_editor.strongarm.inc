@@ -64,17 +64,20 @@ function osha_note_to_editor_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'exclude_node_title_content_type_modes_note_to_editor';
   $strongarm->value = array(
-    'full' => 'full',
     'teaser' => 'teaser',
+    'full' => 0,
     'rss' => 0,
     'search_index' => 0,
     'search_result' => 0,
     'diff_standard' => 0,
     'title_body' => 0,
     'body' => 0,
+    'priority_areas' => 0,
+    'hwc_teaser' => 0,
     'osha_slideshow' => 0,
     'highlights_item' => 0,
     'newsletter_item' => 0,
+    'highlights_item_alternative' => 0,
     'pub_teaser' => 0,
     'osha_resources' => 0,
     'print' => 0,
@@ -133,6 +136,30 @@ function osha_note_to_editor_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'title_body' => array(
+        'custom_settings' => TRUE,
+      ),
+      'body' => array(
+        'custom_settings' => TRUE,
+      ),
+      'priority_areas' => array(
+        'custom_settings' => TRUE,
+      ),
+      'hwc_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'highlights_item' => array(
+        'custom_settings' => TRUE,
+      ),
+      'highlights_item_alternative' => array(
+        'custom_settings' => TRUE,
+      ),
+      'pub_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'revision' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -150,9 +177,6 @@ function osha_note_to_editor_strongarm() {
         ),
         'language' => array(
           'weight' => '1',
-        ),
-        'xmlsitemap' => array(
-          'weight' => '30',
         ),
       ),
       'display' => array(),
