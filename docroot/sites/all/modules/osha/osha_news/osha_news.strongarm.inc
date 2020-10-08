@@ -201,7 +201,7 @@ function osha_news_strongarm() {
           'weight' => '0',
         ),
         'xmlsitemap' => array(
-          'weight' => '24',
+          'weight' => '23',
         ),
       ),
       'display' => array(
@@ -227,7 +227,7 @@ function osha_news_strongarm() {
             'visible' => FALSE,
           ),
           'newsletter_item' => array(
-            'weight' => '0',
+            'weight' => '1',
             'visible' => TRUE,
           ),
           'priority_areas' => array(
@@ -247,6 +247,10 @@ function osha_news_strongarm() {
           'teaser' => array(
             'weight' => '8',
             'visible' => FALSE,
+          ),
+          'newsletter_item' => array(
+            'weight' => '0',
+            'visible' => TRUE,
           ),
         ),
       ),
@@ -306,7 +310,7 @@ function osha_news_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'xmlsitemap_settings_node_news';
   $strongarm->value = array(
-    'status' => '0',
+    'status' => '1',
     'priority' => '0.5',
   );
   $export['xmlsitemap_settings_node_news'] = $strongarm;
