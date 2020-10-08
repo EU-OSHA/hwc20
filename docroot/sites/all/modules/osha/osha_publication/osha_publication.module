@@ -802,7 +802,7 @@ function osha_publication_file_all_group_mimetype_formatter($items) {
     $icon_directory = drupal_get_path('theme', 'hwc_frontend') . '/images/file_icons';
 
     $output = "<span class='label_publication_file'>" . t('Download') . " </span>";
-    $output .= theme('file_icon', array('file' => $file, 'icon_directory' => $icon_directory));
+    $output .= theme('file_icon', array('file' => (object) $file, 'icon_directory' => $icon_directory));
     $output .= "<span class='label_publication_file'>" . t('in:') . "</span>";
 
     $render = array(
