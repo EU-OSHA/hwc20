@@ -1208,6 +1208,7 @@ function osha_publication_field_default_field_instances() {
       'type' => 'pdf_to_image',
       'weight' => 11,
     ),
+    'workbench_access_field' => 0,
   );
 
   // Exported field_instance: 'node-publication-field_first_publication_date'.
