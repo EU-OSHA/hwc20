@@ -33,6 +33,7 @@ function osha_wysiwyg_default_profiles() {
           'anchor' => 1,
           'image' => 1,
           'formatselect' => 1,
+          'styleselect' => 1,
           'fontselect' => 1,
           'fontsizeselect' => 1,
           'code' => 1,
@@ -79,7 +80,7 @@ function osha_wysiwyg_default_profiles() {
       'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6,div',
       'css_setting' => 'theme',
       'css_path' => '',
-      'css_classes' => 'external-link',
+      'css_classes' => 'external-link, float-img',
     ),
     'rdf_mapping' => array(),
   );
