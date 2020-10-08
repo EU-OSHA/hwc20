@@ -7831,7 +7831,6 @@ body select {
   border-radius: 0;
 }
 body iframe {
-  border: 1px solid;
   max-width: 100%;
 }
 body a {
