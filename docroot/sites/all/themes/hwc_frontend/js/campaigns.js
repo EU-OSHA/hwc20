@@ -1040,5 +1040,10 @@ jQuery(document).ready(function($){
     	return $(this).text() === "";
 	}).css("display", "none");
 	
+	/* Remove aside padding if iframe is displayed */
+	if ($("#social-dashboard-column-1")[0]){
+		$( "aside.col-md-3 " ).addClass('no-padding-aside');
+		$( "aside.col-md-9 " ).addClass('no-padding-aside');
+	}
 
 });
