@@ -29,7 +29,7 @@ glossary/*',
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 20,
+        'weight' => 22,
       ),
       'seven' => array(
         'region' => 'content',
