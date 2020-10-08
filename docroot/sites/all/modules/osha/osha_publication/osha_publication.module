@@ -787,15 +787,19 @@ function osha_publication_file_all_group_mimetype_formatter($items) {
     foreach ($value as $langcode => $files) {
       foreach ($files as $file) {
         $title = strtoupper($langcode) . '<span class="glyphicon glyphicon-circle-arrow-down"></span>';
-        $links[] = l($title, file_create_url($file['uri']),
-          array(
+        $link = l($title, file_create_url($file['uri']),
+          [
             'absolute' => TRUE,
             'html' => TRUE,
             'attributes' => array(
               'title' => $file['filename'],
             ),
-          )
+          ]
         );
+        if ($links) {
+          $link = '<span class="slash">|</span>' . $link;
+        }
+        $links[] = $link;
       }
     }
 
