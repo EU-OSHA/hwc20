@@ -92,7 +92,7 @@ function hwc_toolkit_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 22,
+        'weight' => 26,
       ),
       'seven' => array(
         'region' => '',
@@ -123,7 +123,7 @@ function hwc_toolkit_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 20,
+        'weight' => 24,
       ),
       'seven' => array(
         'region' => '',
