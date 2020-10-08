@@ -21,7 +21,7 @@ function osha_press_release_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_press_release';
-  $strongarm->value = 0;
+  $strongarm->value = '0';
   $export['comment_anonymous_press_release'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -804,6 +804,26 @@ function osha_press_release_strongarm() {
   $strongarm->name = 'print_pdf_sys_link_visibility';
   $strongarm->value = '1';
   $export['print_pdf_sys_link_visibility'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'xmlsitemap_settings_node_press_contact';
+  $strongarm->value = array(
+    'status' => '0',
+    'priority' => '0.5',
+  );
+  $export['xmlsitemap_settings_node_press_contact'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'xmlsitemap_settings_node_press_release';
+  $strongarm->value = array(
+    'status' => '0',
+    'priority' => '0.5',
+  );
+  $export['xmlsitemap_settings_node_press_release'] = $strongarm;
 
   return $export;
 }
