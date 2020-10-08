@@ -45,8 +45,8 @@ function hwc_previous_campaigns_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'name' => 'name',
+    'name_field' => 'name_field',
     'field_icon' => 'field_icon',
-    'field_resource_link' => 'field_resource_link',
     'field_resource_type' => 'field_resource_type',
     'edit_term' => 'edit_term',
   );
@@ -59,14 +59,14 @@ function hwc_previous_campaigns_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_icon' => array(
+    'name_field' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_resource_link' => array(
+    'field_icon' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -87,13 +87,14 @@ function hwc_previous_campaigns_views_default_views() {
     ),
   );
   /* Field: Taxonomy term: Name */
-  $handler->display->display_options['fields']['name']['id'] = 'name';
-  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['label'] = 'Title';
-  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
+  $handler->display->display_options['fields']['name_field']['id'] = 'name_field';
+  $handler->display->display_options['fields']['name_field']['table'] = 'field_data_name_field';
+  $handler->display->display_options['fields']['name_field']['field'] = 'name_field';
+  $handler->display->display_options['fields']['name_field']['label'] = 'Title';
+  $handler->display->display_options['fields']['name_field']['settings'] = array(
+    'field_formatter_class' => '',
+  );
+  $handler->display->display_options['fields']['name_field']['link_to_entity'] = 1;
   /* Field: Field: Section icon */
   $handler->display->display_options['fields']['field_icon']['id'] = 'field_icon';
   $handler->display->display_options['fields']['field_icon']['table'] = 'field_data_field_icon';
