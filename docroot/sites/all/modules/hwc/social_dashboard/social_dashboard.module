@@ -7,22 +7,6 @@
 include_once 'social_dashboard.features.inc';
 
 /**
- * Implements hook_panels_pane_prerender().
- */
-function social_dashboard_panels_pre_render($panels_display, $renderer) {
-  if (isset($_REQUEST['source']) && @$_REQUEST['source']) {
-    $panels_display->layout_settings['items']['main-row']['class'] = str_replace('social-media-row', 'container', $panels_display->layout_settings['items']['main-row']['class']);
-
-    $panels_display->layout_settings['items']['center']['class'] = str_replace('col-md-4', 'col-md-12', $panels_display->layout_settings['items']['center']['class']);
-    $panels_display->layout_settings['items']['twitter']['class'] = str_replace('col-md-4', 'col-md-12', $panels_display->layout_settings['items']['twitter']['class']);
-    $panels_display->layout_settings['items']['facebook']['class'] = str_replace('col-md-4', 'col-md-12', $panels_display->layout_settings['items']['facebook']['class']);
-  }else {
-    $panels_display->layout_settings['items']['facebook']['class'] = str_replace('col-md-4', 'col-md-8', $panels_display->layout_settings['items']['facebook']['class']);
-
-  }
-}
-
-/**
  * Implements Elysia hook_cronapi().
  */
 function social_dashboard_cronapi() {
