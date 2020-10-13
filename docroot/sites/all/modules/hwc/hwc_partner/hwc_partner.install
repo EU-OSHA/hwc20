@@ -381,3 +381,10 @@ function hwc_partner_update_7048() {
 function hwc_partner_update_7049() {
   features_revert(array('hwc_partner' => array('page_manager_handlers')));
 }
+
+/**
+ * MHWC-395 Add contact's "Position" in the public profile of the partner.
+ */
+function hwc_partner_update_7050() {
+  features_revert_module('hwc_partner');
+}

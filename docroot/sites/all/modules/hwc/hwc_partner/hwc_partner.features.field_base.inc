@@ -678,6 +678,28 @@ function hwc_partner_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_position_main_contact'.
+  $field_bases['field_position_main_contact'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_position_main_contact',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
   // Exported field_base: 'field_slideshare_profile'.
   $field_bases['field_slideshare_profile'] = array(
     'active' => 1,
