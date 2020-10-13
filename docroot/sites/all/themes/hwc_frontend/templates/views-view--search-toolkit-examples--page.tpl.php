@@ -26,12 +26,24 @@
  *
  * @ingroup views_templates
  */
+
+
+$output .= "<script type=\"text/javascript\">\n";
+$output .= "Drupal.settings.toolkit = Drupal.settings.toolkit || {};\n";
+$output .= "jQuery.extend(Drupal.settings.toolkit, ". json_encode(
+    [
+      'hide' => t('Hide filters'),
+      'show' => t('Show filters')
+    ]
+  ) . ");\n";
+$output .= "</script>\n";
+echo $output;
 ?>
 <div class="<?php print $classes; ?>">
   <?php print render($title_prefix); ?>
 
   <?php if ($view->human_name): ?>
-    <?php print '<h2 class="toolkit-h2 main">' . $view->human_name . '</h2>'; ?>
+    <?php print '<h2 class="toolkit-h2 main">' . t($view->human_name) . '</h2>'; ?>
   <?php endif; ?>
 
   <?php print render($title_suffix); ?>
@@ -43,7 +55,7 @@
   <?php endif; ?>
 
   <?php if ($exposed): ?>
-    <p class="hide-filters"><a href="javascript:"><?php print ('Hide filters'); ?></a></p>
+    <p class="hide-filters"><a href="javascript:"><?php print t('Hide filters'); ?></a></p>
     <div class="view-filters">
       <?php print $exposed; ?>
     </div>
