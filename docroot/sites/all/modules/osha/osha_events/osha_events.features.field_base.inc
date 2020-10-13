@@ -281,6 +281,8 @@ function osha_events_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
+        'EUROPA' => 'Europe',
+        'EU' => 'EU',
         'AL' => 'Albania',
         'AT' => 'Austria',
         'BE' => 'Belgium',
@@ -587,6 +589,42 @@ function osha_events_field_default_field_bases() {
     'type' => 'list_text',
   );
 
+  // Exported field_base: 'field_gallery'.
+  $field_bases['field_gallery'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_gallery',
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'entityreference',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'handler' => 'base',
+      'handler_settings' => array(
+        'behaviors' => array(
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
+        'sort' => array(
+          'type' => 'none',
+        ),
+        'target_bundles' => array(
+          'hwc_gallery' => 'hwc_gallery',
+        ),
+      ),
+      'target_type' => 'node',
+    ),
+    'translatable' => 0,
+    'type' => 'entityreference',
+  );
+
   // Exported field_base: 'field_key_performance'.
   $field_bases['field_key_performance'] = array(
     'active' => 1,
@@ -866,6 +904,34 @@ function osha_events_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
+  );
+
+  // Exported field_base: 'field_show_on'.
+  $field_bases['field_show_on'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_show_on',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Press Room' => 'Press Room',
+        'GP Exchange' => 'GP Exchange',
+        'GP Awards' => 'GP Awards',
+        'European Week' => 'European Week',
+      ),
+      'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
   );
 
   // Exported field_base: 'field_speaker'.

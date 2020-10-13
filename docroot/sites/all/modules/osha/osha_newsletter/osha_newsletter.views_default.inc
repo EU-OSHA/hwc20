@@ -107,7 +107,7 @@ function osha_newsletter_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'There are no results. Please broaden your filters above.';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
-  /* Relationship: Content: Author */
+  /* Relationship: Content: Content author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
@@ -189,12 +189,12 @@ function osha_newsletter_views_default_views() {
   $handler->display->display_options['fields']['changed']['label'] = 'Updated';
   $handler->display->display_options['fields']['changed']['date_format'] = 'short';
   $handler->display->display_options['fields']['changed']['second_date_format'] = 'long';
-  /* Field: Content: Published */
+  /* Field: Content: Published status */
   $handler->display->display_options['fields']['status']['id'] = 'status';
   $handler->display->display_options['fields']['status']['table'] = 'node';
   $handler->display->display_options['fields']['status']['field'] = 'status';
   $handler->display->display_options['fields']['status']['not'] = 0;
-  /* Field: Content: Edit link */
+  /* Field: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
@@ -250,7 +250,9 @@ function osha_newsletter_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'events' => 'events',
     'news' => 'news',
+    'spotlight' => 'spotlight',
     'twitter_tweet_feed' => 'twitter_tweet_feed',
+    'youtube' => 'youtube',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['filters']['type']['exposed'] = TRUE;
@@ -277,6 +279,9 @@ function osha_newsletter_views_default_views() {
     16 => 0,
     14 => 0,
     15 => 0,
+    17 => 0,
+    18 => 0,
+    19 => 0,
   );
   $handler->display->display_options['filters']['type']['expose']['reduce'] = TRUE;
   /* Filter criterion: Content: Nid */
@@ -415,7 +420,7 @@ function osha_newsletter_views_default_views() {
     t('Type of content'),
     t('Author'),
     t('Updated'),
-    t('Published'),
+    t('Published status'),
     t('Edit'),
     t('Post date'),
     t('Updated date'),

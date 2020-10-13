@@ -99,28 +99,21 @@ header.navbar-default{
 			a.pull-left{
 				border-right: 1px solid @border-header-color;
 				padding-right: 2em;
-				margin-right: 2em;
-			}
-			img:nth-child(1){
-				margin-top: 5px;
-				width: 150px;
-				height: auto;
-				margin-left: 30px;
+				margin-right: 1em;
+				padding-bottom: 7px;
 			}
 			a img.pull-left{
-				width: 190px;
 			    height: auto;
-			    margin-top: 44px;
 			    margin-left: 0px;
 			}
 			img:nth-child(3){
-				padding-top: 69px;
-			    padding-bottom: 32px;
-			    padding-right: 15px;
-				border-right: 1px solid @border-header-color;
-				width: 80px;
-			    height: auto;
-			    margin-left: 10px;
+				padding-top: 36px;
+    			padding-bottom: 41px;
+				padding-right: 24px;
+				width: 89px;
+				height: auto;
+				margin-left: 23px;
+				border-right: 1px solid #003399;
 			}
 			
 			.header-text{
@@ -128,19 +121,37 @@ header.navbar-default{
 				font-size: 1.6em;
 			    font-weight: bold;
 			    max-width: 315px;
-			    padding-top: 1em;
+			    padding-top: 8px;
 			    padding-left: 1.5em;
 			    float: left;
 			}
 			.header-text:lang(bg),
+			.header-text:lang(da),
 			.header-text:lang(el),
-			.header-text:lang(de),
+			.header-text:lang(et),
+			.header-text:lang(fr),
+			.header-text:lang(hr),
+			.header-text:lang(is),
+			.header-text:lang(it),
+			.header-text:lang(lv),
 			.header-text:lang(hu),
 			.header-text:lang(mt),
+			.header-text:lang(no),
 			.header-text:lang(pl),
-			.header-text:lang(ro){
-				font-size: 1.25em;
+			.header-text:lang(pt),
+			.header-text:lang(fi),
+			{
+				font-size: 1.25em !important;
 				padding-left: 1em;
+			}
+
+			.header-text:lang(ro){
+				font-size: 1.2em !important;
+				padding-left: 1em;
+			}
+
+			.header-text:lang(de){
+				max-width: 315px !important;
 			}
 			
 			/* languages */
@@ -238,7 +249,7 @@ header.navbar-default{
 			}
 		}
 		.row:first-of-type{
-			padding: 5px 20px 0px 15px;
+			padding: 0 20px 0 0;
 		}
 		
 		/* login */
@@ -264,7 +275,7 @@ header.navbar-default{
 			right: 0;
 			top: 116px;
 			font-weight: bold;
-			font-style: italic;
+			font-style: normal;
 			a:before{
 				content: ">";
 				padding-right: 5px;
@@ -272,7 +283,7 @@ header.navbar-default{
 		}
 		 #block-hwc-partner-hwc-partner-back-to-profile{
 			    font-weight: 700;
-			    font-style: italic;
+			    font-style: normal;
 			    float: right;
 			    font-size: .89em;
 			    padding-top: 5px;
@@ -290,7 +301,6 @@ header.navbar-default{
 		padding: 0;
 		border: none;
 		nav{
-			margin: 10px 0 0;
 			ul.menu{
 				background-color: @menu-bg-color;
 				width: 100%;
@@ -330,8 +340,7 @@ header.navbar-default{
 					}
 					.dropdown-menu{
 						padding: 0;
-						min-width: 100%;
-						//min-width: 160px;
+						width: 100%;
 						box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
 						border: none;
 						background-color: @menu-bg-color;
@@ -348,7 +357,7 @@ header.navbar-default{
 							a{
 								text-align: left;
 								display: inline;
-								font-style: italic;
+								font-style: normal;
 								padding:0;
 								white-space: normal;
 								text-transform: none;
@@ -445,9 +454,19 @@ header.navbar-default{
 		}
 	}
 }
+
+header.navbar-default .campaigns-header .navbar-header img:nth-child(1) {
+    margin-left: 30px;
+}
+
+#navbar > div > div:nth-child(1){
+	padding: 10px 20px 10px 70px;
+}
+
 .nav-up {
     top: -210px !important;
 }
+
 .region-above-header.region{
 	float: right;
 	width: auto;
@@ -456,6 +475,7 @@ header.navbar-default{
 	section, > div {
 		float: left;
 		margin-right: -5px;
+		clear: none;
 	}
 	a#text_resize_increase, a#text_resize_decrease{
 		background: none;
@@ -576,50 +596,59 @@ header.navbar-default{
 		.col-sm-9{
 			width: 100% !important;
 			a.pull-left{
+				-webkit-transition: all 0.3s;
+				    -moz-transition: all 0.3s;
+				    -ms-transition: all 0.3s;
+				    -o-transition: all 0.3s;
+				    transition: all 0.3s;
+			    	display: inline-block;
+				    width: 100px;
+				    height: 77px;
+				    float: left;
+				    background-repeat: no-repeat;
+				    margin-top: 6px;
+				    padding-right: 8em !important;
 				img{
 					-webkit-transition: all 0.3s;
 				    -moz-transition: all 0.3s;
 				    -ms-transition: all 0.3s;
 				    -o-transition: all 0.3s;
 				    transition: all 0.3s;
-				    width: 100px !important;
-				    height: 77px !important;
+				    height: 79px !important;
+				    margin-left: 5px !important;
 				}
 			}
-			a[title*="EU-OSHA"]{
+			a:nth-child(2){
 				-webkit-transition: all 0.3s;
+			    -moz-transition: all 0.3s;
+			    -ms-transition: all 0.3s;
+			    -o-transition: all 0.3s;
+			    transition: all 0.3s;
+		    	display: inline-block;
+			    width: 220px;
+			    height: 83px;
+			    float: left;
+			    display: flex;
+    			align-items: center;
+    			padding-top: 0;
+				img.pull-left{
+					-webkit-transition: all 0.3s;
 				    -moz-transition: all 0.3s;
 				    -ms-transition: all 0.3s;
 				    -o-transition: all 0.3s;
 				    transition: all 0.3s;
-			    	background-image: url("/sites/all/themes/hwc_frontend/images/header/EU-OSHA-en.png");
-			    	display: inline-block;
 				    width: 220px;
-				    height: 70px;
-				    float: left;
-				    background-repeat: no-repeat;
-				    background-size: 206px;
-				    margin-top: 6px;
-				img.pull-left{
-					-webkit-transition: all 0.3s;
-					    -moz-transition: all 0.3s;
-					    -ms-transition: all 0.3s;
-					    -o-transition: all 0.3s;
-					    transition: all 0.3s;
-					    width: 160px !important;
-    					height: 95px !important;
-					    margin-top: 0px !important;
-					    display: none;
-					   
+    				height: 70px !important;				
+				    margin-top: 0px !important;
 				}
 			}
 			img[alt*="EU logo"]{
 				-webkit-transition: all 0.3s;
-					    -moz-transition: all 0.3s;
-					    -ms-transition: all 0.3s;
-					    -o-transition: all 0.3s;
-					    transition: all 0.3s;
-				padding-top: 42px !important;
+			    -moz-transition: all 0.3s;
+			    -ms-transition: all 0.3s;
+			    -o-transition: all 0.3s;
+			    transition: all 0.3s;
+				padding-top: 27px !important;
 			    padding-bottom: 0px !important;
 			    padding-right: 0em !important;
 			    border-right: none !important;
@@ -628,13 +657,13 @@ header.navbar-default{
 			}
 			.header-text{
 				-webkit-transition: all 0.6s;
-					    -moz-transition: all 0.6s;
-					    -ms-transition: all 0.6s;
-					    -o-transition: all 0.6s;
-					    transition: all 0.6s;
+			    -moz-transition: all 0.6s;
+			    -ms-transition: all 0.6s;
+			    -o-transition: all 0.6s;
+			    transition: all 0.6s;
 				font-size: 1.5em !important;
 			    width: 300px !important;
-			    padding-top: 0.3em !important;
+			    padding-top: 0.5em !important;
 			    padding-left: 0em !important;
 			    float: right !important;
 			    text-align: right !important;

@@ -227,22 +227,20 @@ div.workbench-info-block {
     color: #003399;
     background-color: transparent;
     font-weight: bold;
-    font-style: italic;
+    font-style: normal;
 }
 .pane-hwc-practical-tool-hwc-practical-tool-listing .access-tool-link:before {
     content: ">";
     padding-right: 0.0em;
 }
-.node-type-practical-tool .page_title .page-header {
-    display: none;
-}
+
 .node-type-practical-tool .pane-node-title-field {
     color: #003399;
     border: none;
     text-align: left;
     font-weight: normal;
     font-size: 30px;
-    font-style: italic;
+    font-style: normal;
     margin-bottom: 1em;
     margin-top: 1em;
 }

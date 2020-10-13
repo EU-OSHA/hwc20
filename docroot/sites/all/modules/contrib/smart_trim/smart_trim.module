@@ -105,14 +105,14 @@ function smart_trim_field_formatter_view($entity_type, $entity, $field, $instanc
             }
           }
 
-          //verify if we actually performed any shortening
-          if (drupal_strlen($output) != drupal_strlen($output2)) {
+          // Verify if we actually performed any shortening.
+          if (drupal_strlen(drupal_html_to_text($output)) != drupal_strlen(drupal_html_to_text($output2))) {
             $shortened = TRUE;
           }
           $output = $output2;
         }
 
-        // Only include the extension if the text was truncated
+        // Only include the extension if the text was truncated.
         $extension = '';
         if ($shortened) {
           $extension = filter_xss($settings['trim_suffix']);

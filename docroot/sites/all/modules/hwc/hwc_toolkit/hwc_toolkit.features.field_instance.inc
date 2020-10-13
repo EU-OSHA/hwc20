@@ -92,7 +92,7 @@ function hwc_toolkit_field_default_field_instances() {
       ),
       'title_body' => array(
         'label' => 'hidden',
-        'module' => 'smart_trim',
+        'module' => 'osha',
         'settings' => array(
           'field_formatter_class' => '',
           'more_link' => FALSE,
@@ -845,7 +845,7 @@ function hwc_toolkit_field_default_field_instances() {
           'field_formatter_class' => '',
           'title_class' => '',
           'title_link' => '',
-          'title_style' => 'h1',
+          'title_style' => 'h2',
         ),
         'type' => 'title_linked',
         'weight' => 0,
@@ -970,7 +970,7 @@ function hwc_toolkit_field_default_field_instances() {
       ),
       'hwc_teaser' => array(
         'label' => 'hidden',
-        'module' => 'smart_trim',
+        'module' => 'osha',
         'settings' => array(
           'field_formatter_class' => '',
           'more_link' => 0,
@@ -1020,7 +1020,7 @@ function hwc_toolkit_field_default_field_instances() {
       ),
       'teaser' => array(
         'label' => 'above',
-        'module' => 'smart_trim',
+        'module' => 'osha',
         'settings' => array(
           'field_formatter_class' => '',
           'more_link' => 0,
@@ -1317,7 +1317,7 @@ function hwc_toolkit_field_default_field_instances() {
         'settings' => array(
           'field_formatter_class' => '',
         ),
-        'type' => 'external_url',
+        'type' => 'external_url_name_link',
         'weight' => 6,
       ),
       'highlights_item' => array(
@@ -1464,7 +1464,7 @@ function hwc_toolkit_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'field_formatter_class' => '',
-          'image_link' => '',
+          'image_link' => 'content',
           'image_style' => 'toolkit',
         ),
         'type' => 'image',
@@ -1505,7 +1505,7 @@ function hwc_toolkit_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'field_formatter_class' => '',
-          'image_link' => '',
+          'image_link' => 'content',
           'image_style' => 'toolkit_example',
         ),
         'type' => 'image',
@@ -1707,17 +1707,8 @@ function hwc_toolkit_field_default_field_instances() {
       ),
       'default' => array(
         'label' => 'above',
-        'module' => 'date',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-          'osha_date_theme' => '',
-        ),
-        'type' => 'date_default',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 16,
       ),
       'highlights_item' => array(
@@ -1848,7 +1839,7 @@ function hwc_toolkit_field_default_field_instances() {
           'field_formatter_class' => '',
           'title_class' => '',
           'title_link' => 'content',
-          'title_style' => 'h3',
+          'title_style' => 'h2',
         ),
         'type' => 'title_linked',
         'weight' => 1,
@@ -1888,9 +1879,9 @@ function hwc_toolkit_field_default_field_instances() {
         'module' => 'title',
         'settings' => array(
           'field_formatter_class' => '',
-          'title_class' => '',
+          'title_class' => 'slider-title',
           'title_link' => 'content',
-          'title_style' => 'h3',
+          'title_style' => 'span',
         ),
         'type' => 'title_linked',
         'weight' => 1,
@@ -2724,17 +2715,8 @@ function hwc_toolkit_field_default_field_instances() {
       ),
       'default' => array(
         'label' => 'above',
-        'module' => 'date',
-        'settings' => array(
-          'field_formatter_class' => '',
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-          'osha_date_theme' => '',
-        ),
-        'type' => 'date_default',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 16,
       ),
       'highlights_item' => array(
@@ -3226,7 +3208,7 @@ function hwc_toolkit_field_default_field_instances() {
       ),
       'teaser' => array(
         'label' => 'hidden',
-        'module' => 'smart_trim',
+        'module' => 'osha',
         'settings' => array(
           'field_formatter_class' => '',
           'more_link' => 0,
@@ -3364,7 +3346,7 @@ function hwc_toolkit_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'field_formatter_class' => '',
-          'image_link' => '',
+          'image_link' => 'content',
           'image_style' => 'toolkit',
         ),
         'type' => 'image',

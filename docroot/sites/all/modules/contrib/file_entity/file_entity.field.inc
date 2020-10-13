@@ -320,7 +320,7 @@ function file_entity_field_formatter_view($entity_type, $entity, $field, $instan
         $element[$delta] = array(
           '#theme' => 'file_entity_download_link',
           '#file' => $file,
-          '#text' => $settings['text'],
+          '#text' => t($settings['text']),
         );
       }
     }

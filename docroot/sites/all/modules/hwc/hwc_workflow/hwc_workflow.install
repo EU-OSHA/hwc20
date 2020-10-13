@@ -275,3 +275,14 @@ function hwc_workflow_update_7015() {
 function hwc_workflow_update_7016() {
   features_revert_module('hwc_workflow');
 }
+
+/**
+ * MHWC-102 HWC Workflow - Notifications: should include the comments.
+ */
+function hwc_workflow_update_7017() {
+  variable_set('hwc_workflow_append_approve_mostra', TRUE);
+  variable_set('hwc_workflow_append_approve_partner', FALSE);
+  variable_set('hwc_workflow_append_published', FALSE);
+  variable_set('hwc_workflow_append_rejection', TRUE);
+  variable_set('hwc_workflow_append_reviewer', TRUE);
+}

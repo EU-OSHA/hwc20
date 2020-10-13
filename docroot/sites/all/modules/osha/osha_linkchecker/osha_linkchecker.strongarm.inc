@@ -141,7 +141,8 @@ example.org';
 304
 401
 403
-301';
+301
+900';
   $export['linkchecker_ignore_response_codes'] = $strongarm;
 
   $strongarm = new stdClass();

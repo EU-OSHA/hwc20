@@ -31,7 +31,7 @@
   <?php print render($title_prefix); ?>
 
   <?php if ($view->human_name): ?>
-    <?php print '<h1>' . $view->human_name . '</h1>'; ?>
+    <?php print '<h2 class="toolkit-h2 main">' . $view->human_name . '</h2>'; ?>
   <?php endif; ?>
 
   <?php print render($title_suffix); ?>
@@ -43,21 +43,9 @@
   <?php endif; ?>
 
   <?php if ($exposed): ?>
-    <p class="hide-filters"><a href="javascript:">Hide filters</a></p>
+    <p class="hide-filters"><a href="javascript:"><?php print ('Hide filters'); ?></a></p>
     <div class="view-filters">
       <?php print $exposed; ?>
-    </div>
-  <?php endif; ?>
-
-  <?php if ($footer): ?>
-    <div class="view-footer">
-      <?php print $footer; ?>
-    </div>
-  <?php endif; ?>
-
-  <?php if ($attachment_before): ?>
-    <div class="attachment attachment-before">
-      <?php print $attachment_before; ?>
     </div>
   <?php endif; ?>
 
@@ -71,10 +59,16 @@
     </div>
   <?php endif; ?>
 
-  <?php if ($pager): ?>
-    <?php print $pager; ?>
-  <?php endif; ?>
+  <div class="content-pagination container">
+    <?php if ($pager): ?>
+      <?php print $pager; ?>
+    <?php endif; ?>
 
-
+    <?php if ($footer): ?>
+      <div class="view-footer">
+        <?php print $footer; ?>
+      </div>
+    <?php endif; ?>
+  </div>
 
 </div><?php /* class view */ ?>

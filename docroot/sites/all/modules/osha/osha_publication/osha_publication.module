@@ -6,11 +6,8 @@
 
 include_once 'osha_publication.features.inc';
 
-if (!defined('CAMPAIGN_MATERIALS_TID')) {
-  //todo create campaign_materials term
-  define('CAMPAIGN_MATERIALS_TID', variable_get('campaign_materials_tid', 521));
-}
-define('CASE_STUDY_TID', 521);
+  define('CAMPAIGN_MATERIALS_TID', variable_get('campaign_materials_tid', 3282));
+  define('CASE_STUDY_TID', variable_get('case_study_tid', 521));
 define('OSHA_PUBLICATION_CONTENT_TYPE_PUBLICATION', 'publication');
 define('SOLR_SEARCH_INDEX', 'default_multilingual_node_index');
 define('OSHA_PDF_DOWN_PATH', 'public://pdf_download');
@@ -18,6 +15,14 @@ if (!defined('PCLZIP_TEMPORARY_DIR')) {
   define('PCLZIP_TEMPORARY_DIR', variable_get('file_temporary_path', '/tmp') . '/');
 }
 define('THEME_IMAGES_PATH', drupal_get_path('theme', 'hwc_frontend') . '/images');
+
+function osha_publications_classes($data = null) {
+  static $map = [];
+  if ($data) {
+    $map = $data;
+  }
+  return $map;
+}
 
 function osha_publication_download_pdf($node) {
   $files = array();
@@ -176,6 +181,13 @@ function osha_publication_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'cache' => DRUPAL_NO_CACHE,
   );
+  $blocks['osha_case_studies_slideshow'] = array(
+    'info' => t('Latest case studies'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+  );
 
   $blocks['osha_case_studies_listing'] = array(
     'info' => t('Case studies listing'),
@@ -205,6 +217,9 @@ function osha_publication_result_count($add = 0) {
  */
 function osha_publication_block_view($delta = '') {
   $block = array();
+  if ($delta == 'osha_case_studies_slideshow') {
+    $block['content'] = views_embed_view('case_studies_slideshow', 'slideshow');
+  }
   if ($delta == 'osha_publicatio_slideshow') {
     $block['content'] = views_embed_view('publications_slideshow', 'slidehow');
   }
@@ -328,6 +343,7 @@ function osha_publication_cron() {
       $path = drupal_realpath($uri);
       $pages_count = pdf_to_image_count_pages($path);
       $node = node_load($row->nid);
+      if ($node->field_pages_count[LANGUAGE_NONE][0]['value'] != $pages_count) {
       $node->field_pages_count[LANGUAGE_NONE][0]['value'] = $pages_count;
       $node->field_pages_count_updated[LANGUAGE_NONE][0]['timezone'] = 'Europe/Madrid';
       $node->field_pages_count_updated[LANGUAGE_NONE][0]['timezone_db'] = 'Europe/Madrid';
@@ -337,6 +353,7 @@ function osha_publication_cron() {
     }
   }
 }
+}
 
 /**
  * Implements hook_views_pre_render().
@@ -344,25 +361,6 @@ function osha_publication_cron() {
 function osha_publication_views_pre_render(&$view) {
   global $language;
 
-  if ($view->name == 'publication_type') {
-    drupal_add_css(drupal_get_path('module', 'osha_publication') . '/tools_and_publications.css');
-    foreach ($view->result as $k => $row) {
-      $view->result[$k]->field_field_tools_publications_link[0]['raw']['url'] =
-        str_replace(
-          'node/160', 'napo-film',
-          $view->result[$k]->field_field_tools_publications_link[0]['raw']['url']);
-
-      $view->result[$k]->field_field_tools_publications_link[0]['raw']['url'] =
-        str_replace(
-          '/case-studies', '/case-studies?language%5B' . $language->language . '%5D=' . $language->language . '&sort=date',
-          $view->result[$k]->field_field_tools_publications_link[0]['raw']['url']);
-
-      $view->result[$k]->field_field_tools_publications_link[0]['raw']['url'] =
-        str_replace(
-          '/publications', '/publications?language%5B' . $language->language . '%5D=' . $language->language . '&sort=date',
-          $view->result[$k]->field_field_tools_publications_link[0]['raw']['url']);
-    }
-  }
   if ($view->name == 'publications_slideshow') {
     osha_publication_result_count(count($view->result));
   }
@@ -476,6 +474,10 @@ function osha_publication_field_formatter_info() {
       'label' => t('Publication Linked and wrapped'),
       'field types' => array('text'),
       'settings' => array('title_style' => '', 'title_link' => '', 'title_class' => '', 'trim_length' => '', 'trim_suffix' => ''),
+    ),
+    'osha_publication_type' => array(
+      'label' => t('Publication Type (localized)'),
+      'field types' => array('taxonomy_term_reference'),
     ),
   );
   return $info;
@@ -615,6 +617,7 @@ function osha_publication_ctools_plugin_directory($owner, $plugin_type) {
  * Implements hook_field_formatter_view().
  */
 function osha_publication_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  global $language;
   $element = array();
   switch ($display['type']) {
     case 'file_publication_file':
@@ -718,8 +721,36 @@ function osha_publication_field_formatter_view($entity_type, $entity, $field, $i
       );
 
       break;
+
+    case 'osha_publication_type':
+      foreach ($items as $delta => $item) {
+        if (!@$item['taxonomy_term']->field_main_category[LANGUAGE_NONE][0]['value'] && variable_get('show_main_publication_type', TRUE)) {
+          $map = osha_publication_get_main_publication_types_map(FALSE);
+          if (isset($map[$item['tid']])) {
+            $item['taxonomy_term'] = taxonomy_term_load($map[$item['tid']]);
+          }
+        }
+        $name = ($item['tid'] != 'autocreate' ? i18n_taxonomy_term_name($item['taxonomy_term'], $language->language): $item['name']);
+        $element[$delta] = array(
+          '#markup' => check_plain($name),
+        );
+      }
+      break;
   }
   return $element;
+}
+
+/**
+ * Implements hook_field_formatter_prepare_view().
+ *
+ * This preloads all taxonomy terms for multiple loaded objects at once and
+ * unsets values for invalid terms that do not exist.
+ */
+function osha_publication_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, &$items, $displays) {
+  if ($field['type'] != 'taxonomy_term_reference') {
+    return;
+  }
+  return taxonomy_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, $items, $displays);
 }
 
 /**
@@ -963,6 +994,20 @@ function osha_publication_osha_tmgmt_i18n_string_list() {
  * Implements hook_panels_pane_content_alter().
  */
 function osha_publication_panels_pane_content_alter(&$content, &$pane, $args, $context) {
+  if ('osha_publicatio_slideshow' === $content->delta) {
+    $content->admin_links[] = [
+      'title' => 'Edit queue',
+      'href' => 'admin/structure/nodequeue/1/view',
+    ];
+  }
+
+  if ('osha_case_studies_slideshow' === $content->delta) {
+    $content->admin_links[] = [
+      'title' => 'Edit queue',
+      'href' => 'admin/structure/nodequeue/20/view',
+    ];
+  }
+
   if (isset($pane->configuration['admin_title'])) {
     if ($pane->configuration['admin_title'] == 'publication_additional_resources_title') {
       $node = reset($context)->data;
@@ -970,4 +1015,86 @@ function osha_publication_panels_pane_content_alter(&$content, &$pane, $args, $c
       $content->content = !empty($node->field_aditional_resources) ? $title : '';
     }
   }
+}
+
+function _osha_publication_priority_area_options_list() {
+
+  $return = array();
+  $q = db_select('field_data_field_msd_priority_area', 't')
+    ->distinct();
+  $q->fields('t', array('field_msd_priority_area_tid'));
+  $q->condition('entity_type', 'node');
+  $q->condition('bundle', 'publication');
+  $q->innerJoin('taxonomy_term_data', 'td', 'td.tid = t.field_msd_priority_area_tid');
+  $q->orderBy('td.name', 'ASC');
+  $tids = $q->execute()->fetchCol();
+  $terms = taxonomy_term_load_multiple($tids);
+  if (!empty($terms)) {
+    foreach ($terms as $key => $term) {
+      $return[$term->tid] = $term->name;
+    }
+  }
+  asort($return);
+  return $return;
+}
+
+function _osha_publication_msd_priority_area_options_list() {
+
+  $return = array();
+  $q = db_select('field_data_field_msd_priority_area', 't')
+    ->distinct();
+  $q->fields('t', array('field_msd_priority_area_tid'));
+  $q->condition('entity_type', 'node');
+  $q->condition('bundle', 'publication');
+  $q->innerJoin('taxonomy_term_data', 'td', 'td.tid = t.field_msd_priority_area_tid');
+  $q->orderBy('td.name', 'ASC');
+  $tids = $q->execute()->fetchCol();
+  $terms = taxonomy_term_load_multiple($tids);
+  if (!empty($terms)) {
+    foreach ($terms as $key => $term) {
+      $return[$term->tid] = $term->name;
+    }
+  }
+  asort($return);
+  return $return;
+}
+
+
+function _osha_publication_publication_language_list_options($prefix = TRUE, $native = TRUE) {
+  return _osha_publication_language_list_options($prefix, $native, FALSE);
+}
+
+function _osha_publication_case_study_language_list_options($prefix = TRUE, $native = TRUE) {
+  return _osha_publication_language_list_options($prefix, $native, TRUE);
+}
+
+function _osha_publication_language_list_options($prefix, $native, $is_case_study) {
+  $q = db_select('field_data_field_file', 't')->distinct();
+  $q->fields('t', array('language'));
+  $q->condition('t.entity_type', 'node');
+  $q->condition('t.bundle', 'publication');
+
+  if ($is_case_study) {
+    $q->condition('field_publication_type_tid', CASE_STUDY_TID);
+  }
+  else {
+    $q->condition('field_publication_type_tid', CASE_STUDY_TID, '!=');
+  }
+  $q->innerJoin('field_data_field_publication_type', 'pt', 'pt.entity_id = t.entity_id');
+  $used = $q->execute()->fetchAllKeyed(0,0);
+
+  // Used by hwc_practical_tool_get_facets_def and _oira_promotional_material_search_form_get_facets.
+  // For tools and promotional materials we don't exclude Catalan.
+  $disabled = osha_disabled_language_list();
+  unset($disabled['ca']);
+  $languages = osha_language_list_options($native);
+  if ($prefix) {
+    foreach ($languages as $lang_code => $value) {
+      $languages[$lang_code] = strtoupper($lang_code) . ' - ' . $value;
+      if (empty($used[$lang_code])) {
+        unset($languages[$lang_code]);
+      }
+    }
+  }
+  return $languages;
 }

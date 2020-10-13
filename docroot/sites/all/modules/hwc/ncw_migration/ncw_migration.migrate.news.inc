@@ -44,6 +44,19 @@ class NCWNewsMigration extends AbstractNCWNodeMigration {
   }
 
   /**
+   * Implements Migration::prepare()
+   */
+  public function prepare($entity, stdClass $row) {
+    parent::prepare($entity, $row);
+    if ($row->field_image_image_captions_language) {
+      foreach ($row->field_image_image_captions_language as $i => $lang) {
+        $entity->field_image[$lang][$i]['image_field_caption']['value'] = $row->field_image_image_captions[$i];
+        $entity->field_image[$lang][$i]['image_field_caption']['format'] = 'full_html';
+      }
+    }
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function prepareRow($row) {
@@ -62,6 +75,7 @@ class NCWNewsMigration extends AbstractNCWNodeMigration {
       }
     }
   }
+
 }
 
 
@@ -96,6 +110,7 @@ class NCWNewsSource extends AbstractNCWNodeSource {
       'field_aditional_resources',
       'field_migration_source',
       'field_migration_path_alias',
+      'field_show_on',
     );
     return array_combine($fields, $fields);
   }

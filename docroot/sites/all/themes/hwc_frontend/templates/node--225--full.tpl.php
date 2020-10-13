@@ -25,7 +25,7 @@
   <?php endif; ?>
   <?php
     print render($content['field_image']);
-    print render($content['title_field']);
+    hide($content['title_field']);
   ?>
   <div class="container-fluid">
     <?php

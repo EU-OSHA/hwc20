@@ -29,17 +29,22 @@ function hwc_good_practice_exchange_views_default_views() {
   $handler->display->display_options['access']['role'] = array(
     3 => '3',
     12 => '12',
-    15 => '15',
     17 => '17',
-    14 => '14',
-    11 => '11',
     13 => '13',
+    19 => '19',
+    15 => '15',
+    11 => '11',
+    14 => '14',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Header: Global: Result summary */
@@ -292,6 +297,20 @@ function hwc_good_practice_exchange_views_default_views() {
   $handler->display->display_options['fields']['search_api_relevance']['alter']['text'] = '<a href=\'[url]\'>See more</a>';
   $handler->display->display_options['fields']['search_api_relevance']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['search_api_relevance']['link_to_entity'] = 0;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Indexed Multilingual Content: Publication date */
+  $handler->display->display_options['sorts']['field_publication_date']['id'] = 'field_publication_date';
+  $handler->display->display_options['sorts']['field_publication_date']['table'] = 'search_api_index_default_multilingual_node_index';
+  $handler->display->display_options['sorts']['field_publication_date']['field'] = 'field_publication_date';
+  $handler->display->display_options['sorts']['field_publication_date']['order'] = 'DESC';
+  $handler->display->display_options['sorts']['field_publication_date']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['field_publication_date']['expose']['label'] = 'Date of publication';
+  /* Sort criterion: Indexed Multilingual Content: Title #2 */
+  $handler->display->display_options['sorts']['title2']['id'] = 'title2';
+  $handler->display->display_options['sorts']['title2']['table'] = 'search_api_index_default_multilingual_node_index';
+  $handler->display->display_options['sorts']['title2']['field'] = 'title2';
+  $handler->display->display_options['sorts']['title2']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['title2']['expose']['label'] = 'Alphabetically';
   $handler->display->display_options['path'] = 'good-practice-exchange-platform';
   $translatables['documents'] = array(
     t('Master'),
@@ -396,7 +415,7 @@ function hwc_good_practice_exchange_views_default_views() {
   $handler->display->display_options['sorts']['position']['table'] = 'nodequeue_nodes';
   $handler->display->display_options['sorts']['position']['field'] = 'position';
   $handler->display->display_options['sorts']['position']['relationship'] = 'nodequeue_rel';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';

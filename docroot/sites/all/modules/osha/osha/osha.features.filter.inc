@@ -14,7 +14,7 @@ function osha_filter_default_formats() {
   $formats['filtered_html'] = array(
     'format' => 'filtered_html',
     'name' => 'Filtered HTML',
-    'cache' => 1,
+    'cache' => 0,
     'status' => 1,
     'weight' => 1,
     'filters' => array(
@@ -44,6 +44,11 @@ function osha_filter_default_formats() {
         'status' => 1,
         'settings' => array(),
       ),
+      'filter_lexicon' => array(
+        'weight' => 50,
+        'status' => 1,
+        'settings' => array(),
+      ),
     ),
   );
 
@@ -51,7 +56,7 @@ function osha_filter_default_formats() {
   $formats['full_html'] = array(
     'format' => 'full_html',
     'name' => 'Full HTML',
-    'cache' => 1,
+    'cache' => 0,
     'status' => 1,
     'weight' => 0,
     'filters' => array(
@@ -79,6 +84,11 @@ function osha_filter_default_formats() {
       ),
       'hwc_tmgmt_filter_id' => array(
         'weight' => 11,
+        'status' => 1,
+        'settings' => array(),
+      ),
+      'filter_lexicon' => array(
+        'weight' => 50,
         'status' => 1,
         'settings' => array(),
       ),

@@ -575,7 +575,7 @@ function osha_events_field_default_field_instances() {
       ),
       'osha_resources' => array(
         'label' => 'above',
-        'module' => 'smart_trim',
+        'module' => 'osha',
         'settings' => array(
           'field_formatter_class' => '',
           'more_link' => FALSE,
@@ -679,7 +679,7 @@ function osha_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 30,
+        'weight' => 32,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -777,7 +777,7 @@ function osha_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 41,
+        'weight' => 43,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -867,7 +867,7 @@ function osha_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 48,
+        'weight' => 50,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -957,7 +957,7 @@ function osha_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 44,
+        'weight' => 46,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1047,7 +1047,7 @@ function osha_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 45,
+        'weight' => 47,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1137,7 +1137,7 @@ function osha_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 43,
+        'weight' => 45,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1217,7 +1217,7 @@ function osha_events_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 57,
+        'weight' => 59,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1299,7 +1299,7 @@ function osha_events_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 26,
+        'weight' => 28,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1421,7 +1421,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 50,
+        'weight' => 52,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1506,7 +1506,7 @@ Grey - Only web or not attendance',
           'field_formatter_class' => '',
         ),
         'type' => 'email_default',
-        'weight' => 13,
+        'weight' => 15,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1606,7 +1606,7 @@ Grey - Only web or not attendance',
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 11,
+        'weight' => 13,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1715,7 +1715,7 @@ Grey - Only web or not attendance',
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 12,
+        'weight' => 14,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1821,7 +1821,7 @@ Grey - Only web or not attendance',
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 27,
+        'weight' => 29,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -1931,7 +1931,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 47,
+        'weight' => 49,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2010,7 +2010,7 @@ Grey - Only web or not attendance',
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 52,
+        'weight' => 54,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2105,7 +2105,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 40,
+        'weight' => 42,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2292,7 +2292,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 56,
+        'weight' => 58,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2374,7 +2374,7 @@ Grey - Only web or not attendance',
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 25,
+        'weight' => 27,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2482,7 +2482,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 55,
+        'weight' => 57,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2564,7 +2564,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 53,
+        'weight' => 55,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2654,7 +2654,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 32,
+        'weight' => 34,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2736,7 +2736,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 37,
+        'weight' => 39,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2817,7 +2817,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 35,
+        'weight' => 37,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -2908,7 +2908,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 59,
+        'weight' => 61,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -3000,7 +3000,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 49,
+        'weight' => 51,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -3072,7 +3072,7 @@ Grey - Only web or not attendance',
     'bundle' => 'events',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Please indicate here the organisation responsible for the organisation of the event. If an acronym exists for the organisation, please include “acronym (UPPERCASE) ‘-‘complete name (sentence case)”: (i.e.. HSE – Health and Safety Executive)',
+    'description' => 'Please indicate here the organisation responsible for the organisation of the event. If an acronym exists for the organisation, please include “acronym (UPPERCASE) ‘-‘complete name (sentence case)”: (i.e.. EU-OSHA – European Agency for Safety and Health at Work)',
     'display' => array(
       'body' => array(
         'label' => 'above',
@@ -3195,7 +3195,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 28,
+        'weight' => 30,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -3301,7 +3301,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 54,
+        'weight' => 56,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -3385,7 +3385,7 @@ Grey - Only web or not attendance',
           'field_formatter_class' => '',
         ),
         'type' => 'field_file',
-        'weight' => 15,
+        'weight' => 17,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -3524,7 +3524,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 46,
+        'weight' => 48,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -3715,7 +3715,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 51,
+        'weight' => 53,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -3801,7 +3801,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 31,
+        'weight' => 33,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -3862,6 +3862,88 @@ Grey - Only web or not attendance',
       ),
       'type' => 'options_onoff',
       'weight' => 37,
+    ),
+    'workbench_access_field' => 0,
+  );
+
+  // Exported field_instance: 'node-events-field_show_on'.
+  $field_instances['node-events-field_show_on'] = array(
+    'bundle' => 'events',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'body' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 62,
+      ),
+      'highlights_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'hwc_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'newsletter_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'osha_resources' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'priority_areas' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'title_body' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_show_on',
+    'label' => 'Show on',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 51,
     ),
     'workbench_access_field' => 0,
   );
@@ -3994,7 +4076,7 @@ Grey - Only web or not attendance',
           'osha_date_theme' => 'with_time',
         ),
         'type' => 'date_default',
-        'weight' => 9,
+        'weight' => 10,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -4134,7 +4216,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 29,
+        'weight' => 31,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -4232,7 +4314,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 58,
+        'weight' => 60,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -4314,7 +4396,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 42,
+        'weight' => 44,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -4399,7 +4481,7 @@ Grey - Only web or not attendance',
           'field_formatter_class' => '',
         ),
         'type' => 'link_default',
-        'weight' => 14,
+        'weight' => 16,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -4523,7 +4605,7 @@ Grey - Only web or not attendance',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 34,
+        'weight' => 36,
       ),
       'highlights_item' => array(
         'label' => 'above',
@@ -4721,82 +4803,6 @@ Grey - Only web or not attendance',
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'taxonomy_term-organised_by-description_field'.
-  $field_instances['taxonomy_term-organised_by-description_field'] = array(
-    'bundle' => 'organised_by',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 1,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'description_field',
-    'label' => 'Description',
-    'required' => FALSE,
-    'settings' => array(
-      'display_summary' => 0,
-      'entity_translation_sync' => FALSE,
-      'hide_label' => array(
-        'entity' => FALSE,
-        'page' => FALSE,
-      ),
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
-      ),
-      'type' => 'text_textarea_with_summary',
-      'weight' => -5,
-    ),
-  );
-
-  // Exported field_instance: 'taxonomy_term-organised_by-name_field'.
-  $field_instances['taxonomy_term-organised_by-name_field'] = array(
-    'bundle' => 'organised_by',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'name_field',
-    'label' => 'Name',
-    'required' => TRUE,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'hide_label' => array(
-        'entity' => FALSE,
-        'page' => FALSE,
-      ),
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => -5,
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
   t('Activity');
@@ -4829,7 +4835,6 @@ Grey - Only web or not attendance',
   t('Migration Path Alias');
   t('Modified by');
   t('Modified on');
-  t('Name');
   t('Name of the speaker');
   t('Number of attendees');
   t('Organisation');
@@ -4841,7 +4846,7 @@ Grey - Only web or not attendance',
   t('Please add here the official title of the event. Please do not use ALL CAPS, but sentence case (i.e. Towards Better Work and Well-being)');
   t('Please choose the appropriate type of event.');
   t('Please download the publications request form and send it to the publications team at least 4 weeks before the event is taking place.');
-  t('Please indicate here the organisation responsible for the organisation of the event. If an acronym exists for the organisation, please include “acronym (UPPERCASE) ‘-‘complete name (sentence case)”: (i.e.. HSE – Health and Safety Executive)');
+  t('Please indicate here the organisation responsible for the organisation of the event. If an acronym exists for the organisation, please include “acronym (UPPERCASE) ‘-‘complete name (sentence case)”: (i.e.. EU-OSHA – European Agency for Safety and Health at Work)');
   t('Please indicate, if event’s item should be published on the website or not.');
   t('Please indicate, if the agenda of the event is available.');
   t('Please indicate, if this event is to be counted in the framework of the KPI monitoring framework.');
@@ -4861,6 +4866,7 @@ Grey - Only web or not attendance');
   t('Select the date from the calendar.');
   t('Show EU flag');
   t('Show in NCW');
+  t('Show on');
   t('Speaker');
   t('Speech date');
   t('Speech title');

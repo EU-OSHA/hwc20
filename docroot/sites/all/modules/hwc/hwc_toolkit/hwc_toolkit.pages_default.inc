@@ -107,7 +107,7 @@ function hwc_toolkit_default_page_manager_handlers() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Campaign toolkit';
   $display->uuid = 'f28329e8-73c2-40e3-a342-f51048b664f6';
   $display->storage_type = 'unknown';
   $display->storage_id = '';
@@ -122,21 +122,29 @@ function hwc_toolkit_default_page_manager_handlers() {
   $pane->access = array();
   $pane->configuration = array(
     'label' => 'hidden',
-    'formatter' => 'hwc_toolkit_term_title',
+    'formatter' => 'title_linked',
     'delta_limit' => 0,
     'delta_offset' => '0',
     'delta_reversed' => FALSE,
-    'formatter_settings' => array(),
+    'formatter_settings' => array(
+      'title_style' => 'h2',
+      'title_link' => '',
+      'title_class' => 'toolkit-h2 main',
+      'field_formatter_class' => 'h2',
+    ),
     'context' => 'argument_term_1',
     'override_title' => 0,
-    'override_title_text' => '',
-    'override_title_heading' => 'h1',
+    'override_title_text' => '%title',
+    'override_title_heading' => 'h2',
   );
   $pane->cache = array();
   $pane->style = array(
     'settings' => NULL,
   );
-  $pane->css = array();
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'toolkit-h2',
+  );
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
@@ -230,7 +238,7 @@ function hwc_toolkit_default_page_manager_handlers() {
   $pane->uuid = '4623ca35-85b7-494a-b36f-229dc12489e0';
   $display->content['new-4623ca35-85b7-494a-b36f-229dc12489e0'] = $pane;
   $display->panels['left'][0] = 'new-4623ca35-85b7-494a-b36f-229dc12489e0';
-  $display->hide_title = PANELS_TITLE_NONE;
+  $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $export['term_view__panel_context_106e85f7-f6ea-4a87-a34e-3643d8850d28'] = $handler;

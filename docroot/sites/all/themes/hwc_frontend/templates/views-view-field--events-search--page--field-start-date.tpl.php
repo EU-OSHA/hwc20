@@ -25,8 +25,12 @@ $country_code = $row->_field_data['field_country_code']['entity']->field_country
 if ($row->_entity_properties['entity object']->field_show_eu_flag && $row->_entity_properties['entity object']->field_show_eu_flag['und'][0]['value']) {
   $country_code = 'EU';
 }
-
-?>
-<div class="event_day_month">
-    <div class="event_country code_<?php print $country_code; ?>"> </div>
-</div>
+if ($country_code == 'EUROPA') {
+  $country_code = 'EU';
+}
+$content = '<div class="event_day_month"><div class="event_country code_' . $country_code . '"> </div></div>';
+$nid = $row->entity;
+if (is_object($row->entity)) {
+  $nid = $row->entity->nid;
+}
+echo l($content, 'node/' . $nid, ['html' => TRUE]);

@@ -4587,10 +4587,10 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   color: #444444;
 }
 .breadcrumb {
-  padding: "??" "??";
+  padding: 1px 1px;
   margin-bottom: 20px;
   list-style: none;
-  background-color: "??";
+  background-color: #003399;
   border-radius: 4px;
 }
 .breadcrumb > li {
@@ -4621,8 +4621,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   line-height: 1.42857143;
   text-decoration: none;
   color: #003399;
-  background-color: "??";
-  border: 1px solid "??";
+  background-color: #003399;
+  border: 1px solid #003399;
   margin-left: -1px;
 }
 .pagination > li:first-child > a,
@@ -4640,9 +4640,9 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > span:hover,
 .pagination > li > a:focus,
 .pagination > li > span:focus {
-  color: "??";
-  background-color: "??";
-  border-color: "??";
+  color: #003399;
+  background-color: #003399;
+  border-color: #003399;
 }
 .pagination > .active > a,
 .pagination > .active > span,
@@ -4652,8 +4652,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > .active > span:focus {
   z-index: 2;
   color: #575757;
-  background-color: "??";
-  border-color: "??";
+  background-color: #003399;
+  border-color: #003399;
   cursor: default;
 }
 .pagination > .disabled > span,
@@ -4662,9 +4662,9 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > .disabled > a,
 .pagination > .disabled > a:hover,
 .pagination > .disabled > a:focus {
-  color: "??";
-  background-color: "??";
-  border-color: "??";
+  color: #003399;
+  background-color: #003399;
+  border-color: #003399;
   cursor: not-allowed;
 }
 .pagination-lg > li > a,
@@ -4710,14 +4710,14 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pager li > span {
   display: inline-block;
   padding: 5px 14px;
-  background-color: "??";
-  border: 1px solid "??";
+  background-color: #003399;
+  border: 1px solid #003399;
   border-radius: 15px;
 }
 .pager li > a:hover,
 .pager li > a:focus {
   text-decoration: none;
-  background-color: "??";
+  background-color: #003399;
 }
 .pager .next > a,
 .pager .next > span {
@@ -4731,8 +4731,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pager .disabled > a:hover,
 .pager .disabled > a:focus,
 .pager .disabled > span {
-  color: "??";
-  background-color: "??";
+  color: #003399;
+  background-color: #003399;
   cursor: not-allowed;
 }
 .label {
@@ -6057,9 +6057,6 @@ button.close {
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
-    -webkit-perspective: 1000;
-    -moz-perspective: 1000;
-    perspective: 1000;
   }
   .carousel-inner > .item.next,
   .carousel-inner > .item.active.right {
@@ -6615,7 +6612,6 @@ body a:focus {
 }
 body .form-control {
   border-radius: 0;
-  border-color: #003399;
   color: #575757;
   width: auto;
   box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0);
@@ -6655,15 +6651,6 @@ body .btn.focus,
 body .btn:active.focus,
 body .btn.active.focus {
   outline: 0;
-}
-body .btn-primary:hover,
-body .btn-primary:focus,
-body .btn-primary.focus,
-body .btn-primary:active,
-body .btn-primary.active,
-body .open > .dropdown-toggle.btn-primary {
-  background-color: #003399;
-  border-color: #003399;
 }
 .navbar.container {
   margin-top: 20px;
@@ -6883,7 +6870,7 @@ ul li.leaf {
 }
 .submitted {
   margin-bottom: 1em;
-  font-style: italic;
+  font-style: normal;
   font-weight: normal;
   color: #777;
 }
@@ -7282,47 +7269,55 @@ header.navbar-default .campaigns-header .navbar-header {
 header.navbar-default .campaigns-header .navbar-header a.pull-left {
   border-right: 1px solid #003399;
   padding-right: 2em;
-  margin-right: 2em;
-}
-header.navbar-default .campaigns-header .navbar-header img:nth-child(1) {
-  margin-top: 5px;
-  width: 150px;
-  height: auto;
-  margin-left: 30px;
+  margin-right: 1em;
+  padding-bottom: 7px;
 }
 header.navbar-default .campaigns-header .navbar-header a img.pull-left {
-  width: 190px;
   height: auto;
-  margin-top: 44px;
   margin-left: 0px;
 }
 header.navbar-default .campaigns-header .navbar-header img:nth-child(3) {
-  padding-top: 69px;
-  padding-bottom: 32px;
-  padding-right: 15px;
-  border-right: 1px solid #003399;
-  width: 80px;
+  padding-top: 36px;
+  padding-bottom: 41px;
+  padding-right: 24px;
+  width: 89px;
   height: auto;
-  margin-left: 10px;
+  margin-left: 23px;
+  border-right: 1px solid #003399;
 }
 header.navbar-default .campaigns-header .navbar-header .header-text {
   color: #003399;
   font-size: 1.6em;
   font-weight: bold;
   max-width: 315px;
-  padding-top: 1em;
+  padding-top: 8px;
   padding-left: 1.5em;
   float: left;
 }
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(bg),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(da),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(el),
-header.navbar-default .campaigns-header .navbar-header .header-text:lang(de),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(et),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(fr),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(hr),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(is),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(it),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(lv),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(hu),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(mt),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(no),
 header.navbar-default .campaigns-header .navbar-header .header-text:lang(pl),
-header.navbar-default .campaigns-header .navbar-header .header-text:lang(ro) {
-  font-size: 1.25em;
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(pt),
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(fi) {
+  font-size: 1.25em !important;
   padding-left: 1em;
+}
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(ro) {
+  font-size: 1.2em !important;
+  padding-left: 1em;
+}
+header.navbar-default .campaigns-header .navbar-header .header-text:lang(de) {
+  max-width: 315px !important;
 }
 header.navbar-default .campaigns-header .navbar-header #block-lang-dropdown-language {
   float: right;
@@ -7410,7 +7405,7 @@ header.navbar-default .campaigns-header .navbar-header #block-search-form #edit-
   margin-bottom: 0px;
 }
 header.navbar-default .campaigns-header .row:first-of-type {
-  padding: 5px 20px 0px 15px;
+  padding: 0 20px 0 0;
 }
 header.navbar-default .campaigns-header #block-menu-menu-header-login {
   float: right;
@@ -7433,7 +7428,7 @@ header.navbar-default .campaigns-header #block-block-1 {
   right: 0;
   top: 116px;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 header.navbar-default .campaigns-header #block-block-1 a:before {
   content: ">";
@@ -7441,7 +7436,7 @@ header.navbar-default .campaigns-header #block-block-1 a:before {
 }
 header.navbar-default .campaigns-header #block-hwc-partner-hwc-partner-back-to-profile {
   font-weight: 700;
-  font-style: italic;
+  font-style: normal;
   float: right;
   font-size: .89em;
   padding-top: 5px;
@@ -7455,9 +7450,6 @@ header.navbar-default .campaigns-header #block-hwc-partner-hwc-partner-back-to-p
 header.navbar-default .navbar-collapse {
   padding: 0;
   border: none;
-}
-header.navbar-default .navbar-collapse nav {
-  margin: 10px 0 0;
 }
 header.navbar-default .navbar-collapse nav ul.menu {
   background-color: #003399;
@@ -7500,7 +7492,7 @@ header.navbar-default .navbar-collapse nav ul.menu li .dropdown-toggle:hover {
 }
 header.navbar-default .navbar-collapse nav ul.menu li .dropdown-menu {
   padding: 0;
-  min-width: 100%;
+  width: 100%;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
   border: none;
   background-color: #003399;
@@ -7519,7 +7511,7 @@ header.navbar-default .navbar-collapse nav ul.menu li .dropdown-menu li {
 header.navbar-default .navbar-collapse nav ul.menu li .dropdown-menu li a {
   text-align: left;
   display: inline;
-  font-style: italic;
+  font-style: normal;
   padding: 0;
   white-space: normal;
   text-transform: none;
@@ -7610,6 +7602,12 @@ header.navbar-default .navbar-collapse nav ul.menu > li.first a:before {
   margin-bottom: 39px;
   background-position: center;
 }
+header.navbar-default .campaigns-header .navbar-header img:nth-child(1) {
+  margin-left: 30px;
+}
+#navbar > div > div:nth-child(1) {
+  padding: 10px 20px 10px 70px;
+}
 .nav-up {
   top: -210px !important;
 }
@@ -7623,6 +7621,7 @@ header.navbar-default .navbar-collapse nav ul.menu > li.first a:before {
 .region-above-header.region > div {
   float: left;
   margin-right: -5px;
+  clear: none;
 }
 .region-above-header.region a#text_resize_increase,
 .region-above-header.region a#text_resize_decrease {
@@ -7720,40 +7719,52 @@ header.navbar-default .navbar-collapse nav ul.menu > li.first a:before {
   .sticky-menu .col-sm-9 {
     width: 100% !important;
   }
+  .sticky-menu .col-sm-9 a.pull-left {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    display: inline-block;
+    width: 100px;
+    height: 77px;
+    float: left;
+    background-repeat: no-repeat;
+    margin-top: 6px;
+    padding-right: 8em !important;
+  }
   .sticky-menu .col-sm-9 a.pull-left img {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    width: 100px !important;
-    height: 77px !important;
+    height: 79px !important;
+    margin-left: 5px !important;
   }
-  .sticky-menu .col-sm-9 a[title*="EU-OSHA"] {
+  .sticky-menu .col-sm-9 a:nth-child(2) {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    background-image: url("/sites/all/themes/hwc_frontend/images/header/EU-OSHA-en.png");
     display: inline-block;
     width: 220px;
-    height: 70px;
+    height: 83px;
     float: left;
-    background-repeat: no-repeat;
-    background-size: 206px;
-    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    padding-top: 0;
   }
-  .sticky-menu .col-sm-9 a[title*="EU-OSHA"] img.pull-left {
+  .sticky-menu .col-sm-9 a:nth-child(2) img.pull-left {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    width: 160px !important;
-    height: 95px !important;
+    width: 220px;
+    height: 70px !important;
     margin-top: 0px !important;
-    display: none;
   }
   .sticky-menu .col-sm-9 img[alt*="EU logo"] {
     -webkit-transition: all 0.3s;
@@ -7761,7 +7772,7 @@ header.navbar-default .navbar-collapse nav ul.menu > li.first a:before {
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    padding-top: 42px !important;
+    padding-top: 27px !important;
     padding-bottom: 0px !important;
     padding-right: 0em !important;
     border-right: none !important;
@@ -7775,7 +7786,7 @@ header.navbar-default .navbar-collapse nav ul.menu > li.first a:before {
     transition: all 0.6s;
     font-size: 1.5em !important;
     width: 300px !important;
-    padding-top: 0.3em !important;
+    padding-top: 0.5em !important;
     padding-left: 0em !important;
     float: right !important;
     text-align: right !important;
@@ -7810,37 +7821,16 @@ body.tk-pages {
 body .form-type-password.form-item-pass {
   padding-bottom: 1em;
 }
-body .btn-default,
-body .more-link,
-body .btn-primary {
-  color: #ffffff;
-  background-color: #003399;
-  border-radius: 0;
-  border: none;
-  width: auto;
-  display: inline;
-  padding: 0.5em;
-}
-body .btn-default a,
-body .more-link a,
-body .btn-primary a {
-  color: #ffffff;
-}
-body .btn-default:before,
-body .more-link:before {
-  content: ">";
-  padding-right: 0.35em;
-}
 body input[type="text"],
 body textarea,
 body textarea.form-control,
 body select {
   color: #003399;
   border-color: #003399;
+  border: 1px solid #003399;
   border-radius: 0;
 }
 body iframe {
-  border: 1px solid;
   max-width: 100%;
 }
 body a {
@@ -7866,7 +7856,7 @@ body .modal-content .views-submit-button {
 body .required-form-fields {
   float: right;
   margin-top: 1em;
-  font-style: italic;
+  font-style: normal;
 }
 body p a.inline-href,
 body.private-area #private .pane-custom p a.inline-href,
@@ -7922,6 +7912,9 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
   border-right-color: #749b00;
   border-style: dotted;
 }
+ul.tabs--primary.nav.nav-tabs > li > a {
+  padding: 10px 8px;
+}
 .pane-node-field-publication-type .field-name-field-activity,
 .pane-node-field-publication-type .field-type-taxonomy-term-reference {
   display: block;
@@ -7952,26 +7945,6 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
   margin-bottom: 0;
   margin-top: 0;
   padding-bottom: 0em;
-}
-.main-container h2 {
-  color: #575757;
-  font-size: 30px;
-  font-weight: 100;
-  font-style: italic;
-  margin-top: 0px;
-}
-.main-container h2 a:empty {
-  display: none;
-}
-.main-container h2 a:before {
-  content: ">";
-  padding-right: 10px;
-}
-.main-container h2.block-title {
-  color: #749b00;
-  font-size: 30px;
-  font-weight: bold;
-  font-style: normal;
 }
 .main-container h4,
 .main-container .h4-title {
@@ -8006,105 +7979,6 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
   text-align: center;
   font-size: 1.2em;
 }
-.facetapi-facetapi-checkbox-links {
-  margin-top: 10px;
-}
-.facetapi-facetapi-checkbox-links li {
-  color: #003399;
-  margin-bottom: 10px;
-}
-.facetapi-facetapi-checkbox-links li input[type="checkbox"] {
-  margin-right: 0.5em;
-  margin-right: 15px;
-}
-.facetapi-facetapi-checkbox-links li input[type="checkbox"]:before {
-  border: 2px solid #003399;
-  content: "\2716";
-  padding: 0px 1px 0px 3px;
-  margin-right: 10px;
-  color: #ffffff;
-  width: 20px;
-  height: 20px;
-  background-color: white;
-}
-.facetapi-facetapi-checkbox-links li input[type="checkbox"]:checked:before {
-  content: "\2713";
-  color: #003399;
-}
-.facetapi-facetapi-checkbox-links li #facetapi-link--all--checkbox {
-  margin-right: 15px;
-}
-.facetapi-facetapi-checkbox-links li a {
-  font-family: 'Open Sans';
-}
-.checkbox input[type="checkbox"] {
-  display: none;
-}
-.checkbox label {
-  color: #003399;
-  padding-left: 0;
-  font-family: 'Open Sans';
-}
-.checkbox label:before {
-  border: 2px solid #003399;
-  content: " ";
-  padding: 0px 7px 0px 7px;
-  margin-right: 10px;
-  color: #ffffff;
-  font-weight: normal;
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-.checkbox input[type=checkbox]:checked + label:before {
-  content: "\2713";
-  color: #003399;
-  padding: 0px 2px 0px 2px;
-  margin-right: 6px;
-  font-weight: normal;
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-.checkbox input[type=checkbox]:checked {
-  display: inline-block;
-  margin-left: -25px;
-  margin-top: 2px;
-  cursor: pointer;
-  width: 0px !important;
-}
-.checkbox input[type=checkbox]:checked:before {
-  content: "\2713";
-  color: #003399;
-  padding: 0px 2px 0px 2px;
-  margin-right: 6px;
-  font-weight: normal;
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-  margin-top: 0px;
-  display: block;
-  background-color: white;
-  height: 15px;
-  width: 13px;
-  line-height: 19px;
-}
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .checkbox input[type=checkbox]:checked {
-    display: inline-block;
-    margin-left: -16px;
-    margin-top: 5px;
-    cursor: pointer;
-  }
-  .checkbox input[type=checkbox]:checked:before {
-    content: "\2713";
-    color: #003399;
-    padding: 0px 2px 0px 2px;
-    margin-right: 6px;
-    font-weight: normal;
-    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-    margin-top: 0px;
-    display: block;
-    background-color: white;
-    height: 15px;
-    width: 13px;
-    line-height: 19px;
-  }
-}
 .radio {
   margin-bottom: 0.5em;
 }
@@ -8138,14 +8012,17 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
 }
 .back-to-link {
   font-weight: bold;
-  font-style: italic;
   margin-bottom: 0.5em;
-  text-align: right;
+  text-align: left;
   width: 100%;
-  border-bottom: 1px dotted #749b00;
 }
 .back-to-link:before {
-  content: ">";
+  content: " ";
+  background: url(../images/pag-back.png) 1px 5px no-repeat;
+  width: 17px;
+  height: 17px;
+  display: block;
+  float: left;
   padding-right: 5px;
 }
 /* breadcrumb */
@@ -8163,13 +8040,12 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
 }
 .breadcrumb span a {
   color: #003399;
-  font-style: italic;
 }
 /* Share */
 .a2a_kit.a2a_target.addtoany_list span.a2a_img_text {
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .a2a_kit.a2a_target.addtoany_list .a2a_i_facebook {
   background: url("../images/content/facebook.png") no-repeat center;
@@ -8249,7 +8125,7 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
 #block-views-news-oshnews-latest ul.menu li a,
 .panels-flexible-column-new-1 ul.menu li a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   font-size: 1.05em;
 }
 .tools-and-resources-block ul.menu li a:before,
@@ -8298,7 +8174,7 @@ ul.tabs--primary.nav.nav-tabs > li.active > a:focus {
 #block-views-news-oshnews-latest .view-news .views-row a,
 .panels-flexible-column-new-1 .view-news .views-row a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .tools-and-resources-block .view-news .views-row a:before,
 .panels-flexible-column-new-main .view-news .views-row a:before,
@@ -8551,14 +8427,14 @@ html:lang(en) #homepage_slider .views-field-title > span {
   color: #003399;
   border: none;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .pagination li.pager-current,
 .pager li.pager-current {
   padding-left: 14px;
   padding-right: 14px;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .pagination .pager-ellipsis span,
 .pager .pager-ellipsis span {
@@ -8588,7 +8464,7 @@ html:lang(en) #homepage_slider .views-field-title > span {
   min-height: 180px;
 }
 .node-news h1 {
-  font-style: italic;
+  font-style: normal;
   font-weight: normal;
   color: #575757;
   font-size: 2.5em;
@@ -8692,7 +8568,7 @@ table tr.error.form-type-select:after {
   color: #003399;
   background-color: transparent;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .node-article .list-inline .node-readmore a:before {
   content: ">";
@@ -8835,7 +8711,7 @@ table tr.error.form-type-select:after {
 .node-article .node-external-url a.external-link {
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   font-size: 1.3em;
 }
 .node-article .node-external-url a.external-link:before {
@@ -8848,11 +8724,6 @@ table tr.error.form-type-select:after {
 }
 .node-type-article article .field-name-title-field {
   margin-bottom: 1em;
-}
-.node-type-article article .dot-separator.green {
-  border-top: 1px dotted #749b00;
-  margin-bottom: 20px;
-  margin-top: 20px;
 }
 .node-type-article article .icon.recommended-resources {
   background: url("../images/content/recommended-for-you.png") no-repeat;
@@ -8870,20 +8741,6 @@ table tr.error.form-type-select:after {
   margin: 0 auto;
   margin-top: 1em;
   clear: both;
-}
-.node-type-article article h2 {
-  margin-top: .5em;
-  color: #749b00;
-  font-style: normal;
-  font-weight: bold;
-  margin-bottom: 1em;
-  font-size: 2em;
-}
-.node-type-article article .field-name-body.field-type-text-with-summary h2 {
-  color: #333333;
-  font-weight: normal;
-  font-size: 1.8em;
-  margin-bottom: 15px;
 }
 .node-type-article article .icon.recommended-resources ~ h2 {
   text-align: center;
@@ -8948,7 +8805,7 @@ table tr.error.form-type-select:after {
   padding-right: 3px;
 }
 .node-infographic a {
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
 }
 .node-infographic .field-name-field-twin-infographics {
@@ -8968,20 +8825,10 @@ table tr.error.form-type-select:after {
 .node-press-release .field-name-body.field-type-text-with-summary p {
   margin: 0em 0em 1em;
 }
-.node-press-release .more-link {
-  color: #003399;
-  background-color: transparent;
-  font-weight: bold;
-  font-style: italic;
-  padding-right: 20px;
-}
-.node-press-release .more-link:before {
-  content: "";
-}
 /* Node-XXX */
 div[class*='node-'] h1 {
   text-align: center;
-  font-style: italic;
+  font-style: normal;
   font-weight: lighter;
   color: #575757;
   font-size: 2.5em;
@@ -8990,15 +8837,9 @@ div[class*='node-'] h1 {
 div[class*='node-'] .field-name-field-summary {
   font-weight: bold;
 }
-div[class*='node-'] .more-link {
-  color: #003399;
-  background-color: transparent;
-  font-weight: bold;
-  font-style: italic;
-}
 div[class*='view-'] h1 {
   text-align: center;
-  font-style: italic;
+  font-style: normal;
   font-weight: lighter;
   color: #575757;
   font-size: 2.5em;
@@ -9028,32 +8869,35 @@ div[class*='view-'] .field-name-field-summary {
 .field-name-field-country-code:after {
   content: "";
 }
+.form-item-main-tags,
 .form-item-relevant-for,
 .form-item-field-publication-type,
-.form-item-language,
 .form-item-field-priority-area,
-.form-item-languages {
+.form-item-languages,
+.form-item-field-msd-priority-area {
   margin-top: 0;
   padding-top: 10px;
-  border-bottom: 1px dotted #749b00;
   margin-bottom: 0px;
   padding-bottom: 5px;
   clear: both;
   overflow: hidden;
 }
+.form-item-main-tags .checkbox:last-child,
 .form-item-relevant-for .checkbox:last-child,
 .form-item-field-publication-type .checkbox:last-child,
-.form-item-language .checkbox:last-child,
 .form-item-field-priority-area .checkbox:last-child,
-.form-item-languages .checkbox:last-child {
+.form-item-languages .checkbox:last-child,
+.form-item-field-msd-priority-area .checkbox:last-child {
   margin-bottom: 10px;
 }
+.form-item-main-tags > label,
 .form-item-field-publication-type > label,
 .form-item-language > label,
 .form-item-field-priority-area > label,
 .form-item-relevant-for > label,
 .form-item-languages > label,
-.form-item-publication-type > label {
+.form-item-publication-type > label,
+.form-item-field-msd-priority-area > label {
   font-size: 1.1em;
   font-weight: bold;
   width: 100%;
@@ -9061,27 +8905,33 @@ div[class*='view-'] .field-name-field-summary {
   clear: both;
   cursor: pointer;
 }
+.form-item-main-tags > label:after,
 .form-item-field-publication-type > label:after,
 .form-item-language > label:after,
 .form-item-field-priority-area > label:after,
 .form-item-relevant-for > label:after,
 .form-item-languages > label:after,
-.form-item-publication-type > label:after {
+.form-item-publication-type > label:after,
+.form-item-field-msd-priority-area > label:after {
   content: "\e250";
   font-family: "Glyphicons Halflings";
   margin-left: 10px;
   float: right;
+  margin-right: -20px;
 }
+.form-item-main-tags > label.active:after,
 .form-item-field-publication-type > label.active:after,
 .form-item-language > label.active:after,
 .form-item-field-priority-area > label.active:after,
 .form-item-relevant-for > label.active:after,
 .form-item-languages > label.active:after,
-.form-item-publication-type > label.active:after {
+.form-item-publication-type > label.active:after,
+.form-item-field-msd-priority-area > label.active:after {
   content: "\e252";
   font-family: "Glyphicons Halflings";
   margin-left: 10px;
   float: right;
+  margin-right: -20px;
 }
 .page-node .node-news .field.field-name-field-image {
   margin-right: 1em;
@@ -9132,27 +8982,11 @@ div[class*='view-'] .field-name-field-summary {
 .panels-flexible-column-new-1 a {
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 #block-views-news-oshnews-latest a:before,
 .panels-flexible-column-new-1 a:before {
   content: ">";
-  padding-right: 0.35em;
-}
-#block-views-news-oshnews-latest .more-link,
-.panels-flexible-column-new-1 .more-link {
-  display: inline-table;
-  margin-top: 1em;
-}
-#block-views-news-oshnews-latest .more-link a,
-.panels-flexible-column-new-1 .more-link a {
-  color: #ffffff;
-  font-style: normal;
-  font-weight: normal;
-}
-#block-views-news-oshnews-latest .more-link a:before,
-.panels-flexible-column-new-1 .more-link a:before {
-  content: "";
   padding-right: 0.35em;
 }
 #block-views-news-oshnews-latest .date-display-single,
@@ -9186,20 +9020,13 @@ div[class*='view-'] .field-name-field-summary {
   padding-left: 0px;
   padding-right: 0px;
 }
-#block-views-news-oshnews-latest div div.more-link,
-.panels-flexible-column-new-1 div div.more-link {
-  padding-left: 15px;
-  padding-right: 15px;
-  font-size: 14px;
-}
 .panels-flexible-column-new-1 h2 {
   background: url("../images/content/news.png") no-repeat center top;
 }
 #newsletter-subscription-frontpage-form-wrapper {
   padding-bottom: 1em;
 }
-#block-osha-newsletter-osha-newsletter-subscribe,
-#block-osha-newsletter-osha-newsletter-image {
+#block-osha-newsletter-osha-newsletter-subscribe {
   clear: both;
   background: url("../images/content/bg-newsletter.png") no-repeat left top;
   background: url("../images/content/bg-campaign-partner.png") no-repeat left 0px;
@@ -9212,12 +9039,10 @@ div[class*='view-'] .field-name-field-summary {
   margin-top: 0em;
   padding-top: 0em;
 }
-#block-osha-newsletter-osha-newsletter-subscribe #join_subscribers img,
-#block-osha-newsletter-osha-newsletter-image #join_subscribers img {
+#block-osha-newsletter-osha-newsletter-subscribe #join_subscribers img {
   left: 0;
 }
-#block-osha-newsletter-osha-newsletter-subscribe h2,
-#block-osha-newsletter-osha-newsletter-image h2 {
+#block-osha-newsletter-osha-newsletter-subscribe h2 {
   margin-top: 0px;
   padding-top: 100px;
   margin-bottom: 15px;
@@ -9226,13 +9051,11 @@ div[class*='view-'] .field-name-field-summary {
   background-size: 61px;
   color: #ffffff;
 }
-#block-osha-newsletter-osha-newsletter-subscribe p,
-#block-osha-newsletter-osha-newsletter-image p {
+#block-osha-newsletter-osha-newsletter-subscribe p {
   margin: 10px;
   font-weight: bold;
 }
-#block-osha-newsletter-osha-newsletter-subscribe form input,
-#block-osha-newsletter-osha-newsletter-image form input {
+#block-osha-newsletter-osha-newsletter-subscribe form input {
   color: #575757;
   width: 255px;
   background-color: #ffffff;
@@ -9242,30 +9065,23 @@ div[class*='view-'] .field-name-field-summary {
   height: 31px;
   margin-right: 0 !important;
 }
-#block-osha-newsletter-osha-newsletter-subscribe #block_newsletter_image_text,
-#block-osha-newsletter-osha-newsletter-image #block_newsletter_image_text {
+#block-osha-newsletter-osha-newsletter-subscribe #block_newsletter_image_text {
   top: 88px;
   top: 150px;
 }
-#block-osha-newsletter-osha-newsletter-subscribe #block_newsletter_image_text .form-group,
-#block-osha-newsletter-osha-newsletter-image #block_newsletter_image_text .form-group {
+#block-osha-newsletter-osha-newsletter-subscribe #block_newsletter_image_text .form-group {
   display: inline-block !important;
 }
-#block-osha-newsletter-osha-newsletter-subscribe #block_newsletter_image_text a,
-#block-osha-newsletter-osha-newsletter-image #block_newsletter_image_text a {
+#block-osha-newsletter-osha-newsletter-subscribe #block_newsletter_image_text a {
   color: #FFF;
 }
 #block-osha-newsletter-osha-newsletter-subscribe #campaigns-newsletter-subscribe-form,
-#block-osha-newsletter-osha-newsletter-image #campaigns-newsletter-subscribe-form,
-#block-osha-newsletter-osha-newsletter-subscribe #campaigns-newsletter-subscribe-captcha-form,
-#block-osha-newsletter-osha-newsletter-image #campaigns-newsletter-subscribe-captcha-form {
+#block-osha-newsletter-osha-newsletter-subscribe #campaigns-newsletter-subscribe-captcha-form {
   margin-top: 30px;
   position: relative;
 }
 #block-osha-newsletter-osha-newsletter-subscribe #campaigns-newsletter-subscribe-form button,
-#block-osha-newsletter-osha-newsletter-image #campaigns-newsletter-subscribe-form button,
-#block-osha-newsletter-osha-newsletter-subscribe #campaigns-newsletter-subscribe-captcha-form button,
-#block-osha-newsletter-osha-newsletter-image #campaigns-newsletter-subscribe-captcha-form button {
+#block-osha-newsletter-osha-newsletter-subscribe #campaigns-newsletter-subscribe-captcha-form button {
   padding-left: 12px;
   padding-right: 12px;
   height: 31px;
@@ -9275,23 +9091,12 @@ div[class*='view-'] .field-name-field-summary {
   left: 58.9%;
   position: absolute;
 }
-#block-osha-newsletter-osha-newsletter-subscribe #join_subscribers > img,
-#block-osha-newsletter-osha-newsletter-image #join_subscribers > img {
+#block-osha-newsletter-osha-newsletter-subscribe #join_subscribers > img {
   display: none;
 }
-#block-osha-newsletter-osha-newsletter-subscribe .captcha,
-#block-osha-newsletter-osha-newsletter-image .captcha {
+#block-osha-newsletter-osha-newsletter-subscribe .captcha {
   height: 1%;
   overflow: hidden;
-}
-#block-osha-newsletter-osha-newsletter-image h2 a {
-  color: white;
-}
-#block-osha-newsletter-osha-newsletter-image h2 a:before {
-  content: "";
-}
-#block-osha-newsletter-osha-newsletter-image h2 a:hover {
-  text-decoration: underline;
 }
 /* home events */
 .panels-flexible-column-new-2 .view-news .date-display-single {
@@ -9319,23 +9124,10 @@ div[class*='view-'] .field-name-field-summary {
 #block-views-frontpage-events-block a {
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 #block-views-frontpage-events-block a:before {
   content: ">";
-  padding-right: 0.35em;
-}
-#block-views-frontpage-events-block .more-link {
-  display: inline-table;
-  margin-top: 1em;
-}
-#block-views-frontpage-events-block .more-link a {
-  color: #ffffff;
-  font-style: normal;
-  font-weight: normal;
-}
-#block-views-frontpage-events-block .more-link a:before {
-  content: "";
   padding-right: 0.35em;
 }
 #block-views-frontpage-events-block .view-content {
@@ -9353,27 +9145,13 @@ div[class*='view-'] .field-name-field-summary {
   padding-left: 0px;
   padding-right: 0px;
 }
-#block-views-frontpage-events-block div div.more-link {
-  padding-left: 15px;
-  padding-right: 15px;
-  font-size: 14px;
-}
 .view-frontpage-events .views-row {
   padding-bottom: 1em;
 }
 #block-views-partners-block-1 {
   padding-top: 0em;
   clear: both;
-  padding-left: 25px;
-  padding-right: 25px;
   padding-bottom: 40px;
-}
-#block-views-partners-block-1 h2 {
-  text-align: center;
-  background: url("../images/content/partners.png") no-repeat center top 20px;
-  padding-top: 100px;
-  padding-bottom: 0.5em;
-  margin-bottom: 0em;
 }
 #block-views-partners-block-1 .views-field-field-logo {
   padding-top: 1em;
@@ -9403,14 +9181,6 @@ div[class*='view-'] .field-name-field-summary {
   float: left;
   text-align: center;
   background-color: transparent;
-}
-#block-views-partners-block-1 .more-link a {
-  background-color: #003399;
-  padding: 10px;
-}
-#block-views-partners-block-1 .more-link a:before {
-  content: ">";
-  padding-right: 0.30em;
 }
 #block-views-partners-block-1 .view-display-id-block_1 img {
   width: 100%;
@@ -9459,7 +9229,7 @@ div[class*='view-'] .field-name-field-summary {
 }
 #block-views-partners-block-1 .view-display-id-block_1 .hidden-xs .views-field-field-logo {
   padding-top: 0;
-  height: 175px;
+  height: 125px;
   border-top: 1px dotted #749b00;
   border-right: 1px dotted #749b00;
   padding: 25px;
@@ -9577,7 +9347,7 @@ div[class*='view-'] .field-name-field-summary {
 }
 #block-views-publications-slideshow-slidehow #publications_slideshow #num_slides .publication-item ul a,
 #block-system-main #publications_slideshow #num_slides .publication-item ul a {
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
 }
 #block-views-publications-slideshow-slidehow #publications_slideshow .jssora03l,
@@ -9644,13 +9414,6 @@ div[class*='view-'] .field-name-field-summary {
 #block-system-main #publications_slideshow .jssorb03 .prototype:hover {
   background-position: -20px center;
 }
-#block-views-publications-slideshow-slidehow .more-link,
-#block-system-main .more-link {
-  color: #003399;
-  background-color: transparent;
-  font-weight: bold;
-  font-style: italic;
-}
 .col #block-views-publications-slideshow-slidehow #publications_slideshow,
 .col #block-system-main #publications_slideshow {
   width: 782px;
@@ -9669,13 +9432,13 @@ div[class*='view-'] .field-name-field-summary {
   font-size: 30px;
   margin-bottom: 0em;
   padding-top: 20px !important;
-  font-style: italic;
+  font-style: normal;
   font-weight: 100;
 }
 .pane-osha-publication-osha-publication-listing h4 {
   font-size: 30px;
   margin-bottom: 0em;
-  font-style: italic;
+  font-style: normal;
   font-weight: 100;
 }
 /* pag Search */
@@ -9701,7 +9464,6 @@ div[class*='view-'] .field-name-field-summary {
   padding-left: 0px;
   padding-right: 0px;
   padding: 0px;
-  margin-left: 25px;
   -webkit-box-shadow: inset 0 0px 0px rgba(255, 255, 255, 0);
   -moz-box-shadow: inset 0 0px 0px rgba(255, 255, 255, 0);
   box-shadow: inset 0 0px 0px rgba(255, 255, 255, 0);
@@ -9748,13 +9510,15 @@ div[class*='view-'] .field-name-field-summary {
   color: #003399 !important;
   overflow: hidden !important;
 }
+.page-search .region-sidebar-first #block-osha-search-osha-search-clear-filters {
+  clear: both;
+}
 .page-search .region-sidebar-first #block-osha-search-osha-search-clear-filters h3 {
   display: none;
 }
 .page-search .region-sidebar-first #block-osha-search-osha-search-clear-filters a {
-  font-weight: bold;
   display: block;
-  padding-bottom: 5px;
+  padding-top: 1em;
   margin-top: 5px;
 }
 .page-search .region-sidebar-first #block-osha-search-osha-search-clear-filters .clear-wrapper > a {
@@ -9762,61 +9526,6 @@ div[class*='view-'] .field-name-field-summary {
 }
 .page-search .region-sidebar-first #block-osha-search-osha-search-clear-filters #remove_filter > a:last-child {
   border-bottom: 1px dotted #749b00;
-}
-.page-search .region-sidebar-first .block.block-facetapi {
-  border-bottom: 1px dotted #749b00;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-.page-search .region-sidebar-first .block.block-facetapi h2 {
-  color: #333333;
-  font-size: 1.1em;
-  text-align: left;
-  margin-bottom: 0px;
-  cursor: pointer;
-}
-.page-search .region-sidebar-first .block.block-facetapi h2:after {
-  content: "\e250";
-  font-family: "Glyphicons Halflings";
-  margin-left: 10px;
-  float: right;
-}
-.page-search .region-sidebar-first .block.block-facetapi h2.area-shown:after {
-  content: "\e252";
-  font-family: "Glyphicons Halflings";
-  margin-left: 10px;
-  float: right;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links {
-  margin-top: 10px;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li {
-  color: #003399;
-  margin-bottom: 10px;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"] {
-  margin-right: 0.5em;
-  margin-right: 15px;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:before {
-  border: 2px solid #003399;
-  content: "\2716";
-  padding: 0px 1px 0px 3px;
-  margin-right: 10px;
-  color: #ffffff;
-  width: 20px;
-  height: 20px;
-  background-color: white;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:checked:before {
-  content: "\2713";
-  color: #003399;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li #facetapi-link--all--checkbox {
-  margin-right: 11px;
-}
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li a {
-  font-family: 'Open Sans';
 }
 .page-search .region.region-content {
   float: right;
@@ -9832,33 +9541,6 @@ div[class*='view-'] .field-name-field-summary {
 }
 .page-search .region.region-content .view-search h3 {
   display: none;
-}
-.page-search .region.region-content .view-search .view-header {
-  overflow: hidden;
-  border: none;
-  border-top: 1px dotted #749b00;
-  border-bottom: 1px dotted #749b00;
-  border-radius: 0px;
-  padding: 7px 0px;
-}
-.page-search .region.region-content .view-search .view-header .sort-container.col-xs-3 {
-  width: inherit;
-  padding-left: 0px;
-}
-.page-search .region.region-content .view-search .view-header .sort-container.col-xs-3 .form-group {
-  margin-bottom: 0px;
-}
-.page-search .region.region-content .view-search .view-header .sort-container.col-xs-3 .form-group label {
-  margin-right: 10px;
-}
-.page-search .region.region-content .view-search .view-header .sort-container.col-xs-3 .form-group label:after {
-  content: ":";
-}
-.page-search .region.region-content .view-search .view-header .sort-container.col-xs-3 .form-group #edit-sort-by {
-  display: inline-block;
-}
-.page-search .region.region-content .view-search .view-header .count-container {
-  margin-top: 7px;
 }
 .page-search .region.region-content .view-search .view-content .views-row {
   border-bottom: 1px dotted #749b00;
@@ -9910,7 +9592,7 @@ div[class*='view-'] .field-name-field-summary {
 }
 .page-search .region.region-content .view-search .view-content .views-row .views-field-search-api-relevance a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .page-search .region.region-content .view-search .view-content .views-row .views-field-search-api-relevance a:before {
   content: ">";
@@ -9935,7 +9617,7 @@ div[class*='view-'] .field-name-field-summary {
   display: inline;
 }
 .page-search .views-widget-sort-by > .form-item-sort-by > label {
-  font-style: italic;
+  font-style: normal;
   margin-top: 0.5em;
   margin-right: 2em;
   padding-right: 0;
@@ -9958,7 +9640,7 @@ div[class*='view-'] .field-name-field-summary {
 }
 .page-search .views-field-field-file a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .page-search .radio label:before {
   border: none;
@@ -10047,12 +9729,11 @@ div[class*='view-'] .field-name-field-summary {
 .publication-item .field-name-field-cover-image img {
   border: 1px solid #CCC;
 }
-.publication-item .more-link,
 .publication-item ul li a {
   color: #003399;
   background-color: transparent;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .publication-item ul {
   list-style: none;
@@ -10082,7 +9763,7 @@ div[class*='view-'] .field-name-field-summary {
 .pane-hwc-practical-tool-hwc-practical-tool-listing .h4-title {
   padding-top: 10px !important;
   font-size: 30px;
-  font-style: italic;
+  font-style: normal;
   font-weight: 100;
   margin-bottom: 1em;
 }
@@ -10120,7 +9801,7 @@ div[class*='view-'] .field-name-field-summary {
 }
 .pane-hwc-practical-tool-hwc-practical-tool-listing .node-practical-tool ul.links .node-readmore {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .pane-hwc-practical-tool-hwc-practical-tool-listing .node-practical-tool ul.links .node-readmore:before {
   content: ">";
@@ -10136,7 +9817,7 @@ div[class*='view-'] .field-name-field-summary {
   color: #003399;
   background-color: transparent;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .pane-hwc-practical-tool-hwc-practical-tool-listing .link-wrapper ul li a:before {
   content: ">";
@@ -10163,7 +9844,7 @@ div[class*='view-'] .field-name-field-summary {
   padding-top: 1em;
 }
 .pane-hwc-practical-tool-hwc-practical-tool-listing #edit-content .form-type-radios.form-item-sort > label {
-  font-style: italic;
+  font-style: normal;
   padding-right: 0;
 }
 .pane-hwc-practical-tool-hwc-practical-tool-listing #edit-content .form-type-radios.form-item-sort label {
@@ -10236,7 +9917,7 @@ div[class*='view-'] .field-name-field-summary {
 /*
 	.pane-node-field-free, .pane-node-field-country, .pane-node-field-tool-type{
 		color: @text-color-2;
-		font-style: italic;
+		font-style: normal;
 		font-weight: bold;
 		float: left;
 		margin-top: 1em;
@@ -10339,7 +10020,7 @@ html:lang(no) .pane-node-field-provider .field-items,
 }
 .pane-node-field-access-tool-link a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   background: url("../images/content/continue-reading.png") no-repeat right center;
   padding-right: 20px;
 }
@@ -10349,7 +10030,7 @@ html:lang(no) .pane-node-field-provider .field-items,
 }
 .pane-node-field-access-tool-link-fc a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   padding-right: 20px;
 }
 .panel-panel div .pane-node-field-access-tool-link:first-child {
@@ -10363,7 +10044,7 @@ html:lang(no) .pane-node-field-provider .field-items,
 }
 .pane-node-field-external-urls a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .pane-node-field-external-urls a:before {
   content: ">";
@@ -10375,7 +10056,7 @@ html:lang(no) .pane-node-field-provider .field-items,
 }
 .site-map-menu a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .site-map-menu a:before {
   content: ">";
@@ -10666,7 +10347,7 @@ html:lang(no) .pane-node-field-provider .field-items,
 .front .pane-homepage-about-topics .view-homepage-about-topics .views-row .views-field-title-field {
   font-size: 1.3em;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   margin-bottom: 10px;
 }
 .front .panels-flexible-region-new-center {
@@ -10829,23 +10510,6 @@ html:lang(no) .pane-node-field-provider .field-items,
 .front .panels-flexible-region-new-home_right .more-link {
   margin-top: 15px;
 }
-.front #campaigns-newsletter-subscribe-form .checkbox input[type=checkbox]:checked:before,
-.front #campaigns-newsletter-subscribe-captcha-form .checkbox input[type=checkbox]:checked:before {
-  content: "\2713";
-  color: #003399;
-  padding: 0px 2px 0px 2px;
-  margin-right: 6px;
-  font-weight: normal;
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-  margin-top: 0px;
-  display: block;
-  background-color: white;
-  height: 17px;
-  width: 14px;
-  position: relative;
-  left: -26px;
-  top: 2px;
-}
 /*End Home*/
 /*share line*/
 .a2a_kit.a2a_target.addtoany_list {
@@ -10876,7 +10540,7 @@ html:lang(no) .pane-node-field-provider .field-items,
   background-color: transparent;
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   border-bottom: 1px solid #749b00;
 }
 /*End login page*/
@@ -10904,15 +10568,6 @@ html:lang(no) .pane-node-field-provider .field-items,
 .view-news .views-row .field-type-text-with-summary {
   margin-bottom: 1em;
 }
-.view-news .views-row .field-type-text-with-summary .more-link {
-  background-color: transparent;
-  color: #003399;
-  font-weight: bold;
-  font-style: italic;
-}
-.view-news .views-row .field-type-text-with-summary .more-link:before {
-  content: "> ";
-}
 .view-news .views-row .left-column {
   min-height: 250px;
   float: left;
@@ -10923,19 +10578,22 @@ html:lang(no) .pane-node-field-provider .field-items,
   margin-right: 1em;
   margin-bottom: 1em;
 }
-.node-news h1 {
-  font-style: italic;
+.node-news h1,
+.node-press-release h1 {
+  font-style: normal;
   font-weight: normal;
   color: #575757;
   font-size: 2.5em;
 }
-.node-news .field-name-field-image img {
+.node-news .field-name-field-image img,
+.node-press-release .field-name-field-image img {
   float: left;
   margin-top: 1.2em;
   margin-right: 1em;
   margin-bottom: 2px;
 }
-.node-news .group-left {
+.node-news .group-left,
+.node-press-release .group-left {
   padding-left: 0;
   padding-right: 30px;
 }
@@ -10963,7 +10621,6 @@ article .hwc-share-widget ul {
 .hwc-share-widget ul .share-this-article {
   color: #003399;
   font-weight: bold;
-  font-style: italic;
   position: relative;
   top: 3px;
 }
@@ -10974,7 +10631,7 @@ article .hwc-share-widget ul {
 .hwc-share-widget ul .label {
   color: #003399;
   font-size: 1em;
-  font-style: italic;
+  font-style: normal;
   padding-top: 5px;
 }
 .hwc-share-widget ul li[id*="facebook-share-button-"] {
@@ -11086,12 +10743,12 @@ article .hwc-share-widget ul {
 .field.field-name-field-image {
   margin-bottom: 0;
 }
-.container .field.field-name-body p a {
+.container .field.field-name-body p a,
+.container .field.field-name-body li a {
   background-color: transparent;
   color: #003399;
   font-weight: bold;
-  font-style: italic;
-  border-bottom: 1px solid #749b00;
+  font-style: normal;
 }
 .page-private .field.field-name-body p a {
   border-bottom: 0px solid #749b00;
@@ -11100,7 +10757,7 @@ article .hwc-share-widget ul {
   background-color: transparent;
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .field-name-field-aditional-resources .field-name-title-field a:before {
   content: "> ";
@@ -11153,18 +10810,6 @@ article .hwc-share-widget ul {
   font-weight: bold;
   display: block;
   margin-top: 5px;
-}
-.page-media-center-photo-gallery .views-field-title-field a:before,
-.view-photo-gallery .views-field-title-field a:before,
-.page-photo-gallery .views-field-title-field a:before,
-.page-media-center-photo-gallery .gallery_list_detail_container a:before,
-.view-photo-gallery .gallery_list_detail_container a:before,
-.page-photo-gallery .gallery_list_detail_container a:before,
-.page-media-center-photo-gallery .attachment.attachment-before .views-field-nothing a:before,
-.view-photo-gallery .attachment.attachment-before .views-field-nothing a:before,
-.page-photo-gallery .attachment.attachment-before .views-field-nothing a:before {
-  content: ">";
-  padding-right: 5px;
 }
 .page-media-center-photo-gallery .views-field-field-images img,
 .view-photo-gallery .views-field-field-images img,
@@ -11424,7 +11069,7 @@ article .hwc-share-widget ul {
 #mini-panel-press_room_blocks .pane-osha-press-release-osha-press-rel-become-partner #become-partner-link a {
   margin-top: 1.5em;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   display: block;
 }
 #mini-panel-press_room_blocks .pane-osha-press-release-osha-press-rel-become-partner #become-partner-link a:before {
@@ -11446,7 +11091,7 @@ article .hwc-share-widget ul {
 }
 #mini-panel-press_room_blocks .pane-press-contacts .views-field-field-press-contact-email a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 #mini-panel-press_room_blocks .pane-osha-press-release-osha-press-kit {
   padding-right: 15px;
@@ -11460,7 +11105,7 @@ article .hwc-share-widget ul {
 #mini-panel-press_room_blocks .pane-osha-press-release-osha-press-kit .osha-press-contact-block-link a {
   margin-top: 1.5em;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   display: inline-block;
 }
 #mini-panel-press_room_blocks .pane-osha-press-release-osha-press-kit .osha-press-contact-block-link:before {
@@ -11490,33 +11135,6 @@ article .hwc-share-widget ul {
   border-bottom: none;
   margin-bottom: 0em;
 }
-.page-practical-tools .below_title .field-type-text-with-summary {
-  padding-right: 85px;
-  padding-left: 85px;
-  margin: 0 25px;
-  padding-bottom: 1em;
-}
-.page-practical-tools .below_title .field-type-text-with-summary p {
-  text-align: center;
-  font-size: 1.2em;
-}
-.page-practical-tools #edit-search-api-views-fulltext-wrapper {
-  float: none !important;
-}
-.page-practical-tools .sort-container.col-xs-3 {
-  width: 75% !important;
-}
-.page-practical-tools .sort-container.col-xs-3 .form-item-sort-by,
-.page-practical-tools .sort-container.col-xs-3 .form-item-sort-order {
-  display: inline-block;
-}
-.page-practical-tools .sort-container.col-xs-3 .form-item-sort-by select,
-.page-practical-tools .sort-container.col-xs-3 .form-item-sort-order select {
-  display: inline-block;
-}
-.page-practical-tools .sort-container.col-xs-3 .form-item-sort-order {
-  margin-left: 15px;
-}
 .node-type-practical-tool .panel-col .field-label {
   min-width: 192px;
   width: 240px;
@@ -11525,11 +11143,6 @@ article .hwc-share-widget ul {
   .node-type-practical-tool .panel-col .field-label {
     min-width: 100%;
   }
-}
-.page-press-room .section-introduction .field-type-text-with-summary,
-.page-campaign-materials .section-introduction .field-type-text-with-summary {
-  padding-bottom: 1em;
-  border-bottom: 1px dotted #749b00;
 }
 .view-press-releases .views-row {
   border-bottom: 1px dotted #749b00;
@@ -11579,15 +11192,15 @@ article .hwc-share-widget ul {
   border-bottom: none;
   margin-bottom: 0;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row {
   padding-top: 20px;
   padding-bottom: 30px;
   min-height: 230px;
   border-bottom: 1px dotted #749b00;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content {
   float: left;
   width: 180px;
   height: 180px;
@@ -11595,199 +11208,199 @@ article .hwc-share-widget ul {
   overflow: hidden;
   margin-top: 5px;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .date-display-single,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .date-display-single {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .date-display-single,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .date-display-single {
   display: block;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .event_country,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .event_country {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .event_country,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .event_country {
   width: 180px;
   height: 180px;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EN,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EN {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EN,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EN {
   background: url(../images/events/big/England-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_AT,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_AT {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_AT,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_AT {
   background: url(../images/events/big/Austria-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CH,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CH {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CH,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CH {
   background: url(../images/events/big/Switzerland-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_BG,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_BG {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_BG,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_BG {
   background: url(../images/events/big/Bulgaria-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_BE,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_BE {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_BE,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_BE {
   background: url(../images/events/big/Belgium-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CZ,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CZ {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CZ,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CZ {
   background: url(../images/events/big/Czech-Republic-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CS,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CS {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CS,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CS {
   background: url(../images/events/big/Czech-Republic-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_DK,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_DK {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_DK,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_DK {
   background: url(../images/events/big/Denmark-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_DE,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_DE {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_DE,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_DE {
   background: url(../images/events/big/Germany-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EL,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EL {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EL,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EL {
   background: url(../images/events/big/Greece-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_ES,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_ES {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_ES,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_ES {
   background: url(../images/events/big/Spain-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EU,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EU {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EU,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EU {
   background: url(../images/events/big/European-Union-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EE,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_EE {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EE,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_EE {
   background: url(../images/events/big/Estonia-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_FI,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_FI {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_FI,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_FI {
   background: url(../images/events/big/Finland-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_HR,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_HR {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_HR,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_HR {
   background: url(../images/events/big/Croatia-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_FR,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_FR {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_FR,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_FR {
   background: url(../images/events/big/France-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_HU,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_HU {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_HU,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_HU {
   background: url(../images/events/big/Hungary-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_IS,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_IS {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_IS,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_IS {
   background: url(../images/events/big/Iceland-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_IT,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_IT {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_IT,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_IT {
   background: url(../images/events/big/Italy-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LV,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LV {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LV,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LV {
   background: url(../images/events/big/Latvia-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LT,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LT {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LT,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LT {
   background: url(../images/events/big/Lithuania-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LU,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LU {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LU,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LU {
   background: url(../images/events/big/Luxembourg-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LI,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_LI {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LI,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_LI {
   background: url(../images/events/big/Liechtenstein-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_NL,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_NL {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_NL,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_NL {
   background: url(../images/events/big/Netherlands-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_MT,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_MT {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_MT,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_MT {
   background: url(../images/events/big/Malta-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_NO,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_NO {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_NO,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_NO {
   background: url(../images/events/big/Norway-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_PL,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_PL {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_PL,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_PL {
   background: url(../images/events/big/Poland-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_PT,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_PT {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_PT,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_PT {
   background: url(../images/events/big/Portugal-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_RO,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_RO {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_RO,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_RO {
   background: url(../images/events/big/Romania-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_SK,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_SK {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_SK,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_SK {
   background: url(../images/events/big/Slovakia-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_SI,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_SI {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_SI,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_SI {
   background: url(../images/events/big/Slovenia-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_SE,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_SE {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_SE,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_SE {
   background: url(../images/events/big/Sweden-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_IE,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_IE {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_IE,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_IE {
   background: url(../images/events/big/Ireland-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_UK,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_UK {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_UK,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_UK {
   background: url(../images/events/big/United-Kingdom-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CN,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CN {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CN,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CN {
   background: url(../images/events/big/China-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CY,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_CY {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CY,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_CY {
   background: url(../images/events/big/Republic-of-Cyprus-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_US,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date .field-content .code_US {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_US,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date .field-content .code_US {
   background: url(../images/events/big/eeuu-180x180.png) no-repeat center;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-title-field a,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-title-field a {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-title-field a,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-title-field a {
   display: block;
   font-size: 1.7em;
   margin-bottom: 10px;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-view-node {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-view-node,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-view-node {
   position: absolute;
   margin-left: 230px;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-website-of-event,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-website-of-event {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-website-of-event,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-website-of-event {
   float: none;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date-1,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-start-date-1 {
-  font-size: 1em;
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date-1,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-start-date-1 {
+  font-size: 1.4rem;
   margin-bottom: 0.5em;
-  font-weight: bold;
+  font-weight: 600;
   color: #57575a;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-country-code,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-country-code,
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-city,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-city {
-  font-weight: bold;
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-country-code,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-country-code,
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-city,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-city {
+  font-weight: 600;
   display: inline-block;
   color: #57575a;
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-country-code span:after,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-field-country-code span:after {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-country-code span:after,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-field-country-code span:after {
   content: ",";
 }
-.page-past-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-body,
-.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row .views-field-body {
+.page-past-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-body,
+.page-events .region-content #block-system-main .view-events-search .view-content .views-row .views-field-body {
   margin-top: 1em;
   margin-bottom: 1em;
   display: flex;
@@ -11822,7 +11435,7 @@ article .hwc-share-widget ul {
 #block-system-main .view-events-search,
 .view-events-search {
   clear: both;
-  margin: 0 25px;
+  margin: 0 10px;
 }
 #block-system-main .view-events-search .form-type-textfield,
 .view-events-search .form-type-textfield {
@@ -12072,7 +11685,7 @@ article .hwc-share-widget ul {
   float: left;
   width: 65%;
   margin-top: 0.5em;
-  font-style: italic;
+  font-style: normal;
 }
 .node-events .field-collection-container .field-name-field-schedule .field-name-field-talking-files div {
   width: auto;
@@ -12125,7 +11738,7 @@ article .hwc-share-widget ul {
 }
 .node-events .field-name-field-contact-email .field-items,
 .node-events .field-name-field-website-of-event .field-items {
-  font-style: italic;
+  font-style: normal;
 }
 .node-events .field-collection-container {
   border-bottom: 1px dotted #749b00;
@@ -12317,19 +11930,6 @@ article .hwc-share-widget ul {
 #block-osha-events-events-links a.active {
   color: #749b00;
 }
-#block-views-events-block-2 h2.block-title,
-#block-views-events-block-1 h2.block-title {
-  float: left;
-  font-style: italic;
-  font-size: 0.85714em !important;
-  color: #575757;
-  margin-top: 1em;
-}
-#block-views-events-block-2 h2.block-title:after,
-#block-views-events-block-1 h2.block-title:after {
-  content: ":";
-  padding-right: 1em;
-}
 #block-views-events-block-2 .view-events,
 #block-views-events-block-1 .view-events {
   float: left;
@@ -12342,7 +11942,7 @@ article .hwc-share-widget ul {
 #block-views-events-block-1 .view-events .events-filter-by-date h3 {
   margin: 0;
   float: left;
-  font-style: italic;
+  font-style: normal;
   font-size: 0.85714em;
   font-weight: bold;
   color: #749b00;
@@ -12364,7 +11964,7 @@ article .hwc-share-widget ul {
   padding: 3px 0.5em;
   margin: 0;
   float: left;
-  font-style: italic;
+  font-style: normal;
   font-size: 0.85714em;
   font-weight: bold;
   color: #003399;
@@ -12475,7 +12075,7 @@ article .hwc-share-widget ul {
 }
 .become-partner .partners .partner .partner-name h3 {
   font-weight: 100;
-  font-style: italic;
+  font-style: normal;
   font-size: 32px;
   margin-bottom: 1em;
 }
@@ -12487,7 +12087,7 @@ article .hwc-share-widget ul {
   overflow: hidden;
 }
 .become-partner .partners .partner .partner-opinion p {
-  font-style: italic;
+  font-style: normal;
 }
 .become-partner .partners .partner .partner-opinion .quottes-left {
   height: 25px;
@@ -12512,7 +12112,7 @@ article .hwc-share-widget ul {
 .become-partner .description p a {
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .become-partner button,
 .become-partner a.btn-become-a-campaign-partner {
@@ -12571,7 +12171,7 @@ article .hwc-share-widget ul {
   padding: 0px;
 }
 .see-also .more-links ul a {
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
 }
 .see-also .more-links ul a:before {
@@ -12609,7 +12209,7 @@ article .hwc-share-widget ul {
   content: " ";
 }
 .employers-section .introduction-section .btn-1-normal .btn-1-acent {
-  font-style: italic;
+  font-style: normal;
 }
 .employers-section .introduction-section .btn-1-normal .btn-1-acent:before {
   content: "> ";
@@ -12622,7 +12222,7 @@ article .hwc-share-widget ul {
 .employers-section .recomended-resources-for-you p {
   color: #ffffff;
   font-size: 30px;
-  font-style: italic;
+  font-style: normal;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
   font-weight: 100;
@@ -12726,7 +12326,7 @@ article .hwc-share-widget ul {
 }
 .employers-section .other-relevant-resources .relevant-resources-section .revelant-resource a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .employers-section .other-relevant-resources .relevant-resources-section .revelant-resource a:before {
   content: "> ";
@@ -12809,7 +12409,7 @@ article .hwc-share-widget ul {
 }
 .employers-section .news-events-section .news-section .news-content .one-new a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .employers-section .news-events-section .news-section .news-content .one-new a:before {
   content: "> ";
@@ -12819,7 +12419,7 @@ article .hwc-share-widget ul {
 }
 .employers-section .news-events-section .events-section .events-content .one-event a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .employers-section .news-events-section .events-section .events-content .one-event a:before {
   content: "> ";
@@ -12954,7 +12554,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .profile-edit-links-container .pane-node-profile-update-link .pane-content .hwc-partner-private-link-block-title a {
   color: #749b00;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   font-size: 1.4em;
   cursor: pointer;
   padding: 0px 0px 20px !important;
@@ -12988,12 +12588,12 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .profile-edit-links-container .pane-node-profile-update-link .pane-content .hwc-partner-private-link-block-description a {
   color: #575757;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .profile-edit-links-container .pane-node-profile-update-link .pane-content a.hwc-partner-private-link-block-title:first-child {
   color: #749b00;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   margin-bottom: 15px;
   font-size: 20px;
 }
@@ -13037,7 +12637,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .pane-hwc-good-practice-exchange-gpep-links .back_link a {
   display: block;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   margin-bottom: 0.5em;
   text-align: right;
   width: 100%;
@@ -13079,7 +12679,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .pane-hwc-good-practice-exchange-gpep-links .hwc-gpep-links .partners-documents .title,
 .pane-hwc-good-practice-exchange-gpep-links .hwc-gpep-links .communications .title {
   font-size: 1.4em;
-  font-style: italic;
+  font-style: normal;
   font-weight: 600;
   text-align: center;
   color: #749b00;
@@ -13126,7 +12726,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   font-weight: bold;
 }
 .profile-title-type-container .profile-inline-field a {
-  font-style: italic;
+  font-style: normal;
 }
 .profile-title-type-container .pane-node-field-country {
   width: 100%;
@@ -13170,7 +12770,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 .profile-ceo-container .field-name-field-ceo .field-item {
   font-weight: 100;
-  font-style: italic;
+  font-style: normal;
   font-size: 32px;
   margin-top: .5em;
   margin-bottom: .5em;
@@ -13183,7 +12783,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   text-align: center;
 }
 .profile-ceo-container .pane-node-field-quote {
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
   position: relative;
   display: inline-block;
@@ -13288,7 +12888,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 			display: block;
 			font-weight: bold;
 			color: @color2;
-			font-style: italic;
+			font-style: normal;
 			text-align: center;
 			&:before{
 				content: "> ";
@@ -13385,7 +12985,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 				margin-bottom: 20px;
 				a{
 					font-weight: bold;
-					font-style: italic;
+					font-style: normal;
 				}
 			}
 		}
@@ -13620,6 +13220,15 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 */
 /*End partners public profile*/
 /*Partner documents lists*/
+.page-partners-documents #block-views-exp-documents-gpep.contextual-links-region,
+.page-communications #block-views-exp-documents-gpep.contextual-links-region {
+  margin-top: 0 !important;
+  padding-left: 0;
+}
+.page-partners-documents .contextual-links-region .back-links,
+.page-communications .contextual-links-region .back-links {
+  padding-left: 0;
+}
 .page-partners-documents h1,
 .page-communications h1 {
   border-bottom: none;
@@ -13634,6 +13243,13 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-communications .back-to-link {
   border: none !important;
   padding-right: 25px;
+  padding-bottom: 25px;
+  text-align: left;
+  padding-left: 2em;
+}
+.page-partners-documents .region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext,
+.page-communications .region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext {
+  margin-top: 8px;
 }
 .page-partners-documents #views-exposed-form-documents-page-1,
 .page-communications #views-exposed-form-documents-page-1,
@@ -13693,6 +13309,10 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-communications .region-sidebar-first .views-exposed-widgets .form-type-textfield input {
   width: 100%;
   padding-right: 35px;
+}
+.page-partners-documents .region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext,
+.page-communications .region-sidebar-first .views-exposed-widgets #edit-search-api-views-fulltext {
+  width: 100% !important;
 }
 .page-partners-documents .region-sidebar-first .views-exposed-widgets .views-submit-button,
 .page-communications .region-sidebar-first .views-exposed-widgets .views-submit-button {
@@ -13764,44 +13384,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   margin-left: 10px;
   float: right;
 }
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links,
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links {
-  margin-top: 10px;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li,
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li {
-  color: #003399;
-  margin-bottom: 10px;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"],
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"] {
-  margin-right: 0.5em;
-  margin-right: 15px;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:before,
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:before {
-  border: 2px solid #003399;
-  content: "\2716";
-  padding: 0px 1px 0px 3px;
-  margin-right: 10px;
-  color: #ffffff;
-  width: 20px;
-  height: 20px;
-  background-color: white;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:checked:before,
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li input[type="checkbox"]:checked:before {
-  content: "\2713";
-  color: #003399;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li #facetapi-link--all--checkbox,
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li #facetapi-link--all--checkbox {
-  margin-right: 11px;
-}
-.page-partners-documents .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li a,
-.page-communications .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li a {
-  font-family: 'Open Sans';
-}
 .page-partners-documents .region.region-content,
 .page-communications .region.region-content {
   float: right;
@@ -13832,6 +13414,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   display: inline-block;
   width: 100%;
   margin-bottom: 25px;
+  margin-top: 35px;
 }
 .page-partners-documents .region.region-content .view-search .view-header .sort-container.col-xs-3,
 .page-communications .region.region-content .view-search .view-header .sort-container.col-xs-3 {
@@ -13866,21 +13449,19 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   height: 35px;
   width: 135px;
   top: 54px;
-  border: 2px solid #00349a;
-  color: #00349a;
+  color: #FFF;
   text-align: center;
   line-height: 32px;
-  font-weight: bold;
-  font-style: italic;
+  font-weight: normal;
+  font-style: normal;
+  background: #003399;
+  border-radius: 7px;
 }
 .page-partners-documents .region.region-content .view-search .view-header .count-container p a:hover,
 .page-communications .region.region-content .view-search .view-header .count-container p a:hover {
-  background-color: #00349a;
+  background-color: #002266;
   color: white;
-}
-.page-partners-documents .region.region-content .view-search .view-header .count-container p a:before,
-.page-communications .region.region-content .view-search .view-header .count-container p a:before {
-  content: "> ";
+  text-decoration: none;
 }
 .page-partners-documents .region.region-content .view-search .view-header .no-results.count-container p a,
 .page-communications .region.region-content .view-search .view-header .no-results.count-container p a {
@@ -13889,8 +13470,8 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-partners-documents .region.region-content .view-search .view-content .views-row,
 .page-communications .region.region-content .view-search .view-content .views-row {
   border-bottom: 1px dotted #749b00;
-  padding-bottom: 0em;
-  padding-top: 0.5em;
+  padding-bottom: 2em;
+  padding-top: 2em;
   overflow: hidden;
 }
 .page-partners-documents .region.region-content .view-search .view-content .views-row .views-field-title-field,
@@ -13899,11 +13480,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   font-weight: bold;
   font-size: 1.35em;
   padding-bottom: 0.5em;
-}
-.page-partners-documents .region.region-content .view-search .view-content .views-row .views-field-title-field span:before,
-.page-communications .region.region-content .view-search .view-content .views-row .views-field-title-field span:before {
-  content: ">";
-  padding-right: 0.5em;
 }
 .page-partners-documents .region.region-content .view-search .view-content .views-row .views-field-url a,
 .page-communications .region.region-content .view-search .view-content .views-row .views-field-url a {
@@ -13962,24 +13538,12 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-partners-documents .region.region-content .view-search .view-content .views-row .views-field-field-document-files ul li .entity-field-collection-item .publication-teaser ul,
 .page-communications .region.region-content .view-search .view-content .views-row .views-field-field-document-files ul li .entity-field-collection-item .publication-teaser ul {
   display: inline-block;
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
 }
 .page-partners-documents .region.region-content .view-search .view-content .views-row .views-field-field-document-files ul li .entity-field-collection-item .publication-teaser ul li,
 .page-communications .region.region-content .view-search .view-content .views-row .views-field-field-document-files ul li .entity-field-collection-item .publication-teaser ul li {
   display: inline-block;
-}
-.page-partners-documents .region.region-content .view-search .view-content .views-row .views-field-search-api-relevance a,
-.page-communications .region.region-content .view-search .view-content .views-row .views-field-search-api-relevance a {
-  color: #003399;
-  font-weight: bold;
-  font-style: italic;
-  margin-bottom: 10px;
-  display: inline-block;
-}
-.page-partners-documents .region.region-content .view-search .view-content .views-row .views-field-search-api-relevance a:before,
-.page-communications .region.region-content .view-search .view-content .views-row .views-field-search-api-relevance a:before {
-  content: "> ";
 }
 .page-partners-documents .region.region-content .view-search .view-content .views-row strong,
 .page-communications .region.region-content .view-search .view-content .views-row strong {
@@ -14007,7 +13571,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 .page-partners-documents .views-widget-sort-by > .form-item-sort-by > label,
 .page-communications .views-widget-sort-by > .form-item-sort-by > label {
-  font-style: italic;
+  font-style: normal;
   margin-top: 0.5em;
   margin-right: 2em;
   padding-right: 0;
@@ -14036,7 +13600,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-partners-documents .views-field-field-file a,
 .page-communications .views-field-field-file a {
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .page-partners-documents .radio label:before,
 .page-communications .radio label:before {
@@ -14424,10 +13988,12 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   bottom: 1px;
   right: 0;
   pointer-events: none;
-  background: #003399 url("../images/content/arrow-down.png") no-repeat right center;
+  background: #003399 url("../images/content/arrow-down.png") no-repeat 2px 3px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .page-node-add-document .node-events-form .form-type-select select,
 .page-node-add-events .node-events-form .form-type-select select,
@@ -14570,6 +14136,8 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-node-edit .node-document-form .field-type-datetime #edit-field-start-date-und-0-value .form-item-field-start-date-und-0-value-date .date-clear {
   background: url('../images/content/input-calendar.png') no-repeat right top;
   background-size: 28px 28px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .page-node-add-document .node-events-form .field-type-datetime #edit-field-start-date-und-0-value .form-item-field-start-date-und-0-value-time,
 .page-node-add-events .node-events-form .field-type-datetime #edit-field-start-date-und-0-value .form-item-field-start-date-und-0-value-time,
@@ -14615,6 +14183,8 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-node-edit .node-document-form .field-type-datetime #edit-field-start-date-und-0-value2 .form-item-field-start-date-und-0-value2-date .date-clear {
   background: url('../images/content/input-calendar.png') no-repeat right top;
   background-size: 28px 28px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .page-node-add-document .node-events-form .field-type-datetime #edit-field-start-date-und-0-value2 .form-item-field-start-date-und-0-value2-time,
 .page-node-add-events .node-events-form .field-type-datetime #edit-field-start-date-und-0-value2 .form-item-field-start-date-und-0-value2-time,
@@ -14721,7 +14291,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-node-add-news .node-document-form .group-center .field-name-field-related-documents .form-file,
 .page-node-edit .node-document-form .group-center .field-name-field-related-documents .form-file {
   max-width: 500px;
-  height: 36px !important;
+  height: 34px !important;
 }
 .page-node-add-document .node-events-form .group-center .field-name-field-related-documents .input-group-btn,
 .page-node-add-events .node-events-form .group-center .field-name-field-related-documents .input-group-btn,
@@ -14965,7 +14535,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   background-color: transparent;
   margin-top: 3em;
   color: #003399;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
   clear: both;
   height: auto;
   display: block;
@@ -14988,55 +14558,20 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   content: url('../images/content/preview.png');
   display: block;
 }
-.page-node-add-document .node-events-form #edit-actions #edit-send-for-approval,
-.page-node-add-events .node-events-form #edit-actions #edit-send-for-approval,
-.page-node-add-news .node-events-form #edit-actions #edit-send-for-approval,
-.page-node-edit .node-events-form #edit-actions #edit-send-for-approval,
-.page-node-add-document .node-news-form #edit-actions #edit-send-for-approval,
-.page-node-add-events .node-news-form #edit-actions #edit-send-for-approval,
-.page-node-add-news .node-news-form #edit-actions #edit-send-for-approval,
-.page-node-edit .node-news-form #edit-actions #edit-send-for-approval,
-.page-node-add-document .node-document-form #edit-actions #edit-send-for-approval,
-.page-node-add-events .node-document-form #edit-actions #edit-send-for-approval,
-.page-node-add-news .node-document-form #edit-actions #edit-send-for-approval,
-.page-node-edit .node-document-form #edit-actions #edit-send-for-approval {
-  width: 100%;
-  position: relative;
-  font-weight: bold;
-  margin-bottom: 1em;
-}
-.page-node-add-document .node-events-form #edit-actions #edit-send-for-approval:before,
-.page-node-add-events .node-events-form #edit-actions #edit-send-for-approval:before,
-.page-node-add-news .node-events-form #edit-actions #edit-send-for-approval:before,
-.page-node-edit .node-events-form #edit-actions #edit-send-for-approval:before,
-.page-node-add-document .node-news-form #edit-actions #edit-send-for-approval:before,
-.page-node-add-events .node-news-form #edit-actions #edit-send-for-approval:before,
-.page-node-add-news .node-news-form #edit-actions #edit-send-for-approval:before,
-.page-node-edit .node-news-form #edit-actions #edit-send-for-approval:before,
-.page-node-add-document .node-document-form #edit-actions #edit-send-for-approval:before,
-.page-node-add-events .node-document-form #edit-actions #edit-send-for-approval:before,
-.page-node-add-news .node-document-form #edit-actions #edit-send-for-approval:before,
-.page-node-edit .node-document-form #edit-actions #edit-send-for-approval:before {
-  content: "> ";
-}
-.page-node-add-document .node-events-form #edit-actions #edit-send-for-approval:after,
-.page-node-add-events .node-events-form #edit-actions #edit-send-for-approval:after,
-.page-node-add-news .node-events-form #edit-actions #edit-send-for-approval:after,
-.page-node-edit .node-events-form #edit-actions #edit-send-for-approval:after,
-.page-node-add-document .node-news-form #edit-actions #edit-send-for-approval:after,
-.page-node-add-events .node-news-form #edit-actions #edit-send-for-approval:after,
-.page-node-add-news .node-news-form #edit-actions #edit-send-for-approval:after,
-.page-node-edit .node-news-form #edit-actions #edit-send-for-approval:after,
-.page-node-add-document .node-document-form #edit-actions #edit-send-for-approval:after,
-.page-node-add-events .node-document-form #edit-actions #edit-send-for-approval:after,
-.page-node-add-news .node-document-form #edit-actions #edit-send-for-approval:after,
-.page-node-edit .node-document-form #edit-actions #edit-send-for-approval:after {
-  content: url('../images/content/arrow-right-blue-h49px.png');
-  display: inline-block;
-  background-size: cover;
-  position: absolute;
-  right: -16px;
-  top: 0px;
+.page-node-add-document .node-events-form #edit-actions .text-advice,
+.page-node-add-events .node-events-form #edit-actions .text-advice,
+.page-node-add-news .node-events-form #edit-actions .text-advice,
+.page-node-edit .node-events-form #edit-actions .text-advice,
+.page-node-add-document .node-news-form #edit-actions .text-advice,
+.page-node-add-events .node-news-form #edit-actions .text-advice,
+.page-node-add-news .node-news-form #edit-actions .text-advice,
+.page-node-edit .node-news-form #edit-actions .text-advice,
+.page-node-add-document .node-document-form #edit-actions .text-advice,
+.page-node-add-events .node-document-form #edit-actions .text-advice,
+.page-node-add-news .node-document-form #edit-actions .text-advice,
+.page-node-edit .node-document-form #edit-actions .text-advice {
+  text-align: center;
+  padding-bottom: 2em;
 }
 .page-node-add-document .node-events-form table.mceLayout,
 .page-node-add-events .node-events-form table.mceLayout,
@@ -15567,7 +15102,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 .private-area #private h2 {
   font-weight: 100;
-  font-style: italic;
+  font-style: normal;
   font-size: 30px;
   text-align: left;
   border-bottom: none;
@@ -15652,7 +15187,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 .private-area #private #tmgmt-6 li a {
   display: inline;
-  font-style: italic;
+  font-style: normal;
   font-size: inherit;
   margin-left: 1em;
 }
@@ -15709,7 +15244,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .private-area #private .pane-node:last-child p a {
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   display: inline-block;
   font-size: 14px;
   margin-bottom: 0px;
@@ -15771,7 +15306,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   font-weight: bold;
   font-size: 1em;
   color: #003399;
-  font-style: italic;
+  font-style: normal;
 }
 .page-campaign-materials .view-id-view_campaign_materials .views-row .field-type-file .glyphicon {
   display: none;
@@ -15810,7 +15345,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   color: #333333;
 }
 .node-type-campaign-materials .field-type-file span {
-  font-style: italic;
+  font-style: normal;
   font-size: 1em;
   float: left;
   margin-right: 10px;
@@ -15865,7 +15400,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   display: inline-block;
   background-color: #e2e2e3;
   color: #003399;
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
   margin-right: 2em;
   padding: 0.5em 1.5em;
@@ -15877,7 +15412,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .node-type-document .gpep-organisation,
 .node-type-publication .gpep-organisation {
   margin-top: 10px;
-  font-style: italic;
+  font-style: normal;
 }
 .node-type-document .pane-node-field-document-files,
 .node-type-publication .pane-node-field-document-files,
@@ -15891,7 +15426,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .node-type-publication .pane-node-field-document-files .first.last,
 .node-type-document .pane-node-field-file .first.last,
 .node-type-publication .pane-node-field-file .first.last {
-  font-style: italic;
+  font-style: normal;
 }
 .node-type-document .pane-node-field-document-files .first.last > div:first-child a,
 .node-type-publication .pane-node-field-document-files .first.last > div:first-child a,
@@ -15916,6 +15451,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   margin-right: 10px;
   display: inline-block;
   font-weight: 500;
+  border-radius: 5px;
 }
 .node-type-document .field-type-file,
 .node-type-publication .field-type-file {
@@ -15953,7 +15489,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   padding-top: 1em;
   border-bottom: 1px dotted #749b00;
   width: 100%;
-  font-style: italic;
+  font-style: normal;
 }
 .node-type-document .pane-node-field-related-publications ul li,
 .node-type-publication .pane-node-field-related-publications ul li {
@@ -15992,7 +15528,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 .node-type-document .field-name-field-document-files .field-collection-view .entity-field-collection-item .publication-teaser ul {
   display: inline-block;
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
 }
 .node-type-document .field-name-field-document-files .field-collection-view .entity-field-collection-item .publication-teaser ul li {
@@ -16000,20 +15536,16 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 /*End publications detail*/
 /*official campaign partners list*/
-.node-145 .field-type-text-with-summary {
-  text-align: center;
-  font-size: 1.1em;
-  margin-top: 40px;
-}
 .view-id-partners_list {
-  margin: 25px;
+  margin: 0 25px 25px 25px;
   color: #003399;
   font-size: 1.15em;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .view-id-partners_list .quicktabs-tabs {
   display: inline-block;
+  padding-left: 0;
 }
 .view-id-partners_list .quicktabs-tabs li {
   border: 1px dotted #749b00;
@@ -16104,13 +15636,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .view-id-partners_list img {
   margin: auto;
 }
-.view-display-id-fop img,
-.view-display-id-een img,
-.view-display-id-block_1 img {
-  width: 110px;
-  height: 74px;
-  border: 1px solid #CCC;
-}
 /*End oficial campaign partners list*/
 /*pag National focal points*/
 .page-national-focal-points article,
@@ -16124,14 +15649,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .view-partners .views-exposed-form .views-exposed-widget button,
 #block-system-main .view-partners .views-exposed-form .views-exposed-widget button {
   margin-top: 1.7em;
-}
-.view-partners .more-link,
-#block-system-main .view-partners .more-link {
-  color: #ffffff;
-  clear: both;
-  display: block;
-  width: 100%;
-  margin-top: 2em;
 }
 /* End view-partners */
 /*pag Newsletter*/
@@ -16360,7 +15877,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   background-color: transparent;
   color: #039;
   font-weight: 700;
-  font-style: italic;
+  font-style: normal;
 }
 .page-get-your-certificate .pane-node-field-image {
   padding-right: 15px;
@@ -16382,12 +15899,18 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-get-your-certificate form.webform-client-form .webform-component {
   margin-bottom: 1em !important;
 }
-.page-get-your-certificate form.webform-client-form .form-control,
-.page-get-your-certificate form.webform-client-form .chosen-single span {
+.page-get-your-certificate form.webform-client-form .form-control {
   color: #003399;
+  border: 1px solid #003399;
+}
+.page-get-your-certificate form.webform-client-form .chosen-single span {
+  color: grey;
 }
 .page-get-your-certificate form.webform-client-form .webform-component--activities {
   margin-bottom: 0em;
+}
+.page-get-your-certificate form.webform-client-form .webform-component--activities label {
+  color: #000 !important;
 }
 .page-get-your-certificate form.webform-client-form .form-checkboxes {
   margin-top: 0.5em;
@@ -16399,8 +15922,9 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-get-your-certificate form.webform-client-form .webform-component--other-activities label {
   margin-left: 0px;
   float: left;
-  color: #003399;
+  color: #000;
   font-family: 'Open Sans';
+  padding-top: 7px;
 }
 .page-get-your-certificate form.webform-client-form .webform-component--other-activities input {
   width: auto;
@@ -16410,13 +15934,13 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   margin-left: 15px;
   width: 97%;
   margin-left: 0;
-  width: 100%;
+  width: auto;
 }
 .page-get-your-certificate form.webform-client-form .captcha {
   padding-bottom: 25px;
 }
 .page-get-your-certificate form.webform-client-form .help-block a {
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
   font-size: 1.25em;
 }
@@ -16427,23 +15951,22 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-get-your-certificate form.webform-client-form .form-select {
   position: relative;
   display: inline-block;
-  width: 95%;
+  width: 100%;
+  height: 35px;
   border: 1px solid #003399 !important;
   box-shadow: none;
 }
 .page-get-your-certificate form.webform-client-form .form-select:after {
-  width: 30px;
-  height: 33px;
+  width: 14px;
+  height: 15px;
   display: block;
   content: '';
   position: absolute;
-  top: 0px;
-  right: 0;
-  pointer-events: none;
-  background: #003399 url("../images/content/arrow-down.png") no-repeat right center;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  top: 14px;
+  right: 18px;
+  background: url(../images/green-select.png) no-repeat scroll 0 0px #ffffff !important;
+  padding-left: 10px;
+  cursor: pointer;
 }
 .page-get-your-certificate form.webform-client-form .form-select select {
   font-style: normal;
@@ -16457,6 +15980,31 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   box-sizing: border-box;
   width: 100%;
   height: 23px;
+}
+.page-get-your-certificate form.webform-client-form #edit-submitted-confirm label {
+  color: #000;
+}
+.page-get-your-certificate form.webform-client-form .captcha .help-block {
+  color: #777777;
+}
+.page-get-your-certificate form.webform-client-form fieldset.captcha {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  padding-left: 1em;
+}
+.page-get-your-certificate form.webform-client-form .form-actions {
+  padding-left: 1em;
+}
+.page-get-your-certificate form.webform-client-form #captcha_0_refresh img {
+  height: 38px;
+  width: 38px;
+}
+.page-get-your-certificate form.webform-client-form .captchaImgReadAudio,
+.page-get-your-certificate form.webform-client-form .captchaImgRefresh,
+.page-get-your-certificate form.webform-client-form .captchaObject {
+  border: 0;
+  height: 42px;
+  width: 38px;
 }
 .page-get-your-certificate .pane-node-field-image {
   float: left;
@@ -16486,6 +16034,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   margin-left: -10px;
   width: 100%;
   max-width: 100%;
+  padding-left: 1em;
 }
 .page-get-your-certificate .container > div > .pane-node-body:last-child .field-items {
   width: 100%;
@@ -16534,7 +16083,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   padding: 0px;
 }
 .page-get-your-certificate .see-also .more-links ul a {
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
 }
 .page-get-your-certificate .see-also .more-links ul a:before {
@@ -16731,7 +16280,6 @@ fieldset.captcha div {
 .panels-flexible-region-container-additional_resources #additional-resources-external_url-pane a {
   color: #003399;
   font-weight: bold;
-  font-style: italic;
   font-style: normal;
   font-size: 1.3em;
 }
@@ -17428,20 +16976,6 @@ fieldset.captcha div {
 .panels-flexible-region-container-additional_resources .node-publication .field-name-body {
   clear: both;
 }
-.field-name-field-recommended-resources .node-infographic .more-link,
-.field-name-field-recommended-articles .node-infographic .more-link,
-.field.field-name-field-aditional-resources .node-infographic .more-link,
-.panels-flexible-region-container-additional_resources .node-infographic .more-link,
-.field-name-field-recommended-resources .node-news .more-link,
-.field-name-field-recommended-articles .node-news .more-link,
-.field.field-name-field-aditional-resources .node-news .more-link,
-.panels-flexible-region-container-additional_resources .node-news .more-link,
-.field-name-field-recommended-resources .node-publication .more-link,
-.field-name-field-recommended-articles .node-publication .more-link,
-.field.field-name-field-aditional-resources .node-publication .more-link,
-.panels-flexible-region-container-additional_resources .node-publication .more-link {
-  font-size: 14px;
-}
 .field-name-field-recommended-resources .node-infographic .group-left,
 .field-name-field-recommended-articles .node-infographic .group-left,
 .field.field-name-field-aditional-resources .node-infographic .group-left,
@@ -17680,15 +17214,9 @@ fieldset.captcha div {
   margin-right: -15px;
   margin-left: -15px;
 }
-#block-osha-newsletter-osha-newsletter-image {
-  margin-right: -15px;
-  margin-left: -15px;
-}
-#block-osha-newsletter-osha-newsletter-image #campaigns-newsletter-subscribe-form > div {
-  display: inline-flex;
-}
 .alert.alert-block.alert-danger,
-.alert.alert-block.alert-success {
+.alert.alert-block.alert-success,
+.alert-warning.messages.warning {
   clear: both;
   margin-left: 25px;
   margin-right: 25px;
@@ -17696,7 +17224,8 @@ fieldset.captcha div {
   word-wrap: break-word;
 }
 .alert.alert-block.alert-danger ul,
-.alert.alert-block.alert-success ul {
+.alert.alert-block.alert-success ul,
+.alert-warning.messages.warning ul {
   margin-left: 1em;
   list-style-type: disc;
 }
@@ -17715,7 +17244,7 @@ span.form-required {
   padding-bottom: 1em;
 }
 span.date-display-single {
-  font-weight: bold;
+  font-weight: 600;
 }
 .page-node-129 #block-osha-newsletter-osha-newsletter-subscribe-extra div.captcha {
   display: none;
@@ -17728,7 +17257,16 @@ span.date-display-single {
   font-weight: bold;
   font-size: 0.89em;
   display: inline-block;
-  font-style: italic;
+  font-style: normal;
+}
+#block-hwc-partner-hwc-partner-mostra-masquerade a:hover {
+  opacity: 0.8;
+}
+#block-hwc-partner-hwc-partner-mostra-masquerade a.btn {
+  background: #003399;
+}
+#block-hwc-partner-hwc-partner-mostra-masquerade .contextual-links-trigger {
+  background: transparent;
 }
 #block-hwc-partner-hwc-partner-mostra-masquerade a::before {
   content: ">";
@@ -17789,9 +17327,6 @@ span.date-display-single {
 #block-panels-mini-news-and-events {
   border-right: 1px dotted #749b00;
   margin-top: 1em;
-}
-.more-link {
-  border-bottom: 0px!important;
 }
 .page-user-login .block-system form {
   float: left;
@@ -17881,7 +17416,6 @@ input#edit-field-image-und-0-upload::before {
 /*end Data visualisation – ageing & OSH*/
 /*napo film*/
 .page-node-160 #block-views-napo-film-carousel-slidehow {
-  margin-bottom: 60px;
   height: 665px;
 }
 .page-node-160 #block-views-napo-film-carousel-slidehow #napo_films {
@@ -17906,6 +17440,7 @@ input#edit-field-image-und-0-upload::before {
 }
 .page-node-160 #block-views-napo-film-carousel-slidehow #napo_films .napo_films .num_slides > div {
   width: 100% !important;
+  padding: 0;
 }
 .page-node-160 #block-views-napo-film-carousel-slidehow #napo_films .napo_films .num_slides > div .napo-film-title {
   margin: 0 auto;
@@ -17913,7 +17448,7 @@ input#edit-field-image-und-0-upload::before {
   text-align: center;
   position: absolute;
   z-index: 2;
-  padding: 0px 100px;
+  padding: 0px 80px;
   bottom: 0px;
   margin-bottom: 120px;
 }
@@ -17935,6 +17470,7 @@ input#edit-field-image-und-0-upload::before {
 .page-node-160 #block-views-napo-film-carousel-slidehow #napo_films .napo_films .num_slides > div .napo-film-title p {
   color: white;
   font-size: 1em;
+  padding: 5px;
 }
 .page-node-160 #block-views-napo-film-carousel-slidehow #napo_films .napo_films .num_slides > div .video-js {
   max-width: 1000px;
@@ -17942,6 +17478,7 @@ input#edit-field-image-und-0-upload::before {
   width: 100%;
   height: 564px;
   background-color: black;
+  overflow: hidden;
 }
 .page-node-160 #block-views-napo-film-carousel-slidehow #napo_films .napo_films .num_slides > div .hwc-share-widget {
   border-top: none;
@@ -17952,6 +17489,7 @@ input#edit-field-image-und-0-upload::before {
   margin: 0 auto;
   width: 100%;
   background-color: #003399;
+  float: none;
 }
 .page-node-160 #block-views-napo-film-carousel-slidehow #napo_films .napo_films .num_slides > div .hwc-share-widget ul {
   text-align: right;
@@ -18078,23 +17616,6 @@ input#edit-field-image-und-0-upload::before {
 .page-node-160 article .field-type-text-with-summary {
   text-align: center;
 }
-.page-node-160 article .field-type-text-with-summary .more-link {
-  background-color: #003399 !important;
-  padding: 8px 20px 8px 20px;
-  margin-top: 15px;
-  display: inline-block;
-  margin-bottom: 40px;
-}
-.page-node-160 article .field-type-text-with-summary .more-link:before {
-  content: "> ";
-  color: white;
-}
-.page-node-160 article .field-type-text-with-summary .more-link a {
-  color: white;
-  border: none;
-  width: auto;
-  font-style: normal;
-}
 /*end napo film*/
 /*Page introduction tools and publications*/
 .page-publications .main-container h1 {
@@ -18131,7 +17652,6 @@ input#edit-field-image-und-0-upload::before {
 }
 .page-publications .view-publication-type .views-row:hover .views-field-description-field .field-content {
   display: block;
-  filter: scale(1000);
 }
 .page-publications .view-publication-type .views-row .views-field-description-field {
   padding: 15px;
@@ -18256,7 +17776,7 @@ input#edit-field-image-und-0-upload::before {
 .priority-detail .see-more a {
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 .priority-detail .see-more a:before {
   content: "> ";
@@ -18303,7 +17823,7 @@ input#edit-field-image-und-0-upload::before {
 .priority-detail .pane-hwc-priority-areas-hwc-pa-links-and-info .recomended-resources-for-you {
   color: #ffffff;
   font-size: 30px;
-  font-style: italic;
+  font-style: normal;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
   font-weight: 100;
@@ -18478,7 +17998,7 @@ input#edit-field-image-und-0-upload::before {
   background-color: transparent;
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   border-bottom: 1px solid #749b00;
 }
 .priority-detail .tools_and_guidance h2.pane-title:before {
@@ -18552,8 +18072,6 @@ input#edit-field-image-und-0-upload::before {
   width: 100%;
   height: 360px;
   overflow: hidden;
-  padding-right: -15px;
-  padding-left: -15px;
 }
 .page-good-practice-exchange .panels-flexible-region-inside > .pane-node-title-field .field-name-title-field {
   position: absolute;
@@ -18673,17 +18191,6 @@ input#edit-field-image-und-0-upload::before {
 .page-good-practice-exchange .pane-hwc-good-practice-exchange-gpe-tools-publications .pane-content ul li a:before {
   content: "> ";
 }
-.page-good-practice-exchange .pane-hwc-good-practice-exchange-gpe-tools-publications .pane-content .more-link {
-  color: white !important;
-  background-color: #003399 !important;
-  border-radius: 0;
-  border: none;
-  width: auto;
-  font-weight: normal !important;
-  font-style: normal !important;
-  display: inline;
-  padding: 0.5em;
-}
 .page-good-practice-exchange .pane-osha-newsletter-osha-newsletter-image {
   clear: both;
   min-height: 275px;
@@ -18794,24 +18301,18 @@ input#edit-field-image-und-0-upload::before {
   background-color: transparent;
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   border-bottom: 1px solid #749b00;
 }
 /*end good practice exchange*/
 /*Social media*/
-.page-social-media-centre .main-container h1 {
-  padding-bottom: 0px;
-  border-bottom: none;
-  margin-bottom: 0px;
-}
 .page-social-media-centre #social-dashboard-media-centre-form {
-  border-bottom: 1px dotted #749b00;
   padding-bottom: 0px;
-  overflow: hidden;
   margin-top: -10px;
 }
 .page-social-media-centre #social-dashboard-media-centre-form > div {
   float: right;
+  margin-right: 5em;
 }
 .page-social-media-centre #social-dashboard-media-centre-form > div .form-type-select {
   margin-bottom: 0px;
@@ -18864,26 +18365,6 @@ input#edit-field-image-und-0-upload::before {
 .page-social-media-centre .view-id-social_dashboard .view-footer {
   margin-top: 30px;
   margin-bottom: 30px;
-}
-.page-social-media-centre .view-id-social_dashboard .view-footer .more-link {
-  text-align: center;
-  background-color: #003399 !important;
-  color: white !important;
-  max-width: 220px !important;
-  margin: 0 auto !important;
-  display: block;
-  font-style: normal !important;
-  font-weight: normal !important;
-}
-.page-social-media-centre .view-id-social_dashboard .view-footer .more-link:before {
-  content: "" !important;
-}
-.page-social-media-centre .view-id-social_dashboard .view-footer .more-link:after {
-  content: "\e164";
-  font-family: "Glyphicons Halflings";
-  font-weight: lighter;
-  margin-left: 3px;
-  vertical-align: text-bottom;
 }
 .page-social-media-centre .facebook-column {
   margin-top: 30px;
@@ -19000,8 +18481,6 @@ input#edit-field-image-und-0-upload::before {
 }
 #edit-sort-fieldset {
   border: none;
-  border-top: 1px dotted #749b00;
-  border-bottom: 1px dotted #749b00;
   border-radius: 0px;
 }
 #edit-sort-fieldset .panel-body {
@@ -19062,17 +18541,17 @@ input#edit-field-image-und-0-upload::before {
 .page-national-focal-points #block-system-main .node-article .field-type-text-with-summary,
 .page-campaign-media-partners #block-system-main .node-article .field-type-text-with-summary,
 .page-campaign-partners-official-campaign-partners #block-system-main .node-article .field-type-text-with-summary {
-  padding-right: 15px;
-  padding-left: 15px;
-  width: 67%;
-  margin: 0 auto;
+  padding-right: 25px;
+  padding-left: 25px;
+  width: 100%;
+  margin: 0;
 }
 .page-enterprise-europe-network #block-system-main .node-article .field-type-text-with-summary p,
 .page-national-focal-points #block-system-main .node-article .field-type-text-with-summary p,
 .page-campaign-media-partners #block-system-main .node-article .field-type-text-with-summary p,
 .page-campaign-partners-official-campaign-partners #block-system-main .node-article .field-type-text-with-summary p {
-  text-align: center;
-  font-size: 1.2em;
+  text-align: left;
+  font-size: 14px;
 }
 .page-enterprise-europe-network #block-system-main .node-article .field-type-text-with-summary p:last-child,
 .page-national-focal-points #block-system-main .node-article .field-type-text-with-summary p:last-child,
@@ -19117,7 +18596,7 @@ input#edit-field-image-und-0-upload::before {
   display: block;
   color: #003399;
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
   text-align: center;
 }
 /*end page-node-366*/
@@ -19283,80 +18762,6 @@ input#edit-field-image-und-0-upload::before {
 /*input clean x button*/
 /* Clearable text inputs */
 /*Galder styles*/
-.page-glossary-list {
-  /*end galder styles*/
-}
-.page-glossary-list .page-header {
-  text-align: center;
-  color: #749b00 ;
-  font-size: 48px;
-  font-weight: bold;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  margin-bottom: 1em;
-  border-bottom: 0px;
-}
-.page-glossary-list .view-glossary-list {
-  margin-bottom: 100px;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type {
-  border: 1px solid #749b00;
-  margin-bottom: 1em;
-  margin-top: 1em;
-  padding: 10px 2em 10px 1.5em;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .type-name {
-  color: #003399;
-  font-weight: bold;
-  text-align: left;
-  cursor: pointer;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .content-term {
-  width: 100%;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .content-term dl .term-title {
-  margin-bottom: 0.5em;
-  margin-left: 0.5em;
-  font-weight: bold;
-  padding-top: 1em;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .content-term dl .term-description {
-  margin-left: 0.5em;
-  padding-bottom: 0.5em;
-  border-bottom: 1px dotted #749b00;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .type-name .glyphicon {
-  color: #FFF;
-  background: #003399;
-  border-radius: 17px;
-  width: 21px;
-  height: 21px;
-  float: right;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .type-name .glyphicon:before {
-  content: "\e252";
-  padding-top: 0px;
-  display: block;
-  margin-top: 5px;
-  margin-left: 5px;
-  font-size: 12px;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .type-name.active .glyphicon:before {
-  content: "\e253";
-  padding-top: 0px;
-  display: block;
-  margin-top: 5px;
-  margin-left: 5px;
-  font-size: 12px;
-}
-.page-glossary-list .view-glossary-list .view-content .glossary_type .type-name.active.collapsed .glyphicon:before {
-  content: "\e252";
-  padding-top: 0px;
-  display: block;
-  margin-top: 5px;
-  margin-left: 5px;
-  font-size: 12px;
-}
 /*galder styles css issue bulgaria*/
 .page-topics.i18n-bg .main-container .view-id-topics .views-row .views-field-name-field a {
   font-size: 1em;
@@ -19516,23 +18921,12 @@ input#edit-field-image-und-0-upload::before {
   margin-bottom: 15px;
   font-size: 2em;
 }
-.toolkit-page .main-container .page_title h1.page-header {
-  display: none;
-}
 .toolkit-page .main-container .field-type-text-with-summary .field-items:before {
   content: " ";
   display: table;
 }
 .toolkit-page .main-container .field-type-text-with-summary .field-items:before h3 {
   margin-bottom: 25px;
-}
-.toolkit-page .main-container h1 {
-  font-style: normal;
-  color: #749b00;
-  font-weight: 600;
-  margin-bottom: 15px;
-  font-size: 2em;
-  text-align: left;
 }
 .toolkit-page .main-container h2 {
   font-size: 1.3em;
@@ -19560,12 +18954,10 @@ input#edit-field-image-und-0-upload::before {
 }
 .toolkit-page .main-container .introduction-text {
   font-weight: 600;
-  font-style: italic;
+  font-style: normal;
   margin-bottom: 40px;
 }
 .toolkit-page .main-container .above_title {
-  margin-left: -15px;
-  margin-right: -15px;
   max-height: 224px;
   overflow: hidden;
   position: relative;
@@ -19739,32 +19131,56 @@ input#edit-field-image-und-0-upload::before {
 .toolkit-page .main-container .field-name-field-tk-topics .field-items .field-item .node-tk-topic .group-right .field-name-node-link a:hover {
   background-color: #595959;
 }
-.toolkit-page .main-container .view-tk-tools .views-row {
+.toolkit-page .main-container .view-tk-tools .h2.toolkit-h2 {
   padding-left: 15px;
-  padding-right: 15px;
-  margin-bottom: 30px;
-  max-width: 420px;
+}
+.toolkit-page .main-container .view-tk-tools .view-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.toolkit-page .main-container .view-tk-tools .views-row {
+  padding-left: 0;
+  padding-right: 30px;
+  margin-bottom: 0;
+  max-width: 23%;
 }
 .toolkit-page .main-container .view-tk-tools .views-row .views-field-field-image {
-  background-color: #ccc;
   width: 100%;
-  height: 250px;
-  overflow: hidden;
   position: relative;
 }
 .toolkit-page .main-container .view-tk-tools .views-row .views-field-field-image img {
   width: 100%;
   max-width: inherit;
+  border: 2px solid #bcd75b;
+  border-radius: 7px;
+}
+.toolkit-page .main-container .view-tk-tools .views-row blockquote.image-field-caption {
+  display: block;
+  background-color: #FFF;
+}
+.toolkit-page .main-container .view-tk-tools .views-row blockquote.image-field-caption p {
+  border-left: 0;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-size: 10px;
+  color: #57575a;
+}
+.toolkit-page .main-container .view-tk-tools .views-row .views-field-title h2 {
+  padding: 5px 0 10px 0;
+  clear: both;
 }
 .toolkit-page .main-container .view-tk-tools .views-row .views-field-title h2 a {
-  height: 75px;
-  background-color: #003399;
-  color: white;
-  font-weight: 600;
-  font-size: 1.5rem;
-  text-align: center;
-  display: block;
-  padding-top: 25px;
+  font-family: 'Open Sans', sans-serif;
+  color: #003399;
+  font-size: 0.85em;
+  margin: 0;
+  clear: both;
+  line-height: 20px;
+  font-weight: bold;
+  font-style: normal;
+  letter-spacing: 0;
 }
 .toolkit-page .main-container .view-tk-tools .views-row .views-field-title h2 a:before {
   content: "";
@@ -19772,43 +19188,47 @@ input#edit-field-image-und-0-upload::before {
 }
 @media (min-width: 1301px) and (max-width: 1665px) {
   .toolkit-page .main-container .view-tk-tools .views-row {
-    max-width: 420px;
+    max-width: 25%;
   }
   .toolkit-page .main-container .view-tk-tools .views-row .views-field-field-image {
-    height: 189px;
+    height: auto;
   }
 }
 @media (min-width: 992px) and (max-width: 1300px) {
   .toolkit-page .main-container .view-tk-tools .views-row {
-    min-width: 300px;
-    width: 50%;
+    max-width: 50%;
   }
   .toolkit-page .main-container .view-tk-tools .views-row .views-field-field-image {
-    height: 250px;
+    height: auto;
   }
 }
 @media (min-width: 993px) and (max-width: 1145px) {
   .toolkit-page .main-container .view-tk-tools .views-row {
-    min-width: 300px;
-    width: 50%;
+    max-width: 50%;
   }
   .toolkit-page .main-container .view-tk-tools .views-row .views-field-field-image {
-    height: 217px;
+    height: auto;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .toolkit-page .main-container .view-tk-tools .views-row {
-    min-width: 300px;
-    width: 50%;
-    max-width: inherit;
+    max-width: 33%;
   }
   .toolkit-page .main-container .view-tk-tools .views-row .views-field-field-image {
-    height: 217px;
+    height: auto;
   }
 }
 @media (min-width: 1px) and (max-width: 767px) {
   .toolkit-page .main-container .view-tk-tools .views-row {
-    min-width: 100px;
+    width: 50%;
+    max-width: inherit;
+  }
+  .toolkit-page .main-container .view-tk-tools .views-row .views-field-field-image {
+    height: inherit;
+  }
+}
+@media (min-width: 1px) and (max-width: 480px) {
+  .toolkit-page .main-container .view-tk-tools .views-row {
     width: 100%;
     max-width: inherit;
   }
@@ -20245,7 +19665,7 @@ input#edit-field-image-und-0-upload::before {
   clear: both;
   margin-top: 20px;
   overflow: hidden;
-  margin-bottom: 50px;
+  margin-bottom: 0;
 }
 .toolkit-page #block-hwc-toolkit-toolkit-nav .key-next-prev-buttons,
 .toolkit-page .pane-hwc-toolkit-toolkit-nav .key-next-prev-buttons {
@@ -20405,7 +19825,7 @@ input#edit-field-image-und-0-upload::before {
 }
 .node-type-tk-topic .node-tk-topic .group-left .field-name-body .body-summary p {
   font-weight: 600;
-  font-style: italic;
+  font-style: normal;
   margin-bottom: 25px;
   font-size: 1.1em;
 }
@@ -20746,6 +20166,13 @@ blockquote.image-field-caption {
   padding: 0;
   margin: 0;
   width: 100%;
+  font-size: 10px;
+  color: #57575a;
+}
+blockquote.image-field-caption span.blockquote-copyright {
+  display: block;
+  clear: both;
+  height: 14px;
 }
 blockquote.image-field-caption p {
   z-index: 999;
@@ -20753,9 +20180,14 @@ blockquote.image-field-caption p {
   width: 100%;
   margin: 0;
   padding: 0;
-  font-size: 10px;
+  font-size: 11.2px;
   color: #000;
   float: left;
+}
+/*Caption news detail*/
+.node-type-news blockquote.image-field-caption p {
+  font-size: 13px;
+  line-height: 16px;
 }
 .view-publication-type .views-row:hover .views-field-field-image a {
   text-decoration: none;
@@ -20781,11 +20213,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
 }
 .field.field-name-field-image {
   position: relative;
-}
-.node-type-article blockquote.image-field-caption {
-  position: absolute;
-  width: 100%;
-  top: 335px;
 }
 .node-type-article blockquote.image-field-caption p {
   background: transparent;
@@ -20828,6 +20255,9 @@ body.front .homepage-slider blockquote.image-field-caption p {
   color: #ffffff;
   padding-left: 0;
 }
+.footer ul li a:hover {
+  text-decoration: underline;
+}
 .footer ul li :hover,
 .footer ul li :focus {
   background: none;
@@ -20852,7 +20282,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
 .footer div.on-the-web {
   display: inline-block;
   float: right;
-  margin-right: 40px;
+  margin-right: 0px;
   text-align: right;
 }
 .footer div.on-the-web a {
@@ -20863,9 +20293,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
 }
 .footer div.on-the-web a img {
   display: none;
-}
-.footer div.on-the-web span:last-child {
-  margin-right: 40px;
 }
 .footer div.on-the-web .otw-twitter a {
   background: url("../images/footer/twitter.png") no-repeat;
@@ -20926,7 +20353,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
     margin-right: 40px;
   }
   .view-id-flickr_albums .view-content .gallery-row .views-field-field-flickr {
-    height: 200px;
+    height: 200px !important;
     overflow: hidden;
   }
   .view-id-flickr_albums .view-content .gallery-row .views-field-field-flickr img {
@@ -20958,18 +20385,12 @@ body.front .homepage-slider blockquote.image-field-caption p {
     padding-right: 1em;
     margin-right: 1em;
   }
-  header.navbar-default .campaigns-header .navbar-header a.pull-left img {
-    width: 140px;
-  }
-  header.navbar-default .campaigns-header .navbar-header a img.pull-left {
-    width: 150px;
-  }
   header.navbar-default .campaigns-header .navbar-header img:nth-child(3) {
-    width: 70px;
+    width: 70px !important;
     padding-right: 1em !important;
   }
   header.navbar-default .campaigns-header .navbar-header .header-text {
-    font-size: 20px;
+    font-size: 17px;
     width: 238px;
     padding-top: 1em;
     padding-left: 0.8em;
@@ -21352,12 +20773,21 @@ body.front .homepage-slider blockquote.image-field-caption p {
   }
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(bg),
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(el),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(da),
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(de),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(et),
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(hu),
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(mt),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(hr),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(is),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(it),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(lv),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(no),
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(pl),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(pt),
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(fi),
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(ro) {
-    font-size: 1em;
+    font-size: 0.9em;
     padding-left: .5em;
   }
   header.navbar-default .campaigns-header .navbar-header .header_top_bar .region-above-header {
@@ -21627,15 +21057,8 @@ body.front .homepage-slider blockquote.image-field-caption p {
     width: 100%;
     margin-right: 0;
   }
-  .page-practical-tools .form-group {
-    margin-bottom: 15px;
-  }
   .page-practical-tools #search {
     margin-top: 0;
-  }
-  .page-practical-tools #edit-search-api-views-fulltext-wrapper {
-    margin-left: 15px !important;
-    margin-right: 15px !important;
   }
   .page-practical-tools .region-sidebar-first .views-exposed-widgets .form-type-textfield input {
     padding-right: 0px;
@@ -22230,9 +21653,8 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .page-communications .region-sidebar-first .block.block-facetapi,
   .page-partners-documents .region-sidebar-first .block.block-facetapi,
   .page-search .region-sidebar-first .block.block-facetapi {
-    border-bottom: none;
-    padding-top: 0px;
-    padding-bottom: 10px;
+    padding-top: 0;
+    padding-bottom: 0;
     overflow: hidden;
   }
   .page-communications .region-sidebar-first .block.block-facetapi h2,
@@ -22263,11 +21685,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     float: left;
     width: 100%;
     margin-left: 0;
-  }
-  .page-communications .region.region-content .view-search .view-header,
-  .page-partners-documents .region.region-content .view-search .view-header,
-  .page-search .region.region-content .view-search .view-header {
-    padding: 7px 15px;
   }
   .page-communications .region.region-content .view-search .view-content .views-row,
   .page-partners-documents .region.region-content .view-search .view-content .views-row,
@@ -22314,38 +21731,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     padding-right: 30px;
   }
   /*fin private area*/
-  /*pag National focal points*/
-  /* .page-national-focal-points, .page-official-campaign-partners, .page-campaign-media-partners */
-  .page-national-focal-points .section-introduction .field-type-text-with-summary,
-  .page-official-campaign-partners .section-introduction .field-type-text-with-summary,
-  .page-campaign-media-partners .section-introduction .field-type-text-with-summary,
-  .page-campaign-materials .section-introduction .field-type-text-with-summary,
-  .page-national-focal-points .main-container .section-introduction .node.node-article .field-type-text-with-summary,
-  .page-official-campaign-partners .main-container .section-introduction .node.node-article .field-type-text-with-summary,
-  .page-campaign-media-partners .main-container .section-introduction .node.node-article .field-type-text-with-summary,
-  .page-campaign-materials .main-container .section-introduction .node.node-article .field-type-text-with-summary,
-  .page-national-focal-points .main-container .section-introduction .node.node-article .field-type-text-with-summary,
-  .page-official-campaign-partners .main-container .section-introduction .node.node-article .field-type-text-with-summary,
-  .page-campaign-media-partners .main-container .section-introduction .node.node-article .field-type-text-with-summary,
-  .page-campaign-materials .main-container .section-introduction .node.node-article .field-type-text-with-summary {
-    display: block;
-    padding-right: 30px;
-    padding-left: 30px;
-    margin: 0px;
-  }
-  .page-national-focal-points article,
-  .page-official-campaign-partners article,
-  .page-campaign-media-partners article,
-  .page-campaign-materials article {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .page-national-focal-points .view-id-partners_list .hwc-char-link,
-  .page-official-campaign-partners .view-id-partners_list .hwc-char-link,
-  .page-campaign-media-partners .view-id-partners_list .hwc-char-link,
-  .page-campaign-materials .view-id-partners_list .hwc-char-link {
-    padding: 0px 18px 0px 0px;
-  }
   #block-views-partners-list-block {
     margin-right: 30px;
     margin-left: 30px;
@@ -22880,10 +22265,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     padding-right: 30px;
     padding-left: 30px;
   }
-  .breadcrumb {
-    padding-right: 30px;
-    padding-left: 30px;
-  }
   h1 {
     padding-right: 15px;
     padding-left: 15px;
@@ -22937,8 +22318,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
     position: absolute;
     z-index: 2;
     padding: 0px 100px;
-    bottom: 0px;
-    margin-bottom: 120px;
+    bottom: 50px;
   }
   .page-node-160 #block-views-napo-film-carousel-slidehow #napo_films .napo_films .num_slides > div .napo-film-title a {
     color: white;
@@ -23020,43 +22400,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   /*Good practices, publications, case studies*/
   #edit-left-column {
     position: relative;
-  }
-  #edit-left-column .form-item-relevant-for,
-  #edit-left-column .form-item-field-publication-type,
-  #edit-left-column .form-item-language,
-  #edit-left-column .form-item-field-priority-area,
-  #edit-left-column .form-item-languages {
-    margin-top: 0;
-    padding-top: 10px;
-    border-bottom: none;
-    margin-bottom: 0px;
-    padding-bottom: 0px;
-    clear: both;
-    overflow: hidden;
-  }
-  #edit-left-column .form-item-relevant-for .checkbox:last-child,
-  #edit-left-column .form-item-field-publication-type .checkbox:last-child,
-  #edit-left-column .form-item-language .checkbox:last-child,
-  #edit-left-column .form-item-field-priority-area .checkbox:last-child,
-  #edit-left-column .form-item-languages .checkbox:last-child {
-    margin-bottom: 10px;
-  }
-  #edit-left-column .form-item-field-publication-type > label,
-  #edit-left-column .form-item-language > label,
-  #edit-left-column .form-item-field-priority-area > label,
-  #edit-left-column .form-item-relevant-for > label,
-  #edit-left-column .form-item-languages > label,
-  #edit-left-column .form-item-publication-type > label {
-    font-size: 20px;
-    font-weight: bold;
-    width: 100%;
-    display: block;
-    clear: both;
-    cursor: pointer;
-    background-color: #e2e2e3;
-    padding: 5px 15px;
-    font-size: 1.2em;
-    margin-bottom: 0px;
   }
   #edit-left-column #search {
     position: relative;
@@ -23144,8 +22487,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     width: 100%;
     height: 360px;
     overflow: hidden;
-    padding-right: -15px;
-    padding-left: -15px;
   }
   .page-good-practice-exchange .panels-flexible-region-inside > .pane-node-title-field .field-name-title-field {
     position: absolute;
@@ -23451,7 +22792,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
     padding-right: 0px;
   }
   .navbar-header .header-text {
-    display: none;
+    display: none !important;
   }
   .navbar-header .region-header {
     clear: both;
@@ -23653,10 +22994,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   }
   .main-container strong.title-alt .form-item {
     margin-top: 15px;
-  }
-  .main-container h2 {
-    margin-left: 15px;
-    margin-right: 15px;
   }
   .list-inline {
     margin-left: 0;
@@ -24043,15 +23380,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     padding-right: 15px;
     padding-left: 15px;
   }
-  #block-views-partners-block-1 h2,
-  .front #block-views-partners-block-1 h2 {
-    margin-top: 40px;
-    padding-top: 70px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    background: url("../images/content/partners.png") no-repeat center top;
-  }
   #block-views-partners-block-1 .views-field-field-logo,
   .front #block-views-partners-block-1 .views-field-field-logo {
     margin: 0 auto 20px auto;
@@ -24080,7 +23408,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
     margin-top: 0;
     background-color: #003399;
     padding: 15px;
-    font-style: italic;
+    font-style: normal;
     padding: 0;
   }
   #block-views-partners-block-1 a.more-link:before,
@@ -24100,10 +23428,8 @@ body.front .homepage-slider blockquote.image-field-caption p {
   }
   #block-views-partners-block-1 div.more-link a,
   .front #block-views-partners-block-1 div.more-link a {
-    width: 100% !important;
-    height: 3.5em;
-    padding: 1em;
     margin-top: 1em;
+    margin-left: 1em;
     display: block;
   }
   #block-views-partners-block-1 div.more-link a:before,
@@ -24155,8 +23481,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     padding-left: 15px;
   }
   .node-type-article article h2 {
-    margin-right: 15px;
-    margin-left: 15px;
     margin-bottom: 1em;
   }
   .node-type-article article .field-name-field-recommended-articles .node-article {
@@ -24521,9 +23845,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   /*FIN detail*/
   /*FIN Practical tools*/
   /*Publications*/
-  .page-publications .content {
-    display: none;
-  }
   .page-publications h4 {
     padding-left: 15px;
     padding-right: 15px;
@@ -25148,48 +24469,48 @@ body.front .homepage-slider blockquote.image-field-caption p {
   }
   /*end press room*/
   /*news*/
-  .page-news .main-container h1 {
+  .page-news .main-container h1,
+  .page-media-centre-press-room .main-container h1 {
     border-bottom: 1px dotted #749b00;
     padding-bottom: 0.7em;
   }
-  .page-news .view-news .views-row {
+  .page-news .view-news .views-row,
+  .page-media-centre-press-room .view-news .views-row {
     padding-left: 0px;
     padding-right: 0px;
   }
-  .page-news .view-news .views-row .field-name-field-image {
+  .page-news .view-news .views-row .field-name-field-image,
+  .page-media-centre-press-room .view-news .views-row .field-name-field-image {
     display: none;
   }
-  .page-news .view-news .views-row .more-link {
+  .page-news .view-news .views-row .more-link,
+  .page-media-centre-press-room .view-news .views-row .more-link {
     display: inline-block;
-    padding-left: 0;
   }
-  .page-news .view-news.view-display-id-oshnews_list.container .field-type-datetime,
-  .page-news .view-news.view-display-id-oshnews_list.container .field-name-field-summary,
-  .page-news .view-news.view-display-id-oshnews_list.container .field-name-body {
+  .page-news .view-news .views-row .field-type-datetime,
+  .page-media-centre-press-room .view-news .views-row .field-type-datetime,
+  .page-news .view-news .views-row .field.field-name-field-summary,
+  .page-media-centre-press-room .view-news .views-row .field.field-name-field-summary,
+  .page-news .view-news .views-row .field-name-body,
+  .page-media-centre-press-room .view-news .views-row .field-name-body {
     margin-left: 15px;
     margin-right: 15px;
   }
-  .node-type-news .back-to-link {
+  .node-type-news .main-container .back-to-link {
     display: none;
   }
-  .node-type-news .node-news {
+  .node-type-news .main-container .node-news {
     padding-left: 15px;
     padding-right: 15px;
   }
-  .node-type-news h2 {
+  .node-type-news .main-container h2 {
+    margin-top: 0.5em;
     margin-left: 0;
     margin-right: 0;
     font-size: 1.45em;
   }
-  .node-type-news .field-type-image {
-    margin-right: 0em;
-    margin-bottom: 1em;
-    text-align: center;
-  }
-  .node-type-news .field-type-image img {
-    width: 100%;
-    display: block;
-    padding: 0 7em;
+  .node-type-news .main-container .field.field-name-field-summary {
+    margin-top: 0;
   }
   /*end news*/
   /*infographics*/
@@ -25229,11 +24550,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .page-partners-documents .region-sidebar-first #edit-search-api-views-fulltext-wrapper,
   .page-search .region-sidebar-first #edit-search-api-views-fulltext-wrapper {
     margin-bottom: 0px;
-  }
-  .page-communications .views-widget-sort-by,
-  .page-partners-documents .views-widget-sort-by,
-  .page-search .views-widget-sort-by {
-    clear: both;
   }
   .page-communications .sort-container.col-xs-3,
   .page-partners-documents .sort-container.col-xs-3,
@@ -25393,7 +24709,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
     padding-left: 15px;
   }
   .profile-title-type-container .profile-inline-field a {
-    font-style: italic;
+    font-style: normal;
   }
   .profile-title-type-container .profile-inline-field:last-child {
     width: 100%;
@@ -25526,7 +24842,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .profile-4-cols-container-2 .profile-col-middle-right-2 .field-item.even a,
   .node-type-partner .profile-4-cols-container-2 .profile-col-middle-right-2 .field-item.even a {
     font-weight: bold;
-    font-style: italic;
+    font-style: normal;
   }
   .profile-4-cols-container-2 [class*="field-type-link"],
   .node-type-partner .profile-4-cols-container-2 [class*="field-type-link"] {
@@ -25873,15 +25189,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .page-node-add-document .node-document-form #edit-field-document-files table[id*="field-document-files-values"] button.btn-danger.form-submit {
     display: block;
     margin-top: 15px;
-  }
-  /*pag campaign-materials*/
-  .page-campaign-materials .field-name-field-image,
-  .node-type-campaign-materials .field-name-field-image,
-  .page-campaign-materials .section-introduction .field-type-text-with-summary,
-  .node-type-campaign-materials .section-introduction .field-type-text-with-summary,
-  .page-campaign-materials .main-container .section-introduction .node.node-article .field-type-text-with-summary,
-  .node-type-campaign-materials .main-container .section-introduction .node.node-article .field-type-text-with-summary {
-    display: none;
   }
   .node-type-campaign-materials .back-to-link {
     display: none;
@@ -26414,8 +25721,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     width: 100%;
     height: 200px;
     overflow: hidden;
-    padding-right: -15px;
-    padding-left: -15px;
   }
   .page-good-practice-exchange .panels-flexible-region-inside > .pane-node-title-field .field-name-title-field {
     position: absolute;
@@ -26611,9 +25916,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .toolkit-page .main-container .view-tk-tools .views-row {
     margin-bottom: 15px;
   }
-  .toolkit-page .main-container .view-tk-tools .views-row .views-field-field-image {
-    display: none;
-  }
   .toolkit-page .main-container .node-tk-tool .field-name-field-benefits {
     padding: 30px 15px;
   }
@@ -26768,7 +26070,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
     margin-right: .5em;
   }
   header.navbar-default .campaigns-header .navbar-header a.pull-left img {
-    margin-left: 15px;
+    margin-left: 5px;
     width: 95px;
   }
   header.navbar-default .campaigns-header .navbar-header a img.pull-left {
@@ -26870,10 +26172,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     display: block;
     width: 100%;
   }
-  #block-osha-newsletter-osha-newsletter-subscribe form input,
-  #block-osha-newsletter-osha-newsletter-image form input {
-    width: 100%;
-  }
   .front #campaigns-newsletter-subscribe-form .checkbox input[type=checkbox]:checked:before,
   .front #campaigns-newsletter-subscribe-captcha-form .checkbox input[type=checkbox]:checked:before {
     margin-right: 0;
@@ -26882,11 +26180,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     top: 1px;
   }
   /*FIN home*/
-  /*news*/
-  .node-type-news .field-type-image img {
-    padding: 0 3em;
-  }
-  /*end news*/
   /*create events & news*/
   .page-node-add-events .node-events-form .field-name-field-related-documents .form-file,
   .page-node-add-news .node-events-form .field-name-field-related-documents .form-file,
@@ -26926,9 +26219,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .view-mode-full .hwc-share-widget ul {
     overflow: hidden;
   }
-  .view-mode-full .hwc-share-widget ul .share-this-article {
-    top: -5px;
-  }
   .view-mode-full .hwc-share-widget ul li[id*="twitter-share-button-"] {
     margin-top: 5px;
   }
@@ -26947,11 +26237,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   }
   .view-mode-full .hwc-share-widget ul .pull-right {
     float: none !important;
-  }
-  .hwc-share-widget ul .share-this-article {
-    top: -5px;
-    display: block;
-    clear: both;
   }
   /*gallery*/
   .page-media-center-photo-gallery .view-content,
@@ -26975,24 +26260,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .page-photo-gallery .view-content .views-row[class*="col-"]:nth-child(2n) {
     margin-right: 1em;
     padding: 0px;
-  }
-  /*End gallery*/
-  .node-type-flickr-gallery .hwc-share-widget ul,
-  .node-type-hwc-gallery .hwc-share-widget ul {
-    left: 0px;
-  }
-  .node-type-flickr-gallery .hwc-share-widget ul li,
-  .node-type-hwc-gallery .hwc-share-widget ul li {
-    display: inline-block !important;
-    margin-top: 0px !important;
-    margin-bottom: 5px;
-    margin-left: 0px !important;
-  }
-  .node-type-flickr-gallery .hwc-share-widget ul li.label,
-  .node-type-hwc-gallery .hwc-share-widget ul li.label {
-    display: inline-block !important;
-    margin-bottom: 0px;
-    vertical-align: top;
   }
   /*Focal points*/
   .view-display-id-fop img {
@@ -27031,13 +26298,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
     position: relative;
     float: left;
   }
-  .node-type-article .hwc-share-widget li {
-    display: inline-block !important;
-  }
-  .node-type-article .hwc-share-widget .share-this-article {
-    display: block;
-    width: 100%;
-  }
   .pane-node-field-access-tool-link .field-label-inline .field-label,
   .pane-node-field-access-tool-link-fc .field-label-inline .field-label,
   .pane-node-field-external-urls .field-label-inline .field-label {
@@ -27046,9 +26306,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   /*Fix DA language*/
   .main-container h1 {
     font-size: 1.60em;
-  }
-  .main-container h2 {
-    font-size: 1.45em!important;
   }
   .employers-section .case-studies .one-resource h4,
   .employers-section .other-practical-tools .one-resource h4,
@@ -27127,7 +26384,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
     margin-right: .5em;
   }
   header.navbar-default .campaigns-header .navbar-header a.pull-left img {
-    margin-left: 15px;
+    margin-left: 5px;
     width: 90px;
   }
   header.navbar-default .campaigns-header .navbar-header a img.pull-left {

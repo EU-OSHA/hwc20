@@ -1,0 +1,112 @@
+{
+  "cdb": {
+    "host": "https://jira.osha.europa.eu",
+    "port": ":8083",
+    "resource": "/OshaService/OSHAService.svc/",
+    "debug": "false",
+    "debug_folder": "mvc/model/cdb/",
+    "dropdown_methods": {
+      "getOptionSetsForAppFrom": {
+        "method": "getOptionSetsForAppFrom",
+        "data": "getOptionSetsForAppFromResult"
+      },
+      "getCountries": {
+        "method": "getCountries",
+        "data": "getCountriesResult",
+        "fields": [
+          "company_osh_country"
+        ]
+      },
+      "getCountriesOfActivity": {
+        "method": "getCountriesOfActivity",
+        "data": "getCountriesOfActivityResult",
+        "fields": [
+          "company_osh_osh_appform_osh_country"
+        ]
+      },
+      "getPrefixes": {
+        "method": "getPrefixes",
+        "data": "getPrefixesResult",
+        "fields": [
+          "comrep_osh_prefixmediaprphone",
+          "contact_osh_prefixmaincontactphone",
+          "contact_osh_prefixmaincontactphone_clone",
+          "company_osh_prefixgeneralphone",
+          "company_osh_prefixrepresentativephone",
+          "contact_osh_otheruserprefix1",
+          "contact_osh_otheruserprefix2",
+          "contact_osh_otheruserprefix3",
+          "contact_osh_otheruserprefix4",
+          "contact_osh_otheruserprefix5"
+        ]
+      }
+    },
+    "regular_methods": {
+      "read": {
+        "name": "getAppForm",
+        "idParam": "id",
+        "response": "getAppFormResult",
+        "countries": "returnPaises"
+      },
+      "read_mf": {
+        "name": "getMantenainceProfile",
+        "idParam": "id",
+        "response": "getMantenainceProfileResult"
+      },
+      "update": "UpdateAppForm",
+      "update_mf": "UpdateMantenainceProfile",
+      "satisfaction": "SubmitSatisfaction",
+      "satisfaction_mf": "SubmitSatisfaction",
+      "question": "SubmitQuestion",
+      "question_mf": "SubmitQuestion",
+      "requirements": "UpdateRequirements",
+      "requirements_mf": "UpdateRequirements"
+    },
+    "category": {
+      "official": "ocp",
+      "media": "mp",
+      "focal": "fop",
+      "potential": "pcp",
+      "ambassador": "fop"
+    },
+    "statusCodesTemplate": {
+      "863680000": "Invitation sent",
+      "863680001": "Pending validation",
+      "863680002": "Validated",
+      "863680005": "Published",
+      "863680006": "Rejected",
+      "863680007": "Rejected Mostra",
+      "863680008": "No response",
+      "863680009": "In progress",
+      "863680011": "Pending publish",
+      "863680012": "Grace period"
+    },
+    "graceperiod": [
+      "863680012"
+    ],
+    "locked": [
+      "863680002",
+      "863680011",
+      "863680005",
+      "863680001",
+      "863680008",
+      "863680006",
+      "863680007"
+    ],
+    "sent": "863680000",
+    "maintenanceAcceptedCodes": {
+      "863680002": "Validated",
+      "863680005": "Published",
+      "863680011": "Pending publish"
+    },
+    "social_media_profiles": [
+      "company_osh_facebookprofile",
+      "company_osh_twitterprofile",
+      "company_osh_youtubeprofile",
+      "company_osh_linkedinprofile",
+      "company_osh_slideshareprofile",
+      "company_osh_pinterestprofile",
+      "company_osh_googleplusprofile"
+    ]
+  }
+}

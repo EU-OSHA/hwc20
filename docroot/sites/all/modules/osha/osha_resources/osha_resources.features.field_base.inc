@@ -116,6 +116,25 @@ function osha_resources_field_default_field_bases() {
     'type' => 'slideshare',
   );
 
+  // Exported field_base: 'field_video_length'.
+  $field_bases['field_video_length'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_video_length',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'cck_time',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'format' => 24,
+      'increment' => 1,
+    ),
+    'translatable' => 0,
+    'type' => 'cck_time',
+  );
+
   // Exported field_base: 'field_youtube'.
   $field_bases['field_youtube'] = array(
     'active' => 1,

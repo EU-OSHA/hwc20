@@ -422,3 +422,46 @@ function osha_update_7034() {
 function osha_update_7035() {
   features_revert_module('osha_search');
 }
+
+/**
+ * HW20-307 Videos development.
+ */
+function osha_update_7036() {
+  features_revert(array('osha' => array('field_instance')));
+}
+
+/**
+ * HW20-307 Videos development.
+ */
+function osha_update_7037() {
+  features_revert(array('osha' => array('field_instance', 'fe_block_settings')));
+}
+
+/**
+ * HW20-486 UX: Depending on the level change the banner titles.
+ */
+function osha_update_7038() {
+  features_revert(array('osha' => array('field_instance')));
+  features_revert(array('hwc_priority_areas' => array('field_instance')));
+}
+
+/**
+ * HW20-484 UX: Include the block to share the content below the content.
+ */
+function osha_update_7039() {
+}
+
+/**
+ * HW20-690 Campaign materials: Tools & publications should be in green.
+ */
+function osha_update_7040() {
+  variable_set('campaign_materials_exclude', [11667, 1120]);
+  variable_set('campaign_materials_include', [1372, 2495]);
+}
+
+/**
+ * HW20-462 Press Room - Improve the page.
+ */
+function osha_update_7041() {
+  features_revert_module('osha_press_release');
+}

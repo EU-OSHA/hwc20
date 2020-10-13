@@ -62,11 +62,12 @@ label + img{}
 }
 
 .print {
-    background      : url(../img/print.png) no-repeat;
-    padding-left    : 2vw !important;
-    padding-bottom  : 0.4vw !important;
-    background-size : 2em;
+    background: url(../img/print.png) no-repeat 0px 7px;
+    padding-left: 2vw !important;
+    padding-bottom: 0.4vw !important;
+    background-size: 2em;
     margin: 1vw;
+    padding-top: 10px;
 }
 
 .export-pdf {
@@ -110,6 +111,10 @@ input[type=next], button {
     color            : #ffffff;
     padding          : 0.2vw 0.5vw 0.2vw 0.5vw;
     font-size        : 1vw;
+}
+
+button{
+    border-radius: 5px;  
 }
 
 .save_image {
@@ -830,7 +835,7 @@ select.company_osh_selectsocialnetworks{
 }
 
 input#socialNetworkTextBox{
-    width: 130%;
+    width: 100%;
     margin-top: 4px;
     /*vertical-align: middle;*/
 }
@@ -1165,4 +1170,13 @@ img.congrats_rad{ /* IMAGE STYLES */
     font-size: 1vw;
     border: 1px solid grey;
     border-radius: 5px;
+}
+.mcchigh{
+    background-color: rgb(171,198,0);
+    padding: 10px;
+}
+
+.mcchigh #contact_osh_maincontactchange{
+    position: relative;
+    top: 2px;
 }

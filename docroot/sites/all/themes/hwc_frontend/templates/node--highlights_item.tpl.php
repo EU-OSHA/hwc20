@@ -9,6 +9,7 @@
  * @see template_process()
  */
 global $osha_newsletter_send_mail;
+global $language;
 
 $campaign_id = '';
 if (!empty($variables['elements']['#campaign_id'])) {
@@ -30,21 +31,11 @@ if (!empty($campaign_id)) {
         <table border="0" cellpadding="0" cellspacing="0" class="item-thumbnail-and-title" width="100%">
           <thead>
             <tr>
-            <?php
-              $old_width = 100;
-              $new_width = 300;
-              $highlight_img_width = $node->old_newsletter ? $old_width : $new_width;
-            ?>
-              <th rowspan=<?php print($node->old_newsletter ? '1' : '2'); ?>
-                  width="<?php print($highlight_img_width);?>"
-                  style="padding-bottom:10px; vertical-align: top; padding-top:0; padding-right: 40px; text-align:center; width: <?php print($highlight_img_width);?>px; max-width:<?php print($highlight_img_width);?>px;"
-                  <?php if(!$node->old_newsletter) { ?>
-                    class="template-column template-image"
-                  <?php } ?> >
+              <th rowspan=2 width="220" class="template-column template-image">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                   <tbody>
                     <tr>
-                      <td align="center" width="<?php print($highlight_img_width);?>" style="width: <?php print($highlight_img_width);?>px; max-width:<?php print($highlight_img_width);?>px;">
+                      <td align="left" width="width: 220px;" style="padding: 0 0 25px 0!important;">
                         <?php
                           if ($node->type == 'youtube') {
                             if (!empty($node->field_youtube[LANGUAGE_NONE][0]['video_id'])) {
@@ -56,18 +47,14 @@ if (!empty($campaign_id)) {
                             if (!empty($video_id)) {
                                 if (!empty($osha_newsletter_send_mail)) {
                                   print l(theme('image', array(
-                                    'style_name' => ($node->old_newsletter ? 'thumbnail' : 'newsletter_highlight'),
+                                    'style_name' => 'newsletter_highlight',
                                     'path' => sprintf("https://img.youtube.com/vi/%s/hqdefault.jpg", $video_id),
-                                    'width' => ($node->old_newsletter ? '100%' : $highlight_img_width),
                                     'alt' => $title,
-                                    'attributes' => array('style' => 'border: 0px;width: ' . ($node->old_newsletter ? '100%' : $highlight_img_width . 'px') . ';max-width: ' . ($node->old_newsletter ? '100%' : $highlight_img_width . 'px') . ';height:auto;background-color: #ffffff;vertical-align:middle;'),
+                                    'attributes' => array('style' => 'border-radius: 15px;'),
                                   )), url('node/' . $node->nid, array('absolute' => TRUE)), array(
                                     'html' => TRUE,
                                     'query' => $url_query,
                                     'external' => TRUE,
-                                    'attributes' => array(
-                                      'style' => 'display:block;border:1px solid #efefef;',
-                                    ),
                                   ));
                                 }
                                 else {
@@ -77,19 +64,23 @@ if (!empty($campaign_id)) {
                             }
                           }
                           else {
+
+                            $w = entity_metadata_wrapper('node', $node);
+                            $image_style = 'medium_newsletter_crop';
+                            if (!empty($node->field_image_mail)) {
+                              $field_image = [$w->field_image_mail->value()];
+                              $image_style = 'medium_newsletter_mail_crop';
+                            }
                             print l(theme('image_style', array(
-                              'style_name' => ($node->old_newsletter ? 'thumbnail' : 'newsletter_highlight'),
-                              'path' => (isset($field_image) && !empty($field_image)) ? $field_image[0]['uri'] : '',
-                              'width' => ($node->old_newsletter ? '100%' : ''),
+                              'style_name' => $image_style,
+                              'path' => (isset($field_image) && !empty($field_image)) ? $field_image[0]['uri'] : '',                              
                               'alt' => (isset($field_image) && !empty($field_image)) ? $field_image[0]['alt'] : '',
-                              'attributes' => array('style' => 'border: 0px;max-width: 100%;height:auto;background-color: #ffffff;vertical-align:middle;'),
+                              'attributes' => array('style' => ''),
+                              'attributes' => array('style' => 'border-radius: 15px;'),
                             )), url('node/' . $node->nid, array('absolute' => TRUE)), array(
                               'html' => TRUE,
                               'query' => $url_query,
-                              'external' => TRUE,
-                              'attributes' => array(
-                                'style' => 'display:block;border:1px solid #efefef;',
-                              ),
+                              'external' => TRUE,                              
                             ));
                           }
                         ?>
@@ -98,13 +89,13 @@ if (!empty($campaign_id)) {
                   </tbody>
                 </table>
               </th>
-              <th valign="top" style="color: #003399; padding-bottom: 10px; padding-left: 0px; padding-right: 0px;font-family: Arial, sans-serif;" class="template-column">
+              <th valign="top" style="color: #003399; padding-bottom: 7px; padding-left: 15px; padding-right: 0px;font-family: Arial, sans-serif;" class="template-column">
                 <?php
                 if (isset($node->field_publication_date[LANGUAGE_NONE][0]['value'])) {
                   $date = strtotime($node->field_publication_date[LANGUAGE_NONE][0]['value']);
                 }
                 ?>
-                <div class="item-date" style="font-family: Arial, sans-serif; font-size: 14px; line-height:25px;"><?php print format_date($date, 'custom', 'd/m/Y');?></div>
+                <div class="item-date" style="color: #59595a;font-family: Arial, sans-serif;font-size: 12px;line-height: 12px;padding-bottom: 10px;font-weight: bold;"><?php print format_date($date, 'custom', 'd/m/Y');?></div>
                 <?php
                 if ($node->type == 'publication') {
                   print l($title, url('node/' . $node->nid . '/view', array('absolute' => TRUE)), array(
@@ -124,11 +115,11 @@ if (!empty($campaign_id)) {
                 ?>
               </th>
             </tr>
-            <tr><th <?php if ($node->old_newsletter) { ?> colspan="2"<?php } ?> >
+            <tr><th class="body-responsive" style="padding-left: 15px;">
               <table border="0" cellpadding="0" cellspacing="0" class="item-summary" width="100%">
                 <tbody>
                   <tr>
-                    <td colspan="2" style="width: 100%; font-size: 13px; font-family: Arial, sans-serif; color: #000000;">
+                    <td colspan="2" style="width: 100%; font-size: 13px; font-family: Arial, sans-serif; color: #59595a;">
                       <?php
                       $body_text = '';
                       if (isset($field_summary) && is_array($field_summary) && !empty($field_summary)) {
@@ -160,41 +151,33 @@ if (!empty($campaign_id)) {
                       ?>
                     </td>
                   </tr>
-                  <?php if(empty($node->old_newsletter)) { ?>
-                    <tr>
-                      <td style="font-family: Arial, sans-serif; padding-top: 10px;">
+                  <tr>
+                      <td style="font-family: Arial, sans-serif; padding-top: 10px;padding-bottom: 10px;">
                         <?php
-                          $more_link_class = 'see-more';
-                          if ($node->type == 'publication') {
-                            $node_url = url('node/' . $node->nid . '/view', array('absolute' => TRUE));
-                          }
-                          else {
-                            $node_url = url('node/' . $node->nid, array('absolute' => TRUE));
-                          }
-                          print l(t('<span class="prefix-arrow visible-mobile"> > </span> See more'), $node_url, array(
-                            'html' => TRUE,
-                            'attributes' => array('class' => [$more_link_class]),
-                            'query' => $url_query,
-                            'external' => TRUE,
-                          ));
+                        if ($node->type == 'publication') {
+                          $node_url = url('node/' . $node->nid . '/view', array('absolute' => TRUE));
+                        }
+                        else {
+                          $node_url = url('node/' . $node->nid, array('absolute' => TRUE));
+                        }
                         $directory = drupal_get_path('module', 'osha_newsletter');
                         print l(theme('image', array(
-                          'path' => $directory . '/images/' . 'green-arrow.png',
-                          'width' => '19',
-                          'height' => '11',
-                          'attributes' => array('style' => 'border:0px;width:19px;height:11px;', 'class' => 'hidden-mobile'),
+                          'path' => $directory . '/images/' . 'see-more-img-' . $language->language . '.png',
+                          'width' => 'auto',
+                          'height' => 'auto',
+                          'attributes' => array('style' => 'border:0px;width:auto;height:auto;'),
                         )), $node_url, array(
                           'html' => TRUE,
                           'query' => $url_query,
                           'external' => TRUE,
                         ));
                         ?>
-
                       </td>
                       <td class="highlight-share hidden-mobile" align="right" valign="middle" style="font-family: Arial, sans-serif; padding-top: 10px;">
                         <?php
+                        $directory = drupal_get_path('module', 'osha_newsletter');
                         print l(theme('image', array(
-                          'path' => $directory . '/images/' . 'share-icon--green.png',
+                          'path' => $directory . '/images/' . 'share-icon.png',
                           'width' => '20',
                           'height' => '20',
                           'attributes' => array('style' => 'border:0px;width:20px;height:20px;'),
@@ -205,8 +188,7 @@ if (!empty($campaign_id)) {
                         ));
                         ?>
                       </td>
-                    </tr>
-                  <?php } ?>
+                  </tr>
                 </tbody>
               </table>
             </th></tr>

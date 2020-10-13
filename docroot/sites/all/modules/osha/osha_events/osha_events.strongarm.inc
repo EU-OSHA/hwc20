@@ -300,6 +300,12 @@ function osha_events_strongarm() {
             'visible' => TRUE,
           ),
         ),
+        'bottom_share_widget' => array(
+          'default' => array(
+            'weight' => '12',
+            'visible' => TRUE,
+          ),
+        ),
       ),
     ),
   );
@@ -470,6 +476,16 @@ function osha_events_strongarm() {
   $strongarm->name = 'workbench_access_node_type_events';
   $strongarm->value = 1;
   $export['workbench_access_node_type_events'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'xmlsitemap_settings_node_events';
+  $strongarm->value = array(
+    'status' => '1',
+    'priority' => '0.5',
+  );
+  $export['xmlsitemap_settings_node_events'] = $strongarm;
 
   return $export;
 }

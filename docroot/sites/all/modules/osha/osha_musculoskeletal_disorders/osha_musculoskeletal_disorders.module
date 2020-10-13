@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the OSHA Musculoskeletal Disorders feature.
+ */
+
+include_once 'osha_musculoskeletal_disorders.features.inc';

@@ -291,3 +291,24 @@ function osha_events_update_7023() {
 function osha_events_update_7024() {
   features_revert_module('osha_events');
 }
+
+/**
+ * HW20-181 Events detail - Share this on is not displayed at the button of the screen.
+ */
+function osha_events_update_7025() {
+  features_revert_module('osha_events');
+}
+
+/**
+ * HW20-180 Event list- Country filter - Not possible to select more than one country.
+ */
+function osha_events_update_7026() {
+  features_revert(array('osha_events' => array('views_view')));
+}
+
+/**
+ * MDR-3351 Content of event (speakers, speech titles and presentations/CVs) not showing in a draft mode.
+ */
+function osha_events_update_7027() {
+  features_revert(array('osha_events' => array('views_view')));
+}

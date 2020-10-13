@@ -19,6 +19,7 @@ function _webform_defaults_textfield() {
     'extra' => array(
       'width' => '',
       'maxlength' => '',
+      'minlength' => '',
       'field_prefix' => '',
       'field_suffix' => '',
       'disabled' => 0,
@@ -102,7 +103,7 @@ function _webform_edit_textfield($component) {
     '#type' => 'checkbox',
     '#title' => t('Disabled'),
     '#return_value' => 1,
-    '#description' => t('Make this field non-editable. Useful for setting an unchangeable default value.'),
+    '#description' => t('Make this field non-editable. Useful for displaying default value. Changeable via JavaScript or developer tools.'),
     '#weight' => 11,
     '#default_value' => $component['extra']['disabled'],
     '#parents' => array('extra', 'disabled'),
@@ -126,6 +127,16 @@ function _webform_edit_textfield($component) {
     '#weight' => 2,
     '#parents' => array('extra', 'maxlength'),
   );
+  $form['validation']['minlength'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Minlength'),
+    '#default_value' => $component['extra']['minlength'],
+    '#description' => t('Minimum length of the textfield value. The component may still be empty unless it is set as Required.'),
+    '#size' => 5,
+    '#maxlength' => 10,
+    '#weight' => 3,
+    '#parents' => array('extra', 'minlength'),
+  );
   return $form;
 }
 
@@ -147,7 +158,13 @@ function _webform_render_textfield($component, $value = NULL, $filter = TRUE, $s
     '#description' => $filter ? webform_filter_descriptions($component['extra']['description'], $node) : $component['extra']['description'],
     '#attributes' => $component['extra']['attributes'],
     '#theme_wrappers' => array('webform_element'),
-    '#translatable' => array('title', 'description', 'field_prefix', 'field_suffix'),
+    '#translatable' => array(
+      'title',
+      'description',
+      'field_prefix',
+      'field_suffix',
+      'placeholder',
+    ),
   );
 
   if ($component['required']) {
@@ -179,6 +196,9 @@ function _webform_render_textfield($component, $value = NULL, $filter = TRUE, $s
   if ($component['extra']['maxlength'] > 0) {
     $element['#maxlength'] = $component['extra']['maxlength'];
   }
+  if ($component['extra']['minlength'] > 0) {
+    $element['#minlength'] = $component['extra']['minlength'];
+  }
 
   if (isset($value[0])) {
     $element['#default_value'] = $value[0];
@@ -201,7 +221,7 @@ function _webform_display_textfield($component, $value, $format = 'html', $submi
     '#field_suffix' => $component['extra']['field_suffix'],
     '#format' => $format,
     '#value' => isset($value[0]) ? $value[0] : '',
-    '#translatable' => array('title', 'field_prefix', 'field_suffix'),
+    '#translatable' => array('title', 'field_prefix', 'field_suffix', 'placeholder'),
   );
 }
 
@@ -249,7 +269,10 @@ function _webform_analysis_textfield($component, $sids = array(), $single = FALS
   $rows[0] = array(t('Left Blank'), ($submissions - $nonblanks));
   $rows[1] = array(t('User entered value'), $nonblanks);
 
-  $other[] = array(t('Average submission length in words (ex blanks)'), ($nonblanks != 0 ? number_format($wordcount/$nonblanks, 2) : '0'));
+  $other[] = array(
+    t('Average submission length in words (ex blanks)'),
+    $nonblanks != 0 ? number_format($wordcount / $nonblanks, 2) : '0',
+  );
 
   return array(
     'table_rows' => $rows,

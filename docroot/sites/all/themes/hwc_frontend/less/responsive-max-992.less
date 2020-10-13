@@ -140,12 +140,21 @@ header{
 				}
 				.header-text:lang(bg),
 				.header-text:lang(el),
+				.header-text:lang(da),
 				.header-text:lang(de),
+				.header-text:lang(et),
 				.header-text:lang(hu),
 				.header-text:lang(mt),
+				.header-text:lang(hr),
+				.header-text:lang(is),
+				.header-text:lang(it),
+				.header-text:lang(lv),
+				.header-text:lang(no),
 				.header-text:lang(pl),
+				.header-text:lang(pt),
+				.header-text:lang(fi),
 				.header-text:lang(ro){
-					font-size: 1em;
+					font-size: 0.9em;
 					padding-left: .5em;
 				}
 				.header_top_bar{
@@ -439,15 +448,8 @@ header{
 		width: 100%;
 		margin-right: 0;
 	}
-	.form-group{
-		margin-bottom: 15px;
-	}
 	#search{
 		margin-top: 0;
-	}
-	#edit-search-api-views-fulltext-wrapper{
-	    margin-left: 15px !important;
-	    margin-right: 15px !important;
 	}
 	.region-sidebar-first .views-exposed-widgets .form-type-textfield input {
 	    padding-right: 0px;
@@ -1013,9 +1015,8 @@ header{
 			}
 		}
 		.block.block-facetapi{
-			border-bottom: none;
-			padding-top: 0px;
-			padding-bottom: 10px;
+			padding-top: 0;
+			padding-bottom: 0;
 			overflow: hidden;
 			h2{
 			    padding: 8px 15px;
@@ -1040,9 +1041,6 @@ header{
 		width: 100%;
 		margin-left: 0;
 		.view-search{
-			.view-header{
-				padding: 7px 15px;
-			}
 			.view-content .views-row{
 				padding-left: @margin-tablet;
 				padding-right: @margin-tablet;
@@ -1091,25 +1089,6 @@ header{
 }
 /*fin private area*/
 
-/*pag National focal points*/
-/* .page-national-focal-points, .page-official-campaign-partners, .page-campaign-media-partners */
-.page-national-focal-points, .page-official-campaign-partners, .page-campaign-media-partners, .page-campaign-materials{
-	.section-introduction, .main-container .section-introduction .node.node-article, .main-container .section-introduction .node.node-article{
-		 .field-type-text-with-summary{
-			display: block;
-			padding-right: @margin-tablet;
-			padding-left: @margin-tablet;
-			margin: 0px;
-		}
-	}
-	article{
-	    margin-left: 0;
-		margin-right: 0;
-	}
-	.view-id-partners_list .hwc-char-link {
-		padding: 0px 18px 0px 0px;
-	}
-}
 #block-views-partners-list-block{
 	margin-right: @margin-tablet;
 	margin-left: @margin-tablet;
@@ -1520,10 +1499,7 @@ header{
 		padding-left: @margin-tablet;
 	}
 }
-.breadcrumb{
-	padding-right: @margin-tablet;
-	padding-left: @margin-tablet;
-}
+
 h1{
 	padding-right: @margin-tablet2;
 	padding-left: @margin-tablet2;
@@ -1578,8 +1554,7 @@ h1{
 						    position: absolute;
     						z-index: 2;
     						padding: 0px 100px;
-    						bottom: 0px;
-    						margin-bottom: 120px;
+    						bottom: 50px;
 						    a{
 						    	color: white;
 						    	font-size: 1.6em;
@@ -1695,41 +1670,6 @@ h1{
 }
 #edit-left-column{
 	position: relative;
-	.form-item-relevant-for,
-	.form-item-field-publication-type,
-	.form-item-language,
-	.form-item-field-priority-area,
-	.form-item-languages{
-		margin-top: 0;
-		padding-top: 10px;
-		border-bottom: none;
-		margin-bottom: 0px;
-		padding-bottom: 0px;
-		clear: both;
-		overflow: hidden;
-
-		.checkbox:last-child{
-			margin-bottom: 10px;
-		}
-	}
-	.form-item-field-publication-type > label,
-	.form-item-language > label,
-	.form-item-field-priority-area > label,
-	.form-item-relevant-for > label,
-	.form-item-languages > label,
-	.form-item-publication-type > label{
-		font-size: @size2;
-		font-weight: bold;
-		width: 100%;
-		display: block;
-		clear: both;
-		cursor: pointer;
-		background-color: @color8;
-	    padding: 5px 15px;
-	    font-size: 1.2em;
-	    margin-bottom: 0px;
-	}
-
 	#search{
 		position: relative;
 		overflow: hidden;
@@ -1827,8 +1767,6 @@ h1{
 			    width: 100%;
 			    height: 360px;
 			    overflow: hidden;
-			    padding-right: -15px;
-			    padding-left: -15px;
 			}
 		}
 		>.pane-node-title-field{

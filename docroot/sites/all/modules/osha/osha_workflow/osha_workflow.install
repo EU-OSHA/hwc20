@@ -448,3 +448,28 @@ function osha_workflow_update_7004() {
 function osha_workflow_update_7005() {
   features_revert(array('osha_workflow' => array('views_view')));
 }
+
+/**
+ * HW20-530 Roles & Permissions.
+ */
+function osha_workflow_update_7006() {
+  features_revert(array('hwc_partner' => array('page_manager_pages')));
+  features_revert(array('hwc_partner' => array('page_manager_handlers')));
+  features_revert(array('hwc_good_practice_exchange' => array('views_view')));
+  features_revert(array('hwc_good_practice_exchange' => array('user_permission')));
+  // Add GPE Platform Editors access by role for root section.
+  $r1 = user_role_load_by_name(HWC_ROLE_GPE_PLATFORM_EDITORS);
+  $role = array(
+    'rid' => $r1->rid,
+    'access_id' => 'section',
+    'access_scheme' => 'taxonomy',
+  );
+  drupal_write_record('workbench_access_role', $role);
+}
+
+/**
+ * MHWC-91 The item created by the partner is shown in the different statuses and should only appear in the latest one.
+ */
+function osha_workflow_update_7007() {
+  features_revert(array('osha_workflow' => array('views_view')));
+}

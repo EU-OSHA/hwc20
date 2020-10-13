@@ -1,6 +1,309 @@
-@media (max-width: 1200px) {
+.isMobile{
+	float: right !important;
+}
+
+@media (min-width: 1200px) {
+	/*Slider Publications*/
+	body.page-tools-and-publications-publications{
+		.slider--video--section{
+			height: 330px;
+			.slider--video--block{
+				.slider--video--items{
+					.multicarousel--block{
+						padding: 0;
+					}
+				}
+			}
+		}
+		.slider--video--items .btn-primary, ol.multicarousel-indicators{
+			display: none;
+		}
+
+	}
+
+	html:lang(de){
+		.intro-footer{
+	    max-width: 785px;	    
+	    p:nth-child(2){
+	    	letter-spacing: -0.25px;
+	    }
+		}
+	}
+	html:lang(el){
+		.intro-footer{
+	    max-width: 785px;	    
+	    p:nth-child(1){
+	    	letter-spacing: -0.69px;
+	    }
+		}
+	}
+	/*MHWC-141 with year only style*/
+	.page-node-184.year-only{
+		.timeline{
+			> div:nth-child(3){
+				position: absolute;
+		    	right: 238px;
+		    	top: 9px;
+		    	font-weight: bold;
+				&:after{
+		    		position: absolute;
+				    left: 28%;
+				    top: 21px;
+				}
+				span{
+					padding-left: 6px;
+				}
+		    }
+		}
+	}
+	
+}
+
+@media (max-width: 1200px){
+
+	header.navbar-default{
+		.campaigns-header{
+			.navbar-header{
+				.header-text:lang(bg),
+				.header-text:lang(da),
+				.header-text:lang(el),
+				.header-text:lang(de),
+				.header-text:lang(et),
+				.header-text:lang(fr),
+				.header-text:lang(hr),
+				.header-text:lang(is),
+				.header-text:lang(it),
+				.header-text:lang(lv),
+				.header-text:lang(hu),
+				.header-text:lang(mt),
+				.header-text:lang(no),
+				.header-text:lang(pl),
+				.header-text:lang(pt),
+				.header-text:lang(fi),
+				.header-text:lang(ro){
+					font-size: 1em !important;
+					width: 300px!important;
+				}
+			}
+		}
+	}
+
+	html:lang(de),
+	html:lang(fi)
+	{
+		#block-hwc-homepage-footer-section{
+			.col-md-2{
+				padding-left: 3px;
+				padding-right: 3px;
+			}
+		}
+	}
+
+	html:lang(es)
+	{
+		.intro-splash-20{
+			.views-row-first > p:nth-child(3){
+				font-size: 1em;
+			}
+		}
+	}
+
+	.previous-next.two-arrows{
+		height: 114px;
+    	align-items: flex-start;
+	}
+
+	.previous span:nth-child(2), .next span:nth-child(2) {
+	    width: 170px;
+	}
+
+	.intro-footer{
+		max-width: 600px;
+    font-size: 14px;
+	}
+	.footer{
+		div.on-the-web {
+			margin-top: 0;
+			span:nth-child(1) {
+				padding: 1rem 0;
+				padding: 0 0 0.5rem !important;
+				float: none;
+				text-align: left;
+			}		
+		}		
+	}
 
 
+
+	html:lang(bg),
+	html:lang(da),
+	html:lang(de),
+	html:lang(et),
+	html:lang(es),
+	html:lang(is),
+	html:lang(hu),
+	html:lang(mt),
+	html:lang(nl),
+	html:lang(no),
+	html:lang(pt),
+	html:lang(sk),
+	html:lang(fi),
+	html:lang(sv)
+	{
+		header.navbar-default{
+			.navbar-collapse{
+				nav{
+					ul.menu{
+						> li{
+							font-size: 0.85em;
+							a{
+								padding: 2px;
+								line-height: 15px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	.intro-splash-20{
+		.views-row-first{
+			 h1 {
+    			padding-top: 0.5em;
+			}
+			p:nth-child(4) {
+				padding-bottom: 1em;
+			}
+		}
+	}
+
+	body.front-page .main-container .box-before.social-media{
+		
+		p {
+		    padding-right: 2em;
+		}
+		
+		.on-the-web{
+			a{
+				width: 45px;
+				padding-top: 29px;
+			}
+		} 
+
+
+		.otw-twitter{
+			a:before{
+				width: 36px;
+				height: 28px;
+				background-size: contain;
+			}
+		}
+		.otw-facebook{
+			a:before{
+				width: 32px;
+				height: 28px;
+				background-size: contain;
+			}
+		}
+		.otw-linkedin{
+			a:before{
+				width: 32px;
+				height: 28px;
+				background-size: contain;
+			}
+		}
+		.otw-youtube{
+			a:before{
+				width: 42px;
+				height: 28px;
+				background-size: contain;
+			}
+		}
+		.otw-flickr{
+			a:before{
+				width: 35px;
+				height: 28px;
+				background-size: contain;
+			}
+		}
+		.otw-slideshare{
+			a:before{
+				width: 30px;
+				height: 28px;
+				background-size: contain;
+			}
+		}
+	}
+
+	body.front-page{
+		.main-container{
+			#block-hwc-homepage-hwc-homepage-topics{
+				.priority_area{
+					ul{
+					    li:nth-child(4){
+					    	margin-right: 2em;
+					    }
+					}
+				}
+			}
+		}
+	}
+
+	/*Slider Publications*/
+	body.page-tools-and-publications-publications{
+		.slider--video--section{
+			height: auto;
+			.slider--video--block{
+				.slider--video--items{
+					.multicarousel--block{
+						height: auto;
+						.multicarousel--block--inner{
+							.wrapper-responsive-box{
+								display: flex;
+								.right-column{
+									height: 100%;
+									.publication-see-more-bottom-container{
+										margin-bottom: 12px;
+									}
+								}
+							}
+						}
+						.multicarousel-indicators{
+					    position: relative;
+					    bottom: 0;
+					    width: 100% !important;
+					    padding: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	header.navbar-default{
+		.navbar-collapse{
+			nav{
+				ul.menu{
+					> li{
+						height: 70px;
+						border-right: 1px solid #FFF;
+						display: flex;
+						align-items: center;
+						> a{
+					    border: none !important;
+					    .caret{
+					    	display: none;
+					    }
+						}
+					}
+				}
+			}
+		}
+	}
+	
 	.start-browsing {
     	background: url(../images/background-start-browsing.png) repeat-y;
 	}
@@ -15,35 +318,244 @@
     	padding-bottom: 1em;
 	}
 
-	.content-languages-download select.new-select-style{
-		width: 84% !important;
+	.content-languages-download{
+		select.new-select-style{
+			width: 84% !important;
+		}
 	}
 
-	.content-order-copy img {
-	    float: none;
-	    margin-left: 0;
-	    margin-top: 1em;
+	.content-order-copy{
+		img {
+		    width: 78px;
+			top: 22px;
+		}
 	}
 
-	.page-events #block-osha-newsletter-osha-newsletter-events-subscribe{
-		display: none;
+	.page-events{
+		#block-osha-newsletter-osha-newsletter-events-subscribe{
+			display: none;
+		}
+	}
+
+	body.press-room .box-before.news.two-column, body.european-week .box-before.news.two-column, body.press-room .box-before.events, body.european-week .box-before.events{
+		width: 100%;
+	}
+
+	#block-hwc-good-practice-exchange-gpe-news-events .box-before.news{
+		width: 100%;
+		height: auto;
+	}
+
+	#block-hwc-good-practice-exchange-gpe-news-events .box-before.events{
+		width: 100%;
+		height: auto;
+		margin-left: 0;
+		margin-top: 2em;
+	}
+
+	.page-publications, .page-tools-and-publications{
+		#content{
+			width: 98%!important;
+			margin-left: 0 !important;
+		}
+		#edit-left-column{
+			margin-bottom: 0.2rem;
+			.content-filters{
+				margin-top: 0;
+				padding: 0 0.5em 0 1em;
+			}
+		}
+		#edit-exposed-widgets{
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+			align-items: flex-end;
+			justify-content: space-between;
+			.views-exposed-widget{
+				width:auto !important;
+				margin: 0.5rem 0.5rem 0 0 !important;
+				&.views-widget-filter-search_api_views_fulltext{
+					flex-grow: 1;
+				}
+				select{
+					padding-right: 30px;
+				}
+				.search-new-design{
+    			background: url(../images/green-search.png) 99% 55% no-repeat #fff;
+				}
+			}
+		}
+		.pager-total{
+	  		right: 5em;
+	  	}
+	}
+
+	#block-hwc-campaign-resources{
+		.campaign-resources{
+			.campaign-resources-boxes{
+				div{
+					width: 100%;
+				}
+				a{
+					span{
+						width: auto;
+					}
+				}
+			}
+		}
+	}
+
+	.container{
+		.menu-name-main-menu{
+			ul.menu{
+				&.nav{
+					.content-box-sub{
+						width: 33%;
+						margin: 0 0 0.7em;
+					}
+				}
+			}
+		}
+	}
+
+	/* Private Zone */
+	.profile-edit-links-container{
+		.pane-hwc-partner-hwc-partner-private-link-0, 
+		.pane-hwc-partner-hwc-partner-private-link-1,
+		.pane-hwc-partner-hwc-partner-private-link-2,
+		.pane-hwc-partner-hwc-partner-private-link-3,
+		.pane-node-profile-update-link{
+			width: 30%;
+		}
+		.pane-hwc-partner-hwc-partner-private-link-0, 
+		.pane-hwc-partner-hwc-partner-private-link-1,
+		{
+	    	margin-bottom: 2em;
+		}
+	}
+
+	.node-type-gpa{
+		.main-container{
+			h2{
+				margin-left: 0;
+			}
+		} 
+	}
+
+	/* Get your certificate */
+	.page-get-involved-get-your-certificate{
+		.pane-node-body{
+			width: 75%;
+		}
+
+		form.webform-client-form .form-select{
+			height: 34px;
+    		width: 100%;
+		}
+	} 
+
+	body.page-tools-and-publications-practical-tools {
+		.view-practical-tools {
+			.view-filters{
+				.views-exposed-widget{
+					width: 31.1%!important;
+				}
+			}
+		}
+	}
+
+
+	.page-events .region-content #block-system-main .views-exposed-widgets #edit_field_country_code_chosen,
+	.page-events .region-content #block-system-main .views-exposed-widgets #edit_years_chosen {
+	    width: 172px!important;
+	    height: auto;
+	    min-height: 33px;
+	    margin-top: 2px;
+	    cursor: inherit;
 	}
 
 }
 
-
-
 @media (min-width: 1480px) {
-
 
 	.start-browsing .content-boxes{
 		width: 72%;
 	}
 
+	.page_title{
+		h1{
+		    width: 70%;
+		}
+	}
 
+	.node-type-events .content-left-column {
+	    width: 70%;
+	}
+
+	.page-media-centre-events{
+		.view-events-search{
+			span.add-to-my-calendar {
+			    display: block;
+			    float: left;
+		    	margin-left: 500px;
+	    	}
+		}
+	}
 }
 
 @media (max-width: 1465px) {
+
+	html:lang(de), html:lang(es),html:lang(bg),html:lang(el) {
+		/*HW20-884*/ /*MHWC-409*/ 
+		.page_title h1 {
+		    font-size: 2.6em;
+		}	
+	}
+
+	header.navbar-default{
+		.navbar-collapse{
+			nav{
+				ul.menu{
+					> li{
+						height: 70px;
+						border-right: 1px solid #FFF;
+						display: flex;
+						align-items: center;
+						> a{
+					    border: none !important;
+					    .caret{
+					    	display: none;
+					    }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.intro-splash-20{
+		.views-row-first{
+			> p:nth-child(4){
+			    max-width: 500px;
+			}
+
+			.btn-background-transparent{
+				display: flex;
+	    		justify-content: center;
+	    		align-items: center;
+	    		background: #003399;
+	    		border: 2px solid #00309d;
+	    		width: 227px;
+	    		height: 56px;
+	    		font-size: 1.4rem;
+	    		&:hover{
+	    			color: #00309d;
+	    			background: #e5f1ac;
+	    			border: 2px solid #00309d;
+		    	}
+		    }
+		}
+	}
 
 	.publication-detail{
 		background: none;
@@ -57,16 +569,34 @@
 
 @media (max-width: 1391px) {
 
-	.page-search .view-footer {
-	    display: block;
-	    position: absolute;
-	    top: -37px;
-	    width: 100%;
+	
+	html:lang(es), html:lang(mt){
+		body.rel1 header.navbar-default .campaigns-header .navbar-header .header-text {
+		    max-width: 316px !important;
+		}
+	}
+
+	#navbar > div > div:nth-child(1){
+		padding: 10px 20px 10px 0px;
+	}
+
+	.page-search{
+		.view-footer {
+		    display: block;
+		    position: absolute;
+		    top: -37px;
+		    width: 100%;
+		}
 	}
 
 }
 
 @media (max-width: 1044px) {
+
+	body.front-page .main-container #block-hwc-homepage-hwc-homepage-news-events .before-the-campaign .content-box-before .box-before:nth-child(2){
+		padding-left: 0em;
+    	padding-right: 4em;
+	}
 
 	#block-hwc-homepage-splash-download-news-campaign > section > div.content-box-before > div:nth-child(3){
 		width: 668px;
@@ -79,34 +609,197 @@
 		width: 100%;
 	}
 
-	#block-views-splash-previous-campaigns-splash > div > div > div{
-		width: 49%;
-		float: left;
-		margin-right: 1%;
+	#block-views-splash-previous-campaigns-splash{
+		.view-content{
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+		}
+		> div > div > div{
+			width: 49%;
+			float: left;
+			margin-right: 1%;
+		}
+		.box-before-title.previous{
+			display: flex;
+	    	flex-wrap: wrap;
+		}
 	}
 
-	#block-views-splash-previous-campaigns-splash .box-before-title.previous{
-		display: flex;
-    	flex-wrap: wrap;
-	}
-
-	.before-the-campaign .content-box-before div:nth-child(1) > div.box-before-title:nth-child(2){
-		width: 90%;
-	}
-
-	.before-the-campaign .content-box-before div:nth-child(1) > div.box-before-title:nth-child(2){
-	    padding-top: 0.5em;
+	.before-the-campaign{
+		.content-box-before{
+			div:nth-child(1){
+				> div.box-before-title:nth-child(2){
+					width: 90%;
+				}
+				div.box-before-title:nth-child(2){
+					padding-top: 0.5em;
+				}
+			}
+		}
 	}
 
 }
 
-
 @media (max-width: 1280px) {
-	/* Events */
 
-	.page-events .region-content #block-system-main .view-events-search .view-content:nth-child(2) .views-row{
-		min-height: auto;
-		width: 100%;
+
+	html:lang(hr),
+	html:lang(lt),
+	html:lang(hu),
+	html:lang(pl),
+	html:lang(sk),
+	html:lang(mt)
+	{
+		body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-even, 
+		body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-row-odd{
+			font-size: 0.9em;
+		}
 	}
 
+	html:lang(bg),
+	html:lang(de),
+	html:lang(lv),
+	html:lang(nl),
+	html:lang(no),
+	html:lang(pt),
+	html:lang(ro),
+	html:lang(it)
+	{
+		body.front-page {
+			.main-container {
+				#block-views-homepage-banners-block {
+					.view-homepage-banners {
+						.views-row-last {
+							height: 430px;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+
+	html:lang(de),
+	html:lang(el),
+	html:lang(es),
+	html:lang(fr),
+	html:lang(hu),
+	html:lang(pl),
+	html:lang(pt),
+	html:lang(ro)
+	{
+		.intro-splash-20{
+			.views-row-first{
+				h1{
+					font-size: 2.3em;
+				}
+			}
+		}
+	}
+
+	/* Events */
+	.page-events{
+		.region-content{
+			#block-system-main{
+				.view-events-search{
+					.view-content:nth-child(2){
+						.views-row{
+							min-height: auto;
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+
+}
+
+@media (min-width: 1230px) and (max-width: 1530px){
+
+	.profile-edit-links-container{
+		.pane-hwc-partner-hwc-partner-private-link-0,
+		.pane-hwc-partner-hwc-partner-private-link-1,
+		.pane-hwc-partner-hwc-partner-private-link-2,
+		.pane-hwc-partner-hwc-partner-private-link-3,
+		.pane-node-profile-update-link{
+		 	width: 376px;
+		 	margin-bottom: 2em;
+		}
+	}
+
+}
+
+@media (max-width: 1919px) {
+	.front-page{
+		.go-to-anchor{
+			 display: none !important;
+		}
+	}
+
+	html:lang(sl){
+		.page-campaign-partners-enterprise-europe-network{
+			.page_title{
+				.page-header{
+					max-width: 600px;
+				}
+			}
+		}
+	}
+
+}
+
+@media (max-width: 1865px) {
+
+	html:lang(bg),
+	html:lang(da),
+	html:lang(de),
+	html:lang(et),
+	html:lang(es),
+	html:lang(is),
+	html:lang(hu),
+	html:lang(mt),
+	html:lang(nl),
+	html:lang(no),
+	html:lang(pt),
+	html:lang(sk),
+	html:lang(fi),
+	html:lang(sv){
+		header.navbar-default{
+			.navbar-collapse{
+				nav{
+					ul.menu{
+						> li{
+							height: 70px;
+							border-right: 1px solid #FFF;
+							display: flex;
+							align-items: center;
+							> a{
+						    border: none !important;
+						    .caret{
+						    	display: none;
+						    }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+@media (max-width: 1340px) {
+	html:lang(es)
+	{
+		.intro-splash-20{
+			h2{
+				font-size: 1.8em;
+			}
+			.views-row-first > p:nth-child(3){
+				font-size: 1em;
+			}
+		}
+	}
 }

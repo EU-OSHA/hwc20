@@ -227,7 +227,7 @@ header{
 		padding-right: 0px;
 	}
 	.header-text{
-		display: none;
+		display: none !important;
 	}
 	.header_top_bar, #block-lang-dropdown-language, #block-menu-menu-header-login{
 
@@ -449,10 +449,6 @@ header.navbar-default{
 			.form-item{
 				margin-top: @margin-movil;
 			}
-		}
-		h2{
-			margin-left: @margin-movil;
-			margin-right: @margin-movil;
 		}
 	}
 	.list-inline{
@@ -786,14 +782,6 @@ header.navbar-default{
 		padding-top: 0;
 		padding-right: @margin-movil;
 		padding-left: @margin-movil;
-		h2{
-			margin-top: 40px;
-		    padding-top: 70px;
-			padding-bottom: 0px;
-			padding-left: 0px;
-			padding-right: 0px;
-		    background: url("../images/content/partners.png") no-repeat center top;
-		}
 		.views-field-field-logo{
 			margin: 0 auto 20px auto;
 		}
@@ -817,7 +805,7 @@ header.navbar-default{
 			margin-top: 0;
 			background-color: @bg-color-2;
 			padding: 15px;
-			font-style: italic;
+			font-style: normal;
 			padding: 0;
 			&:before{
 				content: "> ";
@@ -832,10 +820,8 @@ header.navbar-default{
 				display: none;
 			}
 			a{
-				width: 100% !important;
-				height: 3.5em;
-				padding: 1em;
 				margin-top: 1em;
+				margin-left: 1em;
 				display: block; 
 				&:before{
 					content: "> ";
@@ -901,8 +887,6 @@ header.navbar-default{
 			padding-left: 15px;
 		}
 		h2{
-			margin-right: 15px;
-			margin-left: 15px;
 			margin-bottom: 1em;
 		}
 		.field-name-field-recommended-articles{
@@ -1155,9 +1139,6 @@ header.navbar-default{
 	
 	/*Publications*/
 	.page-publications{
-		.content{
-			display: none;
-		}
 		h4{
 			padding-left: @margin-movil;
 			padding-right: @margin-movil;
@@ -1712,7 +1693,7 @@ header.navbar-default{
 /*end press room*/
 
 /*news*/
-.page-news{
+.page-news, .page-media-centre-press-room{
 	.main-container {
 		h1{
 			border-bottom: 1px dotted @color3;
@@ -1728,11 +1709,10 @@ header.navbar-default{
 	    	}
 	    	.more-link{
 	    		display: inline-block;
-	    		padding-left: 0;
+	    		//padding-left: 0;
 	    	}
-		}
-		&.view-display-id-oshnews_list.container{
-			.field-type-datetime, .field-name-field-summary, .field-name-body{
+
+	    	.field-type-datetime, .field.field-name-field-summary, .field-name-body{
 				margin-left: @margin-movil;
 				margin-right: @margin-movil;
 			}
@@ -1741,28 +1721,24 @@ header.navbar-default{
 }
 //detail
 .node-type-news{
-	.back-to-link{
-		display: none;
-	}
-	.node-news {
-	    padding-left: 15px;
-	    padding-right: 15px;
-	}
-	h2{
-		margin-left: 0;
-		margin-right: 0;
-		font-size: 1.45em;
-	}
-	.field-type-image {
-		margin-right: 0em;
-    	margin-bottom: 1em;
-		text-align: center;
-		img {
-			width: 100%;
-	    	display: block;
-	    	padding: 0 7em;
+	.main-container{
+		.back-to-link{
+			display: none;
 		}
-	}
+		.node-news {
+		    padding-left: 15px;
+		    padding-right: 15px;
+		}
+		h2{
+			margin-top: 0.5em;
+			margin-left: 0;
+			margin-right: 0;
+			font-size: 1.45em;
+		}
+		.field.field-name-field-summary{
+			margin-top: 0;
+		}
+	}	
 }
 /*end news*/
 
@@ -1811,9 +1787,6 @@ header.navbar-default{
 		#edit-search-api-views-fulltext-wrapper{
 			margin-bottom: 0px;
 		}
-	}
-	.views-widget-sort-by{
-		clear: both;
 	}
 	.sort-container.col-xs-3{
 		width: 100% !important;
@@ -1959,7 +1932,7 @@ header.navbar-default{
     	font-weight: bold;
 		padding-left: @margin-movil;
     	a{
-    		font-style: italic;
+    		font-style: normal;
     	}
     	&:last-child{
     		width: 100%;
@@ -2066,7 +2039,7 @@ header.navbar-default{
 			margin-bottom: 20px;
 			a{
 				font-weight: bold;
-				font-style: italic;
+				font-style: normal;
 			}
 		}
 	}
@@ -2256,12 +2229,6 @@ header.navbar-default{
 	}
 }
 
-/*pag campaign-materials*/
-.page-campaign-materials, .node-type-campaign-materials{
-	.field-name-field-image, .section-introduction .field-type-text-with-summary, .main-container .section-introduction .node.node-article .field-type-text-with-summary{
-		display: none;
-	}
-}
 .node-type-campaign-materials{
 	.back-to-link{
 		display: none;
@@ -2874,8 +2841,6 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
 			    width: 100%;
 			    height: 200px;
 			    overflow: hidden;
-			    padding-right: -15px;
-			    padding-left: -15px;
 			}
 		}
 		>.pane-node-title-field{
@@ -3096,9 +3061,6 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
 		.view-tk-tools{
 			.views-row{
 				margin-bottom: 15px;
-				.views-field-field-image{
-					display: none;
-				}
 			}
 		}
 		.node-tk-tool{
