@@ -52,6 +52,7 @@ class PartnerMigration extends HwcCrmMigration {
       'field_partner_type',
       'field_organisation_rep',
       'field_position_identifier',
+      'field_position_main_contact',
       'field_appform_status',
       'field_facebook_profile',
       'field_twitter_profile',
@@ -313,6 +314,7 @@ class PartnerMigrateListXml extends AbstractCrmMigrateListXml {
         $data->field_pledge = (string) $attributes['Textbox31'];
         $data->field_organisation_rep = trim((string) $attributes['Textbox32'] . ' ' . (string) $attributes['Textbox33']);
         $data->field_position_identifier = (string) $attributes['Textbox34'];
+        $data->field_position_main_contact = (string) $attributes['Textbox41'];
         $data->field_appform_status = (string) $attributes['Textbox35'];
         if (empty(self::$data[$data->field_guid_organisation])) {
           self::$data[$data->field_guid_organisation] = $data;

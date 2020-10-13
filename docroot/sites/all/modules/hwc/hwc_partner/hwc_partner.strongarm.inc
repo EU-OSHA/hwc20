@@ -245,6 +245,9 @@ function hwc_partner_strongarm() {
         'workbench_access' => array(
           'weight' => '0',
         ),
+        'xmlsitemap' => array(
+          'weight' => '24',
+        ),
       ),
       'display' => array(
         'profile_update_link' => array(
@@ -454,16 +457,6 @@ function hwc_partner_strongarm() {
   $strongarm->name = 'pathauto_node_partner_pattern';
   $strongarm->value = 'campaign-partners/[node:title]';
   $export['pathauto_node_partner_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'xmlsitemap_settings_node_private_aria_article';
-  $strongarm->value = array(
-    'status' => '0',
-    'priority' => '0.5',
-  );
-  $export['xmlsitemap_settings_node_private_aria_article'] = $strongarm;
 
   return $export;
 }

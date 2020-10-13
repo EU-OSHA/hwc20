@@ -6077,10 +6077,10 @@ campaign-partners/official-campaign-partners
   $display->content['new-249112dd-020c-473e-87b5-653d3edd5346'] = $pane;
   $display->panels['right_'][2] = 'new-249112dd-020c-473e-87b5-653d3edd5346';
   $pane = new stdClass();
-  $pane->pid = 'new-18567e8c-2d9b-4f39-b3ed-3e26b927cdb2';
+  $pane->pid = 'new-3ee37222-c7ad-483c-a8c7-4070149ae836';
   $pane->panel = 'right_';
   $pane->type = 'entity_field';
-  $pane->subtype = 'node:field_position_identifier';
+  $pane->subtype = 'node:field_position_main_contact';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
@@ -6092,8 +6092,8 @@ campaign-partners/official-campaign-partners
     'formatter_settings' => array(),
     'context' => 'argument_entity_id:node_1',
     'override_title' => 0,
-    'override_title_text' => 'Main Contacts',
-    'override_title_heading' => 'div',
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -6103,9 +6103,9 @@ campaign-partners/official-campaign-partners
   $pane->extras = array();
   $pane->position = 3;
   $pane->locks = array();
-  $pane->uuid = '18567e8c-2d9b-4f39-b3ed-3e26b927cdb2';
-  $display->content['new-18567e8c-2d9b-4f39-b3ed-3e26b927cdb2'] = $pane;
-  $display->panels['right_'][3] = 'new-18567e8c-2d9b-4f39-b3ed-3e26b927cdb2';
+  $pane->uuid = '3ee37222-c7ad-483c-a8c7-4070149ae836';
+  $display->content['new-3ee37222-c7ad-483c-a8c7-4070149ae836'] = $pane;
+  $display->panels['right_'][3] = 'new-3ee37222-c7ad-483c-a8c7-4070149ae836';
   $pane = new stdClass();
   $pane->pid = 'new-5e358fee-9379-47e5-9dc7-898a5572db4c';
   $pane->panel = 'right_';
