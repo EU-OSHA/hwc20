@@ -245,6 +245,9 @@ function hwc_partner_strongarm() {
         'workbench_access' => array(
           'weight' => '0',
         ),
+        'xmlsitemap' => array(
+          'weight' => '24',
+        ),
       ),
       'display' => array(
         'profile_update_link' => array(

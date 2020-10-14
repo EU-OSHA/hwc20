@@ -535,6 +535,9 @@ class OshaWorkflowPermissions {
     if (!$user) {
       global $user;
     }
+    if (!in_array($node->type, ['news', 'events'])) {
+      return FALSE;
+    }
     if (isset($node->workbench_moderation)) {
       $node_in_rm_section = osha_workflow_node_in_rm_section($node, $user);
       $is_admin = self::userHasRole(HWC_ROLE_ADMIN, $user);

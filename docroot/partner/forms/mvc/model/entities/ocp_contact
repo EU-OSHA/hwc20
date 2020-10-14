@@ -53,7 +53,7 @@
     "contact_osh_mainemail": {
       "name": "contact_osh_mainemail",
       "label": "Email address",
-      "helpText": "IMPORTANT: All future communications related to this application will be sent to this address.<br><br>This field cannot be directly changed in the form. If you want to modify it, please, contact EU-OSHA in partners@healthy-workplaces.com",
+      "helpText": "IMPORTANT: All future communications related to this application will be sent to this address.<br><br>This field cannot be directly changed in the form. If you want to modify it, please, contact EU-OSHA in partners@healthy-workplaces.eu",
       "section": "PRIMARY_CONTACT",
       "type": "text",
       "validator": [
@@ -117,7 +117,8 @@
       "label": "Telephone number",
       "placeholder": "0000 0000",
       "section": "PRIMARY_CONTACT",
-      "type": "text"
+      "type": "text",
+      "validator": "not_null"
     },
     "contact_osh_prefixmaincontactphone": {
       "name": "contact_osh_prefixmaincontactphone",
@@ -125,7 +126,8 @@
       "helpText": "Select your prefix from the drop-down",
       "placeholder": "+00",
       "section": "PRIMARY_CONTACT",
-      "type": "dropdown"
+      "type": "dropdown",
+      "validator": "not_null"
     },
 
     "contact_osh_mainphone_clone": {

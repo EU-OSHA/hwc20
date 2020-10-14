@@ -29,12 +29,12 @@ function hwc_homepage_views_api($module = NULL, $api = NULL) {
 function hwc_homepage_fe_nodequeue_export_fields() {
   $nodequeues = array();
 
-  // Exported nodequeues: featured_partner_frontpage
-  $nodequeues['featured_partner_frontpage'] = array(
-    'name' => 'featured_partner_frontpage',
-    'title' => 'Featured Partner Frontpage',
+  // Exported nodequeues: good_practice_exchange_events
+  $nodequeues['good_practice_exchange_events'] = array(
+    'name' => 'good_practice_exchange_events',
+    'title' => 'Good Practice Exchange events',
     'subqueue_title' => '',
-    'size' => 1,
+    'size' => 3,
     'link' => '',
     'link_remove' => '',
     'owner' => 'nodequeue',
@@ -44,18 +44,20 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
+    'insert_at_front' => 0,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
-      0 => 'partner',
+      0 => 'events',
     ),
     'roles' => array(),
     'count' => 0,
   );
 
-  // Exported nodequeues: homepage_about_the_topic
-  $nodequeues['homepage_about_the_topic'] = array(
-    'name' => 'homepage_about_the_topic',
-    'title' => 'Homepage about the topic',
+  // Exported nodequeues: homepage_banners
+  $nodequeues['homepage_banners'] = array(
+    'name' => 'homepage_banners',
+    'title' => 'Homepage banners',
     'subqueue_title' => '',
     'size' => 0,
     'link' => '',
@@ -67,9 +69,11 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
+    'insert_at_front' => 0,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
-      0 => 'article',
+      0 => 'frontpage_slider',
     ),
     'roles' => array(),
     'count' => 0,
@@ -90,6 +94,8 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
+    'insert_at_front' => 0,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'events',
@@ -113,6 +119,8 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
+    'insert_at_front' => 0,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'frontpage_slider',
@@ -136,6 +144,8 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
+    'insert_at_front' => 0,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'campaign_materials',
@@ -159,6 +169,8 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
+    'insert_at_front' => 0,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'events',
@@ -182,6 +194,8 @@ function hwc_homepage_fe_nodequeue_export_fields() {
     'reference' => 0,
     'reverse' => 0,
     'i18n' => 0,
+    'insert_at_front' => 0,
+    'unique_entries' => 0,
     'subqueues' => 1,
     'types' => array(
       0 => 'news',
@@ -198,6 +212,24 @@ function hwc_homepage_fe_nodequeue_export_fields() {
  */
 function hwc_homepage_image_default_styles() {
   $styles = array();
+
+  // Exported image style: banner_1.
+  $styles['banner_1'] = array(
+    'label' => 'Banner',
+    'effects' => array(
+      12 => array(
+        'name' => 'manualcrop_crop',
+        'data' => array(
+          'width' => '',
+          'height' => '',
+          'keepproportions' => 0,
+          'reuse_crop_style' => '',
+          'style_name' => 'banner_1',
+        ),
+        'weight' => 0,
+      ),
+    ),
+  );
 
   // Exported image style: partner_logo_front.
   $styles['partner_logo_front'] = array(
@@ -226,6 +258,14 @@ function hwc_homepage_node_info() {
       'name' => 'Frontpage Banner',
       'base' => 'node_content',
       'description' => 'Frontpage banner content',
+      'has_title' => '1',
+      'title_label' => 'Title',
+      'help' => '',
+    ),
+    'home_page_sections' => array(
+      'name' => 'Home page sections',
+      'base' => 'node_content',
+      'description' => '',
       'has_title' => '1',
       'title_label' => 'Title',
       'help' => '',

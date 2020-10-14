@@ -7,13 +7,8 @@
 }
 
 header.navbar-default .campaigns-header .navbar-header .header-text {
-	max-width: 300px;
+	max-width: 273px;
     padding-left: 1em;
-}
-
-header.navbar-default.sticky-menu .campaigns-header .navbar-header .header-text{
-    border-left: 0;
-    height: auto;
 }
 
 header.navbar-default .campaigns-header #block-menu-menu-header-login a {
@@ -91,6 +86,14 @@ header.navbar-default .navbar-collapse nav ul.menu > li.first a:before{
 
 .main-container h1, .main-container .title-alt{
     border-bottom: 0;
+    color: #FFF;
+}
+
+/* Private zone */
+.logged-in .main-container .pane-content h1{
+    color: #003399;
+    font-size: 4rem;    
+    font-weight: 400;
 }
 
 .dropdown-menu{
@@ -113,6 +116,8 @@ header.navbar-default .navbar-collapse nav ul.menu > li.first a:before{
 header.navbar-default .campaigns-header .navbar-header #block-search-form button{
 	border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     padding-bottom: 8px;
     height: 34px;
 }
@@ -176,7 +181,7 @@ article .hwc-share-widget ul{
 
 .hwc-share-widget ul .share-this-article{
     color: #333;
-    font-size: 1.3rem;
+    font-size: 0.95em;
     font-weight: normal;
 }
 
@@ -231,6 +236,7 @@ article .hwc-share-widget ul{
 
 #edit-field-priority-area > div > label{
     font-size: 1.8rem;
+    color: #003399 !important;
 }
 
 a.chosen-single{
@@ -252,13 +258,27 @@ a.chosen-single{
 }
 
 
-.form-item-main-tags > label.active:after, .form-item-field-publication-type > label.active:after, .form-item-language > label.active:after, .form-item-field-priority-area > label.active:after, .form-item-relevant-for > label.active:after, .form-item-languages > label.active:after, .form-item-publication-type > label.active:after{
+.form-item-main-tags > label.active:after, 
+.form-item-field-publication-type > label.active:after, 
+.form-item-language > label.active:after, 
+.form-item-field-priority-area > label.active:after, 
+.form-item-relevant-for > label.active:after, 
+.form-item-languages > label.active:after, 
+.form-item-publication-type > label.active:after
+.form-item-field-msd-priority-area > label.active:after{
     color: #c1e000;
     padding-top: 2px;
 }
 
 
-.form-item-main-tags > label:after, .form-item-field-publication-type > label:after, .form-item-language > label:after, .form-item-field-priority-area > label:after, .form-item-relevant-for > label:after, .form-item-languages > label:after, .form-item-publication-type > label:after{
+.form-item-main-tags > label:after, 
+.form-item-field-publication-type > label:after, 
+.form-item-language > label:after, 
+.form-item-field-priority-area > label:after, 
+.form-item-relevant-for > label:after, 
+.form-item-languages > label:after, 
+.form-item-publication-type > label:after,
+.form-item-field-msd-priority-area > label:after{
     color: #c1e000;
     padding-top: 2px;
 }
@@ -299,54 +319,32 @@ body > div.main-container > div > aside > div > div:nth-child(2){
     border-radius: 5px;
 }
 
-.page-search .region-sidebar-first .block.block-facetapi{
-    clear: both;
-    width: 100%;
-    border: 1px solid #B0B2B3;
-    background: #FFF;
-    float: left;
-    padding: 0.8em;
-    border-radius: 5px;
-    margin-top: 31px;
-}
-
-
-.facetapi-facetapi-checkbox-links.facetapi-facet-field-priority-area.facetapi-processed.no-margin-bottom, 
-#facetapi-facet-search-apidefault-multilingual-node-index-block-type,
-#facetapi-facet-search-apidefault-multilingual-node-index-block-language{
-    padding-top: 10px;
-}
-
-.facetapi-facetapi-checkbox-links{
-    padding-left: 0;
-}
-
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li{
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.page-search .region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links li #facetapi-link--all--checkbox{
-    margin-right: 10px;
-}
-
-.page-search  input[type=checkbox]{
-    display: block;
-    float: left;
-    margin-right: 10px;
-}
-
-.facetapi-facetapi-checkbox-links a{
-   color: #59595A!important; 
-}
-
-
 /* News detail */
 
 .page-node .node-news .field-name-body{
     padding-bottom: 2em;
 }
 
-.page-media-centre-news .main-container #block-system-main .view .views-row .field-name-field-summary{
-    font-weight: bold;
+/* Drupal7 Admin menu links */
+.contextual-links{
+    padding-top: 3px!important;
+}
+
+.contextual-links li a{
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    white-space: nowrap;
+    line-height: 100%;
+    list-style: none;
+    list-style-image: none;
+    box-sizing: border-box;
+    border-radius: 0px;
+    text-decoration: none;
+    background: transparent !important;
+    padding-left: 10px !important;
+    padding-top: 3px!important;
+    color: #333 !important;
+    display: block;
+    margin: 0.25em 0;
+    padding: 0.25em 1em 0.25em 0.5em;
+    border:0 !important;
 }

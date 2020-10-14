@@ -12,6 +12,10 @@ if ($language->language=="en"){
 }
 
 $theme_dir = drupal_get_path('theme', 'hwc_frontend');
+$coming_soon = '';
+if (variable_get('splash_mode', FALSE)) {
+  $coming_soon = '<span>' . t('Coming soon') . '</span>';
+}
 ?>
 <?php if (!empty($page['above_header'])): ?>
 <?php endif; ?>
@@ -24,11 +28,11 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
             <a class="pull-left" accesskey="0" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
               <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
             </a>
-            <a href="http://osha.europa.eu" title="EU-OSHA" target="_blank">
+            <a href="http://osha.europa.eu" title="<?php print t('EU-OSHA corporate website')?>" target="_blank">
               <?php print '<img class="pull-left" alt="'.t("EU-OSHA logo").'" src="'.base_path() . path_to_theme() .$logo_osha .'">'; ?>
             </a>
             <img class="pull-left" src="/<?php print $theme_dir . '/logo-eu.png'; ?>" alt="<?php print t('EU logo'); ?>" />
-      <div class="header-text"><?php echo $head_text; ?></div>
+              <div class="header-text"><?php echo $head_text; ?><?php print $coming_soon; ?></div>
           </div>
           <div class="col-xs-12 col-sm-3 xs-menu">
             <div class="header_top_bar">

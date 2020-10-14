@@ -20,20 +20,18 @@ function campaign_materials_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'header' => array(
-        0 => 'field_publication_date',
-        1 => 'title_field',
+        0 => 'title_field',
       ),
       'left' => array(
-        2 => 'field_image',
+        1 => 'field_image',
       ),
       'right' => array(
-        3 => 'body',
-        4 => 'field_related_documents',
-        5 => 'field_campaign_material_type',
+        2 => 'body',
+        3 => 'field_related_documents',
+        4 => 'field_campaign_material_type',
       ),
     ),
     'fields' => array(
-      'field_publication_date' => 'header',
       'title_field' => 'header',
       'field_image' => 'left',
       'body' => 'right',

@@ -100,9 +100,9 @@
     "company_osh_logoimage": {
       "name": "company_osh_logoimage",
       "label": "Organisation´s logo",
-      "helpText" : "Please upload your company logo in .png or .jpg file format. The file size must not exceed 1MB",
-      "helpTextImageLoaded" : "Please, if you want to change this logo, please upload a new one in png. or jpg. file format. The file must not exceed 1MB",
-      "placeholder": "Please upload your company logo in .png or .jpg file format. The file size must not exceed 1MB",
+      "helpText" : "Please upload your company logo in .png or .jpg format. The file size must not exceed 1MB. The minimum size for logos is 220x220px.",
+      "helpTextImageLoaded" : "Please upload your company logo in .png or .jpg format. The file size must not exceed 1MB. The minimum size for logos is 220x220px.",
+      "placeholder": "Please upload your company logo in .png or .jpg format. The file size must not exceed 1MB. The minimum size for logos is 220x220px.",
       "publicProfile": "publicProfile",
       "section": "ORGANISATION",
       "type": "image",
@@ -503,7 +503,7 @@
     "company_osh_yourmissionstatement": "osh_yourmissionstatement",
     "company_osh_zipcode": "osh_phcp",
     "company_osh_generalphone":"osh_phone1",
-    "company_osh_prefixgeneralphone": "osh_prefixgeneralphone",
+    "company_osh_prefixgeneralphone": "osh_prefixphone1",
     "company_osh_orgname": "osh_companyorganisationname",
     "company_osh_osh_appform_osh_country": "returnPaises",
     "company_osh_othercountries": "osh_othercountries",
@@ -530,6 +530,7 @@
     "comrep_osh_mediaproshlastname" : "osh_mediaproshlastname",
     "comrep_osh_prefixmediaprphone" : "osh_prefixmediaprphone",
     "comrep_osh_emailmediapr" : "osh_emailmediapr",
-    "comrep_osh_phonemediapr" : "osh_phonemediapr"
+    "comrep_osh_phonemediapr" : "osh_phonemediapr",
+    "company_osh_dedicatedsite": "osh_dedicatedsite"
   }
 }

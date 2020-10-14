@@ -3,9 +3,10 @@
     <!-- <label>{$fieldLabel}</label> -->
     {if !empty($fieldHelpText)}
         {if $fieldName == "contact_osh_maincontactchange"}
-            <p class="help-block">For typo mistakes in the contacts related fields insert directly the corrections in the bellow fields.</br>
-                Should you want to change fully the contact person´s details, please, firstly activate the following box  <input {$disabled} type="checkbox" name="{$fieldName}" id="{$fieldName}" data-section="{$fieldSection}" class="checkbox main-contact-change-checkbox" />
-                and then provide the new contact´s details in the fields bellow.</p>
+            <p class="help-block">For typo mistakes in the contacts related fields insert directly the corrections in the bellow fields.</br></p>
+                <p class="mcchigh">If you want to change the contact person for your organisation, please click the check box below </br>
+                <input {$disabled} type="checkbox" name="{$fieldName}" id="{$fieldName}" data-section="{$fieldSection}" class="checkbox main-contact-change-checkbox" />
+                I want to change the main contact for my organisation.</p>
         {elseif $fieldName == "company_osh_ceochange"}
             <p class="help-block">For typo mistakes in the CEO related fields, correct directly the text in the fields.</br>
                 For change of CEO, please, activate the  <input {$disabled} type="checkbox" name="{$fieldName}" id="{$fieldName}" data-section="{$fieldSection}" class="checkbox main-contact-change-checkbox" /> box and provide the new CEO details.</p>

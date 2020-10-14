@@ -66,6 +66,14 @@ function osha_authentication_get_role_from_dn($group_dn, $user) {
     // Website Managers - Editorial Team.
     $role = HWC_ROLE_WEBSITE_MANAGERS;
   }
+  elseif ($group_dn == 'cn=READ,ou=HWC_20-22,ou=Sites,dc=osha,dc=europa,dc=eu') {
+    // Read only.
+    $role = HWC_ROLE_READ_ONLY;
+  }
+  elseif ($group_dn == 'cn=GPE_EDT,ou=HWC_20-22,ou=Sites,dc=osha,dc=europa,dc=eu') {
+    // GPE Platform Editors.
+    $role = HWC_ROLE_GPE_PLATFORM_EDITORS;
+  }
   elseif ($group_dn == 'cn=OSHAMB_RVM,ou=HWC_20-22,ou=Sites,dc=osha,dc=europa,dc=eu') {
     // EU-OSHA EEN Reviewers.
     $role = HWC_ROLE_EEN_REVIEW_MANAGER;

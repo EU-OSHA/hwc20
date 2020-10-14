@@ -18,11 +18,45 @@ function hwc_admin_config_form() {
     '#description' => 'URIs that exists in current website but you want to redirect to the previous websites. One uri per line in format  path/to/page|redirect/to/full/url',
   );
 
-
   $form['splash_mode'] = array(
     '#type' => 'checkbox',
     '#title' => t('Splash mode'),
     '#default_value' => variable_get('splash_mode', FALSE),
+  );
+
+  $form['exceptions'] = array(
+    '#type' => 'fieldset',
+    '#title' => 'Exceptions',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+
+  $form['exceptions']['hwc_hide_meta_description_pages'] = array(
+    '#type' => 'textarea',
+    '#default_value' => variable_get('hwc_hide_meta_description_pages', ''),
+    '#title' => 'Do not show meta description for pages',
+    '#description' => 'Page alias list to remove meta description. One alias per line',
+  );
+
+  $form['exceptions']['hwc_exclude_banner_titles'] = array(
+    '#type' => 'textarea',
+    '#default_value' => variable_get('hwc_exclude_banner_titles', ''),
+    '#title' => 'Exclude pages from banner titles changes',
+    '#description' => 'Page alias nad node url list without banner titles changes. One alias or node/nid per line',
+  );
+
+  $form['exceptions']['hwc_exclude_top_share_widget'] = array(
+    '#type' => 'textarea',
+    '#default_value' => variable_get('hwc_exclude_top_share_widget', ''),
+    '#title' => 'Exclude top share widget from nodes',
+    '#description' => 'Node list to exclude top share widget. One node id per line',
+  );
+
+  $form['exceptions']['hwc_exclude_bottom_share_widget'] = array(
+    '#type' => 'textarea',
+    '#default_value' => variable_get('hwc_exclude_bottom_share_widget', ''),
+    '#title' => 'Exclude bottom share widget from nodes',
+    '#description' => 'Node list to exclude bottom share widget. One node id per line',
   );
 
   $form['disable_masquerading_notifications'] = array(
@@ -48,6 +82,22 @@ function hwc_admin_config_form() {
     $form['#theme'] = 'system_settings_form';
   }
 
+  $file = variable_get('hwc_crm_data_dir', '') . '/PublicProfile_HW18.xml';
+  $options = [
+    'PublicProfile_20.xml' => 'PublicProfile_20.xml',
+    'PublicProfile.xml' => 'PublicProfile.xml',
+  ];
+  if (file_exists($file)) {
+    $options['PublicProfile_HW18.xml'] = 'PublicProfile_HW18.xml';
+  }
+  $form['hwc_crm_data_xml'] = array(
+    '#title' => 'PublicProfile source',
+    '#type' => 'select',
+    '#multiple' => FALSE,
+    '#options' => $options,
+    '#default_value' => variable_get('hwc_crm_data_xml', ''),
+  );
+
   $tags_voc = taxonomy_vocabulary_machine_name_load(OSHA_TAXONOMIES_TAGS);
   $tags = taxonomy_term_load_multiple(array(), array('vid' => $tags_voc->vid));
   $options = array();
@@ -66,6 +116,7 @@ function hwc_admin_config_form() {
     '#type' => 'fieldset',
     '#title' => 'Campaign Partner',
     '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
   );
 
   $form['campaign_partner']['become_campaign_partner_download_title'] = array(
@@ -86,6 +137,27 @@ function hwc_admin_config_form() {
     '#description' => '',
     '#type' => 'textfield',
     '#default_value' => variable_get('become_campaign_partner_download_link', '#'),
+  );
+
+  $form['campaign_partner']['become_campaign_partner_download_link_title'] = array(
+    '#title' => 'Download the Campaign Partnership offer link title',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_campaign_partner_download_link_title', 'Download the offer'),
+  );
+
+  $form['campaign_partner']['become_campaign_partner_register_title'] = array(
+    '#title' => 'Download the Campaign Partnership register link title',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_campaign_partner_register_title', 'Apply here'),
+  );
+
+  $form['campaign_partner']['become_campaign_partner_register_link'] = array(
+    '#title' => 'Download the Campaign Partnership register link',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_campaign_partner_register_link', '/partner/register'),
   );
 
   $form['campaign_partner']['become_campaign_partner_application_form_title'] = array(
@@ -118,6 +190,7 @@ function hwc_admin_config_form() {
     '#type' => 'fieldset',
     '#title' => 'Media Partner',
     '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
   );
 
   $form['media_partner']['become_media_partner_download_title'] = array(
@@ -138,6 +211,27 @@ function hwc_admin_config_form() {
     '#description' => '',
     '#type' => 'textfield',
     '#default_value' => variable_get('become_media_partner_download_link', '#'),
+  );
+
+  $form['media_partner']['become_media_partner_download_link_title'] = array(
+    '#title' => 'Download the Media Partnership offer link title',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_media_partner_download_link_title', 'Download the offer'),
+  );
+
+  $form['media_partner']['become_media_partner_register_title'] = array(
+    '#title' => 'Download the Media Partner register link title',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_media_partner_register_title', 'Apply here'),
+  );
+
+  $form['media_partner']['become_media_partner_register_link'] = array(
+    '#title' => 'Download the Media Partnership register link',
+    '#description' => '',
+    '#type' => 'textfield',
+    '#default_value' => variable_get('become_media_partner_register_link', '/partner/register'),
   );
 
   $form['media_partner']['become_media_partner_application_form_title'] = array(
@@ -166,10 +260,15 @@ function hwc_admin_config_form() {
     '#title' => 'Get the result body',
   );
 
+//  $form['hwc_partner_how_to_apply_first_date'] = array(
+//    '#title' => 'How to apply first date',
+//    '#type' => 'date',
+//    '#default_value' => variable_get('hwc_partner_how_to_apply_first_date', ''),
+//  );
+
   // Deadline to Download information.
   $form['hwc_partner_download_deadline'] = array(
-    '#title' => 'Deadline to Download information',
-    '#description' => 'Starting from 12:00 AM of the date selected here, the download is no longer visible',
+    '#title' => 'Deadline to download information',
     '#type' => 'date',
     '#default_value' => variable_get('hwc_partner_download_deadline', ''),
   );
@@ -177,10 +276,21 @@ function hwc_admin_config_form() {
   // Deadline for partner registration.
   $form['hwc_partner_registration_deadline'] = array(
     '#title' => 'Deadline for partner registration',
-    '#description' => 'Starting from 12:00 AM of the date selected here, the registration is no longer visible',
     '#type' => 'date',
     '#default_value' => variable_get('hwc_partner_registration_deadline', ''),
   );
+
+  $form['hwc_partner_registration_last_date_month'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show last date month'),
+    '#default_value' => variable_get('hwc_partner_registration_last_date_month', FALSE),
+  );
+
+  //  $form['hwc_partner_how_to_apply_last_date'] = array(
+//    '#title' => 'How to apply last date',
+//    '#type' => 'date',
+//    '#default_value' => variable_get('hwc_partner_how_to_apply_last_date', ''),
+//  );
 
 //  $deadline_message = variable_get('hwc_partner_registration_deadline_message', '');
 //  $form['hwc_partner_registration_deadline_message'] = array(
@@ -270,61 +380,6 @@ function hwc_admin_config_form() {
     '#title' => 'Toolkit about page node nid',
   );
 
-  $form['workflow'] = array(
-    '#type' => 'fieldset',
-    '#title' => 'Workflow mail settings',
-    '#collapsible' => TRUE,
-    '#weight' => 101,
-  );
-
-  $form['workflow']['hwc_workflow_approved_subject'] = array(
-    '#type' => 'textfield',
-    '#default_value' => variable_get('hwc_workflow_approved_subject', ''),
-    '#title' => 'Approved subject',
-  );
-
-  $form['workflow']['hwc_workflow_approved_body'] = array(
-    '#type' => 'textarea',
-    '#default_value' => variable_get('hwc_workflow_approved_body', ''),
-    '#title' => 'Approved body',
-  );
-
-  $form['workflow']['hwc_workflow_rejection_subject'] = array(
-    '#type' => 'textfield',
-    '#default_value' => variable_get('hwc_workflow_rejection_subject', ''),
-    '#title' => 'Rejection subject',
-  );
-
-  $form['workflow']['hwc_workflow_rejection_body'] = array(
-    '#type' => 'textarea',
-    '#default_value' => variable_get('hwc_workflow_rejection_body', ''),
-    '#title' => 'Rejection body',
-  );
-
-  $form['workflow']['hwc_workflow_supervisor_subject'] = array(
-    '#type' => 'textfield',
-    '#default_value' => variable_get('hwc_workflow_supervisor_subject', ''),
-    '#title' => 'Supervisor subject',
-  );
-
-  $form['workflow']['hwc_workflow_supervisor_body'] = array(
-    '#type' => 'textarea',
-    '#default_value' => variable_get('hwc_workflow_supervisor_body', ''),
-    '#title' => 'Supervisor body',
-  );
-
-  $form['workflow']['hwc_workflow_reviewer_subject'] = array(
-    '#type' => 'textfield',
-    '#default_value' => variable_get('hwc_workflow_reviewer_subject', ''),
-    '#title' => 'Reviewer subject',
-  );
-
-  $form['workflow']['hwc_workflow_reviewer_body'] = array(
-    '#type' => 'textarea',
-    '#default_value' => variable_get('hwc_workflow_reviewer_body', ''),
-    '#title' => 'Reviewer body',
-  );
-
   $form = system_settings_form($form);
   $form['actions']['#weight'] = 150;
   // Prepend this hook to the beginning of array because we need the unchanged
@@ -402,18 +457,21 @@ function hwc_splash_mode_form($form, &$form_state) {
 
 function hwc_splash_mode_form_submit($form, &$form_state) {
   $splash_blocks = array(
-    'splash_browsing_content',
-    'splash_download_news_campaign',
-    'splash_title_banner_countdown',
+    'splash_banners-block' => 'views',
+    'splash_browsing_content' => 'hwc_homepage',
+    'splash_download_news_campaign' => 'hwc_homepage',
+    'splash_title_banner_countdown' => 'hwc_homepage',
   );
+
   $home_blocks = array(
-    'frontpage_slider-block',
-    'front_page_blocks_set',
-    'hwc_homepage_tools_and_resources',
-    'hwc_homepage_topics',
-    'osha_newsletter_image',
-    'partners-block_1',
+    'homepage_banners-block' => 'views',
+    'hwc_homepage_news_events' => 'hwc_homepage',
+    'hwc_homepage_newsletter_social' => 'hwc_homepage',
+    'hwc_homepage_topics' => 'hwc_homepage',
+    'partners-block_1' => 'views',
   );
+
+  $pages_suffix = "\r\n<front>";
 
   if (variable_get('splash_mode', FALSE)) {
     variable_set('splash_mode', FALSE);
@@ -428,17 +486,20 @@ function hwc_splash_mode_form_submit($form, &$form_state) {
     $disable = $home_blocks;
   }
 
-  db_update('block')
-    ->fields(array(
-      'status' => 0,
-    ))
-    ->condition('delta', $disable, 'IN')
-    ->execute();
-  db_update('block')
-    ->fields(array(
-      'status' => 1,
-    ))
-    ->condition('delta', $enable, 'IN')
-    ->condition('theme', 'hwc_frontend')
-    ->execute();
+  foreach ($disable as $delta => $module) {
+    $block = block_load($module, $delta);
+    $pages = str_replace($pages_suffix, '', $block->pages);
+    db_update('block')
+      ->fields(['status' => 1, 'pages' => $pages])
+      ->condition('bid', $block->bid)
+      ->execute();
+  }
+  foreach ($enable as $delta => $module) {
+    $block = block_load($module, $delta);
+    $pages = $block->pages . $pages_suffix;
+    db_update('block')
+      ->fields(['status' => 1, 'pages' => $pages])
+      ->condition('bid', $block->bid)
+      ->execute();
+  }
 }

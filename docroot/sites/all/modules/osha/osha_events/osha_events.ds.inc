@@ -53,7 +53,12 @@ function osha_events_ds_custom_fields_info() {
     'node' => 'node',
   );
   $ds_field->ui_limit = 'events|*
-news|*';
+news|*
+flickr_gallery|*
+press_release|*
+spotlight|*
+youtube|*
+pa_highlights|*';
   $ds_field->properties = array();
   $export['back_to_list'] = $ds_field;
 

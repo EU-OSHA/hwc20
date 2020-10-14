@@ -1,0 +1,128 @@
+{
+  "msd_glossary": [
+    {
+      "name" : "Absenteeism",
+      "description" : "Non-attendance when scheduled to work."
+    },
+    {
+      "name" : "Acute MSDs",
+      "description" : "Rapid onset of discomfort of a short duration as a result of exposure to MSDs hazards. An acute health effect migh also be referred to as having a short-term impact."
+    },
+    {
+      "name" : "Body mapping",
+      "description" : "A body map is a picture that shows what part(s) of a worker’s body are getting hurt, sick or stressed by their job."
+    },
+    {
+      "name" : "Chronic MSDs",
+      "description" : "Discomfort of a medium to long-term duration as a result of exposure to MSDs hazards. A chronic health effect migh also be referred to as having a long-term impact or as a long latency disease."
+    },
+    {
+      "name" : "Diversity sensitive risk assessment",
+      "description" : "To take into account the diversity of the workforce when assessing and managing occupational risks."
+    },
+    {
+      "name" : "Dynamic posture",
+      "description" : "Dynamic postures refer to body alignments that occur when body and/ or limbs are moving such as walking."
+    },
+    {
+      "name" : "Dynamic sitting or sitting in motion",
+      "description" : "Means moving or changing postures while sitting."
+    },
+    {
+      "name" : "Early exit / retirement",
+      "description" : "Early exit/early retirement from work for health reasons is a situation when someone leaves their job before the usual age for stopping (retiring from) work because of their health."
+    },
+    {
+      "name" : "Early intervention",
+      "description" : "Taking  measures — such as providing professional support, rapid referral and diagnosis, adjusting the work environment — as soon as the symptoms appear. This significantly lowers the worker’s chance of experiencing long-term absence from work.  Early intervention can reduce absenteeism and lead to real savings in national health care and social welfare systems."
+    },
+    {
+      "name" : "Gender sensitive risk assessment",
+      "description" : "To include gender issues in workplace risk assessments."
+    },
+    {
+      "name" : "Hazard",
+      "description" : "A hazard is anything that has the potential to cause harm. Hazards can affect people, property, processes; they can cause accidents and ill-heath, loss of output, damage to machinery, etc."
+    },
+    {
+      "name" : "Hazard mapping",
+      "description" : "A hazard map shows where there are health and safety problems at work. These problems make workers sick, injured or stressed."
+    },
+    {
+      "name" : "MSDs risk factors",
+      "description" : "Different groups of factors may contribute to MSDs, including physical and biomechanical factors, organisational and psychosocial factors, individual and personal factors."
+    },
+    {
+      "name" : "Individual and personal",
+      "description" : "Age, gender, height, arm length, physical capacity, prior medical history, lack of knowledge of work techniques and safety procedures can also be MSD risk factors if risks aren't managed properly."
+    },
+    {
+      "name" : "Organisational",
+      "description" : "The way work is organised in terms of number of consecutive working hours, opportunities for breaks, the pace of the work and the variation of work tasks all affect how burdensome physical work tasks are."
+    },
+    {
+      "name" : "Physical or biomechanics",
+      "description" : "Work postures and movements can be harmful as a result of repetition, duration or effort. For instance, the following are physical riskfactors: heavy physical work (forceful exertion), heavy lifting, awkward postures, prolonged work tasks, prolonged sitting or standing, and work tasks that have to be performed repeatedly or with great precision"
+    },
+    {
+      "name" : "Psychosocial",
+      "description" : "Excessive workload and high work intensity can both increase workers' stress levels, which in turn can increase their muscular tension and their sensitivity to feeling pain. Furthermore, lack of control over work tasks or over how or the pace at which tasks are performed, as well as a lack of support from colleagues or management, can also increase the risk of MSDs. This is because if workers feel under too much pressure at work, this inhibits workers from taking the proper precautions or adopting safe working postures and practices, and thus psychosocial factors become risk factors for MSDs."
+    },
+    {
+      "name" : "Postures",
+      "description" : "Posture is the position of the body’s head, trunk, and limbs. An active posture requires the coordinated action of many muscles and structures within the body. Active postures can be either static or dynamic."
+    },
+    {
+      "name" : "Presenteeism",
+      "description" : "Action of employees coming to work despite having a sickness that justifies an absence and as a consequence they are performing their work under sub-optimal conditions"
+    },
+    {
+      "name" : "Rehabilitation",
+      "description" : "A process of restoring the patient’s ‘optimal physical, sensory, intellectual, psychological and social functional levels’."
+    },
+    {
+      "name" : "Return to work",
+      "description" : "Return to work is a coordinated effort aimed at job retention and preventing early exit from work, encompassing all procedures and interventions intended to protect and promote the health and work ability of workers and to facilitate the reintegration into the workplace of anyone experiencing a reduction in work capacity as a result of injury or illness"
+    },
+    {
+      "name" : "Risk",
+      "description" : "Occupational risk refers to the likelihood and the severity of an injury or an illness occurring as a result of exposure to a hazard."
+    },
+    {
+      "name" : "Risk assessment",
+      "description" : "The aim of occupational risk assessment is to protect workers’ health and safety. Risk assessment includes identifying risks, evaluating how severe the risk is and deciding if there is a need to take action to reduce the risk. Under health and safety laws, all employers must carry out regular risk assessment."
+    },
+    {
+      "name" : "Sedentary work",
+      "description" : "It is a job in which you are seated for most of the time that you are working,  or sitting continuously for long periods of time."
+    },
+    {
+      "name" : "Static muscle load",
+      "description" : "this is the effort your muscles have to make to maintain a position without moving, e.g holding an arm our without moving it, or standing or sitting in the same position without moving."
+    },
+    {
+      "name" : "Static posture",
+      "description" : "A static posture occurs when we maintain one position for a prolonged period of time. Examples include standing, sitting, or kneeling."
+    },
+    {
+      "name" : "Work ability",
+      "description" : "Reflects the balance between work demands and individual (personal) resources, for example in terms of the type of work, workload, work organisation, health, skills, values, attitudes and motivation."
+    },
+    {
+      "name" : "Work related low back disorders",
+      "description" : "Low back work-related MSDs include spinal disc problems, muscle and soft tissue injuries."
+    },
+    {
+      "name" : "Work related Lower limb (musculoskeletal)  disorders",
+      "description" : "Disorders affecting the lower extremities, mainly hip, knee and feet, that are caused or aggravated primarily by work and by the effects of the immediate environment in which work is carried out"
+    },
+    {
+      "name" : "Work related Musculoskeletal disorders (WR-MSDs)",
+      "description" : "Work-related musculoskeletal disorders are impairments of bodily structures, such as muscles, joints, tendons, ligaments, nerves, bones and the localised blood circulation system, that are caused or aggravated primarily by work and by the effects of the immediate environment in which work is carried out"
+    },
+    {
+      "name" : "Work related Upper limb (musculoskeletal) disorders (WRULDs)",
+      "description" : "Disorders affecting the neck, shoulders, arms, hands, wrists and fingers, causing pain, discomfort, numbness and tingling sensations, that are caused or aggravated primarily by work and by the effects of the immediate environment in which work is carried out."
+    }
+  ]
+}

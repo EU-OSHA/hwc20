@@ -5,6 +5,9 @@
  */
 ?>
 <?php
+if ($hide_title) {
+  unset($content['title_field']);
+}
 /** @var array $content */
 ?>
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
@@ -28,7 +31,7 @@
     print render($content['field_image']);
     print render($content['title_field']);
 
-    
+
     print render($content['field_summary']);
     print render($content['body']);
   ?>

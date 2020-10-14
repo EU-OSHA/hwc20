@@ -15,11 +15,12 @@ function hwc_good_practice_exchange_user_default_permissions() {
     'name' => 'create document content',
     'roles' => array(
       'EU-OSHA EEN Reviewers' => 'EU-OSHA EEN Reviewers',
+      'External Provider' => 'External Provider',
+      'GPE Platform Editors' => 'GPE Platform Editors',
       'HWC Staff - Reviewers' => 'HWC Staff - Reviewers',
       'Website Managers' => 'Website Managers',
       'administrator' => 'administrator',
       'campaign partner' => 'campaign partner',
-      'External Provider - Supervisor' => 'External Provider - Supervisor',
     ),
     'module' => 'node',
   );
@@ -29,10 +30,11 @@ function hwc_good_practice_exchange_user_default_permissions() {
     'name' => 'delete any document content',
     'roles' => array(
       'EU-OSHA EEN Reviewers' => 'EU-OSHA EEN Reviewers',
+      'External Provider' => 'External Provider',
       'HWC Staff - Reviewers' => 'HWC Staff - Reviewers',
+      'Website Managers' => 'Website Managers',
       'administrator' => 'administrator',
       'campaign partner' => 'campaign partner',
-      'External Provider - Supervisor' => 'External Provider - Supervisor',
     ),
     'module' => 'node',
   );
@@ -42,11 +44,12 @@ function hwc_good_practice_exchange_user_default_permissions() {
     'name' => 'delete own document content',
     'roles' => array(
       'EU-OSHA EEN Reviewers' => 'EU-OSHA EEN Reviewers',
+      'External Provider' => 'External Provider',
+      'GPE Platform Editors' => 'GPE Platform Editors',
       'HWC Staff - Reviewers' => 'HWC Staff - Reviewers',
       'Website Managers' => 'Website Managers',
       'administrator' => 'administrator',
       'campaign partner' => 'campaign partner',
-      'External Provider - Supervisor' => 'External Provider - Supervisor',
     ),
     'module' => 'node',
   );
@@ -54,7 +57,9 @@ function hwc_good_practice_exchange_user_default_permissions() {
   // Exported permission: 'delete terms in document'.
   $permissions['delete terms in document'] = array(
     'name' => 'delete terms in document',
-    'roles' => array(),
+    'roles' => array(
+      'Website Managers' => 'Website Managers',
+    ),
     'module' => 'taxonomy',
   );
 
@@ -63,10 +68,12 @@ function hwc_good_practice_exchange_user_default_permissions() {
     'name' => 'edit any document content',
     'roles' => array(
       'EU-OSHA EEN Reviewers' => 'EU-OSHA EEN Reviewers',
+      'External Provider' => 'External Provider',
+      'GPE Platform Editors' => 'GPE Platform Editors',
       'HWC Staff - Reviewers' => 'HWC Staff - Reviewers',
+      'Website Managers' => 'Website Managers',
       'administrator' => 'administrator',
       'campaign partner' => 'campaign partner',
-      'External Provider - Supervisor' => 'External Provider - Supervisor',
     ),
     'module' => 'node',
   );
@@ -76,11 +83,12 @@ function hwc_good_practice_exchange_user_default_permissions() {
     'name' => 'edit own document content',
     'roles' => array(
       'EU-OSHA EEN Reviewers' => 'EU-OSHA EEN Reviewers',
+      'External Provider' => 'External Provider',
+      'GPE Platform Editors' => 'GPE Platform Editors',
       'HWC Staff - Reviewers' => 'HWC Staff - Reviewers',
       'Website Managers' => 'Website Managers',
       'administrator' => 'administrator',
       'campaign partner' => 'campaign partner',
-      'External Provider - Supervisor' => 'External Provider - Supervisor',
     ),
     'module' => 'node',
   );
@@ -88,7 +96,9 @@ function hwc_good_practice_exchange_user_default_permissions() {
   // Exported permission: 'edit terms in document'.
   $permissions['edit terms in document'] = array(
     'name' => 'edit terms in document',
-    'roles' => array(),
+    'roles' => array(
+      'Website Managers' => 'Website Managers',
+    ),
     'module' => 'taxonomy',
   );
 

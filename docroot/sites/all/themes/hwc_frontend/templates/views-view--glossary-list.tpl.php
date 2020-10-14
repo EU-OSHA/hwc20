@@ -26,54 +26,68 @@
  *
  * @ingroup views_templates
  */
+
 ?>
-
- <div class="container fluid">
+<div class="container-fluid">
   <div class="<?php print $classes; ?>">
-      <div class="view-content">
-    <?php
-
-    $voc = taxonomy_vocabulary_machine_name_load('glossary_type');
-    $terms = taxonomy_get_tree($voc->vid);
-
-      foreach ($terms as $glossary_type) {
-        $w = entity_metadata_wrapper('taxonomy_term', $glossary_type->tid);
-        $name = $w->label();
-        $number = $glossary_type->tid;
-
-        // Load the data of the glossary terms of each type.
-        $glossary_list = views_get_view_result('glossary_list', 'page', $number);
-        if (count($glossary_list) > 0) {
-          ?>
-          <div class="glossary_type">
-            <div class="type-name" data-toggle="collapse" data-target="#demo<?php print $number;?>">
-               <span class="display-down glyphicon glyphicon-triangle-bottom"></span>
-              <?php print($name)?>
-            </div>
-            
-            <div class="content-term collapssed  collapse" id="demo<?php print $number;?>">
-              <dl>
-              <?php
-              foreach ($glossary_list as $term) {
-                $term_title = $term->field_name_field[0]['rendered']['#markup'];
-                $term_desc = $term->field_description_field[0]['rendered']['#markup'];
-              ?>
-                <dt class="term-title">
-                 <?php print $term_title; ?>
-                </dt>
-                <dd class="term-description">
-                  <?php print $term_desc; ?>
-                </dd>
-              <?php
-              }
-              ?>
-            </dl>
-            </div>
-          </div>
-          <?php
+    <div class="view-content">
+      <?php
+      $glossary_list = views_get_view_result('glossary_list', 'page');
+      $alphas = t('A B C D E F G H I J K L M N O P Q R S T U V W X Y Z');
+      $alphas = explode(' ', $alphas);
+      $letters = [];
+      foreach ($glossary_list as $term) {
+        $term_title = $term->field_name_field[0]['rendered']['#markup'];
+        $letter = drupal_substr($term_title, 0, 1);
+        $letters[$letter] = $letter;
+      }
+      ksort($letters);
+      echo '<div id="glossary-letters"><div>';
+      foreach ($alphas as $letter) {
+        if (!empty($letters[$letter])) {
+          print '<span><a href="#glossary-' . $letter . '">' . $letter . '</a></span>';
+        }
+        else {
+          print '<span>' . $letter . '</span>';
         }
       }
-?>
+      foreach ($letters as $letter) {
+        if (in_array($letter, $alphas)) {
+          continue;
+        }
+        print '<span><a href="#glossary-' . $letter . '">' . $letter . '</a></span>';
+      }
+      echo '</div></div>';
+      $prev_letter = '';
+      ?>
+      <div class="content-term">
+        <dl>
+          <?php
+          foreach ($glossary_list as $term) {
+            $term_title = $term->field_name_field[0]['rendered']['#markup'];
+            $term_desc = $term->field_description_field[0]['rendered']['#markup'];
+            $letter = drupal_substr($term_title, 0, 1);
+            if ($prev_letter != $letter) { ?>
+              <div class="glossary_letter" id="glossary-<?php print $letter; ?>">
+                <?php print $letter; ?><hr/>
+              </div>
+              <?php
+            }
+            ?>
+            <dt class="term-title">
+              <?php print $term_title; ?>
+            </dt>
+            <dd class="term-description">
+              <?php print $term_desc; ?>
+            </dd>
+            <?php
+            $prev_letter = $letter;
+          }
+          ?>
+        </dl>
+      </div>
+      <?php
+      ?>
     </div>
   </div>
 </div>

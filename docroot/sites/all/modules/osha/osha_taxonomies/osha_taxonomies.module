@@ -17,6 +17,18 @@ function osha_taxonomies_load_activity_by_code($code) {
   return db_select('field_data_field_activity_code', 'a')->fields('a', array('entity_id'))->condition('field_activity_code_value', $code)->execute()->fetchField();
 }
 
+function osha_taxonomies_get_term_by_nace_code($nace_code) {
+  $q = db_select('field_data_field_nace_code', 'c');
+  $q->fields('c', ['entity_id']);
+  $q->condition('field_nace_code_value', $nace_code);
+  $tids = $q->execute()->fetchAllKeyed(0,0);
+  if ($tids) {
+    reset($tids);
+    return current($tids);
+  }
+  return NULL;
+}
+
 /**
  * Implements Elysia hook_cronapi().
  */

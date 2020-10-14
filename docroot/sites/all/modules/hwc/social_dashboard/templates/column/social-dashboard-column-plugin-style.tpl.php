@@ -14,14 +14,6 @@ if ($current_display != 'block_1') {
 }
 ?>
 <div>
-<?php if ($view->current_display=='facebook') { ?>
-<script src="//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.5" async></script>
-<script>
-if (typeof(FB) !== 'undefined') {
-    FB.XFBML.parse();
-}
-</script>
-<?php } ?>
 <?php if (($view->current_display=='twitter')||($view->current_display=='block_1')) { ?>
 <script>
     if (typeof(twttr) !== 'undefined') {
