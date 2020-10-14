@@ -50,7 +50,7 @@ if (!empty($campaign_id)) {
                                     'style_name' => 'newsletter_highlight',
                                     'path' => sprintf("https://img.youtube.com/vi/%s/hqdefault.jpg", $video_id),
                                     'alt' => $title,
-                                    'attributes' => array('style' => 'border-radius: 15px;'),
+                                    'attributes' => array('style' => 'border-radius: 15px;width:220px;height:220px;'),
                                   )), url('node/' . $node->nid, array('absolute' => TRUE)), array(
                                     'html' => TRUE,
                                     'query' => $url_query,
@@ -58,7 +58,7 @@ if (!empty($campaign_id)) {
                                   ));
                                 }
                                 else {
-                                  print '<iframe id="youtube-field-player" class="youtube-field-player" width="100%" height="225" src="//www.youtube.com/embed/' . $video_id . '?wmode=opaque" frameborder="0" allowfullscreen=""></iframe>';
+                                  print '<iframe id="youtube-field-player" class="youtube-field-player" width="220" height="220" src="//www.youtube.com/embed/' . $video_id . '?wmode=opaque" frameborder="0" allowfullscreen=""></iframe>';
                                 }
 
                             }
