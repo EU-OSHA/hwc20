@@ -31,7 +31,7 @@ if (!empty($campaign_id)) {
         <table border="0" cellpadding="0" cellspacing="0" class="item-thumbnail-and-title" width="100%">
           <thead>
             <tr>
-              <th rowspan=2 width="220" class="template-column template-image">
+              <th rowspan=3 width="220" class="template-column template-image">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                   <tbody>
                     <tr>
@@ -115,83 +115,93 @@ if (!empty($campaign_id)) {
                 ?>
               </th>
             </tr>
-            <tr><th class="body-responsive" style="padding-left: 15px;">
-              <table border="0" cellpadding="0" cellspacing="0" class="item-summary" width="100%">
-                <tbody>
-                  <tr>
-                    <td colspan="2" style="width: 100%; font-size: 13px; font-family: Arial, sans-serif; color: #59595a;">
-                      <?php
-                      $body_text = '';
-                      if (isset($field_summary) && is_array($field_summary) && !empty($field_summary)) {
-                        $body_text = field_view_field('node', $node, 'field_summary', 'highlights_item');
-                      }
-                      elseif (isset($body) && is_array($body) && !empty($body)) {
-                        $body_text = field_view_field('node', $node, 'body', 'highlights_item');
-                      }
-                      $body_text = render($body_text);
-                      if (!empty($body_text)) {
-                        if (!empty($campaign_id)) {
-                          // CW-1896 Add pk_campaign to links inside the body text.
-                          $doc = new DOMDocument();
-                          $doc->loadHTML(mb_convert_encoding($body_text, 'HTML-ENTITIES', "UTF-8"));
-                          $links = $doc->getElementsByTagName('a');
-                          foreach ($links as $link) {
-                            $url = $link->getAttribute('href');
-                            $url_comp = parse_url($url);
-                            if (preg_match('/(osha.europa.eu|napofilm.net|oshwiki.eu|oiraproject.eu|esener.eu|healthy-workplaces.eu|healthyworkplaces.eu|localhost|eu-osha.bilbomatica.es)/', $url_comp['host'])) {
-                              $link->setAttribute('href', $url . ($url_comp['query'] ? '&' : '?') . 'pk_campaign=' . $campaign_id);
+            <tr>
+              <th class="body-responsive" style="padding-left: 15px;">
+                <table border="0" cellpadding="0" cellspacing="0" class="item-summary" width="100%">
+                  <tbody>
+                    <tr>
+                      <td colspan="2" style="width: 100%; font-size: 13px; font-family: Arial, sans-serif; color: #59595a;">
+                        <?php
+                        $body_text = '';
+                        if (isset($field_summary) && is_array($field_summary) && !empty($field_summary)) {
+                          $body_text = field_view_field('node', $node, 'field_summary', 'highlights_item');
+                        }
+                        elseif (isset($body) && is_array($body) && !empty($body)) {
+                          $body_text = field_view_field('node', $node, 'body', 'highlights_item');
+                        }
+                        $body_text = render($body_text);
+                        if (!empty($body_text)) {
+                          if (!empty($campaign_id)) {
+                            // CW-1896 Add pk_campaign to links inside the body text.
+                            $doc = new DOMDocument();
+                            $doc->loadHTML(mb_convert_encoding($body_text, 'HTML-ENTITIES', "UTF-8"));
+                            $links = $doc->getElementsByTagName('a');
+                            foreach ($links as $link) {
+                              $url = $link->getAttribute('href');
+                              $url_comp = parse_url($url);
+                              if (preg_match('/(osha.europa.eu|napofilm.net|oshwiki.eu|oiraproject.eu|esener.eu|healthy-workplaces.eu|healthyworkplaces.eu|localhost|eu-osha.bilbomatica.es)/', $url_comp['host'])) {
+                                $link->setAttribute('href', $url . ($url_comp['query'] ? '&' : '?') . 'pk_campaign=' . $campaign_id);
+                              }
+                            }
+                            if ($links->length > 0) {
+                              $body_text = $doc->saveHTML();
                             }
                           }
-                          if ($links->length > 0) {
-                            $body_text = $doc->saveHTML();
+                          print($body_text);
+                        }
+                        ?>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </th>
+            </tr>
+            <tr>
+              <td class="see-more-new-position">
+                <table border="0" cellpadding="0" cellspacing="0" class="item-summary" width="100%">
+                  <tbody>
+                    <tr>
+                        <td style="font-family: Arial, sans-serif; padding-top: 10px;padding-bottom: 10px;">
+                          <?php
+                          if ($node->type == 'publication') {
+                            $node_url = url('node/' . $node->nid . '/view', array('absolute' => TRUE));
                           }
-                        }
-                        print($body_text);
-                      }
-                      ?>
-                    </td>
-                  </tr>
-                  <tr>
-                      <td style="font-family: Arial, sans-serif; padding-top: 10px;padding-bottom: 10px;">
-                        <?php
-                        if ($node->type == 'publication') {
-                          $node_url = url('node/' . $node->nid . '/view', array('absolute' => TRUE));
-                        }
-                        else {
-                          $node_url = url('node/' . $node->nid, array('absolute' => TRUE));
-                        }
-                        $directory = drupal_get_path('module', 'osha_newsletter');
-                        print l(theme('image', array(
-                          'path' => $directory . '/images/' . 'see-more-img-' . $language->language . '.png',
-                          'width' => 'auto',
-                          'height' => 'auto',
-                          'attributes' => array('style' => 'border:0px;width:auto;height:auto;'),
-                        )), $node_url, array(
-                          'html' => TRUE,
-                          'query' => $url_query,
-                          'external' => TRUE,
-                        ));
-                        ?>
-                      </td>
-                      <td class="highlight-share hidden-mobile" align="right" valign="middle" style="font-family: Arial, sans-serif; padding-top: 10px;">
-                        <?php
-                        $directory = drupal_get_path('module', 'osha_newsletter');
-                        print l(theme('image', array(
-                          'path' => $directory . '/images/' . 'share-icon.png',
-                          'width' => '20',
-                          'height' => '20',
-                          'attributes' => array('style' => 'border:0px;width:20px;height:20px;'),
-                        )), $node_url, array(
-                          'html' => TRUE,
-                          'query' => $url_query + ['action' => 'share'],
-                          'external' => TRUE,
-                        ));
-                        ?>
-                      </td>
-                  </tr>
-                </tbody>
-              </table>
-            </th></tr>
+                          else {
+                            $node_url = url('node/' . $node->nid, array('absolute' => TRUE));
+                          }
+                          $directory = drupal_get_path('module', 'osha_newsletter');
+                          print l(theme('image', array(
+                            'path' => $directory . '/images/' . 'see-more-img-' . $language->language . '.png',
+                            'width' => 'auto',
+                            'height' => 'auto',
+                            'attributes' => array('style' => 'border:0px;width:auto;height:auto;'),
+                          )), $node_url, array(
+                            'html' => TRUE,
+                            'query' => $url_query,
+                            'external' => TRUE,
+                          ));
+                          ?>
+                        </td>
+                        <td class="highlight-share hidden-mobile" align="right" valign="middle" style="font-family: Arial, sans-serif; padding-top: 10px;">
+                          <?php
+                          $directory = drupal_get_path('module', 'osha_newsletter');
+                          print l(theme('image', array(
+                            'path' => $directory . '/images/' . 'share-icon.png',
+                            'width' => '20',
+                            'height' => '20',
+                            'attributes' => array('style' => 'border:0px;width:20px;height:20px;'),
+                          )), $node_url, array(
+                            'html' => TRUE,
+                            'query' => $url_query + ['action' => 'share'],
+                            'external' => TRUE,
+                          ));
+                          ?>
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </th>
+            </tr>
           </tbody>
         </table>
       </td>
