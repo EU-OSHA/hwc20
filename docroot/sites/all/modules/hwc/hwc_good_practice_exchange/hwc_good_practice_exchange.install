@@ -188,3 +188,49 @@ function hwc_good_practice_exchange_update_7024() {
   features_revert(array('hwc_good_practice_exchange' => array('views_view')));
   features_revert(array('hwc_good_practice_exchange' => array('user_permission')));
 }
+
+/**
+ * HW20-305 Development Good practice exchange page.
+ */
+function hwc_good_practice_exchange_update_7025() {
+  $mlid = 17602;
+  $menu_link = menu_link_load($mlid);
+  $menu_link['link_path'] = 'node/3298';
+  $menu_link['router_path'] = 'node/3298';
+  menu_link_save($menu_link);
+  features_revert(array('hwc_homepage' => array('views_view')));
+  features_revert(array('osha_news' => array('views_view')));
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * HW20-305 Development Good practice exchange page.
+ */
+function hwc_good_practice_exchange_update_7026() {
+  $exclude = variable_get('exclude_bottom_share_widget', []);
+  $exclude[] = 3298;
+  variable_set('exclude_bottom_share_widget', $exclude);
+}
+
+/**
+ * HW20-432 HWC GPE platform (PZ): back button.
+ */
+function hwc_good_practice_exchange_update_7027() {
+  features_revert_module('hwc_good_practice_exchange');
+}
+
+/**
+ * HW20-495 Good Practice Exchange will go with Splash page Golive.
+ */
+function hwc_good_practice_exchange_update_7028() {
+  $menu_link = menu_link_load(17602);
+  $menu_link['hidden'] = 0;
+  menu_link_save($menu_link);
+}
+
+/**
+ * HW20-456 GPE Platform: date of publication and descending order should be displayed by default.
+ */
+function hwc_good_practice_exchange_update_7029() {
+  features_revert(array('hwc_good_practice_exchange' => array('views_view')));
+}

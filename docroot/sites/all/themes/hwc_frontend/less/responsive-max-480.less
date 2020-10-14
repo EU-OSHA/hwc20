@@ -56,7 +56,7 @@ header{
 					padding-right: .5em;
 					margin-right: .5em;
 					img{
-						margin-left: 15px;
+						margin-left: 5px;
 						width: 95px;
 					}
 				}
@@ -188,15 +188,7 @@ header{
 		}	
 	}
 }
-#block-osha-newsletter-osha-newsletter-subscribe, 
-#block-osha-newsletter-osha-newsletter-image{
-	form{
-		input{
-    		width: 100%;
-		}
-	}
 
-}
 .front #campaigns-newsletter-subscribe-form .checkbox input[type=checkbox]:checked:before, 
 .front #campaigns-newsletter-subscribe-captcha-form .checkbox input[type=checkbox]:checked:before {
     margin-right: 0;
@@ -205,17 +197,6 @@ header{
     top: 1px;
 }
 /*FIN home*/
-
-/*news*/
-//detail
-.node-type-news{
-	.field-type-image {
-		img {
-	    	padding: 0 3em;
-		}
-	}
-}
-/*end news*/
 
 /*create events & news*/
 .page-node-add-events, .page-node-add-news{
@@ -252,10 +233,6 @@ header{
 .view-mode-full .hwc-share-widget{
 	ul{
 		overflow: hidden;
-		.share-this-article{
-			top: -5px;
-		}
-
 		li[id*="facebook-share-button-"]{
 		    //display: block; 
 		}
@@ -289,15 +266,6 @@ header{
 	}
 }
 
-.hwc-share-widget{
-	ul{
-		.share-this-article{
-			top: -5px;
-			display: block;
-			clear: both;
-		}
-	}
-}
 /*gallery*/
 .page-media-center-photo-gallery, .view-photo-gallery, .page-photo-gallery{
 	.view-content{
@@ -311,26 +279,6 @@ header{
 				margin-right:1em;
 				padding: 0px;
 				//padding-right: @margin-movil;
-			}
-		}
-	}
-}
-/*End gallery*/
-.node-type-flickr-gallery,
-.node-type-hwc-gallery{
-	.hwc-share-widget{
-		ul{
-			left: 0px;
-			li{
-				display: inline-block !important;
-				margin-top: 0px !important;
-				margin-bottom: 5px;
-				margin-left: 0px !important;
-			}
-			li.label{
-				display: inline-block !important;
-				margin-bottom: 0px;
-				vertical-align: top;
 			}
 		}
 	}
@@ -382,18 +330,6 @@ header.navbar-default .campaigns-header .navbar-header .region-header #block-lan
     //padding-left: 1em;
 }
 
-.node-type-article .hwc-share-widget {
-	li{
-		display: inline-block!important;
-	}
-
-	.share-this-article{
-		display: block;
-		width: 100%;
-	}
-}
-
-
 .pane-node-field-access-tool-link .field-label-inline .field-label, .pane-node-field-access-tool-link-fc .field-label-inline .field-label, .pane-node-field-external-urls .field-label-inline .field-label{
 	width: 100%;
 }
@@ -401,10 +337,6 @@ header.navbar-default .campaigns-header .navbar-header .region-header #block-lan
 /*Fix DA language*/
 .main-container h1 {
     font-size: 1.60em;
-}
-
-.main-container h2{
-	font-size: 1.45em!important;
 }
 
 .employers-section .case-studies .one-resource h4, .employers-section .other-practical-tools .one-resource h4, .employers-section .publications .one-resource h4{

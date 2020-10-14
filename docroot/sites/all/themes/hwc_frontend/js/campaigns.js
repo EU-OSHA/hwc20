@@ -1,3 +1,96 @@
+function glossary() {
+  //Si está en la página de glossary que no salgan los popups.
+  if (jQuery(".section-glossary").length > 0) {
+    jQuery(".lexicon-term").each(function() {
+      jQuery(this).removeAttr("class").removeAttr("href").removeAttr("title");
+    });
+  }
+
+  var title = "";
+  jQuery(".lexicon-term").each(function () {
+    jQuery(this).removeAttr("href");
+    /*lexicon-mark-term.tpl.php-> Ahí hago la magia*/
+    jQuery(this).click(function () {
+      removePopUps();
+      title = jQuery(this).attr("data-titleBM");
+      jQuery(this).addClass("poparizado");
+      var html = "<div class='popup'><div class='closePop'><img src='/sites/all/themes/hwc_frontend/images/closeGlossary.png'></div><div class='contentPop'>" + title + "</div></div>";
+      jQuery(this).before(html);
+      // positioning
+      // tengo el problema que si el texto sale en 2 lineas la cosa sale mal. Me hago un algoritmo para que detecte si ocupa más de una línea.
+
+      var textoSel = jQuery(this).text();
+      var topPalabra = 0;
+      var variasLineas = 0;
+
+      var cachos = jQuery.trim(textoSel).split(" ");
+      if (cachos.length > 0) {
+        var txtTemporal = "";
+        for (i = 0; i < cachos.length; i++) {
+          txtTemporal = txtTemporal + "<span>" + cachos[i] + "</span> ";
+        }
+        jQuery(this).html(txtTemporal);
+
+        var contador = 0;
+        jQuery("span",this).each(function () {
+          if (contador == 0) {
+            topPalabra = jQuery(this).position().top;
+          }
+          else {
+            if (topPalabra != jQuery(this).position().top) {
+              variasLineas = 1;
+            }
+          }
+          contador++;
+        });
+      }
+
+      if (variasLineas == 0) {
+        jQuery(this).html(textoSel);
+        var widthWord = jQuery(this).width() / 2;
+        var widthBox = jQuery(".popup").width() / 2;
+        var leftWord = jQuery(this).position().left;
+        var leftPut = (leftWord + widthWord) - (widthBox) + "px";
+        jQuery(".popup").css("left",leftPut);
+
+        var topWord = jQuery(this).position().top;
+        var heightWord = jQuery(this).height();
+        var heightBox = jQuery(".popup").height();
+        var topPut = topWord - heightBox - heightWord + "px";
+        jQuery(".popup").css("top",topPut);
+      }
+      else {
+        var widthWord = jQuery("span:eq(0)",this).width() / 2;
+        var widthBox = jQuery(".popup").width() / 2;
+        var leftWord = jQuery("span:eq(0)",this).position().left;
+        var leftPut = (leftWord + widthWord) - (widthBox) + "px";
+        jQuery(".popup").css("left",leftPut);
+
+        var topWord = jQuery("span:eq(0)",this).position().top;
+        var heightWord = jQuery("span:eq(0)",this).height();
+        var heightBox = jQuery(".popup").height();
+        var topPut = topWord - heightBox - heightWord + "px";
+        jQuery(".popup").css("top",topPut);
+        jQuery(this).html(textoSel);
+      }
+
+      jQuery(".closePop").click(function () {
+        removePopUps();
+        jQuery(".poparizado").removeClass("poparizado");
+      });
+    });
+  });
+}
+
+function removePopUps() {
+  jQuery(".popup").each(function () {
+    jQuery(this).remove();
+  });
+  jQuery(".arrowPopUp").each(function () {
+    jQuery(this).remove();
+  });
+}
+
 function ipad_fix_iframe_width() {
 	if (jQuery(window).width() > jQuery(window).height()) {
         jQuery('.fb-post').addClass('ipad_fix_width');
@@ -12,7 +105,7 @@ window.onorientationchange = function() {
 }
 
 jQuery(document).ready(function() {
-
+  glossary();
 	jQuery(".start-here .col-inner").click(function() {
 		window.location = jQuery(this).find("a").attr("href");
 		return false;
@@ -81,6 +174,7 @@ jQuery(document).ready(function() {
 			jQuery(this).removeClass("closed-down-arrow");
 			jQuery('.left-menu.accordion-menu').addClass("opened");
 			jQuery(this).siblings("ul").slideDown();
+			jQuery('li.expanded > ul > li.expanded > ul').show();
 		}
 	});
 
@@ -340,6 +434,9 @@ jQuery(document).ready(function() {
 	jQuery(".form-item-publication-type > label").click(function() {
 		jQuery(this).toggleClass("active");
 	});
+	jQuery(".form-item-field-msd-priority-area > label").click(function() {
+		jQuery(this).toggleClass("active");
+	});
 
 	/*filters of list dropdown*/
 	if(jQuery(".form-item-main-tags div").is(':visible')){
@@ -362,6 +459,9 @@ jQuery(document).ready(function() {
 	};
 	if(jQuery(".form-item-publication-type div").is(':visible')){
 		jQuery(".form-item-publication-type > label").addClass("active");
+	};
+	if(jQuery(".form-item-field-msd-priority-area div").is(':visible')){
+		jQuery(".form-item-field-msd-priority-area > label").addClass("active");
 	};
 
 	/*Private zone hover effect menu*/
@@ -421,14 +521,14 @@ jQuery(document).ready(function() {
 				jQuery("#block-menu-menu-header-login, #block-lang-dropdown-language").toggleClass("visibility");
 			});
 
-			//Additional Resources Block
+			// Additional Resources Block.
 
 			jQuery(".field-name-field-aditional-resources h4.pane-title").click(function() {
 				jQuery(this).toggleClass("closeLabel");
 				jQuery(this).next("div").toggle();
 			});
 
-			//Press Room
+			// Press Room.
 
 			jQuery(".pane-osha-press-release-osha-press-rel-become-partner h2.pane-title").click(function() {
 				jQuery(this).toggleClass("closeLabel");
@@ -501,13 +601,15 @@ jQuery(document).ready(function() {
 		var calculate_height = jQuery(".campaigns-header").height();
 		jQuery("body").css('padding-top', calculate_height);
 		jQuery("body.splash-page").css('padding-top', calculate_height);
-		jQuery("body.front-page").css('padding-top', calculate_height - 28);
+		jQuery("body.act-as-partner").css('padding-top', calculate_height - 31);
+		jQuery("body.ocp.act-as-partner").css('padding-top', calculate_height);
 
 		jQuery(window).resize(function() {
         	var calculate_height_resize = jQuery(".campaigns-header").height();
 			jQuery("body").css('padding-top', calculate_height_resize);
 			jQuery("body.splash-page").css('padding-top', calculate_height_resize);
-			jQuery("body.front-page").css('padding-top', calculate_height - 28);
+			jQuery("body.act-as-partner").css('padding-top', calculate_height_resize - 31);
+			jQuery("body.ocp.act-as-partner").css('padding-top', calculate_height);
     	});
 
     	/* Cookies declined */
@@ -547,15 +649,27 @@ jQuery(document).ready(function($) {
       $("#edit-field-priority-area .form-checkboxes").slideUp(200);
     }
   });
+  $("#edit-field-msd-priority-area > div > label").on("click", function() {
+    if ($(this).hasClass("active")) {
+      $("#edit-field-msd-priority-area .form-checkboxes").slideDown(200);
+    }else{
+      $("#edit-field-msd-priority-area .form-checkboxes").slideUp(200);
+    }
+  });
+
+   $(".page-tools-and-publications-practical-tools .region-sidebar-first .content-filters h2.block-title").addClass('area-shown');
+
 
    if (jQuery(window).width() < 1200) {
    	$("#edit-main-tags > div > label").removeClass('active');
    	$("#edit-field-publication-type > div > label").removeClass('active');
    	$("#edit-field-priority-area > div > label").removeClass('active');
+   	$("#edit-field-msd-priority-area > div > label").removeClass('active');
 
    	$("#edit-main-tags .form-checkboxes").css('display' , 'none');
    	$("#edit-field-publication-type .form-checkboxes").css('display' , 'none');
    	$("#edit-field-priority-area .form-checkboxes").css('display' , 'none');
+   	$("#edit-field-msd-priority-area .form-checkboxes").css('display' , 'none');
    }
 
    	//Add two-column class when European Week has Events
@@ -619,6 +733,10 @@ jQuery(document).ready(function () {
       if (bodyWidth >= 1200) {
         incno = itemsSplit[3];
         itemWidth = sampwidth / incno;
+        if (jQuery("body.front-page")[0]){
+        	incno = itemsSplit[4];
+        	itemWidth = sampwidth / incno;
+        }
       }
       else if (bodyWidth >= 992) {
         incno = itemsSplit[2];
@@ -731,13 +849,21 @@ jQuery(document).ready(function () {
 
 jQuery(document).ready(function(){
   if (jQuery(window).width() >= 1200) {
-    jQuery(".multicarousel--block").attr("data-slide","4");
+  	if (jQuery("body.front-page")[0]){
+		jQuery("body.front-page .multicarousel--block").attr("data-slide","5");
+  	}else{
+  		jQuery(".multicarousel--block").attr("data-slide","4");
+  	}    
   }
 });
 
 jQuery(window).resize(function () {
   if (jQuery(window).width() >= 1200) {
-    jQuery(".multicarousel--block").attr("data-slide","4");
+  	if (jQuery("body.front-page")[0]){
+		jQuery("body.front-page .multicarousel--block").attr("data-slide","5");
+  	}else{
+  		jQuery(".multicarousel--block").attr("data-slide","4");
+  	}    
   }
 });
 
@@ -821,4 +947,103 @@ jQuery(document).ready(function($){
   $(".decline-button").click(function() {
     $('#sliding-popup').remove();
   });
+
+  	//Add ico external link on left menu - target="_blanck"
+	if( jQuery('.left-menu ul.menu li a[target="_blank"]')[0] ){
+		jQuery('.left-menu ul.menu li a[target="_blank"]').addClass('external-menu-item');
+	}
+
+	//Good Practice Awards - add class collapsed on FAQ
+	if ($(".group-faq")[0]){
+		 $("#faq > div:nth-child(2) a").addClass('collapsed');
+		 $("#faq > div:nth-child(3) a").addClass('collapsed');
+	}
+
+	//Add class unpublish on PZ boxes
+	if ($(".hwc-partner-private-link-block-title .unpublish")[0]){
+		$( ".hwc-partner-private-link-block-title .unpublish" ).parent().addClass( "unpublish" );
+	}
+
+	//Add class when admin toolbar is hidden
+	if ($("body.logged-in .region-page-top #toolbar")[0]){
+		$( "body.logged-in .navbar-header .col-xs-12.col-sm-9" ).addClass( "toolbar-yes" );
+	}else{
+		$( "body.logged-in .navbar-header .col-xs-12.col-sm-9" ).addClass( "toolbar-no" );
+		
+	}
+
+	//Hide arrows and dots in the GPA slider when the slider has 4 items. Only Desktop
+	if ($('.node-type-gpa .multicarousel--block .item').length <= 4 && $(window).width() >= 1199 ){
+		$( ".node-type-gpa .multicarousel--block button" ).addClass( "no-slider" );
+		$( ".node-type-gpa .multicarousel--block ol" ).addClass( "no-slider" );
+	}
+
+	//Hide arrows and dots in the GPA slider when the slider has 3 items. Only Desktop
+	if ($('.node-type-gpa .multicarousel--block .item').length <= 3 && $(window).width() >= 992 ){
+		$( ".node-type-gpa .multicarousel--block button" ).addClass( "no-slider" );
+		$( ".node-type-gpa .multicarousel--block ol" ).addClass( "no-slider" );
+	}
+
+	//Scroll to anchor Home page
+	$( ".go-to-anchor" ).click(function() {
+	  $([document.documentElement, document.body]).animate({
+        scrollTop: $("#block-hwc-homepage-hwc-homepage-news-events").offset().top
+    	}, 1500);
+	});
+
+	$(window).scroll(function() {
+	    var height = $(window).scrollTop();
+	    if(height == 0) {
+	       	$( ".go-to-anchor" ).show();
+	    }
+	});
+
+
+	var lastScrollTop = 0;
+	$(window).scroll(function(event){
+	   var st = $(this).scrollTop();
+	   if (st > lastScrollTop){
+	       $( ".go-to-anchor" ).hide();
+	   }
+	   lastScrollTop = st;
+	});
+
+	//Add anchor to view when user checked a filter
+	if ($(".view-practical-tools.view-search")[0]){
+		if ($(".region-sidebar-first .block.block-facetapi input[type='checkbox']").is(':checked')) {
+			$([document.documentElement, document.body]).animate({
+	        scrollTop: $(".region.region-content").offset().top
+	    	}, 1500);
+	    	//$( ".block-title" ).removeClass( "area-shown" );
+	    	//$( ".region-sidebar-first .block.block-facetapi .facetapi-facetapi-checkbox-links" ).hide();
+		}
+	}
+
+	//Change icon when the filter is visible and has input:checked - area-showm ico
+	if ($(".region-sidebar-first .block.block-facetapi input[type='checkbox']").is(':checked')) {
+		$(".region-sidebar-first .block.block-facetapi input:checked").parent().parent().parent().children().addClass('area-shown');
+	}
+
+	//Remove links show more when results noy found
+	if ($(".view-practical-tools.view-search .view-empty")[0]){
+		$( "#practical-tool-more-link" ).hide();
+		$( "#practical-tool-less-link" ).hide();
+	}
+
+	//Remove table responsive in Newsletter
+	if ($("body.page-entity-collection div.table-responsive")[0]){
+		$( "body.page-entity-collection div.table-responsive" ).removeClass('table-responsive');
+	}
+
+	/* Hide country and location if is empty */
+  	$("body.page-media-centre-events .views-field-field-country-code .field-content").filter(function() {
+    	return $(this).text() === "";
+	}).css("display", "none");
+	
+	/* Remove aside padding if iframe is displayed */
+	if ($("#social-dashboard-column-1")[0]){
+		$( "aside.col-md-3 " ).addClass('no-padding-aside');
+		$( "aside.col-md-9 " ).addClass('no-padding-aside');
+	}
+
 });

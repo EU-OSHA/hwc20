@@ -64,7 +64,65 @@ function hwc_napo_films_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__napo_film';
   $strongarm->value = array(
-    'view_modes' => array(),
+    'view_modes' => array(
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'title_body' => array(
+        'custom_settings' => TRUE,
+      ),
+      'body' => array(
+        'custom_settings' => TRUE,
+      ),
+      'priority_areas' => array(
+        'custom_settings' => TRUE,
+      ),
+      'hwc_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'osha_slideshow' => array(
+        'custom_settings' => TRUE,
+      ),
+      'highlights_item' => array(
+        'custom_settings' => TRUE,
+      ),
+      'newsletter_item' => array(
+        'custom_settings' => TRUE,
+      ),
+      'highlights_item_alternative' => array(
+        'custom_settings' => TRUE,
+      ),
+      'pub_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'osha_resources' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'print' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'revision' => array(
+        'custom_settings' => FALSE,
+      ),
+    ),
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
@@ -84,6 +142,9 @@ function hwc_napo_films_strongarm() {
         ),
         'xmlsitemap' => array(
           'weight' => '30',
+        ),
+        'language' => array(
+          'weight' => '5',
         ),
       ),
       'display' => array(),

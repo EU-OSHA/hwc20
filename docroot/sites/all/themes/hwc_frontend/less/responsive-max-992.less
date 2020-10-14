@@ -140,12 +140,21 @@ header{
 				}
 				.header-text:lang(bg),
 				.header-text:lang(el),
+				.header-text:lang(da),
 				.header-text:lang(de),
+				.header-text:lang(et),
 				.header-text:lang(hu),
 				.header-text:lang(mt),
+				.header-text:lang(hr),
+				.header-text:lang(is),
+				.header-text:lang(it),
+				.header-text:lang(lv),
+				.header-text:lang(no),
 				.header-text:lang(pl),
+				.header-text:lang(pt),
+				.header-text:lang(fi),
 				.header-text:lang(ro){
-					font-size: 1em;
+					font-size: 0.9em;
 					padding-left: .5em;
 				}
 				.header_top_bar{
@@ -439,15 +448,8 @@ header{
 		width: 100%;
 		margin-right: 0;
 	}
-	.form-group{
-		margin-bottom: 15px;
-	}
 	#search{
 		margin-top: 0;
-	}
-	#edit-search-api-views-fulltext-wrapper{
-	    margin-left: 15px !important;
-	    margin-right: 15px !important;
 	}
 	.region-sidebar-first .views-exposed-widgets .form-type-textfield input {
 	    padding-right: 0px;
@@ -1013,9 +1015,8 @@ header{
 			}
 		}
 		.block.block-facetapi{
-			border-bottom: none;
-			padding-top: 0px;
-			padding-bottom: 10px;
+			padding-top: 0;
+			padding-bottom: 0;
 			overflow: hidden;
 			h2{
 			    padding: 8px 15px;
@@ -1040,9 +1041,6 @@ header{
 		width: 100%;
 		margin-left: 0;
 		.view-search{
-			.view-header{
-				padding: 7px 15px;
-			}
 			.view-content .views-row{
 				padding-left: @margin-tablet;
 				padding-right: @margin-tablet;
@@ -1501,10 +1499,7 @@ header{
 		padding-left: @margin-tablet;
 	}
 }
-.breadcrumb{
-	padding-right: @margin-tablet;
-	padding-left: @margin-tablet;
-}
+
 h1{
 	padding-right: @margin-tablet2;
 	padding-left: @margin-tablet2;
@@ -1559,8 +1554,7 @@ h1{
 						    position: absolute;
     						z-index: 2;
     						padding: 0px 100px;
-    						bottom: 0px;
-    						margin-bottom: 120px;
+    						bottom: 50px;
 						    a{
 						    	color: white;
 						    	font-size: 1.6em;
@@ -1773,8 +1767,6 @@ h1{
 			    width: 100%;
 			    height: 360px;
 			    overflow: hidden;
-			    padding-right: -15px;
-			    padding-left: -15px;
 			}
 		}
 		>.pane-node-title-field{

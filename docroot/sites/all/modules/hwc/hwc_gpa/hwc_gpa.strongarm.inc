@@ -159,7 +159,7 @@ function hwc_gpa_strongarm() {
         ),
         'gpe' => array(
           'default' => array(
-            'weight' => '4',
+            'weight' => '5',
             'visible' => TRUE,
           ),
         ),

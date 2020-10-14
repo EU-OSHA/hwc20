@@ -49,21 +49,22 @@ function hwc_workflow_rules_event_info() {
 
 function hwc_workflow_settings_options() {
   return [
-    'approved' => 'Approved',
-    'rejection' => 'Rejection',
-    'reviewer' => 'Reviewer',
-    'supervisor' => 'Supervisor',
+    'approve_partner' => 'Approve after partner (Please approve)',
+    'rejection' => 'After rejection (Please update)',
+    'published' => 'Published (Published)',
+    'reviewer' => 'Review (Please review)',
+    'approve_mostra' => 'Approve after review (Please approve)',
   ];
 }
 
 /**
  * Action Implementation: Send mail.
  */
-function hwc_workflow_rules_action_mail($node, $to, $settings_type, $from = NULL, $langcode, $settings, RulesState $state, RulesPlugin $element) {
+function hwc_workflow_rules_action_mail($node, $to, $settings_type, $message, $from = NULL, $langcode, $settings, RulesState $state, RulesPlugin $element) {
   reset($settings_type);
   $type = current($settings_type);
   $subject = hwc_workflow_get_mail_subject_text($node, $type);
-  $message = hwc_workflow_get_mail_body_text($node, $type);
+  $message = hwc_workflow_get_mail_body_text($message, $node, $type);
 
   $to = str_replace(array("\r", "\n"), '', $to);
   $from = !empty($from) ? str_replace(array("\r", "\n"), '', $from) : NULL;
@@ -88,11 +89,11 @@ function hwc_workflow_rules_action_mail($node, $to, $settings_type, $from = NULL
 /**
  * Action: Send mail to all users of a specific role group(s).
  */
-function hwc_workflow_rules_action_mail_to_users_of_role($node, $roles, $settings_type, $from = NULL, $settings, RulesState $state, RulesPlugin $element) {
+function hwc_workflow_rules_action_mail_to_users_of_role($node, $settings_type, $roles, $message, $from = NULL, $settings, RulesState $state, RulesPlugin $element) {
   reset($settings_type);
   $type = current($settings_type);
   $subject = hwc_workflow_get_mail_subject_text($node, $type);
-  $message = hwc_workflow_get_mail_body_text($node, $type);
+  $message = hwc_workflow_get_mail_body_text($message, $node, $type);
 
   $from = !empty($from) ? str_replace(array("\r", "\n"), '', $from) : NULL;
 
@@ -160,6 +161,11 @@ function hwc_workflow_rules_action_info() {
           'restriction' => 'input',
           'options list' => 'hwc_workflow_settings_options',
         ),
+        'message' => array(
+          'type' => 'text',
+          'label' => t('Message'),
+          'description' => t("The mail's message body."),
+        ),
         'from' => array(
           'type' => 'text',
           'label' => t('From'),
@@ -189,17 +195,22 @@ function hwc_workflow_rules_action_info() {
           'label' => t('Node'),
           'description' => t("The current node"),
         ),
+        'settings_type' => array(
+          'type' => 'list<text>',
+          'label' => t('Settings type'),
+          'restriction' => 'input',
+          'options list' => 'hwc_workflow_settings_options',
+        ),
         'roles' => array(
           'type' => 'list<integer>',
           'label' => t('Roles'),
           'options list' => 'entity_metadata_user_roles',
           'description' => t('Select the roles whose users should receive the mail.'),
         ),
-        'settings_type' => array(
-          'type' => 'list<text>',
-          'label' => t('Settings type'),
-          'restriction' => 'input',
-          'options list' => 'hwc_workflow_settings_options',
+        'message' => array(
+          'type' => 'text',
+          'label' => t('Message'),
+          'description' => t("The mail's message body."),
         ),
         'from' => array(
           'type' => 'text',
@@ -256,6 +267,11 @@ function hwc_workflow_rules_action_info() {
           'label' => t('Settings type'),
           'restriction' => 'input',
           'options list' => 'hwc_workflow_settings_options',
+        ),
+        'message' => array(
+          'type' => 'text',
+          'label' => t('Message'),
+          'description' => t("The mail's message body."),
         ),
       ),
       'base' => 'hwc_workflow_custom_mail_to_users_of_partner',
@@ -481,7 +497,7 @@ function hwc_workflow_rules_mail_to_related_partners($node, $subject, $message, 
   }
 }
 
-function hwc_workflow_custom_mail_to_users_of_partner($node, $settings_type, $settings, RulesState $state, RulesPlugin $element) {
+function hwc_workflow_custom_mail_to_users_of_partner($node, $settings_type, $message, $settings, RulesState $state, RulesPlugin $element) {
   if (!empty($node->workbench_access)) {
     reset($node->workbench_access);
     $section_id = current($node->workbench_access);
@@ -489,7 +505,7 @@ function hwc_workflow_custom_mail_to_users_of_partner($node, $settings_type, $se
 
     $type = current($settings_type);
     $subject = hwc_workflow_get_mail_subject_text($node, $type);
-    $message = hwc_workflow_get_mail_body_text($node, $type);
+    $message = hwc_workflow_get_mail_body_text($message, $node, $type);
 
     // If it's a partner section.
     if ($section_id != 'section') {

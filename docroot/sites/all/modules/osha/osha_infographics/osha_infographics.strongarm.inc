@@ -64,18 +64,21 @@ function osha_infographics_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'exclude_node_title_content_type_modes_infographic';
   $strongarm->value = array(
-    'full' => 'full',
     'teaser' => 'teaser',
     'newsletter_item' => 'newsletter_item',
     'osha_resources' => 'osha_resources',
+    'full' => 0,
     'rss' => 0,
     'search_index' => 0,
     'search_result' => 0,
     'diff_standard' => 0,
     'title_body' => 0,
     'body' => 0,
+    'priority_areas' => 0,
+    'hwc_teaser' => 0,
     'osha_slideshow' => 0,
     'highlights_item' => 0,
+    'highlights_item_alternative' => 0,
     'pub_teaser' => 0,
     'print' => 0,
     'token' => 0,
@@ -154,26 +157,29 @@ function osha_infographics_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'hwc_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '40',
+          'weight' => '8',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '4',
         ),
         'redirect' => array(
-          'weight' => '30',
+          'weight' => '3',
         ),
         'workbench_access' => array(
-          'weight' => '0',
+          'weight' => '1',
         ),
         'language' => array(
           'weight' => '5',
         ),
         'xmlsitemap' => array(
-          'weight' => '30',
+          'weight' => '5',
         ),
       ),
       'display' => array(),
@@ -187,6 +193,22 @@ function osha_infographics_strongarm() {
   $strongarm->name = 'language_content_type_infographic';
   $strongarm->value = '4';
   $export['language_content_type_infographic'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_options_infographic';
+  $strongarm->value = array(
+    0 => 'main-menu',
+  );
+  $export['menu_options_infographic'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_parent_infographic';
+  $strongarm->value = 'main-menu:0';
+  $export['menu_parent_infographic'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -211,6 +233,16 @@ function osha_infographics_strongarm() {
   $strongarm->name = 'node_submitted_infographic';
   $strongarm->value = 0;
   $export['node_submitted_infographic'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'xmlsitemap_settings_node_infographic';
+  $strongarm->value = array(
+    'status' => '0',
+    'priority' => '0.5',
+  );
+  $export['xmlsitemap_settings_node_infographic'] = $strongarm;
 
   return $export;
 }

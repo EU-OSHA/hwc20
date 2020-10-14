@@ -30,38 +30,6 @@ function hwc_gallery_views_api($module = NULL, $api = NULL) {
 }
 
 /**
- * Implements hook_fe_nodequeue_export_fields().
- */
-function hwc_gallery_fe_nodequeue_export_fields() {
-  $nodequeues = array();
-
-  // Exported nodequeues: featured_gallery
-  $nodequeues['featured_gallery'] = array(
-    'name' => 'featured_gallery',
-    'title' => 'featured_gallery',
-    'subqueue_title' => '',
-    'size' => 1,
-    'link' => '',
-    'link_remove' => '',
-    'owner' => 'nodequeue',
-    'show_in_ui' => 1,
-    'show_in_tab' => 1,
-    'show_in_links' => 0,
-    'reference' => 0,
-    'reverse' => 0,
-    'i18n' => 0,
-    'subqueues' => 1,
-    'types' => array(
-      0 => 'hwc_gallery',
-    ),
-    'roles' => array(),
-    'count' => 0,
-  );
-
-  return $nodequeues;
-}
-
-/**
  * Implements hook_image_default_styles().
  */
 function hwc_gallery_image_default_styles() {
@@ -146,22 +114,4 @@ function hwc_gallery_image_default_styles() {
   );
 
   return $styles;
-}
-
-/**
- * Implements hook_node_info().
- */
-function hwc_gallery_node_info() {
-  $items = array(
-    'hwc_gallery' => array(
-      'name' => 'Gallery',
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => 'Title',
-      'help' => '',
-    ),
-  );
-  drupal_alter('node_info', $items);
-  return $items;
 }

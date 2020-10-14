@@ -21,14 +21,18 @@ function hwc_homepage_default_fe_block_settings() {
     'i18n_mode' => 0,
     'module' => 'hwc_homepage',
     'node_types' => array(),
-    'pages' => 'about-topic/*',
+    'pages' => 'about-topic/w*
+about-topic/h*
+about-topic/t*
+about-topic/g*
+about-topic/business-case',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 26,
+        'weight' => 32,
       ),
       'seven' => array(
         'region' => '',
@@ -86,11 +90,11 @@ function hwc_homepage_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 4,
+        'weight' => 2,
       ),
       'seven' => array(
-        'region' => 'content',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'seven',
         'weight' => 0,
       ),
@@ -115,11 +119,11 @@ function hwc_homepage_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 5,
+        'weight' => 17,
       ),
       'seven' => array(
-        'region' => 'content',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'seven',
         'weight' => 0,
       ),
@@ -144,7 +148,7 @@ function hwc_homepage_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 6,
+        'weight' => 11,
       ),
       'seven' => array(
         'region' => '',
@@ -202,7 +206,7 @@ function hwc_homepage_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'hwc_frontend',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'seven' => array(
         'region' => '',
@@ -231,7 +235,7 @@ function hwc_homepage_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'hwc_frontend',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'seven' => array(
         'region' => '',
@@ -246,21 +250,21 @@ function hwc_homepage_default_fe_block_settings() {
 
   $export['views-be0c1defc438322b14f56f016c122817'] = array(
     'cache' => -1,
-    'css_class' => 'container',
+    'css_class' => '',
     'custom' => 0,
     'delta' => 'be0c1defc438322b14f56f016c122817',
     'i18n_block_language' => array(),
     'i18n_mode' => 0,
     'module' => 'views',
     'node_types' => array(),
-    'pages' => '<front>',
+    'pages' => '',
     'roles' => array(),
     'themes' => array(
       'hwc_frontend' => array(
-        'region' => 'content',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'hwc_frontend',
-        'weight' => 3,
+        'weight' => 0,
       ),
       'seven' => array(
         'region' => '',
@@ -270,7 +274,7 @@ function hwc_homepage_default_fe_block_settings() {
       ),
     ),
     'title' => '',
-    'visibility' => 1,
+    'visibility' => 0,
   );
 
   $export['views-cd72cedd59cdde6e501529c8e7edf1d4'] = array(
@@ -405,7 +409,7 @@ function hwc_homepage_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 2,
+        'weight' => 1,
       ),
       'seven' => array(
         'region' => '',
@@ -449,7 +453,7 @@ function hwc_homepage_default_fe_block_settings() {
 
   $export['views-partners-block_1'] = array(
     'cache' => -1,
-    'css_class' => 'container',
+    'css_class' => 'col-md-12',
     'custom' => 0,
     'delta' => 'partners-block_1',
     'i18n_block_language' => array(),
@@ -463,7 +467,7 @@ function hwc_homepage_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 8,
+        'weight' => 12,
       ),
       'seven' => array(
         'region' => '',
@@ -472,7 +476,7 @@ function hwc_homepage_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => 'Partners',
+    'title' => 'Official Campaign partners',
     'visibility' => 1,
   );
 

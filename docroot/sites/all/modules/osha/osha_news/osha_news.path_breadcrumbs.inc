@@ -17,11 +17,11 @@ function osha_news_path_breadcrumbs_settings_info() {
   $path_breadcrumb->path = 'media-centre/news';
   $path_breadcrumb->data = array(
     'titles' => array(
-      0 => 'Media centre',
+      0 => '%site:current-page:menu-link:pb-join:name',
       1 => '!page_title',
     ),
     'paths' => array(
-      0 => '<none>',
+      0 => '%site:current-page:menu-link:pb-join:url',
       1 => '<none>',
     ),
     'home' => 1,
@@ -44,7 +44,7 @@ function osha_news_path_breadcrumbs_settings_info() {
       2 => '!page_title',
     ),
     'paths' => array(
-      0 => '<none>',
+      0 => 'media-centre',
       1 => 'news',
       2 => '<none>',
     ),

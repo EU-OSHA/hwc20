@@ -7,12 +7,18 @@
  */
 class NCWNewsMigration extends AbstractNCWNodeMigration {
 
+  /**
+   * {@inheritdoc}
+   */
   public function __construct($arguments) {
     parent::__construct($arguments, 'NCWNewsSource', 'news');
     $this->description = 'Import news from NCW';
   }
 
-  function addFieldMappings() {
+  /**
+   * {@inheritdoc}
+   */
+  protected function addFieldMappings() {
     parent::addFieldMappings();
 
     $this->addFieldMapping('field_tags:source_type')->defaultValue('tid');
@@ -44,6 +50,19 @@ class NCWNewsMigration extends AbstractNCWNodeMigration {
   }
 
   /**
+   * Implements Migration::prepare()
+   */
+  public function prepare($entity, stdClass $row) {
+    parent::prepare($entity, $row);
+    if ($row->field_image_image_captions_language) {
+      foreach ($row->field_image_image_captions_language as $i => $lang) {
+        $entity->field_image[$lang][$i]['image_field_caption']['value'] = $row->field_image_image_captions[$i];
+        $entity->field_image[$lang][$i]['image_field_caption']['format'] = 'full_html';
+      }
+    }
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function prepareRow($row) {
@@ -62,6 +81,7 @@ class NCWNewsMigration extends AbstractNCWNodeMigration {
       }
     }
   }
+
 }
 
 

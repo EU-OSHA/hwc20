@@ -125,6 +125,30 @@ function hwc_partner_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['hwc_partner_back_to_private_zone'] = array(
+    'info' => t('Back to private zone'),
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+    'weight' => 50,
+  );
+  $blocks['hwc_partner_private_zone_bottom'] = array(
+    'info' => t('Bottom Back to private zone'),
+    'status' => 1,
+    'region' => 'content',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+    'weight' => 50,
+  );
+  $blocks['hwc_partner_private_zone_gpep'] = array(
+    'info' => t('Bottom GPEP Back to private zone'),
+    'status' => 1,
+    'region' => 'sidebar_first',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+    'weight' => 50,
+  );
   $blocks['hwc_partner_back_to_profile'] = array(
     'info' => t('Back to profile link'),
     'status' => 1,
@@ -230,7 +254,7 @@ function hwc_partner_block_save($delta = '', $edit = array()) {
   }
 }
 
-function hwc_partner_back_to_private_zone($link = '') {
+function _hwc_partner_back_to_private_zone($link = '') {
   static $content;
   if ($link) {
     $content = '<div class="breadcrumb"><span class="inline odd first">' . $link . '</span></div>';
@@ -238,6 +262,18 @@ function hwc_partner_back_to_private_zone($link = '') {
   return $content;
 }
 
+function hwc_partner_get_user_partner_node_url() {
+  global $user;
+  if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles) && !empty($user->workbench_access)) {
+    $sections = array_keys($user->workbench_access);
+    foreach ($sections as $id_section) {
+      if ($partner = hwc_partner_by_section_id_load($id_section)) {
+        return 'node/' . $partner->nid;
+      }
+    }
+  }
+  return FALSE;
+}
 /**
  * Implements hook_block_view().
  */
@@ -270,6 +306,12 @@ function hwc_partner_block_view($delta = '') {
           $url = 'good-practice-exchange-platform';
           $url_options = [];
         }
+        if ($it < 2 || $it == 3) {
+          if (!$node->status) {
+            $url_options['attributes']['class'] = ['unpublish'];
+          }
+        }
+
         $block['content'] = theme('hwc_partner_private_link_' . $it,
           array(
             'hwc_partner_private_link_title' => l(variable_get('hwc_partner_private_link_' . $it . '_title'), $url, $url_options),
@@ -307,6 +349,65 @@ function hwc_partner_block_view($delta = '') {
     $block['title'] = '<none>';
     $block['content'] = l(t('Change password'), 'user/' . $user->uid . '/edit');
   }
+  elseif (
+    ($delta == 'hwc_partner_back_to_private_zone')
+  ||
+    ($delta == 'hwc_partner_private_zone_bottom')
+  ||
+    ($delta == 'hwc_partner_private_zone_gpep')
+  ) {
+    $link = NULL;
+    $args = arg(0) . '/' . arg(2);
+    if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
+      $item = menu_get_object();
+      if ($item && $item->type) {
+        $args = 'node/' . $item->type;
+      }
+    }
+    $allowed_private_zone_pages = variable_get('back_to_private_zone_pages', [
+      'node/edit',
+      'node/news',
+      'node/events',
+      'private/',
+    ]);
+    if ($delta == 'hwc_partner_private_zone_gpep') {
+      $allowed_private_zone_pages[] = 'good-practice-exchange-platform/';
+    }
+    if (!in_array($args, $allowed_private_zone_pages) && arg(1) != 253) {
+      return [];
+    }
+    // Sometimes the $user->workbench_access is empty, force a load of WBA data.
+    if (empty($user->workbench_access)) {
+      workbench_access_user_load_data($user);
+    }
+    $link = '';
+    if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles) && !empty($user->workbench_access)) {
+      $sections = array_keys($user->workbench_access);
+      foreach ($sections as $id_section) {
+        if ($partner = hwc_partner_by_section_id_load($id_section)) {
+          // Did this to use it in panels.
+          $link = _hwc_partner_back_to_private_zone(l(t('Back to Private Zone'), 'node/' . $partner->nid));
+          break;
+        }
+      }
+    }
+    else {
+      if (count(array_intersect(array(
+        HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR,
+        HWC_ROLE_ADMIN,
+        HWC_ROLE_WEBSITE_MANAGERS,
+        HWC_ROLE_HWC_STAFF_REVIEWERS,
+        HWC_ROLE_EEN_REVIEW_MANAGER,
+        HWC_ROLE_GPE_PLATFORM_EDITORS,
+      ), $user->roles))) {
+        $link = _hwc_partner_back_to_private_zone(l(t('Back to Private Zone'), 'private_workbench'));
+      }
+      else {
+        return [];
+      }
+    }
+    $block['content'] = $link;
+  }
   elseif ($delta == 'hwc_partner_back_to_profile') {
     // HCW-724 Remove 'Back to profile' link when partner is on its profile.
     $panel = panels_get_current_page_display();
@@ -325,7 +426,7 @@ function hwc_partner_block_view($delta = '') {
       foreach ($sections as $id_section) {
         if ($partner = hwc_partner_by_section_id_load($id_section)) {
           // Did this to use it in panels.
-          hwc_partner_back_to_private_zone(l(t('Back to Private Zone'), 'node/' . $partner->nid));
+          _hwc_partner_back_to_private_zone(l(t('Back to Private Zone'), 'node/' . $partner->nid));
           $block = [];
           break;
         }
@@ -354,8 +455,27 @@ function hwc_partner_block_view($delta = '') {
       arg(0) != 'good-practice-exchange-platform') {
       $block['content'] = theme('hwc_partner_my_private_workbench', array('content' => ''));
     }
+    elseif (
+      user_access('access my private workbench')  &&
+      arg(0) != 'private_workbench' &&
+      arg(0) != 'good-practice-exchange-platform') {
+      $block['content'] = theme('hwc_partner_my_private_workbench', array('content' => ''));
+    }
   }
   return $block;
+}
+
+/**
+ * Implements hook_permission().
+ *
+ * @return array
+ */
+function hwc_partner_permission() {
+  return array(
+    'access my private workbench' => array(
+      'title' => t('access my private workbench page'),
+    ),
+  );
 }
 
 function hwc_partner_hide_name($name, $flag) {
@@ -377,6 +497,23 @@ function hwc_partner_hide_name($name, $flag) {
  * Implements hook_views_pre_render().
  */
 function hwc_partner_views_pre_render(&$view) {
+  if ($view->name == 'osh_workflow_admin') {
+    $check = [];
+    foreach($view->result as $index => $v) {
+      $check[$v->nid][$v->workbench_moderation_node_history_stamp] = $index;
+    }
+    foreach ($check as $nid => $items) {
+      if (count($items) == 1) {
+        continue;
+      }
+      $last_stamp = max(array_keys($items));
+      unset($items[$last_stamp]);
+      foreach ($items as $history_stamp => $index) {
+        unset($view->result[$index]);
+      }
+    }
+  }
+
   // Alter the more link.
   if ($view->name == 'partner_content') {
     if ($view->current_display == 'latest_partner_news') {
@@ -578,6 +715,9 @@ function hwc_partner_form_masquerade_redirect($form, $form_state) {
       $sections = array_keys($account->workbench_access);
       foreach ($sections as $id_section) {
         if ($partner = hwc_partner_by_section_id_load($id_section)) {
+          if (!$partner->status) {
+            drupal_set_message(t('This is an unpublish partner the only actions available are: Update your profile and Partner Resources.'), 'warning');
+          }
           $_SERVER['HTTP_REFERER'] = 'node/' . $partner->nid;
           break;
         }
@@ -784,6 +924,7 @@ function hwc_partner_node_access($node, $op, $account) {
       !in_array(HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR, $account->roles) &&
       !in_array(HWC_ROLE_ADMIN, $account->roles) &&
       !in_array(HWC_ROLE_WEBSITE_MANAGERS, $account->roles) &&
+      !in_array(HWC_ROLE_GPE_PLATFORM_EDITORS, $account->roles) &&
       !in_array(HWC_ROLE_EEN_REVIEW_MANAGER, $account->roles) &&
       !in_array(HWC_ROLE_HWC_STAFF_REVIEWERS, $account->roles) &&
       !in_array(HWC_ROLE_SUPERADMIN, $account->roles)
@@ -851,6 +992,32 @@ function hwc_partner_node_access($node, $op, $account) {
       if ($partner) {
         $tid = $partner->field_partner_type[LANGUAGE_NONE][0]['tid'];
         return hwc_check_reviewer_node_access($tid, $account->roles);
+      }
+    }
+    // Partner General Public.
+    else if (!in_array(HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR, $account->roles)) {
+
+      $map = hwc_good_practice_exchange_get_document_partner_types_map();
+      $een_share_partner_type_id = $map[HWC_PARTNER_TYPE_EEN_OSH_AMBASSADOR];
+      if (($type == 'document') && ($op != 'create')) {
+        // Not allowed to edit documents without share_partner_type.
+        if (empty($node->field_share_partner_type[LANGUAGE_NONE])) {
+          return NODE_ACCESS_DENY;
+        }
+
+        foreach ($node->field_share_partner_type[LANGUAGE_NONE] as $share_partner_type) {
+          if ($share_partner_type['tid'] == $een_share_partner_type_id) {
+            if (in_array(HWC_ROLE_EEN_REVIEW_MANAGER, $account->roles)) {
+              return NODE_ACCESS_IGNORE;
+            }
+          }
+          else {
+            if (in_array(HWC_ROLE_HWC_STAFF_REVIEWERS, $account->roles)) {
+              return NODE_ACCESS_IGNORE;
+            }
+          }
+        }
+        return NODE_ACCESS_DENY;
       }
     }
   }

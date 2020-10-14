@@ -575,7 +575,7 @@ function osha_events_field_default_field_instances() {
       ),
       'osha_resources' => array(
         'label' => 'above',
-        'module' => 'smart_trim',
+        'module' => 'osha',
         'settings' => array(
           'field_formatter_class' => '',
           'more_link' => FALSE,
@@ -3072,7 +3072,7 @@ Grey - Only web or not attendance',
     'bundle' => 'events',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Please indicate here the organisation responsible for the organisation of the event. If an acronym exists for the organisation, please include “acronym (UPPERCASE) ‘-‘complete name (sentence case)”: (i.e.. HSE – Health and Safety Executive)',
+    'description' => 'Please indicate here the organisation responsible for the organisation of the event. If an acronym exists for the organisation, please include “acronym (UPPERCASE) ‘-‘complete name (sentence case)”: (i.e.. EU-OSHA – European Agency for Safety and Health at Work)',
     'display' => array(
       'body' => array(
         'label' => 'above',
@@ -4803,82 +4803,6 @@ Grey - Only web or not attendance',
     'workbench_access_field' => 0,
   );
 
-  // Exported field_instance: 'taxonomy_term-organised_by-description_field'.
-  $field_instances['taxonomy_term-organised_by-description_field'] = array(
-    'bundle' => 'organised_by',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 1,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'description_field',
-    'label' => 'Description',
-    'required' => FALSE,
-    'settings' => array(
-      'display_summary' => 0,
-      'entity_translation_sync' => FALSE,
-      'hide_label' => array(
-        'entity' => FALSE,
-        'page' => FALSE,
-      ),
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
-      ),
-      'type' => 'text_textarea_with_summary',
-      'weight' => -5,
-    ),
-  );
-
-  // Exported field_instance: 'taxonomy_term-organised_by-name_field'.
-  $field_instances['taxonomy_term-organised_by-name_field'] = array(
-    'bundle' => 'organised_by',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'name_field',
-    'label' => 'Name',
-    'required' => TRUE,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'hide_label' => array(
-        'entity' => FALSE,
-        'page' => FALSE,
-      ),
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => -5,
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
   t('Activity');
@@ -4911,7 +4835,6 @@ Grey - Only web or not attendance',
   t('Migration Path Alias');
   t('Modified by');
   t('Modified on');
-  t('Name');
   t('Name of the speaker');
   t('Number of attendees');
   t('Organisation');
@@ -4923,7 +4846,7 @@ Grey - Only web or not attendance',
   t('Please add here the official title of the event. Please do not use ALL CAPS, but sentence case (i.e. Towards Better Work and Well-being)');
   t('Please choose the appropriate type of event.');
   t('Please download the publications request form and send it to the publications team at least 4 weeks before the event is taking place.');
-  t('Please indicate here the organisation responsible for the organisation of the event. If an acronym exists for the organisation, please include “acronym (UPPERCASE) ‘-‘complete name (sentence case)”: (i.e.. HSE – Health and Safety Executive)');
+  t('Please indicate here the organisation responsible for the organisation of the event. If an acronym exists for the organisation, please include “acronym (UPPERCASE) ‘-‘complete name (sentence case)”: (i.e.. EU-OSHA – European Agency for Safety and Health at Work)');
   t('Please indicate, if event’s item should be published on the website or not.');
   t('Please indicate, if the agenda of the event is available.');
   t('Please indicate, if this event is to be counted in the framework of the KPI monitoring framework.');

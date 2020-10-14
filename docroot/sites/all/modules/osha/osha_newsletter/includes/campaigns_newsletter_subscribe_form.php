@@ -77,10 +77,11 @@ function campaigns_newsletter_subscribe_captcha_form() {
     '#captcha_type' => 'default',
   );
 
+  $link_url = variable_get('events_subscribe_block_details_link_url', OSHA_PRIVACY_PAGE_URL);
   $form['agree_processing_personal_data'] = array(
     '#suffix' => '</div>',
     '#type' => 'checkbox',
-    '#title' => t('I agree to the processing of my personal data'),
+    '#title' => t('I agree to the ') . '<a target="_blank" href="' . url($link_url) . '">' . t('privacy policy') . '</a>',
     '#default_value' => 0,
   );
 

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * This template is used to print a single field in a view.
@@ -26,8 +25,11 @@ $country_code = $row->field_field_country_code[0]['raw']['value'];
 if ($row->field_field_show_eu_flag && $row->field_field_show_eu_flag[0]['raw']['value']) {
   $country_code = 'EU';
 }
+if ($country_code == 'EUROPA') {
+  $country_code = 'EU';
+}
 
 $content = '<div class="event_country code_' . $country_code . '"> </div>';
-
+$content = l($content, 'node/' . $row->nid, ['html' => TRUE]);
 $tooltip = $row->field_field_country_code[0]['rendered']['#markup'];
 echo hwc_qtip_text($content, $tooltip);

@@ -61,21 +61,22 @@ function drush_ncw_migration_hwc_migrate_msd_related() {
 
 function drush_ncw_migration_hwc_migrate_av_related() {
   $migrations = array(
-    'tax_priority_area',
-    'tax_provider_type',
-    'tax_hazmap_categories',
     'tax_biological_hazard',
     'tax_hazard_physical_state',
     'tax_hazard_health_effects',
     'tax_exposure_route',
-    'tax_worker_groups',
     'tax_prevention_measures',
-    'tax_material_purpose',
     'tax_target_group',
-    'tax_evaluation',
-    'tax_material_objective',
-
-    'dangerous_substances',
+    'tax_hazards',
+    'tax_health_effects',
+    'tax_msd_priority_area',
+    'tax_prevention_measures_msd',
+    'tax_purpose_of_material',
+    'tax_resource_type',
+    'tax_target_audience',
+    'tax_thesaurus',
+    'tax_worker_groups_covered',
+    'practical_tool',
   );
   foreach ($migrations as $migration) {
     ncw_migration_run_single($migration);
@@ -89,11 +90,11 @@ function drush_ncw_migration_hwc_migrate_all() {
     'tax_country_status',
     'tax_country',
     'tax_fop_link_sections',
-    'tax_newsletter_sections',
     'tax_publication_types',
     'tax_tags',
     'tax_segment',
-
+    'tax_activity',
+    'tax_msd_glossary',
     'highlights_add_res',
     'press_releases_add_res',
     'news_add_res',

@@ -64,7 +64,7 @@ function hwc_good_practice_exchange_search_api_solr_query_alter(array &$call_arg
     $call_args['params']['fq'][] = '(' . $fq1 . ') OR (' . $fq2 . ')';
   }
 
-  $call_args['params']['sort'] = 'sort_title2 asc';
+  $call_args['params']['sort'] = 'ds_field_publication_date desc';
   $sort_by = strtolower(@$_REQUEST['sort_by']);
   $sort_order = strtolower(@$_REQUEST['sort_order']);
   if ($sort_by) {
@@ -226,20 +226,14 @@ function hwc_good_practice_exchange_entity_property_info_alter(&$info) {
  */
 function hwc_good_practice_exchange_block_info() {
   $blocks = array();
-  $blocks['gpe_links'] = array(
-    'info' => t('Good Practice Exchange Links'),
+  $blocks['gpe_news_events'] = array(
+    'info' => t('GPE news events'),
     'status' => 1,
     'region' => '-1',
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
-    'cache' => DRUPAL_NO_CACHE,
+    'cache' => DRUPAL_CACHE_GLOBAL,
   );
-  $blocks['gpe_tools_publications'] = array(
-    'info' => t('Good Practice Exchange Tools & Publications'),
-    'status' => 1,
-    'region' => '-1',
-    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
-    'cache' => DRUPAL_NO_CACHE,
-  );
+
   $blocks['gpep_links'] = array(
     'info' => t('Good Practice Exchange Platform'),
     'status' => 1,
@@ -261,6 +255,14 @@ function hwc_good_practice_exchange_block_info() {
     'visibility' => BLOCK_VISIBILITY_NOTLISTED,
     'cache' => DRUPAL_NO_CACHE,
   );
+
+  $blocks['gpepbacklink'] = array(
+    'info' => t('Good Practice Exchange Platform back link'),
+    'status' => 1,
+    'region' => '-1',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+  );
   return $blocks;
 }
 
@@ -269,19 +271,19 @@ function hwc_good_practice_exchange_sort_form($form, $form_state) {
   $form['sort_by'] = [
     '#type' => 'select',
     '#title' => t('Sort by'),
-    '#default_value' => 'title2',
+    '#default_value' => 'field_publication_date',
     '#options' => [
-      'title2' => t('Alphabetically'),
       'field_publication_date' => t('Date of publication'),
+      'title2' => t('Alphabetically'),
     ],
   ];
   $form['sort_order'] = [
     '#type' => 'select',
     '#title' => t('Order'),
-    '#default_value' => 'ASC',
+    '#default_value' => 'DESC',
     '#options' => [
-      'ASC' => t('ASC'),
       'DESC' => t('DESC'),
+      'ASC' => t('ASC'),
     ],
   ];
   $form['sort_by']['#value'] = @$_REQUEST['sort_by'];
@@ -347,6 +349,13 @@ function hwc_good_practice_exchange_block_configure($delta = '') {
  */
 function hwc_good_practice_exchange_theme($existing, $type, $theme, $path) {
   $theme = array();
+  $theme['gpe_news_events'] = array(
+    'variables' => array(
+      'news' => '',
+      'events' => '',
+    ),
+    'template' => 'templates/gpe_news_events',
+  );
   $theme['hwc_good_practice_exchange_platform'] = array(
     'template' => 'templates/hwc_good_practice_exchange_platform',
     'variables' => array(
@@ -365,6 +374,29 @@ function hwc_good_practice_exchange_theme($existing, $type, $theme, $path) {
 function hwc_good_practice_exchange_block_view($delta = '') {
   $block = array();
 
+  if ($delta == 'gpe_news_events' && !variable_get('splash_mode', FALSE)) {
+    $news = block_load('views', 'news-gpe');
+    $array = _block_get_renderable_array(_block_render_blocks([$news]));
+    if (hwc_gpe_news()) {
+      $news = render($array);
+    }
+    else {
+      $news = '';
+    }
+
+    $events = block_load('views', 'frontpage_events-gpe');
+    $array = _block_get_renderable_array(_block_render_blocks([$events]));
+    if (hwc_gpe_events()) {
+      $events = render($array);
+    }
+    else {
+      $events = '';
+    }
+    if ($news || $events) {
+      $block['content'] = theme('gpe_news_events', ['events' => $events, 'news' => $news]);
+    }
+  }
+
   if ($delta == 'gpep_document_links') {
     $link = '';
     $node = menu_get_object('node');
@@ -378,6 +410,13 @@ function hwc_good_practice_exchange_block_view($delta = '') {
     }
     $block['subject'] = '';
     $block['content']['#markup'] = '<div class="gpep-edit-button">' . $link . '</div>';
+  }
+
+  if ($delta == 'gpepbacklink') {
+    $block['subject'] = '';
+    $link_href = 'good-practice-exchange-platform';
+    $link_title = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to the Good practice exchange platform') . '</span>';
+    $block['content'] = '<div class="publication-detail" style="overflow: auto;"><div class="back-to-publications">' . l($link_title, $link_href, ['html' => TRUE]) . '</div></div>';
   }
 
   if ($delta == 'gpep_document_organisation') {
@@ -411,52 +450,6 @@ function hwc_good_practice_exchange_block_view($delta = '') {
         'back_link' => $back_link,
         'intro_text' => $intro_text,
       )
-    );
-  }
-
-  if ($delta == 'gpe_links') {
-    $prefix = '<div class="col-xs-12 col-sm-4">';
-    $suffix = '</div>';
-    $items = [];
-    if (!hwc_partner_registration_allowed()) {
-      $items[] = '<a href="#" onclick="return false;" class="registration-over become-campaign-partner"><span class="link-img"></span>' .
-        '<span class="title">' . t('Become a campaign partner') . '</span>' . '</a>' .
-        '<div class="alert text-center">' . t(variable_get('hwc_partner_registration_deadline_message')) . '</div>';
-    }
-    else {
-      $items[] = l(
-          '<span class="link-img"></span><span class="title">' . t('Become a campaign partner') . '</span>',
-          'partner/register',
-          ['html' => TRUE, 'attributes' => ['class' => 'become-campaign-partner']]);
-    }
-    $items[] = l(
-      '<span class="link-img"></span><span class="title">' . t('Get involved in Good Practice exchange initiative') . '</span>',
-      '/good-practice-exchange-initiative',
-      [
-        'absolute' => TRUE,
-        'html' => TRUE,
-        'attributes' => ['class' => 'get-involved'],
-      ]);
-    $items[] = l(
-      '<span class="link-img"></span><span class="title">' . t('Access to the private zone') . '</span>',
-      'private',
-      ['html' => TRUE, 'attributes' => ['class' => 'private-zone']]);
-    $block['subject'] = '';
-    $block['content']['menu']['#markup'] = '<div class="gpe-links-block">' . $prefix . implode($suffix . $prefix, $items) . $suffix . '</div>';
-  }
-
-  if ($delta == 'gpe_tools_publications') {
-    $block['subject'] = l(t('Tools and publications'), 'tools_and_publications');
-    $items = [];
-    $items[] = l(t('Case studies'), 'tools-and-publications/case-studies', ['attributes' => ['class' => 'case-studies']]);
-    $items[] = l(t('Publications'), 'tools-and-publications/publications', ['attributes' => ['class' => 'publications']]);
-    $items[] = l(t('DS e-tool'), 'e-tool', ['attributes' => ['class' => 'e-guides']]);
-    $block['content']['menu']['#markup'] = theme('item_list', array('items' => $items, 'attributes' => array('class' => 'menu nav')));
-    $block['content']['link'] = array(
-      'type' => 'item',
-      '#prefix' => '<div class="more-link">',
-      '#markup' => l(t('See other Tools and Publications'), 'tools_and_publications'),
-      '#suffix' => '</div>',
     );
   }
 

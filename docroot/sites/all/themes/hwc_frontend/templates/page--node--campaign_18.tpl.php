@@ -81,7 +81,6 @@ $theme_dir = drupal_get_path('theme', 'hwc_frontend');
 <?php endif; ?>
 <?php
 include(drupal_get_path('theme', 'hwc_frontend') . '/templates/header.tpl.php');
-$title = variable_get('campaign_18_title', 'HWC Manage Dangerous Substances 2018-2019');
 ?>
 
 <div class="main-container container-fluid">
@@ -104,9 +103,15 @@ $title = variable_get('campaign_18_title', 'HWC Manage Dangerous Substances 2018
   if (!empty($back_to_pz)) {
     print $back_to_pz;
   } ?>
-    <?php if (!empty($title)) { ?>
-          <h1 class="page-header"><?php print t($title); ?></h1>
-    <?php } ?>
+        <?php if (!empty($title)) { ?>
+        <h1 class="page-header"><?php
+          if ($banner_title) {
+            print $banner_title;
+          }
+          else {
+            print $title;
+          } ?></h1>
+        <?php } ?>
       </div>
     <?php
   }
@@ -165,7 +170,7 @@ $title = variable_get('campaign_18_title', 'HWC Manage Dangerous Substances 2018
                 <p><?php print t("European Agency for Safety and Health at Work | an agency of the European Union"); ?></p>
             </div>
         </div>
-        <div class="on-the-web"><span><?php print('Follow us:'); ?></span>
+        <div class="on-the-web"><span><?php print t('Follow us:'); ?></span>
           <?php $my_block = module_invoke('on_the_web', 'block_view', 'on_the_web'); print render($my_block['content']); ?>
         </div>
     </div>

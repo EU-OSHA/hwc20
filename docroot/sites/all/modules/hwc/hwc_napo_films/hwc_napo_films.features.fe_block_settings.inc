@@ -28,7 +28,7 @@ function hwc_napo_films_default_fe_block_settings() {
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => -79,
+        'weight' => 3,
       ),
       'seven' => array(
         'region' => '',

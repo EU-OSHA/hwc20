@@ -5,7 +5,9 @@ $link = hwc_priority_areas_generate_all_facet_link();
 $title = str_replace(':', '', $title);
 $title = osha_tmgmt_literal_get_translation($title);
 ?>
-<h2 class="block-title"><?php print $title; ?>:</h2>
+<?php print render($title_prefix); ?>
+<h2 class="block-title"><?php print $title; ?></h2>
+<?php print render($title_suffix); ?>
 <ul class="facetapi-facetapi-checkbox-links facetapi-facet-field-priority-area facetapi-processed no-margin-bottom">
   <li class="leaf first">
     <input type="checkbox" class="facetapi-checkbox" id="facetapi-link--all--checkbox" <?php print $checked; ?>>

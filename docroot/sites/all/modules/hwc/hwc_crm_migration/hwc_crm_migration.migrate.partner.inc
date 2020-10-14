@@ -30,6 +30,7 @@ class PartnerMigration extends HwcCrmMigration {
       'field_general_email',
       'field_general_phone',
       'field_website',
+      'field_website_email',
       'field_orgtype',
       'field_bussines_sector',
       'field_mission_statement',
@@ -51,6 +52,7 @@ class PartnerMigration extends HwcCrmMigration {
       'field_partner_type',
       'field_organisation_rep',
       'field_position_identifier',
+      'field_position_main_contact',
       'field_appform_status',
       'field_facebook_profile',
       'field_twitter_profile',
@@ -154,14 +156,16 @@ class PartnerMigration extends HwcCrmMigration {
         $is_oa = TRUE;
       }
     }
-    if ((!$is_fop && !$is_oa) && $row->field_appform_status != 863680005) {
-      $this->currentMigration()->displayMessage(
-        strtr('The partner profile "@partner" does not have app form status published; unpublishing...',
-          array('@partner' => $row->title)
-        ),
-        'warning'
-      );
-      $entity->status = 0;
+    if (!in_array($row->field_appform_status, [863680005, 863680013])) {
+      if ((!$is_fop && !$is_oa)) {
+        $this->currentMigration()->displayMessage(
+          strtr('The partner profile "@partner" does not have app form status published; unpublishing...',
+            array('@partner' => $row->title)
+          ),
+          'warning'
+        );
+        $entity->status = 0;
+      }
     }
     $entity->path['pathauto'] = TRUE;
     if (!empty($row->regenerate_alias) && !empty($entity->nid)) {
@@ -226,7 +230,12 @@ class PartnerMigrateListXml extends AbstractCrmMigrateListXml {
         $data->field_guid_organisation = (string) $attributes['Table0_Details1'];
         $data->field_general_email = (string) $attributes['Textbox2'];
         $data->field_general_phone = (string) $attributes['Textbox3'];
-
+        // box40 = "HWC website e-mail contact"
+        // for compatibility lets display general_email if no website_email
+        $data->field_website_email = (string) $attributes['Textbox40'];
+        if (!$data->field_website_email) {
+          $data->field_website_email = $data->field_general_email;
+        }
         $prefix = trim((string) $attributes['Textbox39']);
         $parts = explode('(', $prefix);
         if (count($parts) == 2) {
@@ -305,6 +314,7 @@ class PartnerMigrateListXml extends AbstractCrmMigrateListXml {
         $data->field_pledge = (string) $attributes['Textbox31'];
         $data->field_organisation_rep = trim((string) $attributes['Textbox32'] . ' ' . (string) $attributes['Textbox33']);
         $data->field_position_identifier = (string) $attributes['Textbox34'];
+        $data->field_position_main_contact = (string) $attributes['Textbox41'];
         $data->field_appform_status = (string) $attributes['Textbox35'];
         if (empty(self::$data[$data->field_guid_organisation])) {
           self::$data[$data->field_guid_organisation] = $data;

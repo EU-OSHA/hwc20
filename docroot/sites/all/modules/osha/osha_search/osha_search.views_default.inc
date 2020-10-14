@@ -234,14 +234,6 @@ function osha_search_views_default_views() {
   $handler->display->display_options['fields']['field_country']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['field_country']['view_mode'] = 'full';
   $handler->display->display_options['fields']['field_country']['bypass_access'] = 0;
-  /* Field: Indexed Multilingual Content: Provider */
-  $handler->display->display_options['fields']['field_provider']['id'] = 'field_provider';
-  $handler->display->display_options['fields']['field_provider']['table'] = 'search_api_index_default_multilingual_node_index';
-  $handler->display->display_options['fields']['field_provider']['field'] = 'field_provider';
-  $handler->display->display_options['fields']['field_provider']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_provider']['settings'] = array(
-    'field_formatter_class' => '',
-  );
   /* Field: Indexed Multilingual Content: Article type */
   $handler->display->display_options['fields']['field_article_type']['id'] = 'field_article_type';
   $handler->display->display_options['fields']['field_article_type']['table'] = 'search_api_index_default_multilingual_node_index';
@@ -279,14 +271,6 @@ function osha_search_views_default_views() {
   $handler->display->display_options['fields']['field_publication_type']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['field_publication_type']['view_mode'] = 'full';
   $handler->display->display_options['fields']['field_publication_type']['bypass_access'] = 0;
-  /* Field: Indexed Multilingual Content: Type */
-  $handler->display->display_options['fields']['field_tool_type']['id'] = 'field_tool_type';
-  $handler->display->display_options['fields']['field_tool_type']['table'] = 'search_api_index_default_multilingual_node_index';
-  $handler->display->display_options['fields']['field_tool_type']['field'] = 'field_tool_type';
-  $handler->display->display_options['fields']['field_tool_type']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_tool_type']['link_to_entity'] = 0;
-  $handler->display->display_options['fields']['field_tool_type']['view_mode'] = 'full';
-  $handler->display->display_options['fields']['field_tool_type']['bypass_access'] = 0;
   /* Field: Indexed Multilingual Content: Type */
   $handler->display->display_options['fields']['field_partner_type']['id'] = 'field_partner_type';
   $handler->display->display_options['fields']['field_partner_type']['table'] = 'search_api_index_default_multilingual_node_index';
@@ -446,7 +430,6 @@ function osha_search_views_default_views() {
     t('<div class="views-field views-field-search-api-excerpt"><span class="field-content">[search_api_excerpt]</span></div>
 <a class="news-see-more-button" href=\'[url]\'>See more</a>'),
     t('Country'),
-    t('Provider'),
     t('Type'),
     t('Publication date'),
     t('Title'),

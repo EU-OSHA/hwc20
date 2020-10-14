@@ -346,3 +346,45 @@ function hwc_partner_update_7043() {
 function hwc_partner_update_7044() {
   features_revert_module('hwc_partner');
 }
+
+/**
+ * MDR-3404 FoP- Move the label 'Main Contacts' to be displayed before the main contacts.
+ */
+function hwc_partner_update_7045() {
+  features_revert(array('hwc_partner' => array('page_manager_handlers')));
+}
+
+/**
+ * MHWC-28 Homogeneise - MPs Main contact information with OCP Main contact information
+ */
+function hwc_partner_update_7046() {
+  features_revert(array('hwc_partner' => array('page_manager_handlers')));
+}
+
+/**
+ * MHWC-200 Drupal - Contacts - new field email for FOP partners.
+ */
+function hwc_partner_update_7047() {
+  features_revert(array('hwc_partner' => array('page_manager_handlers', 'field_base', 'field_instance')));
+}
+
+/**
+ * MHWC-383 Partners profile (OCPs, MPs, EEN, FoPs) - show the city.
+ */
+function hwc_partner_update_7048() {
+  features_revert(array('hwc_partner' => array('page_manager_handlers')));
+}
+
+/**
+ * MHWC-395 Add contact's "Position" in the public profile of the partner.
+ */
+function hwc_partner_update_7049() {
+  features_revert(array('hwc_partner' => array('page_manager_handlers')));
+}
+
+/**
+ * MHWC-395 Add contact's "Position" in the public profile of the partner.
+ */
+function hwc_partner_update_7050() {
+  features_revert_module('hwc_partner');
+}

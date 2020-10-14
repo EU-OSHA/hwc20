@@ -1,24 +1,15 @@
 <?php
-/**
- * @file
- * Returns the HTML for a block.
- *
- * Complete documentation for this file is available online.
- * @see https://drupal.org/node/1728246
- *
- */
-?>
-<?php
 $translated = osha_tmgmt_literal_get_translation($title);
 ?>
 <div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
-
-  <?php print render($title_prefix); ?>
-  <?php if ($translated): ?>
-    <h2<?php print $title_attributes; ?>><span><?php print $translated; ?></span></h2>
-  <?php endif; ?>
-  <?php print render($title_suffix); ?>
-
-  <?php print $content; ?>
-
+    <section class="slider--video--section container">
+      <?php print render($title_prefix); ?>
+      <?php print render($title_suffix); ?>
+        <div class="slider--video--block row">
+            <div class="slider--video--items">
+                <h2 class="block-title"><span><?php print l($translated, 'campaign-partners/official-campaign-partners'); ?></span></h2>
+              <?php print $content; ?>
+            </div>
+        </div>
+    </section>
 </div>

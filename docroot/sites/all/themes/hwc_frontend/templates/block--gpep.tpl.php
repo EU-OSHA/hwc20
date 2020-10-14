@@ -12,7 +12,10 @@
 $translated = osha_tmgmt_literal_get_translation($title);
 ?>
 <?php
-$link_href = 'private_workbench';
+$link_href = hwc_partner_get_user_partner_node_url();
+if (!$link_href) {
+  $link_href = 'private_workbench';
+}
 $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to Private Zone') . '</span>';
 echo '<div class="back-links">' . l($back_text, $link_href, ['html' => TRUE]) . '</div>';
 ?>

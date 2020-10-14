@@ -154,12 +154,68 @@ function hwc_homepage_update_7020() {
  * HW20-206 HWC20 Development of the complete HWC20 Home page.
  */
 function hwc_homepage_update_7021() {
-  features_revert_module('hwc_homepage');
+//  features_revert_module('hwc_homepage');
 }
 
 /**
  * HW20-206 HWC20 Development of the complete HWC20 Home page.
  */
 function hwc_homepage_update_7022() {
-  features_revert_module('hwc_homepage');
+//  features_revert_module('hwc_homepage');
+}
+
+/**
+ * HW20-243  Events should display 2 dates.
+ */
+function hwc_homepage_update_7023() {
+  features_revert(array('hwc_homepage' => ['views_view']));
+}
+
+/**
+ * HW20-406 European Week: the latest events should be displayed.
+ */
+function hwc_homepage_update_7024() {
+  features_revert(array('hwc_homepage' => ['views_view']));
+  features_revert(array('osha_news' => ['views_view']));
+}
+
+/**
+ * HW20-406 European Week: the latest events should be displayed.
+ */
+function hwc_homepage_update_7025() {
+  features_revert(array('hwc_homepage' => ['views_view']));
+}
+
+/**
+ * HW20-463 Home Page: Include the functionality “Select style to crop” in the banners of the HWC20 website.
+ */
+function hwc_homepage_update_7026() {
+  features_revert(array('hwc_homepage' => ['field_instance', 'views_view']));
+}
+
+/**
+ * MHWC-47 UX II recommendations home page
+ */
+function hwc_homepage_update_7027() {
+  $reorder = [
+    'hwc_homepage_topics' => 8,
+    'partners-block_1' => 10,
+    'hwc_homepage_newsletter_social' => 14
+  ];
+
+  foreach ($reorder as $delta => $weight) {
+    db_update('block')
+      ->fields(['weight' => $weight])
+      ->condition('delta', $delta)
+      ->condition('theme', 'hwc_frontend')
+
+      ->execute();
+  }
+
+  db_update('block')
+    ->fields(['title' => 'Official Campaign partners'])
+    ->condition('delta', 'partners-block_1')
+    ->condition('theme', 'hwc_frontend')
+    ->execute();
+
 }

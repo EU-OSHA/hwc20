@@ -187,6 +187,9 @@ function hwc_homepage_block_view($delta = '') {
   if ($delta == 'previous_campaign_nav') {
     $all_data = menu_tree_all_data('main-menu');
     $active_trail = menu_get_active_trail();
+    if (count($active_trail) > 4) {
+      return [];
+    }
     $last = end($active_trail);
     if ($last['menu_name'] != 'main-menu') {
       $last = menu_get_item();
@@ -288,7 +291,6 @@ function hwc_homepage_block_view($delta = '') {
   }
 
   if ($delta == 'splash_title_banner_countdown') {
-    drupal_add_js(drupal_get_path('module', 'hwc_homepage') . '/js/moment.min.js');
     drupal_add_js(drupal_get_path('module', 'hwc_homepage') . '/js/splash-page.js');
     $blocks[] = block_load('views', 'splash_banners-block');
     $array = _block_get_renderable_array(_block_render_blocks($blocks));
@@ -363,26 +365,72 @@ function hwc_homepage_block_view($delta = '') {
     $block['content'] = theme('hwc_homepage_browsing_content', ['data' => $data]);
   }
   if ($delta == 'hwc_homepage_topics') {
-    $allowed = variable_get('priority_area_allowed', []);
+    $all_data = menu_tree_all_data('main-menu', NULL, 3);
+    array_shift($all_data);
+    $about_items = array_shift($all_data);
+    $link_path = [];
+    $priority_area_menu_mlid = variable_get('priority_area_menu_id', 32374);
+    foreach($about_items['below'] as $about_item) {
+      if ($about_item['link']['mlid'] != $priority_area_menu_mlid) {
+        continue;
+      }
+      foreach($about_item['below'] as $item) {
+        $link_path[$item['link']['link_path']] = $item['link'];
+      }
+    }
+    $result = views_get_view_result('msd_priority_areas');
+    $map = [];
+    foreach ($result as $row) {
+      $map[$row->taxonomy_term_data_field_data_field_msd_priority_area_tid] = $row->nid;;
+    }
     $voc = taxonomy_vocabulary_machine_name_load('msd_priority_area');
     $tree = taxonomy_get_tree($voc->vid, 0, NULL, TRUE);
     $items = [];
     foreach ($tree as $i => $term) {
-      if (!@$term->field_available[LANGUAGE_NONE][0]['value']) {
-        continue;
-      }
       $w = entity_metadata_wrapper('taxonomy_term', $term->tid);
       $name = $w->label();
-      $items[] = [
-        'data' => l($name, 'taxonomy/term/' . $term->tid),
-        'class' => ['priority_area_' . $term->tid],
-        'title' => $name,
-      ];
+      if (isset($map[$term->tid])) {
+        $nid = $map[$term->tid];
+        if (!empty($link_path['node/' . $nid])) {
+          $menu = $link_path['node/' . $nid];
+          $text = '';
+          if (!empty($menu['options']['content']['image'])) {
+            $image_url = file_create_url($menu['options']['content']['image']);
+            $attributes = [];
+            $text = '<span class="content-img"><img ' . drupal_attributes($attributes) . ' src="' . $image_url . '"/></span>';
+          }
+          if (!empty($menu['options']['copyright']['author']) || !empty($menu['options']['copyright']['copyright'])) {
+            $text .= '<blockquote class="image-field-caption">';
+            if (!empty($menu['options']['copyright']['author'])) {
+              $text .= check_markup($menu['options']['copyright']['author'], 'full_html');
+            }
+            if (!empty($menu['options']['copyright']['author']) && !empty($menu['options']['copyright']['copyright'])) {
+              $text .= '<span>&nbsp;/&nbsp;</span>';
+            }
+            if (!empty($menu['options']['copyright']['copyright'])) {
+              $text .= '<span class="blockquote-copyright">' . $menu['options']['copyright']['copyright'] . '</span>';
+            }
+            $text .= '</blockquote>';
+          }
+          $text .= '<h3>' . $name . '</h3>';
+        }
+        $data = l($text, 'node/' . $map[$term->tid], ['html' => TRUE]);
+
+        $items[] = [
+          'data' => $data,
+          'class' => ['priority_area_' . $map[$term->tid]],
+          'title' => $name,
+        ];
+      }
     }
-    $block['content']['menu']['#markup'] = '<div class="priority_area">';
+    $block['subject'] = '<span>' . l(t('Priority areas'), variable_get('hwc_homepage_topics_know_more_link')) . '</span>';
+    $block['content']['menu']['#markup'] = '<div class="priority_area_info">' . t(variable_get('hwc_homepage_topics_message')) . '</div>';
+    $block['content']['menu']['#markup'] .= '<div class="priority_area">';
     $block['content']['menu']['#markup'] .= theme('item_list', array('items' => $items, 'attributes' => array('class' => 'menu nav')));
     $block['content']['menu']['#markup'] .= '</div>';
-    $block['subject'] = '<span>' . l(t('Priority areas'), variable_get('hwc_homepage_topics_know_more_link')) . '</span>';
+    $block['content']['menu']['#markup'] .= l(t('See all priority areas'), variable_get('hwc_homepage_topics_know_more_link', ''),
+      ['attributes' => ['class' => 'see-more-button-20']]
+    );
   }
   return $block;
 }

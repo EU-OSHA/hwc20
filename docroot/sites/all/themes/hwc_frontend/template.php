@@ -20,13 +20,22 @@ function hwc_frontend_html_head_alter(&$head_elements) {
         '/' . $n->field_migration_path_alias[LANGUAGE_NONE][0]['value'];
     }
   }
+
+  $path = current_path();
+  $hide_pages = str_replace("\r", '', variable_get('hwc_hide_meta_description_pages', ''));
+  $hide_pages = explode("\n", $hide_pages);
+  if (in_array($path, $hide_pages)) {
+    unset($head_elements['metatag_description_0']);
+  }
 }
 
 /**
  * Implements theme_menu_link__menu_block().
  */
 function hwc_frontend_menu_link__menu_block($variables) {
+  global $language;
   $element = &$variables['element'];
+  $element['#href'] = str_replace('www.napofilm.net/en/','www.napofilm.net/' . $language->language . '/', $element['#href']);
   if (!empty($element['#localized_options']['attributes']['class']) && $class = $element['#localized_options']['attributes']['class']) {
     if (($class[0] == 'previous-campaigns') && ($element['#bid']['delta'] == 5)) {
       $element['#href'] = '<nolink>';
@@ -40,21 +49,34 @@ function hwc_frontend_menu_link__menu_block($variables) {
   if (!$render_img) {
     return theme_menu_link($variables);
   }
-
   $description = '';
   if (!empty($element['#localized_options']['attributes']['title'])) {
     $description = $element['#localized_options']['attributes']['title'];
   }
-  if (!empty($element['#localized_options']['content']['image']) && $image_url = file_create_url($element['#localized_options']['content']['image'])) {
-    $text = '<span class="content-img"><img src="' . $image_url . '"/></span><h2>' . $element['#title'] . '</h2><p>' . $description . '</p>';
-    $output_link = l($text, $element['#href'], array('html' => TRUE));
+  $text = '';
+  if (!empty($element['#localized_options']['content']['image'])) {
+    $image_url = file_create_url($element['#localized_options']['content']['image']);
+    $attributes = [];
+    if (!empty($element['#localized_options']['copyright']['image_alt'])) {
+      $attributes['alt'] = strip_tags($element['#localized_options']['copyright']['image_alt']);
+      $attributes['title'] = $attributes['alt'];
+    }
+    $text = '<span class="content-img"><img ' . drupal_attributes($attributes) . ' src="' . $image_url . '"/></span>';
   }
-  else {
-    $output_link = l($element['#title'], $element['#href'], $element['#localized_options']);
-  }
-  $text = '<span class="content-img"><img src="' . $image_url . '"/></span><h2>' . $element['#title'] . '</h2><p>' . $description . '</p>';
+    $text .= '<blockquote class="image-field-caption">';
+    if (!empty($element['#localized_options']['copyright']['author'])) {
+      $text .= check_markup($element['#localized_options']['copyright']['author'], 'full_html');
+    }
+    if (!empty($element['#localized_options']['copyright']['author']) && !empty($element['#localized_options']['copyright']['copyright'])) {
+      $text .= '<span>&nbsp;/&nbsp;</span>';
+    }
+    
+    $text .= '<span class="blockquote-copyright">' . $element['#localized_options']['copyright']['copyright'] . '</span>';
+    
+    $text .= '</blockquote>';
+  
+  $text .= '<h2>' . $element['#title'] . '</h2><p>' . $description . '</p>';
   $output_link = l($text, $element['#href'], array('html' => TRUE));
-
   $element['#attributes']['class'][] = 'content-box-sub';
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output_link . '</li>';
 }
@@ -76,6 +98,33 @@ function hwc_frontend_menu_link(array $variables) {
         'active-trail',
         'active',
       ];
+    }
+  }
+
+  if (arg(0) == 'node') {
+    $map = [
+      "" => 'node/112',
+      "186" => 'campaign-partners/campaign-media-partners',
+      "187" => 'campaign-partners/national-focal-points',
+      "185" => 'campaign-partners/official-campaign-partners',
+      "1804" => 'campaign-partners/enterprise-europe-network',
+    ];
+    if (in_array($element['#href'], $map) && $node = menu_get_object()) {
+      $type = @$node->field_partner_type[LANGUAGE_NONE][0]['tid'];
+      if ($element['#href'] == 'node/112' && $type) {
+        $element['#attributes']['class'] = [
+          'expanded',
+          'active-trail',
+          'active',
+        ];
+      }
+      if ($type && $map[$type] == $element['#href']) {
+        $element['#attributes']['class'] = [
+          'expanded',
+          'active-trail',
+          'active',
+        ];
+      }
     }
   }
 
@@ -110,25 +159,19 @@ function hwc_frontend_menu_link(array $variables) {
   }
 
   if (arg(1) == 'campaign-materials') {
-    $exclude = variable_get('campaign_materials_exclude', []);
-    $include = variable_get('campaign_materials_include', []);
-    if (in_array($element['#href'], $exclude)) {
+    $exclude = variable_get('campaign_materials_exclude', [11667, 1120]);
+    $include = variable_get('campaign_materials_include', [1372, 2495]);
+    if (in_array($element['#original_link']['mlid'], $exclude)) {
       $element['#attributes']['class'] = [];
     }
-    if (in_array($element['#href'], $include)) {
-      if (!empty($element['#localized_options']['attributes'])) {
-        $element['#attributes']['class'] = [];
-      }
-      else {
-        $element['#attributes']['class'] = [
-          'expanded',
-          'active-trail',
-          'active',
-        ];
-      }
+    if (in_array($element['#original_link']['mlid'], $include)) {
+      $element['#attributes']['class'] = [
+        'expanded',
+        'active-trail',
+        'active',
+      ];
     }
   }
-
   $sub_menu = '';
   if ($element['#below']) {
     // Prevent dropdown functions from being added to management menu so it
@@ -168,6 +211,80 @@ function hwc_frontend_preprocess_region(&$variables, $hook) {
  * Implements hook_preprocess_html().
  */
 function hwc_frontend_preprocess_html(&$vars) {
+  global $language;
+
+  if ($language->language != 'en' && (arg(0) == 'media-centre') && (arg(1) == 'events')) {
+    drupal_add_js(drupal_get_path('module', 'jquery_update') . '/replace/ui/ui/i18n/jquery.ui.datepicker-'. $language->language .'.js', array('group' => JS_THEME));
+  }
+
+  if (!variable_get('hwc_partner_registration_last_date_month', FALSE)) {
+    if (arg(1) == 184)
+    $vars['classes_array'][] = 'year-only';
+  }
+
+  if (variable_get('add_tracking_code', FALSE)) {
+    $script = [
+      '#tag' => 'script',
+      '#attributes' => [
+        'type' => 'text/javascript',
+        'src' => '//script.crazyegg.com/pages/scripts/0083/4460.js',
+        'async' => 'async',
+      ],
+      '#value' => '',
+    ];
+    drupal_add_html_head($script, 'crazyegg-script');
+
+    $value = '(function(h,o,t,j,a,r){
+  h.hj=h.hj||function() {(h.hj.q=h.hj.q||[]).push(arguments)};
+  h._hjSettings={hjid:1550027,hjsv:6};
+  a=o.getElementsByTagName(\'head\')[0];
+  r=o.createElement(\'script\');
+  r.async=1;
+  r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+  a.appendChild(r);
+})(window,document,\'https://static.hotjar.com/c/hotjar-\',\'.js?sv=\');';
+
+    if (variable_get('splash_mode', FALSE)) {
+      $value .= '
+  (function(h,o,t,j,a,r){
+  h.hj=h.hj||function() {(h.hj.q=h.hj.q||[]).push(arguments)};
+  h._hjSettings={hjid:1642038,hjsv:6};
+  a=o.getElementsByTagName(\'head\')[0];
+  r=o.createElement(\'script\');
+  r.async=1;
+  r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+  a.appendChild(r);
+})(window,document,\'https://static.hotjar.com/c/hotjar-\',\'.js?sv=\');';
+    }
+    $script = [
+      '#tag' => 'script',
+      '#attributes' => ['type' => 'text/javascript'],
+      '#value' => $value,
+    ];
+    drupal_add_html_head($script, 'hotjar-script');
+  }
+
+  if (arg(1) == 'case-studies') {
+    $vars['classes_array'][] = 'page-tools-and-publications-publications';
+    $vars['classes_array'][] = 'page-publications';
+  }
+
+  if (variable_get('splash_mode', FALSE) || arg(0) == 'splash-page') {
+    $vars['classes_array'][] = 'rel1';
+  }
+  if (variable_get('staging_mode', '')) {
+    $vars['classes_array'][] = variable_get('staging_mode', '');
+  }
+
+  if (isset($_SESSION['masquerading'])) {
+    $vars['classes_array'][] = 'act-as-partner';
+  }
+
+  $vars['menu_title'] = '';
+  $active_trail = menu_get_active_trail();
+  if (count($active_trail) > 2) {
+    $vars['menu_title'] = $active_trail[count($active_trail) - 1]['title'];
+  }
   $n = menu_get_object('node');
   if ($n) {
     switch ($n->type) {
@@ -181,9 +298,16 @@ function hwc_frontend_preprocess_html(&$vars) {
         ];
         $vars['classes_array'][] = $map[$tid];
         break;
+
       case "article":
+        if ($n->nid == 3298) {
+          $vars['classes_array'][] = 'good-practice-exchange';
+        }
         if ($n->nid == 179) {
           $vars['classes_array'][] = 'press-room';
+        }
+        if ($n->nid == 108) {
+          $vars['classes_array'][] = 'video-page';
         }
         if ($n->nid == 129) {
           $vars['classes_array'][] = 'newsletter';
@@ -215,8 +339,8 @@ function hwc_frontend_preprocess_html(&$vars) {
     }
   }
 
-  if (drupal_is_front_page()) {
-    if (variable_get('splash_mode', FALSE)) {
+  if (drupal_is_front_page() || arg(0) == 'splash-page' || arg(0) == 'regular-page') {
+    if (variable_get('splash_mode', FALSE) || arg(0) == 'splash-page') {
       $vars['classes_array'][] = 'splash-page';
     }
     else {
@@ -224,7 +348,7 @@ function hwc_frontend_preprocess_html(&$vars) {
     }
   }
   if (!empty($vars['is_front'])) {
-    $vars['head_title'] = t('Healthy Workplaces LIGHTEN THE LOAD 2020-22');
+    $vars['head_title'] = t('Healthy Workplaces Lighten the Load 2020-22');
   }
   if (arg(0) . arg(2) == 'nodeedit') {
     if ($n->type == 'news' || $n->type == 'events') {
@@ -285,6 +409,9 @@ function hwc_frontend_css_alter(&$css) {
   if (drupal_is_front_page() && variable_get('splash_mode', FALSE)) {
     unset($css['sites/all/themes/hwc_frontend/css/hwc20.css']);
   }
+  if (variable_get('splash_mode', FALSE) && arg(0) == 'splash-page') {
+    unset($css['sites/all/themes/hwc_frontend/css/hwc20.css']);
+  }
 }
 
 /**
@@ -295,7 +422,15 @@ function hwc_frontend_preprocess_block(&$vars) {
   if ($block->delta == '-exp-documents-gpep') {
     $vars['theme_hook_suggestions'][] = 'block__gpep';
   }
-
+  if ($block->delta == 'hwc_homepage_topics') {
+    $vars['theme_hook_suggestions'][] = 'block__priority_area';
+  }
+  if ($block->delta == 'hwc_practical_tool_less') {
+    $vars['theme_hook_suggestions'][] = 'block__show_less';
+  }
+  if ($block->delta == 'hwc_practical_tool_more') {
+    $vars['theme_hook_suggestions'][] = 'block__show_more';
+  }
   if ($block->delta == 'partners-block_1') {
     $vars['theme_hook_suggestions'][] = 'block__partners';
   }
@@ -311,10 +446,41 @@ function hwc_frontend_preprocess_block(&$vars) {
   }
 }
 
+function _hwc_frontend_allow_title($active_trail) {
+  $path = current_path();
+  $exclude_banner_titles = str_replace("\r", '', variable_get('hwc_exclude_banner_titles', ''));
+  $exclude_banner_titles = explode("\n", $exclude_banner_titles);
+  $previous_campaigns_mlid = variable_get('hwc_previous_campaigns_mlid', '35515');
+  if (
+    count($active_trail) > 2 &&
+    ($active_trail[1]['mlid'] == 1123 || $active_trail[1]['mlid'] == $previous_campaigns_mlid) &&
+    !in_array($path, $exclude_banner_titles)
+  ) {
+    return TRUE;
+  }
+  return FALSE;
+}
+
+function hwc_frontend_get_newsletter_name($nid) {
+  $entities = entity_load_multiple_by_name('entity_collection', $names = FALSE, array('bundle' => 'newsletter_content_collection'));
+  foreach ($entities as $entity) {
+    $tree = $entity->getTree();
+    if ($tree->getChild('node:' . $nid)) {
+      return $entity;
+    }
+  }
+  return FALSE;
+}
+
 function hwc_frontend_preprocess_page(&$vars) {
-  $vars['head_text'] = t('Healthy Workplaces LIGHTEN THE LOAD 2020-22');
+  $vars['head_text'] = t('Healthy Workplaces Lighten the Load 2020-22');
+  $vars['banner_title'] = '';
   $n = menu_get_object('node');
   if ($n) {
+    $active_trail = menu_get_active_trail();
+    if (_hwc_frontend_allow_title($active_trail)) {
+      $vars['title'] = $active_trail[count($active_trail) - 2]['title'];
+    }
     switch ($n->type) {
       case "partner":
         $tid = $n->field_partner_type[LANGUAGE_NONE][0]['tid'];
@@ -329,16 +495,22 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case "article":
-        if ($n->nid == 179) {
+        if ($n->nid == 3298) {
+        }
+        elseif ($n->nid == 179) {
           $vars['theme_hook_suggestions'][] = 'page__press__room';
         }
         elseif ($n->nid == 164) {
           $vars['theme_hook_suggestions'][] = 'page__european__week';
-          $vars['title_suffix'] = '<div id="european_week_date">' . variable_get('european_week_date', '12<sup>th</sup>-14<sup>th</sup> of October 2020') . '</div>';
+//          $vars['title_suffix'] = '<div id="european_week_date">' . variable_get('european_week_date', '12<sup>th</sup>-14<sup>th</sup> of October 2020') . '</div>';
         }
         else {
           $vars['theme_hook_suggestions'][] = 'page__node__article';
         }
+        break;
+
+      case "priority_area":
+        $vars['theme_hook_suggestions'][] = 'page__node__priority_area';
         break;
 
       case "campaign_16":
@@ -352,6 +524,10 @@ function hwc_frontend_preprocess_page(&$vars) {
       case "publication":
         $vars['theme_hook_suggestions'][] = 'page__node__publication';
         break;
+
+      case "practical_tool":
+        $vars['theme_hook_suggestions'][] = 'page__node__practical_tool';
+        break;
     }
   }
 
@@ -361,18 +537,25 @@ function hwc_frontend_preprocess_page(&$vars) {
     $breadcrumb[] = drupal_get_title();
     drupal_set_breadcrumb($breadcrumb);
   }
-  if (drupal_is_front_page()) {
-    if (variable_get('splash_mode', FALSE)) {
+  if (drupal_is_front_page() || arg(0) == 'splash-page' || arg(0) == 'regular-page') {
+    if (variable_get('splash_mode', FALSE) || arg(0) == 'splash-page') {
       $vars['theme_hook_suggestions'][] = 'page__splash';
     }
     else {
       $vars['theme_hook_suggestions'][] = 'page__front';
     }
   }
+  if (arg(0) . arg(1) == 'about-topicglossary-list') {
+    $vars['theme_hook_suggestions'][] = 'page__glossary__list';
+  }
   if (arg(0) . arg(1) . arg(2) == 'tools-and-publicationspublications') {
     $vars['theme_hook_suggestions'][] = 'page__publications';
   }
-  $vars['back_to_pz'] = '';//hwc_partner_back_to_private_zone();
+  if (arg(0) . arg(1) == 'tools-and-publicationspractical-tools') {
+    $vars['theme_hook_suggestions'][] = 'page__practical__tools';
+  }
+  $vars['back_to_pz'] = '';
+  //hwc_partner_back_to_private_zone();
   $vars['page']['content']['#post_render'] = ['hwc_content_post_render'];
   if (drupal_is_front_page()) {
     unset($vars['page']['content']['system_main']['default_message']);
@@ -382,18 +565,34 @@ function hwc_frontend_preprocess_page(&$vars) {
     $vars['classes_array'][] = 'page-search';
   }
 
+  $tag_vars = array(
+    'element' => array(
+      '#tag' => 'h1',
+      '#attributes' => array(
+        'class' => array('page-header'),
+      ),
+    ),
+  );
   $vars['show_title'] = TRUE;
   // Add back to links (e.g. Back to news).
+
+  if ((arg(0) == 'node') && (arg(2) == 'news')) {
+    $tag_vars['element']['#value'] = t('News');
+    $vars['page']['above_title']['title-alternative'] = array(
+      '#type' => 'item',
+      '#markup' => theme('html_tag', $tag_vars),
+    );
+  }
+  if ((arg(0) == 'node') && (arg(2) == 'events')) {
+    $tag_vars['element']['#value'] = t('Events');
+    $vars['page']['above_title']['title-alternative'] = array(
+      '#type' => 'item',
+      '#markup' => theme('html_tag', $tag_vars),
+    );
+  }
+
   if (isset($vars['node'])) {
     $node = $vars['node'];
-    $tag_vars = array(
-      'element' => array(
-        '#tag' => 'h1',
-        '#attributes' => array(
-          'class' => array('page-header'),
-        ),
-      ),
-    );
     switch ($node->type) {
       case "tk_section":
       case 'tk_article':
@@ -405,13 +604,29 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'document':
-        $link_href = 'good-practice-exchange-platform';
-        $link_title = t('Back to the Good practice exchange platform');
+        if (arg(2) == 'edit') {
+          $tag_vars['element']['#value'] = t('Upload information');
+        }
+        else {
+          $tag_vars['element']['#value'] = t('Document');
+        }
+        $vars['page']['above_title']['title-document'] = array(
+          '#type' => 'item',
+          '#markup' => theme('html_tag', $tag_vars),
+        );
         break;
 
       case 'publication':
-        if ($node->field_publication_type[LANGUAGE_NONE][0]['tid'] == 521 /* Case Studies */) {
+        if ($node->field_publication_type[LANGUAGE_NONE][0]['tid'] == CASE_STUDY_TID) {
           $tag_vars['element']['#value'] = t('Case studies');
+          $vars['page']['above_title']['title-alternative'] = array(
+            '#type' => 'item',
+            '#markup' => theme('html_tag', $tag_vars),
+          );
+          break;
+        }
+        if ($node->field_publication_type[LANGUAGE_NONE][0]['tid'] == CAMPAIGN_MATERIALS_TID) {
+          $tag_vars['element']['#value'] = t('Campaign materials');
           $vars['page']['above_title']['title-alternative'] = array(
             '#type' => 'item',
             '#markup' => theme('html_tag', $tag_vars),
@@ -426,11 +641,42 @@ function hwc_frontend_preprocess_page(&$vars) {
         );
         break;
 
+      case 'youtube':
+        $breadcrumb[] = l(t('Home'), '<front>');
+        $breadcrumb[] = l(t('Media centre'), 'media-centre');
+        $breadcrumb[] = l(t('Newsletter'), 'media-centre/newsletter');
+        if ($newsletter = hwc_frontend_get_newsletter_name($node->nid)) {
+          $breadcrumb[] = l($newsletter->title, 'entity-collection/' . $newsletter->name);
+        }
+        $breadcrumb[] = $node->title;
+        drupal_set_breadcrumb($breadcrumb);
+        drupal_set_title(t('Audiovisual'));
+        break;
+
+      case 'spotlight':
+
+        $breadcrumb = array();
+        $breadcrumb[] = l(t('Home'), '<front>');
+        $breadcrumb[] = l(t('Media centre'), 'media-centre');
+        $breadcrumb[] = l(t('Newsletter'), 'media-centre/newsletter');
+        if ($newsletter = hwc_frontend_get_newsletter_name($node->nid)) {
+          $breadcrumb[] = l($newsletter->title, 'entity-collection/' . $newsletter->name);
+        }
+        $breadcrumb[] = $node->title;
+        drupal_set_breadcrumb($breadcrumb);
+        drupal_set_title(t('In the spotlight'));
+        break;
+
       case 'press_release':
-        $link_title = t('Back to press releases list');
-        $link_href = 'media-centre/press-room';
+        $breadcrumb = array();
+        $breadcrumb[] = l(t('Home'), '<front>');
+        $breadcrumb[] = l(t('Media centre'), 'media-centre');
+        $breadcrumb[] = l(t('Press room'), 'media-centre/press-room');
+        $breadcrumb[] = l(t('Press room news'), 'media-centre/press-room/press-room-news');
+        $breadcrumb[] = $node->title;
+        drupal_set_breadcrumb($breadcrumb);
         $tag_vars['element']['#value'] = t('Press releases');
-        $vars['page']['above_title']['title-alternative'] = array(
+        $vars['page']['above_title']['press-room-page-title'] = array(
           '#type' => 'item',
           '#markup' => theme('html_tag', $tag_vars),
         );
@@ -447,9 +693,7 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'campaign_materials':
-        $link_title = t('Back to campaign materials list');
-        $link_href = 'campaign-materials';
-        $tag_vars['element']['#value'] = t('Campaign materials');
+        $tag_vars['element']['#value'] = t(variable_get('campaign_resources_title', 'Campaign Resources'));
         $vars['page']['above_title']['title-alternative'] = array(
           '#type' => 'item',
           '#markup' => theme('html_tag', $tag_vars),
@@ -457,22 +701,31 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'practical_tool':
-        $link_title = t('Back to practical tools list');
-        $link_href = 'tools-and-publications/practical-tools';
-        if (isset($_REQUEST['destination'])) {
-          $destination = drupal_get_destination();
-          $vars['page']['below_title']['back-to-link'] = array(
-            '#type' => 'item',
-            '#markup' => '<a class="back-to-link pull-right" href="' . strip_tags($destination['destination']) . '">' . $link_title . '</a>',
-          );
-          unset($link_title);
-        }
         $tag_vars['element']['#value'] = t('Practical tools and guidance');
-        $vars['page']['below_title']['practical-tool-page-title'] = array(
+        $vars['page']['above_title']['title-alternative'] = array(
           '#type' => 'item',
           '#markup' => theme('html_tag', $tag_vars),
         );
-        krsort($vars['page']['below_title']);
+        break;
+
+      case 'pa_highlights':
+        $breadcrumb[] = l(t('Home'), '<front>');
+        $breadcrumb[] = l(t('About the topic'), 'about-topic');
+        $breadcrumb[] = l(t('Priority areas'), 'about-topic/priority-areas');
+        $pa = hwc_priority_areas_pa_highlights_pa_title($node->nid);
+        if ($pa) {
+          $breadcrumb[] = l($pa->title, 'node/' . $pa->nid);
+          $breadcrumb[] = $node->title;
+          drupal_set_breadcrumb($breadcrumb);
+          $tag_vars['element']['#value'] = $pa->title;
+        }
+        else {
+          $tag_vars['element']['#value'] = t(variable_get('pa_highlights_title', 'News'));
+        }
+        $vars['page']['above_title']['news-page-title'] = array(
+          '#type' => 'item',
+          '#markup' => theme('html_tag', $tag_vars),
+        );
         break;
 
       case 'news':
@@ -484,9 +737,6 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'events':
-        $date = new DateTime($node->field_start_date['und'][0]['value']);
-        $now = new DateTime('today');
-
         $breadcrumb = array();
         $breadcrumb[] = l(t('Home'), '<front>');
         $breadcrumb[] = l(t('Media centre'), 'media-centre');
@@ -559,8 +809,11 @@ function hwc_frontend_preprocess_page(&$vars) {
     if ($node->type == 'publication') {
       ctools_include('plugins');
       ctools_include('context');
-      if ($node->field_publication_type[LANGUAGE_NONE][0]['tid'] == 521 /* Case Studies */) {
+      if ($node->field_publication_type[LANGUAGE_NONE][0]['tid'] == CASE_STUDY_TID) {
         $pb = path_breadcrumbs_load_by_name('case_studies_detail_page');
+      }
+      else if ($node->field_publication_type[LANGUAGE_NONE][0]['tid'] == CAMPAIGN_MATERIALS_TID) {
+        $pb = path_breadcrumbs_load_by_name('campaign_materials_details_page');
       }
       else {
         $pb = path_breadcrumbs_load_by_name('publications_detail_page');
@@ -593,6 +846,16 @@ function hwc_frontend_preprocess_page(&$vars) {
       drupal_set_breadcrumb($breadcrumb);
     }
   }
+
+  if (arg(2) == 'search-toolkit-examples') {
+    $vars['theme_hook_suggestions'][] = 'page__search_toolkit_examples';
+    $tag_vars['element']['#value'] = t('Campaign toolkit');
+    $vars['page']['above_title']['title-alternative'] = array(
+      '#type' => 'item',
+      '#markup' => theme('html_tag', $tag_vars),
+    );
+  }
+
   if (arg(0) == 'entity-collection') {
     $breadcrumb = [];
     $breadcrumb[] = l(t('Home'), '<front>');
@@ -757,16 +1020,23 @@ function hwc_frontend_preprocess_node(&$vars) {
     }
   }
 
-  //Add template to external infographic code. node--external-infographic.tpl.php - MDR-2432
+  $vars['hide_title'] = FALSE;
+  $active_trail = menu_get_active_trail();
+  if (!_hwc_frontend_allow_title($active_trail)) {
+    $vars['hide_title'] = TRUE;
+  }
+
   $n = menu_get_object('node');
   if ($n) {
     switch ($n->type) {
       case "article":
-        if ($n->field_article_type[LANGUAGE_NONE][0]['tid'] == 73) {
+        if ($n->field_article_type[LANGUAGE_NONE][0]['tid'] == HWC_INTRODUCTION_ARTICLE) {
           $vars['classes_array'][] = 'introductory-page';
         }
         $external_infographic = variable_get('hwc_external_infographic_nid', 7150);
         if ($n->nid == $external_infographic) {
+          // Add template to external infographic code.
+          // node--external-infographic.tpl.php - MDR-2432.
           $vars['theme_hook_suggestions'][] = 'node__external_infographic';
         }
     }
@@ -1272,4 +1542,44 @@ function hwc_frontend_top_anchor(&$vars) {
     'html' => TRUE,
   );
   $vars['top_anchor'] = l('<img alt="Anchor to top" src="'.file_create_url(path_to_theme().'/images/anchor-top.png').'" />', '', $options);
+}
+
+
+
+// Create a theme function that can be overridden by other theme developers.
+function hwc_frontend_text_resize_block() {
+  // Add js, css, and library
+  $content = array(
+    '#attached' => array(
+      'js' => array(
+        array(
+          'data' => "var text_resize_scope = " . drupal_json_encode(variable_get('text_resize_scope', 'main')) . ";
+          var text_resize_minimum = " . drupal_json_encode(variable_get('text_resize_minimum', '12')) . ";
+          var text_resize_maximum = " . drupal_json_encode(variable_get('text_resize_maximum', '25')) . ";
+          var text_resize_line_height_allow = " . drupal_json_encode(variable_get('text_resize_line_height_allow', FALSE)) . ";
+          var text_resize_line_height_min = " . drupal_json_encode(variable_get('text_resize_line_height_min', 16)) . ";
+          var text_resize_line_height_max = " . drupal_json_encode(variable_get('text_resize_line_height_max', 36)) . ";",
+          'type' => 'inline',
+        ),
+        array(
+          'data' => drupal_get_path('module', 'text_resize') . '/text_resize.js',
+          'type' => 'file',
+        )
+      ),
+      'css' => array(
+        drupal_get_path('module', 'text_resize') . '/text_resize.css',
+      ),
+      'library' => array(
+        array('system', 'jquery.cookie')
+      ),
+    ),
+  );
+  if (variable_get('text_resize_reset_button', FALSE) == TRUE) {
+    $content['#markup'] = t('<a href="javascript:;" class="changer" title="Smaller text" id="text_resize_decrease"><sup>-</sup>A</a> <a href="javascript:;" class="changer" id="text_resize_reset">A</a> <a href="javascript:;" class="changer" title="Bigger text" id="text_resize_increase"><sup>+</sup>A</a><div id="text_resize_clear"></div>');
+  }
+  else {
+    $content['#markup'] = t('<a href="javascript:;" class="changer" title="Smaller text" id="text_resize_decrease"><sup>-</sup>A</a> <a href="javascript:;" class="changer" title="Bigger text" id="text_resize_increase"><sup>+</sup>A</a><div id="text_resize_clear"></div>');
+  }
+
+  return render($content);
 }
