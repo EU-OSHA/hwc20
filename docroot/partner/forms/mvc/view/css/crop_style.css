@@ -11,8 +11,8 @@
 
 .imageBox .thumbBox {
     position: absolute;
-    width  : 152px;
-    height : 152px;
+    width  : 222px;
+    height : 222px;
     box-sizing: border-box;
     border: 1px solid rgb(102, 102, 102);
     box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);

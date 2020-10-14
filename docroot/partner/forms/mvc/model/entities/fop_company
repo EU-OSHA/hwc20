@@ -147,7 +147,6 @@
     "company_osh_generalemail": {
       "name": "company_osh_generalemail",
       "label": "General email Address",
-      "publicProfile": "publicProfile",
       "section": "GENERAL_INFORMATION",
       "type": "text",
       "validator": [
