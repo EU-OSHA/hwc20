@@ -200,6 +200,12 @@ function hwc_previous_campaigns_strongarm() {
             'visible' => TRUE,
           ),
         ),
+        'bottom_share_widget' => array(
+          'default' => array(
+            'weight' => '3',
+            'visible' => FALSE,
+          ),
+        ),
       ),
     ),
   );
@@ -295,6 +301,12 @@ function hwc_previous_campaigns_strongarm() {
           'default' => array(
             'weight' => '0',
             'visible' => TRUE,
+          ),
+        ),
+        'bottom_share_widget' => array(
+          'default' => array(
+            'weight' => '3',
+            'visible' => FALSE,
           ),
         ),
       ),
@@ -413,7 +425,7 @@ function hwc_previous_campaigns_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'xmlsitemap_settings_node_campaign_16';
   $strongarm->value = array(
-    'status' => '0',
+    'status' => '1',
     'priority' => '0.5',
   );
   $export['xmlsitemap_settings_node_campaign_16'] = $strongarm;
@@ -423,7 +435,7 @@ function hwc_previous_campaigns_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'xmlsitemap_settings_node_campaign_18';
   $strongarm->value = array(
-    'status' => '0',
+    'status' => '1',
     'priority' => '0.5',
   );
   $export['xmlsitemap_settings_node_campaign_18'] = $strongarm;

@@ -1,23 +1,12 @@
 (function($){
     Drupal.behaviors.publication_form_submit = {
         attach: function (context, settings) {
-            jQuery('#osha-publication-menu-case-studies-form .field-files a, #osha-publication-menu-publications-form .field-files a').attr('target','_blank');
-            jQuery('#osha-publication-download-form select').change(function () {
-                if (jQuery('#edit-selected option:selected').length == 1) {
-                    var lang = jQuery('#edit-selected option:selected').val();
-                    var href = Drupal.settings.osha_publication.links[lang];
-                    jQuery('#osha-publication-download-form #download_pdf').attr('href', href);
-                }
-            });
-            jQuery('#osha-publication-download-form #download_pdf').click(function (e) {
-                if (jQuery('#edit-selected option:selected').length != 1) {
-                    e.preventDefault();
-                    var $form = $(this).closest('form');
-                    $form.submit();
-                }
-            });
-
-            var $form = $('#osha-publication-menu-case-studies-form, #osha-publication-menu-publications-form');
+            jQuery('#osha-publication-menu-case-studies-form .field-files a,' +
+              '#osha-publication-menu-campaign-materials-form .field-files a,' +
+              '#osha-publication-menu-publications-form .field-files a').attr('target','_blank');
+            var $form = $('#osha-publication-menu-case-studies-form,' +
+              '#osha-publication-menu-campaign-materials-form,' +
+              '#osha-publication-menu-publications-form');
             $form.find('input[type=checkbox]').click(function () {
                 var $container = $(this).closest('.form-checkboxes');
                 if ($(this).val() != 0) {
@@ -44,7 +33,9 @@
     Drupal.behaviors.publication_toggle_facets = {
         attach: function (context, settings) {
 
-            $('#osha-publication-menu-case-studies-form, #osha-publication-menu-publications-form').once('publication_toggle_facets', function () {
+            $('#osha-publication-menu-case-studies-form,' +
+              '#osha-publication-menu-campaign-materials-form,' +
+              '#osha-publication-menu-publications-form').once('publication_toggle_facets', function () {
                 $('.form-checkboxes.search-facet-field').hide();
                 $('#edit-field-priority-area').show();
                 $('#edit-field-publication-type').show();

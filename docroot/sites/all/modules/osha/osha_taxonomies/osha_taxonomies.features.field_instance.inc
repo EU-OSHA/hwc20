@@ -123,43 +123,6 @@ function osha_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-contact_topic-name_field'.
-  $field_instances['taxonomy_term-contact_topic-name_field'] = array(
-    'bundle' => 'contact_topic',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'name_field',
-    'label' => 'Name',
-    'required' => TRUE,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'hide_label' => array(
-        'entity' => FALSE,
-        'page' => FALSE,
-      ),
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => -5,
-    ),
-  );
-
   // Exported field_instance: 'taxonomy_term-contact_type_of_sender-name_field'.
   $field_instances['taxonomy_term-contact_type_of_sender-name_field'] = array(
     'bundle' => 'contact_type_of_sender',
@@ -197,9 +160,9 @@ function osha_taxonomies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-esener-description_field'.
-  $field_instances['taxonomy_term-esener-description_field'] = array(
-    'bundle' => 'esener',
+  // Exported field_instance: 'taxonomy_term-msd_glossary-description_field'.
+  $field_instances['taxonomy_term-msd_glossary-description_field'] = array(
+    'bundle' => 'msd_glossary',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -208,7 +171,7 @@ function osha_taxonomies_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'taxonomy_term',
@@ -232,50 +195,13 @@ function osha_taxonomies_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 1,
+      'weight' => -5,
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-esener-field_esener_code'.
-  $field_instances['taxonomy_term-esener-field_esener_code'] = array(
-    'bundle' => 'esener',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'text_default',
-        'weight' => 3,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'field_esener_code',
-    'label' => 'Code',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 30,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 10,
-    ),
-  );
-
-  // Exported field_instance: 'taxonomy_term-esener-name_field'.
-  $field_instances['taxonomy_term-esener-name_field'] = array(
-    'bundle' => 'esener',
+  // Exported field_instance: 'taxonomy_term-msd_glossary-name_field'.
+  $field_instances['taxonomy_term-msd_glossary-name_field'] = array(
+    'bundle' => 'msd_glossary',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -284,7 +210,7 @@ function osha_taxonomies_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 0,
       ),
     ),
     'entity_type' => 'taxonomy_term',
@@ -306,7 +232,7 @@ function osha_taxonomies_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 0,
+      'weight' => -5,
     ),
   );
 

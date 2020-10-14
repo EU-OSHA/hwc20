@@ -731,9 +731,9 @@ el.remove();
   $strongarm->api_version = 1;
   $strongarm->name = 'exclude_node_title_content_type_modes_internal_url';
   $strongarm->value = array(
-    'full' => 'full',
     'teaser' => 'teaser',
     'osha_resources' => 'osha_resources',
+    'full' => 0,
     'rss' => 0,
     'search_index' => 0,
     'search_result' => 0,
@@ -841,9 +841,6 @@ el.remove();
         'custom_settings' => TRUE,
       ),
       'highlights_item_alternative' => array(
-        'custom_settings' => TRUE,
-      ),
-      'hwc_teaser' => array(
         'custom_settings' => TRUE,
       ),
     ),
@@ -1622,7 +1619,7 @@ el.remove();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_youtube_pattern';
-  $strongarm->value = 'additional-resources/youtube/[node:title]';
+  $strongarm->value = '';
   $export['pathauto_node_youtube_pattern'] = $strongarm;
 
   $strongarm = new stdClass();

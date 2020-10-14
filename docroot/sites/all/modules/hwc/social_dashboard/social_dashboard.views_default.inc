@@ -244,66 +244,6 @@ function social_dashboard_views_default_views() {
     15 => 0,
   );
 
-  /* Display: Facebook world */
-  $handler = $view->new_display('block', 'Facebook world', 'facebook');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['defaults']['use_more'] = FALSE;
-  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
-  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_always'] = TRUE;
-  $handler->display->display_options['defaults']['use_more_text'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'More Tweets';
-  $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Header: Global: Unfiltered text */
-  $handler->display->display_options['header']['area_text_custom']['id'] = 'area_text_custom';
-  $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
-  $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
-  $handler->display->display_options['header']['area_text_custom']['content'] = '<h2><a href="__social_link__">Facebook</a></h2>';
-  $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Footer: Global: Unfiltered text */
-  $handler->display->display_options['footer']['area_text_custom']['id'] = 'area_text_custom';
-  $handler->display->display_options['footer']['area_text_custom']['table'] = 'views';
-  $handler->display->display_options['footer']['area_text_custom']['field'] = 'area_text_custom';
-  $handler->display->display_options['footer']['area_text_custom']['content'] = '<div class="more-link">
-  <a href="https://www.facebook.com/EuropeanAgencyforSafetyandHealthatWork" target="_blank">
-    See more on Facebook  </a>
-</div>
-';
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['filter_groups']['operator'] = 'OR';
-  $handler->display->display_options['filter_groups']['groups'] = array(
-    1 => 'OR',
-    2 => 'AND',
-  );
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Dashboard item: Source */
-  $handler->display->display_options['filters']['source']['id'] = 'source';
-  $handler->display->display_options['filters']['source']['table'] = 'dashboard_item';
-  $handler->display->display_options['filters']['source']['field'] = 'source';
-  $handler->display->display_options['filters']['source']['value'] = 'facebook';
-  $handler->display->display_options['filters']['source']['group'] = 1;
-  $handler->display->display_options['filters']['source']['expose']['operator_id'] = 'source_op';
-  $handler->display->display_options['filters']['source']['expose']['label'] = 'Source';
-  $handler->display->display_options['filters']['source']['expose']['operator'] = 'source_op';
-  $handler->display->display_options['filters']['source']['expose']['identifier'] = 'source';
-  $handler->display->display_options['filters']['source']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-    5 => 0,
-    6 => 0,
-    7 => 0,
-    8 => 0,
-    9 => 0,
-    10 => 0,
-    11 => 0,
-  );
-
   /* Display: Twitter world */
   $handler = $view->new_display('block', 'Twitter world', 'twitter');
   $handler->display->display_options['defaults']['title'] = FALSE;
@@ -363,72 +303,6 @@ function social_dashboard_views_default_views() {
     10 => 0,
     11 => 0,
   );
-
-  /* Display: Linkedin world */
-  $handler = $view->new_display('block', 'Linkedin world', 'linkedin');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['defaults']['use_more'] = FALSE;
-  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
-  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_always'] = TRUE;
-  $handler->display->display_options['defaults']['use_more_text'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'More Tweets';
-  $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Header: Global: Unfiltered text */
-  $handler->display->display_options['header']['area_text_custom']['id'] = 'area_text_custom';
-  $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
-  $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
-  $handler->display->display_options['header']['area_text_custom']['empty'] = TRUE;
-  $handler->display->display_options['header']['area_text_custom']['content'] = '<h2><a href="__social_link__">Linkedin</a></h2>';
-  $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Footer: Global: Unfiltered text */
-  $handler->display->display_options['footer']['area_text_custom']['id'] = 'area_text_custom';
-  $handler->display->display_options['footer']['area_text_custom']['table'] = 'views';
-  $handler->display->display_options['footer']['area_text_custom']['field'] = 'area_text_custom';
-  /*MDR-3035 Media Centre - See more on LinkedIn button*/
-  $handler->display->display_options['footer']['area_text_custom']['content'] = '<div class="more-link">
-  <a href="https://www.linkedin.com/company/european-agency-for-safety-and-health-at-work" target="_blank">
-    See more on Linkedin  </a>
-</div>';
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['filter_groups']['operator'] = 'OR';
-  $handler->display->display_options['filter_groups']['groups'] = array(
-    1 => 'OR',
-    2 => 'AND',
-  );
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Dashboard item: Source */
-  $handler->display->display_options['filters']['source']['id'] = 'source';
-  $handler->display->display_options['filters']['source']['table'] = 'dashboard_item';
-  $handler->display->display_options['filters']['source']['field'] = 'source';
-  $handler->display->display_options['filters']['source']['value'] = 'linkedin';
-  $handler->display->display_options['filters']['source']['group'] = 1;
-  $handler->display->display_options['filters']['source']['expose']['operator_id'] = 'source_op';
-  $handler->display->display_options['filters']['source']['expose']['label'] = 'Source';
-  $handler->display->display_options['filters']['source']['expose']['operator'] = 'source_op';
-  $handler->display->display_options['filters']['source']['expose']['identifier'] = 'source';
-  $handler->display->display_options['filters']['source']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-    5 => 0,
-    6 => 0,
-    7 => 0,
-    8 => 0,
-    9 => 0,
-    10 => 0,
-    11 => 0,
-    12 => 0,
-    13 => 0,
-    16 => 0,
-    14 => 0,
-    15 => 0,
-  );
   $translatables['social_dashboard'] = array(
     t('Master'),
     t('Social media centre'),
@@ -459,13 +333,6 @@ function social_dashboard_views_default_views() {
     t('Page'),
     t('Latest Tweets'),
     t('More social media'),
-    t('Facebook world'),
-    t('<h2><a href="__social_link__">Facebook</a></h2>'),
-    t('<div class="more-link">
-  <a href="https://www.facebook.com/EuropeanAgencyforSafetyandHealthatWork" target="_blank">
-    See more on Facebook  </a>
-</div>
-'),
     t('Twitter world'),
     t('<h2><a href="__social_link__">Twitter</a></h2>'),
     t('<div class="more-link">
@@ -473,12 +340,6 @@ function social_dashboard_views_default_views() {
     See more on Twitter  </a>
 </div>
 '),
-    t('Linkedin world'),
-    t('<h2><a href="__social_link__">Linkedin</a></h2>'),
-    t('<div class="more-link">
-  <a href="https://www.linkedin.com/company/european-agency-for-safety-and-health-at-work" target="_blank">
-    See more on Linkedin  </a>
-</div>'),
   );
   $export['social_dashboard'] = $view;
 

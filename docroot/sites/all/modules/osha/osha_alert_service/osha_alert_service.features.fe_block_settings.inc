@@ -58,7 +58,7 @@ node/50',
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => -60,
+        'weight' => 9,
       ),
       'seven' => array(
         'region' => 'content',

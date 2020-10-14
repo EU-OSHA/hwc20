@@ -216,3 +216,56 @@ function hwc_practical_tool_update_7028() {
   features_revert(array('hwc_practical_tool' => 'field_base'));
   features_revert(array('hwc_practical_tool' => 'field_instance'));
 }
+
+/**
+ * HW20-303 Development Practical tool (list, detail).
+ */
+function hwc_practical_tool_update_7029() {
+  $field_names = [
+    'field_activity',
+    'field_country',
+    'field_first_publication_date',
+    'field_migration_path_alias',
+    'field_summary',
+    'field_access_tool_link_fc',
+    'field_fc_provider',
+    'field_additional_information',
+    'field_biological_hazard',
+    'field_biological_hazard_other',
+    'field_cas_number',
+    'field_ec_number',
+    'field_exposure_route',
+    'field_exposure_route_other',
+    'field_external_urls',
+    'field_free',
+    'field_hazard_health_effects',
+    'field_hazard_physical_other',
+    'field_hazard_physical_state',
+    'field_item_type',
+    'field_material_purpose_type',
+    'field_objective',
+    'field_prevention_measure_type',
+    'field_provider',
+    'field_sector_industry_other',
+    'field_target_group',
+    'field_tasks_covered',
+    'field_tasks_other',
+    'field_tool_type',
+    'field_visualisation_mat_other',
+    'field_visualisation_material_typ',
+    'field_worker_groups_type',
+  ];
+  foreach($field_names as $field_name) {
+    if ($instance = field_info_instance('node', $field_name, 'practical_tool')) {
+      field_delete_instance($instance);
+    }
+  }
+  features_revert_module('hwc_practical_tool');
+}
+
+/**
+ * HW20-303 Development Practical tool (list, detail).
+ */
+function hwc_practical_tool_update_7030() {
+  features_revert_module('hwc_practical_tool');
+}

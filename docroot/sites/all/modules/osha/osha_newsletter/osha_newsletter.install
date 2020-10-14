@@ -256,3 +256,102 @@ function osha_newsletter_update_7012() {
     entity_save('entity_collection', $source);
   }
 }
+
+/**
+ * HW20-213HWC20 Development of the complete HWC20 Newsletter.
+ */
+function osha_newsletter_update_7013() {
+//  features_revert_module('osha_newsletter');
+}
+
+/**
+ * HW20-213HWC20 Development of the complete HWC20 Newsletter.
+ */
+function osha_newsletter_update_7014() {
+  features_revert_module('osha_newsletter');
+}
+
+/**
+ * HW20-459 Development of the Newsletter.
+ */
+function osha_newsletter_update_7015() {
+  features_revert_module('osha_newsletter');
+}
+
+/**
+ * HW20-733 Create a 'In the Spotlight' detail page for the section of the newsletter.
+ */
+function osha_newsletter_update_7016() {
+  features_revert_module('osha_newsletter');
+}
+
+/**
+ * HW20-733 Create a 'In the Spotlight' detail page for the section of the newsletter.
+ */
+function osha_newsletter_update_7017() {
+  variable_set('pathauto_node_spotlight_pattern', '');
+  variable_set('pathauto_node_youtube_pattern', '');
+  $term_mapping = variable_get('osha_newsletter_term_ct_map');
+  $term_mapping['spotlight'] = '4f57cadd-a3dd-406d-981a-dfea0853c54e';
+  $term_mapping['view_mode_spotlight'] = 'highlights_item';
+  $term_mapping['view_mode_youtube'] = 'highlights_item';
+//  $term_mapping['youtube'] = '979857c2-d783-4bf9-8899-88259bc04a86';
+  variable_set('osha_newsletter_term_ct_map', $term_mapping);
+}
+
+/**
+ * MHWC-72 Spotlight content should be able to display copyright.
+ */
+function osha_newsletter_update_7018() {
+  features_revert(array('osha_newsletter' => array('field_instance')));
+}
+
+/**
+ * HW20-819 Newsletter Unsubscribe: the link should be embedded.
+ */
+function osha_newsletter_update_7019() {
+  variable_set('unsubscribe_campaign_news_text', '');
+  variable_set('unsubscribe_campaign_news_url', '');
+}
+
+/**
+ * MHWC-57 Newsletter: In the spotlight in the backend.
+ */
+function osha_newsletter_update_7020() {
+  $name = 'In the spotlight';
+  $term = taxonomy_get_term_by_name($name);
+  if (empty($term)) {
+    $voc = taxonomy_vocabulary_machine_name_load('newsletter_sections');
+    $term = new stdClass();
+    $term->vid = $voc->vid;
+    $term->name = $name;
+    $term->weight = 5;
+    $term->language = 'en';
+    taxonomy_term_save($term);
+  }
+}
+
+/**
+ * MHWC-57 Newsletter: In the spotlight in the backend.
+ */
+function osha_newsletter_update_7021() {
+  $active_sections = variable_get('osha_newsletter_active_sections', []);
+  $name = 'In the spotlight';
+  $term = taxonomy_get_term_by_name($name);
+  $term = current($term);
+  $active_sections[] = intval($term->tid);
+  variable_set('osha_newsletter_active_sections', $active_sections);
+}
+
+/**
+ * MHWC-57 Newsletter: In the spotlight in the backend.
+ */
+function osha_newsletter_update_7022() {
+  $name = 'In the spotlight';
+  $term = taxonomy_get_term_by_name($name);
+  $term = current($term);
+  $term_mapping = variable_get('osha_newsletter_term_ct_map');
+  $term_mapping['spotlight'] = $term->uuid;
+  variable_set('osha_newsletter_term_ct_map', $term_mapping);
+}
+

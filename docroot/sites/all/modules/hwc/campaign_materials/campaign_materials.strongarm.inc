@@ -161,6 +161,15 @@ function campaign_materials_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'priority_areas' => array(
+        'custom_settings' => TRUE,
+      ),
+      'hwc_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'highlights_item_alternative' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -242,6 +251,16 @@ function campaign_materials_strongarm() {
   $strongarm->name = 'pathauto_node_campaign_materials_pattern';
   $strongarm->value = 'campaign-materials/[node:title]';
   $export['pathauto_node_campaign_materials_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'xmlsitemap_settings_node_campaign_materials';
+  $strongarm->value = array(
+    'status' => '0',
+    'priority' => '0.5',
+  );
+  $export['xmlsitemap_settings_node_campaign_materials'] = $strongarm;
 
   return $export;
 }

@@ -25,6 +25,10 @@ function hwc_admin_reports_views_pre_view(&$view, &$display_id, &$args) {
  * Implements hook_form_views_exposed_form_alter().
  */
 function hwc_admin_reports_form_views_exposed_form_alter(&$form, &$form_state) {
+  if ($form['#id'] == 'views-exposed-form-rel-res-page') {
+    $form['field_resource_type_value']['#attributes'] = array('data-placeholder' => t('Campaign'));
+  }
+
   $report_forms = array(
     'views-exposed-form-content-reports-news',
     'views-exposed-form-content-reports-events',

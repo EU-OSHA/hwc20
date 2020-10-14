@@ -166,3 +166,32 @@ function hwc_toolkit_update_7022() {
 function hwc_toolkit_update_7023() {
   features_revert(array('hwc_toolkit' => array('path_breadcrumbs')));
 }
+
+/**
+ * HW20-208 HWC20 Development of the HWC20 CampaignToolkit.
+ */
+function hwc_toolkit_update_7024() {
+  features_revert_module('hwc_toolkit');
+}
+
+/**
+ * Search Toolkit Examples.
+ */
+function hwc_toolkit_update_7025() {
+  features_revert(array('hwc_toolkit' => array('views_view')));
+}
+
+/**
+ * HW20-481 UX: All content should be clickable.
+ */
+function hwc_toolkit_update_7026() {
+  features_revert(array('hwc_toolkit' => array('field_instance')));
+  features_revert(array('osha_news' => array('views_view')));
+}
+
+/**
+ * MHWC-227 Campaign toolkit examples coherence between maximum number in the front end and backend.
+ */
+function hwc_toolkit_update_7027() {
+  features_revert(array('hwc_toolkit' => array('views_view')));
+}

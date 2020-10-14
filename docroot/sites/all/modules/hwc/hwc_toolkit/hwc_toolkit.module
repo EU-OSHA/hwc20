@@ -161,7 +161,7 @@ function hwc_toolkit_field_formatter_view($entity_type, $entity, $field, $instan
     case 'hwc_toolkit_term_title':
       $output = isset($items[0]) ? $items[0]['safe_value'] : '';
       if (!empty($output)) {
-        $output = '<h1>' . $output . '</h1>';
+        $output = '<h2 class="toolkit-h2">' . $output . '</h2>';
       }
       $element = array(array('#markup' => $output));
       break;
@@ -516,7 +516,7 @@ function hwc_toolkit_get_left_menu($active_id) {
   $colors[$levels[2]] = 'blue';
 
   hwc_toolkit_menu_breadcrumbs(l(t('Home'), '<front>'));
-  hwc_toolkit_menu_breadcrumbs(t('Tools and publications'));
+  hwc_toolkit_menu_breadcrumbs(l(t('Tools and publications'), 'tools-and-publications'));
 
   $l_map = [];
   foreach ($menu as $l1_id => $menu_item1) {

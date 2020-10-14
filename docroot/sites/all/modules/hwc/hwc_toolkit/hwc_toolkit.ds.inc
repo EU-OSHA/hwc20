@@ -36,6 +36,13 @@ function hwc_toolkit_ds_field_settings_info() {
       'weight' => '0',
       'label' => 'hidden',
       'format' => 'default',
+      'formatter_settings' => array(
+        'link' => '0',
+        'wrapper' => 'h2',
+        'class' => 'toolkit-h2',
+        'exclude node title settings' => '1',
+        'field_formatter_class' => '',
+      ),
     ),
   );
   $export['node|tk_example|default'] = $ds_fieldsetting;
@@ -48,7 +55,7 @@ function hwc_toolkit_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'hwc_teaser';
   $ds_fieldsetting->settings = array(
     'node_link' => array(
-      'weight' => '3',
+      'weight' => '5',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -97,8 +104,8 @@ function hwc_toolkit_ds_field_settings_info() {
       'format' => 'default',
       'formatter_settings' => array(
         'link' => '0',
-        'wrapper' => 'h1',
-        'class' => '',
+        'wrapper' => 'h2',
+        'class' => 'toolkit-h2',
         'exclude node title settings' => '1',
         'field_formatter_class' => '',
       ),
@@ -134,8 +141,8 @@ function hwc_toolkit_ds_field_settings_info() {
       'format' => 'default',
       'formatter_settings' => array(
         'link' => '0',
-        'wrapper' => 'h1',
-        'class' => '',
+        'wrapper' => 'h2',
+        'class' => 'toolkit-h2',
         'exclude node title settings' => '1',
         'field_formatter_class' => '',
       ),
@@ -269,24 +276,24 @@ function hwc_toolkit_ds_layout_settings_info() {
     'regions' => array(
       'left' => array(
         0 => 'title',
-        1 => 'field_organisation',
-        2 => 'field_country',
-        3 => 'body',
-        4 => 'field_download_pdf',
-        5 => 'field_external_link',
+        2 => 'field_organisation',
+        3 => 'field_country',
+        4 => 'body',
+        5 => 'field_download_pdf',
+        6 => 'field_external_link',
       ),
       'right' => array(
-        6 => 'field_image',
+        1 => 'field_image',
       ),
     ),
     'fields' => array(
       'title' => 'left',
+      'field_image' => 'right',
       'field_organisation' => 'left',
       'field_country' => 'left',
       'body' => 'left',
       'field_download_pdf' => 'left',
       'field_external_link' => 'left',
-      'field_image' => 'right',
     ),
     'classes' => array(
       'layout_class' => array(
@@ -321,18 +328,18 @@ function hwc_toolkit_ds_layout_settings_info() {
       'right' => array(
         1 => 'title_field',
         2 => 'body',
-        3 => 'node_link',
-        4 => 'field_organisation',
-        5 => 'field_country',
+        3 => 'field_organisation',
+        4 => 'field_country',
+        5 => 'node_link',
       ),
     ),
     'fields' => array(
       'field_image' => 'left',
       'title_field' => 'right',
       'body' => 'right',
-      'node_link' => 'right',
       'field_organisation' => 'right',
       'field_country' => 'right',
+      'node_link' => 'right',
     ),
     'classes' => array(
       'layout_class' => array(),

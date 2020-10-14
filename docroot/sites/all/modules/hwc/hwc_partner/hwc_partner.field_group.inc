@@ -84,6 +84,7 @@ function hwc_partner_field_group_info() {
       0 => 'field_guid_main_contact',
       1 => 'field_main_contact',
       2 => 'field_main_contact_email',
+      3 => 'field_position_main_contact',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -121,6 +122,7 @@ function hwc_partner_field_group_info() {
       7 => 'title_field',
       8 => 'field_bussines_sector',
       9 => 'field_orgtype',
+      10 => 'field_website_email',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

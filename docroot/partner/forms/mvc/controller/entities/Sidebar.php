@@ -5,6 +5,7 @@
  * Controller for the sidebar
  * @author Eduardo Martos (eduardo.martos.gomez@everis.com)
  */
+
 class Sidebar extends Controller implements IController
 {
     /**
@@ -83,6 +84,12 @@ class Sidebar extends Controller implements IController
         }
         $sections = $params->get('sections_validated');
 
+        //Validate if main contact field are filled in order to push the menu in green
+        $mcname ="";
+        $mcsurname ="";
+        $mcemail="";
+
+
         foreach ($entities as $entity) {
             $model = new Model(strtolower($params->getUrlParamValue('entity') . '_' . ucfirst($entity)));
             $params->set('route', $entity);
@@ -105,8 +112,25 @@ class Sidebar extends Controller implements IController
             $primarycontactsection = false;
             $startsection = isset($_SESSION['basicRequirements']) && $_SESSION['basicRequirements'];
 
-
             foreach ($attributes as $name => &$attribute) {
+                
+                 /*if($params->getUrlParamValue('partner_type') == 'new' ){
+                  if($name=="contact_osh_mainemail" && $attribute->getValue()){
+                    $mcemail = $attribute->getValue();
+                  }
+                 if($name=="contact_osh_maincontactpersonfirstname" && $attribute->getValue()){
+                    $mcname = $attribute->getValue();
+                  }
+                   if($name=="contact_osh_maincontactpersonlastname" && $attribute->getValue()){
+                    $mcsurname = $attribute->getValue();
+                  }
+                 }*/
+                if($params->getUrlParamValue('partner_type') == 'new' ){
+                    if($name == "contact_osh_mainemail" && $attribute->getValue()){
+                        $primarycontactsection = true;
+                    }
+                } 
+
                 if($params->getUrlParamValue('partner_type') == 'current'){
                     if($name == "osh_primarycontactsection" && $attribute->getValue()){
                         $primarycontactsection = true;
@@ -212,6 +236,11 @@ class Sidebar extends Controller implements IController
         }
         $params->set('route', $originalRoute);
         error_log("EVE_CSM_5_" . var_export($sections, true));
+
+        if ($primarycontactsection == true){
+            $sections["PRIMARY_CONTACT"] = 1;
+        }
+
         return $sections;
     }
 

@@ -5,6 +5,7 @@
  * Abstract class for controllers
  * @author Eduardo Martos (eduardo.martos.gomez@everis.com)
  */
+
 abstract class Controller {
 
     /**
@@ -99,7 +100,8 @@ abstract class Controller {
                 'actionType' => $params->get('actionType'),
                 'disabled' => '',
                 'fieldsValidatingDialog' => $this->fieldsValidation(),
-                'route' => $params->get('route')
+                'route' => $params->get('route'),
+                'NewFromURL' => $params->get('NewFromURL')
             );
             // PDF version
             if ($isPrintable) {
@@ -153,11 +155,9 @@ abstract class Controller {
                 $session->setAttribute(Constants::SESSIONID_NAME, $sessionID);
             }
         }
-
         if ($mf = $params->get('maintenance_mode')) {
             $params->setUrlParamValue('maintenance_mode', $mf);
         }
-
         if (isset($_REQUEST['auth']))
             $_SESSION['auth'] = $_REQUEST['auth'];
 

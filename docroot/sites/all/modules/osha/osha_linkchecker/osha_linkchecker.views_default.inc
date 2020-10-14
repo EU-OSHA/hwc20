@@ -173,7 +173,7 @@ function osha_linkchecker_views_default_views() {
     t('next ›'),
     t('last »'),
     t('Linkchecker Node Links'),
-    t('Node'),
+    t('Content'),
     t('Code'),
     t('URL'),
     t('Title'),

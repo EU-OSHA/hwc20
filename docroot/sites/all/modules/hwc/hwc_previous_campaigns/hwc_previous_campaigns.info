@@ -1,7 +1,7 @@
 name = HWC Previous Campaigns
 core = 7.x
 package = HWC
-version = 7.x-1.2
+version = 7.x-1.3
 dependencies[] = ctools
 dependencies[] = entityreference_view_widget
 dependencies[] = features
@@ -78,4 +78,5 @@ features[variable][] = pathauto_node_campaign_16_pattern
 features[variable][] = pathauto_node_campaign_18_pattern
 features[variable][] = xmlsitemap_settings_node_campaign_16
 features[variable][] = xmlsitemap_settings_node_campaign_18
+features[views_view][] = rel_res
 features[views_view][] = related_resources

@@ -10,12 +10,13 @@
 }
 .newsletter-container,
 .template-container {
-  max-width: 800px;
-  width: 800px;
+  max-width: 840px;
+  width: 840px;
 }
+
 .content-container > td > table {
-  max-width: 760px;
-  width: 760px;
+  max-width: 800px;
+  width: 100%;
 }
 /* Gutter */
 .content-container > td {
@@ -42,6 +43,11 @@ p {
   margin: 10px 0 10px 0;
   font-size: 13px;
 }
+
+.field-name-field-summary p{
+  margin: 0;
+}
+
 table {
   font-family: Arial, sans-serif;
   font-size: 14px;
@@ -74,6 +80,11 @@ th {
   padding: 0px;
 }
 
+body iframe{
+  border: 0;
+  border-radius: 15px;
+}
+
 /* Header */
 .language-bar {
   background-color: #eeeeee;
@@ -84,21 +95,6 @@ th {
 .preheader .social {
   text-align: right;
   padding: 20px 20px 20px 8px;
-}
-
-.header-banner > tbody > tr > td {
-  padding: 17px 20px 0px 20px;
-  line-height: 1.1;
-}
-
-.header-banner > tbody > tr.intro > td {
-  padding: 14px 20px 28px 20px;
-  line-height: 1.1;
-}
-
-.header-banner > tbody > tr.intro > td p {
-  padding: 0;
-  margin: 0;
 }
 
 .header-date {
@@ -194,33 +190,85 @@ td.social {
   max-height: 50px;
   max-width: 100%;
 }
-.see-more {
-  color: #003399;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
+.see-more{
+    color: #003399;
+    font-size: 0.7rem !important;
+    border: 1px solid #003399;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    text-transform: uppercase;
+    padding: 2px 7px 2px 7px;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    display: block;
+    float: left;
+    position: relative;
+    text-decoration: none;
+    background: url(../../images/ico-plus-green.png) no-repeat 91% 4px #FFF;
+    padding-right: 2em;
 }
 
 .highlight-title {
-  font-family: Arial, sans-serif;
-  font-size: 20px;
-  font-weight: bold;
-  color: #003399;
-  text-decoration: none;
+    display: inline;
+    font-family: Oswald, Arial, sans-serif;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 18px;
+    vertical-align: middle;
+    text-decoration: none;
+    color: #003399;
+    line-height: 18px;
 }
 
 .newsletter-section .section-title {
   background-color: transparent;
-  color: #749b00;
+  color: #003399;
   border-style: none none solid none;
-  border-bottom-width: 4px;
-  border-bottom-color: #749b00;
+  border-bottom-width: 2px;
+  border-bottom-color: #003399;
   font-size: 20px;
-  font-weight: bold;
-  height: 25px;
+  height: 20px;
   text-align: left;
   text-transform: none;
   padding: 20px 0 0 0;
+  line-height: 25px;
+}
+.newsletter-section .section-title.events {
+  vertical-align: top;
+  padding: 0;
+  color: #003399;
+  font-size: 19px;
+  height: 20px;
+  padding-top: 40px;
+  line-height: 25px;
+}
+
+.newsletter-section .section-title.twitter {
+  vertical-align: top;
+  padding: 0;
+  color: #003399;
+  font-size: 19px;
+  height: 20px;
+  line-height: 25px;
+}
+
+.newsletter-section.section-audiovisual thead tr th span{
+  vertical-align: top;
+  padding: 0;
+  color: #003399;
+  font-size: 19px;
+  height: 20px;
+}
+
+.newsletter-section .section-title span{
+  margin-left: 0;
+  display: inline-block;
 }
 
 .newsletter-section .item {
@@ -229,7 +277,7 @@ td.social {
 }
 .newsletter-section + .view-all {
   border: 0;
-  border-top: 1px dotted #749b00;
+  border-top: 1px dotted #a5bd1d;
   width: 100%;
   display: block;
   text-align: right;
@@ -243,10 +291,6 @@ td.social {
   padding-top: 5px;
   padding-bottom: 5px;
 }
-.item.newsletter-full-width-details-item {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
 
 .newsletter-item td {
   color: #003399;
@@ -256,9 +300,6 @@ td.social {
   font-size: 13px;
   font-weight: bold;
   text-decoration: none;
-}
-.newsletter-full-width-details-row {
-  border-bottom: 1px dotted #749b00;
 }
 .newsletter-full-width-details-row:last-child {
   border-bottom: none;
@@ -285,12 +326,13 @@ td.social {
 }
 .newsletter-half-width-twitter .newsletter-item p.tweet-author {
   margin-top: 0;
-  font-weight: 500;
-  font-family: Arial Black, sans-serif;
+  font-weight: 600;
+  font-family: Arial, sans-serif;
 }
 p.tweet-author a {
-  color: #003399 !important;
-  font-family: Arial Black, sans-serif;
+  color: #003399;
+  font-family: Arial, sans-serif;
+  font-weight: 600;
 }
 p.tweet-contents {
   padding-left: 10px;
@@ -301,7 +343,6 @@ p.tweet-contents {
   color: #353535;
   font-family: Arial, sans-serif;
   font-size: 13px;
-  /* line-height: 17px; */
   margin: 0;
 }
 .section-coming-soon .newsletter-item.newsletter-article td {
@@ -313,20 +354,15 @@ p.tweet-contents {
 }
 .tweet-contents a,
 .tweet-link a {
-  color: #38aadc !important;
+  color: #039de1;
   max-width: 149px;
   word-break: break-all;
 }
 p.tweet-link a {
-  color: #353535 !important;
+  color: #353535;
   font-size: 12px;
   font-weight: 500;
 }
-
-.newsletter-item a {
-  color: #003399;
-}
-
 
 .newsletter-full-width-2-col-blocks-item > table td,
 .newsletter-full-width-2-col-blocks-item > .newsletter-item a {
@@ -427,5 +463,31 @@ p.tweet-link a {
 }
 
 .highlight-item .item-date {
-  color: #575757;
+    color: #59595a;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    line-height: 25px;
+    font-weight: bold;
+}
+
+.newsletter-full-width-list.newsletter-section.template-container > thead > tr .td-border{
+  border-top: 1px solid #a5bd1d;
+}
+
+table.newsletter-full-width-list.newsletter-section.template-container > thead > tr.last .td-border{
+  border-top: 0;
+}
+.item.newsletter-full-width-details-item {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted #a5bd1d;
+  border: 1 !important;
+}
+.see-more-new-position{
+  padding-left: 15px;
+  padding-bottom: 15px;
+  vertical-align: bottom;
+}
+.newsletter-half-width-twitter{
+  margin-top: 15px;
 }

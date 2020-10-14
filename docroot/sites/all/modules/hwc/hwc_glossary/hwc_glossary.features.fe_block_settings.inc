@@ -29,37 +29,7 @@ glossary/*',
         'region' => 'content',
         'status' => 1,
         'theme' => 'hwc_frontend',
-        'weight' => 14,
-      ),
-      'seven' => array(
-        'region' => 'content',
-        'status' => 1,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
-    ),
-    'title' => '',
-    'visibility' => 1,
-  );
-
-  $export['hwc_glossary-hwc_glossary_search'] = array(
-    'cache' => 8,
-    'css_class' => '',
-    'custom' => 0,
-    'delta' => 'hwc_glossary_search',
-    'i18n_block_language' => array(),
-    'i18n_mode' => 0,
-    'module' => 'hwc_glossary',
-    'node_types' => array(),
-    'pages' => 'glossary-search
-glossary-search/*',
-    'roles' => array(),
-    'themes' => array(
-      'hwc_frontend' => array(
-        'region' => 'content',
-        'status' => 1,
-        'theme' => 'hwc_frontend',
-        'weight' => 15,
+        'weight' => 22,
       ),
       'seven' => array(
         'region' => 'content',

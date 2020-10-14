@@ -116,16 +116,48 @@
   $template_url = url($template_path, array('absolute' => TRUE));
 
   $content = hwc_get_htmlmail_content($body);
-
-  echo $content['header'];
 ?>
-<div class="htmlmail-body">
-  <?php echo $content['body']; ?>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-</div>
-<?php
-echo $content['footer'];
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#f9f9f9" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+  <tbody>
+  <tr>
+    <td valign="top" align="center">
+      <table class="wrap" bgcolor="#ffffff" width="740" border="0" align="center" cellpadding="0" cellspacing="0" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+        <tbody>
+        <tr>
+          <td width="100%" class="block_td percent_td">
+            <?php   echo $content['header']; ?>
+            <!-- Body -->
+            <table class="deviceWidth" bgcolor="#ffffff" width="800" border="0" align="center" cellpadding="0" cellspacing="0" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+              <tbody>
+              <tr>
+                <td width="100%" height="250" align="left">
+                  <table class="table-inner" width="90%" border="0" align="center" cellpadding="0" cellspacing="0" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                    <tbody>
+                    <tr>
+                      <td width="100%" height="250" align="left" valign="top" class="block_td percent_td">
+                        <div class="htmlmail-body">
+                          <?php echo $content['body']; ?>
+                          <br/>
+                          <br/>
+                          <br/>
+                          <br/>
+                          <br/>
+                        </div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <!-- END Body -->
+            <?php  echo $content['footer']; ?>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  </tbody>
+</table>

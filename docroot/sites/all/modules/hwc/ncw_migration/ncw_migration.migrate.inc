@@ -21,30 +21,75 @@ function ncw_migration_migrate_api() {
         'dependencies' => array(),
         'class_name' => 'NCWDangerousSubstancesMigration',
       ),
+      'practical_tool' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array(),
+        'class_name' => 'NCWMSDMigration',
+      ),
       'gallery' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),
         'class_name' => 'NCWGalleryMigration',
       ),
-      'tax_priority_area' => array(
+      'tax_activity' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyPriorityAreaMigration',
+        'class_name' => 'NCWTaxonomyActivityMigration',
       ),
-      'tax_provider_type' => array(
+      'tax_thesaurus' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyProviderTypeMigration',
+        'class_name' => 'NCWTaxonomyThesaurusMigration',
+      ),
+      'tax_hazards' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array(),
+        'class_name' => 'NCWTaxonomyHazardsMigration',
+      ),
+      'tax_health_effects' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array(),
+        'class_name' => 'NCWTaxonomyHealthEffectsMigration',
+      ),
+      'tax_msd_priority_area' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array(),
+        'class_name' => 'NCWTaxonomyMSDPrioritySreaMigration',
+      ),
+      'tax_msd_glossary' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array(),
+        'class_name' => 'NCWTaxonomyMSDGlossaryMigration',
+      ),
+      'tax_prevention_measures_msd' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array(),
+        'class_name' => 'NCWTaxonomyPreventionMeasuresMSDMigration',
+      ),
+      'tax_purpose_of_material' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array(),
+        'class_name' => 'NCWTaxonomyPurposeOfMaterialMigration',
+      ),
+      'tax_resource_type' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array(),
+        'class_name' => 'NCWTaxonomyResourceTypeMigration',
+      ),
+      'tax_target_audience' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array(),
+        'class_name' => 'NCWTaxonomyTargetAudienceMigration',
+      ),
+      'tax_worker_groups_covered' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array(),
+        'class_name' => 'NCWTaxonomyWorkerGroupsCoveredMigration',
       ),
       'tax_nace_codes' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),
         'class_name' => 'NCWTaxonomyNaceCodesMigration',
-      ),
-      'tax_hazmap_categories' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyHazmapCategoriesMigration',
       ),
       'tax_biological_hazard' => array(
         'group_name' => 'ncw',
@@ -66,35 +111,15 @@ function ncw_migration_migrate_api() {
         'dependencies' => array(),
         'class_name' => 'NCWTaxonomyExposureRouteMigration',
       ),
-      'tax_worker_groups' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyWorkerGroupsMigration',
-      ),
       'tax_prevention_measures' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),
         'class_name' => 'NCWTaxonomyPreventionMeasuresMigration',
       ),
-      'tax_material_purpose' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyMaterialPurposeMigration',
-      ),
       'tax_target_group' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),
         'class_name' => 'NCWTaxonomyTargetGroupMigration',
-      ),
-      'tax_evaluation' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyEvaluationMigration',
-      ),
-      'tax_material_objective' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyMaterialObjectiveMigration',
       ),
       'events' => array(
         'group_name' => 'ncw',
@@ -188,11 +213,6 @@ function ncw_migration_migrate_api() {
         'dependencies' => array(),
         'class_name' => 'NCWTaxonomyFOPLinkSectionsMigration',
       ),
-      'tax_newsletter_sections' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyNewsletterSectionsMigration',
-      ),
       'tax_publication_types' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),
@@ -208,11 +228,6 @@ function ncw_migration_migrate_api() {
         'dependencies' => array(),
         'class_name' => 'NCWTaxonomyTagsMigration',
       ),
-//      'article' => array(
-//        'group_name' => 'ncw',
-//        'dependencies' => array(),
-//        'class_name' => 'NCWSingleArticleMigration',
-//      ),
     ),
   );
 }
@@ -402,7 +417,7 @@ abstract class AbstractNCWNodeMigration extends Migration {
         $normalizer = 'osha_migration_normalize_field_' . $fi['type'];
         if (function_exists($normalizer)) {
           $filter_languages = array();
-          if (!$this->allowMigrateTranslation()) {
+          if (!$this->allowMigrateTranslation() && $field_name != 'field_show_on') {
             $filter_languages = array('en');
           }
           $normalizer($row, $field_name, $fi, $filter_languages);
@@ -431,7 +446,7 @@ abstract class AbstractNCWNodeMigration extends Migration {
 
   // News should be imported only in EN - MH-19.
   public function allowMigrateTranslation() {
-    return !in_array($this->bundle, array('news'));
+    return !in_array($this->bundle, array());
   }
 
   /**
@@ -804,6 +819,7 @@ abstract class AbstractNCWTaxonomyTermMigration extends AbstractNCWNodeMigration
       $row->language = 'en';
       $row->path = !empty($row->path['alias']) ? $row->path['alias'] : NULL;
       // Normalize JSON structure, to match migrate expectations for field data.
+      $row->format = str_replace('full_html_minimal', 'full_html', $row->format);
       $fields = field_info_instances('taxonomy_term', $this->bundle);
       foreach ($fields as $field_name => $field_info) {
         if (in_array($field_name, $this->getManuallyMigratedFields())) {
@@ -1161,6 +1177,7 @@ function osha_migration_normalize_field_entityreference($row, $field_name, $fiel
 function osha_migration_normalize_field_file($row, $field_name, $field_info, $filter_languages) {
   $field = array();
   $languages = array();
+  $image_field_captions = [];
   if (!empty($row->{$field_name}) && is_array($row->{$field_name})) {
     foreach ($row->{$field_name} as $language => $values) {
       if (!empty($filter_languages) && !in_array($language, $filter_languages)) {
@@ -1169,11 +1186,20 @@ function osha_migration_normalize_field_file($row, $field_name, $field_info, $fi
       foreach ($values as $f) {
         $field[] = osha_migration_url_files(str_replace('public://', '', $f['uri']));
         $languages[] = $language;
+        $image_field_caption = '';
+        if (!empty($f['image_field_caption']['value'])) {
+          $image_field_caption = strip_tags($f['image_field_caption']['value']);
+        }
+        $image_field_captions[] = $image_field_caption;
       }
     }
   }
   $row->{$field_name} = $field;
   $row->{$field_name . '_language'} = $languages;
+  if ($field_name == 'field_image') {
+    $row->{$field_name . '_image_captions'} = $image_field_captions;
+    $row->{$field_name . '_image_captions_language'} = $languages;
+  }
 }
 
 function osha_migration_normalize_field_image($row, $field_name, $field_info, $filter_languages) {

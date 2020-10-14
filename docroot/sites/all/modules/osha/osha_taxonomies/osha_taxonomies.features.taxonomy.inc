@@ -18,6 +18,8 @@ function osha_taxonomies_taxonomy_default_vocabularies() {
       'weight' => -10,
       'language' => 'und',
       'i18n_mode' => 1,
+      'base_i18n_mode' => 1,
+      'base_language' => 'und',
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',
@@ -43,31 +45,8 @@ function osha_taxonomies_taxonomy_default_vocabularies() {
       'weight' => -9,
       'language' => 'und',
       'i18n_mode' => 0,
-      'rdf_mapping' => array(
-        'rdftype' => array(
-          0 => 'skos:ConceptScheme',
-        ),
-        'name' => array(
-          'predicates' => array(
-            0 => 'dc:title',
-          ),
-        ),
-        'description' => array(
-          'predicates' => array(
-            0 => 'rdfs:comment',
-          ),
-        ),
-      ),
-    ),
-    'contact_topic' => array(
-      'name' => 'Contact Topic',
-      'machine_name' => 'contact_topic',
-      'description' => 'Contact Form - Topic',
-      'hierarchy' => 0,
-      'module' => 'taxonomy',
-      'weight' => 0,
-      'language' => 'und',
-      'i18n_mode' => 1,
+      'base_i18n_mode' => 0,
+      'base_language' => 'und',
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',
@@ -93,6 +72,8 @@ function osha_taxonomies_taxonomy_default_vocabularies() {
       'weight' => 0,
       'language' => 'und',
       'i18n_mode' => 1,
+      'base_i18n_mode' => 1,
+      'base_language' => 'und',
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',
@@ -109,15 +90,17 @@ function osha_taxonomies_taxonomy_default_vocabularies() {
         ),
       ),
     ),
-    'esener' => array(
-      'name' => 'Esener',
-      'machine_name' => 'esener',
+    'msd_glossary' => array(
+      'name' => 'MSD Glossary',
+      'machine_name' => 'msd_glossary',
       'description' => '',
       'hierarchy' => 0,
       'module' => 'taxonomy',
-      'weight' => -6,
+      'weight' => 0,
       'language' => 'und',
       'i18n_mode' => 1,
+      'base_i18n_mode' => 1,
+      'base_language' => 'und',
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',
@@ -143,6 +126,8 @@ function osha_taxonomies_taxonomy_default_vocabularies() {
       'weight' => -2,
       'language' => 'und',
       'i18n_mode' => 0,
+      'base_i18n_mode' => 0,
+      'base_language' => 'und',
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',
