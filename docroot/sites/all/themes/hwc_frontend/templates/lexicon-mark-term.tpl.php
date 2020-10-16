@@ -31,13 +31,16 @@
  *   'absolute' => $term["absolute_link"]
  *   ));?>
  */
-?>
-<?php print l($text, '', array(
-  'attributes' => array(
-    'data-titleBM' => $term["term"]->description,
-    'data' => "", //antes ponía safe_description pero debido a que meten HTML esto es lo que necesitan, a pesar de lo que indican los comentarios de este módulo más arriba
-    'class' => array($term["term_class"]),
-  ),
-  'fragment' => @$term["fragment"],
-  'absolute' => $term["absolute_link"],
-));?>
+if (!drupal_is_front_page()) {
+  print l($text, '', array(
+    'attributes' => array(
+      'data-titleBM' => $term["term"]->description,
+      'data' => "",
+      'class' => array($term["term_class"]),
+    ),
+    'fragment' => @$term["fragment"],
+    'absolute' => $term["absolute_link"],
+  ));
+} else {
+  print $text;
+}
