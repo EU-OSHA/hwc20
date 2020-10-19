@@ -16,11 +16,11 @@ function ncw_migration_migrate_api() {
       ),
     ),
     'migrations' => array(
-      'dangerous_substances' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWDangerousSubstancesMigration',
-      ),
+//      'dangerous_substances' => array(
+//        'group_name' => 'ncw',
+//        'dependencies' => array(),
+//        'class_name' => 'NCWDangerousSubstancesMigration',
+//      ),
       'practical_tool' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),
