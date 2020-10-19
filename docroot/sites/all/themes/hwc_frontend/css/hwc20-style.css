@@ -210,7 +210,8 @@ select {
 .region-content .views-row .date-display-single {
   float: none;
 }
-.btn-background-transparent {
+.btn-background-transparent,
+.btn-background-transparent-minor-size {
   background: transparent;
   min-width: 208px;
   width: auto;
@@ -224,14 +225,16 @@ select {
   display: block;
   float: left;
 }
-.btn-background-transparent:hover {
+.btn-background-transparent:hover,
+.btn-background-transparent-minor-size:hover {
   background: #e5f1ac;
   color: #00309d;
   border: 3px solid #00309d;
   font-weight: 600;
   text-decoration: none;
 }
-.btn-background-transparent:after {
+.btn-background-transparent:after,
+.btn-background-transparent-minor-size:after {
   position: absolute;
   font-family: "Glyphicons Halflings";
   content: "\e258";
@@ -5619,6 +5622,18 @@ body.european-week #block-views-news-european-week ul > li:nth-child(2) {
 .float-img-2 {
   float: left;
   margin-right: 2em;
+}
+.btn-background-transparent-minor-size {
+  font-size: 1.3rem;
+}
+h1.h1-minor-font-size {
+  font-size: 1.8em !important;
+}
+h2.h2-minor-font-size {
+  font-size: 1.9em !important;
+}
+.paragraph-more-text {
+  max-width: 670px !important;
 }
 /* Styles for Release 2, This styles shouldn't be merge on release_1 branch */
 /* Private Zone */
