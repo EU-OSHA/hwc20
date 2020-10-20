@@ -8409,11 +8409,6 @@ html:lang(en) #homepage_slider .views-field-title > span {
     top: 2em;
   }
 }
-.node-frontpage-slider .field-name-body.field-type-text-with-summary {
-  position: absolute;
-  left: 45%;
-  margin-right: 2em;
-}
 /* pagination */
 .pagination,
 .pager {
