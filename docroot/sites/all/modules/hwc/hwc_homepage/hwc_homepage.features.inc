@@ -262,14 +262,6 @@ function hwc_homepage_node_info() {
       'title_label' => 'Title',
       'help' => '',
     ),
-    'home_page_sections' => array(
-      'name' => 'Home page sections',
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => 'Title',
-      'help' => '',
-    ),
   );
   drupal_alter('node_info', $items);
   return $items;

@@ -114,7 +114,7 @@ function campaign_materials_views_default_views() {
     ),
     'trim_preserve_tags' => '',
   );
-  /* Field: Content: Files */
+  /* Field: Content: Related documents */
   $handler->display->display_options['fields']['field_related_documents']['id'] = 'field_related_documents';
   $handler->display->display_options['fields']['field_related_documents']['table'] = 'field_data_field_related_documents';
   $handler->display->display_options['fields']['field_related_documents']['field'] = 'field_related_documents';
@@ -232,7 +232,7 @@ function campaign_materials_views_default_views() {
     'trim_preserve_tags' => '',
     'field_formatter_class' => '',
   );
-  /* Field: Content: Files */
+  /* Field: Content: Related documents */
   $handler->display->display_options['fields']['field_related_documents']['id'] = 'field_related_documents';
   $handler->display->display_options['fields']['field_related_documents']['table'] = 'field_data_field_related_documents';
   $handler->display->display_options['fields']['field_related_documents']['field'] = 'field_related_documents';
