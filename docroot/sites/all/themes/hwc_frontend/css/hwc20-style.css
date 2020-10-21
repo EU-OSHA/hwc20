@@ -8694,6 +8694,20 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   background-image: -webkit-linear-gradient(top, #ededed 0%, #f6f6f6 47%, #ededed 100%);
   background-image: linear-gradient(to bottom, #ededed 0%, #f6f6f6 47%, #ededed 100%);
 }
+.page-news .view-news .view-content .views-row .field-name-field-image {
+  border: 2px solid #bcd75b;
+  float: left;
+  padding-right: 0;
+  margin-right: 20px;
+  margin-top: 13px;
+  border-radius: 7px;
+  height: 114px;
+  width: 114px;
+}
+.page-news .view-news .view-content .views-row .field-name-field-image img {
+  border: 0;
+  margin-top: 0;
+}
 .isMobile {
   float: right !important;
 }
