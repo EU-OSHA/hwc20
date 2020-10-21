@@ -82,6 +82,7 @@ th {
 
 body iframe{
   border: 0;
+  border-radius: 15px;
 }
 
 /* Header */
@@ -342,7 +343,6 @@ p.tweet-contents {
   color: #353535;
   font-family: Arial, sans-serif;
   font-size: 13px;
-  /* line-height: 17px; */
   margin: 0;
 }
 .section-coming-soon .newsletter-item.newsletter-article td {
@@ -482,4 +482,12 @@ table.newsletter-full-width-list.newsletter-section.template-container > thead >
   padding-bottom: 10px;
   border-bottom: 1px dotted #a5bd1d;
   border: 1 !important;
+}
+.see-more-new-position{
+  padding-left: 15px;
+  padding-bottom: 15px;
+  vertical-align: bottom;
+}
+.newsletter-half-width-twitter{
+  margin-top: 15px;
 }

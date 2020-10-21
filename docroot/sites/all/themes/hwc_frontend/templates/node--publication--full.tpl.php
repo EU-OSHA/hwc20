@@ -34,7 +34,7 @@ if ($type == CASE_STUDY_TID) {
         <div class="col-md-9">
             <h2><?php print strip_tags(render($content['title_field']), '<a>'); ?></h2>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="publications-row">
                 <div class="publications-left-column hidden-xs"><?php print render($content['field_cover_image']); ?></div>
                 <div class="publications-detail-right-column">
@@ -43,17 +43,15 @@ if ($type == CASE_STUDY_TID) {
                         <span><?php print $publication_type; ?></span>
                         <span class="pages"><?php print $pages_count; ?></span>
                     </div>
-                  <?php print render($content['body']) ?>
+                  <?php
+                    print render($content['body']);
+                    print render($content['field_file']);
+                  if ($content['field_banner_publications_office']['#items'][0]['value']) {
+                    echo theme('osha_publication_bookshop_id_format', ['title' => $node->title]);
+                  }
+                  ?>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3 content-downloads">
-          <?php
-          print render($content['download_form']);
-          if ($content['field_banner_publications_office']['#items'][0]['value']) {
-            echo theme('osha_publication_bookshop_id_format', ['title' => $node->title]);
-          }
-          ?>
         </div>
     </div>
   <?php

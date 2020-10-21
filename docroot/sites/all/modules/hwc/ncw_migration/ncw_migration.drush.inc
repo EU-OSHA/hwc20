@@ -61,7 +61,6 @@ function drush_ncw_migration_hwc_migrate_msd_related() {
 
 function drush_ncw_migration_hwc_migrate_av_related() {
   $migrations = array(
-    'tax_hazmap_categories',
     'tax_biological_hazard',
     'tax_hazard_physical_state',
     'tax_hazard_health_effects',
@@ -91,7 +90,6 @@ function drush_ncw_migration_hwc_migrate_all() {
     'tax_country_status',
     'tax_country',
     'tax_fop_link_sections',
-//    'tax_newsletter_sections',
     'tax_publication_types',
     'tax_tags',
     'tax_segment',

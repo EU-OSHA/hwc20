@@ -47,9 +47,7 @@ function hwc_gpa_fe_nodequeue_export_fields() {
     'insert_at_front' => 0,
     'unique_entries' => 0,
     'subqueues' => 1,
-    'types' => array(
-      0 => 'publication',
-    ),
+    'types' => array(),
     'roles' => array(),
     'count' => 0,
   );

@@ -8409,11 +8409,6 @@ html:lang(en) #homepage_slider .views-field-title > span {
     top: 2em;
   }
 }
-.node-frontpage-slider .field-name-body.field-type-text-with-summary {
-  position: absolute;
-  left: 45%;
-  margin-right: 2em;
-}
 /* pagination */
 .pagination,
 .pager {
@@ -15460,13 +15455,15 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .node-type-document .field-type-file ul li ul li a,
 .node-type-publication .field-type-file ul li ul li a {
   display: block;
+  font-weight: bold;
   float: left;
   width: 55px;
-  margin-right: 25px;
+  margin-right: 0;
 }
 .node-type-document .field-type-file ul li ul li a span.glyphicon.glyphicon-circle-arrow-down,
 .node-type-publication .field-type-file ul li ul li a span.glyphicon.glyphicon-circle-arrow-down {
-  float: right;
+  float: left;
+  top: 2px;
 }
 .node-type-document .pane-node-field-related-publications,
 .node-type-publication .pane-node-field-related-publications {

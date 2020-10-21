@@ -91,11 +91,6 @@ function ncw_migration_migrate_api() {
         'dependencies' => array(),
         'class_name' => 'NCWTaxonomyNaceCodesMigration',
       ),
-      'tax_hazmap_categories' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyHazmapCategoriesMigration',
-      ),
       'tax_biological_hazard' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),
@@ -217,11 +212,6 @@ function ncw_migration_migrate_api() {
         'group_name' => 'ncw',
         'dependencies' => array(),
         'class_name' => 'NCWTaxonomyFOPLinkSectionsMigration',
-      ),
-      'tax_newsletter_sections' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyNewsletterSectionsMigration',
       ),
       'tax_publication_types' => array(
         'group_name' => 'ncw',
@@ -456,7 +446,7 @@ abstract class AbstractNCWNodeMigration extends Migration {
 
   // News should be imported only in EN - MH-19.
   public function allowMigrateTranslation() {
-    return !in_array($this->bundle, array('news'));
+    return !in_array($this->bundle, array());
   }
 
   /**

@@ -1149,6 +1149,10 @@ $(document).ready(function () {
 
         submit: function (e) {
             enableFields();
+           //Avoid to have more than 1 request
+            $("body").css("cursor", "progress");
+            $(".controls #next").attr("disabled", true);
+            
             //debugger;
             sessionStorage.clear();
             if (buttonPressed == "next") {

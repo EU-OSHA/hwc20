@@ -7,12 +7,18 @@
  */
 class NCWNewsMigration extends AbstractNCWNodeMigration {
 
+  /**
+   * {@inheritdoc}
+   */
   public function __construct($arguments) {
     parent::__construct($arguments, 'NCWNewsSource', 'news');
     $this->description = 'Import news from NCW';
   }
 
-  function addFieldMappings() {
+  /**
+   * {@inheritdoc}
+   */
+  protected function addFieldMappings() {
     parent::addFieldMappings();
 
     $this->addFieldMapping('field_tags:source_type')->defaultValue('tid');
