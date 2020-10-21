@@ -44,13 +44,13 @@ elseif (arg(0) == 'node') {
 }
 if ($allow_terms) {
   print l($text, '', array(
-    'attributes' => array(
-      'data-titleBM' => $term["term"]->description,
+  'attributes' => array(
+    'data-titleBM' => $term["term"]->description,
       'data' => "",
-      'class' => array($term["term_class"]),
-    ),
-    'fragment' => @$term["fragment"],
-    'absolute' => $term["absolute_link"],
+    'class' => array($term["term_class"]),
+  ),
+  'fragment' => @$term["fragment"],
+  'absolute' => $term["absolute_link"],
   ));
 }
 else {
