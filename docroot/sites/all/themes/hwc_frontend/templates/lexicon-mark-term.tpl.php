@@ -31,13 +31,28 @@
  *   'absolute' => $term["absolute_link"]
  *   ));?>
  */
-?>
-<?php print l($text, '', array(
+
+$allow_terms = TRUE;
+if (drupal_is_front_page()) {
+  $allow_terms = FALSE;
+}
+elseif (arg(0) == 'node') {
+  $node = menu_get_object();
+  if ($node->type == 'frontpage_slider') {
+    $allow_terms = FALSE;
+  }
+}
+if ($allow_terms) {
+  print l($text, '', array(
   'attributes' => array(
     'data-titleBM' => $term["term"]->description,
-    'data' => "", //antes ponía safe_description pero debido a que meten HTML esto es lo que necesitan, a pesar de lo que indican los comentarios de este módulo más arriba
+      'data' => "",
     'class' => array($term["term_class"]),
   ),
   'fragment' => @$term["fragment"],
   'absolute' => $term["absolute_link"],
-));?>
+  ));
+}
+else {
+  print $text;
+}
