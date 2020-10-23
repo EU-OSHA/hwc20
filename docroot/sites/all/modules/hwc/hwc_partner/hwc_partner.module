@@ -181,6 +181,16 @@ function hwc_partner_block_info() {
     'cache' => DRUPAL_NO_CACHE,
     'weight' => 50,
   );
+
+  $blocks['hwc_partner_postal_code_town'] = array(
+    'info' => t('Postal code and town'),
+    'status' => 0,
+    'region' => '',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+    'weight' => 50,
+  );
+
   return $blocks;
 }
 
@@ -333,6 +343,19 @@ function hwc_partner_block_view($delta = '') {
         )
       );
     }
+  }
+  elseif ($delta == 'hwc_partner_postal_code_town') {
+    // Did this to use it in panels.
+    $node = menu_get_object();
+    $block['title'] = '<none>';
+    $block['content'] = @$node->field_ph_cp[LANGUAGE_NONE][0]['safe_value'];
+    if (!empty($node->field_ph_town[LANGUAGE_NONE][0]['safe_value'])) {
+      if ($block['content']) {
+        $block['content'] .= ', ';
+      }
+      $block['content'] .= $node->field_ph_town[LANGUAGE_NONE][0]['safe_value'];
+    }
+
   }
   elseif ($delta == 'hwc_partner_login_text') {
     // Did this to use it in panels.

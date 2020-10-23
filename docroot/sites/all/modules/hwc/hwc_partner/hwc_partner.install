@@ -388,3 +388,10 @@ function hwc_partner_update_7049() {
 function hwc_partner_update_7050() {
   features_revert_module('hwc_partner');
 }
+
+/**
+ * MHWC-485 public profile of partners - display of the address.
+ */
+function hwc_partner_update_7051() {
+  features_revert(array('hwc_partner' => array('page_manager_handlers')));
+}
