@@ -3879,16 +3879,7 @@ body.ocp .panels-flexible-row h2 {
   font-weight: 600;
   padding-left: 0;
 }
-body.ocp .panels-flexible-column-first .pane-node-field-mission-statement .pane-title {
-  font-weight: 600;
-}
-body.ocp .panels-flexible-column-first .pane-node-field-pledge .pane-title {
-  font-weight: 600;
-}
-body.ocp .box-type-partner {
-  width: 100%;
-}
-body .pane-node-field-mission-statement {
+body.ocp .pane-node-field-mission-statement {
   margin-left: 0 !important;
 }
 /* Become a campaign partner */
