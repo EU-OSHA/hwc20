@@ -3061,7 +3061,8 @@ div.workbench-info-block {
   font-weight: normal;
 }
 .view-id-partners_list .col-md-2.col-sm-3.col-xs-6 .views-field-field-logo img {
-  max-width: 150px;
+  width: 110px;
+  height: 110px;
 }
 .view-id-partners_list .col-md-2.col-sm-3.col-xs-6 .views-field-field-logo span.logo-content {
   display: flex;
@@ -3874,6 +3875,7 @@ body.mp .box-type-partner,
 body.fop .box-type-partner,
 body.een .box-type-partner {
   width: 100%;
+  margin-left: 10px;
 }
 body.ocp .panels-flexible-row h2 {
   font-weight: 600;
@@ -4378,8 +4380,8 @@ html:lang(sv) .boxes .box.inactive div .btn-become-partner-register {
 #block-views-partners-block-2 .view-partners .views-row .views-field-field-logo img,
 #block-views-partners-block-3 .view-partners .views-row .views-field-field-logo img {
   border: 0;
-  width: 120px;
-  height: auto;
+  width: 110px;
+  height: 110px;
   margin: 0 auto;
 }
 #block-views-partners-block-2 .view-partners .views-row-1 .views-field,
@@ -8442,7 +8444,8 @@ body.front-page .slider--video--block .slider--video--items .multicarousel--bloc
   justify-content: center;
 }
 body.front-page .slider--video--block .slider--video--items .multicarousel--block .multicarousel--block--inner .item img {
-  width: 65%;
+  width: 110px;
+  height: 110px;
   margin: 0 auto;
 }
 body.front-page .slider--video--block .slider--video--items .multicarousel--block .multicarousel--block--inner .item .views-field {
@@ -9748,6 +9751,7 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   /* Panels - National Focal Points, etc. */
   .panels-flexible-column-inside-first .profile-col-left-middle-2 {
     width: 100%;
+    margin-left: 10px;
   }
   .main-container .panels-flexible-row h2 {
     margin-left: 0;
@@ -11482,7 +11486,7 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     padding-right: 1em;
   }
   .panels-flexible-column-last {
-    padding-left: 0 !important;
+    padding-left: 10px !important;
   }
   .node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col-sm-12.col-md-12.col-xs-12 {
     display: block;
