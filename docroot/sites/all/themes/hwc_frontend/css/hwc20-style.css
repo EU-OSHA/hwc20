@@ -3061,8 +3061,7 @@ div.workbench-info-block {
   font-weight: normal;
 }
 .view-id-partners_list .col-md-2.col-sm-3.col-xs-6 .views-field-field-logo img {
-  width: 110px;
-  height: 110px;
+  max-width: 110px;
 }
 .view-id-partners_list .col-md-2.col-sm-3.col-xs-6 .views-field-field-logo span.logo-content {
   display: flex;
@@ -3083,8 +3082,7 @@ div.workbench-info-block {
 .view-display-id-fop img,
 .view-display-id-een img,
 .view-display-id-block_1 img {
-  width: 110px;
-  height: 110px;
+  max-width: 110px;
   border: 0;
 }
 .view-display-id-block_1 .pager img {
@@ -3742,7 +3740,7 @@ body.fop .panels-flexible-column-first .pane-node-field-bussines-sector {
   padding-top: 0.3rem;
 }
 body.fop .panels-flexible-column-first .pane-node-field-mission-statement {
-  margin: 2rem 0 2rem 10px;
+  margin: 2rem 0 2rem 0;
 }
 body.fop .panels-flexible-column-last .pane-node-field-country {
   padding: 1rem 0 0;
