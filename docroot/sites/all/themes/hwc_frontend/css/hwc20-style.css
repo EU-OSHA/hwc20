@@ -3568,7 +3568,6 @@ body.mp .panels-flexible-column-first .field-name-field-country img {
   width: 110px;
   height: 110px;
   margin-top: -17px;
-  margin-left: -10px;
 }
 body.ocp .panels-flexible-column-first .pane-node-field-mission-statement,
 body.mp .panels-flexible-column-first .pane-node-field-mission-statement,
@@ -3603,7 +3602,7 @@ body.mp .panels-flexible-column-first .pane-node-field-pledge .pane-content {
 }
 body.ocp .panels-flexible-column-first .pane-node-field-mission-statement,
 body.mp .panels-flexible-column-first .pane-node-field-mission-statement {
-  margin: 2rem 0 2rem;
+  margin: 2rem 0 2rem 10px;
 }
 body.ocp .panels-flexible-column-last .pane-node-field-country,
 body.mp .panels-flexible-column-last .pane-node-field-country {
@@ -3703,7 +3702,6 @@ body.fop .panels-flexible-region-partner_detail-left_left .field-name-field-coun
   height: 110px;
   padding-right: 0;
   margin-top: -17px;
-  margin-left: -10px;
 }
 body.fop .panels-flexible-column-first .pane-node-field-country .field-name-field-country img {
   border: 0;
@@ -3743,7 +3741,7 @@ body.fop .panels-flexible-column-first .pane-node-field-bussines-sector {
   padding-top: 0.3rem;
 }
 body.fop .panels-flexible-column-first .pane-node-field-mission-statement {
-  margin: 2rem 0 2rem;
+  margin: 2rem 0 2rem 10px;
 }
 body.fop .panels-flexible-column-last .pane-node-field-country {
   padding: 1rem 0 0;
@@ -3781,7 +3779,6 @@ body.een .panels-flexible-column-first .pane-node-field-country .field-name-fiel
   width: 110px;
   height: 110px;
   margin-top: -20px;
-  margin-left: -10px;
 }
 body.een .panels-flexible-column-first .pane-node-field-country .field-item {
   font-size: 2rem;
@@ -3813,7 +3810,7 @@ body.een .panels-flexible-column-first .pane-node-field-bussines-sector {
   padding-top: 0.8rem;
 }
 body.een .panels-flexible-column-first .pane-node-field-mission-statement {
-  margin: 5rem 0 2rem;
+  margin: 5rem 0 2rem 10px;
 }
 body.een .panels-flexible-column-last .pane-node-field-country {
   padding: 1rem 0 0;
@@ -3857,29 +3854,42 @@ body.een .panels-flexible-row-partner_detail-13 {
   float: right;
   width: 100%;
 }
-body.ocp .panels-flexible-row h2,
 body.mp .panels-flexible-row h2,
 body.fop .panels-flexible-row h2,
 body.een .panels-flexible-row h2 {
   font-weight: 600;
+  padding-left: 10px;
 }
-body.ocp .panels-flexible-column-first .pane-node-field-mission-statement .pane-title,
 body.mp .panels-flexible-column-first .pane-node-field-mission-statement .pane-title,
 body.fop .panels-flexible-column-first .pane-node-field-mission-statement .pane-title,
 body.een .panels-flexible-column-first .pane-node-field-mission-statement .pane-title {
   font-weight: 600;
 }
-body.ocp .panels-flexible-column-first .pane-node-field-pledge .pane-title,
 body.mp .panels-flexible-column-first .pane-node-field-pledge .pane-title,
 body.fop .panels-flexible-column-first .pane-node-field-pledge .pane-title,
 body.een .panels-flexible-column-first .pane-node-field-pledge .pane-title {
   font-weight: 600;
 }
-body.ocp .box-type-partner,
 body.mp .box-type-partner,
 body.fop .box-type-partner,
 body.een .box-type-partner {
   width: 100%;
+}
+body.ocp .panels-flexible-row h2 {
+  font-weight: 600;
+  padding-left: 0;
+}
+body.ocp .panels-flexible-column-first .pane-node-field-mission-statement .pane-title {
+  font-weight: 600;
+}
+body.ocp .panels-flexible-column-first .pane-node-field-pledge .pane-title {
+  font-weight: 600;
+}
+body.ocp .box-type-partner {
+  width: 100%;
+}
+body .pane-node-field-mission-statement {
+  margin-left: 0 !important;
 }
 /* Become a campaign partner */
 .become-partner-text {
@@ -7892,7 +7902,7 @@ body.mp .panels-flexible-column-first .pane-node-field-pledge .pane-content {
   padding: 0;
 }
 body.mp .panels-flexible-column-first .pane-node-field-mission-statement {
-  margin: 2rem 0 2rem;
+  margin: 2rem 0 2rem 10px;
 }
 /* MHWC-39 - For UX next step */
 aside.col-md-3 .region.region-sidebar-first.well {

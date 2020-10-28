@@ -4119,7 +4119,6 @@ body.ocp, body.mp{
 				width: 110px;
 				height: 110px;
 				margin-top: -17px;
-				margin-left: -10px;
 			}
 		}
 		.pane-node-field-mission-statement, .pane-node-field-pledge{
@@ -4146,7 +4145,7 @@ body.ocp, body.mp{
 			}
 		}
 		.pane-node-field-mission-statement{
-			margin: 2rem 0 2rem;
+			margin: 2rem 0 2rem 10px;
 		}
 	}
 	.panels-flexible-column-last{
@@ -4232,7 +4231,6 @@ body.fop{
 				height: 110px;
 				padding-right: 0;
 	    		margin-top: -17px;
-	    		margin-left: -10px;
     		}
 		}
 	}
@@ -4281,7 +4279,7 @@ body.fop{
 			padding-top: 0.3rem;
 		}
 		.pane-node-field-mission-statement{
-			margin: 2rem 0 2rem;
+			margin: 2rem 0 2rem 10px;
 		}
 	}
 	.panels-flexible-column-last{
@@ -4331,7 +4329,6 @@ body.een{
 					width: 110px;
 					height: 110px;
 					margin-top: -20px;
-					margin-left: -10px;
 				}
 				
 			}
@@ -4366,7 +4363,7 @@ body.een{
 			padding-top: 0.8rem;
 		}
 		.pane-node-field-mission-statement{
-			margin: 5rem 0 2rem;
+			margin: 5rem 0 2rem 10px;
 		}
 	}
 	.panels-flexible-column-last{
@@ -4420,9 +4417,10 @@ body.een{
 }
 
 body{
-	&.ocp, &.mp, &.fop, &.een{
+	&.mp, &.fop, &.een{
 		.panels-flexible-row h2{
 		    font-weight: 600;
+		    padding-left: 10px;
 		}
 		.panels-flexible-column-first{
 			.pane-node-field-mission-statement{
@@ -4439,6 +4437,34 @@ body{
 		.box-type-partner{
 			width: 100%;
 		}
+	}
+}
+
+body{
+	&.ocp{
+		.panels-flexible-row h2{
+		    font-weight: 600;
+		    padding-left: 0;
+		}
+		.panels-flexible-column-first{
+			.pane-node-field-mission-statement{
+				.pane-title{
+					font-weight: 600;
+				}
+			}
+			.pane-node-field-pledge{
+				.pane-title{
+					font-weight: 600;
+				}
+			}
+		}
+		.box-type-partner{
+			width: 100%;
+		}
+	}
+
+	.pane-node-field-mission-statement{
+		margin-left: 0 !important;
 	}
 }
 
@@ -9053,7 +9079,7 @@ body.mp{
 			}
 		}
 		.pane-node-field-mission-statement{
-			margin: 2rem 0 2rem;
+			margin: 2rem 0 2rem 10px;
 		}
 	}
 }
