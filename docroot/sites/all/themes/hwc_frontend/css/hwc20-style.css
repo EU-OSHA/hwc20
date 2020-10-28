@@ -3061,7 +3061,7 @@ div.workbench-info-block {
   font-weight: normal;
 }
 .view-id-partners_list .col-md-2.col-sm-3.col-xs-6 .views-field-field-logo img {
-  max-width: 150px;
+  max-width: 110px;
 }
 .view-id-partners_list .col-md-2.col-sm-3.col-xs-6 .views-field-field-logo span.logo-content {
   display: flex;
@@ -3082,8 +3082,7 @@ div.workbench-info-block {
 .view-display-id-fop img,
 .view-display-id-een img,
 .view-display-id-block_1 img {
-  width: 110px;
-  height: 110px;
+  max-width: 110px;
   border: 0;
 }
 .view-display-id-block_1 .pager img {
@@ -3741,7 +3740,7 @@ body.fop .panels-flexible-column-first .pane-node-field-bussines-sector {
   padding-top: 0.3rem;
 }
 body.fop .panels-flexible-column-first .pane-node-field-mission-statement {
-  margin: 2rem 0 2rem 10px;
+  margin: 2rem 0 2rem 0;
 }
 body.fop .panels-flexible-column-last .pane-node-field-country {
   padding: 1rem 0 0;
@@ -3825,6 +3824,7 @@ body.een .panels-flexible-column-last .pane-node-field-general-phone {
 }
 body.een .panels-flexible-column-last .pane-node-field-website .field-type-link-field {
   padding: 0;
+  clear: both;
 }
 body.een .panels-flexible-column-last .pane-node-field-website .field-type-link-field a {
   font-style: normal;
@@ -3874,21 +3874,13 @@ body.mp .box-type-partner,
 body.fop .box-type-partner,
 body.een .box-type-partner {
   width: 100%;
+  margin-left: 10px;
 }
 body.ocp .panels-flexible-row h2 {
   font-weight: 600;
   padding-left: 0;
 }
-body.ocp .panels-flexible-column-first .pane-node-field-mission-statement .pane-title {
-  font-weight: 600;
-}
-body.ocp .panels-flexible-column-first .pane-node-field-pledge .pane-title {
-  font-weight: 600;
-}
-body.ocp .box-type-partner {
-  width: 100%;
-}
-body .pane-node-field-mission-statement {
+body.ocp .pane-node-field-mission-statement {
   margin-left: 0 !important;
 }
 /* Become a campaign partner */
@@ -4387,8 +4379,8 @@ html:lang(sv) .boxes .box.inactive div .btn-become-partner-register {
 #block-views-partners-block-2 .view-partners .views-row .views-field-field-logo img,
 #block-views-partners-block-3 .view-partners .views-row .views-field-field-logo img {
   border: 0;
-  width: 120px;
-  height: auto;
+  width: 110px;
+  height: 110px;
   margin: 0 auto;
 }
 #block-views-partners-block-2 .view-partners .views-row-1 .views-field,
@@ -8198,6 +8190,9 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
 #block-hwc-homepage-previous-campaign-nav {
   clear: both;
 }
+.clear-both-conf-fix {
+  clear: both;
+}
 .accordion-menu {
   float: left;
   margin-top: 47px;
@@ -8451,7 +8446,8 @@ body.front-page .slider--video--block .slider--video--items .multicarousel--bloc
   justify-content: center;
 }
 body.front-page .slider--video--block .slider--video--items .multicarousel--block .multicarousel--block--inner .item img {
-  width: 65%;
+  width: 110px;
+  height: 110px;
   margin: 0 auto;
 }
 body.front-page .slider--video--block .slider--video--items .multicarousel--block .multicarousel--block--inner .item .views-field {
@@ -9757,6 +9753,7 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   /* Panels - National Focal Points, etc. */
   .panels-flexible-column-inside-first .profile-col-left-middle-2 {
     width: 100%;
+    margin-left: 10px;
   }
   .main-container .panels-flexible-row h2 {
     margin-left: 0;
@@ -11491,7 +11488,7 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     padding-right: 1em;
   }
   .panels-flexible-column-last {
-    padding-left: 0 !important;
+    padding-left: 10px !important;
   }
   .node-type-article article .field-name-body.field-type-text-with-summary .become-partner .coments .col-sm-12.col-md-12.col-xs-12 {
     display: block;

@@ -3521,7 +3521,7 @@ div.workbench-info-block{
 			}
 
 			img{
-				max-width: 150px;
+				max-width: 110px;
 			}
 
 			span.logo-content{
@@ -3549,8 +3549,7 @@ div.workbench-info-block{
 }
 
 .view-display-id-fop img, .view-display-id-een img, .view-display-id-block_1 img {
-    width: 110px;
-    height:	110px;
+    max-width: 110px;
     border: 0;
 }
 
@@ -4279,7 +4278,7 @@ body.fop{
 			padding-top: 0.3rem;
 		}
 		.pane-node-field-mission-statement{
-			margin: 2rem 0 2rem 10px;
+			margin: 2rem 0 2rem 0;
 		}
 	}
 	.panels-flexible-column-last{
@@ -4381,6 +4380,7 @@ body.een{
 		.pane-node-field-website{
 			.field-type-link-field{
 				padding: 0;
+				clear: both;
 				a{
 				    font-style: normal;
 				    width: auto;
@@ -4436,33 +4436,17 @@ body{
 		}
 		.box-type-partner{
 			width: 100%;
+			margin-left: 10px;
 		}
 	}
 }
 
-body{
-	&.ocp{
-		.panels-flexible-row h2{
-		    font-weight: 600;
-		    padding-left: 0;
-		}
-		.panels-flexible-column-first{
-			.pane-node-field-mission-statement{
-				.pane-title{
-					font-weight: 600;
-				}
-			}
-			.pane-node-field-pledge{
-				.pane-title{
-					font-weight: 600;
-				}
-			}
-		}
-		.box-type-partner{
-			width: 100%;
-		}
+body.ocp{
+	.panels-flexible-row h2{
+	    font-weight: 600;
+	    padding-left: 0;
 	}
-
+		
 	.pane-node-field-mission-statement{
 		margin-left: 0 !important;
 	}
@@ -4907,8 +4891,8 @@ html:lang(sv)
 		    .views-field-field-logo{
 		    	img {
 				    border: 0;
-				    width: 120px;
-				    height: auto;
+				    width: 110px;
+				    height: 110px;
 				    margin: 0 auto;
 				}
 		    } 
@@ -9438,6 +9422,10 @@ aside.col-md-3{
 	clear: both;
 }
 
+.clear-both-conf-fix{
+	clear: both;
+}
+
 .accordion-menu{
 	float: left;
 	margin-top: 47px;
@@ -9709,7 +9697,8 @@ body.front-page{
 				    justify-content: center;
 				    .item {
 					    img{
-					    	width: 65%;
+					    	width: 110px;
+					    	height: 110px;
 					    	margin: 0 auto;
 					    }
 					    .views-field{
