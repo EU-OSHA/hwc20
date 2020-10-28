@@ -567,9 +567,17 @@ function osha_tmgmt_job_access($op, $job = NULL, $account = NULL) {
  * {@inheritdoc}
  */
 function osha_tmgmt_node_access($node, $operation, $user) {
+  global $user;
   if ($operation == 'update' || $operation == 'delete') {
-  // Deny editing or deletion of nodes in translation workflow
-    if ($user->uid != 1) {
+    // Deny editing or deletion of nodes in translation workflow.
+    $allow = FALSE;
+    if ($user->uid == 1) {
+      $allow = TRUE;
+    }
+    if (count(array_intersect(array(HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR), $user->roles))) {
+      $allow = TRUE;
+    }
+    if (!$allow) {
       $query = db_select('tmgmt_job_item')
         ->fields(NULL, array('tjiid'));
       $query->condition('state', '3', '<>') // TMGMT_JOB_ITEM_STATE_ACCEPTED
