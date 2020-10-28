@@ -3550,7 +3550,8 @@ div.workbench-info-block{
 
 .view-display-id-fop img, .view-display-id-een img, .view-display-id-block_1 img {
     width: 110px;
-    height: 74px;
+    height:	110px;
+    border: 0;
 }
 
 .view-display-id-block_1{
@@ -3698,7 +3699,7 @@ div.workbench-info-block{
 		color: #acc700;
 		font-size: 1.7em;
 		float: left;
-    	padding-right: 1em;
+    	padding-right: 0;
     	img{
 			border: 2px solid #bcd75b;
 			border-radius: 7px;
@@ -4115,7 +4116,10 @@ body.ocp, body.mp{
 		.field-name-field-country{
 			img{
 				border: 0;
-				outline: 1px solid #eaeaea;
+				width: 110px;
+				height: 110px;
+				margin-top: -17px;
+				margin-left: -10px;
 			}
 		}
 		.pane-node-field-mission-statement, .pane-node-field-pledge{
@@ -4222,6 +4226,15 @@ body.fop{
 			font-weight: bold;
     		clear: both;
 		}
+		.field-name-field-country{
+    		img{
+	    		width: 110px;
+				height: 110px;
+				padding-right: 0;
+	    		margin-top: -17px;
+	    		margin-left: -10px;
+    		}
+		}
 	}
 
 	.panels-flexible-column-first{
@@ -4229,8 +4242,6 @@ body.fop{
 			.field-name-field-country{					
 				img{
 					border: 0;
-					border: 1px solid #eaeaea;
-					margin-top:3rem;
 				}
 			}				
 			.field-item{
@@ -4315,6 +4326,15 @@ body.een{
 		.pane-node-field-country{
 			margin: 0rem 0 1rem 0;
 		    display: flex;
+		    .field-name-field-country.field-type-taxonomy-term-reference{
+				img{
+					width: 110px;
+					height: 110px;
+					margin-top: -20px;
+					margin-left: -10px;
+				}
+				
+			}
 			.field-item{
 			    font-size: 2rem;
 			}
@@ -8967,11 +8987,10 @@ body.mp{
 			&.profile-inline-field{
 				float: left;
 				min-height: 11rem;
-				padding-top: 2.2rem;
+				padding-right: 1em;
 				.field-name-field-country{					
 					img{
 						border: 0;
-						border: 1px solid #eaeaea;
 					}
 				}				
 			}

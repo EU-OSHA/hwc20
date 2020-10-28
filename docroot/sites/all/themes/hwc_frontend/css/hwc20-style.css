@@ -3083,7 +3083,8 @@ div.workbench-info-block {
 .view-display-id-een img,
 .view-display-id-block_1 img {
   width: 110px;
-  height: 74px;
+  height: 110px;
+  border: 0;
 }
 .view-display-id-block_1 .pager img {
   width: auto;
@@ -3200,7 +3201,7 @@ div.workbench-info-block {
   color: #acc700;
   font-size: 1.7em;
   float: left;
-  padding-right: 1em;
+  padding-right: 0;
 }
 .panels-flexible-row .field-name-field-country img {
   border: 2px solid #bcd75b;
@@ -3564,7 +3565,10 @@ body.mp .pane-node-field-bussines-sector .pane-content .field-type-taxonomy-term
 body.ocp .panels-flexible-column-first .field-name-field-country img,
 body.mp .panels-flexible-column-first .field-name-field-country img {
   border: 0;
-  outline: 1px solid #eaeaea;
+  width: 110px;
+  height: 110px;
+  margin-top: -17px;
+  margin-left: -10px;
 }
 body.ocp .panels-flexible-column-first .pane-node-field-mission-statement,
 body.mp .panels-flexible-column-first .pane-node-field-mission-statement,
@@ -3694,10 +3698,15 @@ body.fop .panels-flexible-region-partner_detail-left_left .field-name-field-orgt
   font-weight: bold;
   clear: both;
 }
+body.fop .panels-flexible-region-partner_detail-left_left .field-name-field-country img {
+  width: 110px;
+  height: 110px;
+  padding-right: 0;
+  margin-top: -17px;
+  margin-left: -10px;
+}
 body.fop .panels-flexible-column-first .pane-node-field-country .field-name-field-country img {
   border: 0;
-  border: 1px solid #eaeaea;
-  margin-top: 3rem;
 }
 body.fop .panels-flexible-column-first .pane-node-field-country .field-item {
   font-size: 2rem;
@@ -3767,6 +3776,12 @@ body.een .panels-flexible-column-first .field-name-field-country img {
 body.een .panels-flexible-column-first .pane-node-field-country {
   margin: 0rem 0 1rem 0;
   display: flex;
+}
+body.een .panels-flexible-column-first .pane-node-field-country .field-name-field-country.field-type-taxonomy-term-reference img {
+  width: 110px;
+  height: 110px;
+  margin-top: -20px;
+  margin-left: -10px;
 }
 body.een .panels-flexible-column-first .pane-node-field-country .field-item {
   font-size: 2rem;
@@ -7814,11 +7829,10 @@ body.mp .panels-flexible-column-first .pane-node-field-country {
 body.mp .panels-flexible-column-first .pane-node-field-country.profile-inline-field {
   float: left;
   min-height: 11rem;
-  padding-top: 2.2rem;
+  padding-right: 1em;
 }
 body.mp .panels-flexible-column-first .pane-node-field-country.profile-inline-field .field-name-field-country img {
   border: 0;
-  border: 1px solid #eaeaea;
 }
 body.mp .panels-flexible-column-first .pane-node-field-country .field-item {
   font-size: 2rem;
