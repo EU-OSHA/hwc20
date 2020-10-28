@@ -1046,4 +1046,16 @@ jQuery(document).ready(function($){
 		$( "aside.col-md-9 " ).addClass('no-padding-aside');
 	}
 
+	if (typeof _paq != 'undefined') {
+		$('#block-views-homepage-banners-block .view-content a').click(function(e) {
+			var l = document.createElement("a");
+			l.href = jQuery(this).attr('href');
+			var path = l.pathname;
+			if (l.hostname === 'healthy-workplaces.eu') {
+				path = l.pathname.substring(3);
+			}
+			path = 'https://' + l.hostname + path + '|' + $(this).closest('.view-data-row').data('changed');
+			_paq.push(['trackEvent', 'Banner', 'Click', path]);
+		});
+	}
 });

@@ -276,7 +276,12 @@ function hwc_nodequeue_view_queues() {
 
 function hwc_nodequeue_admin_view($queue, $subqueue = array()) {
   drupal_set_title(t("Nodequeue '@title'", array('@title' => $queue->title)), PASS_THROUGH);
-
+  $voc = taxonomy_vocabulary_machine_name_load('nodequeue_help_text');
+  $terms = taxonomy_get_tree($voc->vid, 0,NULL, TRUE);
+  $map = [];
+  foreach ($terms as $term) {
+    $map[$term->field_nodequeue['und'][0]['value']] = $term->description;
+  }
   // If the queue has just one subqueue, it gets special treatment.
   if (empty($subqueue->sqid)) {
     if ($queue->subqueues == 1) {
@@ -301,7 +306,9 @@ function hwc_nodequeue_admin_view($queue, $subqueue = array()) {
     drupal_set_breadcrumb($breadcrumb);
   }
   $form = nodequeue_arrange_subqueue($queue, $subqueue);
-  $form['#prefix'] = t('Maximum number of items can be added to the nodequeue: ') . $queue->size;
+  if (!empty($map[$queue->name])) {
+    $form['#prefix'] = $map[$queue->name];
+  }
   return $form;
 
 }

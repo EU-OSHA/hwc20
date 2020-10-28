@@ -36,6 +36,9 @@ $allow_terms = TRUE;
 if (drupal_is_front_page()) {
   $allow_terms = FALSE;
 }
+elseif (arg(0) == 'entity-collection') {
+  $allow_terms = FALSE;
+}
 elseif (arg(0) == 'node') {
   $node = menu_get_object();
   if ($node->type == 'frontpage_slider') {

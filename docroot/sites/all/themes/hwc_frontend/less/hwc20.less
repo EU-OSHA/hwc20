@@ -3521,7 +3521,7 @@ div.workbench-info-block{
 			}
 
 			img{
-				max-width: 150px;
+				max-width: 110px;
 			}
 
 			span.logo-content{
@@ -3549,8 +3549,8 @@ div.workbench-info-block{
 }
 
 .view-display-id-fop img, .view-display-id-een img, .view-display-id-block_1 img {
-    width: 110px;
-    height: 74px;
+    max-width: 110px;
+    border: 0;
 }
 
 .view-display-id-block_1{
@@ -3698,7 +3698,7 @@ div.workbench-info-block{
 		color: #acc700;
 		font-size: 1.7em;
 		float: left;
-    	padding-right: 1em;
+    	padding-right: 0;
     	img{
 			border: 2px solid #bcd75b;
 			border-radius: 7px;
@@ -4115,7 +4115,9 @@ body.ocp, body.mp{
 		.field-name-field-country{
 			img{
 				border: 0;
-				outline: 1px solid #eaeaea;
+				width: 110px;
+				height: 110px;
+				margin-top: -17px;
 			}
 		}
 		.pane-node-field-mission-statement, .pane-node-field-pledge{
@@ -4142,7 +4144,7 @@ body.ocp, body.mp{
 			}
 		}
 		.pane-node-field-mission-statement{
-			margin: 2rem 0 2rem;
+			margin: 2rem 0 2rem 10px;
 		}
 	}
 	.panels-flexible-column-last{
@@ -4222,6 +4224,14 @@ body.fop{
 			font-weight: bold;
     		clear: both;
 		}
+		.field-name-field-country{
+    		img{
+	    		width: 110px;
+				height: 110px;
+				padding-right: 0;
+	    		margin-top: -17px;
+    		}
+		}
 	}
 
 	.panels-flexible-column-first{
@@ -4229,8 +4239,6 @@ body.fop{
 			.field-name-field-country{					
 				img{
 					border: 0;
-					border: 1px solid #eaeaea;
-					margin-top:3rem;
 				}
 			}				
 			.field-item{
@@ -4270,7 +4278,7 @@ body.fop{
 			padding-top: 0.3rem;
 		}
 		.pane-node-field-mission-statement{
-			margin: 2rem 0 2rem;
+			margin: 2rem 0 2rem 0;
 		}
 	}
 	.panels-flexible-column-last{
@@ -4315,6 +4323,14 @@ body.een{
 		.pane-node-field-country{
 			margin: 0rem 0 1rem 0;
 		    display: flex;
+		    .field-name-field-country.field-type-taxonomy-term-reference{
+				img{
+					width: 110px;
+					height: 110px;
+					margin-top: -20px;
+				}
+				
+			}
 			.field-item{
 			    font-size: 2rem;
 			}
@@ -4346,7 +4362,7 @@ body.een{
 			padding-top: 0.8rem;
 		}
 		.pane-node-field-mission-statement{
-			margin: 5rem 0 2rem;
+			margin: 5rem 0 2rem 10px;
 		}
 	}
 	.panels-flexible-column-last{
@@ -4364,6 +4380,7 @@ body.een{
 		.pane-node-field-website{
 			.field-type-link-field{
 				padding: 0;
+				clear: both;
 				a{
 				    font-style: normal;
 				    width: auto;
@@ -4400,9 +4417,10 @@ body.een{
 }
 
 body{
-	&.ocp, &.mp, &.fop, &.een{
+	&.mp, &.fop, &.een{
 		.panels-flexible-row h2{
 		    font-weight: 600;
+		    padding-left: 10px;
 		}
 		.panels-flexible-column-first{
 			.pane-node-field-mission-statement{
@@ -4418,7 +4436,19 @@ body{
 		}
 		.box-type-partner{
 			width: 100%;
+			margin-left: 10px;
 		}
+	}
+}
+
+body.ocp{
+	.panels-flexible-row h2{
+	    font-weight: 600;
+	    padding-left: 0;
+	}
+		
+	.pane-node-field-mission-statement{
+		margin-left: 0 !important;
 	}
 }
 
@@ -4861,8 +4891,8 @@ html:lang(sv)
 		    .views-field-field-logo{
 		    	img {
 				    border: 0;
-				    width: 120px;
-				    height: auto;
+				    width: 110px;
+				    height: 110px;
 				    margin: 0 auto;
 				}
 		    } 
@@ -8967,11 +8997,10 @@ body.mp{
 			&.profile-inline-field{
 				float: left;
 				min-height: 11rem;
-				padding-top: 2.2rem;
+				padding-right: 1em;
 				.field-name-field-country{					
 					img{
 						border: 0;
-						border: 1px solid #eaeaea;
 					}
 				}				
 			}
@@ -9034,7 +9063,7 @@ body.mp{
 			}
 		}
 		.pane-node-field-mission-statement{
-			margin: 2rem 0 2rem;
+			margin: 2rem 0 2rem 10px;
 		}
 	}
 }
@@ -9393,6 +9422,10 @@ aside.col-md-3{
 	clear: both;
 }
 
+.clear-both-conf-fix{
+	clear: both;
+}
+
 .accordion-menu{
 	float: left;
 	margin-top: 47px;
@@ -9664,7 +9697,8 @@ body.front-page{
 				    justify-content: center;
 				    .item {
 					    img{
-					    	width: 65%;
+					    	width: 110px;
+					    	height: 110px;
 					    	margin: 0 auto;
 					    }
 					    .views-field{
