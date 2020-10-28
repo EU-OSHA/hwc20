@@ -14,37 +14,88 @@
 <fieldset>
     <legend id="PRIMARY_CONTACT">
         About your Main Contact Person
+        <img id="PRIMARY_CONTACT_check" class="hidden" src="mvc/view/img/tick_16.png" title="You have validated this section" />
     </legend>
     
     <div class="separatorFieldSet">&nbsp;</div>
-
+    
+     <!--  {if !mf && $partner_type == "current"}<div>{$attributes.contact_osh_maincontactchange}</div>{/if}-->
+ {if (preg_match('/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/', $session_id) && $HelpMessage != "print")}
     <div>
         {$attributes.contact_osh_maincontactchange}
+    </div>
+ {/if}
+
+    <div class="main-contact-change-clone">
+        <div class="float-left">
+            {$attributes.contact_osh_maincontactpersonfirstname_clone}
+            {$attributes.contact_osh_maincontactpersonlastname_clone}
+           
+        </div>
+        <div class="float-right">
+            {$attributes.contact_osh_prefixmaincontactphone_clone}
+            {$attributes.contact_osh_mainphone_clone}
+
+            {if $mf || $partner_type == "current"}
+            <div>
+                {/if}
+                {$attributes.contact_osh_mainemail_clone}
+                {if $mf || $partner_type == "current"}
+            </div>
+            {/if}
+            <!--{if !$mf && $partner_type != "current" && !$locked}
+                {$attributes.contact_osh_confirm_mainemail_clone}
+            {/if}-->
+        </div>
     </div>
 
     <div class="main-contact-change">
         <div class="float-left">
-        {$attributes.contact_osh_maincontactpersonfirstname}
-        {$attributes.contact_osh_maincontactpersonlastname}
+            {$attributes.contact_osh_maincontactpersonfirstname}
+            {$attributes.contact_osh_maincontactpersonlastname}
+       
         </div>
-        <div class="float-right">
+        <div class="float-right" {if $HelpMessage != "print"}style="margin-top: 2%"{/if}>
+
+          
+
             {$attributes.contact_osh_prefixmaincontactphone}
             {$attributes.contact_osh_mainphone}
-            {if $mf || $partner_type == "current" || $locked}
+            {if $mf || $partner_type == "current" || $locked|| $NewFromURL}
                 <div class="disabledDiv">
             {/if}
             {$attributes.contact_osh_mainemail}
-            {if $mf || $partner_type == "current" || $locked}
+            {if $mf || $partner_type == "current" || $locked || $NewFromURL}
                 </div>
             {/if}
-            <!--{$attributes.contact_osh_confirm_mainemail}-->
+             
+            {if !$mf && $partner_type != "current" && !$locked && !$NewFromURL && $HelpMessage != "print"}
+                {$attributes.contact_osh_confirm_mainemail}
+            {/if}
         </div>
     </div>
-    <div class="hidden">
+        <div class="float-left">
+            {if !$mf && $partner_type != "current" && !$locked && $HelpMessage != "print" && !$NewFromURL}
+            {$attributes.contact_osh_captcha}
+            {/if}
+        </div>
+        <div class="hidden">
+        {$attributes.helpMessage}
         {$attributes.contact_osh_mainemailAux}
         {$attributes.company_osh_orgnameAux}
+        {$attributes.contact_osh_maincontactpersonfirstnameAux}
+        {$attributes.contact_osh_maincontactpersonlastnameAux}
+        {$attributes.osh_primarycontactsection}
+
     </div>
 </fieldset>
+
+
+
+
+
+
+
 {if $HelpMessage != "print"}
 <div class="helpDiv">
     <div data-section="PRIMARY_CONTACT" class="validation{$locked}">I validate the information filled in this section</div>
