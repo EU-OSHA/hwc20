@@ -3824,6 +3824,7 @@ body.een .panels-flexible-column-last .pane-node-field-general-phone {
 }
 body.een .panels-flexible-column-last .pane-node-field-website .field-type-link-field {
   padding: 0;
+  clear: both;
 }
 body.een .panels-flexible-column-last .pane-node-field-website .field-type-link-field a {
   font-style: normal;
@@ -8187,6 +8188,9 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
   border-bottom: 0;
 }
 #block-hwc-homepage-previous-campaign-nav {
+  clear: both;
+}
+.clear-both-conf-fix {
   clear: both;
 }
 .accordion-menu {
