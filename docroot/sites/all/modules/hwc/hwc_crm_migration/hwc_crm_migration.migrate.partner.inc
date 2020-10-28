@@ -230,11 +230,13 @@ class PartnerMigrateListXml extends AbstractCrmMigrateListXml {
         $data->field_guid_organisation = (string) $attributes['Table0_Details1'];
         $data->field_general_email = (string) $attributes['Textbox2'];
         $data->field_general_phone = (string) $attributes['Textbox3'];
-        // box40 = "HWC website e-mail contact"
-        // for compatibility lets display general_email if no website_email
+        // "HWC website e-mail contact".
         $data->field_website_email = (string) $attributes['Textbox40'];
         if (!$data->field_website_email) {
-          $data->field_website_email = $data->field_general_email;
+          // For compatibility display general_email if no website_email for all partners except FOP.
+          if ('National Focal Points' !== (string) $attributes['Textbox28']) {
+            $data->field_website_email = $data->field_general_email;
+          }
         }
         $prefix = trim((string) $attributes['Textbox39']);
         $parts = explode('(', $prefix);
