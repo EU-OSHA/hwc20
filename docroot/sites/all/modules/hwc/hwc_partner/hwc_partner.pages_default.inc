@@ -1246,7 +1246,10 @@ campaign-partners/enterprise-europe-network
   $pane->style = array(
     'settings' => NULL,
   );
-  $pane->css = array();
+  $pane->css = array(
+    'css_id' => 'block-hwc-homepage-previous-campaign-nav',
+    'css_class' => '',
+  );
   $pane->extras = array();
   $pane->position = 3;
   $pane->locks = array();
@@ -1289,7 +1292,10 @@ campaign-partners/enterprise-europe-network
   $pane->style = array(
     'settings' => NULL,
   );
-  $pane->css = array();
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'publication-detail.campaign-materials',
+  );
   $pane->extras = array();
   $pane->position = 4;
   $pane->locks = array();
@@ -1331,7 +1337,10 @@ campaign-partners/enterprise-europe-network
   $pane->style = array(
     'settings' => NULL,
   );
-  $pane->css = array();
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => '.publication-detail.campaign-materials',
+  );
   $pane->extras = array();
   $pane->position = 5;
   $pane->locks = array();
