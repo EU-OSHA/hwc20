@@ -69,14 +69,6 @@ function osha_resources_node_info() {
       'title_label' => 'Title',
       'help' => '',
     ),
-    'flickr' => array(
-      'name' => 'Flickr',
-      'base' => 'node_content',
-      'description' => 'Additional resources - Flickr photos',
-      'has_title' => '1',
-      'title_label' => 'Title',
-      'help' => '',
-    ),
     'slideshare' => array(
       'name' => 'Slideshare',
       'base' => 'node_content',
