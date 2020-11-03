@@ -15452,7 +15452,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 .node-type-document .field-type-file,
 .node-type-publication .field-type-file {
-  width: 90%;
+  width: 100%;
 }
 .node-type-document .field-type-file ul li ul li a,
 .node-type-publication .field-type-file ul li ul li a {
