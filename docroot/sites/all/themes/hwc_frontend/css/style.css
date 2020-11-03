@@ -24512,8 +24512,8 @@ body.front .homepage-slider blockquote.image-field-caption p {
   /*end news*/
   /*infographics*/
   .view-infographic .views-row {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
   }
   .view-infographic .views-row .field-type-image {
     display: none;
