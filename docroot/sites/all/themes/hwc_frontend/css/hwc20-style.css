@@ -9060,6 +9060,15 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     margin-top: 2px;
     cursor: inherit;
   }
+  .node-infographic .group-left .col-sm-4 {
+    max-width: 175px;
+  }
+  .node-infographic .group-left img {
+    max-width: 175px;
+  }
+  .node-infographic .group-left.col-sm-4 {
+    max-width: 195px;
+  }
 }
 @media (min-width: 1480px) {
   .start-browsing .content-boxes {
