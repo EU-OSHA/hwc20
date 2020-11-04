@@ -306,7 +306,7 @@ function hwc_homepage_block_view($delta = '') {
     $social_media = module_invoke('on_the_web', 'block_view', 'on_the_web');
     $link_text = t(variable_get('homepage_social_media_link_text', 'See all from Social media'));
     $data['social_media_icons'] = render($social_media['content']);
-    $data['social_media_title'] = t(variable_get('homepage_social_media_title', 'Social Media'));
+    $data['social_media_title'] = t(variable_get('homepage_social_media_title', 'Social media'));
     $data['social_media_intro'] = t(variable_get('homepage_social_media_intro', 'Follow us'));
     $data['social_media_see_all'] = l($link_text, 'media-centre/social-media-centre', ['attributes' => ['class' => 'see-more-button-20']]);
     $block['content'] = theme('hwc_homepage_newsletter_social_media', ['data' => $data]);

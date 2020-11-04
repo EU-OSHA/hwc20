@@ -18,6 +18,12 @@
       "type": "text",
       "validator": "not_null"
     },
+    "contact_osh_maincontactpersonfirstname_clone": {
+      "name": "contact_osh_maincontactpersonfirstname_clone",
+      "section": "PRIMARY_CONTACT",
+      "label": "Previous name of main contact person for the campaign",
+      "type": "text"
+    },
     "contact_osh_maincontactpersonlastname": {
       "name": "contact_osh_maincontactpersonlastname",
       "label": "Surname",
@@ -26,14 +32,14 @@
       "type": "text",
       "validator": "not_null"
     },
-    "contact_osh_positionmaincontactperson": {
-      "name": "contact_osh_positionmaincontactperson",
-      "label": "Position",
+    "contact_osh_maincontactpersonlastname_clone": {
+      "name": "contact_osh_maincontactpersonlastname_clone",
       "section": "PRIMARY_CONTACT",
-      "type": "text",
-      "validator": "not_null"
+      "label": "Previous surname",
+      "type": "text"
     },
-    "company_osh_facebookprofile": {
+    
+   "company_osh_facebookprofile": {
       "name": "company_osh_facebookprofile",
       "label": "Facebook Profile",
       "placeholder": "Please indicate your facebook profile",
@@ -78,6 +84,17 @@
         "email",
         "not_null"
       ]
+    },
+    "contact_osh_mainemail_clone": {
+      "name": "contact_osh_mainemail_clone",
+      "section": "PRIMARY_CONTACT",
+      "label": "Previous e-mail",
+      "type": "text"
+    },
+    "helpMessage": {
+      "name": "helpMessage",
+      "section": "PRIMARY_CONTACT",
+      "type": "text"
     },
     "contact_osh_otherusername1": {
       "name": "contact_osh_otherusername1",
@@ -236,6 +253,12 @@
          "not_null"
       ]
      },
+     "contact_osh_confirm_mainemail_clone": {
+      "name": "contact_osh_confirm_mainemail_clone",
+      "section": "PRIMARY_CONTACT",
+      "label": "Previous email confirmation",
+      "type": "text"
+    },
     "contact_osh_mainphone": {
       "name": "contact_osh_mainphone",
       "placeholder": "0000 0000",
@@ -253,6 +276,19 @@
       "type": "dropdown",
       "validator": "not_null"
     },
+    "contact_osh_mainphone_clone": {
+      "name": "contact_osh_mainphone_clone",
+      "label": "Previous telephone number",
+      "section": "PRIMARY_CONTACT",
+      "type": "text"
+    },
+     "contact_osh_prefixmaincontactphone_clone": {
+           "name": "contact_osh_prefixmaincontactphone_clone",
+           "label": "Previous telephone prefix",
+           "placeholder": "+00",
+           "section": "OTHER_USERS",
+           "type": "dropdown"
+         },
     "contact_osh_category": {
       "name": "contact_osh_category",
       "type": "text"
@@ -264,7 +300,8 @@
     "contact_osh_maincontactchange": {
       "name": "contact_osh_maincontactchange",
       "label": "Main contact change",
-      "type": "contact_change"
+      "type": "contact_change",
+      "helpText": "true"
     }
   },
   "map": {

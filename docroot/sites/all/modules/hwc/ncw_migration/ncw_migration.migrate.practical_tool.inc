@@ -239,9 +239,9 @@ class NCWMSDMigration extends AbstractNCWNodeMigration {
 
 }
 
-class NCWDangerousSubstancesMigration extends NCWMSDMigration {
-
-}
+//class NCWDangerousSubstancesMigration extends NCWMSDMigration {
+//
+//}
 
 class NCWMSDSource extends AbstractNCWNodeSource {
 

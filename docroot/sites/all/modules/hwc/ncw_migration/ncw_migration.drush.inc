@@ -11,9 +11,9 @@ function ncw_migration_drush_command() {
     'hwc-migrate-msd-related' => array(
       'description' => 'Import MSD related taxonomies from the corporate website',
     ),
-    'hwc-migrate-ds' => array(
-      'description' => 'Import DS from the corporate website',
-    ),
+//    'hwc-migrate-ds' => array(
+//      'description' => 'Import DS from the corporate website',
+//    ),
     'hwc-migrate-all' => array(
       'description' => 'Import all content from the corporate website',
     ),
@@ -30,14 +30,14 @@ function ncw_migration_drush_command() {
   );
 }
 
-function drush_ncw_migration_hwc_migrate_ds() {
-  $migrations = array(
-    'dangerous_substances',
-  );
-  foreach ($migrations as $migration) {
-    ncw_migration_run_single($migration);
-  }
-}
+//function drush_ncw_migration_hwc_migrate_ds() {
+//  $migrations = array(
+//    'dangerous_substances',
+//  );
+//  foreach ($migrations as $migration) {
+//    ncw_migration_run_single($migration);
+//  }
+//}
 
 function drush_ncw_migration_hwc_migrate_msd_related() {
   $migrations = array(
