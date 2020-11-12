@@ -8778,6 +8778,7 @@ table tr.error.form-type-select:after {
   width: inherit;
   height: inherit;
   border: none;
+  max-width: inherit;
 }
 .node-infographic .group-right .field-type-file,
 .node-infographic .group-right .field-type-image {
@@ -8795,6 +8796,7 @@ table tr.error.form-type-select:after {
 .node-infographic .field-name-title-field h2 {
   text-align: left;
   margin-top: 0px;
+  font-size: 2.1rem;
 }
 .node-infographic .label_multilang_file {
   padding-right: 3px;
@@ -15450,7 +15452,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 .node-type-document .field-type-file,
 .node-type-publication .field-type-file {
-  width: 90%;
+  width: 100%;
 }
 .node-type-document .field-type-file ul li ul li a,
 .node-type-publication .field-type-file ul li ul li a {
@@ -24512,8 +24514,8 @@ body.front .homepage-slider blockquote.image-field-caption p {
   /*end news*/
   /*infographics*/
   .view-infographic .views-row {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
   }
   .view-infographic .views-row .field-type-image {
     display: none;

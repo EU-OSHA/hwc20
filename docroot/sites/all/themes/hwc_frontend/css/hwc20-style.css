@@ -2153,14 +2153,14 @@ div.publications-detail-right-column > a.download {
   padding-top: 1px;
   padding-left: 0;
 }
-.node-type-publication .field-name-field-file ul li {
-  float: left;
-}
 .node-type-publication .field-name-field-file ul li .form-group {
   float: left;
+  width: 86%;
 }
 .node-type-publication .field-name-field-file ul li > .form-group:nth-child(1) {
   padding-right: 5px;
+  width: auto;
+  float: left;
 }
 .node-type-publication .field-name-field-file ul li .slash {
   float: left;
@@ -2455,6 +2455,7 @@ html:lang(pl) .publication-see-more-bottom-container .news-see-more-button {
   border-bottom: 0;
   margin-top: 2em;
   padding: 0 2em 0 0;
+  display: flex;
 }
 .publication-detail .publications-row .download {
   margin-top: 2em;
@@ -8714,7 +8715,8 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   background-image: -webkit-linear-gradient(top, #ededed 0%, #f6f6f6 47%, #ededed 100%);
   background-image: linear-gradient(to bottom, #ededed 0%, #f6f6f6 47%, #ededed 100%);
 }
-.page-news .view-news .view-content .views-row .field-name-field-image {
+.page-news .view-news .view-content .views-row .field-name-field-image,
+.page-media-centre-press-room .view-news .view-content .views-row .field-name-field-image {
   border: 2px solid #bcd75b;
   float: left;
   padding-right: 0;
@@ -8724,9 +8726,13 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   height: 114px;
   width: 114px;
 }
-.page-news .view-news .view-content .views-row .field-name-field-image img {
+.page-news .view-news .view-content .views-row .field-name-field-image img,
+.page-media-centre-press-room .view-news .view-content .views-row .field-name-field-image img {
   border: 0;
   margin-top: 0;
+}
+#block-views-infographic-block-1 {
+  padding-bottom: 1em;
 }
 .isMobile {
   float: right !important;
@@ -9057,6 +9063,22 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     min-height: 33px;
     margin-top: 2px;
     cursor: inherit;
+  }
+  .node-infographic .group-left .col-sm-4 {
+    max-width: 175px;
+  }
+  .node-infographic .group-left img {
+    max-width: 175px;
+  }
+  .node-infographic .group-left.col-sm-4 {
+    max-width: 195px;
+  }
+  .node-type-publication .field-name-field-file {
+    width: 100%;
+  }
+  .node-type-publication .field-name-field-file ul li .form-group {
+    float: left;
+    width: 80%;
   }
 }
 @media (min-width: 1480px) {
@@ -9685,6 +9707,11 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   .page-tools-and-publications-campaign-materials .news-see-more-button {
     position: relative;
     bottom: 0;
+  }
+  .publication-detail .publications-left-column {
+    float: left;
+    margin-right: 0em;
+    width: auto;
   }
   .publication-detail .publications-left-column img {
     display: none;

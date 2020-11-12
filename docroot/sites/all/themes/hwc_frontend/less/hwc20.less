@@ -2512,12 +2512,14 @@ div.publications-detail-right-column > a.download{
 			padding-top: 1px;
 			padding-left: 0;
 			li{
-				float: left;
 				.form-group{
 					float: left;
+					width: 86%;
 				}
 				> .form-group:nth-child(1){
 					padding-right: 5px;
+					width: auto;
+					float: left;
 				}
 				.slash{
 					float: left;
@@ -2892,6 +2894,7 @@ html:lang(pl){
 		border-bottom:0;
 		margin-top: 2em;
     	padding: 0 2em 0 0;
+    	display: flex;
 		.download{
 			margin-top: 2em;
 			float: left;
@@ -10061,7 +10064,7 @@ body.page-node-253{
 	}
 }
 
-.page-news{
+.page-news, .page-media-centre-press-room{
 	.view-news{
 		.view-content{
 	    	.views-row{
@@ -10082,4 +10085,8 @@ body.page-node-253{
 	    	}
 	    }
 	}
+}
+
+#block-views-infographic-block-1{
+	padding-bottom: 1em;
 }

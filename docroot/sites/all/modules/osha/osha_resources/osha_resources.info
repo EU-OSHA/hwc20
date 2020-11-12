@@ -68,7 +68,6 @@ features[field_instance][] = node-youtube-title_field
 features[image][] = youtube_thumbnail
 features[node][] = external_url
 features[node][] = file
-features[node][] = flickr
 features[node][] = slideshare
 features[node][] = youtube
 features[variable][] = additional_settings__active_tab_resources

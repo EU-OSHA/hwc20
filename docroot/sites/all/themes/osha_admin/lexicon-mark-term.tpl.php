@@ -1,0 +1,1 @@
+../hwc_frontend/templates/lexicon-mark-term.tpl.php

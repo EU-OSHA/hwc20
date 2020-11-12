@@ -306,8 +306,15 @@ function hwc_nodequeue_admin_view($queue, $subqueue = array()) {
     drupal_set_breadcrumb($breadcrumb);
   }
   $form = nodequeue_arrange_subqueue($queue, $subqueue);
-  if (!empty($map[$queue->name])) {
-    $form['#prefix'] = $map[$queue->name];
+  if (variable_get('hwc_nodequeue_size_type', TRUE)) {
+    if ($queue->size) {
+      $form['#prefix'] = t('Maximum number of items can be added to the nodequeue: ') . $queue->size;
+    }
+  }
+  else {
+    if (!empty($map[$queue->name])) {
+      $form['#prefix'] = $map[$queue->name];
+    }
   }
   return $form;
 
