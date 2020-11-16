@@ -916,6 +916,27 @@ jQuery(document).ready(function($) {
 	}
 });
 
+function getTrackPath(href, changed) {
+	var l = document.createElement("a");
+	l.href = href;
+	var path = l.pathname;
+	var hostnames = [
+		'healthy-workplaces.eu',
+		'oiraproject.eu',
+		'osha.europa.eu',
+		'www.napofilm.net',
+		'test.healthy-workplaces.eu',
+		'test.oiraproject.eu',
+		'test.osha.europa.eu',
+		'test.napofilm.net',
+	];
+
+	if (hostnames.includes(l.hostname)) {
+		path = l.pathname.substring(3);
+	}
+	return 'https://' + l.hostname + path + '|' + changed;
+}
+
 jQuery(document).ready(function($){
 
   var video1 = $(".hp-video-modal-1").attr("src");
@@ -1048,22 +1069,7 @@ jQuery(document).ready(function($){
 
 	if (typeof _paq != 'undefined') {
 		$('#block-views-homepage-banners-block .view-content a').click(function(e) {
-			var l = document.createElement("a");
-			l.href = jQuery(this).attr('href');
-			var path = l.pathname;
-			if (l.hostname === 'healthy-workplaces.eu') {
-				path = l.pathname.substring(3);
-			}
-			if (l.hostname === 'oiraproject.eu') {
-				path = l.pathname.substring(3);
-			}
-			if (l.hostname === 'osha.europa.eu') {
-				path = l.pathname.substring(3);
-			}
-			if (l.hostname === 'www.napofilm.net') {
-				path = l.pathname.substring(3);
-			}
-			path = 'https://' + l.hostname + path + '|' + $(this).closest('.view-data-row').data('changed');
+			var path = getTrackPath(jQuery(this).attr('href'), jQuery(this).closest('.view-data-row').data('changed'));
 			_paq.push(['trackEvent', 'Banner', 'Click', path]);
 		});
 	}
