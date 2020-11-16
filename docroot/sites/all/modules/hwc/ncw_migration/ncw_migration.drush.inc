@@ -33,7 +33,7 @@ function drush_ncw_migration_hwc_migrate_av_related() {
     'tax_purpose_of_material',
     'tax_resource_type',
     'tax_target_audience',
-    'tax_thesaurus',
+//    'tax_thesaurus',
     'tax_worker_groups_covered',
     'practical_tool',
   );
@@ -67,7 +67,7 @@ function drush_ncw_migration_hwc_migrate_all() {
     'press_releases',
     'highlights',
     'infographics',
-    'press_contacts',
+//    'press_contacts',
     'publications',
   );
   foreach ($migrations as $migration) {
