@@ -249,11 +249,11 @@ class NCWPublicationsSource extends AbstractNCWNodeSource {
    * Include the related publications recursively into the migrated content.
    */
   public function readData() {
-    $msg = format_string('Updating from !url', array('!url' => $this->endpoint_url));
-    watchdog('ncw_migration', $msg, [], WATCHDOG_INFO);
     $this->rows = array();
     $content = $this->fileGetContents($this->endpoint_url);
     if ($data = json_decode($content)) {
+      $msg = format_string('Updating from !url items: !count', array('!url' => $this->endpoint_url, '!count' => count($data->items)));
+      watchdog('ncw_migration', $msg, [], WATCHDOG_INFO);
       foreach ($data->items as $ob) {
         $ob = $ob->item;
         $id = $this->itemIdentifier($ob);

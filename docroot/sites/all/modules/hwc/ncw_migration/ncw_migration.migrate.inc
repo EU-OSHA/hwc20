@@ -91,36 +91,6 @@ function ncw_migration_migrate_api() {
         'dependencies' => array(),
         'class_name' => 'NCWTaxonomyNaceCodesMigration',
       ),
-      'tax_biological_hazard' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyBiologicalHazardMigration',
-      ),
-      'tax_hazard_physical_state' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyHazardPhysicalStateMigration',
-      ),
-      'tax_hazard_health_effects' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyHazardHealthEffectsMigration',
-      ),
-      'tax_exposure_route' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyExposureRouteMigration',
-      ),
-      'tax_prevention_measures' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyPreventionMeasuresMigration',
-      ),
-      'tax_target_group' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array(),
-        'class_name' => 'NCWTaxonomyTargetGroupMigration',
-      ),
       'events' => array(
         'group_name' => 'ncw',
         'dependencies' => array('tax_tags'),
@@ -129,30 +99,17 @@ function ncw_migration_migrate_api() {
       'publications' => array(
         'group_name' => 'ncw',
         'dependencies' => array(
-          'tax_tags', 'tax_publication_types', 'publications_add_res',
-          'news_add_res', 'press_releases_add_res',
-          'highlights_add_res', 'notes_to_editor', 'tax_segment',
+          'tax_tags', 'tax_publication_types',
+          'notes_to_editor', 'tax_segment',
         ),
         'class_name' => 'NCWPublicationsMigration',
-      ),
-      'publications_add_res' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array('tax_tags', 'tax_publication_types'),
-        'class_name' => 'NCWAdditionalResourcesPublicationsMigration',
       ),
       'news' => array(
         'group_name' => 'ncw',
         'dependencies' => array(
-          'tax_tags', 'publications_add_res', 'news_add_res',
-          'press_releases_add_res',
-          'highlights_add_res',
+          'tax_tags',
         ),
         'class_name' => 'NCWNewsMigration',
-      ),
-      'news_add_res' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array('tax_tags'),
-        'class_name' => 'NCWAdditionalResourcesNewsMigration',
       ),
       'notes_to_editor' => array(
         'group_name' => 'ncw',
@@ -162,31 +119,17 @@ function ncw_migration_migrate_api() {
       'press_releases' => array(
         'group_name' => 'ncw',
         'dependencies' => array(
-          'tax_tags', 'publications_add_res', 'news_add_res',
-          'press_releases_add_res',
-          'highlights_add_res',
+          'tax_tags',
           'notes_to_editor',
         ),
         'class_name' => 'NCWPressMigration',
       ),
-      'press_releases_add_res' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array('tax_tags'),
-        'class_name' => 'NCWAdditionalResourcesPressReleasesMigration',
-      ),
       'highlights' => array(
         'group_name' => 'ncw',
         'dependencies' => array(
-          'tax_tags', 'publications_add_res', 'news_add_res',
-          'press_releases_add_res',
-          'highlights_add_res',
+          'tax_tags',
         ),
         'class_name' => 'NCWHighlightMigration',
-      ),
-      'highlights_add_res' => array(
-        'group_name' => 'ncw',
-        'dependencies' => array('tax_tags'),
-        'class_name' => 'NCWAdditionalResourcesHighlightsMigration',
       ),
       'infographics' => array(
         'group_name' => 'ncw',
@@ -547,6 +490,8 @@ abstract class AbstractNCWNodeMigration extends Migration {
                   strtr('Unpublishing @type @title - not found in source anymore.', array('@type' => $node->type, '@title' => $node->title)),
                   'warning'
                 );
+                watchdog('osha_sites_migration', 'Unpublishing !type !title - not found in source anymore.',
+                  array('!type' => $node->type, '!title' => $node->title), WATCHDOG_INFO);
               }
             } else {
               $this->currentMigration()->displayMessage(
@@ -560,6 +505,7 @@ abstract class AbstractNCWNodeMigration extends Migration {
       }
     }
   }
+
 }
 
 
@@ -686,7 +632,7 @@ abstract class AbstractNCWNodeSource extends MigrateSource {
   }
 
   public function fileGetContents($url) {
-    //@todo replace all instances of fileGetContents.
+    // @todo replace all instances of fileGetContents.
     return ncw_migration_file_get_contents($url);
   }
 
@@ -1217,7 +1163,7 @@ function osha_migration_normalize_migrated_term_reference(&$original, $source_mi
   if ($migration = Migration::getInstance($source_migration_name)) {
     foreach ($original as $term) {
       $tid = NULL;
-      if(is_numeric($term)) {
+      if (is_numeric($term)) {
         $tid = $term;
         if ($tid && $dest = $migration->getMap()->getRowBySource(array($tid))) {
           $ret = $dest['destid1'];
@@ -1235,23 +1181,6 @@ function osha_migration_normalize_migrated_term_reference(&$original, $source_mi
 }
 
 function ncw_migration_find_additional_resource($source_nid) {
-  $migrations = array(
-    'publications_add_res', 'news_add_res',
-    'press_releases_add_res', 'highlights_add_res'
-  );
-  foreach ($migrations as $machine_name) {
-    $migration = Migration::getInstance($machine_name);
-    /** @var MigrateMap $map */
-    $map = $migration->getMap();
-    if ($destid1 = $map->lookupDestinationID(array($source_nid))) {
-      // @todo add some debugging here
-      ncw_migration_debug(
-        'Linking additional resource from !machine (src=!src:dest=!dest',
-          array('!machine' => $machine_name, '!src' => $source_nid, '!dest' => $destid1['destid1'])
-      );
-      return $destid1['destid1'];
-    }
-  }
   return NULL;
 }
 

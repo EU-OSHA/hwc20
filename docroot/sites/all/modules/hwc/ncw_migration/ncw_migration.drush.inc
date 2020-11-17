@@ -8,12 +8,6 @@ function ncw_migration_drush_command() {
     'hwc-migrate-av-related' => array(
       'description' => 'Import audio-video related taxonomies from the corporate website',
     ),
-    'hwc-migrate-msd-related' => array(
-      'description' => 'Import MSD related taxonomies from the corporate website',
-    ),
-//    'hwc-migrate-ds' => array(
-//      'description' => 'Import DS from the corporate website',
-//    ),
     'hwc-migrate-all' => array(
       'description' => 'Import all content from the corporate website',
     ),
@@ -30,43 +24,8 @@ function ncw_migration_drush_command() {
   );
 }
 
-//function drush_ncw_migration_hwc_migrate_ds() {
-//  $migrations = array(
-//    'dangerous_substances',
-//  );
-//  foreach ($migrations as $migration) {
-//    ncw_migration_run_single($migration);
-//  }
-//}
-
-function drush_ncw_migration_hwc_migrate_msd_related() {
-  $migrations = array(
-    'tax_hazards',
-    'tax_health_effects',
-    'tax_msd_priority_area',
-
-    'tax_prevention_measures_msd',
-    'tax_purpose_of_material',
-
-    'tax_resource_type',
-    'tax_target_audience',
-    'tax_worker_groups_covered',
-
-    'msd',
-  );
-  foreach ($migrations as $migration) {
-    ncw_migration_run_single($migration);
-  }
-}
-
 function drush_ncw_migration_hwc_migrate_av_related() {
   $migrations = array(
-    'tax_biological_hazard',
-    'tax_hazard_physical_state',
-    'tax_hazard_health_effects',
-    'tax_exposure_route',
-    'tax_prevention_measures',
-    'tax_target_group',
     'tax_hazards',
     'tax_health_effects',
     'tax_msd_priority_area',
@@ -74,7 +33,7 @@ function drush_ncw_migration_hwc_migrate_av_related() {
     'tax_purpose_of_material',
     'tax_resource_type',
     'tax_target_audience',
-    'tax_thesaurus',
+//    'tax_thesaurus',
     'tax_worker_groups_covered',
     'practical_tool',
   );
@@ -85,7 +44,6 @@ function drush_ncw_migration_hwc_migrate_av_related() {
 
 function drush_ncw_migration_hwc_migrate_all() {
   /* BE AWARE OF THE MIGRATIONS ORDERING! */
-
   $migrations = array(
     'tax_country_status',
     'tax_country',
@@ -95,12 +53,22 @@ function drush_ncw_migration_hwc_migrate_all() {
     'tax_segment',
     'tax_activity',
     'tax_msd_glossary',
-    'highlights_add_res',
-    'press_releases_add_res',
-    'news_add_res',
-    'publications_add_res',
+    'tax_hazards',
+    'tax_health_effects',
+    'tax_msd_priority_area',
+    'tax_prevention_measures_msd',
+    'tax_purpose_of_material',
+    'tax_resource_type',
+    'tax_target_audience',
+    'tax_worker_groups_covered',
+    'notes_to_editor',
+    'news',
+    'events',
+    'press_releases',
+    'highlights',
     'infographics',
-    'press_contacts',
+//    'press_contacts',
+    'publications',
   );
   foreach ($migrations as $migration) {
     ncw_migration_run_single($migration);
