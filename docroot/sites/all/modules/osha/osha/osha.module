@@ -52,11 +52,6 @@ function osha_cronapi() {
  */
 function osha_cron() {
   $migrations = array(
-    'events',
-    'news',
-    'highlights',
-    'notes_to_editor',
-    'press_releases',
     'publications',
   );
   foreach ($migrations as $migration) {
