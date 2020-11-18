@@ -1018,7 +1018,7 @@ function hwc_partner_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'MOP list';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'hwc-alpha-pager-view aa';
+  $handler->display->display_options['css_class'] = 'hwc-alpha-pager-view';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['row_class'] = 'col-md-2 col-sm-3 col-xs-6';
@@ -1150,7 +1150,7 @@ function hwc_partner_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'EEN OSH Ambassadors';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'hwc-alpha-pager-view aa';
+  $handler->display->display_options['css_class'] = 'hwc-alpha-pager-view';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['row_class'] = 'col-md-2 col-sm-3 col-xs-6';
