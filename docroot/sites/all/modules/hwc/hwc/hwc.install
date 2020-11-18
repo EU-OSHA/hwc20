@@ -1122,5 +1122,5 @@ function hwc_update_7074() {
  * MHWC-527 Improve the HWC newsletter.
  */
 function hwc_update_7075() {
-  variable_get('maxlength_always_for_uid1', TRUE);
+  variable_set('maxlength_always_for_uid1', TRUE);
 }
