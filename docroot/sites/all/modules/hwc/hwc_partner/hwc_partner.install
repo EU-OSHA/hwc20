@@ -402,3 +402,10 @@ function hwc_partner_update_7051() {
 function hwc_partner_update_7052() {
   features_revert(array('hwc_partner' => array('page_manager_handlers')));
 }
+
+/**
+ * MHWC-523 FOP: Homogenise the alphabets in the country lists.
+ */
+function hwc_partner_update_7053() {
+  features_revert(array('hwc_partner' => array('views_view')));
+}
