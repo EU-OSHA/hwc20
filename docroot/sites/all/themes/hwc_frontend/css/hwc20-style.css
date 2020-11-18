@@ -2153,14 +2153,14 @@ div.publications-detail-right-column > a.download {
   padding-top: 1px;
   padding-left: 0;
 }
-.node-type-publication .field-name-field-file ul li {
-  float: left;
-}
 .node-type-publication .field-name-field-file ul li .form-group {
   float: left;
+  width: 86%;
 }
 .node-type-publication .field-name-field-file ul li > .form-group:nth-child(1) {
   padding-right: 5px;
+  width: auto;
+  float: left;
 }
 .node-type-publication .field-name-field-file ul li .slash {
   float: left;
@@ -2455,6 +2455,7 @@ html:lang(pl) .publication-see-more-bottom-container .news-see-more-button {
   border-bottom: 0;
   margin-top: 2em;
   padding: 0 2em 0 0;
+  display: flex;
 }
 .publication-detail .publications-row .download {
   margin-top: 2em;
@@ -6345,7 +6346,7 @@ body.front-page .main-container #block-views-homepage-banners-block .view-homepa
 }
 body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-field-field-banner-video .field-content .youtube-video img.icon-play {
   top: 39%;
-  left: 41%;
+  left: 45%;
 }
 body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .view-content {
   display: flex;
@@ -9072,6 +9073,13 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   .node-infographic .group-left.col-sm-4 {
     max-width: 195px;
   }
+  .node-type-publication .field-name-field-file {
+    width: 100%;
+  }
+  .node-type-publication .field-name-field-file ul li .form-group {
+    float: left;
+    width: 80%;
+  }
 }
 @media (min-width: 1480px) {
   .start-browsing .content-boxes {
@@ -9699,6 +9707,11 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   .page-tools-and-publications-campaign-materials .news-see-more-button {
     position: relative;
     bottom: 0;
+  }
+  .publication-detail .publications-left-column {
+    float: left;
+    margin-right: 0em;
+    width: auto;
   }
   .publication-detail .publications-left-column img {
     display: none;

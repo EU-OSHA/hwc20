@@ -51,13 +51,12 @@ if ($video_id) {
     height: auto;
   }
   .youtube-video img.icon-play {
-    width: 72px;
-    height: 72px;
+    width: 70px;
     position: absolute;
     top: 29%;
     left: 41%;
     cursor: pointer;
-   
+    height: auto;
   }
   .youtube-video .hp-modal {
     display: none;

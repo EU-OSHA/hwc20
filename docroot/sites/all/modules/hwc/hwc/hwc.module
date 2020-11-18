@@ -274,6 +274,52 @@ function hwc_nodequeue_view_queues() {
   return $output;
 }
 
+function hwc_nodequeue_admin_view($queue, $subqueue = array()) {
+  drupal_set_title(t("Nodequeue '@title'", array('@title' => $queue->title)), PASS_THROUGH);
+  $voc = taxonomy_vocabulary_machine_name_load('nodequeue_help_text');
+  $terms = taxonomy_get_tree($voc->vid, 0,NULL, TRUE);
+  $map = [];
+  foreach ($terms as $term) {
+    $map[$term->field_nodequeue['und'][0]['value']] = $term->description;
+  }
+  // If the queue has just one subqueue, it gets special treatment.
+  if (empty($subqueue->sqid)) {
+    if ($queue->subqueues == 1) {
+      $subqueues = nodequeue_load_subqueues_by_queue($queue->qid);
+      $subqueue = array_shift($subqueues);
+    }
+    else {
+      // display subqueue list page.
+      return nodequeue_view_subqueues($queue);
+    }
+  }
+  elseif ($subqueue->sqid) {
+    if (!nodequeue_api_subqueue_access($subqueue, NULL, $queue)) {
+      return drupal_not_found();
+    }
+    // Adjust properties of the page so our subqueue is in the right
+    // visual place.
+    drupal_set_title(t("Subqueue '@title'",
+      array('@title' => nodequeue_title_substitute($queue->subqueue_title, $queue, $subqueue))), PASS_THROUGH);
+    $breadcrumb = drupal_get_breadcrumb();
+    $breadcrumb[] = l($queue->title, "admin/structure/nodequeue/$queue->qid");
+    drupal_set_breadcrumb($breadcrumb);
+  }
+  $form = nodequeue_arrange_subqueue($queue, $subqueue);
+  if (variable_get('hwc_nodequeue_size_type', TRUE)) {
+    if ($queue->size) {
+      $form['#prefix'] = t('Maximum number of items can be added to the nodequeue: ') . $queue->size;
+    }
+  }
+  else {
+    if (!empty($map[$queue->name])) {
+      $form['#prefix'] = $map[$queue->name];
+    }
+  }
+  return $form;
+
+}
+
 function hwc_translate_interface_has_no_role_access_callback() {
   global $user;
   if (in_array(HWC_ROLE_WEBSITE_MANAGERS, $user->roles)) {
@@ -291,6 +337,7 @@ function hwc_menu_alter(&$items) {
 
   $items['admin/config/regional/translate']['access callback'] = 'hwc_translate_interface_has_no_role_access_callback';
   $items['admin/structure/nodequeue']['page callback'] = 'hwc_nodequeue_view_queues';
+  $items['admin/structure/nodequeue/%nodequeue/view/%subqueue']['page callback'] = 'hwc_nodequeue_admin_view';
 
   $items['masquerade/unswitch']['page callback'] = 'hwc_masquerade_switch_back_page';
   $items['taxonomy/term/%taxonomy_term/feed']['page callback'] = 'hwc_disable_taxonomy_term_feed';
