@@ -307,7 +307,12 @@ if (!empty($campaign_id)) {
                     }
                     else {
                       $clear = strip_tags($summary);
-                      print substrwords($clear, 300);
+                      if ($node->type == 'spotlight') {
+                        print $clear;
+                      }
+                      else {
+                        print substrwords($clear, 300);
+                      }
                     }
                     $directory = drupal_get_path('module', 'osha_newsletter');
                     ?>
