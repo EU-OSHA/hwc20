@@ -1117,3 +1117,10 @@ function hwc_update_7073() {
 function hwc_update_7074() {
   features_revert(array('hwc_gpa' => 'views_view'));
 }
+
+/*
+ * MHWC-527 Improve the HWC newsletter.
+ */
+function hwc_update_7075() {
+  variable_get('maxlength_always_for_uid1', TRUE);
+}
