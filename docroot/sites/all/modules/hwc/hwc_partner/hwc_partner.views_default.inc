@@ -954,6 +954,18 @@ function hwc_partner_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Taxonomy term: ISO2 */
+  $handler->display->display_options['fields']['field_iso2']['id'] = 'field_iso2';
+  $handler->display->display_options['fields']['field_iso2']['table'] = 'field_data_field_iso2';
+  $handler->display->display_options['fields']['field_iso2']['field'] = 'field_iso2';
+  $handler->display->display_options['fields']['field_iso2']['relationship'] = 'field_country_tid';
+  $handler->display->display_options['fields']['field_iso2']['label'] = '';
+  $handler->display->display_options['fields']['field_iso2']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_iso2']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_iso2']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['field_iso2']['settings'] = array(
+    'field_formatter_class' => '',
+  );
   /* Field: Taxonomy term: Flag */
   $handler->display->display_options['fields']['field_flag']['id'] = 'field_flag';
   $handler->display->display_options['fields']['field_flag']['table'] = 'field_data_field_flag';
@@ -975,8 +987,10 @@ function hwc_partner_views_default_views() {
   $handler->display->display_options['fields']['name_field']['field'] = 'name_field';
   $handler->display->display_options['fields']['name_field']['relationship'] = 'field_country_tid';
   $handler->display->display_options['fields']['name_field']['label'] = '';
-  $handler->display->display_options['fields']['name_field']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['name_field']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['name_field']['alter']['text'] = '<div class="field-content" data-iso="[field_iso2]">[name_field]</div>';
   $handler->display->display_options['fields']['name_field']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['name_field']['element_type'] = '0';
   $handler->display->display_options['fields']['name_field']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name_field']['element_wrapper_class'] = 'hwc-alpha-pager-view-title-field';
   $handler->display->display_options['fields']['name_field']['settings'] = array(
@@ -1310,8 +1324,8 @@ function hwc_partner_views_default_views() {
     t('term from field_orgtype'),
     t('<span class="logo-content">[field_logo]</span><span class="title-box-content">[title_field]</span>'),
     t('FOP list'),
-    t('MOP list'),
     t('<div class="field-content" data-iso="[field_iso2]">[name_field]</div>'),
+    t('MOP list'),
     t('EEN OSH Ambassadors'),
     t('<p> Find the OSH ambassador in your country </p>'),
     t('Type (field_partner_type)'),
