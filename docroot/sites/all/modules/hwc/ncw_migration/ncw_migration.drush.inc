@@ -5,9 +5,6 @@
  */
 function ncw_migration_drush_command() {
   return array(
-    'hwc-migrate-av-related' => array(
-      'description' => 'Import audio-video related taxonomies from the corporate website',
-    ),
     'hwc-migrate-all' => array(
       'description' => 'Import all content from the corporate website',
     ),
@@ -22,24 +19,6 @@ function ncw_migration_drush_command() {
       ),
     ),
   );
-}
-
-function drush_ncw_migration_hwc_migrate_av_related() {
-  $migrations = array(
-    'tax_hazards',
-    'tax_health_effects',
-    'tax_msd_priority_area',
-    'tax_prevention_measures_msd',
-    'tax_purpose_of_material',
-    'tax_resource_type',
-    'tax_target_audience',
-//    'tax_thesaurus',
-    'tax_worker_groups_covered',
-    'practical_tool',
-  );
-  foreach ($migrations as $migration) {
-    ncw_migration_run_single($migration);
-  }
 }
 
 function drush_ncw_migration_hwc_migrate_all() {
@@ -61,14 +40,21 @@ function drush_ncw_migration_hwc_migrate_all() {
     'tax_resource_type',
     'tax_target_audience',
     'tax_worker_groups_covered',
-    'notes_to_editor',
-    'news',
-    'events',
-    'press_releases',
-    'highlights',
+    'tax_hazards',
+    'tax_health_effects',
+    'tax_msd_priority_area',
+    'tax_prevention_measures_msd',
+    'tax_purpose_of_material',
+    'tax_resource_type',
+    'tax_target_audience',
+    'tax_worker_groups_covered',
     'infographics',
-//    'press_contacts',
-    'publications',
+    'events',
+    'news',
+    'highlights',
+    'notes_to_editor',
+    'press_releases',
+    'practical_tool',
   );
   foreach ($migrations as $migration) {
     ncw_migration_run_single($migration);

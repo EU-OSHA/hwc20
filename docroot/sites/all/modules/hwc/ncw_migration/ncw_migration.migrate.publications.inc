@@ -5,6 +5,7 @@
  *
  * Set hwc_migration_publications_url variable for explicit source URL.
  */
+
 class NCWPublicationsMigration extends AbstractNCWNodeMigration {
 
   /**
@@ -95,7 +96,39 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
       'field_activity',
       'field_publication_type',
       'field_aditional_resources',
+      'field_modified_date',
     );
+  }
+
+  /**
+   * Implements Migration::prepare()
+   */
+  public function prepare($entity, stdClass $row) {
+    parent::prepare($entity, $row);
+    $entity->field_modified_date = [];
+    $entity->field_modified_date[LANGUAGE_NONE][0]['value'] = $row->changed;
+
+    $entity->path['pathauto'] = 0;
+    $entity->path['alias'] = $row->path;
+    // Remove old aliases and create redirects (when alias changes on source).
+    if (!empty($row->path) && !empty($entity->nid)) {
+      $existing_alias = path_load(array('source' => 'node/' . $entity->nid));
+      if (!empty($existing_alias) && $existing_alias['alias'] != $row->path) {
+        // Remove old alias.
+        path_delete(array('alias' => $existing_alias['alias']));
+        // Redirect old alias.
+        $redirect = new stdClass();
+        redirect_object_prepare($redirect);
+        $redirect->source = $existing_alias['alias'];
+        $redirect->redirect = $existing_alias['source'];
+        $redirect->language = LANGUAGE_NONE;
+        // Check if the redirect exists before saving.
+        $hash = redirect_hash($redirect);
+        if (!redirect_load_by_hash($hash)) {
+          redirect_save($redirect);
+        }
+      }
+    }
   }
 
   /**
@@ -166,29 +199,59 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
     }
   }
 
-  /**
-   * Implements Migration::prepare()
-   */
-  public function prepare($entity, stdClass $row) {
-    parent::prepare($entity, $row);
-    $entity->path['pathauto'] = 0;
-    $entity->path['alias'] = $row->path;
-    // Remove old aliases and create redirects (when alias changes on source).
-    if (!empty($row->path) && !empty($entity->nid)) {
-      $existing_alias = path_load(array('source' => 'node/' . $entity->nid));
-      if (!empty($existing_alias) && $existing_alias['alias'] != $row->path) {
-        // Remove old alias.
-        path_delete(array('alias' => $existing_alias['alias']));
-        // Redirect old alias.
-        $redirect = new stdClass();
-        redirect_object_prepare($redirect);
-        $redirect->source = $existing_alias['alias'];
-        $redirect->redirect = $existing_alias['source'];
-        $redirect->language = LANGUAGE_NONE;
-        // Check if the redirect exists before saving.
-        $hash = redirect_hash($redirect);
-        if (!redirect_load_by_hash($hash)) {
-          redirect_save($redirect);
+  protected function removeNeedsUpdateItems() {
+    $map = $this->getMap();
+    $source = $this->getSource();
+    $source_ids = $source->getSourceIds();
+    $removed = $map->getRowsNeedingUpdate(10000);
+    if (!empty($removed) && $source_ids) {
+      if (strpos($this->arguments['machine_name'], 'tax_') === 0) {
+        // TODO ?! Removing terms that don't exists anymore
+        // Similar as for nodes below.
+      }
+      else {
+        // Check if the needs review nodes are indeed missing in source.
+        foreach ($removed as $to_remove) {
+          if (isset($source_ids[$to_remove->sourceid1])) {
+            continue;
+          }
+          $url = $source->itemURL($to_remove->sourceid1);
+          $curl = curl_init();
+          curl_setopt($curl, CURLOPT_URL, $url);
+          curl_setopt($curl, CURLOPT_NOBODY, TRUE);
+          curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 5);
+          curl_setopt($curl, CURLOPT_FOLLOWLOCATION, TRUE);
+          $result = curl_exec($curl);
+          $info = curl_getinfo($curl);
+          curl_close($curl);
+          // Remove only if 404.
+          if (!empty($info['http_code']) && $info['http_code'] == 404) {
+            node_delete($to_remove->destid1);
+            $this->getMap()->delete(array($to_remove->sourceid1));
+            watchdog('osha_sites_migration', 'Deleting NODE that are not in the source anymore (@migration): !nids.',
+              array('!nids' => $to_remove->destid1, '@migration' => $this->arguments['machine_name']), WATCHDOG_INFO);
+          }
+          else {
+            $nid = $to_remove->destid1;
+            if ($node = node_load($nid)) {
+              if ($node->status == 1) {
+                $node->status = 0;
+                node_save($node);
+                $this->currentMigration()->displayMessage(
+                  strtr('Unpublishing @type @title - not found in source anymore.', array('@type' => $node->type, '@title' => $node->title)),
+                  'warning'
+                );
+                watchdog('osha_sites_migration', 'Unpublishing !type !title - not found in source anymore.',
+                  array('!type' => $node->type, '!title' => $node->title), WATCHDOG_INFO);
+              }
+            } else {
+              $this->currentMigration()->displayMessage(
+                strtr('Node @nid not found! Deleted from migrate map.', array('@nid' => $nid)),
+                'warning'
+              );
+              $this->getMap()->delete(array($to_remove->sourceid1));
+            }
+          }
         }
       }
     }
@@ -196,8 +259,21 @@ class NCWPublicationsMigration extends AbstractNCWNodeMigration {
 
 }
 
-
 class NCWPublicationsSource extends AbstractNCWNodeSource {
+
+  /**
+   * @var array
+   */
+  protected $source_ids;
+
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct($options) {
+    parent::__construct($options);
+    $this->source_ids = [];
+    $this->endpoint_url .= '?' . rand(100, 200);
+  }
 
   /**
    * The list of available fields to map from the source, keyed by field name.
@@ -245,6 +321,25 @@ class NCWPublicationsSource extends AbstractNCWNodeSource {
     return array_combine($fields, $fields);
   }
 
+
+  /**
+   * Source node ids.
+   */
+  public function getSourceIds() {
+    return $this->source_ids;
+  }
+
+  /**
+   * Get modified dates.
+   */
+  public function getPublicationsModifiedDates() {
+    $q = db_select('migrate_map_publications', 'mm');
+    $q->fields('mm', ['sourceid1']);
+    $q->fields('md', ['field_modified_date_value']);
+    $q->leftJoin('field_data_field_modified_date', 'md', 'md.entity_id = mm.destid1');
+    return $q->execute()->fetchAllKeyed(0, 1);
+  }
+
   /**
    * Include the related publications recursively into the migrated content.
    */
@@ -254,9 +349,18 @@ class NCWPublicationsSource extends AbstractNCWNodeSource {
     if ($data = json_decode($content)) {
       $msg = format_string('Updating from !url items: !count', array('!url' => $this->endpoint_url, '!count' => count($data->items)));
       watchdog('ncw_migration', $msg, [], WATCHDOG_INFO);
+      $dates = $this->getPublicationsModifiedDates();
+      $check_date = variable_get('ncw_migration_publications_check_date', TRUE);
       foreach ($data->items as $ob) {
         $ob = $ob->item;
         $id = $this->itemIdentifier($ob);
+        $this->source_ids[$id] = $id;
+        if (in_array($id, $this->skip_ids)) {
+          continue;
+        }
+        if ($check_date && isset($dates[$id]) && ($dates[$id] == $ob->changed)) {
+          continue;
+        }
         $node_url = $this->itemURL($id);
         if ($rowd = $this->fileGetContents($node_url)) {
           if ($row_ob = json_decode($rowd, TRUE)) {

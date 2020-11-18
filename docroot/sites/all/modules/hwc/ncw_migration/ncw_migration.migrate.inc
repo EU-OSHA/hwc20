@@ -98,10 +98,7 @@ function ncw_migration_migrate_api() {
       ),
       'publications' => array(
         'group_name' => 'ncw',
-        'dependencies' => array(
-          'tax_tags', 'tax_publication_types',
-          'notes_to_editor', 'tax_segment',
-        ),
+        'dependencies' => array(),
         'class_name' => 'NCWPublicationsMigration',
       ),
       'news' => array(
