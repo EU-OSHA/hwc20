@@ -301,7 +301,7 @@ if (!empty($campaign_id)) {
 //                    $element = smart_trim_field_formatter_view('node', $node, NULL, NULL, $language, $items, $display);
                     $title_field = render($elements['title_field']);
                     print l( strip_tags($title_field), url('node/' . $node->nid, array('absolute' => TRUE)), array(
-                      'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #FFF; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;'),
+                      'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #FFF; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;line-height: 20px;'),
                       'query' => $url_query,
                       'external' => TRUE,
                       'html' => TRUE,
