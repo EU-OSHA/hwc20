@@ -99,6 +99,8 @@ body iframe{
 
 .header-date {
   font-size: 24px;
+  text-align: right;
+  
 }
 
 .header td {
