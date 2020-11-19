@@ -285,21 +285,22 @@ if (!empty($campaign_id)) {
               <tr>
                   <td style="padding-left: 15px;padding-right: 25px;">
                     <?php
-                    $items[] = ['value' => $title, 'format' => 'full_html'];
-                    $display['type'] = 'smart_trim_format';
-                    $display['settings'] =
-                      [
-                        'trim_link' => 0,
-                        'trim_length' => 140,
-                        'trim_type' => 'chars',
-                        'trim_suffix' => '...',
-                        'more_link' => 0,
-                        'more_text' => 'Read more',
-                        'summary_handler' => 'full',
-                      ];
-
-                    $element = smart_trim_field_formatter_view('node', $node, NULL, NULL, $language, $items, $display);
-                    print l( $element[0]['#markup'], url('node/' . $node->nid, array('absolute' => TRUE)), array(
+//                    $items[] = ['value' => $title, 'format' => 'full_html'];
+//                    $display['type'] = 'smart_trim_format';
+//                    $display['settings'] =
+//                      [
+//                        'trim_link' => 0,
+//                        'trim_length' => 40,
+//                        'trim_type' => 'chars',
+//                        'trim_suffix' => '...',
+//                        'more_link' => 0,
+//                        'more_text' => 'Read more',
+//                        'summary_handler' => 'full',
+//                      ];
+//
+//                    $element = smart_trim_field_formatter_view('node', $node, NULL, NULL, $language, $items, $display);
+                    $title_field = render($elements['title_field']);
+                    print l( strip_tags($title_field), url('node/' . $node->nid, array('absolute' => TRUE)), array(
                       'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #FFF; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;'),
                       'query' => $url_query,
                       'external' => TRUE,
