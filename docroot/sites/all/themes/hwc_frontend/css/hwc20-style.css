@@ -1455,6 +1455,19 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   justify-content: center;
   padding-bottom: 20px;
 }
+/* MHWC-525 - New Design for Partners' profile */
+body.fop .page_title,
+body.ocp .page_title,
+body.mp .page_title,
+body.een .page_title {
+  margin-bottom: 0;
+}
+body.fop .hwc-share-widget,
+body.ocp .hwc-share-widget,
+body.mp .hwc-share-widget,
+body.een .hwc-share-widget {
+  margin-top: 2em;
+}
 .front .page_title {
   margin-bottom: 0;
 }
@@ -3575,9 +3588,9 @@ body.ocp .panels-flexible-column-first .pane-node-field-pledge,
 body.mp .panels-flexible-column-first .pane-node-field-pledge {
   background: transparent;
   background-size: initial;
-  margin-top: 1em;
+  margin-top: 0;
   border-radius: 15px;
-  margin-bottom: 1em;
+  margin-bottom: 0;
 }
 body.ocp .panels-flexible-column-first .pane-node-field-mission-statement .pane-title,
 body.mp .panels-flexible-column-first .pane-node-field-mission-statement .pane-title,
@@ -3741,7 +3754,7 @@ body.fop .panels-flexible-column-first .pane-node-field-bussines-sector {
   padding-top: 0.3rem;
 }
 body.fop .panels-flexible-column-first .pane-node-field-mission-statement {
-  margin: 2rem 0 2rem 0;
+  margin: 2rem 0 0 0;
 }
 body.fop .panels-flexible-column-last .pane-node-field-country {
   padding: 1rem 0 0;
@@ -3810,7 +3823,7 @@ body.een .panels-flexible-column-first .pane-node-field-bussines-sector {
   padding-top: 0.8rem;
 }
 body.een .panels-flexible-column-first .pane-node-field-mission-statement {
-  margin: 5rem 0 2rem 10px;
+  margin: 5rem 0 0 0;
 }
 body.een .panels-flexible-column-last .pane-node-field-country {
   padding: 1rem 0 0;
@@ -3876,6 +3889,13 @@ body.fop .box-type-partner,
 body.een .box-type-partner {
   width: 100%;
   margin-left: 10px;
+}
+body.mp .box-type-partner {
+  width: 100%;
+  margin-left: 10px;
+}
+body.mp .box-type-partner .hwc-share-widget {
+  padding-right: 10px;
 }
 body.ocp .panels-flexible-row h2 {
   font-weight: 600;
