@@ -241,6 +241,11 @@ td.social {
   padding: 20px 0 0 0;
   line-height: 25px;
 }
+
+.newsletter-section.section-highlights .section-title{
+  padding: 0;
+}
+
 .newsletter-section .section-title.events {
   vertical-align: top;
   padding: 0;
@@ -371,17 +376,15 @@ p.tweet-link a {
   color: #ffffff;
 }
 
-/* Padding for newsletter-item content */
-
-/* .newsletter-half-width-twitter-item > .newsletter-item > tbody > tr > td, */
-.newsletter-half-content > table > thead > tr > th,
-.newsletter-full-width-2-col-blocks-item > .newsletter-item > tbody > tr > td {
-  padding: 20px 20px 5px 20px;
-}
-
 .newsletter-full-width-2-col-blocks-item > .newsletter-item > tbody > tr > td.rs2 {
-  width: 40px;
+  width: 70px;
+  padding-top: 16px;
 }
+
+.newsletter-full-width-2-col-blocks-item > .newsletter-item > tbody > tr > td.rs2 img{
+   margin: 0 auto;
+}
+
 
 .newsletter-full-width-2-col-blocks-item > .newsletter-item > tbody > tr.tr_h > .ar {
   padding: 0 20px 0 0;
