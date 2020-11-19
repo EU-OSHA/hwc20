@@ -88,7 +88,7 @@ $directory = drupal_get_path('module','osha_newsletter');
 <table border="0" cellpadding="0" cellspacing="0" width="800" class="header-banner">
   <tbody>
     <tr>
-      <td style="width: 30%; text-align: left; font-size: 21px; font-weight: normal; color: #003399; font-family: Arial,sans-serif;padding-top: 20px;padding-bottom: 0;padding-left: 20px" class="header-date hidden-print responsive-column">
+      <td style="width: 30%; text-align: right; font-size: 25px; font-weight: normal; color: #678c2d; font-family: Arial,sans-serif;padding-top: 20px;padding-bottom: 0;padding-left: 20px" class="header-date hidden-print responsive-column">
         <?php print t($newsletter_ready_date); ?>
       </td>
     </tr>
