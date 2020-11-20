@@ -15619,7 +15619,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .view-id-partners_list .views-row .views-field-name-field {
   display: none;
   text-align: center;
-  margin-top: 1em;
+  margin-top: 0;
 }
 .view-id-partners_list .quicktabs-views-group .hwc-alpha-pager-view-title-field,
 .view-id-partners_list .views-row .hwc-alpha-pager-view-title-field {

@@ -3083,7 +3083,7 @@ div.workbench-info-block {
 .view-id-partners_list .col-md-2.col-sm-3.col-xs-6 .views-field-field-logo span.title-box-content {
   display: flex;
   justify-content: center;
-  padding: 10px 5px 0 5px;
+  padding: 0 5px 0 5px;
 }
 .page-campaign-partners-national-focal-points .col-md-2.col-sm-3.col-xs-6 {
   min-height: auto !important;
