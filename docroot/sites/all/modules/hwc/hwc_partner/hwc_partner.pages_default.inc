@@ -1851,7 +1851,10 @@ campaign-partners/campaign-media-partners
   $pane->style = array(
     'settings' => NULL,
   );
-  $pane->css = array();
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'mp-country',
+  );
   $pane->extras = array();
   $pane->position = 1;
   $pane->locks = array();
