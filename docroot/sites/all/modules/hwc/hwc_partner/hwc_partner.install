@@ -409,3 +409,10 @@ function hwc_partner_update_7052() {
 function hwc_partner_update_7053() {
   features_revert(array('hwc_partner' => array('views_view')));
 }
+
+/**
+ * MHWC-525 New Design for Partners' profile.
+ */
+function hwc_partner_update_7054() {
+  features_revert(array('hwc_partner' => array('page_manager_handlers')));
+}
