@@ -15619,7 +15619,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .view-id-partners_list .views-row .views-field-name-field {
   display: none;
   text-align: center;
-  margin-top: 1em;
+  margin-top: 0;
 }
 .view-id-partners_list .quicktabs-views-group .hwc-alpha-pager-view-title-field,
 .view-id-partners_list .views-row .hwc-alpha-pager-view-title-field {
@@ -26259,11 +26259,6 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .page-photo-gallery .view-content .views-row[class*="col-"]:nth-child(2n) {
     margin-right: 1em;
     padding: 0px;
-  }
-  /*Focal points*/
-  .view-display-id-fop img {
-    width: 78px;
-    height: 48px;
   }
   /*FIn container*/
   /*Oficial campaigns partners*/

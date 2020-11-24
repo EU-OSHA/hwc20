@@ -249,30 +249,30 @@ if (!empty($campaign_id)) {
       <tr>
           <td class="to-responsive" style="width: 220px;background: #a5bd1f;border-top-left-radius: 15px;border-bottom-left-radius: 15px">
               <table">
-      <tr>
-          <td style="padding-top: 25px;padding-bottom: 25px;padding-left: 25px;">
-            <?php
-            if (isset($field_image)) {
-              print l(theme('image_style', array(
-                'style_name' => 'spotlight',
-                'path' => (isset($field_image) && !empty($field_image)) ? $field_image['uri'] : '',
-                'width' => 220,
-                'height' => 145,
-                'alt' => (isset($field_image) && !empty($field_image)) ? $field_image['alt'] : '',
-                'attributes' => array(
-                  'style' => 'vertical-align:top;max-width: initial!important;border-radius:15px',
-                  'align' => 'left',
-                ),
-              )), url('node/' . $node->nid, array('absolute' => TRUE)), array(
-                'html' => TRUE,
-                'external' => TRUE,
-                'query' => $url_query,
-                'attributes' => array('style' => ''),
-              ));
-            }
-            ?>
-          </td>
-      </tr>
+                <tr>
+                    <td style="padding-top: 25px;padding-bottom: 25px;padding-left: 25px;">
+                      <?php
+                      if (isset($field_image)) {
+                        print l(theme('image_style', array(
+                          'style_name' => 'spotlight',
+                          'path' => (isset($field_image) && !empty($field_image)) ? $field_image['uri'] : '',
+                          'width' => 220,
+                          'height' => 145,
+                          'alt' => (isset($field_image) && !empty($field_image)) ? $field_image['alt'] : '',
+                          'attributes' => array(
+                            'style' => 'vertical-align:top;max-width: initial!important;border-radius:15px',
+                            'align' => 'left',
+                          ),
+                        )), url('node/' . $node->nid, array('absolute' => TRUE)), array(
+                          'html' => TRUE,
+                          'external' => TRUE,
+                          'query' => $url_query,
+                          'attributes' => array('style' => ''),
+                        ));
+                      }
+                      ?>
+                    </td>
+                </tr>
       </table>
       </td>
       <td class="to-responsive" style="background: #a5bd1f;width: 100%;border-top-right-radius: 15px;border-bottom-right-radius: 15px">
@@ -309,6 +309,7 @@ if (!empty($campaign_id)) {
                     ?>
                   </td>
               </tr>
+              
           </table>
           <table>
               <tr>
@@ -333,6 +334,25 @@ if (!empty($campaign_id)) {
                     ?>
                   </td>
               </tr>
+              <tr>
+                    <td style="padding-top: 0px;width:40px;padding-left: 15px;padding-top: 18px;">
+                      <?php
+                      $node_url = url('node/' . $node->nid, array('absolute' => TRUE));
+                     $directory = drupal_get_path('module', 'osha_newsletter');
+                      print l(theme('image', array(
+                        'path' => $directory . '/images/' . 'see-more-img-' . $language->language . '.png',
+                        'width' => 'auto',
+                        'height' => 'auto',
+                        'attributes' => array('style' => 'border:0px;width:auto;height:auto;'),
+                      )), $node_url, array(
+                        'html' => TRUE,
+                        'query' => $url_query,
+                        'external' => TRUE,
+                      ));
+                    ?>
+                    </td>
+                   
+                </tr>
           </table>
 
       </td>

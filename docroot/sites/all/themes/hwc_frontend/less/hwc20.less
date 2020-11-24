@@ -1703,6 +1703,16 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
 	}
 }
 
+/* MHWC-525 - New Design for Partners' profile */
+body.fop, body.ocp, body.mp, body.een{
+	.page_title{
+		margin-bottom: 0;
+	}
+	.hwc-share-widget{
+		margin-top: 2em;
+	}
+}
+
 .front{
 	.page_title{
 		margin-bottom: 0;
@@ -3534,7 +3544,7 @@ div.workbench-info-block{
 			span.title-box-content{
 				display: flex;
 				justify-content: center;
-				padding: 10px 5px 0 5px;
+				padding: 0 5px 0 5px;
 			}
 		}
 	}	
@@ -4126,9 +4136,9 @@ body.ocp, body.mp{
 		.pane-node-field-mission-statement, .pane-node-field-pledge{
 			background: transparent;
 			background-size: initial;
-			margin-top: 1em;
+			margin-top: 0;
 			border-radius: 15px;
-			margin-bottom: 1em;
+			margin-bottom: 0;
 			.pane-title{
 				float: none;
 				color: #003399;
@@ -4281,7 +4291,7 @@ body.fop{
 			padding-top: 0.3rem;
 		}
 		.pane-node-field-mission-statement{
-			margin: 2rem 0 2rem 0;
+			margin: 2rem 0 0 0;
 		}
 	}
 	.panels-flexible-column-last{
@@ -4365,7 +4375,7 @@ body.een{
 			padding-top: 0.8rem;
 		}
 		.pane-node-field-mission-statement{
-			margin: 5rem 0 2rem 10px;
+			margin: 5rem 0 0 0;
 		}
 	}
 	.panels-flexible-column-last{
@@ -4443,6 +4453,17 @@ body{
 		}
 	}
 }
+
+body.mp{
+	.box-type-partner{
+		width: 100%;
+		margin-left: 10px;
+		.hwc-share-widget{
+			padding-right: 10px;
+		}
+	}
+}
+
 
 body.ocp{
 	.panels-flexible-row h2{
