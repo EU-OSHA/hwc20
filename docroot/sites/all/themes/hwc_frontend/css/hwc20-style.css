@@ -11070,6 +11070,9 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   .node-type-frontpage-slider .main-container .col-md-6 .field-name-body {
     height: auto;
   }
+  .panels-flexible-column-inside-first .profile-col-left-middle-2 .field-name-field-country .field-item {
+    padding-top: 0;
+  }
 }
 @media (max-width: 767px) {
   body.front-page .main-container {
@@ -12116,6 +12119,14 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   #block-views-news-press-room .more-link a {
     font-size: 0.85em;
     background: url(../images/ico-plus-20.png) no-repeat 99.5% 1px #0030a0;
+  }
+  body.mp .panels-flexible-column-first .pane-node-field-ceo {
+    width: 100%;
+    padding-left: 10px;
+  }
+  body.mp .panels-flexible-column-first .pane-node-field-country.mp-country .field-item {
+    padding-top: 0;
+    padding-left: 10px;
   }
 }
 @media (max-width: 370px) {
