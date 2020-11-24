@@ -313,7 +313,7 @@ if (!empty($campaign_id)) {
           </table>
           <table>
               <tr>
-                  <td style="padding-top: 8px;color:#FFF;font-size: 13px;line-height: 18px;padding-left: 15px;padding-right: 25px;">
+                  <td colspan="2" style="padding-top: 8px;color:#FFF;font-size: 13px;line-height: 18px;padding-left: 15px;padding-right: 25px; width:100%;">
                     <?php
                     $is_empty = FALSE;
                     // todo city country.
