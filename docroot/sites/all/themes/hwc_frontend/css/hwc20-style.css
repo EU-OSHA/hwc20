@@ -1455,6 +1455,19 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   justify-content: center;
   padding-bottom: 20px;
 }
+/* MHWC-525 - New Design for Partners' profile */
+body.fop .page_title,
+body.ocp .page_title,
+body.mp .page_title,
+body.een .page_title {
+  margin-bottom: 0;
+}
+body.fop .hwc-share-widget,
+body.ocp .hwc-share-widget,
+body.mp .hwc-share-widget,
+body.een .hwc-share-widget {
+  margin-top: 2em;
+}
 .front .page_title {
   margin-bottom: 0;
 }
@@ -3070,7 +3083,7 @@ div.workbench-info-block {
 .view-id-partners_list .col-md-2.col-sm-3.col-xs-6 .views-field-field-logo span.title-box-content {
   display: flex;
   justify-content: center;
-  padding: 10px 5px 0 5px;
+  padding: 0 5px 0 5px;
 }
 .page-campaign-partners-national-focal-points .col-md-2.col-sm-3.col-xs-6 {
   min-height: auto !important;
@@ -3207,12 +3220,20 @@ div.workbench-info-block {
   border: 2px solid #bcd75b;
   border-radius: 7px;
 }
+.field-name-field-general-phone {
+  padding-top: 10px;
+}
+.field-name-field-website a {
+  font-weight: bold !important;
+  font-size: 1.2em;
+}
 .panels-flexible-column-inside-first {
   /* panels-flexible-column-inside-first Header panel*/
   /*panels-flexible-column-inside-first Footer panel*/
 }
 .panels-flexible-column-inside-first .panels-flexible-region-first {
   float: left;
+  width: auto;
   padding-right: 1em;
 }
 .panels-flexible-column-inside-first > div:nth-child(1) {
@@ -3231,8 +3252,17 @@ div.workbench-info-block {
   float: left;
   width: 60%;
 }
+.panels-flexible-column-inside-first .profile-col-left-middle-2 .field-name-field-country .field-item {
+  padding-top: 25px;
+}
+.ocp .panels-flexible-column-inside-first .panels-flexible-region-first {
+  float: none;
+  width: 100%;
+  padding-right: 1em;
+}
 .panels-flexible-region .pane-node-field-main-contact {
   clear: both;
+  padding-top: 1em;
 }
 .panels-flexible-region .field-name-field-abbreviation-name,
 .panels-flexible-region .field-name-field-orgtype,
@@ -3342,10 +3372,6 @@ div.workbench-info-block {
 .panels-flexible-column-last .pane-node-field-country {
   padding-top: 1em;
 }
-.panels-flexible-column-last .field-name-field-website {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
 .panels-flexible-column-last .field-type-link-field a {
   white-space: nowrap;
   width: 280px;
@@ -3355,7 +3381,6 @@ div.workbench-info-block {
 .node-type-partner [class*="field-type-link"] {
   font-weight: bold;
   text-align: left;
-  margin: 0.1rem 0 !important;
 }
 .node-type-partner [class*="field-type-link"][class*="facebook"] {
   background: url("../images/header/header-ico-facebook.png") no-repeat left center;
@@ -3575,9 +3600,9 @@ body.ocp .panels-flexible-column-first .pane-node-field-pledge,
 body.mp .panels-flexible-column-first .pane-node-field-pledge {
   background: transparent;
   background-size: initial;
-  margin-top: 1em;
+  margin-top: 0;
   border-radius: 15px;
-  margin-bottom: 1em;
+  margin-bottom: 0;
 }
 body.ocp .panels-flexible-column-first .pane-node-field-mission-statement .pane-title,
 body.mp .panels-flexible-column-first .pane-node-field-mission-statement .pane-title,
@@ -3609,10 +3634,6 @@ body.mp .panels-flexible-column-last .pane-node-field-country {
   padding: 1rem 0;
   display: flex;
 }
-body.ocp .panels-flexible-column-last .pane-node-field-website .field-type-link-field,
-body.mp .panels-flexible-column-last .pane-node-field-website .field-type-link-field {
-  padding: 1em 0 1rem 0;
-}
 body.ocp .panels-flexible-column-last .pane-node-field-website .field-type-link-field a,
 body.mp .panels-flexible-column-last .pane-node-field-website .field-type-link-field a {
   font-style: normal;
@@ -3628,10 +3649,6 @@ body.mp .panels-flexible-column-last .pane-node-field-website .field-type-link-f
   content: "";
   left: 0.5rem;
   position: relative;
-}
-body.ocp .panels-flexible-column-last .field-type-link-field,
-body.mp .panels-flexible-column-last .field-type-link-field {
-  margin-bottom: 0.5rem;
 }
 body.ocp .panels-flexible-column-last .pane-node-title-field,
 body.mp .panels-flexible-column-last .pane-node-title-field,
@@ -3741,7 +3758,7 @@ body.fop .panels-flexible-column-first .pane-node-field-bussines-sector {
   padding-top: 0.3rem;
 }
 body.fop .panels-flexible-column-first .pane-node-field-mission-statement {
-  margin: 2rem 0 2rem 0;
+  margin: 1.5rem 0 0 0;
 }
 body.fop .panels-flexible-column-last .pane-node-field-country {
   padding: 1rem 0 0;
@@ -3750,9 +3767,6 @@ body.fop .panels-flexible-column-last .pane-node-field-country {
 body.fop .panels-flexible-column-last .pane-node-field-country .field-item {
   font-size: 2rem;
   font-weight: 600;
-}
-body.fop .panels-flexible-column-last .pane-node-field-website .field-type-link-field {
-  padding: 0 0 1rem 0;
 }
 body.fop .panels-flexible-column-last .pane-node-field-website .field-type-link-field a {
   font-style: normal;
@@ -3767,6 +3781,9 @@ body.fop .panels-flexible-column-last .pane-node-field-website .field-type-link-
   content: "";
   left: 0.5rem;
   position: relative;
+}
+body.een .panels-flexible-row h2 {
+  padding-bottom: 20px;
 }
 body.een .panels-flexible-column-first .field-name-field-country img {
   border: 0;
@@ -3810,7 +3827,7 @@ body.een .panels-flexible-column-first .pane-node-field-bussines-sector {
   padding-top: 0.8rem;
 }
 body.een .panels-flexible-column-first .pane-node-field-mission-statement {
-  margin: 5rem 0 2rem 10px;
+  margin-top: 5px;
 }
 body.een .panels-flexible-column-last .pane-node-field-country {
   padding: 1rem 0 0;
@@ -3824,7 +3841,6 @@ body.een .panels-flexible-column-last .pane-node-field-general-phone {
   padding: 0;
 }
 body.een .panels-flexible-column-last .pane-node-field-website .field-type-link-field {
-  padding: 0;
   clear: both;
 }
 body.een .panels-flexible-column-last .pane-node-field-website .field-type-link-field a {
@@ -3855,6 +3871,10 @@ body.een .panels-flexible-row-partner_detail-13 {
   float: right;
   width: 100%;
 }
+.mp-country .field-item {
+  width: 200px;
+  padding-top: 12px;
+}
 body.mp .panels-flexible-row h2,
 body.fop .panels-flexible-row h2,
 body.een .panels-flexible-row h2 {
@@ -3876,6 +3896,13 @@ body.fop .box-type-partner,
 body.een .box-type-partner {
   width: 100%;
   margin-left: 10px;
+}
+body.mp .box-type-partner {
+  width: 100%;
+  margin-left: 10px;
+}
+body.mp .box-type-partner .hwc-share-widget {
+  padding-right: 10px;
 }
 body.ocp .panels-flexible-row h2 {
   font-weight: 600;
@@ -6346,7 +6373,7 @@ body.front-page .main-container #block-views-homepage-banners-block .view-homepa
 }
 body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .views-field-field-banner-video .field-content .youtube-video img.icon-play {
   top: 39%;
-  left: 45%;
+  left: 41%;
 }
 body.front-page .main-container #block-views-homepage-banners-block .view-homepage-banners .view-content {
   display: flex;
@@ -7831,7 +7858,6 @@ body.mp .panels-flexible-column-first .pane-node-field-country {
 }
 body.mp .panels-flexible-column-first .pane-node-field-country.profile-inline-field {
   float: left;
-  min-height: 11rem;
   padding-right: 1em;
 }
 body.mp .panels-flexible-column-first .pane-node-field-country.profile-inline-field .field-name-field-country img {
@@ -7873,7 +7899,7 @@ body.mp .panels-flexible-column-first .pane-node-field-mission-statement,
 body.mp .panels-flexible-column-first .pane-node-field-pledge {
   background: transparent;
   background-size: initial;
-  margin-top: 1em;
+  margin-top: 5px;
   border-radius: 15px;
   margin-bottom: 1em;
 }
@@ -7896,6 +7922,9 @@ body.mp .panels-flexible-column-first .pane-node-field-pledge .pane-content {
 }
 body.mp .panels-flexible-column-first .pane-node-field-mission-statement {
   margin: 2rem 0 2rem 10px;
+}
+.pane-node-field-logo {
+  height: 220px!important;
 }
 /* MHWC-39 - For UX next step */
 aside.col-md-3 .region.region-sidebar-first.well {
@@ -11041,6 +11070,9 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   .node-type-frontpage-slider .main-container .col-md-6 .field-name-body {
     height: auto;
   }
+  .panels-flexible-column-inside-first .profile-col-left-middle-2 .field-name-field-country .field-item {
+    padding-top: 0;
+  }
 }
 @media (max-width: 767px) {
   body.front-page .main-container {
@@ -12087,6 +12119,14 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   #block-views-news-press-room .more-link a {
     font-size: 0.85em;
     background: url(../images/ico-plus-20.png) no-repeat 99.5% 1px #0030a0;
+  }
+  body.mp .panels-flexible-column-first .pane-node-field-ceo {
+    width: 100%;
+    padding-left: 10px;
+  }
+  body.mp .panels-flexible-column-first .pane-node-field-country.mp-country .field-item {
+    padding-top: 0;
+    padding-left: 10px;
   }
 }
 @media (max-width: 370px) {

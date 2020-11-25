@@ -133,14 +133,18 @@ if (!empty($campaign_id)) {
                           }
                           else {
                             $clear = strip_tags($summary);
-                            print substrwords($clear, 300);
+                            if ($node->type == 'spotlight') {
+                              print $clear;
+                            }
+                            else {
+                              print substrwords($clear, 300);
+                            }
                           }
 
                           if (!empty($elements['body']) && $is_empty) {
                             $text = $elements['body'][0]['#markup'];
                             $clear = strip_tags($text);
                             print substrwords($clear, 300);
-
                           }
 
                           $directory = drupal_get_path('module', 'osha_newsletter');
@@ -245,30 +249,30 @@ if (!empty($campaign_id)) {
       <tr>
           <td class="to-responsive" style="width: 220px;background: #a5bd1f;border-top-left-radius: 15px;border-bottom-left-radius: 15px">
               <table">
-      <tr>
-          <td style="padding-top: 25px;padding-bottom: 25px;padding-left: 25px;">
-            <?php
-            if (isset($field_image)) {
-              print l(theme('image_style', array(
-                'style_name' => 'spotlight',
-                'path' => (isset($field_image) && !empty($field_image)) ? $field_image['uri'] : '',
-                'width' => 220,
-                'height' => 145,
-                'alt' => (isset($field_image) && !empty($field_image)) ? $field_image['alt'] : '',
-                'attributes' => array(
-                  'style' => 'vertical-align:top;max-width: initial!important;border-radius:15px',
-                  'align' => 'left',
-                ),
-              )), url('node/' . $node->nid, array('absolute' => TRUE)), array(
-                'html' => TRUE,
-                'external' => TRUE,
-                'query' => $url_query,
-                'attributes' => array('style' => ''),
-              ));
-            }
-            ?>
-          </td>
-      </tr>
+                <tr>
+                    <td style="padding-top: 25px;padding-bottom: 25px;padding-left: 25px;">
+                      <?php
+                      if (isset($field_image)) {
+                        print l(theme('image_style', array(
+                          'style_name' => 'spotlight',
+                          'path' => (isset($field_image) && !empty($field_image)) ? $field_image['uri'] : '',
+                          'width' => 220,
+                          'height' => 145,
+                          'alt' => (isset($field_image) && !empty($field_image)) ? $field_image['alt'] : '',
+                          'attributes' => array(
+                            'style' => 'vertical-align:top;max-width: initial!important;border-radius:15px',
+                            'align' => 'left',
+                          ),
+                        )), url('node/' . $node->nid, array('absolute' => TRUE)), array(
+                          'html' => TRUE,
+                          'external' => TRUE,
+                          'query' => $url_query,
+                          'attributes' => array('style' => ''),
+                        ));
+                      }
+                      ?>
+                    </td>
+                </tr>
       </table>
       </td>
       <td class="to-responsive" style="background: #a5bd1f;width: 100%;border-top-right-radius: 15px;border-bottom-right-radius: 15px">
@@ -281,8 +285,23 @@ if (!empty($campaign_id)) {
               <tr>
                   <td style="padding-left: 15px;padding-right: 25px;">
                     <?php
-                    print l($title, url('node/' . $node->nid, array('absolute' => TRUE)), array(
-                      'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #FFF; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;'),
+//                    $items[] = ['value' => $title, 'format' => 'full_html'];
+//                    $display['type'] = 'smart_trim_format';
+//                    $display['settings'] =
+//                      [
+//                        'trim_link' => 0,
+//                        'trim_length' => 40,
+//                        'trim_type' => 'chars',
+//                        'trim_suffix' => '...',
+//                        'more_link' => 0,
+//                        'more_text' => 'Read more',
+//                        'summary_handler' => 'full',
+//                      ];
+//
+//                    $element = smart_trim_field_formatter_view('node', $node, NULL, NULL, $language, $items, $display);
+                    $title_field = render($elements['title_field']);
+                    print l( strip_tags($title_field), url('node/' . $node->nid, array('absolute' => TRUE)), array(
+                      'attributes' => array('style' => 'font-family: Arial, sans-serif; color: #FFF; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; font-family: Oswald, Arial, sans-serif; font-size: 18px; vertical-align: middle; text-decoration: none;line-height: 20px;'),
                       'query' => $url_query,
                       'external' => TRUE,
                       'html' => TRUE,
@@ -290,10 +309,11 @@ if (!empty($campaign_id)) {
                     ?>
                   </td>
               </tr>
+              
           </table>
           <table>
               <tr>
-                  <td style="padding-top: 8px;color:#FFF;font-size: 13px;line-height: 18px;padding-left: 15px;padding-right: 25px;">
+                  <td colspan="2" style="padding-top: 8px;color:#FFF;font-size: 13px;line-height: 18px;padding-left: 15px;padding-right: 25px; width:100%;">
                     <?php
                     $is_empty = FALSE;
                     // todo city country.
@@ -303,12 +323,36 @@ if (!empty($campaign_id)) {
                     }
                     else {
                       $clear = strip_tags($summary);
-                      print substrwords($clear, 300);
+                      if ($node->type == 'spotlight') {
+                        print $clear;
+                      }
+                      else {
+                        print substrwords($clear, 300);
+                      }
                     }
                     $directory = drupal_get_path('module', 'osha_newsletter');
                     ?>
                   </td>
               </tr>
+              <tr>
+                    <td style="padding-top: 0px;width:40px;padding-left: 15px;padding-top: 18px;">
+                      <?php
+                      $node_url = url('node/' . $node->nid, array('absolute' => TRUE));
+                     $directory = drupal_get_path('module', 'osha_newsletter');
+                      print l(theme('image', array(
+                        'path' => $directory . '/images/' . 'see-more-img-' . $language->language . '.png',
+                        'width' => 'auto',
+                        'height' => 'auto',
+                        'attributes' => array('style' => 'border:0px;width:auto;height:auto;'),
+                      )), $node_url, array(
+                        'html' => TRUE,
+                        'query' => $url_query,
+                        'external' => TRUE,
+                      ));
+                    ?>
+                    </td>
+                   
+                </tr>
           </table>
 
       </td>

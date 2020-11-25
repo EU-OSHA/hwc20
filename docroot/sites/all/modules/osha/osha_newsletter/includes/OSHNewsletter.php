@@ -260,9 +260,9 @@ class OSHNewsletter {
       if (!empty($icon)) {
 
         $cellContent = sprintf("<img src=\"%s\">", $icon);
-        $content['#header'][0]['data'][] = ['data' => $cellContent, 'class' => ['section-icon']];
+//        $content['#header'][0]['data'][] = ['data' => $cellContent, 'class' => ['section-icon']];
 
-        $cellContent = sprintf("<span>%s</span>", $variables['section']->name);
+        $cellContent .= sprintf("<span>%s</span>", $variables['section']->name);
         $content['#header'][1]['data'][] = ['data' => $cellContent, 'class' => [$class]];
 
       }
