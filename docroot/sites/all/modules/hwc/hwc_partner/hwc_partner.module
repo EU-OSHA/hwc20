@@ -655,7 +655,12 @@ function hwc_partner_views_pre_render(&$view) {
     });
   }
 
-  if ($view->name == 'partners_list' && (($view->current_display == 'block_1') || ($view->current_display == 'een'))) {
+  if ($view->name == 'partners_list' &&
+    (
+      ($view->current_display == 'fop') ||
+      ($view->current_display == 'block_1') ||
+      ($view->current_display == 'een'))
+  ) {
     $prev_name = '';
     $new_rows = [];
     foreach ($view->result as $row) {
