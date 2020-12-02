@@ -1534,3 +1534,11 @@ function osha_pagerer_theme_handler($theme, $variables) {
       'attributes' => array('class' => array('pager')),
     )) . '</div>';
 }
+
+function osha_tweet_feed_tweet_save_alter($node, $tweet) {
+  $tweet_text = !empty($tweet->retweeted_status->full_text) ? $tweet->retweeted_status->full_text : $tweet->full_text;
+  $node->field_tweet_contents[$node->language][0] = array(
+    'value' => tweet_feed_filter_iconv_text(tweet_feed_filter_smart_quotes(tweet_feed_format_output($tweet_text, 1))),
+    'format' => 'full_html',
+  );
+}
