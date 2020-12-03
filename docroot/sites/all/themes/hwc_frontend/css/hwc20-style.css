@@ -3115,43 +3115,54 @@ div.workbench-info-block {
   width: 250px;
   height: 220px;
 }
+.page-national-focal-points .view-id-partners_list .view-header,
 .page-campaign-partners-campaign-media-partners .view-id-partners_list .view-header,
 .page-campaign-partners-enterprise-europe-network .view-id-partners_list .view-header {
   width: 100%;
 }
+.page-national-focal-points .view-partners-list,
 .page-campaign-partners-campaign-media-partners .view-partners-list,
 .page-campaign-partners-enterprise-europe-network .view-partners-list {
   display: flex;
   flex-wrap: wrap;
 }
+.page-national-focal-points .view-partners-list .view-header,
 .page-campaign-partners-campaign-media-partners .view-partners-list .view-header,
 .page-campaign-partners-enterprise-europe-network .view-partners-list .view-header {
   font-weight: bold;
 }
+.page-national-focal-points .hwc-alphabet-container a,
 .page-campaign-partners-campaign-media-partners .hwc-alphabet-container a,
 .page-campaign-partners-enterprise-europe-network .hwc-alphabet-container a {
   font-style: normal;
 }
+.page-national-focal-points .col-md-2.col-sm-3.col-xs-6,
 .page-campaign-partners-campaign-media-partners .col-md-2.col-sm-3.col-xs-6,
 .page-campaign-partners-enterprise-europe-network .col-md-2.col-sm-3.col-xs-6 {
   min-height: auto !important;
-  display: block;
   justify-content: center;
   display: flex;
 }
+.page-national-focal-points .hwc-alpha-pager-view-title-field,
 .page-campaign-partners-campaign-media-partners .hwc-alpha-pager-view-title-field,
 .page-campaign-partners-enterprise-europe-network .hwc-alpha-pager-view-title-field {
   width: 100%;
   font-weight: bold;
 }
+.page-national-focal-points .view-id-partners_list .views-row .views-field-field-logo,
 .page-campaign-partners-campaign-media-partners .view-id-partners_list .views-row .views-field-field-logo,
 .page-campaign-partners-enterprise-europe-network .view-id-partners_list .views-row .views-field-field-logo {
   padding: 0;
   min-height: auto;
 }
+.page-national-focal-points .view-id-partners_list .views-row .views-field-name-field,
 .page-campaign-partners-campaign-media-partners .view-id-partners_list .views-row .views-field-name-field,
 .page-campaign-partners-enterprise-europe-network .view-id-partners_list .views-row .views-field-name-field {
   margin-top: 0;
+}
+.page-national-focal-points .view-content {
+  display: flex;
+  flex-wrap: wrap;
 }
 /* PANELS - National Focal Points, Official Campaign Partners, Media Partner, Enterprise Europe Network (EEN OSH Ambassadors) */
 .view-id-partners_list .hwc-char-link,
