@@ -3700,6 +3700,30 @@ div.workbench-info-block{
 	}
 }
 
+body.mp{
+	.pane-node-field-pledge{
+		background: url('../images/background-fop.png') no-repeat;
+		background-size: cover;
+		margin-top: 1em;
+		border-radius: 15px;
+		margin-bottom: 1em;
+		.pane-title{
+			color: #FFF;
+		    font-size: 1.4em;
+		    padding-left: 20px;
+		    padding-top: 15px;
+		    font-style: normal;
+		}
+
+		.pane-content{
+		 	padding: 10px 20px 20px 20px;
+		    font-style: normal;
+		    color: #FFF;
+		}
+	}
+}
+
+
 .panels-flexible-row{
 	.hwc-share-widget{
 		float: right;
@@ -3721,7 +3745,7 @@ div.workbench-info-block{
 }
 
 .field-name-field-general-phone{
-	padding-top: 10px;
+	padding-top: 5px;
 }
 
 .field-name-field-website{
@@ -3804,7 +3828,6 @@ div.workbench-info-block{
 	}
 
 	.pane-node-field-general-phone, .pane-node-field-organisation-rep{
-		padding-top: 10px;
 		.pane-title{
 			color: #333;
 			font-size: 1em;
@@ -4091,7 +4114,7 @@ body.ocp .box-type-partner{
 	}
 }
 
-body.ocp, body.mp{
+body.ocp{
 	.panels-flexible-row-partner_detail-16-inside .panels-flexible-region-first {
 		float: right;
 		padding-right: 0;
@@ -4181,6 +4204,127 @@ body.ocp, body.mp{
 		}
 		.pane-node-field-mission-statement{
 			margin: 2rem 0 2rem 10px;
+		}
+	}
+	.panels-flexible-column-last{
+		.pane-node-field-country{
+			padding: 1rem 0;
+			display: flex;
+		}
+		.pane-node-field-website{
+			.field-type-link-field{
+				a{
+				    font-style: normal;
+				    width: auto;
+				    &[target="_blank"]:after{
+				    	background-image: url(../images/target-blank.png);
+					    background-size: 1rem 1rem;
+					    display: inline-block;
+					    width: 1rem; 
+					    height: 1rem;
+					    content:"";
+					    left: 0.5rem;
+					    position: relative;
+				    }
+				}
+			}
+		}
+		.pane-node-title-field, .pane-node-title{
+			margin-top: 1.8rem;
+		}
+		.pane-node-field-general-phone{
+			padding: 0;
+			.pane-title{
+				float: none;
+				padding: 0;
+				font-weight: normal;
+			}
+			.pane-content{
+				float: none;
+				padding: 0;
+			}
+		}
+		.field-name-title-field {
+		    font-weight: normal;
+		}
+		.pane-node-field-ph-address{
+			padding-top:0; 
+		}
+		.pane-node-field-country{
+			padding:0; 
+			.field-name-field-country{
+				padding: 0;
+				font-size: 1.4rem;
+				color: #000;
+			}
+		}
+	}	
+}
+
+body.mp{
+	.panels-flexible-row-partner_detail-16-inside .panels-flexible-region-first {
+		float: right;
+		padding-right: 0;
+	}
+
+	.pane-node-field-orgtype{
+		.pane-title{
+			float: left;
+			text-transform: uppercase;
+			border: 2px solid #d9e996;
+			border-radius: 5px;
+			padding: 3px 8px;
+			color: #003399;
+			font-weight: 600;
+			margin-right: 10px;
+			margin-bottom: 10px;
+		}
+		.pane-content{
+			float: left;
+			color: #333;
+			.field-name-field-orgtype{
+				padding-top: 4px;
+				font-weight: normal;
+			}
+		}
+	}
+
+	.pane-node-field-bussines-sector{
+		float: right;
+		padding-top: 0 !important;
+		margin-right: 2em;
+		clear: none;
+		display: flex;
+    	flex-wrap: nowrap;
+		.pane-title{
+			float: left;
+			text-transform: uppercase;
+			border: 2px solid #d9e996;
+			border-radius: 5px;
+			padding: 3px 8px;
+			color: #003399;
+			font-weight: 600;
+			margin-right: 10px;
+			display: flex;
+   			align-items: center;
+		}
+		.pane-content{
+			float: left;
+			color: #333;
+			.field-type-taxonomy-term-reference{
+				padding-top: 4px;
+				font-weight: normal;
+			}
+		}
+	}
+	.panels-flexible-column-first{
+		.field-name-field-country{
+			img{
+				border: 0;
+				width: 110px;
+				height: 110px;
+				margin-top: -17px;
+			}
 		}
 	}
 	.panels-flexible-column-last{
@@ -9092,30 +9236,7 @@ body.mp{
 				font-weight: bold;
     		}
 		 }
-		.pane-node-field-mission-statement, 
-		.pane-node-field-pledge{
-			background: transparent;
-			background-size: initial;
-			margin-top: 5px;
-			border-radius: 15px;
-			margin-bottom: 1em;
-			.pane-title{
-				float: none;
-				color: #003399;
-				font-weight: 600;
-				font-size: 1.5em;
-				padding: 0 0 10px 0;
-			}
 
-			.pane-content{
-				padding: 1em;
-				padding-left: 1em;
-				padding-right: 1em;
-				font-style: normal;
-				color: #000;
-				padding: 0;
-			}
-		}
 		.pane-node-field-mission-statement{
 			margin: 2rem 0 2rem 10px;
 		}
