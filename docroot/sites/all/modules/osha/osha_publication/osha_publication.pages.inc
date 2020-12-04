@@ -56,7 +56,7 @@ function osha_publication_menu_publications_faceted_form($variables) {
     '#attributes' => array('class' => array('content-filters')),
   );
 
-  $form['left-column']['field_publication_type'] = $content_filters;
+  $form['left-column']['main_publication_type'] = $content_filters;
   $form['left-column']['field_msd_priority_area'] = $content_filters;
   $form['left-column']['language'] = $content_filters;
 
@@ -223,7 +223,7 @@ function osha_publication_menu_publications_search($form_state, $sort) {
   foreach ($facets_def as $field_name => $facet_def) {
     $selected_values = hwc_req_param($form_state, $field_name, []);
 
-    if ($field_name == 'field_publication_type') {
+    if ($field_name == 'main_publication_type') {
       $types_map = osha_publication_get_main_publication_types_map(FALSE);
       $publication_type_ids = array();
       if (!empty($selected_values)) {
@@ -463,15 +463,15 @@ function _osha_publication_is_selected_facet() {
 
 function _osha_publication_menu_publications_get_facets_def() {
   return array(
-    'field_publication_type' => array(
+    'main_publication_type' => array(
       'label' => t('Publications type'),
       'field' => 'main_publication_type',
-      'limit' => 50,
+      'limit' => 150,
       'operator' => 'or',
       'min_count' => 1,
-      'missing' => 0,
+      'missing' => TRUE,
       'options_callback' => '_osha_publication_type_filter_options_list',
-      'options_callback_args' => array(''),
+      'options_callback_args' => array(),
     ),
     'language' => array(
       'label' => t('Language'),
