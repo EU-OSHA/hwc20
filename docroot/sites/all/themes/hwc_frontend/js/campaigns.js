@@ -431,7 +431,7 @@ jQuery(document).ready(function() {
 	jQuery(".form-item-languages > label").click(function() {
 		jQuery(this).toggleClass("active");
 	});
-	jQuery(".form-item-publication-type > label").click(function() {
+	jQuery(".form-item-main-publication-type > label").click(function() {
 		jQuery(this).toggleClass("active");
 	});
 	jQuery(".form-item-field-msd-priority-area > label").click(function() {
