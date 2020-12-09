@@ -264,8 +264,9 @@ a.chosen-single{
 .form-item-field-priority-area > label.active:after, 
 .form-item-relevant-for > label.active:after, 
 .form-item-languages > label.active:after, 
-.form-item-publication-type > label.active:after
-.form-item-field-msd-priority-area > label.active:after{
+.form-item-publication-type > label.active:after,
+.form-item-field-msd-priority-area > label.active:after,
+.form-item-main-publication-type > label.active:after{
     color: #c1e000;
     padding-top: 2px;
 }
@@ -278,7 +279,8 @@ a.chosen-single{
 .form-item-relevant-for > label:after, 
 .form-item-languages > label:after, 
 .form-item-publication-type > label:after,
-.form-item-field-msd-priority-area > label:after{
+.form-item-field-msd-priority-area > label:after,
+.form-item-main-publication-type > label:after{
     color: #c1e000;
     padding-top: 2px;
 }

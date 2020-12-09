@@ -753,7 +753,8 @@ function osha_publication_node_get_main_publication_type($item) {
 
 function osha_publication_get_main_publication_types_map($parent = TRUE) {
   $q = db_select('taxonomy_term_hierarchy', 't');
-  $q->join('field_data_field_publication_type', 'e', 'e.field_publication_type_tid = t.tid');
+  $q->join('taxonomy_term_data', 'e', 'e.tid = t.tid');
+  $q->condition('vid', 11);
   $q->distinct();
   $q->fields('t', ['tid', 'parent']);
   if ($parent) {

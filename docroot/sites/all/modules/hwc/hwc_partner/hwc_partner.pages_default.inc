@@ -1133,7 +1133,7 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   $pane->configuration = array(
     'admin_title' => 'Social media profiles title',
     'title' => '',
-    'body' => '<p>Social Media</p>',
+    'body' => '<p>Social media</p>',
     'format' => 'full_html',
     'substitute' => 1,
     'title_heading' => 'h2',
@@ -3637,7 +3637,7 @@ return (!empty($data->field_facebook_profile) || !empty($data->field_linkedin_pr
   $pane->configuration = array(
     'admin_title' => 'Social media profiles title',
     'title' => '',
-    'body' => '<p>Social media profiles</p>',
+    'body' => '<p>Social media</p>',
     'format' => 'full_html',
     'substitute' => 1,
   );
