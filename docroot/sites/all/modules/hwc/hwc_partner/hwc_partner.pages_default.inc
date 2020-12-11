@@ -974,7 +974,7 @@ campaign-partners/enterprise-europe-network
     'delta_reversed' => FALSE,
     'formatter_settings' => array(
       'field_formatter_class' => '',
-      'custom_title' => 'Visit website',
+      'custom_title' => 'Visit the website',
     ),
     'context' => 'argument_entity_id:node_1',
     'override_title' => 0,
@@ -3466,7 +3466,7 @@ campaign-partners/national-focal-points
     'delta_reversed' => FALSE,
     'formatter_settings' => array(
       'field_formatter_class' => '',
-      'custom_title' => 'Visit website',
+      'custom_title' => 'Visit the website',
     ),
     'context' => 'argument_entity_id:node_1',
     'override_title' => 0,
