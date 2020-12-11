@@ -574,7 +574,7 @@ function hwc_partner_views_pre_render(&$view) {
 
   if ($view->name == 'partners_list' && ($view->current_display == 'fop')) {
     global $language;
-    $sort_title_field = FALSE;
+    $sort_title_field = TRUE;
     $results = &$view->result;
     // Sort the results by country name (using UTF-8).
     uasort($results, function ($a, $b) use ($language, $sort_title_field) {
