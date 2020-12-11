@@ -1216,8 +1216,7 @@ function hwc_frontend_checkboxes($variables) {
       }
     }
   }
-
-  if ($variables['element']['#name'] == 'field_publication_type') {
+  if ($variables['element']['#name'] == 'main_publication_type') {
     $map = osha_publication_get_main_publication_types_map();
     foreach ($variables['element']['#options'] as $tid => $title) {
       $sub_tids = [];
