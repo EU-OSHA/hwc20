@@ -1230,7 +1230,7 @@ function hwc_frontend_checkboxes($variables) {
           $term = taxonomy_term_load($sub_tid);
           $sub_tids[$sub_tid] = $term->name;
         }
-        $search = 'for="edit-field-publication-type-' . $tid . '"';
+        $search = 'for="edit-main-publication-type-' . $tid . '"';
         $attr = drupal_attributes(['title' => $title . ' ' . t('include') . ' ' . hwc_frontend_implode_comma_and_join($sub_tids)]);
         $variables['element']['#children'] = str_replace($search, $search . ' ' . $attr, $variables['element']['#children']);;
       }
