@@ -190,6 +190,14 @@ function hwc_partner_block_info() {
     'cache' => DRUPAL_NO_CACHE,
     'weight' => 50,
   );
+  $blocks['hwc_partner_email'] = array(
+    'info' => t('General email address or Main contact email'),
+    'status' => 0,
+    'region' => '',
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+    'cache' => DRUPAL_NO_CACHE,
+    'weight' => 50,
+  );
 
   return $blocks;
 }
@@ -342,6 +350,21 @@ function hwc_partner_block_view($delta = '') {
           'delta' => $delta,
         )
       );
+    }
+  }
+  elseif ($delta == 'hwc_partner_email') {
+    $node = menu_get_object();
+    $block['title'] = '<none>';
+    $block['content'] = @$node->field_general_email[LANGUAGE_NONE][0]['email'];
+    if (!$block['content']) {
+      $block['content'] = $node->field_main_contact_email[LANGUAGE_NONE][0]['email'];
+    }
+    if (module_exists('spamspan')) {
+      $block['content'] = spamspan($block['content']);
+    }
+    else {
+      $output = l($block['content'], 'mailto:' . $block['content']);
+      $block['content'] = $output;
     }
   }
   elseif ($delta == 'hwc_partner_postal_code_town') {

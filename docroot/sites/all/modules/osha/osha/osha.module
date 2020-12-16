@@ -133,11 +133,67 @@ function osha_admin_redirection_errors() {
   return $output;
 }
 
+function osha_admin_msonormal($string) {
+  $matches = array();
+  $q = db_select('field_data_body', 'b');
+  $result = $q->fields('b', array('body_value', 'entity_id', 'bundle'))
+    ->condition('body_value', '%' . db_like($string) . '%', 'LIKE')
+    ->orderBy('b.bundle', 'ASC')
+    ->execute();
+  foreach ($result as $row) {
+    $node = node_load($row->entity_id);
+    if (!$node) {
+      drupal_set_message('Broken node link  #' . $row->entity_id);
+      continue;
+    }
+    $status = 'Published';
+    if ($node->status) {
+      $status = '';
+    }
+    $matches[$row->entity_id] = [
+      'title' => $node->title,
+      'type' => $row->bundle,
+      'status' => $status,
+      'operations' => l('view', 'node/' . $row->entity_id) . ' ' . l('edit', 'node/' . $row->entity_id . '/edit'),
+      'body' => $row->body_value,
+    ];
+  }
+  return $matches;
+}
+
+function osha_admin_copy_from_word() {
+  $rows = osha_admin_msonormal('MsoNormal');
+  $header = array(
+    t('Title'),
+    t('Type'),
+    t('Status'),
+    t('Operations'),
+    t('Body'),
+  );
+  if (empty($rows)) {
+    $output = t('No Copy from word errors.');
+  }
+  else {
+    // Sort rows by field name.
+    ksort($rows);
+    $output = 'Total: '. count($rows) . '<br>' .
+      theme('table', array('header' => $header, 'rows' => $rows));
+  }
+  return $output;
+}
+
 /**
  * Implements hook_menu().
  */
 function osha_menu() {
   $items = array();
+
+  $items['admin/reports/copy_from_word'] = array(
+    'title' => 'Copy from word',
+    'page callback' => 'osha_admin_copy_from_word',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+  );
 
   $items['admin/reports/redirection_errors'] = array(
     'title' => 'Redirection errors',

@@ -68,7 +68,7 @@ function osha_events_fe_nodequeue_export_fields() {
     'name' => 'press_room_news',
     'title' => 'Press room news',
     'subqueue_title' => '',
-    'size' => 0,
+    'size' => 4,
     'link' => '',
     'link_remove' => '',
     'owner' => 'nodequeue',
