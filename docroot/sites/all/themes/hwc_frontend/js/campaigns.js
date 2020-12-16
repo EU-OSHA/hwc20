@@ -431,7 +431,7 @@ jQuery(document).ready(function() {
 	jQuery(".form-item-languages > label").click(function() {
 		jQuery(this).toggleClass("active");
 	});
-	jQuery(".form-item-publication-type > label").click(function() {
+	jQuery(".form-item-main-publication-type > label").click(function() {
 		jQuery(this).toggleClass("active");
 	});
 	jQuery(".form-item-field-msd-priority-area > label").click(function() {
@@ -457,8 +457,8 @@ jQuery(document).ready(function() {
 	if(jQuery(".form-item-languages div").is(':visible')){
 		jQuery(".form-item-languages > label").addClass("active");
 	};
-	if(jQuery(".form-item-publication-type div").is(':visible')){
-		jQuery(".form-item-publication-type > label").addClass("active");
+	if(jQuery(".form-item-main-publication-type div").is(':visible')){
+		jQuery(".form-item-main-publication-type > label").addClass("active");
 	};
 	if(jQuery(".form-item-field-msd-priority-area div").is(':visible')){
 		jQuery(".form-item-field-msd-priority-area > label").addClass("active");
@@ -635,11 +635,11 @@ jQuery(document).ready(function($) {
       $("#edit-main-tags .form-checkboxes").slideUp(200);
     }
   });
-  $("#edit-field-publication-type > div > label").on("click", function() {
+  $("#edit-main-publication-type > div > label").on("click", function() {
     if ($(this).hasClass("active")) {
-      $("#edit-field-publication-type .form-checkboxes").slideDown(200);
+      $("#edit-main-publication-type .form-checkboxes").slideDown(200);
     }else{
-      $("#edit-field-publication-type .form-checkboxes").slideUp(200);
+      $("#edit-main-publication-type .form-checkboxes").slideUp(200);
     }
   });
   $("#edit-field-priority-area > div > label").on("click", function() {
@@ -662,12 +662,12 @@ jQuery(document).ready(function($) {
 
    if (jQuery(window).width() < 1200) {
    	$("#edit-main-tags > div > label").removeClass('active');
-   	$("#edit-field-publication-type > div > label").removeClass('active');
+   	$("#edit-main-publication-type > div > label").removeClass('active');
    	$("#edit-field-priority-area > div > label").removeClass('active');
    	$("#edit-field-msd-priority-area > div > label").removeClass('active');
 
    	$("#edit-main-tags .form-checkboxes").css('display' , 'none');
-   	$("#edit-field-publication-type .form-checkboxes").css('display' , 'none');
+   	$("#edit-main-publication-type .form-checkboxes").css('display' , 'none');
    	$("#edit-field-priority-area .form-checkboxes").css('display' , 'none');
    	$("#edit-field-msd-priority-area .form-checkboxes").css('display' , 'none');
    }

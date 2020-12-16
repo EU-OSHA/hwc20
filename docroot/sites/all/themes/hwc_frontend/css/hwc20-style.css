@@ -2187,19 +2187,22 @@ div.publications-detail-right-column > a.download {
 }
 #edit-field-publication-type > div > label,
 #edit-main-tags > div > label,
-#edit-field-msd-priority-area > div > label {
+#edit-field-msd-priority-area > div > label,
+#edit-main-publication-type > div > label {
   font-size: 1.8rem;
   color: #003399 !important;
   padding-right: 20px;
 }
 #edit-field-publication-type .form-checkboxes,
 #edit-main-tags .form-checkboxes,
-#edit-field-msd-priority-area .form-checkboxes {
+#edit-field-msd-priority-area .form-checkboxes,
+#edit-main-publication-type .form-checkboxes {
   padding-top: 10px;
 }
 html:lang(de) #edit-field-publication-type > div > label,
 html:lang(de) #edit-main-tags > div > label,
-html:lang(de) #edit-field-msd-priority-area > div > label {
+html:lang(de) #edit-field-msd-priority-area > div > label,
+html:lang(de) #edit-main-publication-type > div > label {
   font-size: 1.5rem;
 }
 #edit-field-priority-area--2 {
