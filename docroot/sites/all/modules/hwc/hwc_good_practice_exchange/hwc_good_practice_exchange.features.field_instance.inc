@@ -41,7 +41,7 @@ function hwc_good_practice_exchange_field_default_field_instances() {
       'description_field' => 1,
       'entity_translation_sync' => FALSE,
       'file_directory' => 'documents/documents',
-      'file_extensions' => 'pdf doc docx odt rtf txt csv xls ods xlsx ppt pptx epub mp4',
+      'file_extensions' => 'pdf doc docx odt rtf txt csv xls ods xlsx ppt pptx epub mp4 png jpg jpeg',
       'max_filesize' => '500 MB',
       'user_register_form' => FALSE,
     ),
