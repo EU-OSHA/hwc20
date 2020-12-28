@@ -16132,7 +16132,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 .contact-form.container #edit-actions {
   width: 100%;
-  margin-top: 30px;
+  margin-top: 0;
 }
 .contact-form.container .form-type-select {
   position: relative;
@@ -16171,8 +16171,8 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   height: inherit !important;
 }
 .contact-form.container button {
-  width: 100%;
-  background: #003399 url(../images/content/arrow-right-blue-bg-white.png) no-repeat right center;
+  width: auto;
+  background: #003399;
 }
 fieldset.captcha {
   clear: both;
