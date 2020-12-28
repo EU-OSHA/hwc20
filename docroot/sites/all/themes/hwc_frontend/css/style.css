@@ -16166,6 +16166,7 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   box-sizing: border-box;
   width: 84%;
   cursor: pointer;
+  border: 1px solid #003399;
 }
 .contact-form.container .form-type-textarea {
   height: inherit !important;
