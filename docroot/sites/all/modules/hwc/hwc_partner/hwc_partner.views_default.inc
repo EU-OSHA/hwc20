@@ -1016,10 +1016,11 @@ function hwc_partner_views_default_views() {
     'field_formatter_class' => '',
   );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Country (field_country) */
-  $handler->display->display_options['sorts']['field_country_tid']['id'] = 'field_country_tid';
-  $handler->display->display_options['sorts']['field_country_tid']['table'] = 'field_data_field_country';
-  $handler->display->display_options['sorts']['field_country_tid']['field'] = 'field_country_tid';
+  /* Sort criterion: Taxonomy term: ISO2 (field_iso2) */
+  $handler->display->display_options['sorts']['field_iso2_value']['id'] = 'field_iso2_value';
+  $handler->display->display_options['sorts']['field_iso2_value']['table'] = 'field_data_field_iso2';
+  $handler->display->display_options['sorts']['field_iso2_value']['field'] = 'field_iso2_value';
+  $handler->display->display_options['sorts']['field_iso2_value']['relationship'] = 'field_country_tid';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published status */
