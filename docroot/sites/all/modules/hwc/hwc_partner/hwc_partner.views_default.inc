@@ -972,7 +972,6 @@ function hwc_partner_views_default_views() {
   $handler->display->display_options['fields']['field_flag']['field'] = 'field_flag';
   $handler->display->display_options['fields']['field_flag']['relationship'] = 'field_country_tid';
   $handler->display->display_options['fields']['field_flag']['label'] = '';
-  $handler->display->display_options['fields']['field_flag']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_flag']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['field_flag']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_flag']['click_sort_column'] = 'fid';
