@@ -1427,6 +1427,12 @@ function _hwc_store_practical_tool($default = []) {
  */
 function hwc_form_alter(&$form, &$form_state, $form_id) {
   global $user;
+  if (strpos($form_id, '_node_form')) {
+    if (in_array(HWC_ROLE_WEBSITE_MANAGERS, $user->roles)) {
+      $form['options']['#access'] = TRUE;
+    }
+  }
+
   if ($form_id == 'views_exposed_form' && $form_state['view']->name == 'practical_tools') {
     $available_in_languages = hwc_get_available_in_languages_practical_tools();
     $form['field_available_in_languages_value']['#type'] = 'select';
