@@ -572,9 +572,10 @@ jQuery(document).ready(function() {
 
 			var isHidden = jQuery('.view-search-toolkit-examples .view-filters').attr('style').indexOf('opacity: 1');
 			if(isHidden < 0){
-				jQuery(".view-search-toolkit-examples .hide-filters a").text('Hide filters');
-			} else {
-				jQuery(".view-search-toolkit-examples .hide-filters a").text('Show filters');
+				jQuery(".view-search-toolkit-examples .hide-filters a").text(Drupal.settings.toolkit.hide);
+			}
+			else {
+				jQuery(".view-search-toolkit-examples .hide-filters a").text(Drupal.settings.toolkit.show);
 			}
 		});
 

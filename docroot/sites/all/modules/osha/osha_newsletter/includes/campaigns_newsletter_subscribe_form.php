@@ -10,7 +10,6 @@ function osha_newsletter_block_subscribe_load_ajax() {
   $commands = array();
   $commands[] = ajax_command_replace('#newsletter-subscription-frontpage-form-wrapper', $content);
   $commands[] = ajax_command_invoke('#' . $email_id, 'focus');
-  $commands[] = ajax_command_invoke(NULL, 'captcha_init');
   $page = array(
     '#type' => 'ajax',
     '#commands' => $commands,

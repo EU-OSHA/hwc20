@@ -574,15 +574,15 @@ function hwc_partner_views_pre_render(&$view) {
 
   if ($view->name == 'partners_list' && ($view->current_display == 'fop')) {
     global $language;
-    $sort_title_field = FALSE;
+    $sort_title_field = TRUE;
     $results = &$view->result;
     // Sort the results by country name (using UTF-8).
     uasort($results, function ($a, $b) use ($language, $sort_title_field) {
       // Requires php-intl extension.
       if (class_exists('Collator')) {
         $collator = new \Collator($language->language);
-        $str1 = $a->field_name_field[0]['rendered']['#markup'];
-        $str2 = $b->field_name_field[0]['rendered']['#markup'];
+        $str1 = $a->field_field_iso2[0]['rendered']['#markup'];
+        $str2 = $b->field_field_iso2[0]['rendered']['#markup'];
         $res = $collator->compare($str1, $str2);
         if (($res == 0) && $sort_title_field) {
           $str1 = $a->field_title_field[0]['rendered']['#markup'];
@@ -593,8 +593,8 @@ function hwc_partner_views_pre_render(&$view) {
       }
       // Sorting in some languages (greek) are wrong.
       else {
-        $str1 = htmlspecialchars($a->field_name_field[0]['rendered']['#markup']);
-        $str2 = htmlspecialchars($b->field_name_field[0]['rendered']['#markup']);
+        $str1 = htmlspecialchars($a->field_field_iso2[0]['rendered']['#markup']);
+        $str2 = htmlspecialchars($b->field_field_iso2[0]['rendered']['#markup']);
         $res = strcmp($str1, $str2);
         if (($res == 0) && $sort_title_field) {
           $str1 = htmlspecialchars($a->field_title_field[0]['rendered']['#markup']);
