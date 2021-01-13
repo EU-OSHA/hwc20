@@ -241,10 +241,3 @@ function hwc_good_practice_exchange_update_7029() {
 function hwc_good_practice_exchange_update_7030() {
   features_revert(array('hwc_good_practice_exchange' => array('field_instance')));
 }
-
-/**
- * MDR-4077 GPE Plartform - Possibility to upload ZIP.
- */
-function hwc_good_practice_exchange_update_7031() {
-  features_revert(array('hwc_good_practice_exchange' => array('field_instance')));
-}
