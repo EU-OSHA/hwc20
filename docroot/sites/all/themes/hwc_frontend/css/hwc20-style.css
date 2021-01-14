@@ -7665,6 +7665,19 @@ html:lang(el) body.page-tools-and-publications-practical-tools .views-exposed-wi
   text-decoration: none;
   border-bottom: 0;
 }
+/* MDR-4066 - glossary terms - highlight only the first time it appears*/
+.node-type-news .field-name-field-summary .lexicon-term {
+  border-bottom: 0 !important;
+  color: #59595A !important;
+  cursor: text !important;
+}
+.node-type-news .field-name-field-summary .lexicon-term:hover {
+  text-decoration: none;
+  border-bottom: 0;
+}
+.node-type-news .field-name-field-summary .popup {
+  display: none !important;
+}
 .popup {
   position: relative;
   background: #FFF;
