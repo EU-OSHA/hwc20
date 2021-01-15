@@ -6,6 +6,55 @@
 
 include_once 'hwc_good_practice_exchange.features.inc';
 
+/**
+ * Implements hook_menu().
+ */
+function hwc_good_practice_exchange_menu() {
+  $items['document_file/%file'] = array(
+    'title' => 'Download file',
+    'page callback' => 'hwc_good_practice_exchange_download_file',
+    'page arguments' => array(1),
+    'access callbackllback' => 'hwc_good_practice_exchange_download_access',
+    'access arguments' => array(1),
+    'type' => MENU_CALLBACK,
+    'weight' => 4,
+  );
+  return $items;
+}
+
+function hwc_good_practice_exchange_download_access($file) {
+  global $user;
+
+  $inter_roles = array_intersect($user->roles, [
+    HWC_ROLE_ADMIN,
+    HWC_ROLE_CAMPAIGN_PARTNER,
+    HWC_ROLE_EEN_REVIEW_MANAGER,
+    HWC_ROLE_EXTERNAL_PROVIDER_SUPERVISOR,
+    HWC_ROLE_GPE_PLATFORM_EDITORS,
+    HWC_ROLE_HWC_STAFF_REVIEWERS,
+    HWC_ROLE_WEBSITE_MANAGERS,
+    HWC_ROLE_SUPERADMIN,
+  ]);
+  if (!empty($inter_roles)) {
+    return NODE_ACCESS_ALLOW;
+  }
+  return NODE_ACCESS_IGNORE;
+}
+
+function hwc_good_practice_exchange_download_file($file) {
+  $headers = array(
+    'Content-Type'              => $file->filemime,
+    'Content-Disposition'       => 'attachment; filename="' . drupal_basename($file->uri) . '"',
+    'Content-Length'            => $file->filesize,
+    'Content-Transfer-Encoding' => 'binary',
+    'Pragma'                    => 'no-cache',
+    'Cache-Control'             => 'must-revalidate, post-check=0, pre-check=0',
+    'Expires'                   => '0',
+    'Accept-Ranges'             => 'bytes',
+  );
+  file_transfer($file->uri, $headers);
+}
+
 function hwc_good_practice_exchange_get_partner_title($nid) {
   static $titles = [];
   if (!isset($titles[$nid])) {
