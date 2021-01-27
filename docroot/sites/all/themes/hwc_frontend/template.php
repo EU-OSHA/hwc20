@@ -1216,25 +1216,12 @@ function hwc_frontend_checkboxes($variables) {
       }
     }
   }
-
-  if ($variables['element']['#name'] == 'field_publication_type') {
-    $map = osha_publication_get_main_publication_types_map();
-    foreach ($variables['element']['#options'] as $tid => $title) {
-      $sub_tids = [];
-      foreach ($map as $sub_tid => $main_tid) {
-        if ($tid == $main_tid) {
-          $sub_tids[$sub_tid] = $sub_tid;
-        }
-      }
-      if (count($sub_tids) >= 1) {
-        foreach ($sub_tids as $sub_tid) {
-          $term = taxonomy_term_load($sub_tid);
-          $sub_tids[$sub_tid] = $term->name;
-        }
-        $search = 'for="edit-field-publication-type-' . $tid . '"';
-        $attr = drupal_attributes(['title' => $title . ' ' . t('include') . ' ' . hwc_frontend_implode_comma_and_join($sub_tids)]);
+  if ($variables['element']['#name'] == 'main_publication_type') {
+    $map = variable_get('main_publication_type_map', array());
+    foreach ($map as $tid => $title) {
+        $search = 'for="edit-main-publication-type-' . $tid . '"';
+        $attr = drupal_attributes(['title' => t($title)]);
         $variables['element']['#children'] = str_replace($search, $search . ' ' . $attr, $variables['element']['#children']);;
-      }
     }
   }
 

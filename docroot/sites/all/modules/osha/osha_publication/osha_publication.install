@@ -169,3 +169,14 @@ function osha_publication_update_7020() {
   features_revert(array('osha_publication' => array('field_base', 'field_instance')));
   features_revert(array('hwc_gpa' => array('views_view')));
 }
+
+/**
+ * MDR-4060 Publication type filter does not display the corresponding tooltips.
+ */
+function osha_publication_update_7021() {
+  variable_set('main_publication_type_map', [
+    3281 => 'Corporate publications include former Annual reports and other corporate publications, Evaluation reports, and Corporate strategies and programming documents types',
+    727 => 'Info sheets include former factsheets, e-facts and info sheets types',
+    517 => 'Reports include former reports and literature review types',
+  ]);
+}
