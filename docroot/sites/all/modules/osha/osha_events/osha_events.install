@@ -319,3 +319,10 @@ function osha_events_update_7027() {
 function osha_events_update_7028() {
   features_revert(array('osha_events' => array('field_instance')));
 }
+
+/**
+ * MDR-4142 HWC - Private zone - create an event item - Hide end date.
+ */
+function osha_events_update_7029() {
+  features_revert(array('osha_events' => array('field_base')));
+}
