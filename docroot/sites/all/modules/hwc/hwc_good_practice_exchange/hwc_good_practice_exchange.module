@@ -14,7 +14,7 @@ function hwc_good_practice_exchange_menu() {
     'title' => 'Download file',
     'page callback' => 'hwc_good_practice_exchange_download_file',
     'page arguments' => array(1),
-    'access callbackllback' => 'hwc_good_practice_exchange_download_access',
+    'access callback' => 'hwc_good_practice_exchange_download_access',
     'access arguments' => array(1),
     'type' => MENU_CALLBACK,
     'weight' => 4,
