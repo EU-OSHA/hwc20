@@ -110,7 +110,15 @@ function hwc_good_practice_exchange_search_api_solr_query_alter(array &$call_arg
     }
     $fq2 = implode(' AND ', $cond2);
 
-    $call_args['params']['fq'][] = '(' . $fq1 . ') OR (' . $fq2 . ')';
+    // all types tid...
+    $cond3 = [];
+    $cond3[] = '(is_partner_section:"1")';
+    $cond3[] = '(ss_language:"' . $language->language . '")';
+    $all_tid = variable_get('field_share_partner_type_all_tid', 0);
+    $cond3[] = '(im_field_share_partner_type:"' . $all_tid . '")';
+    $fq3 = implode(' AND ', $cond3);
+
+    $call_args['params']['fq'][] = '(' . $fq1 . ') OR (' . $fq2 . ') OR (' . $fq3 . ')';
   }
 
   $call_args['params']['sort'] = 'ds_field_publication_date desc';
