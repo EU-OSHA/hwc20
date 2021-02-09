@@ -430,3 +430,28 @@ function hwc_partner_update_7055() {
 function hwc_partner_update_7056() {
   features_revert(array('hwc_partner' => array('views_view')));
 }
+
+/**
+ * MDR-4163 Development: Add 'All' possibility and display it by default in the Type of partner dropdown.
+ */
+function hwc_partner_update_7057() {
+  $map = [
+    'All' => 'all',
+  ];
+  foreach ($map as $name => $code) {
+    $term = taxonomy_get_term_by_name($name, 'document_partner_type');
+    if (empty($term)) {
+      $voc = taxonomy_vocabulary_machine_name_load('document_partner_type');
+      $term = new stdClass();
+      $term->parent = 0;
+      $term->language = 'en';
+      $term->name = $name;
+      $term->vid = $voc->vid;
+      $term->field_partner_type_code[LANGUAGE_NONE][]['value'] = $code;
+      taxonomy_term_save($term);
+    }
+  }
+  $term = taxonomy_get_term_by_name('All', 'document_partner_type');
+  $term = current($term);
+  variable_set('field_share_partner_type_all_tid', $term->tid);
+}
