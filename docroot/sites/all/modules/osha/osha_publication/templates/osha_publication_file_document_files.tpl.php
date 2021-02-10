@@ -6,6 +6,9 @@ foreach ($files as $f) {
     if ($document_file['fid'] == $f['fid']) {
       $file_title = $entity->field_file_title['und'][$delta]['value'];
       $file_uri = file_create_url($f['uri']);
+      if ($f['type'] == 'image') {
+        $file_uri = file_create_url('document_file/' . $f['fid']);
+      }
       $items[] = '<a href="' . $file_uri . '">' . strtoupper($entity->field_language['und'][$delta]['value']) . '<span class="glyphicon glyphicon-circle-arrow-down"></span></a>';
     }
   }
