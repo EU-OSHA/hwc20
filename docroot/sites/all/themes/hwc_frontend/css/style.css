@@ -14947,6 +14947,17 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-node-edit fieldset[id*="edit-field-related-documents"] {
   clear: both;
 }
+.logged-in.page-node-add-news #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb,
+.logged-in.node-type-news #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb,
+.logged-in.node-type-events #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb {
+  padding-top: 0;
+  padding-left: 84px;
+}
+.logged-in.page-node-add-news #edit-send-for-approval,
+.logged-in.node-type-news #edit-send-for-approval,
+.logged-in.node-type-events #edit-send-for-approval {
+  margin-bottom: 1em;
+}
 .page-node-add-events #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb {
   padding-left: 84px;
 }
