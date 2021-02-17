@@ -395,6 +395,7 @@ function hwc_toolkit_get_menu_tree($level1) {
 
       $search_toolkit_examples_url = variable_get('toolkit_search_toolkit_examples', 'tools-and-publications/campaign-toolkit/tools-and-examples/search-toolkit-examples');
       $menu[$l1_nid]['children'][HWC_SEARCH_TOOLKIT_EXAMPLES] = _toolkit_menu_item(t('Search Toolkit Examples'), $search_toolkit_examples_url, 'views');
+      $menu[$l1_nid]['children'][HWC_SEARCH_TOOLKIT_EXAMPLES]['class'] = 'search-toolkit-examples';
 
       $tools_nid = $l1_nid;
       foreach ($terms as $tk_term) {
