@@ -11505,7 +11505,8 @@ article .hwc-share-widget ul {
   border-bottom: none;
 }
 .node-events.node-unpublished .node-submit-validation-form {
-  padding-top: 1em;
+  clear: both;
+  padding-top: 0;
   padding-bottom: 1em;
 }
 .node-events .node-edit-form-heading:first-child {
@@ -14946,13 +14947,38 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-node-edit fieldset[id*="edit-field-related-documents"] {
   clear: both;
 }
+.logged-in.page-node-add-news #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb,
+.logged-in.node-type-news #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb,
+.logged-in.node-type-events #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb {
+  padding-top: 0;
+  padding-left: 84px;
+}
+.logged-in.page-node-add-news #edit-send-for-approval,
+.logged-in.node-type-news #edit-send-for-approval,
+.logged-in.node-type-events #edit-send-for-approval {
+  margin-bottom: 1em;
+}
+.page-node-add-events #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb {
+  padding-left: 84px;
+}
+.page-node-add-events .node-events-form .group-left .date-float input {
+  height: 17px;
+}
+.page-node-add-events .group-right .field-name-field-city {
+  padding-top: 17px;
+}
+.page-node-add-events .group-right .field-name-field-country-code {
+  padding-top: 55px;
+}
 .node-events-form h2.node-edit-form-heading:first-child {
   float: left;
-  width: 50%;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 .node-events-form .required-form-fields {
   width: 50%;
-  margin-top: 4em;
+  margin-top: 1em;
   text-align: right;
 }
 .node-events-form .group-header {
