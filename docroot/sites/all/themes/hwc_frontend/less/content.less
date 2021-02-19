@@ -6207,7 +6207,7 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 	}
 }
 
-.logged-in.page-node-add-news, .logged-in.node-type-news, .logged-in.node-type-events{
+.logged-in.page-node-add-news, .logged-in.node-type-news, .logged-in.node-type-events, .logged-in.page-node-news, .logged-in.page-node-events{
 	#block-hwc-partner-hwc-partner-private-zone-gpep{
 		.breadcrumb{
 			padding-top: 0;
@@ -6219,7 +6219,16 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 	}
 }
 
-.page-node-add-events{
+.logged-in.node-type-news{
+	#hwc-workflow-node-submit-form{
+		clear: both;
+	}
+	.back-links{
+		clear: both;
+	}
+}
+
+.page-node-add-events, .node-type-events {
 	#block-hwc-partner-hwc-partner-private-zone-gpep{
 		.breadcrumb{
 			padding-left: 84px;
@@ -6242,6 +6251,31 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 		.field-name-field-country-code{
 			padding-top: 55px;
 		}
+	}
+}
+
+.page-node-edit.node-type-events{
+	.group-right2 {
+	    float: right;
+	    width: 46%;
+	    padding-top: 0;
+	    margin-right: 0;
+	}
+	.group-footer.col-md-12{
+		width: 47%;
+	    margin-right: 0;
+	    padding-right: 0;
+	    float: right;
+	    padding-left: 12px;
+	}
+	.text-advice.container{
+		clear: both !important;
+	}
+	#edit-save-preview{
+		float: none !important;
+	}
+	#edit-send-for-approval{
+		margin-right: 10px !important;
 	}
 }
 
@@ -6282,12 +6316,6 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 			width: 47%;
 			float: left;
 			height: 3.5em;
-			&:first-child{
-				margin-right: 3% !important;
-			}
-			&:last-child{
-				//margin-left: 3%;
-			}
 		}
 	}
 	#edit-submit{
