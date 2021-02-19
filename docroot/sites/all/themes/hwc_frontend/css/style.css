@@ -14949,26 +14949,62 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 }
 .logged-in.page-node-add-news #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb,
 .logged-in.node-type-news #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb,
-.logged-in.node-type-events #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb {
+.logged-in.node-type-events #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb,
+.logged-in.page-node-news #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb,
+.logged-in.page-node-events #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb {
   padding-top: 0;
   padding-left: 84px;
 }
 .logged-in.page-node-add-news #edit-send-for-approval,
 .logged-in.node-type-news #edit-send-for-approval,
-.logged-in.node-type-events #edit-send-for-approval {
+.logged-in.node-type-events #edit-send-for-approval,
+.logged-in.page-node-news #edit-send-for-approval,
+.logged-in.page-node-events #edit-send-for-approval {
   margin-bottom: 1em;
 }
-.page-node-add-events #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb {
+.logged-in.node-type-news #hwc-workflow-node-submit-form {
+  clear: both;
+}
+.logged-in.node-type-news .back-links {
+  clear: both;
+}
+.page-node-add-events #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb,
+.node-type-events #block-hwc-partner-hwc-partner-private-zone-gpep .breadcrumb {
   padding-left: 84px;
 }
-.page-node-add-events .node-events-form .group-left .date-float input {
+.page-node-add-events .node-events-form .group-left .date-float input,
+.node-type-events .node-events-form .group-left .date-float input {
   height: 17px;
 }
-.page-node-add-events .group-right .field-name-field-city {
+.page-node-add-events .group-right .field-name-field-city,
+.node-type-events .group-right .field-name-field-city {
   padding-top: 17px;
 }
-.page-node-add-events .group-right .field-name-field-country-code {
+.page-node-add-events .group-right .field-name-field-country-code,
+.node-type-events .group-right .field-name-field-country-code {
   padding-top: 55px;
+}
+.page-node-edit.node-type-events .group-right2 {
+  float: right;
+  width: 46%;
+  padding-top: 0;
+  margin-right: 0;
+}
+.page-node-edit.node-type-events .group-footer.col-md-12 {
+  width: 47%;
+  margin-right: 0;
+  padding-right: 0;
+  float: right;
+  padding-left: 12px;
+}
+.page-node-edit.node-type-events .text-advice.container {
+  clear: both !important;
+}
+.page-node-edit.node-type-events #edit-save-preview {
+  float: none !important;
+}
+.page-node-edit.node-type-events #edit-send-for-approval {
+  margin-right: 10px !important;
 }
 .node-events-form h2.node-edit-form-heading:first-child {
   float: left;
@@ -15002,9 +15038,6 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
   width: 47%;
   float: left;
   height: 3.5em;
-}
-.page-node-edit #edit-actions button:first-child {
-  margin-right: 3% !important;
 }
 .page-node-edit #edit-submit {
   width: 100% !important;
