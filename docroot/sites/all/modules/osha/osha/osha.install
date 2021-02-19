@@ -545,4 +545,27 @@ function osha_update_7043() {
       array('type' => 'varchar', 'length' => $column_size)
     );
   }
+
+}
+
+/**
+ * MDR-4177 Upload Campaign Toolkit translations - Job123.
+ */
+function osha_update_7044() {
+  $column_size = 768;
+  db_change_field('field_revision_field_benefits', 'field_benefits_value', 'field_benefits_value',
+    array('type' => 'varchar', 'length' => $column_size)
+  );
+
+  $field_name = "field_benefits";
+  // Update field config with new max length
+  $result = db_query("SELECT CAST(`data` AS CHAR(10000) CHARACTER SET utf8) FROM `field_config` WHERE field_name = '{$field_name}'");
+  $config = $result->fetchField();
+  $config_array = unserialize($config);
+  $config_array['settings']['max_length'] = $column_size;
+  $config = serialize($config_array);
+  db_update('field_config')
+    ->fields(array('data' => $config))
+    ->condition('field_name', $field_name)
+    ->execute();
 }
