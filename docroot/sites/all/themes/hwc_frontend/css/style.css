@@ -15006,6 +15006,15 @@ html:lang(mt) .get-involved-section .information-tailored .images-section .image
 .page-node-edit.node-type-events #edit-send-for-approval {
   margin-right: 10px !important;
 }
+.page-node-edit.node-type-events table td.checkbox label {
+  margin-top: 0;
+  padding-top: 0;
+}
+.page-node-edit.node-type-events table td.checkbox input[type="checkbox"] {
+  max-width: inherit;
+  padding-top: 0;
+  margin-top: -4px;
+}
 .node-events-form h2.node-edit-form-heading:first-child {
   float: left;
   padding-bottom: 0;
