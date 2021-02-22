@@ -419,6 +419,9 @@ function hwc_toolkit_get_menu_tree($level1) {
     $l2_tid = $tool->field_field_tk_tool_type[0]['raw']['tid'];
     $l3_nid = $tool->nid;
     $l3_title = $tool->node_title;
+    if (!empty($tool->field_title_field[0]['raw']['value'])) {
+      $l3_title = $tool->field_title_field[0]['raw']['value'];
+    }
     $menu[$tools_nid]['children'][$l2_tid]['children'][$l3_nid] = _toolkit_menu_item($l3_title, 'node/' . $l3_nid);
   }
   return $menu;

@@ -435,6 +435,7 @@ function osha_events_popup_date_process($element, &$form_state, $form) {
  * Implements hook_node_view().
  */
 function osha_events_node_view($node, $view_mode, $langcode) {
+  global $user;
   if ($node->type == 'press_release') {
     if (!empty($node->preprocess_fields)) {
       foreach ($node->preprocess_fields as $field_name) {
@@ -493,15 +494,17 @@ function osha_events_node_view($node, $view_mode, $langcode) {
         switch ($field_name) {
           case 'back_to_list':
           case 'bottom_back_to_list':
-            $link_href = 'media-centre/news';
-            $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to news') . '</span>';
-            if (array_key_exists('press-room', $_REQUEST)) {
-              $link_href = 'media-centre/press-room';
-              $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to press room') . '</span>';
+            if (!in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
+              $link_href = 'media-centre/news';
+              $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to news') . '</span>';
+              if (array_key_exists('press-room', $_REQUEST)) {
+                $link_href = 'media-centre/press-room';
+                $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to press room') . '</span>';
+              }
+              $node->content[$field_name] = array(
+                '#markup' => '<div class="back-links">' . l($back_text, $link_href, ['html' => TRUE]) . '</div>',
+              );
             }
-            $node->content[$field_name] = array(
-              '#markup' => '<div class="back-links">' . l($back_text, $link_href, ['html' => TRUE]) . '</div>',
-            );
             break;
         }
       }
@@ -548,11 +551,13 @@ function osha_events_node_view($node, $view_mode, $langcode) {
             break;
           case 'back_to_list':
           case 'bottom_back_to_list':
-            $link_href = 'media-centre/events';
-            $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to events list') . '</span>';
-            $node->content[$field_name] = array(
-              '#markup' => '<div class="back-to-events">'.l($back_text, $link_href, ['html' => TRUE]).'</div>',
-            );
+            if (!in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
+              $link_href = 'media-centre/events';
+              $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to events list') . '</span>';
+              $node->content[$field_name] = array(
+                '#markup' => '<div class="back-to-events">'.l($back_text, $link_href, ['html' => TRUE]).'</div>',
+              );
+            }
             break;
 
           case 'event_country_flag':
