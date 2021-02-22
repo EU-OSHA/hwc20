@@ -195,3 +195,10 @@ function hwc_toolkit_update_7026() {
 function hwc_toolkit_update_7027() {
   features_revert(array('hwc_toolkit' => array('views_view')));
 }
+
+/**
+ * MDR-4177 Upload Campaign Toolkit translations - Job123.
+ */
+function hwc_toolkit_update_7028() {
+  features_revert(array('hwc_toolkit' => array('views_view')));
+}
