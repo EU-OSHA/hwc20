@@ -1422,6 +1422,15 @@ function _hwc_store_practical_tool($default = []) {
   return $values;
 }
 
+/*
+ * Implements date_combo_process.
+ */
+function hwc_date_combo_process_alter(&$element, &$form_state, $context) {
+  if ($element['#field_name'] == 'field_start_date') {
+    $element['show_todate']['#weight'] = '2.1';
+  }
+}
+
 /**
  * Implements hook_form_alter().
  */
