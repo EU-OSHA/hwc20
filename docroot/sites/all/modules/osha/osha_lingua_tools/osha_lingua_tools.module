@@ -97,13 +97,13 @@ function form_lingua_form($form, &$form_state) {
     '#multiple' => TRUE,
     '#options' => $languages,
     '#default_value' => array_keys($selected_languages),
-    '#weight' => array('#weight' => 6),
+    '#weight' => 6,
   );
   $form['create_translations_submit_button'] = array(
     '#type' => 'submit',
     '#value' => t('Create translations'),
     '#submit' => array('osha_lingua_tools_create_translations'),
-    '#weight' => array('#weight' => 7),
+    '#weight' => 7,
   );
 
   return $form;
