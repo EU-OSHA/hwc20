@@ -201,6 +201,11 @@ function propage_translation($field_name, $intnodeid, $intrevid, $ispublished, $
     $table_rev_name = 'field_revision_' . $fieldintname;
     $field_name = $fieldintname . '_input';
   }
+  elseif (($fieldintname == 'field_image') || ($fieldintname == 'field_image_mail')) {
+    $table_name = 'field_data_' . $fieldintname;
+    $table_rev_name = 'field_revision_' . $fieldintname;
+    $field_name = $fieldintname . '_fid';
+  }
   else {
     $table_name = 'field_data_' . $fieldintname;
     $table_rev_name = 'field_revision_' . $fieldintname;
