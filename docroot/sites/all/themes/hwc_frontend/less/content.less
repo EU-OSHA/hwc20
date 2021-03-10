@@ -3617,7 +3617,8 @@ p.no-results{
 }
 
 .node-events.node-unpublished .node-submit-validation-form{
-	padding-top:1em;
+	clear: both;
+	padding-top: 0;
 	padding-bottom: 1em;
 }
 
@@ -6205,14 +6206,102 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 		clear: both;
 	}
 }
+
+.logged-in.page-node-add-news, .logged-in.node-type-news, .logged-in.node-type-events, .logged-in.page-node-news, .logged-in.page-node-events{
+	#block-hwc-partner-hwc-partner-private-zone-gpep{
+		.breadcrumb{
+			padding-top: 0;
+			padding-left: 84px;
+		}
+	}
+	#edit-send-for-approval{
+		margin-bottom: 1em;
+	}
+}
+
+.logged-in.node-type-news{
+	#hwc-workflow-node-submit-form{
+		clear: both;
+	}
+	.back-links{
+		clear: both;
+	}
+}
+
+.page-node-add-events, .node-type-events {
+	#block-hwc-partner-hwc-partner-private-zone-gpep{
+		.breadcrumb{
+			padding-left: 84px;
+		}
+	}
+	.node-events-form{
+		.group-left{
+			.date-float{
+				input{
+					height: 17px;
+				}
+			}
+		}
+	}
+	
+	.group-right{
+		.field-name-field-city{
+			padding-top: 17px;
+		}
+		.field-name-field-country-code{
+			padding-top: 55px;
+		}
+	}
+}
+
+.page-node-edit.node-type-events{
+	.group-right2 {
+	    float: right;
+	    width: 46%;
+	    padding-top: 0;
+	    margin-right: 0;
+	}
+	.group-footer.col-md-12{
+		width: 47%;
+	    margin-right: 0;
+	    padding-right: 0;
+	    float: right;
+	    padding-left: 12px;
+	}
+	.text-advice.container{
+		clear: both !important;
+	}
+	#edit-save-preview{
+		float: none !important;
+	}
+	#edit-send-for-approval{
+		margin-right: 10px !important;
+	}
+	table{
+		td.checkbox{
+			label{
+				margin-top: 0;
+    			padding-top: 0;
+			}
+			input[type="checkbox"] {
+			    max-width: inherit;
+			    padding-top: 0;
+			    margin-top: -4px;
+			}
+		}
+	}
+}
+
 .node-events-form{
 	h2.node-edit-form-heading:first-child{
 		float: left;
-		width: 50%;
+	 	padding-bottom: 0;
+    	margin-bottom: 0;
+    	margin-top: 0;
 	}
 	.required-form-fields{
 		width: 50%;
-		margin-top: 4em;
+		margin-top: 1em;
 		text-align: right;
 	}
 	.group-header{
@@ -6240,12 +6329,6 @@ html:lang(hu) , html:lang(nl), html:lang(mt) {
 			width: 47%;
 			float: left;
 			height: 3.5em;
-			&:first-child{
-				margin-right: 3% !important;
-			}
-			&:last-child{
-				//margin-left: 3%;
-			}
 		}
 	}
 	#edit-submit{

@@ -797,6 +797,9 @@ function hwc_workflow_form_document_node_form_alter(&$form, &$form_state) {
   if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
     $form['field_share_partner_type']['#access'] = FALSE;
   }
+  elseif (!$form['nid']['#value']) {
+    $form['field_share_partner_type'][LANGUAGE_NONE]['#default_value'] = variable_get('field_share_partner_type_all_tid', 0);
+  }
 
   if (in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles) && count($user->roles) == 2) {
     foreach ($user->workbench_access as $user_id_section => $value) {
