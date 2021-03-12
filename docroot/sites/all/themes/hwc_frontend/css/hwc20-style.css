@@ -8911,7 +8911,6 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(de),
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(et),
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(fr),
-  header.navbar-default .campaigns-header .navbar-header .header-text:lang(hr),
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(is),
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(it),
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(lv),
@@ -8924,6 +8923,10 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
   header.navbar-default .campaigns-header .navbar-header .header-text:lang(ro) {
     font-size: 1em !important;
     width: 300px!important;
+  }
+  header.navbar-default .campaigns-header .navbar-header .header-text:lang(hr) {
+    font-size: 1em !important;
+    width: 200px!important;
   }
   html:lang(de) #block-hwc-homepage-footer-section .col-md-2,
   html:lang(fi) #block-hwc-homepage-footer-section .col-md-2 {
