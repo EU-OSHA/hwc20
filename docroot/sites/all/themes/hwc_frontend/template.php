@@ -472,7 +472,32 @@ function hwc_frontend_get_newsletter_name($nid) {
   return FALSE;
 }
 
+/**
+ * Implements hook_preprocess_page().
+ */
 function hwc_frontend_preprocess_page(&$vars) {
+
+  if (variable_get('google_no_index', FALSE)) {
+    $robots_noindex = array(
+      '#type' => 'html_tag',
+      '#tag' => 'meta',
+      '#attributes' => array(
+        'name' => 'robots',
+        'content' => 'noindex',
+      ),
+    );
+    drupal_add_html_head($robots_noindex, 'no_index_robots');
+    $robots_noindex = array(
+      '#type' => 'html_tag',
+      '#tag' => 'meta',
+      '#attributes' => array(
+        'name' => 'googlebot',
+        'content' => 'noindex',
+      ),
+    );
+    drupal_add_html_head($robots_noindex, 'no_index_google');
+  }
+
   $vars['head_text'] = t('Healthy Workplaces Lighten the Load 2020-22');
   $vars['banner_title'] = '';
   $n = menu_get_object('node');
