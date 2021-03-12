@@ -3051,18 +3051,28 @@ body.toolkit-page [class*=col-md-] {
 							display: none;
 						}
 						.group-right{
-							padding: 30px 15px;
+							padding: 0 15px;
 							position: relative;
 							left: inherit;
 							width: 100%;
 							.field-name-node-link{
-								text-align: center;
-								margin-top: 30px;
+								position: relative;
+								float: right;
+								text-align: right;
+								margin-top: 0;
 								.field-item{
+									position: relative;
 									margin-bottom: 0px;
+									bottom: initial;
+									right: 0;
+									padding-bottom: 20px;
+									padding-right: 10px;
 								}
 							}
 							.field-type-text-with-summary{
+								.field-item{
+								    margin-bottom: 30px;
+								}
 								p{
 									font-weight: 400;
 								}
