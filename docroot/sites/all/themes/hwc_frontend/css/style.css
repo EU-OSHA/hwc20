@@ -22713,16 +22713,21 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu.sticky-toolkit {
     position: fixed;
     top: 5px;
+    left: 0;
     z-index: 99999999999999;
-    background: transparent;
+    background: #FFF;
     width: 100%;
-    padding-bottom: 1em;
+    padding-bottom: 0em;
+    padding-left: 15px;
+    padding-right: 15px;
   }
-  .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu.sticky-toolkit.opened {
-    height: 100%;
+  /*
+  .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu.sticky-toolkit.opened{
+  	height: 100%;
     overflow-y: scroll;
     padding-bottom: 9em;
-  }
+	}
+*/
   .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu .key-menu-container > .menu.active {
     display: block;
   }
@@ -22732,8 +22737,8 @@ body.front .homepage-slider blockquote.image-field-caption p {
   }
   .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu.sticky-toolkit ul {
     background: #FFF;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0;
+    padding-right: 0;
   }
   .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu.sticky-toolkit ul {
     height: 100%;
@@ -25909,6 +25914,11 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .pane-good-practice-exchange-introduction .views-row .title {
     font-size: 1.4em;
   }
+  /*toolkit styles*/
+  body.toolkit-page [class*=col-md-] {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
   .toolkit-page #block-hwc-toolkit-toolkit-nav {
     margin-bottom: 0px;
     display: inline-block;
@@ -25929,6 +25939,9 @@ body.front .homepage-slider blockquote.image-field-caption p {
   }
   .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu .key-menu-container > .menu-index {
     display: block;
+    clear: both;
+    padding-left: 0;
+    padding-right: 0;
   }
   .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu .key-menu-container > .menu-index > li span {
     display: block;
@@ -25988,9 +26001,14 @@ body.front .homepage-slider blockquote.image-field-caption p {
   }
   .toolkit-page .main-container .view-tk-tools .views-row {
     margin-bottom: 15px;
+    padding-right: 0;
   }
   .toolkit-page .main-container .node-tk-tool .field-name-field-benefits {
     padding: 30px 15px;
+  }
+  .toolkit-page .main-container .start-here.col-sm-12.col-md-12 {
+    padding-left: 0px;
+    padding-right: 0px;
   }
   .toolkit-page .main-container .carousel.slide .toolkit_examples {
     margin-bottom: 0px;

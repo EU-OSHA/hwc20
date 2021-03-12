@@ -29,18 +29,23 @@
 
   .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu.sticky-toolkit{
     position: fixed;
-    top:5px;
+    top: 5px;
+    left: 0;
     z-index: 99999999999999;
-    background:transparent;
+    background: #FFF;
     width: 100%;
-    padding-bottom: 1em;
+    padding-bottom: 0em;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
+/*
   .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu.sticky-toolkit.opened{
   	height: 100%;
     overflow-y: scroll;
     padding-bottom: 9em;
-}
+	}
+*/
 
 .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu .key-menu-container > .menu.active{
 	display: block;
@@ -53,8 +58,8 @@
 
    .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu.sticky-toolkit ul{
     background: #FFF;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
 
@@ -2954,8 +2959,14 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
 
 
 
-//toolkit styles
+/*toolkit styles*/
+body.toolkit-page [class*=col-md-] {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 .toolkit-page{
+	
 	#block-hwc-toolkit-toolkit-nav{
 		margin-bottom: 0px;
 		display: inline-block;
@@ -2979,6 +2990,9 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
 			.key-menu-container{
 				>.menu-index{
 					display: block;
+					clear: both;
+					padding-left: 0;
+					padding-right: 0;
 					>li{
 						span{
 							display: block;
@@ -3061,12 +3075,18 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
 		.view-tk-tools{
 			.views-row{
 				margin-bottom: 15px;
+				padding-right: 0;
 			}
 		}
+
 		.node-tk-tool{
 			.field-name-field-benefits{
 				padding: 30px 15px;
 			}
+		}
+		.start-here.col-sm-12.col-md-12{
+			padding-left: 0px;
+    		padding-right: 0px;
 		}
 	}
 	//toolkit example
