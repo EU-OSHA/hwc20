@@ -19752,6 +19752,9 @@ input#edit-field-image-und-0-upload::before {
   margin-top: 20px;
   overflow: hidden;
   margin-bottom: 0;
+  float: left;
+  width: 100%;
+  padding-bottom: 5px;
 }
 .toolkit-page #block-hwc-toolkit-toolkit-nav .key-next-prev-buttons,
 .toolkit-page .pane-hwc-toolkit-toolkit-nav .key-next-prev-buttons {
@@ -25938,7 +25941,7 @@ body.front .homepage-slider blockquote.image-field-caption p {
     width: 100%;
   }
   .toolkit-page #block-hwc-toolkit-toolkit-nav .prev-button {
-    margin-bottom: 25px;
+    margin-bottom: 10px;
   }
   .toolkit-page .pane-hwc-toolkit-toolkit-nav {
     margin-bottom: 0px;
