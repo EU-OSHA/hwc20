@@ -9801,8 +9801,9 @@ input#edit-field-image-und-0-upload::before {
 						}
 
 						>a, >span{
+							position: relative;
 							border: 2px solid;
-							padding: 10px 15px;
+							padding: 10px 35px 10px 15px;
 							display: block;
 							margin-bottom: 15px;
 							border-radius: 3px;
@@ -9824,6 +9825,9 @@ input#edit-field-image-und-0-upload::before {
 						&.expanded{
 							>a, >span{
 								&:after{
+									position: absolute;
+									top: 25%;
+									right: 15px;
 									content:"\e250";
 									font-family: "Glyphicons Halflings";
 									float: right;

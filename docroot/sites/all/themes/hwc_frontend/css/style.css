@@ -18886,8 +18886,9 @@ input#edit-field-image-und-0-upload::before {
 }
 .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu .key-menu-container > ul > li > a,
 .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu .key-menu-container > ul > li > span {
+  position: relative;
   border: 2px solid;
-  padding: 10px 15px;
+  padding: 10px 35px 10px 15px;
   display: block;
   margin-bottom: 15px;
   border-radius: 3px;
@@ -18904,6 +18905,9 @@ input#edit-field-image-und-0-upload::before {
 }
 .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu .key-menu-container > ul > li.expanded > a:after,
 .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu .key-menu-container > ul > li.expanded > span:after {
+  position: absolute;
+  top: 25%;
+  right: 15px;
   content: "\e250";
   font-family: "Glyphicons Halflings";
   float: right;
