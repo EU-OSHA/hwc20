@@ -29,18 +29,23 @@
 
   .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu.sticky-toolkit{
     position: fixed;
-    top:70px;
+    top: 5px;
+    left: 0;
     z-index: 99999999999999;
-    background:transparent;
+    background: #FFF;
     width: 100%;
-    padding-bottom: 1em;
+    padding-bottom: 0em;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
+/*
   .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu.sticky-toolkit.opened{
   	height: 100%;
     overflow-y: scroll;
     padding-bottom: 9em;
-}
+	}
+*/
 
 .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu .key-menu-container > .menu.active{
 	display: block;
@@ -53,8 +58,8 @@
 
    .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu.sticky-toolkit ul{
     background: #FFF;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
 
@@ -2954,14 +2959,20 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
 
 
 
-//toolkit styles
+/*toolkit styles*/
+body.toolkit-page [class*=col-md-] {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 .toolkit-page{
+	
 	#block-hwc-toolkit-toolkit-nav{
 		margin-bottom: 0px;
 		display: inline-block;
 		width: 100%;
 		.prev-button{
-			margin-bottom: 25px;
+			margin-bottom: 10px;
 		}
 	}
 	.pane-hwc-toolkit-toolkit-nav{
@@ -2979,6 +2990,9 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
 			.key-menu-container{
 				>.menu-index{
 					display: block;
+					clear: both;
+					padding-left: 0;
+					padding-right: 0;
 					>li{
 						span{
 							display: block;
@@ -3037,18 +3051,28 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
 							display: none;
 						}
 						.group-right{
-							padding: 30px 15px;
+							padding: 0 15px;
 							position: relative;
 							left: inherit;
 							width: 100%;
 							.field-name-node-link{
-								text-align: center;
-								margin-top: 30px;
+								position: relative;
+								float: right;
+								text-align: right;
+								margin-top: 0;
 								.field-item{
+									position: relative;
 									margin-bottom: 0px;
+									bottom: initial;
+									right: 0;
+									padding-bottom: 20px;
+									padding-right: 10px;
 								}
 							}
 							.field-type-text-with-summary{
+								.field-item{
+								    margin-bottom: 30px;
+								}
 								p{
 									font-weight: 400;
 								}
@@ -3061,12 +3085,18 @@ header.navbar-default .campaigns-header .navbar-header #block-menu-menu-header-l
 		.view-tk-tools{
 			.views-row{
 				margin-bottom: 15px;
+				padding-right: 0;
 			}
 		}
+
 		.node-tk-tool{
 			.field-name-field-benefits{
 				padding: 30px 15px;
 			}
+		}
+		.start-here.col-sm-12.col-md-12{
+			padding-left: 0px;
+    		padding-right: 0px;
 		}
 	}
 	//toolkit example
