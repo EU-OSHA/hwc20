@@ -26543,8 +26543,3 @@ body.front .homepage-slider blockquote.image-field-caption p {
     max-width: 215px !important;
   }
 }
-@media only screen and (max-width: 335px) {
-  .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu.sticky-toolkit {
-    top: 109px;
-  }
-}
