@@ -248,3 +248,10 @@ function hwc_good_practice_exchange_update_7030() {
 function hwc_good_practice_exchange_update_7031() {
   features_revert(array('hwc_good_practice_exchange' => array('field_instance')));
 }
+
+/**
+ * MDR-4286 GPE- Include in the list of documents the summary of the item.
+ */
+function hwc_good_practice_exchange_update_7032() {
+  features_revert(array('hwc_good_practice_exchange' => array('views_view')));
+}
