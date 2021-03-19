@@ -644,6 +644,7 @@ function hwc_good_practice_exchange_field_default_field_instances() {
           'multiple_number' => '',
           'multiple_to' => '',
           'osha_date_theme' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 2,
