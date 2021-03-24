@@ -1,2 +1,0 @@
-# Disallow on test/dev environments
-Disallow: /
