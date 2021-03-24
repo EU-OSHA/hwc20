@@ -35,3 +35,12 @@ Disallow: /?q=user/register/
 Disallow: /?q=user/login/
 Disallow: /?q=user/logout/
 Disallow: /*node/*
+Disallow: /*search-toolkit-examples?
+Disallow: /*search?
+Disallow: /*publications?
+Disallow: /*practical-tools?
+Disallow: /*case-studies?
+Disallow: /*events?
+Disallow: /*past-events?
+Disallow: /*page=
+Disallow: /*destination=
