@@ -18886,8 +18886,9 @@ input#edit-field-image-und-0-upload::before {
 }
 .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu .key-menu-container > ul > li > a,
 .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu .key-menu-container > ul > li > span {
+  position: relative;
   border: 2px solid;
-  padding: 10px 15px;
+  padding: 10px 35px 10px 15px;
   display: block;
   margin-bottom: 15px;
   border-radius: 3px;
@@ -18904,6 +18905,9 @@ input#edit-field-image-und-0-upload::before {
 }
 .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu .key-menu-container > ul > li.expanded > a:after,
 .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu .key-menu-container > ul > li.expanded > span:after {
+  position: absolute;
+  top: 25%;
+  right: 15px;
   content: "\e250";
   font-family: "Glyphicons Halflings";
   float: right;
@@ -19160,38 +19164,40 @@ input#edit-field-image-und-0-upload::before {
 .toolkit-page .main-container .start-here .resources-networks .col-inner h2:before {
   background-image: url(../images/toolkit-resources.png);
 }
-.toolkit-page .main-container .field-name-field-tk-topics .field-items .field-item {
+.toolkit-page .main-container .field-name-field-tk-topics .field-items > .field-item {
   margin-bottom: 30px;
   background-color: #f3f3f3;
+  position: relative;
 }
-.toolkit-page .main-container .field-name-field-tk-topics .field-items .field-item .node-tk-topic .group-left {
-  display: inline-block;
+.toolkit-page .main-container .field-name-field-tk-topics .field-items > .field-item .node-tk-topic .group-left {
+  float: left;
   width: 235px;
   height: 250px;
   background-color: grey;
 }
-.toolkit-page .main-container .field-name-field-tk-topics .field-items .field-item .node-tk-topic .group-left img {
+.toolkit-page .main-container .field-name-field-tk-topics .field-items > .field-item .node-tk-topic .group-left img {
   width: 100%;
 }
-.toolkit-page .main-container .field-name-field-tk-topics .field-items .field-item .node-tk-topic .group-right {
-  padding: 30px;
+.toolkit-page .main-container .field-name-field-tk-topics .field-items > .field-item .node-tk-topic .group-right {
+  float: left;
+  width: 67%;
+  padding: 0 1em;
   display: inline-block;
-  position: absolute;
-  width: inherit;
-  right: 0;
-  left: 234px;
 }
-.toolkit-page .main-container .field-name-field-tk-topics .field-items .field-item .node-tk-topic .group-right h3 {
+.toolkit-page .main-container .field-name-field-tk-topics .field-items > .field-item .node-tk-topic .group-right h3 {
   margin-top: 0px;
   font-size: 1.4em;
 }
-.toolkit-page .main-container .field-name-field-tk-topics .field-items .field-item .node-tk-topic .group-right .field-type-text-with-summary p {
+.toolkit-page .main-container .field-name-field-tk-topics .field-items > .field-item .node-tk-topic .group-right .field-type-text-with-summary p {
   font-weight: 600;
 }
-.toolkit-page .main-container .field-name-field-tk-topics .field-items .field-item .node-tk-topic .group-right .field-name-node-link {
+.toolkit-page .main-container .field-name-field-tk-topics .field-items > .field-item .node-tk-topic .group-right .field-type-text-with-summary .field-item {
+  margin-bottom: 0;
+}
+.toolkit-page .main-container .field-name-field-tk-topics .field-items > .field-item .node-tk-topic .group-right .field-name-node-link {
   text-align: right;
 }
-.toolkit-page .main-container .field-name-field-tk-topics .field-items .field-item .node-tk-topic .group-right .field-name-node-link a {
+.toolkit-page .main-container .field-name-field-tk-topics .field-items > .field-item .node-tk-topic .group-right .field-name-node-link a {
   background-color: #749b00;
   display: inline-block;
   text-align: center;
@@ -19201,8 +19207,14 @@ input#edit-field-image-und-0-upload::before {
   font-weight: 600;
   text-decoration: none;
 }
-.toolkit-page .main-container .field-name-field-tk-topics .field-items .field-item .node-tk-topic .group-right .field-name-node-link a:hover {
+.toolkit-page .main-container .field-name-field-tk-topics .field-items > .field-item .node-tk-topic .group-right .field-name-node-link a:hover {
   background-color: #595959;
+}
+.toolkit-page .main-container .field-name-field-tk-topics .field-items > .field-item .node-tk-topic .group-right .field-name-node-link .field-item {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  margin-bottom: 0;
 }
 .toolkit-page .main-container .view-tk-tools .h2.toolkit-h2 {
   padding-left: 15px;
@@ -19467,6 +19479,7 @@ input#edit-field-image-und-0-upload::before {
 }
 .toolkit-page .main-container .view-search-toolkit-examples #views-exposed-form-search-toolkit-examples-page .views-exposed-widget {
   width: 33%;
+  padding-bottom: 1em;
 }
 .toolkit-page .main-container .view-search-toolkit-examples #views-exposed-form-search-toolkit-examples-page .views-exposed-widget.views-widget-sort-by {
   display: none;
@@ -19489,8 +19502,8 @@ input#edit-field-image-und-0-upload::before {
   padding: 7px;
 }
 .toolkit-page .main-container .view-search-toolkit-examples #views-exposed-form-search-toolkit-examples-page .views-exposed-widget .form-item #edit-sort-order {
-  display: inline-block;
-  margin-top: 2rem;
+  display: block;
+  margin-top: 0;
   border-radius: 6px;
 }
 .toolkit-page .main-container .view-search-toolkit-examples #views-exposed-form-search-toolkit-examples-page .views-exposed-widget .form-item .chosen-container {
@@ -19739,6 +19752,9 @@ input#edit-field-image-und-0-upload::before {
   margin-top: 20px;
   overflow: hidden;
   margin-bottom: 0;
+  float: left;
+  width: 100%;
+  padding-bottom: 5px;
 }
 .toolkit-page #block-hwc-toolkit-toolkit-nav .key-next-prev-buttons,
 .toolkit-page .pane-hwc-toolkit-toolkit-nav .key-next-prev-buttons {
@@ -22705,23 +22721,24 @@ body.front .homepage-slider blockquote.image-field-caption p {
     top: 0;
     z-index: 999999987;
     background: #FFF;
-    padding-bottom: 1em;
+    padding-bottom: 0;
     padding-top: 1em;
     width: 100%;
     margin-bottom: 0;
   }
   .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu.sticky-toolkit {
     position: fixed;
-    top: 70px;
+    top: 5px;
+    left: 0;
     z-index: 99999999999999;
-    background: transparent;
+    background: #FFF;
     width: 100%;
-    padding-bottom: 1em;
+    padding-bottom: 0em;
+    padding-left: 15px;
+    padding-right: 15px;
   }
-  .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu.sticky-toolkit.opened {
-    height: 100%;
-    overflow-y: scroll;
-    padding-bottom: 9em;
+  .toolkit-page .main-container .above_title.sticky-toolkit .page-header.sticky-toolkit {
+    height: auto;
   }
   .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu .key-menu-container > .menu.active {
     display: block;
@@ -22732,8 +22749,8 @@ body.front .homepage-slider blockquote.image-field-caption p {
   }
   .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu.sticky-toolkit ul {
     background: #FFF;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0;
+    padding-right: 0;
   }
   .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu.sticky-toolkit ul {
     height: 100%;
@@ -25909,13 +25926,18 @@ body.front .homepage-slider blockquote.image-field-caption p {
   .pane-good-practice-exchange-introduction .views-row .title {
     font-size: 1.4em;
   }
+  /*toolkit styles*/
+  body.toolkit-page [class*=col-md-] {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
   .toolkit-page #block-hwc-toolkit-toolkit-nav {
     margin-bottom: 0px;
     display: inline-block;
     width: 100%;
   }
   .toolkit-page #block-hwc-toolkit-toolkit-nav .prev-button {
-    margin-bottom: 25px;
+    margin-bottom: 10px;
   }
   .toolkit-page .pane-hwc-toolkit-toolkit-nav {
     margin-bottom: 0px;
@@ -25929,6 +25951,9 @@ body.front .homepage-slider blockquote.image-field-caption p {
   }
   .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu .key-menu-container > .menu-index {
     display: block;
+    clear: both;
+    padding-left: 0;
+    padding-right: 0;
   }
   .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu .key-menu-container > .menu-index > li span {
     display: block;
@@ -25971,26 +25996,41 @@ body.front .homepage-slider blockquote.image-field-caption p {
     display: none;
   }
   .toolkit-page .main-container .field-name-field-tk-topics > .field-items > .field-item .node-tk-topic .group-right {
-    padding: 30px 15px;
+    padding: 0 15px;
     position: relative;
     left: inherit;
     width: 100%;
   }
   .toolkit-page .main-container .field-name-field-tk-topics > .field-items > .field-item .node-tk-topic .group-right .field-name-node-link {
-    text-align: center;
-    margin-top: 30px;
+    position: relative;
+    float: right;
+    text-align: right;
+    margin-top: 0;
   }
   .toolkit-page .main-container .field-name-field-tk-topics > .field-items > .field-item .node-tk-topic .group-right .field-name-node-link .field-item {
+    position: relative;
     margin-bottom: 0px;
+    bottom: initial;
+    right: 0;
+    padding-bottom: 20px;
+    padding-right: 10px;
+  }
+  .toolkit-page .main-container .field-name-field-tk-topics > .field-items > .field-item .node-tk-topic .group-right .field-type-text-with-summary .field-item {
+    margin-bottom: 30px;
   }
   .toolkit-page .main-container .field-name-field-tk-topics > .field-items > .field-item .node-tk-topic .group-right .field-type-text-with-summary p {
     font-weight: 400;
   }
   .toolkit-page .main-container .view-tk-tools .views-row {
     margin-bottom: 15px;
+    padding-right: 0;
   }
   .toolkit-page .main-container .node-tk-tool .field-name-field-benefits {
     padding: 30px 15px;
+  }
+  .toolkit-page .main-container .start-here.col-sm-12.col-md-12 {
+    padding-left: 0px;
+    padding-right: 0px;
   }
   .toolkit-page .main-container .carousel.slide .toolkit_examples {
     margin-bottom: 0px;
@@ -26497,10 +26537,5 @@ body.front .homepage-slider blockquote.image-field-caption p {
   /*Publications*/
   #edit-text {
     max-width: 215px !important;
-  }
-}
-@media only screen and (max-width: 335px) {
-  .toolkit-page .well #block-hwc-toolkit-toolkit-left-menu.sticky-toolkit {
-    top: 109px;
   }
 }

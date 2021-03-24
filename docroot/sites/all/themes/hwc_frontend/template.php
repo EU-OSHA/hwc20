@@ -868,6 +868,16 @@ function hwc_frontend_preprocess_page(&$vars) {
       ($node->type == 'tk_example')
     ) {
       $breadcrumb = hwc_toolkit_menu_breadcrumbs();
+      if ($node->type == 'tk_example') {
+        if (count($breadcrumb) < 3) {
+          $breadcrumb = array();
+          $breadcrumb[] = l(t('Home'), '<front>');
+          $breadcrumb[] = l(t('Tools and publications'), 'tools-and-publications');
+          $breadcrumb[] = l(t('Campaign toolkit'), 'tools-and-publications/campaign-toolkit');
+          $breadcrumb[] = t('Campaign examples and tools');
+          $breadcrumb[] = $node->title;
+        }
+      }
       drupal_set_breadcrumb($breadcrumb);
     }
   }
