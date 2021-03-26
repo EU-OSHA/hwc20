@@ -630,21 +630,7 @@ function osha_views_default_views() {
   $handler->display->display_options['filters']['translation_exists']['expose']['label'] = 'Not translated in';
   $handler->display->display_options['filters']['translation_exists']['expose']['operator'] = 'translation_exists_op';
   $handler->display->display_options['filters']['translation_exists']['expose']['identifier'] = 'translation_exists';
-  $handler->display->display_options['filters']['translation_exists']['expose']['remember'] = TRUE;
   $handler->display->display_options['filters']['translation_exists']['expose']['multiple'] = TRUE;
-  $handler->display->display_options['filters']['translation_exists']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-    5 => 0,
-    6 => 0,
-    7 => 0,
-    8 => 0,
-    9 => 0,
-    10 => 0,
-    11 => 0,
-  );
   $handler->display->display_options['filters']['translation_exists']['expose']['reduce'] = TRUE;
   $handler->display->display_options['filters']['translation_exists']['entity_type'] = 'node';
   /* Filter criterion: Workbench Moderation: State */

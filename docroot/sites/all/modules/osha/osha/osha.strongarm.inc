@@ -1534,13 +1534,6 @@ el.remove();
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_flickr_pattern';
-  $strongarm->value = 'additional-resources/flickr/[node:title]';
-  $export['pathauto_node_flickr_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_infographic_pattern';
   $strongarm->value = 'tools-and-publications/infographics/[node:title]';
   $export['pathauto_node_infographic_pattern'] = $strongarm;
