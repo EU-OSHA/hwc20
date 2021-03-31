@@ -77,10 +77,16 @@ function osha_wysiwyg_default_profiles() {
       'remove_linebreaks' => 1,
       'apply_source_formatting' => 0,
       'paste_auto_cleanup_on_paste' => 1,
-      'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6,div',
+      'block_formats' => 'p,address,pre,h1,h2,h3,h4,h5,h6,div',
       'css_setting' => 'theme',
       'css_path' => '',
-      'css_classes' => 'external-link, float-img',
+      'css_classes' => 'external-link=external-link
+float-img=float-img
+btn-background-transparent = btn-background-transparent
+btn-background-transparent-minor-size = btn-background-transparent-minor-size
+h1-minor-font-size = h1-minor-font-size
+h2-minor-font-size = h2-minor-font-size
+paragraph-more-text = paragraph-more-text',
     ),
     'rdf_mapping' => array(),
   );

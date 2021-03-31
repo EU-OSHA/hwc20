@@ -754,11 +754,13 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'news':
-        $tag_vars['element']['#value'] = t('News');
-        $vars['page']['above_title']['news-page-title'] = array(
-          '#type' => 'item',
-          '#markup' => theme('html_tag', $tag_vars),
-        );
+        if (arg(2) != 'edit') {
+          $tag_vars['element']['#value'] = t('News');
+          $vars['page']['above_title']['news-page-title'] = array(
+            '#type' => 'item',
+            '#markup' => theme('html_tag', $tag_vars),
+          );
+        }
         break;
 
       case 'events':
@@ -766,14 +768,16 @@ function hwc_frontend_preprocess_page(&$vars) {
         $breadcrumb[] = l(t('Home'), '<front>');
         $breadcrumb[] = l(t('Media centre'), 'media-centre');
         $breadcrumb[] = l(t('Events'), 'media-centre/events');
-        $tag_vars['element']['#value'] = t('Events');
-        $vars['page']['above_title']['events-page-title'] = array(
-          '#type' => 'item',
-          '#markup' => theme('html_tag', $tag_vars),
-        );
         $breadcrumb[] = $node->title;
         drupal_set_breadcrumb($breadcrumb);
 
+        if (arg(2) != 'edit') {
+          $tag_vars['element']['#value'] = t('Events');
+          $vars['page']['above_title']['events-page-title'] = array(
+            '#type' => 'item',
+            '#markup' => theme('html_tag', $tag_vars),
+          );
+        }
         break;
 
       case 'flickr_gallery':
@@ -868,6 +872,16 @@ function hwc_frontend_preprocess_page(&$vars) {
       ($node->type == 'tk_example')
     ) {
       $breadcrumb = hwc_toolkit_menu_breadcrumbs();
+      if ($node->type == 'tk_example') {
+        if (count($breadcrumb) < 3) {
+          $breadcrumb = array();
+          $breadcrumb[] = l(t('Home'), '<front>');
+          $breadcrumb[] = l(t('Tools and publications'), 'tools-and-publications');
+          $breadcrumb[] = l(t('Campaign toolkit'), 'tools-and-publications/campaign-toolkit');
+          $breadcrumb[] = t('Campaign examples and tools');
+          $breadcrumb[] = $node->title;
+        }
+      }
       drupal_set_breadcrumb($breadcrumb);
     }
   }
