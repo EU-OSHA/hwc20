@@ -541,7 +541,7 @@ function xmlsitemap_sitemap_uri(stdClass $sitemap) {
  */
 function xmlsitemap_link_load($entity_type, $entity_id, $conditions = array()) {
   $conditions = array_merge(array('type' => $entity_type, 'id' => $entity_id), $conditions);
-  $link = xmlsitemap_link_load_multiple(array('type' => $entity_type, 'id' => $entity_id, $conditions));
+  $link = xmlsitemap_link_load_multiple($conditions);
   return $link ? reset($link) : FALSE;
 }
 
