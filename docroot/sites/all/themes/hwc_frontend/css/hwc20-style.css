@@ -1455,6 +1455,9 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   justify-content: center;
   padding-bottom: 20px;
 }
+.page_title h1 em {
+  padding-right: 15px;
+}
 /* MHWC-525 - New Design for Partners' profile */
 body.fop .page_title,
 body.ocp .page_title,
