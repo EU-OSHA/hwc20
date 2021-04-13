@@ -2669,3 +2669,60 @@ function hwc_taxonomy_form_term_submit($form, &$form_state) {
     $form_state['redirect'] = 'admin/content/related-resources';
   }
 }
+
+function hwc_fix_node_aliases($nid) {
+  $debug = [];
+  $alias = drupal_lookup_path('alias', 'node/' . $nid, 'en');
+  if ($alias) {
+    $debug['en'] = $alias;
+    $languages = osha_language_list();
+    foreach (array_keys($languages) as $lang_code) {
+      if ($lang_code == 'en') {
+        continue;
+      }
+      if ($lang_code == 'tr') {
+        continue;
+      }
+      if ($lang_code == 'nol') {
+        continue;
+      }
+      $lv = drupal_lookup_path('alias', 'node/' . $nid, $lang_code);
+      if (!$lv) {
+        $debug[$lang_code] = $lang_code . ' adding ' . $alias;
+        $args = array(
+          'source' => 'node/' . $nid,
+          'alias' => $alias,
+          'language' => $lang_code,
+        );
+        path_save($args);
+      }
+      elseif ($lv != $alias) {
+        db_update('url_alias')
+          ->condition('alias', $lv)
+          ->condition('source', 'node/' . $nid)
+          ->condition('language', $lang_code)
+          ->fields(array(
+            'alias' => $alias
+          ))
+          ->execute();
+
+        $debug[$lang_code] = $lang_code . ' updated alias from "' . $lv . '" to "' . $alias . '"';
+
+        $redirects = redirect_load_by_source($lv, $lang_code);
+        if (empty($redirects)) {
+          $redirect = new stdClass();
+          $redirect->source = $lv;
+          $redirect->source_options = array();
+          $redirect->redirect = 'node/' . $nid;
+          $redirect->redirect_options = array();
+          $redirect->status_code = 0;
+          $redirect->type = 'redirect';
+          $redirect->language = $lang_code;
+          redirect_save($redirect);
+          $debug[$lang_code] = $lang_code . ' added redirect from "' . $lv . '" to "' . $alias . '"';
+        }
+      }
+    }
+  }
+  print_r($debug);
+}
