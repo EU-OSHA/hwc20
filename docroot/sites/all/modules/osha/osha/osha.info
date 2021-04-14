@@ -1,7 +1,7 @@
 name = osha
 core = 7.x
 package = OSHA
-version = 7.x-1.44
+version = 7.x-1.45
 project = osha
 dependencies[] = aggregator
 dependencies[] = better_exposed_filters
@@ -323,7 +323,6 @@ features[variable][] = pathauto_node_banner_pattern
 features[variable][] = pathauto_node_calls_pattern
 features[variable][] = pathauto_node_events_pattern
 features[variable][] = pathauto_node_external_url_pattern
-features[variable][] = pathauto_node_flickr_pattern
 features[variable][] = pathauto_node_infographic_pattern
 features[variable][] = pathauto_node_job_vacancies_pattern
 features[variable][] = pathauto_node_news_pattern
