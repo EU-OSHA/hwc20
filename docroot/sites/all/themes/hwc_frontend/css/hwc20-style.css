@@ -8867,6 +8867,10 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
 #block-views-infographic-block-1 {
   padding-bottom: 1em;
 }
+/*MDR-4355 - GPE Platform: include an space between the summary and the list of items*/
+.logged-in.page-good-practice-exchange-platform .views-field-field-document-files {
+  padding-top: 1rem;
+}
 .isMobile {
   float: right !important;
 }
