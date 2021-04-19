@@ -8332,6 +8332,9 @@ html:lang(de) .left-menu.accordion-menu {
   padding-left: 0;
   padding-right: 0;
 }
+#block-menu-block-5 {
+  float: left;
+}
 #block-menu-block-5 > div > ul li.last.expanded {
   margin-top: 1em;
 }
