@@ -10094,6 +10094,10 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     float: left;
     text-align: left;
   }
+  .toolkit-page div.panels-flexible-region.panels-flexible-region-6-center.panels-flexible-region-last.key-content.col-md-9.col-sm-12 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 @media (max-width: 1395px) and (min-width: 696px) {
   .box-before.previous {
