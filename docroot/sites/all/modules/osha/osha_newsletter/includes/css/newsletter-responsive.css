@@ -103,7 +103,7 @@ a[x-apple-data-detectors] {
     float: left;
   }
 
-  img {
+  .newsletter-container img {
     max-width: 100% !important;
     width: auto;
     height: auto !important;
