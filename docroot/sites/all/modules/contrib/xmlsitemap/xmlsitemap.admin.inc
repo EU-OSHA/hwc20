@@ -680,13 +680,15 @@ function xmlsitemap_link_bundle_settings_form(array $form, array &$form_state, a
  * @todo Add changefreq overridability.
  */
 function xmlsitemap_add_form_link_options(array &$form, $entity, $bundle, $id) {
+  global $language;
+
   $info = xmlsitemap_get_link_info($entity);
 
   if (!$info || empty($info['bundles'][$bundle])) {
     return;
   }
 
-  if (!$link = xmlsitemap_link_load($entity, $id)) {
+  if (!$link = xmlsitemap_link_load($entity, $id, array('language' => $language->language))) {
     $link = array();
   }
 
