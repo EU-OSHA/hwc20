@@ -248,3 +248,34 @@ function hwc_toolkit_update_7030() {
   }
   variable_set('pathauto_update_action', 0);
 }
+
+/**
+ * MDR-4396 Development - automatic alias in all the Toolkit nodes.
+ */
+function hwc_toolkit_update_7031() {
+  features_revert(array('hwc_toolkit' => array('variable')));
+
+  variable_set('pathauto_update_action', 2);
+  $start = 0;
+  $limit_count = 50;
+  $break_at = 1000;
+  while (1) {
+    $example = db_query("SELECT nid FROM node WHERE type='tk_article' AND status=1 LIMIT $start, $limit_count");
+    foreach ($example as $result) {
+      $node = node_load($result->nid);
+      $path = drupal_lookup_path('alias', 'node/' . $node->nid);
+      if (strpos($path, 'tools-and-publications/campaign-toolkit') === 0) {
+        continue;
+      }
+      $node->path['pathauto'] = TRUE;
+      foreach (array_keys($node->title_field) as $language) {
+        pathauto_node_update_alias($node, 'update', array('language' => $language));
+      }
+    }
+    $start += $limit_count;
+    if ($start >= $break_at) {
+      break;
+    }
+  }
+  variable_set('pathauto_update_action', 0);
+}

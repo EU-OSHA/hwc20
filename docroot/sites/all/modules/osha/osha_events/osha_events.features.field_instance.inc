@@ -28,6 +28,7 @@ function osha_events_field_default_field_instances() {
           'multiple_number' => '',
           'multiple_to' => '',
           'osha_date_theme' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 0,
@@ -3848,7 +3849,7 @@ Grey - Only web or not attendance',
     ),
     'entity_type' => 'node',
     'field_name' => 'field_show_in_ncw',
-    'label' => 'Show in NCW',
+    'label' => 'Show on the Corporate',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -4074,6 +4075,7 @@ Grey - Only web or not attendance',
           'multiple_number' => '',
           'multiple_to' => '',
           'osha_date_theme' => 'with_time',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 10,
@@ -4101,6 +4103,7 @@ Grey - Only web or not attendance',
           'multiple_number' => '',
           'multiple_to' => '',
           'osha_date_theme' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 0,
@@ -4116,6 +4119,7 @@ Grey - Only web or not attendance',
           'multiple_number' => '',
           'multiple_to' => '',
           'osha_date_theme' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 0,
@@ -4155,6 +4159,7 @@ Grey - Only web or not attendance',
           'multiple_number' => '',
           'multiple_to' => '',
           'osha_date_theme' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 1,
@@ -4865,8 +4870,8 @@ Grey - Only web or not attendance');
   t('Select the appropriate EU-OSHA activity.');
   t('Select the date from the calendar.');
   t('Show EU flag');
-  t('Show in NCW');
   t('Show on');
+  t('Show on the Corporate');
   t('Speaker');
   t('Speech date');
   t('Speech title');
