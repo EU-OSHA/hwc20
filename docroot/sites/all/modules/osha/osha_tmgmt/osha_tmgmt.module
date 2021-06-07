@@ -932,11 +932,13 @@ function osha_tmgmt_form_alter(&$form, &$form_state, $form_id) {
       }
       foreach ($items as $item) {
         OshaTMGMTStatistics::computeJobItemStatistics($item);
-        // remove original language from list of languages
-        unset($form['target_language']['#options'][$item->getSourceLangCode()]);
-        // Remove disabled languages.
-        $form['target_language']['#options'] = array_diff_key(
-          $form['target_language']['#options'], osha_disabled_language_list());
+        if (!empty($form['target_language'])) {
+          // remove original language from list of languages
+          unset($form['target_language']['#options'][$item->getSourceLangCode()]);
+          // Remove disabled languages.
+          $form['target_language']['#options'] = array_diff_key($form['target_language']['#options'], osha_disabled_language_list());
+        }
+
         if ($item->plugin == 'entity' && $item->item_type == 'node') {
           // check if retranslation is possible
           $node = (object)array('nid' => $item->item_id);
@@ -993,9 +995,9 @@ function osha_tmgmt_form_alter(&$form, &$form_state, $form_id) {
       $form['priority']['#weight'] = 1;
       $form['target_language']['#weight'] = 2;
       $form['select_all_lng']['#weight'] = 3;
-      $form['empty_cart']['#weight']['#weight'] = 7;
-      $form['remove_selected']['#weight']['#weight'] = 6;
-      $form['request_translation']['#weight']['#weight'] = 4;
+      $form['empty_cart']['#weight'] = 7;
+      $form['remove_selected']['#weight'] = 6;
+      $form['request_translation']['#weight'] = 4;
 
       $form['request_translation']['#submit'] = array('osha_tmgmt_tmgmt_ui_cart_content_submit');
       $form['request_translation']['#value'] = t('Create translation job');

@@ -200,7 +200,7 @@ class MemcacheStorage implements DrupalCacheInterface {
       if ($cache->created <= $flush_timestamp) {
 
         // See if current cache id matches wildcard.
-        if (strpos($cache->cid, $wildcard) === 0) {
+        if (strpos($cache->cid, strval($wildcard)) === 0) {
 
           // Remove expired item from memcache.
           $cache_bin = $this->preprocessCacheBinName();

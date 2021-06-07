@@ -446,3 +446,15 @@ function _webform2pdf_update_7401_batch(&$sandbox, $patterns, $replacements, $dp
 
   return count($webform2pdf_settings);
 }
+
+/**
+ * Add URL prefix option.
+ */
+function webform2pdf_update_7402(array &$sandbox) {
+  $webform2pdf_default = variable_get('webform2pdf_default', array());
+  $webform2pdf_default['url_prefix'] = 'webform2pdf';
+  variable_set('webform2pdf_default', $webform2pdf_default);
+
+  $sandbox['#finished'] = 1;
+  return t('Option has been added.');
+}

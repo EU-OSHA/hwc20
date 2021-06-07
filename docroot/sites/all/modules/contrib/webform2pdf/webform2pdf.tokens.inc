@@ -33,7 +33,6 @@ function webform2pdf_token_info_alter(&$info) {
 /**
  * Implements hook_tokens().
  */
-
 function webform2pdf_tokens($type, $tokens, array $values = array(), array $options = array()) {
   $replacements = array();
   $sanitize = !empty($options['sanitize']);
@@ -210,6 +209,14 @@ function webform2pdf_tokens($type, $tokens, array $values = array(), array $opti
             }
           }
         }
+      }
+    }
+
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'pdf-url':
+          $replacements[$original] = webform2pdf_url_encode($submission->nid, $submission->sid);
+          break;
       }
     }
   }
