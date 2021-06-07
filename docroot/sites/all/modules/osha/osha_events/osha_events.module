@@ -567,11 +567,11 @@ function osha_events_node_view($node, $view_mode, $langcode) {
           case 'back_to_list':
           case 'bottom_back_to_list':
             if (!in_array(HWC_ROLE_CAMPAIGN_PARTNER, $user->roles)) {
-            $link_href = 'media-centre/events';
-            $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to events list') . '</span>';
-            $node->content[$field_name] = array(
-              '#markup' => '<div class="back-to-events">'.l($back_text, $link_href, ['html' => TRUE]).'</div>',
-            );
+              $link_href = 'media-centre/events';
+              $back_text = '<img alt="back page" src="/' . THEME_IMAGES_PATH . '/pag-back.png"><span>' . t('Back to events list') . '</span>';
+              $node->content[$field_name] = array(
+                '#markup' => '<div class="back-to-events">'.l($back_text, $link_href, ['html' => TRUE]).'</div>',
+              );
             }
             break;
 
