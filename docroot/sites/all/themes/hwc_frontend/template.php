@@ -71,7 +71,7 @@ function hwc_frontend_menu_link__menu_block($variables) {
       $text .= '<span>&nbsp;/&nbsp;</span>';
     }
     
-    $text .= '<span class="blockquote-copyright">' . $element['#localized_options']['copyright']['copyright'] . '</span>';
+    $text .= '<span class="blockquote-copyright">' . @$element['#localized_options']['copyright']['copyright'] . '</span>';
     
     $text .= '</blockquote>';
   
