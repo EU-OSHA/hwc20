@@ -846,14 +846,14 @@ function osha_publication_osha_tmgmt_i18n_string_list() {
  */
 function osha_publication_panels_pane_content_alter(&$content, &$pane, $args, $context) {
   if (is_object($content)) {
-    if ('osha_publicatio_slideshow' === $content->delta) {
+    if ('osha_publicatio_slideshow' === @$content->delta) {
       $content->admin_links[] = [
         'title' => 'Edit queue',
         'href' => 'admin/structure/nodequeue/1/view',
       ];
     }
 
-    if ('osha_case_studies_slideshow' === $content->delta) {
+    if ('osha_case_studies_slideshow' === @$content->delta) {
       $content->admin_links[] = [
         'title' => 'Edit queue',
         'href' => 'admin/structure/nodequeue/20/view',
