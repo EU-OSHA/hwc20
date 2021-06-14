@@ -15,7 +15,7 @@ $plugin = array(
   'callback' => 'term_depth_term_depth_ctools_access_check',
   'default' => array('vid' => array(), 'depth' => 0),
   'settings form' => 'term_depth_term_depth_ctools_access_settings',
-  'settings form validation' => 'term_depth_term_depth_ctools_access_settings_validate',
+  'settings form validate' => 'term_depth_term_depth_ctools_access_settings_validate',
   'settings form submit' => 'term_depth_term_depth_ctools_access_settings_submit',
   'summary' => 'term_depth_term_depth_ctools_access_summary',
   'required context' => new ctools_context_required(t('Term'), array('taxonomy_term', 'terms')),
@@ -69,7 +69,6 @@ function _term_depth_convert_config_vid_to_vocabulary_name(&$conf) {
 
 /**
  * Submit function for the access plugins settings.
- *
  */
 function term_depth_term_depth_ctools_access_settings_submit($form, $form_state) {
   $form_state['conf']['depth'] = (integer) $form_state['values']['settings']['depth'];
