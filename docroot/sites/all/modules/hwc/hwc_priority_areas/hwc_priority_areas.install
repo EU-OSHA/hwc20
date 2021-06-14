@@ -398,3 +398,10 @@ function hwc_priority_areas_update_7045() {
 function hwc_priority_areas_update_7046() {
   features_revert_module('hwc_priority_areas');
 }
+
+/**
+ * MDR-4440 Development - Display all priority areas and disable the non available ones.
+ */
+function hwc_priority_areas_update_7047() {
+  features_revert(array('hwc_priority_areas' => 'views_view'));
+}

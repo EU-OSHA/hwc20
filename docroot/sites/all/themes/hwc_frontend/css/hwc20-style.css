@@ -12692,3 +12692,10 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     align-items: center;
   }
 }
+
+.container .content-box-sub.grayscale h2,
+.container .content-box-sub.grayscale p,
+.grayscale {
+  color: #a5a0a0;
+  filter: grayscale(100%);
+}
