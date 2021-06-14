@@ -1,0 +1,19 @@
+diff --git a/ctools/page_manager/plugins/tasks/page.admin.inc b/ctools/page_manager/plugins/tasks/page.admin.inc
+index 13cc6322..f8b44350 100644
+--- a/ctools/page_manager/plugins/tasks/page.admin.inc
++++ b/ctools/page_manager/plugins/tasks/page.admin.inc
+@@ -159,7 +159,13 @@ function page_manager_page_menu_item($task, $menu, $access_arguments, $page_argu
+     $item['weight'] = $menu['weight'];
+   }
+ 
+-  if (empty($menu['type'])) {
++  if (is_array($menu) && empty($menu['type'])) {
++    $menu['type'] = 'none';
++  }
++  else if(!is_array($menu)) {
++    $menu = ['type' => 'none'];
++  }
++  else if(empty($menu['type'])) {
+     $menu['type'] = 'none';
+   }
+ 
