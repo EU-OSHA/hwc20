@@ -232,6 +232,7 @@ class OSHNewsletter {
       '#sticky' => FALSE,
       '#children' => [],
     ];
+    $variables['section']->orig_name = $variables['section']->name;
     if ($variables['section']->name == t('News')) {
       $variables['section']->name = '';
     }
@@ -316,8 +317,20 @@ class OSHNewsletter {
       ];
       $content['#suffix'] = render($view_all);
     }
+    if ($variables['section']->orig_name == t('More news')) {
+      $url = url('media-centre/news', ['absolute' => TRUE, 'query' => $url_query]);
+      $content['#suffix'] .= '<table><tr><td align="center" style="padding-top:10px;">
+        <div class="more-link-newsletter" style="display: table;margin: 0px auto;">
+        <table style="border: 0; margin: 0; padding-top:15px;">
+         <tr>
+          <td style="padding-top:10px"><a href="' . $url . '" style="background-color: #FFF; border: 1px solid #acc700;border-radius: 5px; color: #ffffff; padding: 0.5em 1em;
+          color: #003399; text-decoration: none;text-transform: uppercase">' . t('More news') . '</a></td>
+        </tr>
+        </table>
+        </div></td></tr></table>';
+    }
     if ($variables['section']->name == t('Events')) {
-      $url = url('events', ['absolute' => TRUE, 'query' => $url_query]);
+      $url = url('media-centre/events', ['absolute' => TRUE, 'query' => $url_query]);
       $content['#suffix'] .= '<table><tr><td align="center" style="padding-top:10px;">
         <div class="more-link-newsletter" style="display: table;margin: 0px auto;">
         <table style="border: 0; margin: 0; padding-top:15px;">
