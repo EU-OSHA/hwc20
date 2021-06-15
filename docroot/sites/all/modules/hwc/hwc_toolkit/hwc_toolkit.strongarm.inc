@@ -972,7 +972,7 @@ function hwc_toolkit_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_tk_article_pattern';
-  $strongarm->value = '[node:title]';
+  $strongarm->value = 'tools-and-publications/campaign-toolkit/[node:title]';
   $export['pathauto_node_tk_article_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -986,7 +986,7 @@ function hwc_toolkit_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_tk_example_pattern';
-  $strongarm->value = '[node:title]';
+  $strongarm->value = 'tools-and-publications/campaign-toolkit/tools-and-examples/[node:title]';
   $export['pathauto_node_tk_example_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1014,7 +1014,7 @@ function hwc_toolkit_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_tk_tool_pattern';
-  $strongarm->value = '[node:title]';
+  $strongarm->value = 'tools-and-publications/campaign-toolkit/campaign-examples-and-tools/[node:field_tk_tool_type]/[node:title]';
   $export['pathauto_node_tk_tool_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1028,7 +1028,7 @@ function hwc_toolkit_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_tk_topic_pattern';
-  $strongarm->value = '[node:title]';
+  $strongarm->value = 'tools-and-publications/campaign-toolkit/how-run-campaign/[node:title]';
   $export['pathauto_node_tk_topic_pattern'] = $strongarm;
 
   $strongarm = new stdClass();

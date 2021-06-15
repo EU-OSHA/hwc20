@@ -1455,6 +1455,9 @@ input[type="checkbox"]:checked + label .my-checkbox:after {
   justify-content: center;
   padding-bottom: 20px;
 }
+.page_title h1 em {
+  padding-right: 15px;
+}
 /* MHWC-525 - New Design for Partners' profile */
 body.fop .page_title,
 body.ocp .page_title,
@@ -8329,6 +8332,9 @@ html:lang(de) .left-menu.accordion-menu {
   padding-left: 0;
   padding-right: 0;
 }
+#block-menu-block-5 {
+  float: left;
+}
 #block-menu-block-5 > div > ul li.last.expanded {
   margin-top: 1em;
 }
@@ -8860,6 +8866,10 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
 }
 #block-views-infographic-block-1 {
   padding-bottom: 1em;
+}
+/*MDR-4355 - GPE Platform: include an space between the summary and the list of items*/
+.logged-in.page-good-practice-exchange-platform .views-field-field-document-files {
+  padding-top: 1rem;
 }
 .isMobile {
   float: right !important;
@@ -10090,6 +10100,10 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     padding: 0.5rem 0.5rem 0.5rem 0 !important;
     float: left;
     text-align: left;
+  }
+  .toolkit-page div.panels-flexible-region.panels-flexible-region-6-center.panels-flexible-region-last.key-content.col-md-9.col-sm-12 {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 @media (max-width: 1395px) and (min-width: 696px) {
@@ -12677,4 +12691,11 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     display: flex;
     align-items: center;
   }
+}
+
+.container .content-box-sub.grayscale h2,
+.container .content-box-sub.grayscale p,
+.grayscale {
+  color: #a5a0a0;
+  filter: grayscale(100%);
 }

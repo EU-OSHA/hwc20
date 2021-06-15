@@ -202,3 +202,80 @@ function hwc_toolkit_update_7027() {
 function hwc_toolkit_update_7028() {
   features_revert(array('hwc_toolkit' => array('views_view')));
 }
+
+/**
+ * MDR-4308 Development HWC Toolkit: Absence of breadcrumb.
+ */
+function hwc_toolkit_update_7029() {
+  features_revert(array('hwc_toolkit' => array('variable')));
+}
+
+/**
+ * MDR-4308 Development HWC Toolkit: Absence of breadcrumb.
+ */
+function hwc_toolkit_update_7030() {
+  variable_set('pathauto_update_action', 2);
+  $start = 0;
+  $limit_count = 50;
+  $break_at = 1000;
+  while (1) {
+    $example = db_query("SELECT nid FROM node WHERE type='tk_example' AND status=1 LIMIT $start, $limit_count");
+    foreach ($example as $result) {
+      $node = node_load($result->nid);
+
+      $q = db_select('node', 'n');
+      $q->join('field_data_field_tk_examples', 'e', 'e.entity_id = n.nid');
+      $q->fields('n', ['nid']);
+      $q->condition('n.type', 'tk_tool');
+      $q->condition('n.status', 1);
+      $q->condition('e.field_tk_examples_target_id', intval($node->nid));
+      $rows = $q->execute()->fetchCol();
+      if ($rows) {
+        $path = drupal_lookup_path('alias', 'node/' . $node->nid);
+        if (strpos($path, 'tools-and-publications/campaign-toolkit/tools-and-examples') === 0) {
+          continue;
+        }
+      }
+      $node->path['pathauto'] = TRUE;
+      foreach (array_keys($node->title_field) as $language) {
+        pathauto_node_update_alias($node, 'update', array('language' => $language));
+      }
+    }
+    $start += $limit_count;
+    if ($start >= $break_at) {
+      break;
+    }
+  }
+  variable_set('pathauto_update_action', 0);
+}
+
+/**
+ * MDR-4396 Development - automatic alias in all the Toolkit nodes.
+ */
+function hwc_toolkit_update_7031() {
+  features_revert(array('hwc_toolkit' => array('variable')));
+
+  variable_set('pathauto_update_action', 2);
+  $start = 0;
+  $limit_count = 50;
+  $break_at = 1000;
+  while (1) {
+    $example = db_query("SELECT nid FROM node WHERE type='tk_article' AND status=1 LIMIT $start, $limit_count");
+    foreach ($example as $result) {
+      $node = node_load($result->nid);
+      $path = drupal_lookup_path('alias', 'node/' . $node->nid);
+      if (strpos($path, 'tools-and-publications/campaign-toolkit') === 0) {
+        continue;
+      }
+      $node->path['pathauto'] = TRUE;
+      foreach (array_keys($node->title_field) as $language) {
+        pathauto_node_update_alias($node, 'update', array('language' => $language));
+      }
+    }
+    $start += $limit_count;
+    if ($start >= $break_at) {
+      break;
+    }
+  }
+  variable_set('pathauto_update_action', 0);
+}

@@ -35,6 +35,14 @@ function hwc_frontend_html_head_alter(&$head_elements) {
 function hwc_frontend_menu_link__menu_block($variables) {
   global $language;
   $element = &$variables['element'];
+  if ($element['#original_link']['router_path'] == 'node/%') {
+    $priority_areas = hwc_priority_areas_nids();
+    $nid = intval( str_replace('node/', '', $element['#original_link']['link_path']));
+    if (!empty($priority_areas[$nid])) {
+      $element['#href'] = '<nolink>';
+      $element['#attributes']['class'][] = 'grayscale';
+    }
+  }
   $element['#href'] = str_replace('www.napofilm.net/en/','www.napofilm.net/' . $language->language . '/', $element['#href']);
   if (!empty($element['#localized_options']['attributes']['class']) && $class = $element['#localized_options']['attributes']['class']) {
     if (($class[0] == 'previous-campaigns') && ($element['#bid']['delta'] == 5)) {
@@ -63,18 +71,18 @@ function hwc_frontend_menu_link__menu_block($variables) {
     }
     $text = '<span class="content-img"><img ' . drupal_attributes($attributes) . ' src="' . $image_url . '"/></span>';
   }
-    $text .= '<blockquote class="image-field-caption">';
-    if (!empty($element['#localized_options']['copyright']['author'])) {
-      $text .= check_markup($element['#localized_options']['copyright']['author'], 'full_html');
-    }
-    if (!empty($element['#localized_options']['copyright']['author']) && !empty($element['#localized_options']['copyright']['copyright'])) {
-      $text .= '<span>&nbsp;/&nbsp;</span>';
-    }
-    
-    $text .= '<span class="blockquote-copyright">' . $element['#localized_options']['copyright']['copyright'] . '</span>';
-    
-    $text .= '</blockquote>';
-  
+  $text .= '<blockquote class="image-field-caption">';
+  if (!empty($element['#localized_options']['copyright']['author'])) {
+    $text .= check_markup($element['#localized_options']['copyright']['author'], 'full_html');
+  }
+  if (!empty($element['#localized_options']['copyright']['author']) && !empty($element['#localized_options']['copyright']['copyright'])) {
+    $text .= '<span>&nbsp;/&nbsp;</span>';
+  }
+
+  $text .= '<span class="blockquote-copyright">' . @$element['#localized_options']['copyright']['copyright'] . '</span>';
+
+  $text .= '</blockquote>';
+
   $text .= '<h2>' . $element['#title'] . '</h2><p>' . $description . '</p>';
   $output_link = l($text, $element['#href'], array('html' => TRUE));
   $element['#attributes']['class'][] = 'content-box-sub';
@@ -754,11 +762,13 @@ function hwc_frontend_preprocess_page(&$vars) {
         break;
 
       case 'news':
-        $tag_vars['element']['#value'] = t('News');
-        $vars['page']['above_title']['news-page-title'] = array(
-          '#type' => 'item',
-          '#markup' => theme('html_tag', $tag_vars),
-        );
+        if (arg(2) != 'edit') {
+          $tag_vars['element']['#value'] = t('News');
+          $vars['page']['above_title']['news-page-title'] = array(
+            '#type' => 'item',
+            '#markup' => theme('html_tag', $tag_vars),
+          );
+        }
         break;
 
       case 'events':
@@ -766,14 +776,16 @@ function hwc_frontend_preprocess_page(&$vars) {
         $breadcrumb[] = l(t('Home'), '<front>');
         $breadcrumb[] = l(t('Media centre'), 'media-centre');
         $breadcrumb[] = l(t('Events'), 'media-centre/events');
-        $tag_vars['element']['#value'] = t('Events');
-        $vars['page']['above_title']['events-page-title'] = array(
-          '#type' => 'item',
-          '#markup' => theme('html_tag', $tag_vars),
-        );
         $breadcrumb[] = $node->title;
         drupal_set_breadcrumb($breadcrumb);
 
+        if (arg(2) != 'edit') {
+          $tag_vars['element']['#value'] = t('Events');
+          $vars['page']['above_title']['events-page-title'] = array(
+            '#type' => 'item',
+            '#markup' => theme('html_tag', $tag_vars),
+          );
+        }
         break;
 
       case 'flickr_gallery':
@@ -868,6 +880,16 @@ function hwc_frontend_preprocess_page(&$vars) {
       ($node->type == 'tk_example')
     ) {
       $breadcrumb = hwc_toolkit_menu_breadcrumbs();
+      if ($node->type == 'tk_example') {
+        if (count($breadcrumb) < 3) {
+          $breadcrumb = array();
+          $breadcrumb[] = l(t('Home'), '<front>');
+          $breadcrumb[] = l(t('Tools and publications'), 'tools-and-publications');
+          $breadcrumb[] = l(t('Campaign toolkit'), 'tools-and-publications/campaign-toolkit');
+          $breadcrumb[] = t('Campaign examples and tools');
+          $breadcrumb[] = $node->title;
+        }
+      }
       drupal_set_breadcrumb($breadcrumb);
     }
   }

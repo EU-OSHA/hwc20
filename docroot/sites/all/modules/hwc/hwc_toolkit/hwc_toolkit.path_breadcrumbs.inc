@@ -29,7 +29,7 @@ function hwc_toolkit_path_breadcrumbs_settings_info() {
       3 => '<none>',
     ),
     'home' => 1,
-    'translatable' => 0,
+    'translatable' => 1,
     'arguments' => array(),
     'access' => array(),
   );

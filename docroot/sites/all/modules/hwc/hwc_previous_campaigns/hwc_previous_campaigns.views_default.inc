@@ -139,25 +139,10 @@ function hwc_previous_campaigns_views_default_views() {
   $handler->display->display_options['filters']['combine']['expose']['identifier'] = 'combine';
   $handler->display->display_options['filters']['combine']['expose']['remember_roles'] = array(
     2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-    5 => 0,
-    6 => 0,
-    7 => 0,
-    8 => 0,
-    9 => 0,
-    10 => 0,
-    11 => 0,
-    12 => 0,
-    13 => 0,
-    16 => 0,
-    14 => 0,
-    15 => 0,
-    17 => 0,
   );
   $handler->display->display_options['filters']['combine']['fields'] = array(
-    'name' => 'name',
+    'name_field' => 'name_field',
+    'field_icon' => 'field_icon',
     'field_resource_type' => 'field_resource_type',
   );
   /* Filter criterion: Taxonomy term: Resource type (field_resource_type) */

@@ -268,6 +268,28 @@ function hwc_good_practice_exchange_views_default_views() {
   $handler->display->display_options['fields']['title_field']['settings'] = array(
     'field_formatter_class' => '',
   );
+  /* Field: Indexed Multilingual Content: The main body text */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'search_api_index_default_multilingual_node_index';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['type'] = 'smart_trim_format';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_link' => '0',
+    'trim_length' => '250',
+    'trim_type' => 'chars',
+    'trim_suffix' => '...',
+    'more_link' => '1',
+    'more_text' => 'See more',
+    'summary_handler' => 'full',
+    'trim_options' => array(
+      'text' => 'text',
+      'use_field_summary' => 'use_field_summary',
+    ),
+    'trim_preserve_tags' => '',
+    'field_formatter_class' => '',
+  );
   /* Field: Indexed Multilingual Content: Files */
   $handler->display->display_options['fields']['field_document_files']['id'] = 'field_document_files';
   $handler->display->display_options['fields']['field_document_files']['table'] = 'search_api_index_default_multilingual_node_index';

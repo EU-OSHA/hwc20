@@ -488,6 +488,9 @@ table.newsletter-full-width-list.newsletter-section.template-container > thead >
   border-bottom: 1px dotted #a5bd1d;
   border: 1 !important;
 }
+.newsletter-row.newsletter-full-width-details-row.last .item.newsletter-full-width-details-item {
+  border-bottom: none;
+}
 .see-more-new-position{
   padding-left: 15px;
   padding-bottom: 15px;

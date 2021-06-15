@@ -15,7 +15,7 @@ function webform2pdf_submission_download_pdf($node, $submission, $output_type = 
 
   if ( in_array($output_type, $output_types) ) {
     $template = _webform2pdf_get_template($node->nid);
-    
+
     drupal_alter('webform2pdf_submission_template', $submission, $template);
 
     $pdf = theme('webform2pdf_pdf_init', array('node' => $node, 'template' => $template));
@@ -178,19 +178,20 @@ function webform2pdf_download_pdf_form_submit($form, &$form_state) {
  * webform2pdf_url_encode: pdf download anonymous url generation.
  */
 function webform2pdf_url_decode($url) {
-  if ( function_exists('mcrypt_decrypt')  ) {
-    $key = variable_get('webform2pdf_key', '');
-    $url2 = trim(mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $key, urldecode(base64_decode($url)), MCRYPT_MODE_ECB, mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND)));
+  $url = webform2pdf_hash('decrypt', $url);
 
-    list($tmp, $nid, $tmp, $sid, $tmp) = explode('/', $url2);
-    unset($tmp, $url2);
-    if ( is_int($nid) && is_int($sid) ) {
+  if (FALSE !== $url) {
+    list(, $nid, , $sid) = explode('/', $url);
+
+    if (is_numeric($nid) && is_numeric($sid)) {
       $node = webform_menu_load($nid);
       $submission = webform_menu_submission_load($sid, $nid);
-      if ( !empty($node) && !empty($submission) ) {
+
+      if (!empty($node) && !empty($submission)) {
         return webform2pdf_submission_download_pdf($node, $submission);
       }
     }
   }
-  drupal_not_found();
+
+  return MENU_NOT_FOUND;
 } // function webform2pdf_url_encode()

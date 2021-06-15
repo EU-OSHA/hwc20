@@ -260,22 +260,20 @@ function hwc_admin_config_form() {
     '#title' => 'Get the result body',
   );
 
-//  $form['hwc_partner_how_to_apply_first_date'] = array(
-//    '#title' => 'How to apply first date',
-//    '#type' => 'date',
-//    '#default_value' => variable_get('hwc_partner_how_to_apply_first_date', ''),
-//  );
-
-  // Deadline to Download information.
   $form['hwc_partner_download_deadline'] = array(
     '#title' => 'Deadline to download information',
     '#type' => 'date',
     '#default_value' => variable_get('hwc_partner_download_deadline', ''),
   );
 
-  // Deadline for partner registration.
   $form['hwc_partner_registration_deadline'] = array(
-    '#title' => 'Deadline for partner registration',
+    '#title' => 'Deadline for campaign partner registration',
+    '#type' => 'date',
+    '#default_value' => variable_get('hwc_partner_registration_deadline', ''),
+  );
+
+  $form['hwc_partner_media_registration_deadline'] = array(
+    '#title' => 'Deadline for media partner registration',
     '#type' => 'date',
     '#default_value' => variable_get('hwc_partner_registration_deadline', ''),
   );
@@ -285,12 +283,6 @@ function hwc_admin_config_form() {
     '#title' => t('Show last date month'),
     '#default_value' => variable_get('hwc_partner_registration_last_date_month', FALSE),
   );
-
-  //  $form['hwc_partner_how_to_apply_last_date'] = array(
-//    '#title' => 'How to apply last date',
-//    '#type' => 'date',
-//    '#default_value' => variable_get('hwc_partner_how_to_apply_last_date', ''),
-//  );
 
 //  $deadline_message = variable_get('hwc_partner_registration_deadline_message', '');
 //  $form['hwc_partner_registration_deadline_message'] = array(
@@ -385,6 +377,9 @@ function hwc_admin_config_form() {
   // Prepend this hook to the beginning of array because we need the unchanged
   // variables.
   array_unshift($form['#submit'], 'hwc_admin_config_form_submit');
+  if (empty($form['#validate'])) {
+    $form['#validate'] = [];
+  }
   array_unshift($form['#validate'], 'hwc_admin_config_form_validate');
   return $form;
 }
