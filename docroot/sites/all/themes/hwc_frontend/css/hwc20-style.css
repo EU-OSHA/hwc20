@@ -8871,6 +8871,12 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
 .logged-in.page-good-practice-exchange-platform .views-field-field-document-files {
   padding-top: 1rem;
 }
+.container .content-box-sub.grayscale h2,
+.container .content-box-sub.grayscale p,
+.grayscale {
+  color: #a5a0a0;
+  filter: grayscale(100%);
+}
 .isMobile {
   float: right !important;
 }
