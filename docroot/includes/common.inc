@@ -1572,7 +1572,7 @@ function _filter_xss_split($m, $store = FALSE) {
     return '&lt;';
   }
 
-  if (!preg_match('%^<\s*(/\s*)?([a-zA-Z0-9\-]+)([^>]*)>?|(<!--.*?-->)$%', $string, $matches)) {
+  if (!preg_match('%^<\s*(/\s*)?([a-zA-Z0-9\-]+)\s*([^>]*)>?|(<!--.*?-->)$%', $string, $matches)) {
     // Seriously malformed.
     return '';
   }
@@ -1631,7 +1631,13 @@ function _filter_xss_attributes($attr) {
         // Attribute name, href for instance.
         if (preg_match('/^([-a-zA-Z]+)/', $attr, $match)) {
           $attrname = strtolower($match[1]);
-          $skip = ($attrname == 'style' || substr($attrname, 0, 2) == 'on');
+          $skip = (
+            $attrname == 'style' ||
+            substr($attrname, 0, 2) == 'on' ||
+            substr($attrname, 0, 1) == '-' ||
+            // Ignore long attributes to avoid unnecessary processing overhead.
+            strlen($attrname) > 96
+          );
           $working = $mode = 1;
           $attr = preg_replace('/^[-a-zA-Z]+/', '', $attr);
         }
@@ -2345,6 +2351,7 @@ function url($path = NULL, array $options = array()) {
   }
   elseif (!empty($path) && !$options['alias']) {
     $language = isset($options['language']) && isset($options['language']->language) ? $options['language']->language : '';
+    require_once DRUPAL_ROOT . '/' . variable_get('path_inc', 'includes/path.inc');
     $alias = drupal_get_path_alias($original_path, $language);
     if ($alias != $original_path) {
       // Strip leading slashes from internal path aliases to prevent them
@@ -2703,6 +2710,19 @@ function drupal_deliver_html_page($page_callback_result) {
   $frame_options = variable_get('x_frame_options', 'SAMEORIGIN');
   if ($frame_options && is_null(drupal_get_http_header('X-Frame-Options'))) {
     drupal_add_http_header('X-Frame-Options', $frame_options);
+  }
+
+  if (variable_get('block_interest_cohort', TRUE)) {
+    $permissions_policy = drupal_get_http_header('Permissions-Policy');
+    if (is_null($permissions_policy)) {
+      drupal_add_http_header('Permissions-Policy', 'interest-cohort=()');
+    }
+    else {
+      // Only add interest-cohort if the header does not contain it already.
+      if (strpos($permissions_policy, 'interest-cohort') === FALSE) {
+        drupal_add_http_header('Permissions-Policy', 'interest-cohort=()', TRUE);
+      }
+    }
   }
 
   // Menu status constants are integers; page content is a string or array.
@@ -3401,7 +3421,7 @@ function drupal_group_css($css) {
  * @see system_element_info()
  */
 function drupal_aggregate_css(&$css_groups) {
-  $preprocess_css = (variable_get('preprocess_css', FALSE) && (!defined('MAINTENANCE_MODE') || MAINTENANCE_MODE != 'update'));
+  $preprocess_css = (variable_get('preprocess_css', FALSE) && !defined('MAINTENANCE_MODE'));
 
   // For each group that needs aggregation, aggregate its items.
   foreach ($css_groups as $key => $group) {
@@ -3860,8 +3880,10 @@ function drupal_load_stylesheet_content($contents, $optimize = FALSE) {
     // whitespace.
     // @see http://php.net/manual/regexp.reference.subpatterns.php
     $contents = preg_replace('<
+      # Do not strip any space from within single or double quotes
+        (' . $double_quot . '|' . $single_quot . ')
       # Strip leading and trailing whitespace.
-        \s*([@{};,])\s*
+      | \s*([@{};,])\s*
       # Strip only leading whitespace from:
       # - Closing parenthesis: Retain "@media (bar) and foo".
       | \s+([\)])
@@ -3869,11 +3891,11 @@ function drupal_load_stylesheet_content($contents, $optimize = FALSE) {
       # - Opening parenthesis: Retain "@media (bar) and foo".
       # - Colon: Retain :pseudo-selectors.
       | ([\(:])\s+
-    >xS',
-      // Only one of the three capturing groups will match, so its reference
+    >xSs',
+      // Only one of the four capturing groups will match, so its reference
       // will contain the wanted value and the references for the
       // two non-matching groups will be replaced with empty strings.
-      '$1$2$3',
+      '$1$2$3$4',
       $contents
     );
     // End the file with a new line.
@@ -4514,7 +4536,7 @@ function drupal_get_js($scope = 'header', $javascript = NULL, $skip_alter = FALS
  * @see drupal_add_js()
  */
 function drupal_pre_render_scripts(array $elements) {
-  $preprocess_js = (variable_get('preprocess_js', FALSE) && (!defined('MAINTENANCE_MODE') || MAINTENANCE_MODE != 'update'));
+  $preprocess_js = (variable_get('preprocess_js', FALSE) && !defined('MAINTENANCE_MODE'));
 
   // A dummy query-string is added to filenames, to gain control over
   // browser-caching. The string changes on every update or full cache
@@ -5182,6 +5204,8 @@ function drupal_build_js_cache($files) {
         $contents .= file_get_contents($path) . ";\n";
       }
     }
+    // Remove JS source and source mapping urls or these may cause 404 errors.
+    $contents = preg_replace('/\/\/(#|@)\s(sourceURL|sourceMappingURL)=\s*(\S*?)\s*$/m', '', $contents);
     // Prefix filename to prevent blocking by firewalls which reject files
     // starting with "ad*".
     $filename = 'js_' . drupal_hash_base64($contents) . '.js';
@@ -6669,30 +6693,41 @@ function element_children(&$elements, $sort = FALSE) {
   $sort = isset($elements['#sorted']) ? !$elements['#sorted'] : $sort;
 
   // Filter out properties from the element, leaving only children.
-  $children = array();
+  $count = count($elements);
+  $child_weights = array();
+  $i = 0;
   $sortable = FALSE;
   foreach ($elements as $key => $value) {
     if (is_int($key) || $key === '' || $key[0] !== '#') {
-      $children[$key] = $value;
       if (is_array($value) && isset($value['#weight'])) {
+        $weight = $value['#weight'];
         $sortable = TRUE;
       }
+      else {
+        $weight = 0;
+      }
+      // Support weights with up to three digit precision and conserve the
+      // insertion order.
+      $child_weights[$key] = floor($weight * 1000) + $i / $count;
     }
+    $i++;
   }
+
   // Sort the children if necessary.
   if ($sort && $sortable) {
-    uasort($children, 'element_sort');
+    asort($child_weights);
     // Put the sorted children back into $elements in the correct order, to
     // preserve sorting if the same element is passed through
     // element_children() twice.
-    foreach ($children as $key => $child) {
+    foreach ($child_weights as $key => $weight) {
+      $value = $elements[$key];
       unset($elements[$key]);
-      $elements[$key] = $child;
+      $elements[$key] = $value;
     }
     $elements['#sorted'] = TRUE;
   }
 
-  return array_keys($children);
+  return array_keys($child_weights);
 }
 
 /**
@@ -6920,7 +6955,7 @@ function drupal_array_set_nested_value(array &$array, array $parents, $value, $f
 function &drupal_array_get_nested_value(array &$array, array $parents, &$key_exists = NULL) {
   $ref = &$array;
   foreach ($parents as $parent) {
-    if (is_array($ref) && array_key_exists($parent, $ref)) {
+    if (is_array($ref) && (isset($ref[$parent]) || array_key_exists($parent, $ref))) {
       $ref = &$ref[$parent];
     }
     else {

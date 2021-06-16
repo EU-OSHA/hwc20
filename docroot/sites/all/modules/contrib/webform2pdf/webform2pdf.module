@@ -22,6 +22,7 @@ function webform2pdf_enabled_pdf_access() {
  * Implements hook_menu().
  */
 function webform2pdf_menu() {
+  $settings = variable_get('webform2pdf_default', array());
   $items = array();
 
   $items['node/%webform_menu/webform/webform2pdf'] = array(
@@ -69,15 +70,13 @@ function webform2pdf_menu() {
     'type' => MENU_NORMAL_ITEM,
   );
 
-/*  $items['webform2pdf/%'] = array(
-    'title' => 'Download PDF',
-    'access arguments' => TRUE,
+  $items[(empty($settings['url_prefix']) ? 'webform2pdf' : $settings['url_prefix']) . '/%'] = array(
     'page callback' => 'webform2pdf_url_decode',
+    'access arguments' => TRUE,
     'page arguments' => array(1),
     'file' => 'includes/webform2pdf.download.inc',
-    'weight' => 4,
     'type' => MENU_CALLBACK,
-  );*/
+  );
 
   return $items;
 } // function webform2pdf_menu()
@@ -167,7 +166,10 @@ function webform2pdf_preprocess_webform_results_submissions(&$vars) {
  */
 function _webform2pdf_get_template($nid) {
   $setting = webform2pdf_get_setting($nid);
+
+  if (isset($setting['p_body']['value'])) {
   $setting['p_body']['value'] = check_markup($setting['p_body']['value'], $setting['p_body']['format'], FALSE);
+  }
 
   return $setting;
 } // function _webform2pdf_get_template()
@@ -193,7 +195,6 @@ function webform2pdf_mail_alter(&$message) {
         $node = node_load($webform2pdf_send2pdf['nid']);
         $filename = theme('webform2pdf_filename', array('node' => $node, 'submission' => $message['params']['submission']));
         unset($node);
-
         $html_capable = variable_get('webform_email_html_capable', false);
         if ($html_capable) {
           if (module_exists('mimemail')) {
@@ -239,12 +240,43 @@ function webform2pdf_mail_alter(&$message) {
  */
 function webform2pdf_url_encode($nid, $sid, $encode = TRUE) {
   $url = 'node/' . $nid . '/submission/' . $sid . '/downloadpdf';
-  if ($encode && ( function_exists('mcrypt_encrypt') ) ) {
-    $key = variable_get('webform2pdf_key', '');
-    return 'webform2pdf/' . urlencode(trim(base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key, $url, MCRYPT_MODE_ECB, mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND)))));
+
+  if ($encode) {
+    $settings = variable_get('webform2pdf_default', array());
+
+    return (empty($settings['url_prefix']) ? 'webform2pdf' : $settings['url_prefix']) . '/' . webform2pdf_hash('encrypt', $url);
   }
+
   return $url;
 } // function webform2pdf_url_encode()
+
+/**
+ * Encrypt/decrypt user input.
+ *
+ * @param string $action
+ *   "encrypt" or "decrypt" actions.
+ * @param string $string
+ *   String for encryption/decryption.
+ *
+ * @return bool|string
+ *   FALSE if one of argument is not correct or value.
+ */
+function webform2pdf_hash($action, $string) {
+  $method = 'AES-256-CBC';
+  $key = hash('sha256', drupal_get_hash_salt());
+  // Encrypt method (AES-256-CBC) expects 16 bytes, else you'll get a warning.
+  $iv = substr(hash('sha256', variable_get('webform2pdf_key', '')), 0, 16);
+
+  switch ($action) {
+    case 'encrypt':
+      return base64_encode(openssl_encrypt($string, $method, $key, 0, $iv));
+
+    case 'decrypt':
+      return openssl_decrypt(base64_decode($string), $method, $key, 0, $iv);
+  }
+
+  return FALSE;
+}
 
 /**
  * Get webform2pdf setting.

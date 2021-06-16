@@ -97,13 +97,13 @@ function form_lingua_form($form, &$form_state) {
     '#multiple' => TRUE,
     '#options' => $languages,
     '#default_value' => array_keys($selected_languages),
-    '#weight' => array('#weight' => 6),
+    '#weight' => 6,
   );
   $form['create_translations_submit_button'] = array(
     '#type' => 'submit',
     '#value' => t('Create translations'),
     '#submit' => array('osha_lingua_tools_create_translations'),
-    '#weight' => array('#weight' => 7),
+    '#weight' => 7,
   );
 
   return $form;
@@ -200,6 +200,11 @@ function propage_translation($field_name, $intnodeid, $intrevid, $ispublished, $
     $table_name = 'field_data_' . $fieldintname;
     $table_rev_name = 'field_revision_' . $fieldintname;
     $field_name = $fieldintname . '_input';
+  }
+  elseif (($fieldintname == 'field_image') || ($fieldintname == 'field_image_mail')) {
+    $table_name = 'field_data_' . $fieldintname;
+    $table_rev_name = 'field_revision_' . $fieldintname;
+    $field_name = $fieldintname . '_fid';
   }
   else {
     $table_name = 'field_data_' . $fieldintname;
