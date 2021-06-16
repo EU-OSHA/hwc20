@@ -9000,6 +9000,10 @@ body.video-page{
 #block-menu-block-1, #block-menu-block-7{
 	.nav > li > a{
 		padding: 10px 15px 0 0;
+		
+	}
+	span.nolink{
+		padding: 10px 15px 0 0;
 	}
 }
 
@@ -9392,6 +9396,13 @@ aside.col-md-3{
   				&:before{
     				content: none;
     			}
+  			}
+  		}
+  		li.grayscale{
+  			span{
+  				display: block;
+  				margin-left: 8px;
+  				padding: 8px 0;
   			}
   		}
   	}
@@ -9862,6 +9873,9 @@ body.front-page{
 				    li:nth-child(4){
 				    	margin-right: 0;
 				    }
+				    li:nth-child(8){
+				    	margin-right: 0;
+				    }
 				}
 			}
 
@@ -10302,4 +10316,11 @@ body.page-node-253{
 	.views-field-field-document-files{
 		padding-top: 1rem;
 	}
+}
+
+.container .content-box-sub.grayscale h2,
+.container .content-box-sub.grayscale p,
+.grayscale {
+  color: #a5a0a0;
+  filter: grayscale(100%);
 }
