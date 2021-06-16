@@ -9065,7 +9065,8 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     height: 28px;
     background-size: contain;
   }
-  body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area ul li:nth-child(4) {
+  body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area ul li:nth-child(4),
+  body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area ul li:nth-child(8) {
     margin-right: 2em;
   }
   /*Slider Publications*/
