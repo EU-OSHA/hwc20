@@ -7829,6 +7829,10 @@ body.video-page #block-hwc-article-recommended-resources .field-name-title-field
 #block-menu-block-7 .nav > li > a {
   padding: 10px 15px 0 0;
 }
+#block-menu-block-1 span.nolink,
+#block-menu-block-7 span.nolink {
+  padding: 10px 15px 0 0;
+}
 .pane-hwc-good-practice-exchange-gpepbacklink {
   clear: both;
 }
@@ -8129,6 +8133,11 @@ aside.col-md-3 .region.region-sidebar-first.well .block-menu-block.left-menu h2.
 }
 .left-menu ul li.expanded ul.menu li a:before {
   content: none;
+}
+.left-menu ul li.expanded ul.menu li.grayscale span {
+  display: block;
+  margin-left: 8px;
+  padding: 8px 0;
 }
 .left-menu ul li.expanded.active a.active-trail {
   background: transparent;
@@ -8520,6 +8529,10 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priorit
   border: 2px solid #bcd75b;
   border-radius: 7px;
 }
+body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area ul li h3 {
+  font-size: 1.7rem;
+  margin-top: 10px;
+}
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area ul li a {
   font-size: 1.8rem;
   font-weight: 600;
@@ -8542,6 +8555,9 @@ body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priorit
   text-align: left;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area ul li:nth-child(4) {
+  margin-right: 0;
+}
+body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area ul li:nth-child(8) {
   margin-right: 0;
 }
 body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics a.see-more-button-20:hover {
@@ -8871,6 +8887,12 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
 .logged-in.page-good-practice-exchange-platform .views-field-field-document-files {
   padding-top: 1rem;
 }
+.container .content-box-sub.grayscale h2,
+.container .content-box-sub.grayscale p,
+.grayscale {
+  color: #a5a0a0;
+  filter: grayscale(100%);
+}
 .isMobile {
   float: right !important;
 }
@@ -9043,7 +9065,8 @@ body.page-node-253 #block-hwc-partner-hwc-partner-back-to-private-zone .breadcru
     height: 28px;
     background-size: contain;
   }
-  body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area ul li:nth-child(4) {
+  body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area ul li:nth-child(4),
+  body.front-page .main-container #block-hwc-homepage-hwc-homepage-topics .priority_area ul li:nth-child(8) {
     margin-right: 2em;
   }
   /*Slider Publications*/

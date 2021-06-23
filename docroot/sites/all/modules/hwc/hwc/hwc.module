@@ -31,6 +31,32 @@ function ncw_cronapi() {
     ),
   );
 }
+function hwc_priority_areas_nids() {
+  $priority_areas = &drupal_static(__FUNCTION__);
+  if (!isset($priority_areas)) {
+    $priority_areas = db_select('node', 'b')
+      ->fields('b', array('nid'))
+      ->condition('type', 'priority_area')
+      ->condition('status', 0)
+      ->execute()
+      ->fetchAllKeyed(0,0);
+  }
+  return $priority_areas;
+}
+
+function hwc_query_node_access_alter(QueryAlterableInterface $query) {
+  $c = &$query->conditions();
+  if (count($c) == 3 &&
+    is_string($c[0]['field']) && $c[0]['field'] == 'n.status' &&
+    is_string($c[1]['field']) && $c[1]['field'] == 'n.nid' && $c[1]['operator'] == 'IN') {
+    $priority_areas = hwc_priority_areas_nids();
+    $query->condition(db_or()
+      ->condition('n.status', 1)
+      ->condition('n.nid', $priority_areas, 'in')
+    );
+    unset($c[0]);
+  }
+}
 
 /**
  * Implements hook_cron().

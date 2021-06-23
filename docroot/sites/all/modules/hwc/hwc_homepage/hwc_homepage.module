@@ -380,8 +380,10 @@ function hwc_homepage_block_view($delta = '') {
     }
     $result = views_get_view_result('msd_priority_areas');
     $map = [];
+    $statuses = [];
     foreach ($result as $row) {
-      $map[$row->taxonomy_term_data_field_data_field_msd_priority_area_tid] = $row->nid;;
+      $map[$row->taxonomy_term_data_field_data_field_msd_priority_area_tid] = $row->nid;
+      $statuses[$row->taxonomy_term_data_field_data_field_msd_priority_area_tid] = $row->node_status;
     }
     $voc = taxonomy_vocabulary_machine_name_load('msd_priority_area');
     $tree = taxonomy_get_tree($voc->vid, 0, NULL, TRUE);
@@ -391,6 +393,7 @@ function hwc_homepage_block_view($delta = '') {
       $name = $w->label();
       if (isset($map[$term->tid])) {
         $nid = $map[$term->tid];
+        $status = $statuses[$term->tid];
         if (!empty($link_path['node/' . $nid])) {
           $menu = $link_path['node/' . $nid];
           $text = '';
@@ -414,7 +417,12 @@ function hwc_homepage_block_view($delta = '') {
           }
           $text .= '<h3>' . $name . '</h3>';
         }
+        if ($status) {
         $data = l($text, 'node/' . $map[$term->tid], ['html' => TRUE]);
+        }
+        else {
+          $data = '<div class="grayscale">' . $text . '<div>';
+        }
 
         $items[] = [
           'data' => $data,

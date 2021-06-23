@@ -35,6 +35,14 @@ function hwc_frontend_html_head_alter(&$head_elements) {
 function hwc_frontend_menu_link__menu_block($variables) {
   global $language;
   $element = &$variables['element'];
+  if ($element['#original_link']['router_path'] == 'node/%') {
+    $priority_areas = hwc_priority_areas_nids();
+    $nid = intval( str_replace('node/', '', $element['#original_link']['link_path']));
+    if (!empty($priority_areas[$nid])) {
+      $element['#href'] = '<nolink>';
+      $element['#attributes']['class'][] = 'grayscale';
+    }
+  }
   $element['#href'] = str_replace('www.napofilm.net/en/','www.napofilm.net/' . $language->language . '/', $element['#href']);
   if (!empty($element['#localized_options']['attributes']['class']) && $class = $element['#localized_options']['attributes']['class']) {
     if (($class[0] == 'previous-campaigns') && ($element['#bid']['delta'] == 5)) {
@@ -71,7 +79,7 @@ function hwc_frontend_menu_link__menu_block($variables) {
       $text .= '<span>&nbsp;/&nbsp;</span>';
     }
     
-    $text .= '<span class="blockquote-copyright">' . $element['#localized_options']['copyright']['copyright'] . '</span>';
+  $text .= '<span class="blockquote-copyright">' . @$element['#localized_options']['copyright']['copyright'] . '</span>';
     
     $text .= '</blockquote>';
   

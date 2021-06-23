@@ -57,6 +57,12 @@ function hwc_priority_areas_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Published status */
+  $handler->display->display_options['fields']['status']['id'] = 'status';
+  $handler->display->display_options['fields']['status']['table'] = 'node';
+  $handler->display->display_options['fields']['status']['field'] = 'status';
+  $handler->display->display_options['fields']['status']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['status']['not'] = 0;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -67,13 +73,6 @@ function hwc_priority_areas_views_default_views() {
   $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['weight']['field'] = 'weight';
   $handler->display->display_options['sorts']['weight']['relationship'] = 'field_msd_priority_area_tid';
-  /* Filter criterion: Content: Published status */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -100,6 +99,7 @@ function hwc_priority_areas_views_default_views() {
     t('Asc'),
     t('Desc'),
     t('term'),
+    t('Published status'),
     t('Block'),
   );
   $export['msd_priority_areas'] = $view;
@@ -662,7 +662,7 @@ function hwc_priority_areas_views_default_views() {
   $handler->display->display_options['fields']['view_node']['exclude'] = TRUE;
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['view_node']['text'] = 'See More';
-  /* Field: Content: URL */
+  /* Field: Content: External URL */
   $handler->display->display_options['fields']['field_external_url']['id'] = 'field_external_url';
   $handler->display->display_options['fields']['field_external_url']['table'] = 'field_data_field_external_url';
   $handler->display->display_options['fields']['field_external_url']['field'] = 'field_external_url';
