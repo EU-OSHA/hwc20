@@ -1,0 +1,5 @@
+.page-node-edit.node-type-document .form-item.form-type-select.form-item-language,
+.page-node-add-document .form-item.form-type-select.form-item-language {
+    visibility: hidden;
+    display: none;
+}
