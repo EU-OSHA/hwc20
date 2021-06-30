@@ -407,7 +407,7 @@ function hwc_admin_config_form_validate($form, &$form_state) {
   $year = $values['hwc_partner_registration_deadline']['year'];
   $registration_deadline = mktime(0, 0, 0, $month, $day, $year);
   if ($download_deadline >= $registration_deadline) {
-    form_set_error('hwc_partner_download_deadline', t('Deadline to Download information date should be less Deadline for partner registration date.'));
+//    form_set_error('hwc_partner_download_deadline', t('Deadline to Download information date should be less Deadline for partner registration date.'));
   }
 }
 

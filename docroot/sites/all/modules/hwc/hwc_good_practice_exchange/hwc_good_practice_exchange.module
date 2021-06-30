@@ -21,6 +21,13 @@ function hwc_good_practice_exchange_menu() {
   );
   return $items;
 }
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function hwc_good_practice_exchange_form_document_node_form_alter(&$form, &$form_state) {
+  global $user;
+  drupal_add_css(drupal_get_path('module', 'hwc_good_practice_exchange') . '/css/hwc_good_practice_exchange.css');
+}
 
 function hwc_good_practice_exchange_download_access($file) {
   global $user;
@@ -95,7 +102,7 @@ function hwc_good_practice_exchange_search_api_solr_query_alter(array &$call_arg
     // EU-OSHA communications. section = generic public.
     $cond1 = [];
     $cond1[] = '(is_partner_section:"1")';
-    $cond1[] = '(ss_language:"' . $language->language . '")';
+//    $cond1[] = '((ss_language:"und") OR (ss_language:"' . $language->language . '"))';
     if ($share_partner_type_id) {
       $cond1[] = '(im_field_share_partner_type:"' . $share_partner_type_id . '")';
     }
@@ -103,18 +110,17 @@ function hwc_good_practice_exchange_search_api_solr_query_alter(array &$call_arg
 
     $cond2 = [];
     $cond2[] = '(is_partner_section:"0")';
-
-    $cond2[] = '(ss_language:"' . $language->language . '")';
+//    $cond2[] = '((ss_language:"und") OR (ss_language:"' . $language->language . '"))';
     if ($partner_type) {
       $cond2[] = '(is_partner_category_type:"' . $partner_type . '")';
     }
     $fq2 = implode(' AND ', $cond2);
 
+    $all_tid = variable_get('field_share_partner_type_all_tid', 0);
     // all types tid...
     $cond3 = [];
     $cond3[] = '(is_partner_section:"1")';
-    $cond3[] = '(ss_language:"' . $language->language . '")';
-    $all_tid = variable_get('field_share_partner_type_all_tid', 0);
+//    $cond3[] = '((ss_language:"und") OR (ss_language:"' . $language->language . '"))';
     $cond3[] = '(im_field_share_partner_type:"' . $all_tid . '")';
     $fq3 = implode(' AND ', $cond3);
 
