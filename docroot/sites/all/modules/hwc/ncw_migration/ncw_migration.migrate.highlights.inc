@@ -7,6 +7,9 @@
  */
 class NCWHighlightMigration extends AbstractNCWNodeMigration {
 
+  /**
+   * {@inheritdoc}
+   */
   public function __construct($arguments) {
     $source_klass = 'NCWHighlightSource';
     if (isset($arguments['source_klass'])) {
@@ -16,6 +19,9 @@ class NCWHighlightMigration extends AbstractNCWNodeMigration {
     $this->description = 'Import highlights (into news) from NCW';
   }
 
+  /**
+   * {@inheritdoc}
+   */
   function addFieldMappings() {
     parent::addFieldMappings();
 

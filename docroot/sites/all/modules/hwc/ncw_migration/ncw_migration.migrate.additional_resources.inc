@@ -1,4 +1,67 @@
 <?php
+/**
+ * Migrates additional resources - file
+ *
+ * Set hwc_migration_highlights_add_res_url variable for explicit source URL.
+ */
+class NCWAdditionalResourcesFileMigration extends NCWFileMigration {
+
+  public function __construct($arguments) {
+    $arguments['source_klass'] = 'NCWAdditionalResourcesFileSource';
+    parent::__construct($arguments);
+    /** @var NCWAdditionalResourcesBaseSource content_type */
+    $this->source->content_type = 'file';
+    $this->description = 'Import additional files from NCW';
+  }
+}
+
+/**
+ * Migrates additional resources - infographic
+ *
+ * Set hwc_migration_infographic_add_res_url variable for explicit source URL.
+ */
+class NCWAdditionalResourcesInfographicsMigration extends NCWInfographicsMigration {
+
+  public function __construct($arguments) {
+    $arguments['source_klass'] = 'NCWAdditionalResourcesInfographicsSource';
+    parent::__construct($arguments);
+    /** @var NCWAdditionalResourcesBaseSource content_type */
+    $this->source->content_type = 'infographic';
+    $this->description = 'Import additional infographic from NCW';
+  }
+}
+
+/**
+ * Migrates additional resources - youtube
+ *
+ * Set hwc_migration_youtube_add_res_url variable for explicit source URL.
+ */
+class NCWAdditionalResourcesYoutubeMigration extends NCWInfographicsMigration {
+
+  public function __construct($arguments) {
+    $arguments['source_klass'] = 'NCWAdditionalResourcesYoutubeSource';
+    parent::__construct($arguments);
+    /** @var NCWAdditionalResourcesBaseSource content_type */
+    $this->source->content_type = 'youtube';
+    $this->description = 'Import additional youtube from NCW';
+  }
+}
+
+/**
+ * Migrates additional resources - slideshare
+ *
+ * Set hwc_migration_highlights_add_res_url variable for explicit source URL.
+ */
+class NCWAdditionalResourcesSlideshareMigration extends NCWSlideshareMigration {
+
+  public function __construct($arguments) {
+    $arguments['source_klass'] = 'NCWAdditionalResourcesSlideshareSource';
+    parent::__construct($arguments);
+    /** @var NCWAdditionalResourcesBaseSource content_type */
+    $this->source->content_type = 'slideshare';
+    $this->description = 'Import additional slideshares from NCW';
+  }
+}
 
 /**
  * Migrates additional resources - highlights
@@ -16,13 +79,12 @@ class NCWAdditionalResourcesHighlightsMigration extends NCWHighlightMigration {
   }
 }
 
-
 /**
  * Migrates additional resources - news
  *
  * Set hwc_migration_events_add_res_url variable for explicit source URL.
  */
-class NCWAdditionalResourcesNewsMigration extends NCWHighlightMigration {
+class NCWAdditionalResourcesNewsMigration extends NCWNewsMigration {
 
   public function __construct($arguments) {
     $arguments['source_klass'] = 'NCWAdditionalResourcesNewsSource';
@@ -33,13 +95,12 @@ class NCWAdditionalResourcesNewsMigration extends NCWHighlightMigration {
   }
 }
 
-
 /**
  * Migrates additional resources - press_release
  *
  * Set hwc_migration_press_releases_add_res_url variable for explicit source URL.
  */
-class NCWAdditionalResourcesPressReleasesMigration extends NCWHighlightMigration {
+class NCWAdditionalResourcesPressReleasesMigration extends NCWPressMigration {
 
   public function __construct($arguments) {
     $arguments['source_klass'] = 'NCWAdditionalResourcesPressReleasesSource';
@@ -55,7 +116,7 @@ class NCWAdditionalResourcesPressReleasesMigration extends NCWHighlightMigration
  *
  * Set hwc_migration_publications_add_res_url variable for explicit source URL.
  */
-class NCWAdditionalResourcesPublicationsMigration extends NCWHighlightMigration {
+class NCWAdditionalResourcesPublicationsMigration extends NCWPublicationsMigration {
 
   public function __construct($arguments) {
     $arguments['source_klass'] = 'NCWAdditionalResourcesPublicationsSource';
@@ -66,15 +127,22 @@ class NCWAdditionalResourcesPublicationsMigration extends NCWHighlightMigration 
   }
 }
 
-
 abstract class NCWAdditionalResourcesBaseSource extends AbstractNCWNodeSource {
 
   public $content_type = NULL;
 
   /**
+   * Source node ids.
+   */
+  public function getSourceIds() {
+    return $this->source_ids;
+  }
+
+  /**
    * Total number of entities.
    */
   public function computeCount() {
+    $skip_name = variable_get('hwc_migration_exclude_tag_name', 'Campaign 2020-2022');
     ncw_migration_debug('!klass: Starting counting !url', array(
       '!klass' => get_class($this),
       '!url' => $this->endpoint_url
@@ -84,6 +152,9 @@ abstract class NCWAdditionalResourcesBaseSource extends AbstractNCWNodeSource {
       $this->count = 0;
       if ($data = json_decode($data)) {
         foreach ($data->items as $row) {
+          if (strpos('.' . $row->item->field_tags, $skip_name)) {
+            continue;
+          }
           if ($row->item->type == $this->content_type) {
             $this->count++;
           }
@@ -101,6 +172,7 @@ abstract class NCWAdditionalResourcesBaseSource extends AbstractNCWNodeSource {
    * Remote call to load the data from the endpoint URL
    */
   public function readData() {
+    $skip_name = variable_get('hwc_migration_exclude_tag_name', 'Campaign 2020-2022');
     $msg = format_string('Updating from !url', array('!url' => $this->endpoint_url));
     watchdog('ncw_migration', $msg, [], WATCHDOG_INFO);
     ncw_migration_debug('!klass: Starting reading items from !url', array('!klass' => get_class($this), '!url' => $this->endpoint_url));
@@ -110,6 +182,9 @@ abstract class NCWAdditionalResourcesBaseSource extends AbstractNCWNodeSource {
       ncw_migration_debug('!klass:      * Processing !count items', array('!klass' => get_class($this), '!count' => count($data->items)));
       foreach ($data->items as $ob) {
         $ob = $ob->item;
+        if (strpos('.' . $ob->field_tags, $skip_name)) {
+          continue;
+        }
         if ($ob->type == $this->content_type) {
           $id = $this->itemIdentifier($ob);
           $node_url = $this->itemURL($id);
@@ -144,7 +219,6 @@ abstract class NCWAdditionalResourcesBaseSource extends AbstractNCWNodeSource {
   }
 }
 
-
 class NCWAdditionalResourcesNewsSource extends NCWAdditionalResourcesBaseSource {
 
   /**
@@ -170,7 +244,6 @@ class NCWAdditionalResourcesNewsSource extends NCWAdditionalResourcesBaseSource 
       'field_archived',
       'field_character_count',
       'field_page_count',
-      // @todo: 'field_aditional_resources' - recursive! :-(
     );
     return array_combine($fields, $fields);
   }
@@ -258,6 +331,7 @@ class NCWAdditionalResourcesPublicationsSource extends NCWAdditionalResourcesBas
    * Include the related publications recursively into the migrated content.
    */
   public function readData() {
+    $skip_name = variable_get('hwc_migration_exclude_tag_name', 'Campaign 2020-2022');
     $msg = format_string('Updating from !url', array('!url' => $this->endpoint_url));
     watchdog('ncw_migration', $msg, [], WATCHDOG_INFO);
     $this->rows = array();
@@ -265,6 +339,9 @@ class NCWAdditionalResourcesPublicationsSource extends NCWAdditionalResourcesBas
     if ($data = json_decode($content)) {
       foreach ($data->items as $ob) {
         $ob = $ob->item;
+        if (strpos('.' . $ob->field_tags, $skip_name)) {
+          continue;
+        }
         if ($ob->type == $this->content_type) {
           $id = $this->itemIdentifier($ob);
           $node_url = $this->itemURL($id);
@@ -289,7 +366,6 @@ class NCWAdditionalResourcesPublicationsSource extends NCWAdditionalResourcesBas
     reset($this->rows);
   }
 
-
   protected function children_recursive_publications($row) {
     // Check the field_related_publications for children and add to source
     $tmp = new stdClass();
@@ -311,5 +387,87 @@ class NCWAdditionalResourcesPublicationsSource extends NCWAdditionalResourcesBas
         }
       }
     }
+  }
+}
+
+class NCWAdditionalResourcesFileSource extends NCWAdditionalResourcesBaseSource {
+
+  /**
+   * The list of available fields to map from the source, keyed by field name.
+   */
+  public function contentFields() {
+    $fields = array(
+      'title_field',
+      'title_field_language',
+      'field_file',
+      'field_file_language',
+    );
+    return array_combine($fields, $fields);
+  }
+}
+
+class NCWAdditionalResourcesSlideshareSource extends NCWAdditionalResourcesBaseSource {
+
+  /**
+   * The list of available fields to map from the source, keyed by field name.
+   */
+  public function contentFields() {
+    $fields = array(
+      'title_field',
+      'title_field_language',
+      'field_slideshare',
+      'field_tags',
+      'field_archived',
+      'field_character_count',
+      'field_page_count',
+    );
+    return array_combine($fields, $fields);
+  }
+}
+
+class NCWAdditionalResourcesInfographicsSource extends NCWAdditionalResourcesBaseSource {
+
+  /**
+   * The list of available fields to map from the source, keyed by field name.
+   */
+  public function contentFields() {
+    $fields = array(
+      'title_field',
+      'title_field_language',
+      'field_publication_date',
+      'field_publication_date_timezone',
+      'field_publication_date_value2',
+      'body',
+      'body_language',
+      'body_summary',
+      'body_format',
+      'field_tags',
+      'field_image',
+      'field_image_language',
+      'field_thumbnail',
+      'field_thumbnail_language',
+      'field_file',
+      'field_file_language',
+      'field_twin_infographics',
+      'field_migration_path_alias',
+    );
+    return array_combine($fields, $fields);
+  }
+}
+
+class NCWAdditionalResourcesYoutubeSource extends NCWAdditionalResourcesBaseSource {
+
+  /**
+   * The list of available fields to map from the source, keyed by field name.
+   */
+  public function contentFields() {
+    $fields = array(
+      'title_field',
+      'title_field_language',
+      'field_migration_path_alias',
+      'field_character_count',
+      'field_page_count',
+    );
+    return array_combine($fields, $fields);
   }
 }
