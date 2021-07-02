@@ -96,10 +96,20 @@ function ncw_migration_migrate_api() {
         'dependencies' => array('tax_tags'),
         'class_name' => 'NCWEventsMigration',
       ),
+      'publications_add_res' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array('tax_tags', 'tax_publication_types'),
+        'class_name' => 'NCWAdditionalResourcesPublicationsMigration',
+      ),
       'publications' => array(
         'group_name' => 'ncw',
         'dependencies' => array(),
         'class_name' => 'NCWPublicationsMigration',
+      ),
+      'news_add_res' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array('tax_tags'),
+        'class_name' => 'NCWAdditionalResourcesNewsMigration',
       ),
       'news' => array(
         'group_name' => 'ncw',
@@ -127,6 +137,31 @@ function ncw_migration_migrate_api() {
           'tax_tags',
         ),
         'class_name' => 'NCWHighlightMigration',
+      ),
+      'file_add_res' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array('tax_tags'),
+        'class_name' => 'NCWAdditionalResourcesFileMigration',
+      ),
+      'youtube_add_res' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array('tax_tags'),
+        'class_name' => 'NCWAdditionalResourcesYoutubeMigration',
+      ),
+      'slideshare_add_res' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array('tax_tags'),
+        'class_name' => 'NCWAdditionalResourcesSlideshareMigration',
+      ),
+      'highlights_add_res' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array('tax_tags'),
+        'class_name' => 'NCWAdditionalResourcesHighlightsMigration',
+      ),
+      'infographics_add_res' => array(
+        'group_name' => 'ncw',
+        'dependencies' => array('tax_tags'),
+        'class_name' => 'NCWAdditionalResourcesInfographicsMigration',
       ),
       'infographics' => array(
         'group_name' => 'ncw',
@@ -1178,6 +1213,38 @@ function osha_migration_normalize_migrated_term_reference(&$original, $source_mi
 }
 
 function ncw_migration_find_additional_resource($source_nid) {
+  $migrations = array(
+    'publications',
+    'news',
+    'press_releases',
+    'highlights',
+
+    'publications_add_res',
+    'news_add_res',
+    'press_releases_add_res',
+    'highlights_add_res',
+
+    'file_add_res',
+    'slideshare_add_res',
+
+    'youtube_add_res',
+    'infographics_add_res',
+    'infographics'
+  );
+
+  foreach ($migrations as $machine_name) {
+    $migration = Migration::getInstance($machine_name);
+    /** @var MigrateMap $map */
+    $map = $migration->getMap();
+    if ($destid1 = $map->lookupDestinationID(array($source_nid))) {
+      // @todo add some debugging here
+      ncw_migration_debug(
+        'Linking additional resource from !machine (src=!src:dest=!dest',
+        array('!machine' => $machine_name, '!src' => $source_nid, '!dest' => $destid1['destid1'])
+      );
+      return $destid1['destid1'];
+    }
+  }
   return NULL;
 }
 

@@ -317,6 +317,15 @@ function hwc_admin_config_form() {
       '#collapsible' => TRUE,
       '#weight' => 100,
     );
+
+    $form['migration']["hwc_migration_exclude_tag_name"] = array(
+      '#type' => 'textfield',
+      '#title' => 'Exclude tag name',
+      '#default_value' => variable_get("hwc_migration_exclude_tag_name", 'Campaign 2020-2022'),
+      '#description' => 'Additional resource exclude tag name',
+      '#size' => 90,
+    );
+
     $note = 'To disable one of the migrations set the URL empty then Save. Endpoints should expose JSON data';
     if (module_exists('migrate_ui')) {
       $note .= ' ' . l('Visit migration status overview', 'admin/content/migrate/groups/ncw');

@@ -5,14 +5,17 @@
  *
  * Set hwc_migration_publications_url variable for explicit source URL.
  */
-
 class NCWPublicationsMigration extends AbstractNCWNodeMigration {
 
   /**
    * {@inheritdoc}
    */
   public function __construct($arguments) {
-    parent::__construct($arguments, 'NCWPublicationsSource', 'publication');
+    $source_klass = 'NCWPublicationsSource';
+    if (isset($arguments['source_klass'])) {
+      $source_klass = $arguments['source_klass'];
+    }
+    parent::__construct($arguments, $source_klass, 'publication');
     $this->description = 'Import publications from NCW';
   }
 

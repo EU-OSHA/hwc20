@@ -11,7 +11,11 @@ class NCWNewsMigration extends AbstractNCWNodeMigration {
    * {@inheritdoc}
    */
   public function __construct($arguments) {
-    parent::__construct($arguments, 'NCWNewsSource', 'news');
+    $source_klass = 'NCWNewsSource';
+    if (isset($arguments['source_klass'])) {
+      $source_klass = $arguments['source_klass'];
+    }
+    parent::__construct($arguments, $source_klass, 'news');
     $this->description = 'Import news from NCW';
   }
 
