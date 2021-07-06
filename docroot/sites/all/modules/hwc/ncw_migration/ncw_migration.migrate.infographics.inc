@@ -112,7 +112,7 @@ class NCWInfographicsSource extends AbstractNCWNodeSource {
    */
   public function readData() {
     $msg = format_string('Updating from !url', array('!url' => $this->endpoint_url));
-    watchdog('ncw_migration', $msg, [], WATCHDOG_INFO);
+    watchdog('ncw_migration', $msg, []);
     $this->rows = array();
     $content = $this->fileGetContents($this->endpoint_url);
     if ($data = json_decode($content)) {

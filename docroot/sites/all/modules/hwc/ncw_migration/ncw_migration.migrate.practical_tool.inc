@@ -307,7 +307,7 @@ class NCWMSDSource extends AbstractNCWNodeSource {
    */
   public function readData() {
     $msg = format_string('Updating from !url', array('!url' => $this->endpoint_url));
-    watchdog('ncw_migration', $msg, [], WATCHDOG_INFO);
+    watchdog('ncw_migration', $msg, []);
     ncw_migration_debug('!klass: Starting reading items from !url', array('!klass' => get_class($this), '!url' => $this->endpoint_url));
     $this->rows = array();
     $content = $this->fileGetContents($this->endpoint_url);

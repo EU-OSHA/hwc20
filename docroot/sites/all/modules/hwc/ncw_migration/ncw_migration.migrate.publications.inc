@@ -351,7 +351,7 @@ class NCWPublicationsSource extends AbstractNCWNodeSource {
     $content = $this->fileGetContents($this->endpoint_url);
     if ($data = json_decode($content)) {
       $msg = format_string('Updating from !url items: !count', array('!url' => $this->endpoint_url, '!count' => count($data->items)));
-      watchdog('ncw_migration', $msg, [], WATCHDOG_INFO);
+      watchdog('ncw_migration',  $msg, []);
       $dates = $this->getPublicationsModifiedDates();
       $check_date = variable_get('ncw_migration_publications_check_date', TRUE);
       foreach ($data->items as $ob) {

@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class NCWSlideshareMigration migrates infographics.
+ * Class NCWYoutubeMigration migrates infographics.
  *
- * Set hwc_migration_slideshare_url variable for explicit source URL.
+ * Set hwc_migration_youtube_url variable for explicit source URL.
  */
 class NCWYoutubeMigration extends AbstractNCWNodeMigration {
 
@@ -12,21 +12,9 @@ class NCWYoutubeMigration extends AbstractNCWNodeMigration {
     if (isset($arguments['source_klass'])) {
       $source_klass = $arguments['source_klass'];
     }
-    parent::__construct($arguments, $source_klass, 'slideshare');
-    $this->description = 'Import slideshare from NCW';
+    parent::__construct($arguments, $source_klass, 'youtube');
+    $this->description = 'Import youtube from NCW';
   }
-
-  //title_field
-  //field_youtube
-  //field_character_count
-  //field_page_count
-
-//field_youtube (Array, 1 element)
-//en (Array, 1 element)
-//0 (Array, 2 elements)
-//input (String, 97 characters ) https://www.youtube.com/watch?v=zwOzdgwdRkU&lis...
-//https://www.youtube.com/watch?v=zwOzdgwdRkU&list=PLeirXAjKXKFF_xjWjAqv1CmI71rnqJXYF&index=14&t=0s
-//video_id (String, 11 characters ) zwOzdgwdRkU
 
   function addFieldMappings() {
     parent::addFieldMappings();
@@ -63,6 +51,7 @@ class NCWYoutubeSource extends AbstractNCWNodeSource {
     $fields = array(
       'title_field',
       'title_field_language',
+      'field_youtube',
       'field_migration_path_alias',
       'field_character_count',
       'field_page_count',
@@ -75,7 +64,7 @@ class NCWYoutubeSource extends AbstractNCWNodeSource {
    */
   public function readData() {
     $msg = format_string('Updating from !url', array('!url' => $this->endpoint_url));
-    watchdog('ncw_migration', $msg, [], WATCHDOG_INFO);
+    watchdog('ncw_migration',  $msg, []);
     $this->rows = array();
     $content = $this->fileGetContents($this->endpoint_url);
     if ($data = json_decode($content)) {

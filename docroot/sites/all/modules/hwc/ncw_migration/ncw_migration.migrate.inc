@@ -314,6 +314,12 @@ abstract class AbstractNCWNodeMigration extends Migration {
           $this->addFieldMapping("$field_name:type", $field_name . '_type');
           $this->addFieldMapping("$field_name:nsid", $field_name . '_nsid');
         }
+        if ($fi['type'] == 'youtube') {
+          $this->addFieldMapping("$field_name:video_id", $field_name . '_video_id');
+        }
+        if ($fi['type'] == 'slideshare') {
+          $this->addFieldMapping("$field_name:slide_id", $field_name . '_slide_id');
+        }
         if ($fi['type'] == 'file' || $fi['type'] == 'image') {
           $this->addFieldMapping("$field_name:file_replace")->defaultValue(TRUE);
         }
@@ -553,6 +559,7 @@ abstract class AbstractNCWNodeSource extends MigrateSource {
 
   public function __construct($options) {
     parent::__construct($options);
+    $this->source_ids = [];
     $this->endpoint_url = $options['endpoint_url'];
     if (!empty($options['skip_ids'])) {
       $this->skip_ids = $options['skip_ids'];
@@ -624,7 +631,7 @@ abstract class AbstractNCWNodeSource extends MigrateSource {
    */
   public function readData() {
     $msg = format_string('Updating from !url', array('!url' => $this->endpoint_url));
-    watchdog('ncw_migration', $msg, [], WATCHDOG_INFO);
+    watchdog('ncw_migration', $msg, []);
     ncw_migration_debug('!klass: Starting reading items from !url', array('!klass' => get_class($this), '!url' => $this->endpoint_url));
     $this->rows = array();
     $content = $this->fileGetContents($this->endpoint_url);
@@ -1030,6 +1037,36 @@ function osha_migration_normalize_field_link_field($row, $field_name, $field_inf
 }
 
 function osha_migration_normalize_field_field_collection($row, $field_name, $field_info, $filter_languages) {
+}
+
+function osha_migration_normalize_field_youtube($row, $field_name, $field_info, $filter_languages) {
+  $ids = array();
+  $video_ids = array();
+  if (!empty($row->{$field_name}) && is_array($row->{$field_name})) {
+    foreach ($row->{$field_name} as $language => $values) {
+      foreach ($values as $field) {
+        $ids[] = !empty($field['input']) ? $field['input'] : NULL;
+        $video_ids[] = !empty($field['video_id']) ? $field['video_id'] : NULL;
+      }
+    }
+  }
+  $row->{$field_name} = $ids;
+  $row->{$field_name . '_video_id'} = $video_ids;
+}
+
+function osha_migration_normalize_field_slideshare($row, $field_name, $field_info, $filter_languages) {
+  $urls = array();
+  $ids = array();
+  if (!empty($row->{$field_name}) && is_array($row->{$field_name})) {
+    foreach ($row->{$field_name} as $language => $values) {
+      foreach ($values as $field) {
+        $urls[] = !empty($field['slide_url']) ? $field['slide_url'] : NULL;
+        $ids[] = !empty($field['slide_id']) ? $field['slide_id'] : NULL;
+      }
+    }
+  }
+  $row->{$field_name} = $urls;
+  $row->{$field_name . '_slide_id'} = $ids;
 }
 
 function osha_migration_normalize_field_cck_time($row, $field_name, $field_info, $filter_languages) {
