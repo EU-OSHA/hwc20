@@ -36,7 +36,7 @@ class NCWAdditionalResourcesInfographicsMigration extends NCWInfographicsMigrati
  *
  * Set hwc_migration_youtube_add_res_url variable for explicit source URL.
  */
-class NCWAdditionalResourcesYoutubeMigration extends NCWInfographicsMigration {
+class NCWAdditionalResourcesYoutubeMigration extends NCWYoutubeMigration {
 
   public function __construct($arguments) {
     $arguments['source_klass'] = 'NCWAdditionalResourcesYoutubeSource';
@@ -112,7 +112,7 @@ class NCWAdditionalResourcesPressReleasesMigration extends NCWPressMigration {
 }
 
 /**
- * Migrates additional resources - press_release
+ * Migrates additional resources - publication
  *
  * Set hwc_migration_publications_add_res_url variable for explicit source URL.
  */
@@ -174,7 +174,7 @@ abstract class NCWAdditionalResourcesBaseSource extends AbstractNCWNodeSource {
   public function readData() {
     $skip_name = variable_get('hwc_migration_exclude_tag_name', 'Campaign 2020-2022');
     $msg = format_string('Updating from !url', array('!url' => $this->endpoint_url));
-    watchdog('ncw_migration', $msg, [], WATCHDOG_INFO);
+    watchdog('ncw_migration', $msg, []);
     ncw_migration_debug('!klass: Starting reading items from !url', array('!klass' => get_class($this), '!url' => $this->endpoint_url));
     $this->rows = array();
     $content = $this->fileGetContents($this->endpoint_url);
@@ -333,7 +333,7 @@ class NCWAdditionalResourcesPublicationsSource extends NCWAdditionalResourcesBas
   public function readData() {
     $skip_name = variable_get('hwc_migration_exclude_tag_name', 'Campaign 2020-2022');
     $msg = format_string('Updating from !url', array('!url' => $this->endpoint_url));
-    watchdog('ncw_migration', $msg, [], WATCHDOG_INFO);
+    watchdog('ncw_migration', $msg, []);
     $this->rows = array();
     $content = $this->fileGetContents($this->endpoint_url);
     if ($data = json_decode($content)) {
@@ -416,8 +416,8 @@ class NCWAdditionalResourcesSlideshareSource extends NCWAdditionalResourcesBaseS
       'title_field',
       'title_field_language',
       'field_slideshare',
+      'field_slideshare_slide_id',
       'field_tags',
-      'field_archived',
       'field_character_count',
       'field_page_count',
     );
@@ -464,6 +464,7 @@ class NCWAdditionalResourcesYoutubeSource extends NCWAdditionalResourcesBaseSour
     $fields = array(
       'title_field',
       'title_field_language',
+      'field_youtube',
       'field_migration_path_alias',
       'field_character_count',
       'field_page_count',
