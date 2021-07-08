@@ -258,29 +258,6 @@ function hwc_good_practice_exchange_default_page_manager_handlers() {
   $display->content['new-ca8d0cda-8c56-4d8c-a00f-579070d4cd5a'] = $pane;
   $display->panels['center'][1] = 'new-ca8d0cda-8c56-4d8c-a00f-579070d4cd5a';
   $pane = new stdClass();
-  $pane->pid = 'new-cbd97dbd-1d00-4bdd-b5ee-29b2a01b2972';
-  $pane->panel = 'center';
-  $pane->type = 'block';
-  $pane->subtype = 'hwc_good_practice_exchange-gpep_document_organisation';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'override_title' => 0,
-    'override_title_text' => '',
-    'override_title_heading' => 'h2',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 2;
-  $pane->locks = array();
-  $pane->uuid = 'cbd97dbd-1d00-4bdd-b5ee-29b2a01b2972';
-  $display->content['new-cbd97dbd-1d00-4bdd-b5ee-29b2a01b2972'] = $pane;
-  $display->panels['center'][2] = 'new-cbd97dbd-1d00-4bdd-b5ee-29b2a01b2972';
-  $pane = new stdClass();
   $pane->pid = 'new-24a5223b-1e11-41eb-a85b-96b5289b8786';
   $pane->panel = 'center';
   $pane->type = 'entity_field';
@@ -313,11 +290,11 @@ function hwc_good_practice_exchange_default_page_manager_handlers() {
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 3;
+  $pane->position = 2;
   $pane->locks = array();
   $pane->uuid = '24a5223b-1e11-41eb-a85b-96b5289b8786';
   $display->content['new-24a5223b-1e11-41eb-a85b-96b5289b8786'] = $pane;
-  $display->panels['center'][3] = 'new-24a5223b-1e11-41eb-a85b-96b5289b8786';
+  $display->panels['center'][2] = 'new-24a5223b-1e11-41eb-a85b-96b5289b8786';
   $pane = new stdClass();
   $pane->pid = 'new-51e8633a-63eb-4c3c-9312-f2d93599044f';
   $pane->panel = 'center';
@@ -336,11 +313,11 @@ function hwc_good_practice_exchange_default_page_manager_handlers() {
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 4;
+  $pane->position = 3;
   $pane->locks = array();
   $pane->uuid = '51e8633a-63eb-4c3c-9312-f2d93599044f';
   $display->content['new-51e8633a-63eb-4c3c-9312-f2d93599044f'] = $pane;
-  $display->panels['center'][4] = 'new-51e8633a-63eb-4c3c-9312-f2d93599044f';
+  $display->panels['center'][3] = 'new-51e8633a-63eb-4c3c-9312-f2d93599044f';
   $pane = new stdClass();
   $pane->pid = 'new-591e90db-25af-449e-a621-b9b57508ccaa';
   $pane->panel = 'left';
