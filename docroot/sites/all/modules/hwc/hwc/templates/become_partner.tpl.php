@@ -14,9 +14,13 @@
         echo gmdate(' Y', $first_date);
         ?></span></div>
     <div><span><?php
-        echo t(gmdate('F', $download_deadline)) . gmdate(' Y', $download_deadline);
-        echo ' - ';
-        echo t(gmdate('F', $registration_deadline)) . gmdate(' Y', $registration_deadline);
+        $from = t(gmdate('F', $download_deadline)) . gmdate(' Y', $download_deadline);
+        $to = t(gmdate('F', $registration_deadline)) . gmdate(' Y', $registration_deadline);
+        echo $from;
+        if ($from != $to) {
+          echo ' - ';
+          echo $to;
+        }
         ?></span></div>
     <div><span><?php
         if (variable_get('hwc_partner_registration_last_date_month', FALSE)) {
