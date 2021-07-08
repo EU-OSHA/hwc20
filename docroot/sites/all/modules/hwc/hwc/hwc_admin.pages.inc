@@ -259,38 +259,31 @@ function hwc_admin_config_form() {
     '#default_value' => variable_get('become_media_partner_see_results_body', 'The internal selection process will take place at the end of May 2020, and candidate organisations will be informed soon after that.'),
     '#title' => 'Get the result body',
   );
-  //campaign
   $form['hwc_partner_download_deadline'] = array(
-    '#title' => 'Deadline for campaign download information',
+    '#title' => 'Deadline for OCPs download information',
     '#type' => 'date',
     '#default_value' => variable_get('hwc_partner_download_deadline', ''),
   );
-  //campaign
   $form['hwc_partner_registration_deadline'] = array(
-    '#title' => 'Deadline for campaign partner registration',
+    '#title' => 'Deadline for OCPs partner registration',
     '#type' => 'date',
     '#default_value' => variable_get('hwc_partner_registration_deadline', ''),
   );
-
-  //media
   $form['hwc_partner_media_download_deadline'] = array(
-    '#title' => 'Deadline for media download information',
+    '#title' => 'Deadline for MP download information',
     '#type' => 'date',
     '#default_value' => variable_get('hwc_partner_media_download_deadline', ''),
   );
-  //media
   $form['hwc_partner_media_registration_deadline'] = array(
-    '#title' => 'Deadline for media partner registration',
+    '#title' => 'Deadline for MP partner registration',
     '#type' => 'date',
     '#default_value' => variable_get('hwc_partner_media_registration_deadline', ''),
   );
-
   $form['hwc_partner_registration_last_date_month'] = array(
     '#type' => 'checkbox',
     '#title' => t('Show last date month'),
     '#default_value' => variable_get('hwc_partner_registration_last_date_month', FALSE),
   );
-
   if (variable_get('hwc_partner_registration_show_dates', FALSE)) {
     $form['hwc_partner_how_to_apply_first_date'] = array(
       '#title' => 'How to apply first date',
@@ -303,7 +296,6 @@ function hwc_admin_config_form() {
       '#default_value' => variable_get('hwc_partner_how_to_apply_last_date', ''),
     );
   }
-
   //  $deadline_message = variable_get('hwc_partner_registration_deadline_message', '');
 //  $form['hwc_partner_registration_deadline_message'] = array(
 //    '#title' => 'Message to show after the registration deadline is over',
