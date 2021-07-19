@@ -7,17 +7,17 @@
 <div class="how-to-apply">
   <h3><?php print t('How to apply');?></h3>
   <div class="timeline">
-    <div><span><?php echo t(gmdate('F', $first_date)) . gmdate(' Y', $first_date); ?></span></div>
+    <div><span><?php echo t(date('F', $first_date)) . date(' Y', $first_date); ?></span></div>
     <div><span><?php
-        $from = t(gmdate('F', $download_deadline)) . gmdate(' Y', $download_deadline);
-        $to = t(gmdate('F', $registration_deadline)) . gmdate(' Y', $registration_deadline);
+        $from = t(date('F', $download_deadline)) . date(' Y', $download_deadline);
+        $to = t(date('F', $registration_deadline)) . date(' Y', $registration_deadline);
         echo $from;
         if ($from != $to) {
           echo ' - ';
           echo $to;
         }
         ?></span></div>
-    <div><span><?php echo t(gmdate('F', $last_date)) . gmdate(' Y', $last_date); ?></span></div>
+    <div><span><?php echo t(date('F', $last_date)) . date(' Y', $last_date); ?></span></div>
   </div>
   <div class="boxes">
     <div class="box <?php echo $download_class; ?>">

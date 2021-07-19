@@ -9,13 +9,13 @@
   <div class="timeline">
     <div><span><?php
         if (variable_get('hwc_partner_registration_first_date_month', TRUE)) {
-          echo t(gmdate('F', $first_date));
+          echo t(date('F', $first_date));
         }
-        echo gmdate(' Y', $first_date);
+        echo date(' Y', $first_date);
         ?></span></div>
     <div><span><?php
-        $from = t(gmdate('F', $download_deadline)) . gmdate(' Y', $download_deadline);
-        $to = t(gmdate('F', $registration_deadline)) . gmdate(' Y', $registration_deadline);
+        $from = t(date('F', $download_deadline)) . date(' Y', $download_deadline);
+        $to = t(date('F', $registration_deadline)) . date(' Y', $registration_deadline);
         echo $from;
         if ($from != $to) {
           echo ' - ';
@@ -24,9 +24,9 @@
         ?></span></div>
     <div><span><?php
         if (variable_get('hwc_partner_registration_last_date_month', FALSE)) {
-          echo t(gmdate('F', $last_date));
+          echo t(date('F', $last_date));
         }
-        echo gmdate(' Y', $last_date);
+        echo date(' Y', $last_date);
         ?></span></div>
   </div>
   <div class="boxes">
